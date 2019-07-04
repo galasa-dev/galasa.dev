@@ -1,0 +1,32 @@
+{
+  "name": "cirillo-site",
+  "private": true,
+  "description": "The documentation site for Cirillo",
+  "version": "0.0.1",
+  "author": "Ben Cox <ben.cox@uk.ibm.com>",
+  "dependencies": {
+    "gatsby": "^2.8.2",
+    "gatsby-image": "^2.1.2",
+    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-source-filesystem": "^2.0.38",
+    "gatsby-transformer-remark": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.1.21",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.1"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  }
+}
