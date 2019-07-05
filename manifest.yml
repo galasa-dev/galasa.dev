@@ -2,5 +2,7 @@
 applications:
 - name: cirillo
   memory: 64M
-  buildpack: staticfile_buildpack
-  root: public
+  buildpacks:
+  - staticfile_buildpack
+  path: public
+  force_https: true

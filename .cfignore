@@ -1,8 +1,0 @@
-.cache/
-node_modules/
-src/
-.prettierrc
-.travis.yml
-gatsby-*
-package-lock.json
-package.json
