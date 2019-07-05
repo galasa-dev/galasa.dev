@@ -5,4 +5,5 @@ applications:
   buildpacks:
   - staticfile_buildpack
   path: public
-  force_https: true
+  env:
+    FORCE_HTTPS: true
