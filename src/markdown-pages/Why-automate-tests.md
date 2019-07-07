@@ -1,5 +1,5 @@
 ---
-path: "/why-automate"
+path: "/learn/why-automate"
 title: "Why automate tests?"
 ---
 The pressure to release quality software as quickly as possible has never been greater. To meet this demand, organizations are adopting, or looking to adopt, agile development techniques such as continuous integration and continuous delivery (CI and CD). The traditional waterfall approach is falling out of favour. Automated testing is key to being able to adopt an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. 

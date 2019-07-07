@@ -1,5 +1,5 @@
 ---
-path: "/what-and-why"
+path: "/learn/what-and-why"
 title: "What is Voras and why do I need it?"
 ---
 ***WIP***

@@ -1,15 +1,20 @@
 ---
-path: "/glossary"
+path: "/docs/reference/glossary"
 title: "Glossary"
 ---
 ### A
-<p>Agile</p>
-<p>Annotation</p>
-<p>Automated testing</p>
+Agile
+
+Annotation
+
+Automated testing
+
 
 ### C
-<p>CICS</p>
-<p>CI/CD pipeline</p>
+CICS
+
+CI/CD pipeline
+
 
 ### D
 DevOps strategy
@@ -18,9 +23,12 @@ DevOps strategy
 Framework
 
 ### J
-<p>JAT</p>
-<p>Java</p>
-<p>JCL</p>
+JAT
+
+Java
+
+JCL
+
 
 ### M
 Manager
@@ -29,8 +37,10 @@ Manager
 Shift Left
 
 ### T
-<p>Test class</p>
-<p>Test runner</p>
+Test class
+
+Test runner
+
 
 ### Z
 z/OS
