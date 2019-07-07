@@ -1,0 +1,6 @@
+.cache
+node_modules
+src
+gatsby-*
+package-lock.json
+package.json

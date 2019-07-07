@@ -3,7 +3,4 @@ applications:
 - name: cirillo
   memory: 64M
   buildpacks:
-  - staticfile_buildpack
-  path: public
-  env:
-    FORCE_HTTPS: true
+  - https://github.com/cloudfoundry/staticfile-buildpack#v1.4.43
