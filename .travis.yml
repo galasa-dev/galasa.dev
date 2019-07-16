@@ -11,5 +11,5 @@ deploy:
   organization: bdc
   space: cirillo
   on:
-    repo: ben-cox/cirillo-site
+    repo: eJATv3/cirillo-site
     branch: master
