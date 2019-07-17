@@ -1,14 +1,14 @@
 ---
-path: "/learn/architecting"
+path: "/docs/introduction"
 title: "Why choose Cirillo?"
 ---
-**WIP** 
+
 ### Introduction
 The pressure to release quality software as quickly as possible has never been greater. To meet this demand, organizations are adopting, or looking to adopt, agile development techniques such as continuous integration and continuous delivery (CI and CD). The traditional waterfall approach is falling out of favour. Automated testing is key to being able to adopt an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. 
 
 Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Cirillo, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.    
 
-
+### Benefits
 Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service is a simple operation and there are plenty of tools that enable you to accomplish this task.  However, there are  limitations to some of these tools:
 
 -	Most of these tools need to be manually operated and so limit their effectiveness in a CI/CD pipeline
@@ -28,7 +28,7 @@ Cirillo has benefits over and above other similar tooling:
 - it integrates with open source test tooling such as Selenium and JMeter to allow tests that use these tools to integrate and be executed and reported alongside your other tests.
 - it integrates with z/OS enabling any test to aggregate information from a range of sources to verify the result of a test case.
 
-### What makes a manual test a good candidate for automation?
+### A good candidate for automation?
 
 Moving from manual to automated testing, minimizes the need to code mundane, repetitive tasks within numerous test scripts. Testers' time can be freed up, providing the option to focus on more advanced testing techniques, for example ad hoc or exploratory testing, or on developing application features that are currently languishing on the backlog.
 
