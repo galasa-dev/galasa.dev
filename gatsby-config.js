@@ -1,3 +1,8 @@
+const eslintOptions = process.env.CI === `true` ? {
+  failOnError: true,
+  failOnWarning: true,
+} : {};
+
 module.exports = {
   siteMetadata: {
     title: `Cirillo`,
@@ -24,5 +29,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        stages: ['develop', 'build-javascript'],
+        options: eslintOptions,
+      }
+    }
   ],
 }
