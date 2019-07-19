@@ -1,7 +1,6 @@
 language: node_js
 node_js:
 - lts/*
-script: npm run build
 deploy:
   provider: cloudfoundry
   api: https://api.w3ibm.bluemix.net
@@ -13,3 +12,9 @@ deploy:
   on:
     repo: eJATv3/cirillo-site
     branch: master
+matrix:
+  include:
+  - name: "Prettier check"
+    script: npm run build
+  - name: "Site Gatsby build"
+    script: ./.travis/prettier-check.sh
