@@ -1,5 +1,5 @@
 ---
-path: "/learn/automation"
+path: "/about/automation"
 title: The benefits of test automation with Galasa"
 ---
 
