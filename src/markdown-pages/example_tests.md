@@ -1,5 +1,5 @@
 ---
-path: "/docs/examples"
+path: "/docs/introduction/examples"
 title: "Galasa test examples"
 ---
 
