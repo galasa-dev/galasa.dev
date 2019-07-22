@@ -1,5 +1,5 @@
 ---
-path: "/docs/choosing"
+path: "/docs/introduction/choosing"
 title: "What are the best tests to automate?"
 ---
 
