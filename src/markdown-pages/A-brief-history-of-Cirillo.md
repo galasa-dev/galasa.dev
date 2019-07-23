@@ -1,5 +1,5 @@
 ---
-path: "/learn/history"
+path: "/about/history"
 title: "A brief history of Cirillo"
 ---
 ### The Problem 
