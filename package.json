@@ -33,6 +33,7 @@
     "prettier": "^1.17.1"
   },
   "scripts": {
+    "clean": "gatsby clean",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",

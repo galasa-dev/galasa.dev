@@ -12,9 +12,12 @@ deploy:
   on:
     repo: eJATv3/galasa-site
     branch: master
+    condition: $DO_CF_DEPLOY = true
 matrix:
   include:
-  - name: "Prettier check"
+  - name: gatsby
     script: npm run build
-  - name: "Site Gatsby build"
+    env: DO_CF_DEPLOY=true
+  - name: prettier
     script: ./.travis/prettier-check.sh
+    env: DO_CF_DEPLOY=false
