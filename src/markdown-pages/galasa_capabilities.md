@@ -1,12 +1,12 @@
 ---
 path: "/docs/introduction"
-title: "Why choose Cirillo?"
+title: "Why choose Galasa?"
 ---
 
 ### Introduction
 The pressure to release quality software as quickly as possible has never been greater. To meet this demand, organizations are adopting, or looking to adopt, agile development techniques such as continuous integration and continuous delivery (CI and CD). The traditional waterfall approach is falling out of favour. Automated testing is key to being able to adopt an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. 
 
-Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Cirillo, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.    
+Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Galasa, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.    
 
 ### Benefits
 Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service is a simple operation and there are plenty of tools that enable you to accomplish this task.  However, there are  limitations to some of these tools:
@@ -15,13 +15,13 @@ Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service 
 -	The tools cannot contextually bind to either a provisioned, or pre-existing environment in an intelligent manner.
 -	The tests cannot utilise a mix of technologies.  For example, let’s say you need to examine a CICS or a z/OS resource to validate that the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester having to understand how to access this information?
 
-Cirillo makes it simple for a test to access, drive and interrogate a range of z/OS, distributed and open source tools and integrate them together within the same test class. 
+Galasa makes it simple for a test to access, drive and interrogate a range of z/OS, distributed and open source tools and integrate them together within the same test class. 
 
--	Tests written for Cirillo can be run both locally on your computer or in automation and be triggered from a CI/CD pipeline
--	Cirillo provides a test catalog that is dynamically built from your tests, this means that your CI pipeline can always execute the most up-to-date version of the tests.
--	Cirillo achieves these goals by using its Managers, which provide this capability to both the test class and to other Managers within the Cirillo Framework.
+-	Tests written for Galasa can be run both locally on your computer or in automation and be triggered from a CI/CD pipeline
+-	Galasa provides a test catalog that is dynamically built from your tests, this means that your CI pipeline can always execute the most up-to-date version of the tests.
+-	Galasa achieves these goals by using its Managers, which provide this capability to both the test class and to other Managers within the Galasa Framework.
 
-Cirillo has benefits over and above other similar tooling:
+Galasa has benefits over and above other similar tooling:
 
 - it's a great fit for automating a wide set of test disciplines such as functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
 - it provides the capability to functionally test a range of interfaces from traditional 3270 through to web browser and Selenium-based tests.  
@@ -48,16 +48,16 @@ So, how do you decide which manual test to automate first? Good candidates inclu
 - tests that generate consistent expected results
 - tests that generate results which need to be viewed and diagnosed. For example, do you need to filter the tests that you want to view by application version.
 
-### Architecting your Cirillo tests
+### Architecting your Galasa tests
 
-Some points to consider when you’re thinking about your strategy for automating your manual tests by using Cirillo:
+Some points to consider when you’re thinking about your strategy for automating your manual tests by using Galasa:
 
 1.	Make the writing of automated tests as easy as possible. The easier a test is to write, the more likely the tests will be good ones. There are some examples of **automated tests here** that you can copy and then edit to fit your requirements.
 1.	Keep the amount of boiler plate code in a test class small. This approach makes the code much easier to maintain and minimizes the amount of potentially redundant code being copied and pasted into test classes. Look at some examples of **test class code here**. 
 1.	Ensure the framework is set up to gather diagnostic information on behalf of the test.  There's nothing worse than a test failing and not having the right diagnostics to work out the cause. For examples of setting up the framework, check out the **configuring documentation**.
 1.	Although focusing on the golden path tests might be the first set of tests you automate, don't stop there.  Writing tests that attempt to force errors and drive error paths within your applications are likely to expose interesting bugs. In this **sample test**, the code forces an application error. 
 1.	Structure your collection of tests so that it’s easy to identify the set of tests that need to run at any given phase. It might seem like overkill at the time, but when you need to run lots of tests in parallel you’ll be thankful you did it. You can find examples of tagged tests in the **sample documentation**.
-1.	Don’t let tests be dependent on hard-coded information, for example endpoint, environment or file path information. Instead, extract this type of information into a variable that the Cirillo framework controls. Here’s an example of **a Cirillo test where the environment information has been extracted out**.
+1.	Don’t let tests be dependent on hard-coded information, for example endpoint, environment or file path information. Instead, extract this type of information into a variable that the Galasa framework controls. Here’s an example of **a Galasa test where the environment information has been extracted out**.
 1.  Each test method should be stand alone; you don't want your test method to rely on other test methods succeeding or failing. Using this approach means that if a test method fails, the error is isolated to that method and other methods aren't affected.
 
 
@@ -65,5 +65,5 @@ Some points to consider when you’re thinking about your strategy for automatin
 
 Once you know which tests or parts of a test you want to automate, you can select the manager(s) you need. A table with the manager’s that are available with the current release is here. For example, if you want to automate a test to run a batch job by using JCL, you need to call the z/OS Batch Manager from within your test code. 
 
-Here’s an example of a manual test written in COBOL that’s been converted into an automated Cirillo test written in Java. You can find lots more sample tests that you can use to get you up and running here.
+Here’s an example of a manual test written in COBOL that’s been converted into an automated Galasa test written in Java. You can find lots more sample tests that you can use to get you up and running here.
 

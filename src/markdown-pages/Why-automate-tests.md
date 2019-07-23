@@ -4,7 +4,7 @@ title: "Why automate tests?"
 ---
 The pressure to release quality software as quickly as possible has never been greater. To meet this demand, organizations are adopting, or looking to adopt, agile development techniques such as continuous integration and continuous delivery (CI and CD). The traditional waterfall approach is falling out of favour. Automated testing is key to being able to adopt an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. 
 
-Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Voras, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.    
+Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Galasa, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.    
 
 ### What makes a manual test a good candidate for automation?
 
@@ -26,7 +26,7 @@ So, how do you decide which manual test to automate first? Good candidates inclu
 - tests that generate consistent expected results
 - tests that generate results which need to be viewed and diagnosed. For example, do you need to filter the tests that you want to view by application version.
 
-### What makes a good Cirillo test?
+### What makes a good Galasa test?
 
 Simplify your automated tests by creating them as small, logical units of work, rather than large, complex tests which are difficult to understand and debug. Each test should test on aspect of the product and only that area. 
 
@@ -36,7 +36,7 @@ Each test method should be stand alone; you don't want your test method to rely 
 
 Once you know which tests or parts of a test you want to automate, you can select the manager(s) you need. A table with the manager’s that are available with the current release is here. For example, if you want to automate a test to run a batch job by using JCL, you need to call the z/OS Batch Manager from within your test code. 
 
-Here’s an example of a manual test written in COBOL that’s been converted into an automated Cirillo test written in Java. You can find lots more sample tests that you can use to get you up and running here.
+Here’s an example of a manual test written in COBOL that’s been converted into an automated Galasa test written in Java. You can find lots more sample tests that you can use to get you up and running here.
 
 ### Writing your own manager
-If a suitable manager is not currently available with Cirillo, check which managers are planned for future releases, or raise a request for one. Alternatively, you can write your own manager. If you’re writing your own manager, here are some helpful guidelines to get you started …
+If a suitable manager is not currently available with Galasa, check which managers are planned for future releases, or raise a request for one. Alternatively, you can write your own manager. If you’re writing your own manager, here are some helpful guidelines to get you started …

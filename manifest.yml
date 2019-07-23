@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cirillo
+- name: galasa
   memory: 64M
   buildpacks:
   - https://github.com/cloudfoundry/staticfile-buildpack#v1.4.43
