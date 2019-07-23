@@ -9,3 +9,6 @@ to call the z/OS Batch Manager from within your test code. </p>
 
 <p>Here’s an example of a manual test written in COBOL that’s been converted into an automated Cirillo test written in Java. You can find 
 lots more sample tests that you can use to get you up and running ![here](../page_under_contrustion.md).</p>
+
+### Writing your own manager
+If a suitable manager is not currently available with Cirillo, check which managers are planned for future releases, or raise a request for one. Alternatively, you can write your own manager. If you’re writing your own manager, here are some helpful guidelines to get you started …
