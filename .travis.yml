@@ -8,9 +8,9 @@ deploy:
   password:
     secure: iHoNC7zNQFj7/a1YmFDDUk/AMlvN3Qwv5Oe9PYQzJvXN0aWXftx2f6yI2BwU4nP5jYuEc0INQHv0ZZFQHynNAFbtwB8InPD0VsQYj9t8f11dje38mu+3hVKLxjj/m8uUmT4a6gWwkT5dQYajB4iBcuGW/vGGfY/MivpWAf03yN10bwvnhIj2bgl88mtDkASXFWMjIS9OdI79L/SVRYGhDDzP5cyvc8BPuU9ZR9M4nFER7uqaEAucDRCVKAobeyNKBiI3uH9eROlV9oTYMwGzvX3aL4kZx/rDctgItxbrSQf3+B731XvxAEHtHw0iRD49wdoN60yqRnth4L4zkkFTT3Gl+BxHzfbieC1N0nyBfk9VR0NAs2dQ6ho9Qm7QjPy6TR+233IwDtdxorF36fY+MgQUK8Hc3frDNaXDzNCUWbWD1+MRqnqVyvgly4IyVlZo9dq/1parUA8gb3qjmZc+zgMYFWiuOmpq0hgGTvCbM+401rhPCny5NynrXCQvzcyDCFPVOzE7twuKCf3RtpZryO7hK1LCJWSNtv2tAxoss30TEufACtCIJyhWYIkXScDa+jCxFK4PFpGlB0dv2xt5cJ4toK4xxkV/QJmymrGUGdh03YJRASHCWCwNB1TzdvWg2e8lRlvrBS9wOMsZCPXGLh79OmyIlqIFapChuTnixl8=
   organization: bdc
-  space: cirillo
+  space: galasa
   on:
-    repo: eJATv3/cirillo-site
+    repo: eJATv3/galasa-site
     branch: master
 matrix:
   include:

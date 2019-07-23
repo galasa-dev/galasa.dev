@@ -5,7 +5,7 @@ const eslintOptions = process.env.CI === `true` ? {
 
 module.exports = {
   siteMetadata: {
-    title: `Cirillo`,
+    title: `Galasa`,
     description: ``,
   },
   plugins: [

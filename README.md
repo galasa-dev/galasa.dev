@@ -1,6 +1,6 @@
-# Cirillo Homepage
+# Galasa Homepage
 
-This repository contains the source for the Cirillo test automation system homepage.
+This repository contains the source for the Galasa test automation system homepage.
 
 ## Getting started
 
