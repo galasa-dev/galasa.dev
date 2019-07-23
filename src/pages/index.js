@@ -11,19 +11,19 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        Let Cirillo take care of repetitive, time-consuming manual regression
+        Let Galasa take care of repetitive, time-consuming manual regression
         tests, so you can focus on designing more complex test cases to root out
         critical application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
-        Cirillo integrates easily into your{" "}
+        Galasa integrates easily into your{" "}
         <Link to="/learn/devops">delivery pipeline</Link> and can be used
-        alongside other test tools, such as JMeter and WSIM. Cirillo can access
+        alongside other test tools, such as JMeter and WSIM. Galasa can access
         z/OS files and commands, and comes with built-in support for integration
         with other z/OS subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Cirillo can provision the test data that you need or can find data that
+        Galasa can provision the test data that you need or can find data that
         matches your requirements from an existing data pool, removing the need
         to manually create or locate valid test data each time a test is run.
         Tests are isolated from changes in test data, making it easy to repeat
