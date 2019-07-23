@@ -1,5 +1,5 @@
 ---
-path: "/learn/devops"
+path: "/about/devops"
 title: "Cirillo as part of a DevOps strategy"
 ---
 ## What is DevOps?
