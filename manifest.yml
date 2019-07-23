@@ -2,5 +2,6 @@
 applications:
 - name: galasa
   memory: 64M
+  path: public
   buildpacks:
   - https://github.com/cloudfoundry/staticfile-buildpack#v1.4.43
