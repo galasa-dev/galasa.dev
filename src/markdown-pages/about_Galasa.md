@@ -3,10 +3,10 @@ path: "/about/galasa"
 title: "About Galasa"
 ---
 
-Galasa is an automated test tool that was developed within IBM at the request of the IBM CICS test team. It was so successful, IBM decided to make it freely available as an open-source product. 
 
-Automated testing is key to delivering change in an Agile way. Without test automation, it is very difficult to deliver changes quickly and successfully, 
-helping you to delight your customers, fast. Start using Galasa to:
+Automated testing is key to delivering change in an Agile way. Without test automation, it is very difficult to deliver changes quickly and successfully, helping you to delight your customers, fast.
+
+Galasa is an automated test tool that was developed within IBM at the request of the IBM CICS test team. It was so successful, IBM decided to make it freely available as an open-source product.  Start using Galasa to:
 
 <p><b>Get agile</b></p>
 <p>Deliver application changes to market faster, without losing confidence in quality. Galasa tests are not limited to testing mainframe-specific 
