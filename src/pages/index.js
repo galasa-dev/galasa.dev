@@ -17,7 +17,7 @@ const IndexPage = () => (
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
-        <Link to="/learn/devops">delivery pipeline</Link> and can be used
+        <Link to="/about/devops">delivery pipeline</Link> and can be used
         alongside other test tools, such as JMeter and WSIM. Galasa can access
         z/OS files and commands, and comes with built-in support for integration
         with other z/OS subsystems.
