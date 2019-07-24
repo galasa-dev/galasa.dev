@@ -20,9 +20,9 @@ Use Galasa to run the repetitive tests and free up testers to spend their time d
 <p><b>Get valid data</b></p>
 <p>Provision your own test data or find valid test data within an existing data pool. Test data can be shared - locked either within the Galasa framework or alongside a data tool.</p>
 <p><b>Diagnose fast</b></p> 
-<p>Run tests locally under the control of the Java debug tool. The allows lines of code in a test to be stepped over, local variables examined, and the remote system logged onto in parallel. Galasa automatically collects all diagnostics from a test run and stores the output in a single respository. Storing all test artifacts in a shared central repository makes for easier debugging. </p>
+<p>Run tests locally under the control of the Java debug tool so you can step through lines of test code and examine the content of variables to find bugs fast. All test artifacts from automated test runs are stored in a shared central respository, making debugging easy. </p>
 <p><b>Simplify</b></p> 
-<p>Galasa's dashboard integrates all your test results in one place, making reports, review, and sign-off between test phases easy and consistent.</p>
+<p>Galasa's dashboard integrates all your test results in one place, making reporting, reviewing, and sign-off between test phases easy and consistent.</p>
 
 
 
