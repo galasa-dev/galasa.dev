@@ -36,16 +36,17 @@ const IndexPage = () => (
         failure.
       </KeyFeature>
       <KeyFeature title="Deliver with confidence">
-        Run reliable, repeatable, automated test suites to deliver
-        changes quickly and with confidence. Build a test catalog
-        dynamically from your test code and automatically select relevant
-        regression test cases for a specific change set.
+        Run reliable, repeatable, automated test suites to deliver changes
+        quickly and with confidence. Build a test catalog dynamically from your
+        test code and automatically select relevant regression test cases for a
+        specific change set.
       </KeyFeature>
       <KeyFeature title="Environment friendly">
-        Run the same test in different test environments without changing a single line of code. 
-        Speed up problem determination by running test code locally on your laptop in debug mode or run a test suite
-        overnight using automation. Use an existing z/OS
-        environment, or get an environment provisioned specifically for you.
+        Run the same test in different test environments without changing a
+        single line of code. Speed up problem determination by running test code
+        locally on your laptop in debug mode or run a test suite overnight using
+        automation. Use an existing z/OS environment, or get an environment
+        provisioned specifically for you.
       </KeyFeature>
     </div>
   </Layout>
