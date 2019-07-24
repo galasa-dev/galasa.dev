@@ -23,6 +23,6 @@ many test cases. Examples might include tests that are:
 - mixed mode tests, for example, tests using a 3270 terminal, batch files and a web service 
 - difficult to perform manually, such as concurrency or performance tests
 - run on more than one build, or on multiple software and hardware configurations
-- generating consistent expected results
+- run to generate consistent expected results
 
 
