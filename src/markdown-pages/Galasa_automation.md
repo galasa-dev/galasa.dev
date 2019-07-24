@@ -4,15 +4,11 @@ title: The benefits of test automation with Galasa"
 ---
 
 ### What is the benefit of test automation?
-<p>The pressure to release quality software as quickly as possible has never been greater. To meet this demand, organizations are adopting, 
-or looking to adopt, agile development techniques such as continuous integration and continuous delivery (CI and CD). The traditional 
-waterfall approach is falling out of favour. Automated testing is key to being able to adopt an agile approach to development. If you 
-aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. </p>
+<p>The pressure to release quality software as quickly as possible has never been greater. As a result, the traditional 
+waterfall approach is falling out of favour. Automated testing is key to adopting an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. </p>
 
 ### Why automate with Galasa?
-<p>Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of 
-Galasa, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us 
-there and you can now build on our experience. </p> 
+<p>Automated testing and agile delivery are traditionally seen as being available only in Cloud environments, but with the introduction of Galasa, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience. </p> 
 
 <b>Benefits of Galasa</b>
 - A great fit for automating a wide set of test disciplines such as functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
