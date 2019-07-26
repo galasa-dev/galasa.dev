@@ -1,9 +1,8 @@
 ---
 path: "/about/automation"
-title: The benefits of test automation with Galasa"
+title: The benefits of test automation with Galasa
 ---
 
-### What is the benefit of test automation?
 <p>The pressure to release quality software as quickly as possible has never been greater. As a result, the traditional 
 waterfall approach is falling out of favour. Automated testing is key to adopting an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. </p>
 
