@@ -3,13 +3,7 @@ path: "/docs/introduction/choosing"
 title: "What are the best tests to automate?"
 ---
 
-Moving from manual to automated testing minimizes the need to code mundane, repetitive tasks within numerous test scripts. Testers' 
-time can be freed up, providing the option to focus on more advanced testing techniques, for example ad hoc or exploratory testing, or 
-on developing application features that are currently languishing on the backlog.
-
-### A good candidate for automation?
-
-So, how do you decide which manual test to automate first? Good candidates include tests that are run frequently or that are required by
+How do you decide which manual test to automate first? Good candidates include tests that are run frequently or that are required by
 many test cases. Examples might include tests that are:
 
 - run on a regular basis, for example regression tests
