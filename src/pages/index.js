@@ -37,11 +37,11 @@ const IndexPage = () => (
       </KeyFeature>
       <KeyFeature title="Deliver with confidence">
         Run reliable, repeatable, automated test suites to deliver changes
-        quickly and with confidence. Build a test catalog dynamically from your
+        quickly and with confidence. Dynamically build a test catalog from your
         test code and automatically select relevant regression test cases for a
-        specific change set.
+        specific changeset.
       </KeyFeature>
-      <KeyFeature title="Environment friendly">
+      <KeyFeature title="Environmentally friendly">
         Run the same test in different test environments without changing a
         single line of code. Speed up problem determination by running test code
         locally on your laptop in debug mode or run a test suite overnight using
