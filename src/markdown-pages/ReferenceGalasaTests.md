@@ -2,21 +2,21 @@
 path: "/reference/tests"
 title: "Galasa test components and examples"
 ---
-If you have seen JUnit tests then Galasa tests will look very familiar, with a few additions that are unique to Galasa. A Galasa test is comprised of java classes that contain methods. Some methods are test methods, other methods are specially designated to run before or after every test method, or to run once at the start when the class is being run. 
-To help you write great Galasa tests, it’s good to understand JUnit test style. There are a couple of key concepts that you need to know to get you started. A couple of examples are provided so you can get up and running more quickly. 
+If you have seen JUnit tests then Galasa tests will look very familiar, with a few additions that are unique to Galasa. A Galasa test is comprised of Java classes that contain methods. Some methods are test methods, other methods are specially designated to run before or after every test method, or to run once at the start when the class is being run. 
+To help you write great Galasa tests, it’s good to understand JUnit test style. There are a couple of key concepts that you need to know to get you started. Examples are provided so you to get you up and running more quickly. 
 
 ## Arrange, Act, Assert
-The Arrange, Act, Assert (AAA) pattern is a simple way to structure your test as it divides a method into three sections, each with a specific purpose:
-- Arrange: Initialize objects and set up input data before calling the method under test. 
-- Act: Invoke the method under. The act section is bit that the test is interested in.  For example, calling a method or function to return a result that can be analysed.
-- Assert: Verify that the method under test behaves as expected. The assertion is the part that ensures that your expectations are met.  You need to have a meaningful result to check, otherwise you are just checking that the code under test has not crashed. Check out the Assertions section to find out more.
+The Arrange, Act, Assert (AAA) pattern is a simple way to structure your test. It divides a method into three sections, each with a specific purpose:
+- <b>Arrange</b>: Initialize objects and set up input data before calling the method under test. 
+- <b>Act</b>: Invoke the method under test. Act is the part that the test is interested in, for example, calling a method or function to return a result for analysis.
+- <b>Assert</b>: Verify that the method under test behaves as expected. The assertion is the part that ensures that your expectations are met.  You need to have a meaningful result to check, otherwise you are just checking that the code under test has not crashed. Take a look at the Assertions section to find out more.
 
 ### Why follow this pattern?
-The AAA template acts as a code smell detector. If your test code deviates from being simple and starts using interwoven actions and asserts, it quickly becomes clear that the template is broken. For example, the Assert phase, should only be used for verifying results, not performing actions on the class under test. 
-For this post, I’ll use the following example test scenario: 
+The AAA template acts as a code smell detector. If your test code deviates from being simple and starts using interwoven actions and asserts, it quickly becomes clear that the template is broken. For example, the Assert section should only be used for verifying results, not performing actions on the method under test. 
+
 
 ## Assertions
-Assertions (or asserts) enable you to validate the intended behaviour of code. For example, you can use an assert to check whether a method returns the expected value for a given set of parameters or a method correctly sets up some instance or class variables. When you run the test, the assertion executes. If the method under test behaves exactly as you specified in the assertion, your test passes. Otherwise, an AssertionError is thrown.
+Use Assertions (or asserts) to validate the intended behaviour of the code. For example, to check whether a method returns the expected value for a given set of parameters or a method correctly sets up some class variables. When you run the test, the assertion executes. If the method under test behaves exactly as you specified in the assertion, your test passes. Otherwise, an <b>AssertionError</b> is thrown.
 Galasa provides support for assertions through a set of assert methods in the org.junit.Assert class. 
 
 Assertions make your code stable and helps you to construct your tests in a logical, effective way. Think about how many asserts you need for each of your methods. If the method under test is complex, with many conditional statements, you can assert the outcome for each condition. A single assertion should suffice for a simple method, for example, a method performing a string manipulation.
@@ -29,28 +29,27 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+    /**
+    * Credit a test account with money - replicating a teller taking a cash payment
+    * 
+    * @throws Exception
+    */
 @Test
-	public void creditAccountTest() throws Exception{
-		/*
-		 * Credit a test account with money - replicating a teller taking a cash payment
-		 */
-		//navigate to the account search page
-		terminalCICS1.sendTextWithEnter("OMEN");
-		assertTrue("Failed to find title string on OMEN menu",terminalCICS1.searchText("Bank of Hursley Park Main Menu"));
-		terminalCICS1.sendTextWithEnter("2");
-		
-		
-		//lookup an account number and get the available balance
-		double expectedBalance = 333350.15;
-		terminalCICS1.sendTextWithEnter("1015");
-		double balance = extractAvailableBalance(terminalCICS1.extractScreen());
-		
-		assertTrue("Balance mismatch expected: " + balance + " received: " + balance, balance == expectedBalance);
-	}
+public void creditAccountTest() throws Exception
+{
+  /*Arrange*/
+  double preBalance = bank.getbalance(terminalCICS1, account.getAccountNumber());
+  bank.creditAccount(terminalCICS1, account.getAccountNumber(), account.getCreditAmount());
+  /*Act*/	
+  double postBalance = bank.getbalance(terminalCICS1, account.getAccountNumber());
+  /*Assert*/
+  assertTrue(postBalance == preBalance + 1000);
+}
+			
 ```
 
-Key points of interest in this example - in both the assertion methods, we passed a String parameter as the identifying message for an assertion error. Set this message to describe what’s wrong if the condition isn’t met.
-Also, you might be thinking “Why two separate test methods instead of a single method with both the assert methods?” Having multiple assert methods in a single test method will not cause any errors in tests, and you will frequently encounter such test methods. But a good rule to follow is: “Proper unit tests should fail for exactly one reason”.  In a failed test method having multiple assertions, more effort is required to determine which assertion failed. Also, it is not guaranteed that all the assertions took place. For an unchecked exception, the assertions after the exception will not execute and JUnit proceeds to the next test method. Therefore, it is generally a best practice to use one assertion per test method.
+Key points of interest in this example - in the assertion method, we passed a String parameter as the identifying message for an assertion error and set message to describe what’s wrong if the condition isn’t met.
+Also, you might be thinking “Why two separate test methods instead of a single method with both the assert methods?” Having multiple assert methods in a single test method will not cause any errors in tests, but a failed test method with multiple assertions requires more effort to determine which assertion failed. Also, it is not guaranteed that all the assertions took place. For an unchecked exception, the assertions after the exception will not execute and Galasa proceeds to the next test method. Therefore, it is generally a best practice to use one assertion per test method.
 
 Another example
 
@@ -78,7 +77,7 @@ Used to provide information needed to create the environment in which the test r
 The first line within your test class will normally be:
 
 ```
-'public ICICSTestManager? testManager;'
+public ICICSTestManager? testManager;
 ```
 
 This instruction adds the Test Manager object to your test class. The test manager is used to provide resources in test (see 'Resource Annotations') and to give the tester access to various functions and information provided by the Galasa framework (such as information about the testing environment).
@@ -90,7 +89,7 @@ Even if you are not explicitly calling the testManager in your test it is still 
 Resource annotations are annotations declared within the test class, but outside any test methods. They take the form:
 
 ```
-'@Resource(arg1,...,argN) public <type> <field>;'
+@Resource(arg1,...,argN) public <type> <field>;
 ```
 
 When each test method is started, the test manager processes these annotations and assigns an appropriate object to the variable <field>. Because Galasa deals with test methods as independent entities this is repeated for each test method, but if a field has already had an object assigned during the current run, the test manager knows to use that same object again.
@@ -106,17 +105,17 @@ The resource annotations and corresponding types are as follows:
 
 For example:
 ```
-'@Userid(useridType=UseridType.MVSBASIC) public IUserID? myMVSUserid;'
+@Userid(useridType=UseridType.MVSBASIC) public IUserID? myMVSUserid;
 ```
-This assigns an 'IUserID' object of the type 'MVSBASIC' to the field 'myMVSUserid'. You could then use this object in your test methods, for example if you wanted to change the password for that userid:
+This assigns an 'IUserID' object of the type 'MVSBASIC' to the field 'myMVSUserid'. You could then use this object in your test methods. For example, use the following code to change the password for a userid:
 ```
-'myMVSUserid.changePassword("NEWPW0RD", true);'
+myMVSUserid.changePassword("NEWPW0RD", true);
 ```
-Or you could use:
+To assign the value of a free port number to the field 'myPort', use:
 ```
-'@Port() public int myPort;'
+@Port() public int myPort;
 ```
-to assign the value of a free port number to the field 'myPort'. 
+ 
 
 ### Test Annotations
 
@@ -133,14 +132,14 @@ The use of @Test is very simple, the test runner will simply run through each an
 The following code resets the terminal object assigned to 'myTerminal' to the CICS welcome screen and then clear it, so each test method can be sure that that terminal is in a guaranteed state regardless of what happened in previous test methods.
 
 ```
-'@Before
+@Before
 public void initialize() throws TerminalException? {
 myTerminal.resetAndClearScreen();
-}'
+}
 ```
 
 
-The annotation @Initialise denotes a method which is always run before any @Test, @Before or @After methods. It is possible when running a Galasa test to specify only a selection of test methods to be run. @Initialise provides the tester with a way of performing any setup required which cannot then be accidentally omitted by people running such a selection.
+The annotation @Initialise denotes a method which is always run before any @Test, @Before or @After methods. It is possible when running a Galasa test to specify only a selection of test methods to be run. @Initialise provides the tester with a way of performing any setup required which cannot then be accidentally omitted by people running a subset of test methods.
 There are also two further annotations:
 
 @TestCase(name=<String testcaseName>, testPlan=<String testPlan>) - The testcase covered by this method. If multiple testcases are covered multiple @TestCase annotations can be declared within an @TestCases annotation.
@@ -148,21 +147,19 @@ There are also two further annotations:
 
 Example
 
-Another important use of the @Test annotation is to test for exceptions. Suppose for a condition, a code throws an exception. We can use the @Test annotation to test whether the code indeed throws the exception when the condition is met.
+Another important use of the @Test annotation is to test for exceptions. Suppose for a condition, a code throws an exception. Use the @Test annotation to test whether the code indeed throws the exception when the condition is met.
 Here’s an example that uses all these Galasa annotations.
 
 Example
 
 ## Coding Standards
 
-With the exception of some new standards applied to project structure and practices unique to working in the Java language, most of the coding standards expected for Galasa tests are common to all testing, e.g.: do not hard code anything that may change such as dataset names, uss paths, userids, hostnames, etc., or do anything else which unnecessarily limits the portability of your test; keep code well commented; reuse existing functionality where possible rather than writing it from scratch, etc.
-
--Correct headers and the mandatory class annotations listed above must be included in every test class.
--Any additional resources provided in the test bundle (e.g. csdinputs, file skeletons, cics bundle components, etc.) should be added to a subdirectory of the project's 'resources' directory. The subdirectories may be named as you wish but should be sensible to other users.
--The class and all methods should be javadoc'd.
--No poolable resource should ever have attributes referred to specifically. I.e., userids, ip addresses, hostnames, port numbers, etc. should never be hard-coded. If you need to use a resource which requires some hard-coding then Galasa requires enhancing.
-Documentation
-Because  Galasa uses Java, there is support for Javadoc in Galasa code and in the tests. Javadoc is essentially a beefed-up form of commenting. In Java you can create line comments with '//' and multiline comments with:
+With the exception of some new standards applied to project structure and practices unique to working in the Java language, most of the coding standards expected for Galasa tests are common to all testing:
+- Don't hard code anything that can change such as dataset names, uss paths, userids or hostnames as this limits the portability of your test. 
+- Comment your code and reuse existing functionality where possible rather than writing it from scratch.
+- Ensure the correct headers and any mandatory class annotations are included in every test class. 
+- Any additional resources provided in the test bundle (e.g. csdinputs, file skeletons, cics bundle components) should be added to a subdirectory of the project's 'resources' directory. You can choose the subdirectory name but it should make sense to other users.
+- The class and all methods should be included in Javadoc. Because  Galasa uses Java, there is support for Javadoc in Galasa code and in the tests. Javadoc is essentially a beefed-up form of commenting. In Java you can create line comments with '//' and multiline comments with:
 ```
 /*
 *
@@ -174,29 +171,12 @@ and Javadoc comments with:
 *
 */
 ```
-Using Javadoc means that your comments are associated with the subsequent object, so if you place a comment above a class then that becomes the documentation for that class, above a method, for that method and so on. This means that users are then able to view information about these objects through eclipse's on-hover Javadoc support, html documentation can automatically be generated and various other nice things.
-Galasa standards require that you should be javadoccing all your classes and methods. As with all code we recommend sensible commenting as well for the sake of maintainability.
-Eclipse will assist you with your Javadoc. If you type '/**' where you want your Javadoc to start, and then [enter] eclipse will complete the comment block for you and add several fields to be completed (describing method input and return, or class author, etc.).
+Using Javadoc means that your comments are associated with the subsequent object, so if you place a comment above a class then that becomes the documentation for that class, above a method, for that method and so on. This means that users can view information about these objects through Eclipse's on-hover Javadoc support, and html documentation is automatically generated.
 
-## Using eclipse
+Eclipse assists you with your Javadoc. If you type ```/**``` where you want your Javadoc to start, and then [enter] Eclipse completes the comment block for you and adds fields to be completed (describing method input and return, or class author, etc.).
 
-Eclipse provides some excellent support for writing java code which is well worth exploiting.
 
-### Auto-complete and Javadoc
 
-Eclipse can instantly provide the user with a lot of information about the objects they are using, and even predict what the user is trying to do.
-
-Typing ctrl + space when writing will bring up a list of possible completions. For instance, if you have a CEDA helper object called 'ceda' as described above typing
-
-'ceda.'
-
-and then hitting ctrl + space will bring up a list of all the methods provided by that object:
-
-'insert image'
-
-Selecting one of those methods will give you a view of the documentation for that method.
-
-Similarly hovering over the name of an object or method will cause eclipse to display the Javadoc for that entity.
 
 
 
