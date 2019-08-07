@@ -5,21 +5,40 @@ title: "Galasa test components and examples"
 If you have seen JUnit tests then Galasa tests will look very familiar, with a few additions that are unique to Galasa. A Galasa test is comprised of Java classes that contain methods. Some methods are test methods, other methods are specially designated to run before or after every test method, or to run once at the start when the class is being run. 
 To help you write great Galasa tests, it’s good to understand JUnit test style. There are a couple of key concepts that you need to know to get you started. Examples are provided so you to get you up and running more quickly. 
 
-## Arrange, Act, Assert
-The Arrange, Act, Assert (AAA) pattern is a simple way to structure your test. It divides a method into three sections, each with a specific purpose:
-- <b>Arrange</b>: Initialize objects and set up input data before calling the method under test. 
-- <b>Act</b>: Invoke the method under test. Act is the part that the test is interested in, for example, calling a method or function to return a result for analysis.
-- <b>Assert</b>: Verify that the method under test behaves as expected. The assertion is the part that ensures that your expectations are met.  You need to have a meaningful result to check, otherwise you are just checking that the code under test has not crashed. Take a look at the Assertions section to find out more.
-
-### Why follow this pattern?
-The AAA template acts as a code smell detector. If your test code deviates from being simple and starts using interwoven actions and asserts, it quickly becomes clear that the template is broken. For example, the Assert section should only be used for verifying results, not performing actions on the method under test. 
-
-
 ## Assertions
 Use Assertions (or asserts) to validate the intended behaviour of the code. For example, to check whether a method returns the expected value for a given set of parameters or a method correctly sets up some class variables. When you run the test, the assertion executes. If the method under test behaves exactly as you specified in the assertion, your test passes. Otherwise, an <b>AssertionError</b> is thrown.
 Galasa provides support for assertions through a set of assert methods in the org.junit.Assert class. 
 
 Assertions make your code stable and helps you to construct your tests in a logical, effective way. Think about how many asserts you need for each of your methods. If the method under test is complex, with many conditional statements, you can assert the outcome for each condition. A single assertion should suffice for a simple method, for example, a method performing a string manipulation.
+
+```
+@HursleyBankTest
+
+@HursleyBankMinimumRelease
+	(release=HursleyBankRelease.Production)
+
+@HursleyBankMaximumRelease
+	(release=HursleyBankRelease.InDevelopment)
+
+@Topology("SingleRegion")
+
+@HursleyBankAreasTested
+	(primaryArea=HursleyBankAreasTested.TestingArea.Account)
+
+@TestTags(tags={"AccountTests"})
+```
+```
+public class ProvisionedAccountCreditTests {
+
+	private ICommsManager commsManager;
+	
+	private IJATArtifactManager artifactManager;
+	
+	private IHursleyBank bank;
+	
+	@ProvisionAccount(type=AccountType.HIGH)
+	IAccount account;
+```
 
 ```
 package com.ibm.hursleybank.tests.accountTests;
