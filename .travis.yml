@@ -3,7 +3,8 @@ node_js:
 - lts/*
 deploy:
   provider: script
-  script: .travis/deploy-cf.sh
+  script: "./.travis/deploy-cf.sh"
+  skip_cleanup: true
   on:
     repo: eJATv3/galasa-site
     branch: master
