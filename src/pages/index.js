@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
 import KeyFeature from "../components/key-feature"
+import Footer from "../components/footer"
 
 import indexStyles from "../components/index.module.css"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
@@ -49,7 +49,8 @@ const IndexPage = () => (
         provisioned specifically for you.
       </KeyFeature>
     </div>
-  </Layout>
+    <Footer />
+  </>
 )
 
 export default IndexPage

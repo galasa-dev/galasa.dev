@@ -1,0 +1,12 @@
+.identifier {
+    text-decoration-line: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.image {
+    width: 26px;
+    margin-right: -5px;
+    margin-bottom: 5px;
+}
