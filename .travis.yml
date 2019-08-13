@@ -2,22 +2,21 @@ language: node_js
 node_js:
 - lts/*
 deploy:
-  provider: cloudfoundry
-  api: https://api.w3ibm.bluemix.net
-  username: benjamin.cox@uk.ibm.com
-  password:
-    secure: iHoNC7zNQFj7/a1YmFDDUk/AMlvN3Qwv5Oe9PYQzJvXN0aWXftx2f6yI2BwU4nP5jYuEc0INQHv0ZZFQHynNAFbtwB8InPD0VsQYj9t8f11dje38mu+3hVKLxjj/m8uUmT4a6gWwkT5dQYajB4iBcuGW/vGGfY/MivpWAf03yN10bwvnhIj2bgl88mtDkASXFWMjIS9OdI79L/SVRYGhDDzP5cyvc8BPuU9ZR9M4nFER7uqaEAucDRCVKAobeyNKBiI3uH9eROlV9oTYMwGzvX3aL4kZx/rDctgItxbrSQf3+B731XvxAEHtHw0iRD49wdoN60yqRnth4L4zkkFTT3Gl+BxHzfbieC1N0nyBfk9VR0NAs2dQ6ho9Qm7QjPy6TR+233IwDtdxorF36fY+MgQUK8Hc3frDNaXDzNCUWbWD1+MRqnqVyvgly4IyVlZo9dq/1parUA8gb3qjmZc+zgMYFWiuOmpq0hgGTvCbM+401rhPCny5NynrXCQvzcyDCFPVOzE7twuKCf3RtpZryO7hK1LCJWSNtv2tAxoss30TEufACtCIJyhWYIkXScDa+jCxFK4PFpGlB0dv2xt5cJ4toK4xxkV/QJmymrGUGdh03YJRASHCWCwNB1TzdvWg2e8lRlvrBS9wOMsZCPXGLh79OmyIlqIFapChuTnixl8=
-  organization: bdc
-  space: galasa
+  provider: script
+  script: "./.travis/deploy-cf.sh"
+  skip_cleanup: true
   on:
     repo: eJATv3/galasa-site
     branch: master
-    condition: $DO_CF_DEPLOY = true
+    condition: "$DO_CF_DEPLOY = true"
 matrix:
   include:
   - name: gatsby
     script: npm run build
     env: DO_CF_DEPLOY=true
   - name: prettier
-    script: ./.travis/prettier-check.sh
+    script: "./.travis/prettier-check.sh"
     env: DO_CF_DEPLOY=false
+env:
+  global:
+    secure: mbCw3Q2aDGiyhYNZQWEvMi6nA2yt+1hjyOO6bvtN+pdjIZ895FQtXJo4bW1lrvq9tcKH3oFLRN7GYID1qxYxmTqkezY1XmJFBK9JB5jXYLZEK5kPnp0S8ekEKHMx//8TNidDUtnLGKkfCYGrWY0PZICX5DtJCG2Tnwh3MuboTYw0jPVFsZLzrnejStU/YphJjc/15d2IEjT6u4YIZOLd8YiyFSdGxAzHQBSNsqZ/3sydSdAjvhNfyo6Ad9QFLQ8bXtkQWMZlayti6d7lsOZxdR8OQfx8laIpdyijSScHBbHtzVbmE6qXBEcCnN2fnsrlBUKXTySAVlBBgOLqmaeixQGmT+aG+jdXw8tn4hcN2zgb2f7WyDr+vtTISYA6a+KV+M2TlRoezYfNjLpIYMYR2SYe/sl8tT9jQa3XFY357ve4KJ4uxyVTzPkbWlxHjbQaBDxTx7r+p4jACaOoiim9fF+bP3/W8nQuJisWD+eA3ktJLAQWUc8JfFZma2jTSucdFyuhL10nuiTJka547lLmggB1CtbJyAXM8ud/RV+HD3oVosLcv0d/ZUAA5+d6EqoafAhnnqCwAdbMRLNLlzWhkbDGBhLmSMKXil0a9A1Ss06aF4CWrixfsDbChjCU7YFSg40hy+Lc8jm89tQJZw3dNyrFQ9Q0IY1SUhP8uM2qE5A=
