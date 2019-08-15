@@ -15,9 +15,12 @@ CICS
 
 CI/CD pipeline
 
+CLI
 
 ### D
 DevOps strategy
+
+Docker
 
 ### F
 Framework
@@ -29,12 +32,20 @@ Java
 
 JCL
 
+JDK
+
+JRE
+
+### K
+Kubernetes
 
 ### M
 Manager
 
 ### S
 Shift Left
+
+Simframe
 
 ### T
 Test class
