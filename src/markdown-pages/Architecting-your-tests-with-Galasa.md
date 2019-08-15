@@ -1,5 +1,5 @@
 ---
-path: "/learn/architecting"
+path: "/about/architecting"
 title: "Architecting your tests with Galasa"
 ---
 **WIP** Some points to consider when you’re thinking about your strategy for automating your manual tests by using Galasa:
