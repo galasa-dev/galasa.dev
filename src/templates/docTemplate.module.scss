@@ -1,9 +1,17 @@
+@import "../styles/styles";
+
 .docContainer {
     display: grid;
     gap: 2rem;
     grid-template:
-        "nav   content" /
-         6fr   10fr;
+            "nav"
+            "content";
+
+    @media screen and (min-width: $br-small) {
+        grid-template:
+            "nav   content" /
+            6fr   10fr;
+    }
 }
 
 .docNav {
@@ -12,7 +20,11 @@
 
 .docContent {
     grid-area: content;
-    margin-top: 171px;
+    margin-top: 50px;
+
+    @media screen and (min-width: $br-small) {
+        margin-top: 171px;
+    }
 }
 
 .docContent h1, h2, h3, h4, h5, h6 {

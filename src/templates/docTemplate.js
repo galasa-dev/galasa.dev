@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import layoutStyles from "./docTemplate.module.css"
+import layoutStyles from "./docTemplate.module.scss"
 import Footer from "../components/footer"
 
 export default function Template({
