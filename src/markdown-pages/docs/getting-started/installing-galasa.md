@@ -1,5 +1,5 @@
 ---
-path: "/docs/installing-galasa"
+path: "/docs/getting-started/installing-galasa"
 title: "Installing Galasa"
 ---
 # Installing Galasa
