@@ -5,9 +5,8 @@ import Identifier from "./identifier"
 import { Location } from "@reach/router"
 
 const Header = () => {
-  
-  const [menuOpen, setMenuOpen] = useState(false);
-  
+  const [menuOpen, setMenuOpen] = useState(false)
+
   function isSelectedSection(section, location) {
     return location.pathname.startsWith(
       section + "/",
@@ -44,7 +43,11 @@ const Header = () => {
   return (
     <Location>
       {({ location }) => (
-        <header className={headerStyles.header + " " + ((menuOpen) ? headerStyles.openMenu : "")}>
+        <header
+          className={
+            headerStyles.header + " " + (menuOpen ? headerStyles.openMenu : "")
+          }
+        >
           <h1 className={headerStyles.title}>
             <Identifier />
           </h1>
@@ -90,16 +93,20 @@ const Header = () => {
               Support
             </Link>
           </div>
-          <div className={headerStyles.closeX}
-          onClick={() => setMenuOpen(false)}>
+          <div
+            className={headerStyles.closeX}
+            onClick={() => setMenuOpen(false)}
+          >
             <img
               className={headerStyles.image}
               alt="Close"
               src={data.cross.publicURL}
             />
           </div>
-          <div className={headerStyles.hamburger}
-          onClick={() => setMenuOpen(true)}>
+          <div
+            className={headerStyles.hamburger}
+            onClick={() => setMenuOpen(true)}
+          >
             <img
               className={headerStyles.image}
               alt="Menu"
