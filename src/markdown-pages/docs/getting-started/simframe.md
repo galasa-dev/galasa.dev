@@ -79,7 +79,25 @@ As you have been progressing through this process, Eclipse has been logging sele
 2019-08-16 10:38:54 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: BankMainMenu
 ```
 ### Browsing account information
+1. From the Simbank main menu, press PF1, taking you to the account menu screen.
+1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
+    The account details are populated and it is apparent that account number 123456789 is 56.72 in credit.
+
+    ![Account balance](./simframe-balance.png)
+
+1. Press PF3 to return to the account menu screen.
+
+Note that while it is a menu option, the `Update Accounts` functionality has not been implemented.
 
 ### Transferring funds between accounts
+1. From the Simbank main menu, press PF4, taking you to the Simbank transfer menu.
+1. Press TAB until the cursor is in the `Transfer from Account Number` field and enter `123456789`.
+1. Press TAB until the cursor is in the `Transfer to Account Number` field and enter `987654321`.
+1. Press TAB until the cursor is in the `Transfer Amount` field and enter `1`
+
+    ![Inter-account transfer](./simframe-transfer.png)
+
+1. Press ENTER - a `Transfer Successful` message appears.
+1. Press PF3 and once again browse the 123456789 account as described above to verify that its total credit amount has decreased by the transferred 1.00.
 
 ## Running the provided Simframe tests
