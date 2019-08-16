@@ -1,0 +1,125 @@
+@import "../styles/styles.scss";
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $main-bg-color;
+    position: relative;
+
+    @media screen and (min-width: $br-small) {
+        min-height: initial;
+        flex-direction: row;
+        align-items: baseline;
+        width: unset;
+
+        .hamburger {
+            display: none;
+        }
+    }
+}
+
+.title {
+    margin: 34px 0 0 0;
+
+    @media screen and (min-width: $br-small) {
+        flex-grow: 1;
+    }
+}
+
+.navContainer {
+    display: none;
+    flex-direction: column;
+    margin-top: 53px;
+    
+    @media screen and (min-width: $br-small) {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+    }
+}
+
+.navLink {
+    float: right;
+    color: #5C5C5C;
+    font-size: 32px;
+    text-decoration-line: none;
+    font-weight: 500;
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    margin: 16px 0;
+
+    &.selected {
+        color: #000;
+
+        &:before {
+            top: -50px;
+        }
+    }
+
+
+    &:hover {
+        color: #000;
+    }
+
+    @media screen and (min-width: $br-small) {
+        font-size: 18px;
+        margin-left: 2em;
+        margin-top: 50px;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -85px;
+            height: 35px;
+            background-color: #E3E3E3;
+            content: " ";
+            transition-property: top;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+        }
+    }
+}
+
+%menu-enablement-image {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    font-size: 54px;
+    padding: 10px;
+    margin-top: -15px;
+    margin-right: -10px;
+}
+
+.closeX {
+    @extend %menu-enablement-image;
+    display: none;
+}
+
+.hamburger {
+    @extend %menu-enablement-image;
+    display: block;
+}
+
+.image {
+    width: 20px;
+}
+
+@media screen and (max-width: $br-small - 1) {
+    .openMenu {
+        min-height: 100vh;
+        
+        .navContainer {
+            display: flex;
+        }
+        .closeX {
+            display: block;
+        }
+        .hamburger {
+            display: none;
+        }
+    }
+}

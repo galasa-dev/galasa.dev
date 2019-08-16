@@ -2,7 +2,7 @@
 path: "/docs/reference/glossary"
 title: "Glossary"
 ---
-### A
+## A
 Agile
 
 Annotation
@@ -10,22 +10,23 @@ Annotation
 Automated testing
 
 
-### C
+## C
 CICS
 
 CI/CD pipeline
 
 CLI
 
-### D
+## D
 DevOps strategy
 
 Docker
 
-### F
+## F
+
 Framework
 
-### J
+## J
 JAT
 
 Java
@@ -39,21 +40,22 @@ JRE
 ### K
 Kubernetes
 
-### M
+## M
 Manager
 
-### S
+## S
 Shift Left
 
 Simframe
 
-### T
+## T
+
 Test class
 
 Test runner
 
 
-### Z
+## Z
 z/OS
 
 

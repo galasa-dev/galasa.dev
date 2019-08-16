@@ -1,0 +1,25 @@
+@import "../styles/styles.scss";
+
+
+
+html {
+    font-family: "Work Sans", sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $main-bg-color;
+    color: #606060;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+a {
+    // text-decoration-line: blink;
+    color: currentColor;
+    font-weight: 500;
+}
