@@ -3,9 +3,9 @@ path: "/docs/getting-started/simframe"
 title: "Simframe"
 ---
 # Simframe
-Simframe is a component distributed with Galasa that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run some provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against Simframe.
+Simframe is a component distributed with Galasa that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against Simframe.
 
-By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. Running the provided tests against Simframe is an advised (but not mandatory) precursor to running your own tests on the mainframe itself. In summary, Simframe helps to expose and fix problems that you might otherwise encounter only when attempting to run tests directly against a mainframe. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been through the Simframe loop several times before.
+By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps to expose and fix problems that you might otherwise encounter only when attempting to run tests directly against a mainframe. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
 
 ## Launching Simframe
 1. Start Eclipse.
@@ -35,6 +35,51 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 5. The Simframe process has been launched, and is listening on port *2023* for Telnet connections, and on port *2080* for web services connections (which are not further explored in this section).
 
 ## Exploring Simframe
-Having launched Simframe, its banking application is listening on port 2023 for incoming Telnet connections - an ideal opportunity to connect to it manually to understand the nature of the (simulated) transactions it supports, before attempting to run the provided tests against it.
+When you launch Simframe, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
+
+### Logging in to the simulated application
+1. With Eclipse and the *Galasa Simframe* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* via the Telnet protocol. 
+1. Connect to the listening Telnet service with your 3270 emulator and review the logon screen:
+
+    ![Simframe logon screen](./simframe-logon.png)
+
+1. Ensure that the cursor is in the `Userid` field - if it is not, use the TAB key to position it:
+
+    ![TAB to the userid field](./simframe-userid.png) 
+
+1. Enter the userid `IBMUSER`:
+
+    ![Enter your userid](./simframe-ibmuser.png) 
+
+1. Press TAB to move the cursor into the `Password` field, type the password `SYS1` and press your terminal emulator's ENTER key to logon and transfer to the Simframe main menu:
+
+    ![Banktest home screen](./simframe-banktest.png) 
+
+> *Note:* Depending on your terminal emulator, its ENTER key may not be mapped to the physical ENTER key on your computer. For example,
+> on PCOMM, by default, the ENTER key is mapped to the host machine's right CTRL key. If you are unsure about this, review
+> your terminal emulator's documentation.
+
+6. Press PF1:
+
+    ![CICS home screen](./simframe-cics.png) 
+
+1. Press your terminal emulator's CLEAR SCREEN key and immediately press TAB to position the cursor on an (invisible) input field which will receive the name of a simulated CICS transaction.
+1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the Simbank main menu:
+
+    ![Main banking menu](./simframe-mainmenu.png) 
+
+As you have been progressing through this process, Eclipse has been logging selected events to its console:
+
+```
+2019-08-16 09:26:39 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: SessionManagerLogon
+2019-08-16 10:26:08 INFO dev.galasa.simframe.saf.SecurityAuthorizationFacility authenticate User: IBMUSER authenticated
+2019-08-16 10:26:08 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: SessionManagerMenu
+2019-08-16 10:30:10 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: CICSGoodMorning
+2019-08-16 10:36:19 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: CICSClearScreen
+2019-08-16 10:38:54 INFO dev.galasa.simframe.t3270.screens.AbstractScreen buildScreen Building Screen: BankMainMenu
+```
+### Browsing account information
+
+### Transferring funds between accounts
 
 ## Running the provided Simframe tests

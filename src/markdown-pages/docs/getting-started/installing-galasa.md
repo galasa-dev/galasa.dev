@@ -9,16 +9,14 @@ This section describes the most common initial installation scenario - using Ecl
 
 ## Prerequisites
 
-### Software
+### Java
 Galasa tests and managers are written in Java - you will need to install a Java JDK 8 or later to use it.
 
-#### Eclipse
+### Eclipse
 If you do not already have an Eclipse installation, you can download and install a version of Eclipse appropriate for your machine by following the instructions [here](https://www.eclipse.org/downloads/packages/installer). Choose a package that supports your required level of Java development - *Eclipse IDE for Java Developers* or *Eclipse IDE for Java EE Developers*. If you are unsure, then the *Eclipse IDE for Java Developers* should be fine, and you can always add any missing plug-ins if and when you discover you need them. 
 
-### Knowledge
-To write and run simple Galasa tests, you need a modest knowledge of Java. If you are happy writing, say, JUnit tests, you are good to go. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests.
-
-Writing your own Galasa managers is more involved, but the difference is incremental, not an order of magnitude. Much of the complexity has already been abstracted out in the design of Galasa's underlying framework.
+### A 3270 terminal emulator
+Galasa is packaged with Simframe, a simulated version of a mainframe application that helps you to avoid problems when you later come to connect to a real mainframe to run your tests. If you ultimately intend to use Galasa to execute mainframe test suites, you will need a 3270 terminal emulator to enable you to connect with and explore Simframe before running Galasa's provided suite of automated tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Linux and MacOS.
 
 ## Installing the Galasa plug-in
 1. Launch Eclipse. If present, close any initial splash-screen.
