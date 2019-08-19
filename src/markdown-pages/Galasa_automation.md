@@ -21,15 +21,10 @@ that enable you to accomplish this task.  However, there are  limitations to som
 
 -	Most of the tools need to be manually operated and so limit their effectiveness in a continuous delivery pipeline
 -	The tools cannot contextually bind to either a provisioned, or pre-existing environment in an intelligent manner.
--	The tests cannot utilise a mix of technologies.  For example, let’s say you need to examine a CICS or a z/OS resource to validate that 
-the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester understanding how to access it?
+-	The tests cannot utilise a mix of technologies.  For example, let’s say you need to examine a CICS or a z/OS resource to validate that the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester understanding how to access it?
 
 Galasa makes it simple for a test to access, drive and interrogate a range of z/OS, distributed and open source tools and integrate them together within the same test class.
 
 ```Tests written for Galasa can be run both locally on your computer or in automation and be triggered from a continuous delivery pipeline```
 
 ```Galasa provides a test catalog that is dynamically built from your tests, which means you always execute the most up-to-date version of the tests.```
-
-
-
-
