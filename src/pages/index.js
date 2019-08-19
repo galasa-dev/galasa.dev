@@ -30,7 +30,7 @@ const IndexPage = () => (
         tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
-        Run large numbers of tests across different environments in parallel by
+        Run large numbers of independent tests across different environments in parallel by
         using automation. Test output is automatically recorded and stored in a
         single repository, making it easier to quickly identify the cause of a
         failure.
@@ -38,7 +38,7 @@ const IndexPage = () => (
       <KeyFeature title="Deliver with confidence">
         Run reliable, repeatable, automated test suites to deliver changes
         quickly and with confidence. Dynamically build a test catalog from your
-        test code and automatically select relevant regression test cases for a
+        code and automatically select relevant regression test cases for a
         specific changeset.
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
