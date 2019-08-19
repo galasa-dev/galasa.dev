@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/getting-started"
+path: "/docs/getting-started"
 title: "Getting started"
 ---
 # Getting started with Galasa

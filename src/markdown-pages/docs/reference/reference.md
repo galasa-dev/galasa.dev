@@ -1,5 +1,5 @@
 ---
-path: "/docs/reference/reference"
+path: "/docs/reference"
 title: "Galasa reference"
 ---
 # Reference
