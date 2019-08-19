@@ -11,12 +11,11 @@ To write and run simple Galasa tests, you need a modest knowledge of Java. If yo
 Writing your own Galasa managers is more involved, but the difference is incremental, not an order of magnitude. Much of the complexity has already been abstracted out in the design of Galasa's underlying framework.
 
 ## Recommended approach
-If you are new to Galasa, it is highly-recommended that you follow this sequence of activities - they build in a logical progression designed to get you operational as fast as possible. You can stop as soon as you feel comfortable that you have learned enough to be productive in your own testing environment - you don't need to be a mainframe user or run Galasa in a Kubernetes cluster to benefit from incorporating it in your development workflow.
+If you are new to Galasa, it is highly-recommended that you follow this sequence of activities - they build in a logical progression designed to get you operational as fast as possible. 
 
 1. Installing Galasa
-1. A first walkthrough
+1. A first walkthrough - a Galasa session with a simulated mainframe application
 1. Understanding managers
-1. Connecting to a simulated mainframe application
 1. Connecting to a real mainframe application
 1. Using Kubernetes
 1. Integrating Galasa into your DevOps pipeline
