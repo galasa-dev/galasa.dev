@@ -13,5 +13,5 @@ Galasa started life as JAT (JUnit Automated Testing) - an internal IBM tool whic
 ### The Result
 After JAT was rolled out across CICS, the team were able to fully automate their key tests, including running batch jobs, invoking restful interfaces, interacting with 3270 terminals, provisioning and de-provisioning both data and test environments. They found they were able to work much more efficiently, focusing on complex, edge test cases to root out critical defects, adapting quickly to testing new changes and features. Scalable and reliable regression tests running as part of the DevOps pipeline reduced the release lifecycle by 6 months and enabled the deployment of new function into production within 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams within IBM, including Db2.
 
-### The Future
+## The Future
 IBM are now releasing an open-source version of JAT - called Galasa - so that others can benefit from this tooling. We’d love you to get involved with the project, and help us establish a collaborative community where we can share great ideas and build new, cool Galasa features together.
