@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import KeyFeature from "../components/key-feature"
 import Footer from "../components/footer"
 
-import indexStyles from "../components/index.module.css"
+import indexStyles from "../components/index.module.scss"
 
 const IndexPage = () => (
   <>

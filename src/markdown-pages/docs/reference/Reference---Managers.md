@@ -1,5 +1,5 @@
 ---
-path: "/reference/managers"
+path: "/docs/reference/managers"
 title: "Managers"
 ---
 
