@@ -1,11 +1,72 @@
 ---
 path: "/about/devops"
-title: "Galasa as part of a DevOps strategy"
+title: "Galasa as part of a DevOps delivery pipeline"
 ---
 ## What is DevOps?
-Any DevOps strategy must aim to ensure the development of high-quality software within a shortened development life-cycle. Such a strategy is often designed to leverage the automation offered by a continuous delivery software deployment pipeline, including a focus on the DevOps practices of continuous deployment and testing. Continuous deployment automates the provisioning and deployment of new builds, enabling every stage in the pipeline to run more quickly and efficiently. Continuous testing involves running automated tests against the deployed software as early as possible.  The over-arching goal of the continuous delivery pipeline is the creation of a repeatable, reliable process that enables application changes to flow automatically from development into production.
+DevOps is a set of processes that apply agile and lean principles across the entire software supply chain. DevOps enables a business to maximize the speed of its delivery of a product or service, from initial idea to production release.
 
-## How Galasa fits into the DevOps pipeline
+### Benefits of DevOps
+DevOps provides significant benefit in three key areas:
+
+1.	Faster time to value
+Speeding time to value involves developing a culture, practices, and automation that allow for fast, efficient, and reliable software delivery through to production. 
+
+2.	Increased capacity to innovate
+Organizations use lean thinking approaches to increase their capacity to innovate. Their goals are to reduce waste and rework and to shift resources to higher-value activities.
+
+3.	Enhanced customer experience
+Delivering an enhanced (that is, differentiated and engaging) customer experience builds customer loyalty and increases market share. To deliver this experience, a business must continuously obtain and respond to customer feedback, which requires mechanisms to get fast feedback from all the stakeholders in the software application that’s being delivered: customers, lines of business, users, suppliers, partners, and so on.
+
+
+### DevOps principles
+The DevOps movement has produced several principles that have evolved over time and are still evolving. Several solution providers, including IBM, have developed their own variants. All these principles, however, take a holistic approach to DevOps, and organizations of all sizes can adopt them. These principles are:
+
+•	Develop and test against production-like systems
+This principle stems from the DevOps concept "shift left", in which operations concerns move earlier in the software delivery life cycle, toward development. The goal is to allow development and quality assurance (QA) teams to develop and test against systems that behave like the production system, so that they can see how the application behaves and performs well before it’s ready for deployment.
+
+From an operations perspective, too, this principle has tremendous value. It enables the operations team to see early in the cycle how their environment will behave when it supports the application, thereby allowing them to create a fine-tuned, application-aware environment. 
+
+•	Deploy with repeatable, reliable processes
+As the name suggests, this principle allows development and operations to support an agile (or at least iterative) software development process all the way through to production. Automation is essential to create processes that are iterative, frequent, repeatable, and reliable, so the organization must create a  delivery pipeline that allows for continuous, automated deployment and testing. 
+Frequent deployments also allow teams to test the deployment processes themselves, thereby lowering the risk of deployment failures at release time.
+
+•	Monitor and validate operational quality
+Whenever an application is deployed and tested, quality metrics should be captured and analyzed. Frequent monitoring provides early warning about operational and quality issues that may occur in production. These metrics should be captured in a format that all business stakeholders can understand and use. 
+
+## DevOps concepts
+
+### Continuous integration
+Continuous integration (see Figure 1), is a practice in which software developers continuously or frequently integrate their work with that of other members of the development team and then test the integrated work.
+In the case of complex systems made up of multiple systems or services, developers also regularly integrate their work with other systems and services. Regular integration of results leads to early discovery and exposure of integration risks. In complex systems, it also exposes known and unknown risks — both technical and schedule-related.
+FIGURE 1: Collaboration via continuous integration.
+Continuous integration adds tremendous value in DevOps by allowing large teams of developers, working on cross-technology components in multiple locations, to deliver software in an agile manner. It also ensures that each team’s work is continuously integrated with that of other development teams and then validated. Continuous integration thereby reduces risk and identifies issues earlier in the software development life cycle. 
+
+### Continous delivery 
+Continuous integration naturally leads to the practice of continuous delivery: the process of automating the deployment of the software to the testing, system testing, staging, and production environments. Although some organizations stop short of production, those that adopt DevOps generally use the same automated process in all environments to improve efficiency and reduce the risk introduced by inconsistent processes.
+In test environments, automating configuration, refreshing test data, and then deploying the software to the test environment followed by the execution of automated tests speeds up the feedback cycles of test results to development.
+
+### Continuous testing
+Continuous integration has several goals: 
+» Enable ongoing testing and verification of code 
+» Validate that the code produced and integrated with that of other developers and other components of the application functions and performs as designed 
+» Continuously test the application being developed
+
+Continuous testing means testing earlier and continuously across the life cycle, which results in reduced costs, shortened testing cycles, and achieved continuous feedback on quality. This process is also known as "shift-left" testing, which stresses integrating development and testing activities to ensure quality is built in as early in the life cycle as possible and not something left to later. This is facilitated by adopting capabilities like automated testing and service virtualization. Service virtualization is the new capability for simulation of production-like environments and makes continuous testing feasible.
+
+From a process perspective, you need to adopt processes in three areas to enable continuous testing: 
+» Test environment provisioning and configuration 
+» Test data management -  For any organization that wants to enable continuous testing, managing test data is an essential function. The number of tests that can be run and the frequency with which they’re run are limited by the amount of data that’s available for testing and the speed at which that data can be refreshed. 
+» Test integration, function, performance, and security -  all test scenarios, test scripts, and associated results can be stored and traceability established back to code, requirements, and defects
+
+### Continuous deployment 
+Continuous release and deployment take the concept of continuous integration to the next step. The practice that enables release and deploy also enables the creation of a *delivery pipeline*. This pipeline facilitates continuous deployment of software to QA and then to production in an efficient, automated manner. The goal of continuous release and deployment is to release new features to customers and users as soon as possible.
+
+### Delivery pipeline
+A delivery pipeline consists of the stages an application goes through from development through to production. Figure  3-1 shows a typical set of stages. These stages may vary from one organization to another, however, and may also vary from one application to another based on the organization’s needs, software delivery process, and maturity. The level of automation may also vary. Some organizations fully automate their delivery pipelines; others put their software through manual checks and gates due to regulatory or company requirements. You don’t have to address all stages at once. Start by focusing on the critical parts of organization — not everything all at once — and then gradually broaden to include all stages.
+
+
+
+## How Galasa fits into the DevOps delivery pipeline
 Galasa's focus is on the continuous testing part of the pipeline, and specifically around the provision of scalable test automation for regression. When an application is created or updated, the code must successfully run through a relevant suite of Galasa regression tests before it can move along the delivery pipeline. If the code passes all the tests, you can have confidence that the production deployment will be successful. The following image illustrates how the automated end-to-end pipeline process works in CICS:
 
 ![Flowchart showing how the CICS pipeline works](./cics-devops.png)
@@ -13,3 +74,5 @@ Galasa's focus is on the continuous testing part of the pipeline, and specifical
 A continuous delivery pipeline can be used to execute a set of Galasa tests in paralell with a single API call.  The pipeline can then inquire on the state of the executing tests and once all are completed decide how to progress to the next stage of the pipeline.
 
 Galasa supports a "shift left" approach to testing, enabling tests to run simultaneously across different environments. These test suites can be triggered to run whenever a change set is delivered.
+
+<Add more about how Galasa fits with the other devops concepts previously mentioned>.
