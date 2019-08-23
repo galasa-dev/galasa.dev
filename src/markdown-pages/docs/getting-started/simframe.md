@@ -5,12 +5,12 @@ title: "Simframe"
 # Simframe
 Simframe is a component distributed with Galasa that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against Simframe's banking application.
 
-By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps to expose and fix problems that you might otherwise encounter only when attempting to run tests directly against a mainframe. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
+By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps you to learn how to use Galasa in anger, exposing problems before they become major obstacles. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
 
 ## Launching Simframe
 1. Start Eclipse.
 1. From the main menu, choose *Run > Run Configurations*.
-1. In the popup *Create, manage and run configurations* window, select *Galasa Simframe* in the left pane and press the *New Configuration* button. 
+1. In the popup *Create, manage and run configurations* window, select *Galasa Simframe* in the left pane and press *New Configuration*. 
 1. Type your preferred name for the run configuration in the *Name:* field, press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
@@ -101,6 +101,19 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 
     `2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321`
 
-1. Press PF3 and once again browse the 123456789 account as described above to verify that its total credit has decreased by the transferred 1.00.
+1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00.
 
 ## Running the provided Simframe tests
+1. Open up a command terminal in a selected directory on your machine and clone the Simframe repository:
+    
+```
+    git clone https://github.ibm.com/galasa/simframe.git
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alternatively, you can choose `File > Clone repository...` from the Github Desktop menu, following the prompts.
+1. Launch Eclipse.
+1. Choose `File > Import` and then expand the `Maven` option in the popup window.
+1. Press `Existing Maven Projects` and click `Next`.
+1. Press `Browse` at the top of the `Import Maven Projects` window, navigate to the location of your cloned repository, and then to the `simframe-galasa-tests` folder within it. 
+1. Press `Select Folder`, and then `Finish` - then wait for Eclipse to import the provided Simframe tests:
+
+!["alt"](./simframe-eclipse-project-loaded.png)
