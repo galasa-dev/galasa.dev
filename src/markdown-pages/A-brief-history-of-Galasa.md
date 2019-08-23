@@ -16,7 +16,23 @@ Galasa started life as JAT (Java Automated Testing) - an internal IBM tool which
 </p>
 
 ### The Result
-After JAT was rolled out across CICS,  the team fully automated their regression tests, including running batch jobs, invoking restful interfaces, interacting with 3270 terminals, provisioning and de-provisioning both data and test environments. Manual intervention was eliminated and they found they were able to work much more efficiently, giving them more time to focus on complex edge test cases to root out other defects, adapting quickly to testing new changes and features. Continuous, scalable and reliable regression tests running as part of the DevOps pipeline helped to reduce the delivery of a new CICS feature from 18 to 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams across IBM.
+After JAT was rolled out across CICS,  the team fully automated their regression tests, including running batch jobs, invoking restful interfaces, interacting with 3270 terminals, provisioning and de-provisioning both data and test environments. Manual intervention was eliminated and they found they were able to work much more efficiently, giving them more time to focus on complex edge test cases to root out other defects, adapting quickly to testing new changes and features. Continuous, scalable and reliable regression tests running as part of the DevOps pipeline helped to reduce the delivery of a new CICS feature from 18 to 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams across IBM. 
+
+
 
 ## The Future
-IBM are now releasing an open-source version of JAT - called Galasa - so that others can benefit from this framework. We’d love you to get involved with the project, and help us establish a collaborative community where we can share great ideas and build new, cool Galasa features together.
+We’ve been engaged in research to better understand how mainframe applications are developed, tested, and delivered. As part of this research, we  gained insight into the testing process and the teams who are responsible for validating the quality of the application code changes. 
+
+We found a number of common problems being faced by these teams, including: 
+
+-  Unreliable test data.<p> The data is often in a state of flux, resulting in the breaking of existing tests and it's difficult to snapshot and roll back data. </p>
+-  Unreliable automated testing sysetms. <p>If automated testing systems are used, they are often unreliable, or build on unreliable test data.</p>
+- A lack of awareness between development and test team. <p> Teams are not always aware of the tests each group is performing, resulting in tests being duplicated, or missed entirely. A lack of what kind of regression testing, if any, is available was also highlighted.</p>
+- Too much manual approval and promotion. <p>Test results are passed around in spreadsheets and manually approved by product owners before the change can be promoted. This makes it difficult to gain awareness of the tests that are run, and the manual process takes time and requires intervention. </p>
+- A long development cycle. <p>The unreliable test data, manual tests, and manual approval process all add up to a development cycle that can’t be sped up without loss of confidence. Application changes take many months to reach production, and emergency fixes are promoted with only a sub-set of suitable tests exercised.</p>
+ 
+As a result of these findings, we realised that the JAT framework could be valuable to organizations outside of IBM, especially as we learned that most application testing on IBM Z is manual today. So, we are releasing an open-source version of JAT - called Galasa -  to help other teams resolve these common problems and to benefit from the capabilities offered by the Galasa framework. 
+
+We hope Galasa will be of interest to anyone who is involved in ensuring the quality of application code through testing at any phase in the application lifecycle:  application architects, developers, testers, test architects, test team leads, system programmers, release managers, and CI/CD and DevOps pipeline engineers. 
+
+We’d love you to get involved with the project, and help us establish a collaborative community where we can share great ideas and build new, cool Galasa features together.
