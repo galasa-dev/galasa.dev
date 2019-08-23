@@ -2,15 +2,12 @@
 path: "/docs/getting-started"
 title: "Getting started"
 ---
-# Getting started with Galasa
 This section takes you through the installation of Galasa and initial familiarization with its capabilities on a local machine. It then covers its support for more powerful and complex options such as executing mainframe tests, running in a Kubernetes cluster and integrating Galasa with your DevOps pipeline.
 
 ## Audience
 To write and run simple Galasa tests, you need a modest knowledge of Java. If you are happy writing, say, JUnit tests, you are good to go. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests.
 
 Writing your own Galasa managers is more involved, but the difference is incremental, not an order of magnitude. Much of the complexity has already been abstracted out in the design of Galasa's underlying framework.
-
-To clone a repository containing a selection of tests for the provided Simframe banking application, you will also need to be at least a little familiar with the Git version control system.
 
 ## Recommended approach
 If you are new to Galasa, it is highly-recommended that you follow this sequence of activities - they build in a logical progression designed to get you operational as fast as possible. 
