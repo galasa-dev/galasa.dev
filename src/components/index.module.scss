@@ -1,0 +1,16 @@
+@import "../styles/styles";
+
+.heroContainer {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    /* temp */ min-height: 350px;
+}
+
+.keyFeatureContainer {
+    @media screen and (min-width: $br-single-column) {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

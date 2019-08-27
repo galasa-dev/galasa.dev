@@ -1,18 +1,14 @@
 import { useStaticQuery, graphql, Link } from "gatsby"
 import React, { useState } from "react"
-import headerStyles from "./header.module.scss"
-import Identifier from "./identifier"
 import { Location } from "@reach/router"
+
+import Identifier from "./identifier"
+import { isSelectedSection } from "../utils/section"
+
+import headerStyles from "./header.module.scss"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  function isSelectedSection(section, location) {
-    return location.pathname.startsWith(
-      section + "/",
-      1 /* skip initial slash */
-    )
-  }
 
   function selector(section, location) {
     return isSelectedSection(section, location) ? headerStyles.selected : ""
@@ -54,6 +50,7 @@ const Header = () => {
           <div className={headerStyles.navContainer}>
             <Link
               to="/about"
+              onClick={() => setMenuOpen(false)}
               className={
                 headerStyles.navLink + " " + selector("about", location)
               }
@@ -62,6 +59,7 @@ const Header = () => {
             </Link>
             <Link
               to="/tutorials"
+              onClick={() => setMenuOpen(false)}
               className={
                 headerStyles.navLink + " " + selector("tutorials", location)
               }
@@ -70,6 +68,7 @@ const Header = () => {
             </Link>
             <Link
               to="/docs"
+              onClick={() => setMenuOpen(false)}
               className={
                 headerStyles.navLink + " " + selector("docs", location)
               }
@@ -78,6 +77,7 @@ const Header = () => {
             </Link>
             <Link
               to="/downloads"
+              onClick={() => setMenuOpen(false)}
               className={
                 headerStyles.navLink + " " + selector("downloads", location)
               }
@@ -86,6 +86,7 @@ const Header = () => {
             </Link>
             <Link
               to="/support"
+              onClick={() => setMenuOpen(false)}
               className={
                 headerStyles.navLink + " " + selector("support", location)
               }

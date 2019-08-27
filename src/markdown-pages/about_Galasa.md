@@ -1,5 +1,5 @@
 ---
-path: "/about/galasa"
+path: "/about"
 title: "About Galasa"
 ---
 

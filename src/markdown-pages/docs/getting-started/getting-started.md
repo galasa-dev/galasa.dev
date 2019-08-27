@@ -1,8 +1,7 @@
 ---
 path: "/docs/getting-started"
-title: "Getting started"
+title: "Getting started with Galasa"
 ---
-# Getting started with Galasa
 This section takes you through the installation of Galasa and initial familiarization with its capabilities on a local machine. It then covers its support for more powerful and complex options such as executing mainframe tests, running in a Kubernetes cluster, or integrating Galasa with your DevOps pipeline.
 
 ## Audience

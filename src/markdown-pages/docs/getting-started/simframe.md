@@ -2,7 +2,6 @@
 path: "/docs/getting-started/simframe"
 title: "Simframe"
 ---
-# Simframe
 Simframe is a component distributed with Galasa that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against Simframe's banking application.
 
 By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps to expose and fix problems that you might otherwise encounter only when attempting to run tests directly against a mainframe. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
@@ -30,7 +29,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
     2019-08-15 18:02:22 INFO dev.galasa.simframe.main.Simframe main ... services loaded
 ```
 
-        If you are a Mac or Linux user, the messages will be almost identical.
+     If you are a Mac or Linux user, the messages will be almost identical.
 
 5. The Simframe process has been launched, and is listening on port *2023* for Telnet connections, and on port *2080* for web services connections (which are not further explored in this section).
 
@@ -99,7 +98,9 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 
 1. Press ENTER - a `Transfer Successful` message appears. A log message is also written to the Eclipse *Console* window:
 
-    `2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321`
+```
+2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321
+```
 
 1. Press PF3 and once again browse the 123456789 account as described above to verify that its total credit has decreased by the transferred 1.00.
 

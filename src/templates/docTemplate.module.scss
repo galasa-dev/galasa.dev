@@ -1,0 +1,79 @@
+@import "../styles/styles";
+
+.docContainer {
+    display: grid;
+    gap: 2rem;
+    grid-template:
+            "nav"
+            "content";
+
+    @media screen and (min-width: $br-single-column) {
+        grid-template:
+            "nav   content" /
+            6fr   10fr;
+    }
+}
+
+.docNav {
+    grid-area: nav;
+
+    @media screen and (min-width: max($br-container-md, $br-single-column)) {
+        margin-left: - $margin-container-md;
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    @media screen and (min-width: $br-container-lg) {
+        margin-left: calc((100vw - #{$width-container-lg}) / -2);
+    }
+}
+
+.docContent {
+    grid-area: content;
+    margin-top: 50px;
+    overflow: hidden;
+
+    @media screen and (min-width: $br-single-column) {
+        margin-top: 171px;
+    }
+}
+
+.docContent h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    font-weight: 400;
+}
+
+.docContent h1 {
+    font-size: 42px;
+    line-height: 49px;
+}
+
+.docContent h2 {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 500;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.docContent p, li {
+    margin: 40px 0;
+}
+
+.docContent pre {
+    overflow-x: scroll;
+}
+
+.docContent ul {
+    list-style-type: none;
+    padding-left: 40px;
+    
+}
+
+.docContent ul li:before {
+    content: '\2014';
+    position: absolute;
+    margin-left: -40px;
+}

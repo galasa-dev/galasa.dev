@@ -1,0 +1,57 @@
+- sections:
+    - title: About
+      root: /about/
+      items:
+        - title: About Galasa
+          path: /about/
+        - title: A brief history
+          path: /about/history
+        - title: Key concepts
+          path: /about/concepts
+        - title: Benefits of Galasa
+          path: /about/automation
+        - title: DevOps strategy
+          path: /about/devops
+    - title: Tutorials
+      root: /tutorials/
+      items:
+        - title: Tutorials
+          path: /tutorials/
+    - title: Docs
+      root: /docs/
+      items:
+        - title: Introduction
+          path: /docs/
+          items:
+            - title: What are the best tests to automate?
+              path: /docs/introduction/choosing
+            - title: Writing Galasa tests
+              path: /docs/introduction/writing
+            - title: Examples
+              path: /docs/introduction/examples
+        - title: Getting started
+          path: /docs/getting-started/
+          items:
+            - title: Installing Galasa
+              path: /docs/getting-started/installing
+            - title: Simframe
+              path: /docs/getting-started/simframe
+        - title: Quickstart
+          path: /docs/quickstart
+        - title: Reference
+          path: /docs/reference/
+          items:
+            - title: Glossary
+              path: /docs/reference/glossary
+            - title: Managers
+              path: /docs/reference/managers
+    - title: Downloads
+      root: /downloads/
+      items:
+        - title: Downloads
+          path: /downloads/
+    - title: Support
+      root: /support/
+      items:
+        - title: Support
+          path: /support/
