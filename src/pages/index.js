@@ -38,7 +38,7 @@ const IndexPage = () => (
         single repository, making it easier to quickly identify the cause of a
         failure.
       </KeyFeature>
-      <KeyFeature title="Environmentally friendly">
+      <KeyFeature title="Be environmentally friendly">
         Run the same test in different test environments without changing a
         single line of code. Speed up problem determination by running test code
         locally on your laptop in debug mode or run a test suite overnight using
