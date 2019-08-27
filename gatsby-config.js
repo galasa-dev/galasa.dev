@@ -63,5 +63,17 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Galasa`,
+        short_name: `Galasa`,
+        start_url: `/`,
+        background_color: `#EFEFEF`,
+        theme_color: `#212121`,
+        display: `browser`,
+        icon: `src/images/identifier.svg`
+      },
+    },
   ],
 }

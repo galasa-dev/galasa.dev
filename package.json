@@ -8,6 +8,7 @@
     "gatsby": "^2.13.76",
     "gatsby-image": "^2.1.2",
     "gatsby-plugin-layout": "^1.1.3",
+    "gatsby-plugin-manifest": "^2.2.9",
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sass": "^2.1.8",
