@@ -1,2 +1,4 @@
 root: public
 force_https: true
+status_codes:
+    404: /404.html

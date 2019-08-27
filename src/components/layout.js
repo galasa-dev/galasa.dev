@@ -6,8 +6,19 @@ import "./layout.scss"
 import layoutStyles from "./layout.module.scss"
 
 const Layout = ({ children, data }) => {
-  const title =
-    (data ? data.markdownRemark.frontmatter.title + " | " : "") + "Galasa"
+  let title = undefined
+  if (data) {
+    if (data.markdownRemark) {
+      const markdownRemark = data.markdownRemark
+      if (markdownRemark.frontmatter) {
+        const frontmatter = markdownRemark.frontmatter
+        if (frontmatter.title) {
+          title = frontmatter.title
+        }
+      }
+    }
+  }
+  title = (title ? title + " | " : "") + "Galasa"
 
   return (
     <>
