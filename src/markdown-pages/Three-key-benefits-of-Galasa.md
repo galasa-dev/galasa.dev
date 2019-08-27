@@ -1,5 +1,5 @@
 ---
-path: "/key-benefits"
+path: "/about/benefits"
 title: "Three key benefits of Galasa"
 ---
 *Layout in boxes with coloured background or border that you can click on to find out more. *

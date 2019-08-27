@@ -1,5 +1,5 @@
 ---
-path: "/reference/tests"
+path: "/docs/reference/tests"
 title: "Galasa test components and examples"
 ---
 

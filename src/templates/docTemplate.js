@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import layoutStyles from "./docTemplate.module.css"
+import layoutStyles from "./docTemplate.module.scss"
 import Footer from "../components/footer"
+import Sidebar from "../components/sidebar/sidebar"
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -10,7 +11,9 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <div className={layoutStyles.docContainer}>
-      <div className={layoutStyles.docNav} />
+      <div className={layoutStyles.docNav}>
+        <Sidebar />
+      </div>
       <div className={layoutStyles.docContent}>
         <h1>{frontmatter.title}</h1>
         <div
