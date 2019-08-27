@@ -34,7 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 exports.onCreateWebpackConfig = ({ actions }) => {
-  if (!process.env.NODE_ENV) {
+  if (!(process.env.NODE_ENV === "production")) {
     actions.setWebpackConfig({
       devtool: "eval-source-map"
     });
