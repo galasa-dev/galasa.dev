@@ -10,6 +10,7 @@ const IndexPage = () => (
   <>
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
+      </KeyFeature>
       <KeyFeature title="Lighten the load with automation">
         Run reliable, repeatable, scalable, automated Galasa integration tests rather than time-consuming manual ones. 
         Spend the time saved focussing on designing more complex test cases to root out those
