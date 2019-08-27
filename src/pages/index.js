@@ -11,9 +11,9 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        Let Galasa take care of repetitive, time-consuming manual regression
-        tests, so you can focus on designing more complex test cases to root out
-        critical application defects.
+        Run reliable, repeatable, scalable, automated Galasa integration tests rather than time-consuming manual ones. 
+        Spend the time saved focussing on designing more complex test cases to root out those
+        hard-to-find application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
@@ -23,23 +23,20 @@ const IndexPage = () => (
         with other z/OS subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can provision the test data that you need or can find data that
-        matches your requirements from an existing data pool, removing the need
+        Provision the test data that you need or can find data that
+        matches your requirements from an existing data pool with Galasa, removing the need
         to manually create or locate valid test data each time a test is run.
         Tests are isolated from changes in test data, making it easy to repeat
         tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Run large numbers of independent tests across different environments in parallel by
-        using automation. Test output is automatically recorded and stored in a
+        using automation. 
+      </KeyFeature>
+      <KeyFeature title="Speed up diagnosis">
+        Test output is automatically recorded and stored in a
         single repository, making it easier to quickly identify the cause of a
         failure.
-      </KeyFeature>
-      <KeyFeature title="Deliver with confidence">
-        Run reliable, repeatable, automated test suites to deliver changes
-        quickly and with confidence. Dynamically build a test catalog from your
-        code and automatically select relevant regression test cases for a
-        specific changeset.
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
         Run the same test in different test environments without changing a
