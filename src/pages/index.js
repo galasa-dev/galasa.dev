@@ -11,9 +11,9 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        Run repeatable, reliable, scalable automated Galasa integration tests rather
-        than time-consuming manual ones. Use the time saved to focus on designing more
-        complex test cases to root out those hard-to-find application defects.
+        Let Galasa take care of repetitive, time-consuming manual regression
+        tests, so you can focus on designing more complex test cases to root out
+        critical application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
@@ -31,14 +31,17 @@ const IndexPage = () => (
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Run large numbers of tests across different environments in parallel by
-        using automation. 
-      </KeyFeature>
-      <KeyFeature title="Speed up diagnosis">
-        Test output is automatically recorded and stored in a
+        using automation. Test output is automatically recorded and stored in a
         single repository, making it easier to quickly identify the cause of a
         failure.
       </KeyFeature>
-      <KeyFeature title="Be environmentally friendly">
+      <KeyFeature title="Deliver with confidence">
+        Run reliable, repeatable, automated test suites to deliver changes
+        quickly and with confidence. Dynamically build a test catalog from your
+        test code and automatically select relevant regression test cases for a
+        specific changeset.
+      </KeyFeature>
+      <KeyFeature title="Environmentally friendly">
         Run the same test in different test environments without changing a
         single line of code. Speed up problem determination by running test code
         locally on your laptop in debug mode or run a test suite overnight using
