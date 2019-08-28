@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-import Header from "./header"
+import Header from "../header"
 import "./layout.scss"
 import layoutStyles from "./layout.module.scss"
 
