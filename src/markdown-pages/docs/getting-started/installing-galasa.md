@@ -2,6 +2,7 @@
 path: "/docs/getting-started/installing-galasa"
 title: "Installing and configuring Galasa"
 ---
+
 Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE and the download and integration of the Galasa plug-in from a known update site such as the Eclipse marketplace: https://marketplace.eclipse.org/. You are likely to later want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it.
 
 This section describes the most common initial installation scenario - using Eclipse to install the Galasa plug-in on your local machine and preparing it to run an initial set of provided tests against a simulated mainframe application. Refer to the Reference section for information about alternative enhancements and options.

@@ -1,6 +1,5 @@
 ---
 path: "/docs/reference"
-title: "Galasa reference"
+title: "Reference"
 ---
-# Reference
 ** TBC **
