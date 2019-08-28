@@ -1,9 +1,7 @@
 ---
 path: "/about/concepts"
-title: "Galasa concepts"
+title: "Key concepts"
 ---
-# Key concepts
-
 ### Galasa testing
 Galasa offers automated and scalable scheduling and execution of reliable, repeatable tests. 
 
