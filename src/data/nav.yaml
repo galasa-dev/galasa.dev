@@ -32,10 +32,12 @@
         - title: Getting started
           path: /docs/getting-started/
           items:
-            - title: Installing and configuring Galasa
+            - title: Installing Galasa and Simframe
               path: /docs/getting-started/installing
-            - title: Simframe
+            - title: Exploring Simframe manually
               path: /docs/getting-started/simframe
+            - title: Running the provided Simframe tests
+              path: /docs/getting-started/simframe-tests
         - title: Quickstart
           path: /docs/quickstart
         - title: Reference
