@@ -32,11 +32,10 @@
 
 .docContent {
     grid-area: content;
-    margin-top: 50px;
     overflow: hidden;
 
     @media screen and (min-width: $br-single-column) {
-        margin-top: 171px;
+        margin-top: 130px;
     }
 }
 
