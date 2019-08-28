@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/installing-galasa"
+path: "/docs/getting-started/installing"
 title: "Installing and configuring Galasa"
 ---
 
