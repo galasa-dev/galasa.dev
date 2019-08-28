@@ -82,6 +82,8 @@ sim.image.simframe.web.port=2080
 1. Choose *Window > Preferences > Maven > User Settings*.
 1. Complete the *Global Setting* field by pressing *Browse* and navigating to the `settings.xml` file you just set up. Press *Apply* and *Close* when finished.
 
+Your local Eclipse Galasa installation is now ready for some work.
+
 
 
 
