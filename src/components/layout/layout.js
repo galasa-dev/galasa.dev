@@ -27,6 +27,10 @@ const Layout = ({ children, data }) => {
           href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
+          rel="stylesheet"
+        />
         <title>{title}</title>
         <html lang="en" />
       </Helmet>
