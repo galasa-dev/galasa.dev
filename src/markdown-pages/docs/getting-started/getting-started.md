@@ -20,6 +20,6 @@ If you are new to Galasa, it is highly-recommended that you follow this sequence
 1. Integrating Galasa into your DevOps pipeline
 1. Writing your own managers
 
-Once you're up and running, further information is available in the Reference section of this documentation.
+Once you're up and running, further information is available in the [Reference section](../reference) of this documentation.
 
 
