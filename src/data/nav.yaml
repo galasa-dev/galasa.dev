@@ -32,7 +32,7 @@
         - title: Getting started
           path: /docs/getting-started/
           items:
-            - title: Installing Galasa
+            - title: Installing and configuring Galasa
               path: /docs/getting-started/installing
             - title: Simframe
               path: /docs/getting-started/simframe

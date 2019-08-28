@@ -1,9 +1,9 @@
 ---
-path: "/docs/getting-started/installing-galasa"
+path: "/docs/getting-started/installing"
 title: "Installing and configuring Galasa"
 ---
 
-Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE and the download and integration of the Galasa plug-in from a known update site such as the Eclipse marketplace: https://marketplace.eclipse.org/. You are likely to later want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it.
+Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE and the download and integration of the Galasa plug-in from a known update site such as the [Eclipse marketplace](https://marketplace.eclipse.org/). You are likely to later want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it.
 
 This section describes the most common initial installation scenario - using Eclipse to install the Galasa plug-in on your local machine and preparing it to run an initial set of provided tests against a simulated mainframe application. Refer to the Reference section for information about alternative enhancements and options.
 
@@ -14,7 +14,7 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 Galasa tests and managers are written in Java - you will need to install a Java version 8 JDK (but *not* a later version) to use it.
 
 ### Eclipse
-If you do not already have an Eclipse installation, you can download and install a version of Eclipse appropriate for your machine by following the instructions [here](https://www.eclipse.org/downloads/packages/installer). Choose a package that supports your required level of Java development - *Eclipse IDE for Java Developers* or *Eclipse IDE for Java EE Developers*. If you are unsure, then the *Eclipse IDE for Java Developers* should be fine, and you can always add any missing plug-ins if and when you discover you need them. 
+If you do not already have an Eclipse installation, you can [download and install](https://www.eclipse.org/downloads/packages/installer) a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - *Eclipse IDE for Java Developers* or *Eclipse IDE for Java EE Developers*. If you are unsure, then the *Eclipse IDE for Java Developers* should be fine, and you can always add any missing plug-ins if and when you discover you need them. 
 
 If you already have a version of Eclipse installed, it should be at the version codenamed Oxygen (released in June 2017) or later.
 
