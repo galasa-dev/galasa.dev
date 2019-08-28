@@ -1,8 +1,8 @@
 ---
 path: "/docs/getting-started"
-title: "Getting started"
+title: "Getting started with Galasa"
 ---
-This section takes you through the installation of Galasa and initial familiarization with its capabilities on a local machine. It then covers its support for more powerful and complex options such as executing mainframe tests, running in a Kubernetes cluster and integrating Galasa with your DevOps pipeline.
+This section takes you through the installation of Galasa and initial familiarization with its capabilities on a local machine. It then covers its support for more powerful and complex options such as executing mainframe tests, running in a Kubernetes cluster, or integrating Galasa with your DevOps pipeline.
 
 ## Audience
 To write and run simple Galasa tests, you need a modest knowledge of Java. If you are happy writing, say, JUnit tests, you are good to go. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests.

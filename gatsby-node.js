@@ -28,8 +28,15 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: node.frontmatter.path,
         component: docTemplate,
-        context: {}, // additional data can be passed via context
+        context: { title: node.frontmatter.title }, // additional data can be passed via context
       })
     })
   })
 }
+exports.onCreateWebpackConfig = ({ actions }) => {
+  if (!(process.env.NODE_ENV === "production")) {
+    actions.setWebpackConfig({
+      devtool: "eval-source-map"
+    });
+  }
+};

@@ -1,3 +1,5 @@
+@import "../styles/styles";
+
 .footer {
     margin-top: 141px;
     text-align: center;
@@ -8,6 +10,14 @@
 }
 
 .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        
+    @media screen and (min-width: $br-single-column) {
+        flex-direction: row;
+    }
+
     a {
         color: #000;
         text-decoration-line: none;
