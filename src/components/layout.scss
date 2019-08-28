@@ -1,6 +1,4 @@
-@import "../styles/styles.scss";
-
-
+@import "../styles/styles";
 
 html {
     font-family: "Work Sans", sans-serif;
@@ -12,14 +10,17 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: $main-bg-color;
+    background-color: $color-main-bg;
     color: #606060;
     line-height: 32px;
     font-size: 16px;
 }
 
 a {
-    // text-decoration-line: blink;
-    color: currentColor;
+    color: #000;
     font-weight: 500;
+}
+
+ul {
+    padding-inline-start: 40px;
 }

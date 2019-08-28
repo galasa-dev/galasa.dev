@@ -29,7 +29,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
     2019-08-15 18:02:22 INFO dev.galasa.simframe.main.Simframe main ... services loaded
 ```
 
-        If you are a Mac or Linux user, the messages will be almost identical.
+     If you are a Mac or Linux user, the messages will be almost identical.
 
 5. The Simframe process has been launched, and is listening on port *2023* for Telnet connections, and on port *2080* for web services connections (which are not further explored in this section).
 
@@ -98,7 +98,9 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 
 1. Press ENTER - a `Transfer Successful` message appears. A log message is also written to the Eclipse *Console* window:
 
-    `2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321`
+```
+2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321
+```
 
 1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00.
 
