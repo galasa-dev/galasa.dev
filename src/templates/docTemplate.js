@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import layoutStyles from "./docTemplate.module.scss"
 import Footer from "../components/footer"
-import Sidebar from "../components/sidebar/sidebar"
+import Sidebar from "../components/sidebar"
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
