@@ -24,3 +24,8 @@ a {
 ul {
     padding-inline-start: 40px;
 }
+
+pre, code, kbd {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
+}
