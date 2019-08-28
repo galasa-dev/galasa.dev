@@ -4,12 +4,12 @@ title: "Simframe"
 ---
 Simframe is a component distributed with Galasa that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against Simframe's banking application.
 
-By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps to expose and fix problems that you might otherwise encounter only when attempting to run tests directly against a mainframe. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
+By exercising the Galasa framework against Simframe, you can pre-empt a lot (but not all) of the work necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided Simframe tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, Simframe helps you to learn how to use Galasa in anger, exposing problems before they become major obstacles. When you become an experienced Galasa user, it is likely that you will be able to omit the Simframe stage, especially if you have been around the Simframe loop several times before.
 
 ## Launching Simframe
 1. Start Eclipse.
 1. From the main menu, choose *Run > Run Configurations*.
-1. In the popup *Create, manage and run configurations* window, select *Galasa Simframe* in the left pane and press the *New Configuration* button. 
+1. In the popup *Create, manage and run configurations* window, select *Galasa Simframe* in the left pane and press *New Configuration*. 
 1. Type your preferred name for the run configuration in the *Name:* field, press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
@@ -33,7 +33,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 
 5. The Simframe process has been launched, and is listening on port *2023* for Telnet connections, and on port *2080* for web services connections (which are not further explored in this section).
 
-## Exploring Simframe
+## Manually exploring Simframe's SimBank application
 When you launch Simframe, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
 
 ### Logging in to the simulated application
@@ -102,6 +102,19 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 2019-08-16 13:50:53 INFO dev.galasa.simframe.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321
 ```
 
-1. Press PF3 and once again browse the 123456789 account as described above to verify that its total credit has decreased by the transferred 1.00.
+1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00.
 
-## Running the provided Simframe tests
+### Loading and running the Simframe installation verification tests
+1. Choose *File > New > Example*, select *Simframe example projects* and press *Next*.
+1. Confirm your *New project* prefix (it's OK to leave it as `dev.galasa.simframe`) and press *Finish*. In your *Package Explorer* (if it's not visible, choose *Window > Show View > Package Explorer*), two new entries appear
+  - dev.galasa.simframe.manager
+  - dev.galasa.simframe.tests 
+1. Choose *Run > Run Configurations* and look for and select *Galasa Simframe* in the left pane.
+1. Right-click *Galasa Simframe* and choose *New Configuration*, give it a name and press *Apply* then *Run*. The Simframe server starts, just as it did when you initially installed the Galasa plug-in.
+1. Expand *dev.galasa.simframe.tests > src/main/java > galasa.test* in your *Package Explorer* and select *SimframeBankIVT.java*.
+1. Choose *Run > Run Configurations* and look for and select *Galasa* in the left pane this time (not Galasa Simframe).
+1. Right-click *Galasa* and choose *New Configuration*.
+1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simframe.tests`, then press *Search* to locate your test class, *SimframeBankIVT*.
+1. Un-tick the *Include ~/.galasa/override.properties* box when back in the main *Run Configurations* dialog.
+1. Press *Apply* then *Run* 
+1. The *SimframeBankIVT* tests run, and the Eclipse console displays their progress through to completion.
