@@ -2,7 +2,7 @@
 path: "/docs/getting-started/simframe-tests"
 title: "Running tests against Simframe"
 ---
-Simframe is accompanied by a set of proving tests that start at its most basic Installation Verification Test (IVT). To follow all of these examples, ensure that Eclipse is running and that you have launched the Simframe server as described [here](/docs/getting-started/simframe).
+Simframe is accompanied by a set of proving tests that start with a basic Installation Verification Test (IVT). To follow all of these examples, ensure that Eclipse is running and that you have launched the Simframe server as described [here](/docs/getting-started/simframe).
 
 ## Loading and running the Simframe installation verification tests (IVT)
 1. Choose *File > New > Example*, select *Simframe example projects* and press *Next*.
