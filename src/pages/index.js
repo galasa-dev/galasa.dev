@@ -11,7 +11,7 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        Run reliable, repeatable, scalable, automated Galasa integration tests instead of time-consuming manual ones. 
+        With Galasa you can run reliable, repeatable, scalable, automated integration tests instead of time-consuming manual ones. 
         Use the time saved to focus on designing more complex tests to root out those hard-to-find application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
@@ -29,19 +29,19 @@ const IndexPage = () => (
         tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
-        Run large numbers of tests across different environments in parallel by
-        using automation. 
+        Use Galasa to run large numbers of tests across different environments in parallel by
+        using automation. You can use an existing mainframe environment, or get an environment
+        provisioned specifically for you.
       </KeyFeature>
       <KeyFeature title="Speed up diagnosis">
-        Test output is automatically recorded and stored in a single repository,
+        Galasa automatically records test artifacts and stores the results in a single repository,
         making it easier to quickly identify the cause of failure. 
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
-        Run the same test in different test environments without changing a
+        With Galaas you can run the same test in different test environments without changing a
         single line of code. Speed up problem determination by running test code
         locally on your laptop in debug mode or run a test suite overnight using
-        automation. Use an existing mainframe environment, or get an environment
-        provisioned specifically for you.
+        automation. 
       </KeyFeature>
     </div>
     <Footer />
