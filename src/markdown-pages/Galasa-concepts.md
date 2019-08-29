@@ -6,12 +6,12 @@ title: "Key concepts"
 Galasa offers automated and scalable scheduling and execution of reliable, repeatable tests. 
 
 ## Java class
-A Java .class file is the compiled executable version of the .java source file created by a user. Each time a change is made to the .java source file and saved, the executable version is automatically updated as well. Galasa .java source files contain the annotation @CICSTest to indicate that this is a Galasa .class file rather than a Java .class file.
+A Java .class file is the compiled executable version of the .java source file created by a user. Each time a change is made to the .java source file and saved, the executable version is automatically updated as well. Galasa .java source files contain the annotation @CICSTest to indicate that this is a Galasa .class file rather than a normal Java .class file.
 
 ## Galasa test class
 A simple Java program that tests a discrete piece of function, using facilities provided by the Galasa framework to streamline and simplify the test code.
 
-### Galasa test
+## Galasa test
 A Galasa test is made up of one or more Java classes and can contain several method types. 
 
 ## Galasa methods
