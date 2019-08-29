@@ -10,7 +10,7 @@ Here’s an example of a manual test script that a tester might have performed m
 
 
 ## Writing your own Manager
-If a suitable Manager is not currently available with Galasa, check which Managers are planned for future releases, or raise a request for one to be developed. Alternatively, you can write your own Manager and even share it with the community. If you’re writing your own Manager, here are some helpful guidelines to get you started …
+If a suitable Manager is not currently available as part of Galasa, check which Managers are planned for future releases, or raise a request for one to be developed. Alternatively, you can write your own Manager and even share it with the community. If you’re writing your own Manager, here are some helpful guidelines to get you started …
 
   * Each manager should focus on integrating Galasa with a single tool, product or capability.
   * You should decide if the manager needs to provision itself or any ancillary data into the test environment.
