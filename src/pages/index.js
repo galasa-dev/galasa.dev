@@ -11,8 +11,9 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        With Galasa you can run reliable, repeatable, scalable, automated integration tests instead of time-consuming manual ones. 
-        Use the time saved to focus on designing more complex tests to root out those hard-to-find application defects.
+        With Galasa you can run reliable, repeatable, scalable, automated integration 
+        tests instead of time-consuming manual ones. Use the time saved to focus on 
+        designing more complex tests to root out those hard-to-find application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
