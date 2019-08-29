@@ -1,0 +1,24 @@
+@import "../styles/styles";
+
+.block {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.heading {
+    font-weight: 400;
+    font-size: 80px;
+    text-align: center;
+}
+
+.subheading {
+    text-align: center;
+    font-size: 26px;
+}
+
+.text {
+    text-align: center;
+}

@@ -1,5 +1,5 @@
 import React from "react"
-import Identifier from "./identifier"
+import Identifier from "../identifier/identifier"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import footerStyles from "./footer.module.scss"
 

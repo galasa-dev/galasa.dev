@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
-import identifierStyles from "./identifier.module.css"
+import identifierStyles from "./identifier.module.scss"
 
 const Identifier = () => {
   const data = useStaticQuery(graphql`
