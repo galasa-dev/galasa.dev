@@ -3,9 +3,12 @@ path: "/docs/reference/glossary"
 title: "Glossary"
 ---
 ## A
+
 Agile
 
 Annotation
+
+Artifact
 
 Automated testing
 
@@ -31,6 +34,8 @@ JAT
 
 Java
 
+Java class
+
 JCL
 
 JDK
@@ -50,10 +55,17 @@ Simframe
 
 ## T
 
+Test
+
+Test catalog
+
 Test class
 
 Test runner
 
+## W
+
+Waterfall
 
 ## Z
 z/OS
