@@ -25,8 +25,10 @@ Provision your own test data from scratch or find valid test data within an exis
 
 ## Diagnose fast
 Run tests locally with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. Test artifacts from automated test runs are stored in a shared central respository, making debugging easy.
+
 ## Simplify
 Make tests quicker to write and easier to maintain by moving boilerplate code out of test cases and into Managers. Simply call the Managers you need within your test code to access the methods and functions that each Manager provides during the test run.
 
 ## Communicate consistently
 Galasa's dashboard integrates all your test results in one place, making reporting, reviewing, and sign-off between test phases easy and consistent.
+

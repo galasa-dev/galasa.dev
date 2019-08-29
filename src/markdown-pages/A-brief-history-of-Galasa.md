@@ -2,9 +2,9 @@
 path: "/about/history"
 title: "A brief history of Galasa"
 ---
-## The Problem
-Galasa started life as JAT (Java Automated Testing) - an internal IBM tool which was (and still is) extensively used for regression testing within IBM z/OS teams. It was created to help eliminate repetitive manual and semi-automated testing every time a change to the CICS product code was delivered. These tests could be complex and take a long time to set up and run, increasing the risk of introducing human-error into the process. It was also difficult to identify the cause of failures, as diagnostics were stored in different repositories, including logs on zOS, test script error output on laptops, and program compilation output on z/OS. Changes to the product could take many weeks to reach a beta level of CICS as it wasn't possible to accelerate the development cycle without a loss of confidence in the quality of the deliverable.
 
+## The Problem
+Galasa started life as JAT (Java Automated Testing) - an internal IBM tool which was (and still is) extensively used for regression testing within IBM z/OS teams. It was created to help eliminate repetitive manual and semi-automated testing every time a change to the CICS product code was delivered. These tests could be complex and take a long time to set up and run, increasing the risk of introducing human-error into the process. It was also difficult to identify the cause of failures, as diagnostics were stored in different repositories, including logs on z/OS, test script error output on laptops, and program compilation output on z/OS. Changes to the product could take many weeks to reach a beta level of CICS as it wasn't possible to accelerate the development cycle without a loss of confidence in the quality of the deliverable.
 
 
 ## The Solution
@@ -22,7 +22,7 @@ After JAT was rolled out across CICS,  the team fully automated their regression
 ## The Future
 We’ve been engaged in research to better understand how mainframe applications are developed, tested, and delivered. As part of this research, we  gained insight into the testing process and the teams who are responsible for validating the quality of the application code changes. 
 
-We found a number of common problems being faced by these teams, including: 
+We found several common problems being faced by these teams, including: 
 
 -  Unreliable test data.
     
@@ -45,6 +45,8 @@ We found a number of common problems being faced by these teams, including:
     The unreliable test data, manual tests, and manual approval process all add up to a development cycle that can’t be sped up without loss of confidence. Application changes take many months to reach production, and emergency fixes are promoted with only a sub-set of suitable tests exercised.
  
 As a result of these findings, we realised that the JAT framework could be valuable to organizations outside of IBM, especially as we learned that most application testing on IBM Z is manual today. So, we are releasing an open-source version of JAT - called Galasa -  to help other teams resolve these common problems and to benefit from the capabilities offered by the Galasa framework. 
+
+## Join us
 
 We hope Galasa will be of interest to anyone who is involved in ensuring the quality of application code through testing at any phase in the application lifecycle:  application architects, developers, testers, test architects, test team leads, system programmers, release managers, and CI/CD and DevOps pipeline engineers. 
 
