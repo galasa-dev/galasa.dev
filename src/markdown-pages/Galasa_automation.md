@@ -7,7 +7,7 @@ The pressure to release quality software as quickly as possible has never been g
 waterfall approach is falling out of favour. Automated testing is key to adopting an agile approach to development. If you aren’t running automated tests, you end up falling into waterfall mode, and cannot deliver changes quickly and reliably. If you're already following an agile model, take advantage of the benefits that Galasa provides to enhance your delivery pipeline.  
 
 ## Why automate with Galasa?
-Automated testing and agile delivery are traditionally seen as being available only in greenfield projects, but with the introduction of Galasa, you can be agile in a z/OS environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.
+Automated testing and agile delivery are traditionally seen as being available only in greenfield projects, but with the introduction of Galasa, you can be agile in a mainframe environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.
 
 ## Benefits of Galasa
 - A great fit for automating a wide set of test disciplines such as functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
