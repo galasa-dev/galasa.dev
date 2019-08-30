@@ -1,6 +1,6 @@
 import React from "react"
 
-import keyFeatureStyles from "./key-feature.module.css"
+import keyFeatureStyles from "./key-feature.module.scss"
 
 const KeyFeature = ({ children, title }) => {
   return (

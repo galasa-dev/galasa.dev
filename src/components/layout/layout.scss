@@ -1,4 +1,4 @@
-@import "../styles/styles";
+@import "../../styles/styles";
 
 html {
     font-family: "Work Sans", sans-serif;
@@ -23,4 +23,9 @@ a {
 
 ul {
     padding-inline-start: 40px;
+}
+
+pre, code, kbd {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
 }

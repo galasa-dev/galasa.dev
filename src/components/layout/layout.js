@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-import Header from "./header"
+import Header from "../header"
 import "./layout.scss"
 import layoutStyles from "./layout.module.scss"
 
@@ -25,6 +25,10 @@ const Layout = ({ children, data }) => {
       <Helmet>
         <link
           href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
           rel="stylesheet"
         />
         <title>{title}</title>

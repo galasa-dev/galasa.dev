@@ -2,8 +2,8 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import React, { useState } from "react"
 import { Location } from "@reach/router"
 
-import Identifier from "./identifier"
-import { isSelectedSection } from "../utils/section"
+import Identifier from "../identifier"
+import { isSelectedSection } from "../../utils/section"
 
 import headerStyles from "./header.module.scss"
 
