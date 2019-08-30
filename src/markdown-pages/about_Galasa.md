@@ -24,7 +24,7 @@ Minimize conflict between teams for test environments. A scalable test runner me
 Provision your own test data from scratch or find valid test data within an existing data lake. Test data is locked within the Galasa framework whilst in use, so that it cannot be corrupted by other test runs.
 
 ## Diagnose fast
-Run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. Schedule tests to run automatically on a server - all test artifacts are stored in a single shared central respository, making it easier to find the cause of a problem.
+Run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. Schedule tests to run automatically on a server - all test artifacts are stored in a single shared central repository, making it easier to find the cause of a problem.
 
 ## Simplify
 Make tests quicker to write and easier to maintain by moving boilerplate code out of test cases and into Managers. Simply call the Managers you need within your test code to access the methods and functions provided by each Manager during the test run.
