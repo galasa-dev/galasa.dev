@@ -15,7 +15,7 @@ Deliver application changes to market faster, without losing confidence in quali
 Running and re-running manual tests is laborious, time consuming and not exactly the best use of a tester's skills or time. Use Galasa to run the repetitive tests and free up testers to spend their time designing test cases that are more likely to find important defects.
 
 ## Be consistent
-Tests can be created from integrating multiple tools together allowing you to share data between tools within the same test. A test case catalog is generated from building your tests creating a single test case catalog from which tests can be automatically selected to run for any given change set.
+Tests can be created by integrating multiple tools together, allowing you to share data between tools within the same test. You can store related tests within a test catalog, from which tests can be automatically selected to run for any given change set.
 
 ## Avoid conflict
 Minimize conflict between teams for test environments. A scalable test runner means multiple tests can be run in parallel without the need for individual virtual machines for each test instance.
