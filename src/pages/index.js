@@ -11,9 +11,9 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer} />
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
-        Let Galasa take care of repetitive, time-consuming manual regression
-        tests, so you can focus on designing more complex test cases to root out
-        critical application defects.
+        With Galasa you can run reliable, repeatable, scalable, automated integration 
+        tests instead of time-consuming manual ones. Use the time saved to focus on 
+        designing more complex tests to root out those hard-to-find application defects.
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
@@ -30,23 +30,19 @@ const IndexPage = () => (
         tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
-        Run large numbers of tests across different environments in parallel by
-        using automation. Test output is automatically recorded and stored in a
-        single repository, making it easier to quickly identify the cause of a
-        failure.
+        Use Galasa to run large numbers of tests across different environments in parallel by
+        using automation. You can use an existing mainframe environment, or get an environment
+        provisioned specifically for you.
       </KeyFeature>
-      <KeyFeature title="Deliver with confidence">
-        Run reliable, repeatable, automated test suites to deliver changes
-        quickly and with confidence. Dynamically build a test catalog from your
-        test code and automatically select relevant regression test cases for a
-        specific changeset.
+      <KeyFeature title="Speed up diagnosis">
+        Galasa automatically records test artifacts and stores the results in a single repository,
+        making it easier to quickly identify the cause of failure. 
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
-        Run the same test in different test environments without changing a
+        With Galaas you can run the same test in different test environments without changing a
         single line of code. Speed up problem determination by running test code
         locally on your laptop in debug mode or run a test suite overnight using
-        automation. Use an existing z/OS environment, or get an environment
-        provisioned specifically for you.
+        automation. 
       </KeyFeature>
     </div>
     <Footer />
