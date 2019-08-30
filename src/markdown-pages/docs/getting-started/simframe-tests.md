@@ -18,5 +18,5 @@ dev.galasa.simframe.tests 
 1. Right-click *Galasa* and choose *New Configuration*.
 1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simframe.tests`, then press *Search* to locate your test class, *SimframeBankIVT*.
 1. Un-tick the *Include ~/.galasa/override.properties* box when back in the main *Run Configurations* dialog.
-1. Press *Apply* then *Run* 
+1. Press *Apply* then *Run*.
 1. The *SimframeBankIVT* tests run, and the Eclipse console displays their progress through to completion.
