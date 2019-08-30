@@ -10,7 +10,7 @@
           path: /about/concepts
         - title: Benefits of Galasa
           path: /about/automation
-        - title: DevOps strategy
+        - title: Galasa and DevOps
           path: /about/devops
     - title: Tutorials
       root: /tutorials/
@@ -27,8 +27,6 @@
               path: /docs/introduction/choosing
             - title: Writing Galasa tests
               path: /docs/introduction/writing
-            - title: Examples
-              path: /docs/introduction/examples
         - title: Getting started
           path: /docs/getting-started/
           items:
