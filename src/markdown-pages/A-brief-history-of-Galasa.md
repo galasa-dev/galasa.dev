@@ -40,7 +40,7 @@ We found several common problems being faced by these teams, including:
 
     Test results are stored in spreadsheets and must be manually approved by product owners before the change is promoted. This makes it difficult to gain awareness of the tests that are run, and the manual process takes time and requires too much intervention.
 
-- A long development cycle.
+- A long development cycle
 
     Unreliable test data, manual testing and a manual approval process all add up to a development cycle that can’t be sped up without loss of confidence. Application changes take many months to reach production, and emergency fixes are promoted with only a sub-set of suitable tests exercised.
  
