@@ -8,7 +8,7 @@ Once you know which tests or parts of a test you want to automate, you can selec
 Here’s an example of a manual test script that a tester might have performed manully that’s been converted into an automated Galasa test. You can find lots more sample tests that you can use to get you up and running _here_.
 
 ## Writing your own Manager
-If a suitable Manager is not currently available as part of Galasa, check which Managers are planned for future releases, or raise a request for one to be developed. Alternatively, you can write your own Manager and even share it with the community. If you’re writing your own Manager, here are some helpful guidelines to get you started …
+If a suitable Manager is not currently available as part of Galasa, you can write your own and even share it with the community. Alternatively, you could see what Managers are planned in future releases or raise a request to ascertain the likelihood for one being developed.  If you’re writing your own Manager, here are some helpful guidelines to get you started 
 
   * Each Manager should focus on integrating Galasa with a single tool, product or capability.
   * Decide whether the Manager needs to provision itself, or any ancillary data, into the test environment.
