@@ -12,7 +12,7 @@ Once you've got more experience with Galasa automation, other good candidates in
 - screen-scraping tests
 - time-consuming to run manually
 - repetitive or that cover complex areas (these areas are often prone to human error)
-- data entry tests, including test that need multiple data inputs, or large amounts of data
+- data entry tests, including tests that need multiple data inputs, or large amounts of data
 - scheduled to manage throughput and provide bottlenecks for specific resources, hosts or platforms
 - mixed mode tests, for example, tests using a 3270 terminal, batch files and a web service
 - difficult to perform manually, such as concurrency or performance tests
