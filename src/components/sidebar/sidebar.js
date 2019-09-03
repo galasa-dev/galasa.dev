@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { Location } from "@reach/router"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { normalisePath } from "../../utils/path"
+import Hamburger from "../../images/hamburger.inline.svg"
+import Cross from "../../images/cross.inline.svg"
 
 import sidebarStyles from "./sidebar.module.scss"
 import Level1Item from "./level-1-item"
@@ -11,8 +13,6 @@ export default () => {
 
   const {
     navYaml: { sections },
-    hamburger: { publicURL: hamburgerUrl },
-    cross: { publicURL: crossUrl },
   } = useStaticQuery(graphql`
     query SidebarQuery {
       navYaml {
@@ -28,18 +28,6 @@ export default () => {
             }
           }
         }
-      }
-      cross: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "cross.svg" }
-      ) {
-        publicURL
-      }
-      hamburger: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "hamburger.svg" }
-      ) {
-        publicURL
       }
     }
   `)
@@ -74,16 +62,12 @@ export default () => {
                 (menuOpen ? sidebarStyles.openMenu : "")
               }
             >
-              <img
+              <Hamburger
                 className={sidebarStyles.hamburger}
-                alt="Menu"
-                src={hamburgerUrl}
                 onClick={() => setMenuOpen(true)}
               />
-              <img
+              <Cross
                 className={sidebarStyles.cross}
-                alt="Close"
-                src={crossUrl}
                 onClick={() => setMenuOpen(false)}
               />
               <ul className={sidebarStyles.level1List}>

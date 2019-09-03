@@ -72,8 +72,16 @@ module.exports = {
         background_color: `#EFEFEF`,
         theme_color: `#212121`,
         display: `browser`,
-        icon: `src/images/identifier.svg`
+        icon: `src/images/identifier.inline.svg`
       },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
     },
   ],
 }
