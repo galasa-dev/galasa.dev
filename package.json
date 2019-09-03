@@ -11,6 +11,7 @@
     "gatsby-plugin-manifest": "^2.2.9",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.5",
+    "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-remark-images": "^3.1.19",
@@ -47,5 +48,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

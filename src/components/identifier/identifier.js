@@ -1,32 +1,27 @@
 import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import identifierStyles from "./identifier.module.scss"
+import IdentifierSVG from "../../images/identifier.inline.svg"
 
 const Identifier = () => {
-  const data = useStaticQuery(graphql`
+  const {
+    site: {
+      siteMetadata: { siteTitle },
+    },
+  } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          siteTitle: title
         }
-      }
-      identifier: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "identifier.svg" }
-      ) {
-        publicURL
       }
     }
   `)
 
   return (
     <Link className={identifierStyles.identifier} to="/">
-      <img
-        className={identifierStyles.image}
-        alt=""
-        src={data.identifier.publicURL}
-      />
-      {data.site.siteMetadata.title}
+      <IdentifierSVG className={identifierStyles.image} />
+      {siteTitle}
     </Link>
   )
 }

@@ -75,5 +75,13 @@ module.exports = {
         icon: `src/images/identifier.svg`
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
+    },
   ],
 }
