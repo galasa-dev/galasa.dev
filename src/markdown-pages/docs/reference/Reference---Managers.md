@@ -2,6 +2,14 @@
 path: "/docs/reference/managers"
 title: "Managers"
 ---
+Managers are the provisioning engines of test environments. They abstract the setup and tear-down of test environments into a single place, and can be reused across multiple tests. Using managers protects your tests from pollution by provisioning code and drastically reduces the amount of boilerplate you need to write. Managers also allow you to parcel-out difficult-to-write environmental setup tasks to the experts who know how to do it, in complete isolation from the rather more mundane work of writing and running tests. When it makes sense, a test case can invoke multiple managers - the `SimframeBankIVT.java` example itself pulls in:
+
+* A z/OS image manager (`@ZosImage`)
+* A 3270 terminal manager (`@Zos3270Terminal`)
+* An artifact manager (`@ArtifactManager`)
+* An HTTP client manager (`@HttpClient`)
+
+Managers are invoked using [Java annotations](https://en.wikipedia.org/wiki/Java_annotation).
 
 Manager | Purpose
 --------|--------
