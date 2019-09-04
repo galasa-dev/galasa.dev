@@ -53,6 +53,7 @@
     margin: 50px 0;
     a {
         text-decoration: none;
+        font-weight: 400;
     }
 }
 
@@ -125,7 +126,7 @@
 
     a {
         @extend %sidebarItemLink;
-        font-weight: 500;
+        font-weight: 600;
         color: #5C5C5C;
     }
 }
@@ -177,7 +178,7 @@
             background-color: $color-nav-marker;
             content: " ";
             transition-property: width;
-            transition-duration: 0.3s;
+            transition-duration: $transition-speed;
             transition-timing-function: ease-in-out;
         }
     }

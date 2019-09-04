@@ -4,9 +4,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: $color-main-bg;
     position: relative;
-
+    
     @media screen and (min-width: $br-small) {
         min-height: initial;
         flex-direction: row;
@@ -30,55 +29,51 @@
 .navContainer {
     display: none;
     flex-direction: column;
-    margin-top: 53px;
+    margin: 53px (-$margin-container-sm) 0 (-$margin-container-sm);
+    padding: 0 $margin-container-sm;
     
     @media screen and (min-width: $br-small) {
         display: flex;
         flex-direction: row;
         margin-top: 0;
+        border-bottom: none;
     }
 }
 
-.navLink {
+a.navLink {
     float: right;
-    color: #5C5C5C;
     font-size: 32px;
     text-decoration-line: none;
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: $transition-speed;
     transition-timing-function: ease-in-out;
     margin: 16px 0;
+    font-family: "Work Sans", sans-serif;
 
     &.selected {
-        color: #000;
-
         &:before {
             top: -50px;
         }
-    }
-
-
-    &:hover {
-        color: #000;
     }
 
     @media screen and (min-width: $br-small) {
         font-size: 18px;
         margin-left: 2em;
         margin-top: 50px;
+        font-weight: 600;
+        font-family: "Open Sans", sans-serif;
 
         &:before {
             position: absolute;
             left: 0;
             right: 0;
-            top: -85px;
+            top: -90px;
             height: 35px;
-            background-color: $color-nav-marker;
             content: " ";
-            transition-property: top;
-            transition-duration: 0.3s;
+            transition-property: top color;
+            transition-duration: $transition-speed;
             transition-timing-function: ease-in-out;
         }
     }
@@ -86,7 +81,7 @@
 
 %menu-enablement-image {
     position: absolute;
-    top: 35px;
+    top: 55px;
     right: 0;
     font-size: 54px;
     padding: 10px;
@@ -106,14 +101,28 @@
 
 .image {
     width: 20px;
+    display: block;
 }
+
 
 @media screen and (max-width: $br-small - 1) {
     .openMenu {
-        min-height: 100vh;
-        
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -$margin-container-sm;
+            right: -$margin-container-sm;
+            bottom: 0;
+            z-index: -1;
+            backdrop-filter: blur(5px);
+        }
+
         .navContainer {
             display: flex;
+            border-bottom: 1px solid #E6E6E6;
         }
         .closeX {
             display: block;

@@ -11,6 +11,7 @@
     "gatsby-plugin-manifest": "^2.2.9",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.5",
+    "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-remark-images": "^3.1.19",
@@ -41,11 +42,14 @@
     "clean": "gatsby clean",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.{js,jsx}'",
-    "format:check": "prettier --check 'src/**/*.{js,jsx}'",
-    "format:check:ci": "prettier --list-different --write 'src/**/*.{js,jsx}' | xargs git --no-pager diff --color --exit-code --",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
+    "format:check:ci": "prettier --list-different --write \"src/**/*.{js,jsx}\" | xargs git --no-pager diff --color --exit-code --",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

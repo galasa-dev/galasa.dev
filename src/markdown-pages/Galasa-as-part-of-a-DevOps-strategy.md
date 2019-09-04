@@ -2,7 +2,7 @@
 path: "/about/devops"
 title: "Galasa and DevOps"
 ---
-## What is DevOps?
+# What is DevOps?
 DevOps is a set of processes that enable development and operations teams work together to deliver and run software in a repeatable, fast and error-free way. 
 
 ### Benefits of Galasa as part of a DevOps strategy 
@@ -32,7 +32,7 @@ The three key principles of DevOps are:
 
  - Deploy with repeatable, reliable processes
  
-    Galasa enables development and operations to support an agile (or at least iterative) software development process all the way through to production by using automation to run tests that are iterative, frequent, repeatable, and reliable.
+    Galasa enables development and operations to support an agile software development process all the way through to production by using automation to run tests that are iterative, frequent, repeatable, and reliable.
     
     Frequent deployments and early testing allow teams to test the deployment processes themselves, thereby lowering the risk of deployment failures at release time.
 
@@ -40,11 +40,11 @@ The three key principles of DevOps are:
 
     When software is tested, Galasa stores the test artifacts in a single repository, making it quicker and easier to analyse and identify the cause of a failure. Test results are captured in a consistent format, making sign-off between test environments simple and consistent.
 
-## DevOps concepts 
+# DevOps concepts 
 
 ### Continuous integration
 
-Continuous integration is a practice in which software developers continuously or frequently integrate their work with that of other members of the development team and then test the integrated work. In the case of complex systems made up of multiple systems or services, developers also regularly integrate their work with other systems and services. Regular integration of results leads to early discovery and exposure of integration risks. In complex systems, it also exposes known and unknown risks — both technical and schedule-related.
+Continuous integration is a practice in which software developers continuously or frequently integrate their work with that of other members of the development team and then test the integrated work. In the case of complex systems made up of multiple environments or services, developers also regularly integrate their work across environments and services. Regular integration of results leads to early discovery and exposure of integration risks. In complex environments, it also exposes known and unknown risks — both technical and schedule-related.
 
 Continuous integration adds tremendous value in DevOps by allowing large teams of developers, working on cross-technology components in multiple locations, to deliver software in an agile manner. It also ensures that each team’s work is continuously integrated with that of other development teams and then validated. Continuous integration thereby reduces risk and identifies issues earlier in the software development life cycle.
 
@@ -70,10 +70,10 @@ From a process perspective, you need to adopt processes in three areas to enable
 
 ### Continuous deployment 
 
-Continuous release and deployment take the concept of continuous integration to the next step. The practice that enables release and deploy also enables the creation of a *delivery pipeline*. This pipeline facilitates continuous deployment of software to QA and then to production in an efficient, automated manner. The goal of continuous release and deployment is to release new features to customers and users as soon as possible.
+Continuous release and deployment take the concept of continuous integration to the next step. The practice that enables release and deploy also enables the creation of a *delivery pipeline*. This pipeline facilitates continuous deployment of software through test stages and environments and then to production in an efficient, automated manner. The goal of continuous release and deployment is to release new features to customers and users as soon as possible.
 
 ### Delivery pipeline
-A delivery pipeline consists of the stages an application goes through from development through to production. Figure  3-1 shows a typical set of stages. These stages may vary from one organization to another, however, and may also vary from one application to another based on the organization’s needs, software delivery process, and maturity. The level of automation may also vary. Some organizations fully automate their delivery pipelines; others put their software through manual checks and gates due to regulatory or company requirements. You don’t have to address all stages at once. Start by focusing on the critical parts of organization — not everything all at once — and then gradually broaden to include all stages.
+A delivery pipeline consists of the stages an application goes through from development through to production. Figure 1 shows a typical set of stages. These stages may vary from one organization to another and may also vary from one application to another based on the organization’s needs, software delivery process, and maturity. The level of automation may also vary. Some organizations fully automate their delivery pipelines; others put their software through manual checks and gates due to regulatory or company requirements. You don’t have to address all stages at once. Start by focusing on the critical parts of organization — not everything all at once — and then gradually broaden to include all stages.
 
 
 ## How Galasa fits into a delivery pipeline

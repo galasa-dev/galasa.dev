@@ -1,16 +1,57 @@
 @import "../styles/styles";
 
+$br-sm: 600px;
+$br-lg: 1124px;
+
 .heroContainer {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     /* temp */ min-height: 350px;
+    margin-top: 90px;
+
+    @media screen and (min-width: $br-lg) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.heroTitle {
+    font-size: 52px;
+    line-height: 1.17;
+    font-weight: 400;
+    max-width: 400px;
+
+    @media screen and (min-width: $br-sm) {
+        max-width: none;
+    }
+}
+
+.heroDescription {
+    color: #A7A7A7;
+    font-size: 16px;
+    margin-bottom: 45px;
+
+    @media screen and (min-width: $br-sm) {
+        max-width: 380px;
+    }
+}
+
+.heroButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 210px;
+
+    @media screen and (min-width: $br-sm) {
+        flex-direction: row;
+    }
 }
 
 .keyFeatureContainer {
+    display: grid;
+    gap: 8px;
+        
     @media screen and (min-width: $br-single-column) {
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }

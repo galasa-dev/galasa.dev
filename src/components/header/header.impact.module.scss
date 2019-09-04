@@ -1,0 +1,12 @@
+@import "../../styles/styles";
+@import "./header";
+
+a.navLink {
+    color: #fff;
+
+    @media screen and (min-width: $br-small) {
+        &:before {
+            background-color: transparent;
+        }
+    }
+}

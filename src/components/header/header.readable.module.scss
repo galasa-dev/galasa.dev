@@ -1,0 +1,10 @@
+@import "../../styles/styles";
+@import "./header";
+
+a.navLink {
+    @media screen and (min-width: $br-small) {
+        &:before {
+            background-color: $color-nav-marker;
+        }
+    }
+}

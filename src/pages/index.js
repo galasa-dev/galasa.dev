@@ -5,10 +5,27 @@ import KeyFeature from "../components/key-feature"
 import Footer from "../components/footer"
 
 import indexStyles from "./index.module.scss"
+import Button from "../components/button"
 
 const IndexPage = () => (
   <>
-    <div className={indexStyles.heroContainer} />
+    <div className={indexStyles.heroContainer}>
+      <div>
+        <h1 className={indexStyles.heroTitle}>
+          An open source tool for hands-free testing
+        </h1>
+        <p className={indexStyles.heroDescription}>
+          Let Galasa handle all of your manual testing needs to let you get back
+          to what you do best.
+        </p>
+        <div className={indexStyles.heroButtons}>
+          <Button target={"/docs/quickstart"} flash={true} primary={true}>
+            Quick start
+          </Button>
+          <Button target={"/about"}>Learn more</Button>
+        </div>
+      </div>
+    </div>
     <div className={indexStyles.keyFeatureContainer}>
       <KeyFeature title="Lighten the load with automation">
         Let Galasa take care of repetitive, time-consuming manual regression
