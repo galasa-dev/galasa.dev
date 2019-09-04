@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 100%;
     position: relative;
-
+    
     @media screen and (min-width: $br-small) {
         min-height: initial;
         flex-direction: row;
@@ -29,7 +29,7 @@
 .navContainer {
     display: none;
     flex-direction: column;
-    margin: 53px -$margin-container-sm 0 -$margin-container-sm;
+    margin: 53px (-$margin-container-sm) 0 (-$margin-container-sm);
     padding: 0 $margin-container-sm;
     
     @media screen and (min-width: $br-small) {
@@ -104,12 +104,25 @@ a.navLink {
     display: block;
 }
 
+
 @media screen and (max-width: $br-small - 1) {
     .openMenu {
-        min-height: 100vh;
-        
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -$margin-container-sm;
+            right: -$margin-container-sm;
+            bottom: 0;
+            z-index: -1;
+            backdrop-filter: blur(5px);
+        }
+
         .navContainer {
             display: flex;
+            border-bottom: 1px solid #E6E6E6;
         }
         .closeX {
             display: block;
