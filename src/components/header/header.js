@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { Location } from "@reach/router"
 import { ThemeConsumer } from "../theme"
 import Hamburger from "../../images/hamburger.inline.svg"
@@ -13,6 +13,7 @@ import readableStyles from "./header.readable.module.scss"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const navContainerNode = useRef()
 
   const getStyles = theme => {
     if (theme === "impact") {
@@ -21,6 +22,20 @@ const Header = () => {
       return readableStyles
     }
   }
+
+  const handleClick = e => {
+    if (!navContainerNode.current.contains(e.target)) {
+      // Click outside the navContainer
+      setMenuOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick)
+    return () => {
+      document.removeEventListener("mousedown", handleClick)
+    }
+  }, [])
 
   return (
     <Location>
@@ -46,7 +61,10 @@ const Header = () => {
                 <h1 className={headerStyles.title}>
                   <Identifier />
                 </h1>
-                <div className={headerStyles.navContainer}>
+                <div
+                  ref={navContainerNode}
+                  className={headerStyles.navContainer}
+                >
                   <Link
                     to="/about"
                     onClick={() => setMenuOpen(false)}
