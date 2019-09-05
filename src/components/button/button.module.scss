@@ -1,0 +1,35 @@
+@import "../../styles/styles";
+
+.button {
+    display: inline-block;
+    padding: 16px 51px;
+    text-decoration: none;
+    margin-right: 8px;
+    margin-bottom: 32px;
+}
+
+.primary {
+    border-left: 10px solid #0067BC;
+    background-color: #0085F3;
+}
+
+.secondary {
+    border: 2px solid #fff;
+    background-color: #000;
+}
+
+.flash {
+    position: relative;
+
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 10000px;
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        background-color: #212121;
+        z-index: -1;
+    }
+}

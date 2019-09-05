@@ -1,0 +1,14 @@
+@import "../../styles/styles";
+@import "./layout";
+
+.globalStyle {
+    body {
+        background-color: $color-main-bg;
+        color: #606060;
+    }
+
+    a {
+        color: #000;
+    }
+}
+
