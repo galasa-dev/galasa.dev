@@ -10,16 +10,16 @@ waterfall approach is falling out of favour. Automated testing is key to adoptin
 Automated testing and agile delivery are traditionally seen as being available only in greenfield projects, but with the introduction of Galasa, you can be agile in a mainframe environment as well. Automated Testing on z/OS is not a myth, we have developed the tools to get us there and you can now build on our experience.
 
 ## Benefits of Galasa
-- A great fit for automating a wide set of test disciplines such as functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
-- Provides the capability to functionally test a range of interfaces from traditional 3270 through to web browser and selenium-based tests.  
-- Integrates with open source test tools, such as selenium-based tooling, to allow tests that use these tools to integrate and be executed and reported alongside your other tests.
-- Integrates with z/OS, enabling any test to aggregate information from a range of sources to verify the result of a test case.
+- A great fit for automating a wide set of test disciplines including functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
+- Provides the capability to test a range of interfaces from traditional 3270 through to web browser and selenium-based tests.  
+- Integrates with z/OS and with open-source test tools, enabling tests to aggregate information from a range of sources.
+
 
 ## Targeted testing without limitations
 Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service is a simple operation and there are plenty of tools 
 that enable you to accomplish this task.  However, there are  limitations to some of these tools:
 
--	Most of the tools need to be manually operated and so limit their effectiveness in a continuous delivery pipeline
+-	Most of the tools require some level of manual operation which limits their effectiveness in a continuous delivery pipeline
 -	The tools cannot contextually bind to either a provisioned, or pre-existing environment in an intelligent manner.
 -	The tests cannot utilise a mix of technologies.  For example, let’s say you need to examine a CICS or a z/OS resource to validate that the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester understanding how to access it?
 
