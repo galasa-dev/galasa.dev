@@ -8,14 +8,14 @@ Galasa started life as JAT (Java Automated Testing) - an internal IBM tool which
 
 
 ## The Solution
-To solve these problems, JAT was created. JAT was inspired by JUnit but with a focus on functional and integration testing, and not on unit testing. JAT is written in Java - in part because of Java's run-anywhere capability, huge number of utility libraries and its extensive ecosystem. However, the team fountd that Java expertise is not essential to use it. Some knowledge of Java syntax proved useful, but the style of Java used to write tests is more procedural than object orientated, making writing tests easier. Samples and examples provided as part of JAT could be used and this help to further reduce any language barrier to entry.
+To solve these problems, JAT was created. JAT was inspired by JUnit but with a focus on functional and integration testing, and not on unit testing. JAT is written in Java - in part because of Java's run-anywhere capability, huge number of utility libraries and its extensive ecosystem. However, the team fountd that Java expertise is not essential to use it. Some knowledge of Java syntax proved useful, but the style of Java used to write tests is more procedural than object orientated, making writing tests easier. Samples and examples provided as part of JAT could be used and this helped to further reduce any language barrier to entry.
 
-Developing a test was made much easier and quicker as test code could be run at the push of a single button, and all the test output was available in a single place which made diagnosing coding errors much quicker. Automated scheduling of test runs enabled the continuous testing of new code in a timely and cost-effective manner.
+Developing a test was made much easier and quicker as test code could be run at the push of a single button. Automated scheduling of test runs enabled the continuous testing of new code in a timely and cost-effective manner.
 
-All aspects of a test run were automatically recorded and stored in a single repository, so if a test failed at, say, 2am, simplifying access to logs, screenshots and data made it quicker and easier to diagnose the problem. The system proved highly scalable, allowing large number of tests to be run in parallel against many releases of CICS, enabling JAT to deliver on its primary purpose of integration testing and ensuring the quality of CICS.
+All aspects of a test run were automatically recorded and stored in a single repository, so if a test failed at, say, 2am, simplified access to logs, screenshots and data made it quick and easy to diagnose the problem. The system proved highly scalable, allowing large number of tests to be run in parallel against many releases of CICS, enabling JAT to deliver on its primary purpose of integration testing and ensuring the quality of CICS.
 
 ## The Result
-After JAT was rolled out across CICS,  the team fully automated their integration tests, including creating test data, running batch jobs, invoking restful interfaces, interacting with 3270 terminals, and provisioning and de-provisioning test environments. Manual intervention was virtually eliminated and the team were able to work much more efficiently, giving the team more time to focus on complex edge test cases to root out hard-to-find defects and the bandwidth to adapt quickly when testing new changes and features. Continuous, scalable and reliable integration tests running as part of the DevOps pipeline helped to reduce the delivery of a new CICS feature from 18 to 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams across IBM. 
+After JAT was rolled out across CICS,  the team fully automated their integration tests, including creating test data, running batch jobs, invoking RESTful interfaces, interacting with 3270 terminals, and provisioning and de-provisioning test environments. Manual intervention was virtually eliminated and the team were able to work much more efficiently, giving the team more time to focus on complex edge test cases to root out hard-to-find defects, and the bandwidth to adapt quickly when testing new changes and features. Continuous, scalable and reliable integration tests running as part of the DevOps pipeline helped to reduce the delivery of a new CICS feature from 18 to 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams across IBM. 
 
 
 
@@ -34,11 +34,11 @@ We found several common problems being faced by these teams, including:
 
 - A lack of awareness between development and test teams
 
-    Teams are not always aware of the tests another group is running, resulting in tests being duplicated, or missed entirely and there is a lack of clarity around what level of regression testing, if any, is undertaken.
+    Teams are not always aware of the tests another group is running, resulting in tests being duplicated or missed, and there is a lack of clarity around the level of regression testing that is undertaken.
 
 - Too much manual approval and promotion
 
-    Test results are stored in spreadsheets and must be manually approved by product owners before the change is promoted. This makes it difficult to gain awareness of the tests that are run, and the manual process takes time and requires too much intervention.
+    Test results are stored in spreadsheets and are manually approved by product owners before the change is promoted. This makes it difficult to gain awareness of the tests that are run, and the manual process takes time and can require significant intervention.
 
 - A long development cycle
 

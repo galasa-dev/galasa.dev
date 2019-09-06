@@ -11,7 +11,7 @@ Automated testing and agile delivery are traditionally seen as being available o
 
 ## Benefits of Galasa
 - A great fit for automating a wide set of test disciplines including functional and system level tests. However, its biggest benefit is that it can be used to create integration level tests.
-- Provides the capability to test a range of interfaces from traditional 3270 through to web browser and selenium-based tests.  
+- Provides the capability to test a range of interfaces from traditional 3270 terminals through to web browser and selenium-based tests.  
 - Integrates with z/OS and with open-source test tools, enabling tests to aggregate information from a range of sources.
 
 
