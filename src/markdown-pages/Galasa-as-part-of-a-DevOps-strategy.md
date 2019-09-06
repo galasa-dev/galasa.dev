@@ -3,10 +3,10 @@ path: "/about/devops"
 title: "Galasa and DevOps"
 ---
 # What is DevOps?
-DevOps is a set of processes that enable development and operations teams work together to deliver and run software in a repeatable, fast and error-free way. 
+DevOps is a set of processes that enable development and operations teams to work together to deliver and run software in a repeatable, fast and error-free way. 
 
 ### Benefits of Galasa as part of a DevOps strategy 
-DevOps provides significant benefit in three key areas:
+Galasa as part of a DevOps strategy can provide significant benefit in three key areas:
 
 1.	Faster time to value
 
@@ -22,7 +22,7 @@ DevOps provides significant benefit in three key areas:
 
 
 ### DevOps principles and Galasa
-The three key principles of DevOps are:
+Galasa supports the following three key principles of DevOps:
 
  - Develop and test against production-like systems
     
@@ -32,7 +32,7 @@ The three key principles of DevOps are:
 
  - Deploy with repeatable, reliable processes
  
-    Galasa enables development and operations to support an agile software development process all the way through to production by using automation to run tests that are iterative, frequent, repeatable, and reliable.
+    Galasa enables development and operations to support an agile software development process all the way through from development to production by using automation to run tests that are iterative, frequent, repeatable, and reliable.
     
     Frequent deployments and early testing allow teams to test the deployment processes themselves, thereby lowering the risk of deployment failures at release time.
 
@@ -44,7 +44,7 @@ The three key principles of DevOps are:
 
 ### Continuous integration
 
-Continuous integration is a practice in which software developers continuously or frequently integrate their work with that of other members of the development team and then test the integrated work. In the case of complex systems made up of multiple environments or services, developers also regularly integrate their work across environments and services. Regular integration of results leads to early discovery and exposure of integration risks. In complex environments, it also exposes known and unknown risks — both technical and schedule-related.
+Continuous integration is a practice in which software developers continuously or frequently integrate their work with that of other members of the development team and then test the integrated work. In the case of complex systems that are made up of multiple environments or services, developers also regularly integrate their work across environments and services. Regular integration of results leads to early discovery and exposure of integration risks. In complex environments, it also exposes known and unknown risks — both technical and schedule-related.
 
 Continuous integration adds tremendous value in DevOps by allowing large teams of developers, working on cross-technology components in multiple locations, to deliver software in an agile manner. It also ensures that each team’s work is continuously integrated with that of other development teams and then validated. Continuous integration thereby reduces risk and identifies issues earlier in the software development life cycle.
 
