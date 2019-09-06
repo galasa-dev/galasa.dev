@@ -1,37 +1,13 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import Identifier from "../identifier/identifier"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import GitHubSVG from "../../images/github.inline.svg"
+import TwitterSVG from "../../images/twitter.inline.svg"
+import SpectrumSVG from "../../images/spectrum.inline.svg"
 import footerStyles from "./footer.module.scss"
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query SiteFooterQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      github: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "github.svg" }
-      ) {
-        publicURL
-      }
-      twitter: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "twitter.svg" }
-      ) {
-        publicURL
-      }
-      spectrum: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "spectrum.svg" }
-      ) {
-        publicURL
-      }
-    }
-  `)
-
   return (
     <div className={footerStyles.footer}>
       <div className={footerStyles.identifier}>
@@ -47,13 +23,13 @@ const Footer = () => {
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
         <a className={footerStyles.icon} href="#github">
-          <img alt="GitHub" src={data.github.publicURL} />
+          <GitHubSVG />
         </a>
         <a className={footerStyles.icon} href="#twitter">
-          <img alt="Twitter" src={data.twitter.publicURL} />
+          <TwitterSVG />
         </a>
         <a className={footerStyles.icon} href="#spectrum">
-          <img alt="Spectrum" src={data.spectrum.publicURL} />
+          <SpectrumSVG />
         </a>
       </div>
     </div>

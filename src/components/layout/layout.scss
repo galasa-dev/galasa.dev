@@ -1,35 +1,14 @@
 @import "../../styles/styles";
 
-html {
-    font-family: "Open Sans", sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
+.container {
+    margin: 0 $margin-container-sm;
 
-body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: $color-main-bg;
-    color: #606060;
-    line-height: 32px;
-    font-size: 16px;
-}
+    @media screen and (min-width: $br-container-md) {
+        margin: 0 $margin-container-md;
+    }
 
-a {
-    color: #000;
-    font-weight: 600;
-}
-
-ul {
-    padding-inline-start: 40px;
-}
-
-pre, code, kbd {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.95rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Work Sans";
+    @media screen and (min-width: $br-container-lg) {
+        max-width: $width-container-lg;
+        margin: 0 auto;
+    }
 }

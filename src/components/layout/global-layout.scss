@@ -1,0 +1,35 @@
+@import "../../styles/styles";
+
+html {
+    font-family: "Open Sans", sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 2;
+    font-size: 16px;
+    transition-property: background-color;
+    transition-duration: $transition-speed;
+    background-blend-mode: screen;
+}
+
+a {
+    font-weight: 600;
+}
+
+ul {
+    padding-inline-start: 40px;
+}
+
+pre, code, kbd {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Work Sans", sans-serif;
+}

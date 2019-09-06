@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="812px" height="688px" viewBox="0 0 812.57 688.15" fill="#212121">
+    <defs>
+        <polygon id="hex" points="231.8 -0.75 76.2 -0.75 -1.6 134 76.2 268.75 231.8 268.75 309.6 134 231.8 -0.75"/>
+        <rect id="rect1" width="180.55" height="360.04"/>
+        <rect id="rect2" width="301.27" height="301.28"/>
+        <rect id="rect3" width="324.78" height="279.91"/>
+    </defs>
+
+    <use xlink:href="#hex" />
+    <use x="171.03" y="180.68" xlink:href="#rect1" style="mix-blend-mode: difference;" />
+    <use x="487.79" y="260.27" xlink:href="#rect3" style="mix-blend-mode: difference;" />
+    <use x="274.66" y="386.87" xlink:href="#rect2" style="mix-blend-mode: difference;" />
+</svg>
