@@ -15,7 +15,8 @@ const IndexPage = () => (
           Unparalleled deep integration testing for power-seeking testers
         </h1>
         <p className={indexStyles.heroDescription}>
-          Start running repeatable, reliable automated tests and deliver your software changes faster and with confidence.
+          Start running repeatable, reliable automated tests and deliver your
+          software changes faster and with confidence.
         </p>
         <div className={indexStyles.heroButtons}>
           <Button target={"/docs/quickstart"} flash={true} primary={true}>
