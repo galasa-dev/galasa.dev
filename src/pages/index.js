@@ -12,7 +12,7 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer}>
       <div>
         <h1 className={indexStyles.heroTitle}>
-          Unparalleled deep integration testing for power-seeking testers
+          Deep integration testing for power-seeking testers
         </h1>
         <p className={indexStyles.heroDescription}>
           Start running repeatable, reliable automated tests and deliver your
