@@ -38,7 +38,7 @@ const IndexPage = () => (
         <Link to="/about/devops">DevOps pipeline</Link> and can be used
         alongside other test tools, such as JMeter and WSIM. Galasa can access
         z/OS files and commands, and comes with built-in support for integration
-        with other z/OS subsystems.
+        with z/OS subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
         Galasa can provision the test data that you need or can find data that
