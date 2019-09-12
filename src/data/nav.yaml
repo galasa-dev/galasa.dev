@@ -20,7 +20,7 @@
     - title: Docs
       root: /docs/
       items:
-        - title: Introduction
+        - title: Introduction and architecture
           path: /docs/
           items:
             - title: What are the best tests to automate?
