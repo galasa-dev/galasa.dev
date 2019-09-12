@@ -3,8 +3,6 @@ path: "/docs/reference/glossary"
 title: "Glossary"
 ---
 ## A
-*Agile*: Not sure if we really need to define agile here. (I think) you don't need to be in an agile team to be able to use Galasa.
-
 *Annotation*: A type of metadata that can be added to Java source code. In a Galasa context, you can think of annotations as a means to provide instructions to the framework. When the framework recognizes a source-code annotation, it can respond in potentially many ways, for example by invoking code or performing behind-the-scenes processing. Galasa managers are declared in test classes and test cases using annotations, and they are a fundamental part of how Galasa works. 
 
 *Artifact*: A collection of aggregated project assets treated (and often packaged) as a whole to help you test, deploy or distribute an application. A Java JAR file is a common example of an artifact. 
@@ -68,19 +66,5 @@ title: "Glossary"
 
 *Test runner*: A software component that receives a set of tests and executes them, often persisting the test results. Alongside the Galasa framework and its managers, Galasa's test runner is a major component of the system.
 
-## W
-
-*Waterfall*: Like agile, not sure if this needs to be here.
-
 ## Z
 *z/OS*: A 64-bit operating system for IBM mainframes.
-
-
-
-
-
-
-
-
-
-
