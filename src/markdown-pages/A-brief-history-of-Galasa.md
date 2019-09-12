@@ -17,35 +17,6 @@ All aspects of a test run were automatically recorded and stored in a single rep
 ## The Result
 After JAT was rolled out across CICS,  the team fully automated their integration tests, including creating test data, running batch jobs, invoking RESTful interfaces, interacting with 3270 terminals, and provisioning and de-provisioning test environments. Manual intervention was virtually eliminated and the team were able to work much more efficiently, giving the team more time to focus on complex edge test cases to root out hard-to-find defects, and the bandwidth to adapt quickly when testing new changes and features. Continuous, scalable and reliable integration tests running as part of the DevOps pipeline helped to reduce the delivery of a new CICS feature from 18 to 3 months without any loss of confidence in quality. In fact, JAT was so successful, that it was adopted by other teams across IBM. 
 
-
-
-## The Research
-We’ve been engaged in research to better understand how mainframe applications outside of IBM are developed, tested and delivered. As part of this research, we  gained insight into the testing process and the teams who are responsible for validating the quality of the application code changes. 
-
-We found several common problems being faced by these teams, including: 
-
--  Unreliable test data
-    
-    The data is often in a state of flux, resulting in the breaking of existing tests and difficulty in snapshotting and rolling back data.
-
--  Unreliable automated testing systems
-    
-    If automated testing systems are used, they are often unreliable, or build on unreliable test data.
-
-- A lack of awareness between development and test teams
-
-    Teams are not always aware of the tests another group is running, resulting in tests being duplicated or missed, and there is a lack of clarity around the level of regression testing that is undertaken.
-
-- Too much manual approval and promotion
-
-    Test results are stored in spreadsheets and are manually approved by product owners before the change is promoted. This makes it difficult to gain awareness of the tests that are run, and the manual process takes time and can require significant intervention.
-
-- A long development cycle
-
-    Unreliable test data, manual testing and a manual approval process all add up to a development cycle that can’t be sped up without loss of confidence. Application changes take many months to reach production, and emergency fixes are promoted with only a sub-set of suitable tests exercised.
- 
-As a result of these findings, we realised that the JAT framework could be valuable to organizations outside of IBM, especially as we learned that most application testing on the mainframe is manual today. So, we are releasing an open-source version of JAT - called Galasa -  to help other teams resolve these common problems and to benefit from the capabilities offered by the Galasa framework. 
-
 ## The Future
 
 We hope Galasa will be of interest to anyone who is involved in ensuring the quality of application code through testing at any phase in the application lifecycle:  application architects, developers, testers, test architects, test team leads, system programmers, release managers, and CI/CD and DevOps pipeline engineers. 

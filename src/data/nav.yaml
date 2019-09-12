@@ -1,3 +1,4 @@
+
 - sections:
     - title: About
       root: /about/
@@ -12,6 +13,8 @@
           path: /about/automation
         - title: Galasa and DevOps
           path: /about/devops
+        - title: Galasa within a delivery pipeline
+          path: /about/deliverypipeline
     - title: Tutorials
       root: /tutorials/
       items:
@@ -34,8 +37,8 @@
               path: /docs/getting-started/installing
             - title: Exploring Simframe manually
               path: /docs/getting-started/simframe
-            - title: Running the simframe IVT
-              path: /docs/getting-started/simframe-IVT
+            - title: Running the provided Simframe tests
+              path: /docs/getting-started/simframe-tests
         - title: Quickstart
           path: /docs/quickstart
         - title: Reference
