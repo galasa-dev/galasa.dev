@@ -29,6 +29,8 @@
               path: /docs/introduction/choosing
             - title: Writing Galasa tests
               path: /docs/introduction/writing
+            - title: Galasa test examples
+              path: /docs/test_code_snippets
         - title: Getting started
           path: /docs/getting-started/
           items:
