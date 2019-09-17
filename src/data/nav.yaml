@@ -22,13 +22,15 @@
     - title: Docs
       root: /docs/
       items:
-        - title: Introduction and architecture
+        - title: Introduction
           path: /docs/
           items:
             - title: What are the best tests to automate?
               path: /docs/introduction/choosing
             - title: Writing Galasa tests
               path: /docs/introduction/writing
+            - title: Galasa test examples
+              path: /docs/test_code_snippets
         - title: Getting started
           path: /docs/getting-started/
           items:
@@ -36,8 +38,8 @@
               path: /docs/getting-started/installing
             - title: Exploring Simframe manually
               path: /docs/getting-started/simframe
-            - title: Running the Simframe IVT
-              path: /docs/getting-started/simframe-IVT
+            - title: Running the provided Simframe tests
+              path: /docs/getting-started/simframe-tests
         - title: Quickstart
           path: /docs/quickstart
         - title: Reference
