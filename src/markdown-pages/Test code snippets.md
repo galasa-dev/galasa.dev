@@ -5,7 +5,7 @@ title: "Galasa test examples"
 
 The examples in this section are taken from the Simframe tests that are packaged as part of Galasa. To view the full set of Simframe test code see, xxx.
 
-# Minimise boilerplate code
+### Minimise boilerplate code
 
 Keeping the amount of boilerplate code in a test case small makes tests easier to write,
 understand and maintain. The less code a tester has to write, the faster tests can be written and the less that can go wrong. Use the time saved to focus on writing edge test cases or more complex test suites. 
@@ -48,7 +48,7 @@ The following example shows the "ProvisionedAccountCreditTests.java" sample whic
 
 The responsibility of logging onto the system and finding a valid account to test with has been moved from the test to  the HursleyBank Manager. For the purposes of this test, all the tester wants is a valid account. It is the responsibility of the SimBank Manager to provide that account and inject it into the class.
 
-# Avoid hard coding
+### Avoid hard coding
 
 In the first example, "BasicAccountCreditTest.java", the userid ("IBMUSER"), password ("SYS1")  and account number ("123456789") is hard coded within the test. The disadvantage with hard-coding values is that it makes the test less portable and more difficult to maintain. The values must be changed manually to run on a different test environment, or to use a different bank account. With Galasa, you can run the same test on any environment without changing a single line of code by using variables. 
 
@@ -82,7 +82,7 @@ The architecture means that the following benefits are achieved:
 3. Tests do not have contain code to search for specific account types, eliminating numerous lines of boilerplate code in hundreds of tests.
 4. When the first line of test code is run, it is guaranteed that an account is available and that no other test will be using it.
 
-# Tagging
+### Tagging
 
 Tagging your tests makes it easier for others to quickly understand what tests are available to run against a system, area or application, helping to avoid duplicate tests being written. Tagging also helps when you want to create a suite of tests to run automatically when a change set affecting a system or area is delivered. 
 
