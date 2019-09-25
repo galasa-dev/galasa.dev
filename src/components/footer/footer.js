@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
@@ -13,16 +12,9 @@ const Footer = () => {
       <div className={footerStyles.identifier}>
         <Identifier />
       </div>
-
-      <div className={footerStyles.links}>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/announcements">Announcements</Link>
-        <Link to="/brand">Logo &amp; Assets</Link>
-        <Link to="/contribute">Contribute</Link>
-      </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
-        <a className={footerStyles.icon} href="#github">
+        <a className={footerStyles.icon} href="https://github.com/galasa-dev">
           <GitHubSVG />
         </a>
         <a className={footerStyles.icon} href="#twitter">
