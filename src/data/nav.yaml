@@ -12,5 +12,3 @@
           path: /about/automation
         - title: Galasa and DevOps
           path: /about/devops
-        - title: Galasa within a delivery pipeline
-          path: /about/deliverypipeline
