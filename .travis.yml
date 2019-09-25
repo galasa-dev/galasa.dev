@@ -7,7 +7,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: galasa/galasa-site
-    branch: master
+    branch: announce-master
     condition: "$DO_CF_DEPLOY = true"
 matrix:
   include:

@@ -1,6 +1,6 @@
 ---
 applications:
-- name: galasa
+- name: galasa-announce
   memory: 64M
   path: public
   buildpacks:
