@@ -50,7 +50,7 @@ Managers reduce the amount of boilerplate code within a test. The test code beco
 
 
 ## What's next?
-Galasa provides a [suite of Managers](../docs/reference/managers) for interfacing with common tools, products and operating systems. More Managers will be available in future releases. If you have an idea for a Manager that you would really like to see developed, let us know on _Slack_. Alternatively, you can write your own Managers for your own applications, and _here are some examples_ that can help you get started. Share your Managers with the _Community_ – we’d love to see what you come up with! Check out the _contributor guidelines here_ and let's start making cool Galasa stuff together!
+Galasa provides a suite of Managers for interfacing with common tools, products and operating systems. More Managers will be available in future releases. If you have an idea for a Manager that you would really like to see developed, let us know on _Slack_. Alternatively, you can write your own Managers for your own applications, and _here are some examples_ that can help you get started. Share your Managers with the _Community_ – we’d love to see what you come up with! Check out the _contributor guidelines here_ and let's start making cool Galasa stuff together!
 
 
 

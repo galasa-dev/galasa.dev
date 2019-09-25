@@ -7,7 +7,6 @@ $br-lg: 1124px;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(1, 1fr);
-    /* temp */ min-height: 350px;
     margin-top: 90px;
 
     @media screen and (min-width: $br-lg) {
@@ -32,7 +31,7 @@ $br-lg: 1124px;
     margin-bottom: 45px;
 
     @media screen and (min-width: $br-sm) {
-        max-width: 380px;
+        max-width: 435px;
     }
 }
 

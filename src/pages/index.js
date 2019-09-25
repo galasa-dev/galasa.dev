@@ -15,14 +15,13 @@ const IndexPage = () => (
           Deep integration testing for power&#8209;seeking testers
         </h1>
         <p className={indexStyles.heroDescription}>
-          Start running repeatable, reliable automated tests and deliver your
+          Start running repeatable, reliable, automated tests and deliver your
           software changes faster and with confidence.
         </p>
         <div className={indexStyles.heroButtons}>
-          <Button target={"/docs/quickstart"} flash={true} primary={true}>
-            Quick start
+          <Button target={"/about"} flash={true} primary={true}>
+            Learn more
           </Button>
-          <Button target={"/about"}>Learn more</Button>
         </div>
       </div>
     </div>
@@ -35,7 +34,7 @@ const IndexPage = () => (
       </KeyFeature>
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
-        <Link to="/about/devops">DevOps pipeline</Link> and can be used
+        <Link to="/about/devops">DevOps strategy</Link> and can be used
         alongside other test tools, such as JMeter and WSIM. Galasa can access
         z/OS files and commands, and comes with built-in support for integration
         with z/OS subsystems.
@@ -54,14 +53,14 @@ const IndexPage = () => (
       </KeyFeature>
       <KeyFeature title="Speed up diagnosis">
         Galasa automatically records test artifacts and stores the results in a
-        single repository, making it easier to quickly identify the cause of
+        single repository, making it easier to quickly identify the cause of a
         failure.
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
         With Galasa you can run the same test in different test environments
         without changing a single line of code. Speed up problem determination
         by running test code locally on your laptop in debug mode or run a test
-        suite overnight using automation.
+        suite overnight by using automation.
       </KeyFeature>
     </div>
     <Footer />

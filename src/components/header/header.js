@@ -74,46 +74,6 @@ const Header = () => {
                   >
                     About
                   </Link>
-                  <Link
-                    to="/tutorials"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink +
-                      " " +
-                      selector("tutorials", location)
-                    }
-                  >
-                    Tutorials
-                  </Link>
-                  <Link
-                    to="/docs"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink + " " + selector("docs", location)
-                    }
-                  >
-                    Docs
-                  </Link>
-                  <Link
-                    to="/downloads"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink +
-                      " " +
-                      selector("downloads", location)
-                    }
-                  >
-                    Downloads
-                  </Link>
-                  <Link
-                    to="/support"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink + " " + selector("support", location)
-                    }
-                  >
-                    Support
-                  </Link>
                 </div>
                 <div
                   className={headerStyles.closeX}
