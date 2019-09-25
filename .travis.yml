@@ -12,7 +12,10 @@ deploy:
 matrix:
   include:
   - name: gatsby
-    script: npm run build
+    script:
+      - npm run build
+      - npm run serve &
+      - npx broken-link-checker -ro --filter-level 3 --host-requests 8 http://localhost:9000
     env: DO_CF_DEPLOY=true
   - name: prettier
     script: "./.travis/prettier-check.sh"
