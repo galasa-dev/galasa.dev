@@ -19,10 +19,9 @@ const IndexPage = () => (
           software changes faster and with confidence.
         </p>
         <div className={indexStyles.heroButtons}>
-          <Button target={"/docs/quickstart"} flash={true} primary={true}>
-            Quick start
+          <Button target={"/about"} flash={true} primary={true}>
+            Learn more
           </Button>
-          <Button target={"/about"}>Learn more</Button>
         </div>
       </div>
     </div>
