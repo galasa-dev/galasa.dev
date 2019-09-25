@@ -18,7 +18,7 @@ You can run Galasa tests locally on your laptop or remotely on a server. Running
 Because  Galasa uses Java, there is support for Javadoc in Galasa code and in the tests. Javadoc is essentially a beefed-up form of commenting. Galasa standards require all classes and methods to use Javadoc. As with all code it is recommended to include meaningful comments for easier understanding and maintainability. 
 
 ## Galasa's concept of Managers
-Complex, repetitive, commonly-required code is abstracted out of tests and into Galasa Managers. A Galasa Manager provides an interface that enables you to control, provision and use an application, tool or product.
+Complex, repetitive, commonly-required code (bolierplate code) is abstracted out of tests and into Galasa Managers. A Galasa Manager provides an interface that enables you to control, provision and use an application, tool or product.
 
 A Manager focuses only on its specific application, tool or product, which means that each Manager is responsible for a specific aspect of the test environment. For example, the CICS Manager manages the CICS resources for each CICS region, and the z/OS batch Manager is responsible for running batch jobs.
 
@@ -31,17 +31,17 @@ A method is a subroutine within a Galasa test class which is run to perform a fu
 
 Other methods are specially designated to run before (methods annotated with the @Before annotation) or after (methods annotated with the @After annotation) a test method. These methods are used to ensure that your environment is in a usable state before the next test method is called, particularly useful when the preceding test method has exited in an unexpected state. 
 
-## Galasa test runner
-A test runner is a tool that can find the methods marked as tests in your source code and run that code block. 
-
 ## Galasa test
 A Galasa test is made up of one or more Java classes and can contain several method types.
 
 ## Galasa test catalog
-A list of related test which can contain common initialization and clean up routines specific to the tests included in that list. 
+A list of related tests which can contain common initialization and clean up routines specific to the tests included in that list. 
 
 ## Galasa test class
 A simple Java program that tests a discrete piece of function, using facilities provided by the Galasa framework to streamline and simplify the test code.
+
+## Galasa test runner
+A test runner is a tool that can find the methods marked as tests in your source code and run that code block. 
 
 ## Galasa testing
 Galasa offers automated and scalable scheduling and execution of reliable, repeatable tests. 
