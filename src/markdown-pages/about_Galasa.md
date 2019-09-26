@@ -5,7 +5,7 @@ title: "About Galasa"
 
 Galasa is an open source deep integration test framework for teams looking to put more power into their testing practices. What makes it a *deep integration* test framework is its ability to support tests that cross system boundaries and reach into remote layers inaccessible to other test tools. 
 
-Galasa has been architected to ensure that the routine, daily tasks of writing and executing tests are straightforward and well within the range of anyone with a little Java knowledge. The more complex parts of tests (such as provisioning) are abstracted into other system components that can be written by experts and easily distributed to the team.
+Galasa has been architected to ensure that the routine, daily tasks of writing and executing tests are straightforward and well within the range of anyone with a little Java<sup>TM</sup> knowledge. The more complex parts of tests (such as provisioning) are abstracted into other system components that can be written by experts and easily distributed to the team.
 
 If you've ever struggled to operationalize or automate the testing of complex systems, you may recognize the origins of your unrest among the some of the signs we've elicited from internal and external teams during our design process:
 
@@ -34,7 +34,7 @@ You can integrate Galasa tests with your existing test tooling, allowing you to 
 ## Difficult diagnostics
 Test artifacts are stored in lots of different repositories, making it time-consuming and difficult to locate the right information to help you root out the cause of a failure.
 
-Galasa will automatically store all test artifacts in a single, shared, central repository, making debugging quicker and easier. You can also run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. 
+Galasa automatically stores all test artifacts in a single, shared, central repository, making debugging quicker and easier. You can also run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. 
 
 ## Time-consuming tests 
 Manual tests can contain a lot of repetitive, complex code which means they take too long to write and are hard to understand and maintain.
