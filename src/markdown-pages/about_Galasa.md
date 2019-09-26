@@ -5,24 +5,24 @@ title: "About Galasa"
 
 Galasa is an open source deep integration test framework for teams looking to put more power into their testing practices. What makes it a *deep integration* test framework is its ability to support tests that cross system boundaries and reach into remote layers inaccessible to other test tools. 
 
-Galasa has been architected to ensure that the routine, daily tasks of writing and executing tests are straightforward and well within the range of anyone with a little Java knowledge. The more complex parts of tests (such as provisioning etc.) are abstracted into other system components that can be written by experts and easily distributed to the rest of the QA/test team.
+Galasa has been architected to ensure that the routine, daily tasks of writing and executing tests are straightforward and well within the range of anyone with a little Java knowledge. The more complex parts of tests (such as provisioning) are abstracted into other system components that can be written by experts and easily distributed to the team.
 
 If you've ever struggled to operationalize or automate the testing of complex systems, you may recognize the origins of your unrest among the some of the signs we've elicited from internal and external teams during our design process:
 
 ## Unreliable automated test systems 
-Over 90% of organizations have little or no automated testing. Where such systems *were* used, they were often cited as unreliable and there was difficulty in booking test slots.
+Many organizations have little or no automated testing. Where such systems *are* used, they are often cited as unreliable and there is difficulty in booking test slots.
 
-Galasa will grow to make conflict for test environments between teams a thing of the past. Running across Docker and Kubernetes is going to add scalability and resilience. Multiple tests will be able to be run in parallel without the need for individual virtual machines for each test instance. Running each test in its own logically isolated environment will bring great reliability. 
+Galasa provides the capability to run reliable, repeatable tests and minimizes conflicts around the availability of test environments between teams. Running across Docker and Kubernetes adds scalability and resilience. Multiple tests can run in parallel without the need for individual virtual machines for each test instance. Running each test in its own logically isolated environment brings great reliability. 
 
 ## Lack of awareness between teams
 Teams are not always aware of the tests another group is running, resulting in tests being duplicated or missed, and there is a lack of clarity around the level of regression testing that is undertaken.
 
-With Galasa you will be able to store related tests within a shared test catalog, from which tests can be automatically selected to run for any given change set. You will be able to create automated regression test suites for new software versions and run a specified set of tests for automated baselining of a new environment installation, such as a hardware migration. 
+With Galasa you can store related tests within a shared test catalog, from which tests can be automatically selected to run for any given change set. Automated regression test suites can be created for new software versions so you can run a specified set of tests for automated baselining of a new environment installation, such as a hardware migration. 
 
 ## Too much manual intervention 
 Running and re-running manual tests is laborious, time consuming and not exactly the best use of a tester's skills or time. 
 
-Use Galasa to automatically schedule and run these repetitive, manual tests and use the time saved to free up testers to spend their time designing test cases that are more likely to find important defects.
+With Galasa you can automatically schedule and run these repetitive, manual tests and use the time saved to free up testers to spend their time designing test cases that are more likely to find important defects.
 
 ## Unreliable test data 
 Test data is often in a state of flux, resulting in the breaking of existing tests and difficulty in snapshotting and rolling back data.
@@ -39,7 +39,7 @@ Galasa will automatically store all test artifacts in a single, shared, central 
 ## Time-consuming tests 
 Manual tests can contain a lot of repetitive, complex code which means they take too long to write and are hard to understand and maintain.
 
-Galasa make tests quicker to write and easier to maintain by moving the boilerplate code out of the tests. Simply import the components you need from within your test code to access the methods and functions that have been isolated and abstracted from the main body of your test code.
+Galasa makes tests quicker to write and easier to maintain by moving the boilerplate code out of the tests. Simply import the components you need from within your test code to access the methods and functions that have been isolated and abstracted from the main body of your test code.
 
 ## Inconsistent communication 
 Test results are often stored in spreadsheets and manually approved by product owners before changes are promoted. This makes it difficult to understand the tests that have been run, and the manual intervention required as part of the sign-off process can delay delivery.
