@@ -2,13 +2,27 @@ language: node_js
 node_js:
 - lts/*
 deploy:
-  provider: script
-  script: "./.travis/deploy-cf.sh"
-  skip_cleanup: true
-  on:
-    repo: galasa/galasa-site
-    branch: announce-master
-    condition: "$DO_CF_DEPLOY = true"
+  - provider: script
+    script: DEPLOY_REGION="us-south" DEPLOY_VARS_FILE=vars.dallas.yml "./.travis/deploy-cf.sh"
+    skip_cleanup: true
+    on:
+      repo: galasa-dev/galasa.dev
+      branch: announce-master
+      condition: "$DO_CF_DEPLOY = true"
+  - provider: script
+    script: DEPLOY_REGION="eu-gb" DEPLOY_VARS_FILE=vars.london.yml "./.travis/deploy-cf.sh"
+    skip_cleanup: true
+    on:
+      repo: galasa-dev/galasa.dev
+      branch: announce-master
+      condition: "$DO_CF_DEPLOY = true"
+  - provider: script
+    script: DEPLOY_REGION="au-syd" DEPLOY_VARS_FILE=vars.sydney.yml "./.travis/deploy-cf.sh"
+    skip_cleanup: true
+    on:
+      repo: galasa-dev/galasa.dev
+      branch: announce-master
+      condition: "$DO_CF_DEPLOY = true"
 matrix:
   include:
   - name: gatsby
@@ -16,6 +30,8 @@ matrix:
       - npm run build
       - npm run serve &
       - npx broken-link-checker -ro --filter-level 3 --host-requests 8 http://localhost:9000
+    after_success: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh && ibmcloud api https://cloud.ibm.com && ibmcloud login --apikey ${DEPLOY_API_KEY} --no-region
+
     env: DO_CF_DEPLOY=true
   - name: prettier
     script: "./.travis/prettier-check.sh"
