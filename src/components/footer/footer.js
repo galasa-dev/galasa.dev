@@ -17,10 +17,10 @@ const Footer = () => {
         <a className={footerStyles.icon} href="https://github.com/galasa-dev">
           <GitHubSVG />
         </a>
-        <a className={footerStyles.icon} href="#twitter">
+        <a className={footerStyles.icon} href="https://twitter.com/galasa_dev">
           <TwitterSVG />
         </a>
-        <a className={footerStyles.icon} href="#spectrum">
+        <a className={footerStyles.icon} href="https://spectrum.chat/galasa">
           <SpectrumSVG />
         </a>
       </div>
