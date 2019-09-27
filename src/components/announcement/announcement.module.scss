@@ -1,0 +1,23 @@
+.announcement {
+    border-left: 10px solid #0067BC;
+    background-color: #0085F3;
+    padding: 32px;
+}
+
+
+
+.flash {
+    position: relative;
+
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 10000px;
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        background-color: #212121;
+        z-index: -1;
+    }
+}
