@@ -22,15 +22,16 @@ const IndexPage = () => (
           software changes faster and with confidence.
         </p>
         <div className={indexStyles.heroButtons}>
-          <Button target={"/about"}>
-            Learn more
-          </Button>
+          <Button target={"/about"}>Learn more</Button>
         </div>
       </div>
     </div>
     <div className={indexStyles.announcementContainer}>
       <Announcement title="We're excited to launch Galasa!">
-      Follow us on <a href={consts.twitter_url}>Twitter</a>, track our progress on <a href={consts.github_org_url}>GitHub</a> and <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can help you.
+        Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
+        progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
+        <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
+        help you.
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>
