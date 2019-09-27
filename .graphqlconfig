@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "galasa-site": {
+      "extensions": {
+        "endpoints": {
+          "default": "http://localhost:8000/__graphiql"
+        }
+      }
+    }
+  }
+}
