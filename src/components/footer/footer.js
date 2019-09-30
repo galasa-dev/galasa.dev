@@ -19,7 +19,7 @@ const Footer = () => {
         <a className={footerStyles.icon} href={consts.github_org_url}>
           <GitHubSVG />
         </a>
-        <a className={footerStyles.icon} href={consts.twitter_url}">
+        <a className={footerStyles.icon} href={consts.twitter_url}>
           <TwitterSVG />
         </a>
         <a className={footerStyles.icon} href={consts.spectrum_url}>
