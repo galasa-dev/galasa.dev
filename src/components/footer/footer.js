@@ -6,6 +6,8 @@ import TwitterSVG from "../../images/twitter.inline.svg"
 import SpectrumSVG from "../../images/spectrum.inline.svg"
 import footerStyles from "./footer.module.scss"
 
+import consts from "../../data/consts"
+
 const Footer = () => {
   return (
     <div className={footerStyles.footer}>
@@ -14,7 +16,7 @@ const Footer = () => {
       </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
-        <a className={footerStyles.icon} href="https://github.com/galasa-dev">
+        <a className={footerStyles.icon} href={consts.github_org_url}>
           <GitHubSVG />
         </a>
         <a className={footerStyles.icon} href="https://twitter.com/galasa_dev">

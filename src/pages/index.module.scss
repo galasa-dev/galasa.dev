@@ -39,18 +39,27 @@ $br-lg: 1124px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: 210px;
+    margin-bottom: 150px;
 
     @media screen and (min-width: $br-sm) {
         flex-direction: row;
     }
 }
 
-.keyFeatureContainer {
+%blockContainer {
     display: grid;
     gap: 8px;
         
     @media screen and (min-width: $br-single-column) {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+.announcementContainer {
+    @extend %blockContainer;
+    margin-bottom: 32px;
+}
+
+.keyFeatureContainer {
+    @extend %blockContainer;
 }
