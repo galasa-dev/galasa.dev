@@ -19,10 +19,10 @@ const Footer = () => {
         <a className={footerStyles.icon} href={consts.github_org_url}>
           <GitHubSVG />
         </a>
-        <a className={footerStyles.icon} href="https://twitter.com/galasa_dev">
+        <a className={footerStyles.icon} href={consts.twitter_url}">
           <TwitterSVG />
         </a>
-        <a className={footerStyles.icon} href="https://spectrum.chat/galasa">
+        <a className={footerStyles.icon} href={consts.spectrum_url}>
           <SpectrumSVG />
         </a>
       </div>
