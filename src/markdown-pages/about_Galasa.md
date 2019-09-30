@@ -58,8 +58,6 @@ Galasa automatically stores all test artifacts in a single, central repository, 
 
 Manual testing involves a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
 
-Galasa automatically stores all test artifacts in a single, shared, central repository, making debugging quicker and easier. You can also run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. 
-
 Galasa makes tests quicker to write and easier to maintain by extracting the boilerplate code out of the tests. Just import the components you need from within your test code to access the abstracted functionality, gaining the benefit of the expertise of the person who wrote them and the productivity introduced by their simple use.
 </details>
 
