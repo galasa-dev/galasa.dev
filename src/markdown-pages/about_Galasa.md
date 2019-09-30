@@ -34,7 +34,7 @@ You can integrate Galasa tests with your existing test tooling, allowing you to 
 ## Difficult diagnostics
 Test artifacts are stored in lots of different repositories, making it time-consuming and difficult to locate the right information to help you root out the cause of a failure.
 
-Galasa will automatically store all test artifacts in a single, shared, central repository, making debugging quicker and easier. You can also run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. 
+Galasa automatically stores all test artifacts in a single, shared, central repository, making debugging quicker and easier. You can also run tests locally on your laptop with breakpoints, so you can step through each line of test code and examine the content of variables to find bugs fast. 
 
 ## Time-consuming tests 
 Manual tests can contain a lot of repetitive, complex code which means they take too long to write and are hard to understand and maintain.
