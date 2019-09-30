@@ -4,9 +4,9 @@
       items:
         - title: About Galasa
           path: /about/
-        - title: A brief history
-          path: /about/history
         - title: Benefits of Galasa
           path: /about/automation
         - title: Galasa and DevOps
           path: /about/devops
+        - title: A brief history
+          path: /about/history
