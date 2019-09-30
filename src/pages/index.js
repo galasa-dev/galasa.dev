@@ -35,32 +35,29 @@ const IndexPage = () => (
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
         <Link to="/about/devops">DevOps strategy</Link> and can be used
-        alongside other test tools, such as JMeter and WSIM. Galasa can access
-        z/OS files and commands, and comes with built-in support for integration
-        with z/OS subsystems.
+        alongside other test tools. Able to access
+        z/OS files and commands, Galasa comes with extensive pluggable support for integration
+        with z/OS subsystems. 
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can provision the test data that you need or can find data that
-        matches your requirements from an existing data pool, removing the need
-        to manually create or locate valid test data each time a test is run.
-        Tests are isolated from changes in test data, making it easy to repeat
+        Galasa can provision the test data that you need or use data from an existing data pool, removing the need
+        to manually create or locate valid test data.
+        Tests are isolated each other and from changes in the test data itself, making it easy to repeat
         tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Use Galasa to run large numbers of tests across different environments
-        in parallel by using automation. You can use an existing mainframe
-        environment, or get an environment provisioned specifically for you.
+        in parallel - no environment is too complex. You can use an existing environment, or provision an environment specifically for your own use.
       </KeyFeature>
       <KeyFeature title="Speed up diagnosis">
         Galasa automatically records test artifacts and stores the results in a
-        single repository, making it easier to quickly identify the cause of a
-        failure.
+        single repository - a single place to search all test output. This makes it easy to quickly identify the cause of a
+        failure and run tests locally to assist with debugging.
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
         With Galasa you can run the same test in different test environments
-        without changing a single line of code. Speed up problem determination
-        by running test code locally on your laptop in debug mode or run a test
-        suite overnight by using automation.
+        without changing a single line of code. Provisioned environments are automatically deprovisioned at test completion, leaving
+        a clean test system state ready for the next tests.
       </KeyFeature>
     </div>
     <Footer />
