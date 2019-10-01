@@ -31,7 +31,7 @@ const IndexPage = () => (
         Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
         progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
         <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
-        help you.
+        help you. The first Beta release of Galasa, 0.3.0, will be available soon.
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>
