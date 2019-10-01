@@ -54,7 +54,7 @@ Galasa automatically stores all test artifacts in a single, central repository, 
 </details>
 
 <details>
-<summary><b>Time-consuming tests </b></summary>
+<summary><b>Time-consuming tests</b></summary>
 
 Manual testing involves a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
 
