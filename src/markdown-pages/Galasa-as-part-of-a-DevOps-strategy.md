@@ -36,7 +36,7 @@ Galasa supports the following three key principles of DevOps:
 
  - <b>Monitor and validate quality</b>
 
-    When software is tested, Galasa stores the test artifacts in a single repository, making it quicker and easier to analyse and identify the cause of a failure. Test results are captured in a consistent format, making sign-off between test environments simple and consistent.
+    When software is tested, Galasa stores the test artifacts in a single repository, making it quicker and easier to analyse and identify the cause of a failure. Test results are captured in a consistent format, making it simpler to compare results.
 
 
 
