@@ -17,7 +17,7 @@ Automated testing and agile delivery are traditionally seen as being available o
 Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service is a simple operation and there are plenty of tools 
 that enable you to accomplish this task.  However, there are  limitations to some of these tools:
 
--	The tests cannot utilise a mix of technologies.  For example, let’s say you need to examine a CICS or a z/OS resource to validate that the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester understanding how to access it?
+-	The tests cannot utilize a mix of technologies.  For example, let’s say you need to examine an IBM CICS or a z/OS resource to validate that the response from the REST endpoint you are testing is correct.  How can the test get this information without the tester understanding how to access it?
 -	Most of the tools require some level of manual operation which limits their effectiveness in a continuous delivery pipeline
 -	The tools cannot contextually bind to either a provisioned, or pre-existing environment in an intelligent manner.
 

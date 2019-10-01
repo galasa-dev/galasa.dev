@@ -3,24 +3,28 @@ import { graphql } from "gatsby"
 import layoutStyles from "./docTemplate.module.scss"
 import Footer from "../components/footer"
 import Sidebar from "../components/sidebar"
+import SEO from "../components/seo"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
-    <div className={layoutStyles.docContainer}>
-      <div className={layoutStyles.docNav}>
-        <Sidebar />
+    <>
+      <SEO title={frontmatter.title} />
+      <div className={layoutStyles.docContainer}>
+        <div className={layoutStyles.docNav}>
+          <Sidebar />
+        </div>
+        <div className={layoutStyles.docContent}>
+          <h1>{frontmatter.title}</h1>
+          <div
+            className="doc-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+          <Footer />
+        </div>
       </div>
-      <div className={layoutStyles.docContent}>
-        <h1>{frontmatter.title}</h1>
-        <div
-          className="doc-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <Footer />
-      </div>
-    </div>
+    </>
   )
 }
 

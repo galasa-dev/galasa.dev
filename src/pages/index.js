@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import KeyFeature from "../components/key-feature"
 import Footer from "../components/footer"
 import Announcement from "../components/announcement"
+import SEO from "../components/seo"
 
 import indexStyles from "./index.module.scss"
 import Button from "../components/button"
@@ -12,6 +13,7 @@ import consts from "../data/consts"
 
 const IndexPage = () => (
   <>
+    <SEO title="Home" />
     <div className={indexStyles.heroContainer}>
       <div>
         <h1 className={indexStyles.heroTitle}>
@@ -31,7 +33,8 @@ const IndexPage = () => (
         Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
         progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
         <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
-        help you.
+        help you. The first Beta release of Galasa, 0.3.0, will be available
+        soon.
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>
@@ -49,10 +52,11 @@ const IndexPage = () => (
         subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can provision the test data that you need or use data from an
-        existing data pool, removing the need to manually create or locate valid
-        test data. Tests are isolated from each other and from changes in the
-        test data itself, making it easy to repeat tests for swift debugging.
+        Galasa can integrate with your test data strategy by helping you to
+        provision new or existing test data records. Galasa can also lock test
+        data so that many tests can run in parallel against the same test data
+        pool, making it easy to repeat tests under identical conditions for
+        swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Use Galasa to run large numbers of tests across different environments
