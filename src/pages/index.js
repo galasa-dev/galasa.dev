@@ -49,10 +49,9 @@ const IndexPage = () => (
         subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can provision the test data that you need or use data from an
-        existing data pool, removing the need to manually create or locate valid
-        test data. Tests are isolated each other and from changes in the test
-        data itself, making it easy to repeat tests for swift debugging.
+        Galasa can integrate with your test data strategy by helping you to provision new or existing test data records. 
+        Galasa can also lock test data so that many tests can run in parallel against the same test data pool, 
+        making it easy to repeat tests under identical conditions for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Use Galasa to run large numbers of tests across different environments
