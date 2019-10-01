@@ -8,7 +8,7 @@ const eslintOptions = process.env.CI === `true` ? {
 module.exports = {
   siteMetadata: {
     title: `galasa`,
-    description: ``,
+    description: `Galasa is an open source deep integration test framework for teams looking to give more power to their testers.`,
   },
   plugins: [
     {

@@ -25,19 +25,6 @@ const getStyles = theme => {
 }
 
 const Layout = ({ children, data, path }) => {
-  let title = undefined
-  if (data) {
-    if (data.markdownRemark) {
-      const markdownRemark = data.markdownRemark
-      if (markdownRemark.frontmatter) {
-        const frontmatter = markdownRemark.frontmatter
-        if (frontmatter.title) {
-          title = frontmatter.title
-        }
-      }
-    }
-  }
-  title = (title ? title + ` | ` : ``) + `Galasa`
   const theme = getTheme(path)
 
   return (
@@ -59,8 +46,7 @@ const Layout = ({ children, data, path }) => {
                   href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
                   rel="stylesheet"
                 />
-                <title>{title}</title>
-                <html lang="en" className={getStyles(theme).globalStyle} />
+                <html className={getStyles(theme).globalStyle} />
                 <body />
               </Helmet>
               <div className={getStyles(theme).container}>
