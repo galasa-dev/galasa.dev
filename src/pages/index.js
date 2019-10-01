@@ -31,7 +31,8 @@ const IndexPage = () => (
         Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
         progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
         <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
-        help you. The first Beta release of Galasa, 0.3.0, will be available soon.
+        help you. The first Beta release of Galasa, 0.3.0, will be available
+        soon.
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>
@@ -49,9 +50,11 @@ const IndexPage = () => (
         subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can integrate with your test data strategy by helping you to provision new or existing test data records. 
-        Galasa can also lock test data so that many tests can run in parallel against the same test data pool, 
-        making it easy to repeat tests under identical conditions for swift debugging.
+        Galasa can integrate with your test data strategy by helping you to
+        provision new or existing test data records. Galasa can also lock test
+        data so that many tests can run in parallel against the same test data
+        pool, making it easy to repeat tests under identical conditions for
+        swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Use Galasa to run large numbers of tests across different environments
