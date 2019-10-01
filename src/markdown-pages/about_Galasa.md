@@ -9,65 +9,51 @@ Galasa has been architected to ensure that the routine tasks of writing and exec
 
 If you've ever struggled to implement automated testing across a complex technology stack, you might recognize some of the same symptoms we identified during our design process:
 
-<details>
-<summary><b>Unreliable tests</b></summary>
+- <b>Unreliable tests</b>
 
 Many organizations have little or no automated testing. Where such systems *are* used, they are often cited as unreliable because of poor data, unstable test environments or timing clashes with other people's work. 
 
 Galasa provides the capability to run reliable, repeatable tests and minimizes conflicts around the availability of test environments. Multiple logically-isolated tests can run in parallel for each test instance, leading to the accumulation of improvements in rigor and quality as your test catalog grows.
-</details>
 
-<details>
-<summary><b>Lack of a unified picture</b></summary>
+- <b>Lack of a unified picture</b>
 
 Manual tests are often split across teams and reported separately, with no single, consistent view of the test plan.
 
 With Galasa you can store related tests within a shared test catalog, from which tests can be automatically selected to run for any given change set. Automated regression test suites can be created for new software versions so you can run a specified set of tests for automated baselining of a new environment installation, such as a hardware migration. 
-</details>
 
-<details>
-<summary><b>Too much manual intervention </b></summary>
+- <b>Too much manual intervention </b>
 
 Running and re-running manual tests is laborious, time consuming and not exactly the best use of a tester's skills or time. 
 
 With Galasa you can automate and automatically schedule these repetitive regression tests and use the time saved to free up testers to spend their time designing test cases that are more likely to find important defects.
 
 Once written a Galasa test test is available 24x7 for reuse.
-</details>
 
-<details>
-<summary><b>Unreliable test data</b></summary>
+- <b>Unreliable test data</b>
 
 Test data is often in a state of flux, resulting in the breaking of existing tests and difficulty in snapshotting and data integrity.
 
 Galasa enables you to provision your own test data from scratch or find valid test data within an existing data lake. Test data is locked within the Galasa framework whilst in use, so that it cannot be corrupted by other test runs.
 
 You can integrate Galasa tests with your existing tooling, allowing you to share data between tools within the same test.
-</details>
 
-<details>
-<summary><b>Difficult diagnostics</b></summary>
+- <b>Difficult diagnostics</b>
 
 Test artifacts are stored in lots of different repositories, making it time-consuming and difficult to locate the right information to help you root out the cause of a failure.
 
 Galasa automatically stores all test artifacts in a single, central repository, making diagnostics quicker and easier. You can also debug tests using a local instance of Galasa, so you can examine every line of code. 
-</details>
 
-<details>
-<summary><b>Time-consuming tests</b></summary>
+- <b>Time-consuming tests</b>
 
 Manual testing involves a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
 
 Galasa makes tests quicker to write and easier to maintain by extracting the boilerplate code out of the tests. Just import the components you need from within your test code to access the abstracted functionality, gaining the benefit of the expertise of the person who wrote them and the productivity introduced by their simple use.
-</details>
 
-<details>
-<summary><b>Inconsistent communication</b></summary>
+- <b>Inconsistent communication</b>
 
 Test results are often stored in spreadsheets and manually approved by product owners before changes are promoted. This makes it difficult to understand the tests that have been run, and the manual intervention required as part of the sign-off process can delay delivery.
 
 Galasa's dashboard will integrate all of your test results in one place, making reporting and reviewing between test phases easy and consistent.
-</details>
 
 ## Summary
 Manual testing, unreliable test data and a manual approval process all add up to a development cycle that can’t be sped up without loss of confidence and increase of risk. Application changes can take many months to reach production, and emergency fixes are often promoted with only a sub-set of suitable tests exercised. 
