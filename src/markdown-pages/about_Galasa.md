@@ -14,7 +14,7 @@ If you've ever struggled to implement automated testing across a complex technol
 
 Many organizations have little or no automated testing. Where such systems *are* used, they are often cited as unreliable because of poor data, unstable test environments or timing clashes with other people's work. 
 
-Galasa provides the capability to run reliable, repeatable tests and minimizes conflicts around the availability of test environments. Multiple logically-isolated tests can run in parallel for each test instance, leading to the accumulation of improvements in rigor and quality as your test catalog grows.
+Galasa provides the capability to run reliable, repeatable tests and minimizes conflicts around the availability of test environments. When run in containers, Galasa tests offer horizontal scalability and resilience. Multiple logically-isolated tests can run in parallel for each test instance, leading to the accumulation of improvements in rigor and quality as your test catalog grows.
 </details>
 
 <details>
@@ -70,11 +70,11 @@ Galasa's dashboard will integrate all of your test results in one place, making 
 </details>
 
 ## Summary
-Manual testing, unreliable test data and a manual approval process all add up to a development cycle that can’t be sped up without loss of confidence and increase of risk. Application changes can take many months to reach production, and emergency fixes are often promoted with only a sub-set of suitable tests exercised. 
+Manual testing and unreliable data add up to a development cycle that can’t be sped up without loss of confidence and increase of risk. Application changes can take many months to reach production, and emergency fixes are often promoted with only a sub-set of suitable tests exercised. 
 
-Test automation with Galasa can be key to delivering changes to your core applications quickly and successfully, helping you to delight your customers, and bring applications to market readiness - fast. 
+Galasa tests are not limited to testing mainframe-specific applications, and can extend to encompass entire families of hybrid cloud applications. Most manual tests can be automated with Galasa, helping you to deliver changes to your core applications quickly and successfully. 
 
-Galasa tests are not limited to testing mainframe-specific applications, and can extend to encompass entire families of hybrid cloud applications.
+
 
 
 
