@@ -9,6 +9,7 @@ module.exports = {
   siteMetadata: {
     title: `galasa`,
     description: `Galasa is an open source deep integration test framework for teams looking to give more power to their testers.`,
+    siteUrl: `https://galasa.dev`,
   },
   plugins: [
     {
@@ -83,5 +84,6 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
