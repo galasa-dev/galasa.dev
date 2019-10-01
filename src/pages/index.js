@@ -44,29 +44,32 @@ const IndexPage = () => (
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
         <Link to="/about/devops">DevOps strategy</Link> and can be used
-        alongside other test tools. Able to access
-        z/OS files and commands, Galasa comes with extensive pluggable support for integration
-        with z/OS subsystems. 
+        alongside other test tools. Able to access z/OS files and commands,
+        Galasa comes with extensive pluggable support for integration with z/OS
+        subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
-        Galasa can provision the test data that you need or use data from an existing data pool, removing the need
-        to manually create or locate valid test data.
-        Tests are isolated each other and from changes in the test data itself, making it easy to repeat
-        tests for swift debugging.
+        Galasa can provision the test data that you need or use data from an
+        existing data pool, removing the need to manually create or locate valid
+        test data. Tests are isolated each other and from changes in the test
+        data itself, making it easy to repeat tests for swift debugging.
       </KeyFeature>
       <KeyFeature title="Fly through test cases">
         Use Galasa to run large numbers of tests across different environments
-        in parallel - no environment is too complex. You can use an existing environment, or provision an environment specifically for your own use.
+        in parallel - no environment is too complex. You can use an existing
+        environment, or provision an environment specifically for your own use.
       </KeyFeature>
       <KeyFeature title="Speed up diagnosis">
         Galasa automatically records test artifacts and stores the results in a
-        single repository - a single place to search all test output. This makes it easy to quickly identify the cause of a
-        failure and run tests locally to assist with debugging.
+        single repository - a single place to search all test output. This makes
+        it easy to quickly identify the cause of a failure and run tests locally
+        to assist with debugging.
       </KeyFeature>
       <KeyFeature title="Environmentally friendly">
         With Galasa you can run the same test in different test environments
-        without changing a single line of code. Provisioned environments are automatically deprovisioned at test completion, leaving
-        a clean test system state ready for the next tests.
+        without changing a single line of code. Provisioned environments are
+        automatically deprovisioned at test completion, leaving a clean test
+        system state ready for the next tests.
       </KeyFeature>
     </div>
     <Footer />
