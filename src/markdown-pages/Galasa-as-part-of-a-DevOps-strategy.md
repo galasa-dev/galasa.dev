@@ -10,7 +10,7 @@ Galasa as part of a DevOps strategy can provide significant benefit in three key
 
 1.	<b>Faster time to value</b>
 
-    Galasa provides the ability to automate integration tests in a repeatable and reliable way, enabling fast and efficient software delivery and reducing manual labour.
+    Galasa provides the ability to automate integration tests in a repeatable and reliable way, enabling fast and efficient software delivery and reducing manual effort.
 
 2.	<b>Increased capacity to innovate</b>
 

@@ -32,7 +32,7 @@ Running and re-running manual tests is laborious, time consuming and not exactly
 
 With Galasa you can automate and automatically schedule these repetitive regression tests and use the time saved to free up testers to spend their time designing test cases that are more likely to find important defects.
 
-Once written a Galasa test is available 24x7 for reuse.
+Once written, a Galasa test is available 24x7 for reuse.
 </details>
 
 <details>
