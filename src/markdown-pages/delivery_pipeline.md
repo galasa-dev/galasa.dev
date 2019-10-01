@@ -46,7 +46,7 @@ A delivery pipeline consists of the stages an application goes through from deve
 Galasa's primary focus is on the continuous testing part of the pipeline, and specifically around the provision of scalable test automation for integration testing. 
 
 Galasa is not just for testing new application changes. Galasa also supports 
-- Automated regression testing, for example, a new version of CICS, MQ or Db2 or a new level of z/OS
+- Automated regression testing, for example, a new version of IBM CICS, MQ or Db2 or a new level of z/OS
 - Automated baselining of a new environment installation, for example hardware migration
 - Regression testing, for example, a compiler upgrade or new SCM process
 
