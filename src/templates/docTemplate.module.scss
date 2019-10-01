@@ -37,44 +37,76 @@
     @media screen and (min-width: $br-single-column) {
         margin-top: 130px;
     }
-}
 
-.docContent {
     h1, h2, h3, h4, h5, h6 {
         color: #000000;
         font-weight: 400;
     }
-}
 
-.docContent h1 {
-    font-size: 42px;
-    line-height: 49px;
-}
+    h1 {
+        font-size: 42px;
+        line-height: 49px;
+    }
 
-.docContent h2 {
-    font-size: 18px;
-    line-height: 21px;
-    font-weight: 500;
-    margin-top: 80px;
-    margin-bottom: 40px;
-}
+    h2 {
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 500;
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
 
-.docContent p, li {
-    margin: 40px 0;
-}
+    p, li {
+        margin: 40px 0;
+    }
 
-.docContent pre {
-    overflow-x: scroll;
-}
+    pre {
+        overflow-x: scroll;
+    }
 
-.docContent ul {
-    list-style-type: none;
-    padding-left: 40px;
-    
-}
+    ul {
+        list-style-type: none;
+        padding-left: 40px;
+        
+    }
 
-.docContent ul li:before {
-    content: '\2014';
-    position: absolute;
-    margin-left: -40px;
+    ul li:before {
+        content: '\2014';
+        position: absolute;
+        margin-left: -40px;
+    }
+
+    summary {
+        &::-webkit-details-marker {
+            display: none;
+        }
+        list-style-type: none;
+        color: #000000;
+    }
+
+    details {
+        padding: 16px 0;
+        border-bottom: 1px solid #85909F;
+        
+        &:first-of-type {
+            border-top: 1px solid #85909F; 
+        }
+
+        summary {
+            &::before {
+                display: inline-block;
+                content: " ";
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="7.44" y="0.5" width="1.11" height="15"/><path d="M8.05,1V15H8V1h.1m1-1H7V16h2.1V0Z"/><rect x="0.5" y="7.44" width="15" height="1.11"/><path d="M15,8v.1H1V8H15m1-1H0v2.1H16V7Z"/></svg>');
+                transition: transform 0.2s ease-in-out;
+                margin-right: 22px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &[open] summary::before {
+            transform: rotate(90deg);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="7.44" y="0.5" width="1.11" height="15"/><path d="M8.05,1V15H8V1h.1m1-1H7V16h2.1V0Z"/></svg>');
+        }
+    }
 }
