@@ -4,7 +4,7 @@ title: "A brief history of Galasa"
 ---
 
 ## The Problem
-Galasa started life as JAT (JUnit Automated Testing) - an internal IBM tool extensively used for integration testing within IBM z/OS teams. It was created to help eliminate repetitive manual and semi-automated testing. These manual tests could be complex and take a long time to set up and run, increasing the risk of introducing human-error into the process. It was also difficult to identify the cause of failures, as diagnostics were stored in different repositories, including logs and program compilation output on z/OS, and test script log output on laptops. Changes to IBM CICS could take many weeks to reach Beta as tests took too long to execute, restricting the ability to deliver. 
+Galasa started life as JAT (JUnit Automated Testing) - an internal IBM tool extensively used for integration testing within IBM z/OS teams. It was created to help eliminate repetitive manual and semi-automated testing. These manual tests could be complex and take a long time to set up and run, increasing the risk of introducing human-error into the process. It was also time-consuming to identify the cause of failures, as diagnostics were stored in different repositories, including logs and program compilation output on z/OS, and test script log output on laptops. Changes to IBM CICS could take many weeks to reach Beta as tests took too long to execute, increasing the time required to deliver. 
 
 
 ## The Solution
