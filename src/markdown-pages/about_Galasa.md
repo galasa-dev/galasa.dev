@@ -18,14 +18,6 @@ Galasa provides the capability to run reliable, repeatable tests and minimizes c
 </details>
 
 <details>
-<summary><b>Lack of a unified picture</b></summary>
-
-Manual tests are often split across teams and reported separately, with no single, consistent view of the test plan.
-
-With Galasa you can store related tests within a shared test catalog, from which tests can be automatically selected to run for any given change set. Automated regression test suites can be created for new software versions so you can run a specified set of tests for automated baselining of a new environment installation, such as a hardware migration. 
-</details>
-
-<details>
 <summary><b>Too much manual intervention </b></summary>
 
 Running and re-running manual tests is laborious, time consuming and not exactly the best use of a tester's skills or time. 
@@ -33,6 +25,14 @@ Running and re-running manual tests is laborious, time consuming and not exactly
 With Galasa you can automate and automatically schedule these repetitive regression tests and use the time saved to free up testers to spend their time designing test cases that are more likely to find important defects.
 
 Once written, a Galasa test is available 24x7 for reuse.
+</details>
+
+<details>
+<summary><b>Lack of a unified picture</b></summary>
+
+Manual tests are often split across teams and reported separately, with no single, consistent view of the test plan.
+
+With Galasa you can store related tests within a shared test catalog, from which tests can be automatically selected to run for any given change set. Automated regression test suites can be created for new software versions so you can run a specified set of tests for automated baselining of a new environment installation, such as a hardware migration. 
 </details>
 
 <details>

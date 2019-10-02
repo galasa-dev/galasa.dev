@@ -11,7 +11,7 @@ Automated testing and agile delivery are traditionally seen as being available o
 - A great fit for automating a wide set of test techniques including golden path, variation and load tests. However, its biggest benefit is that it can be used to create integration level tests.
 - Enables you to run tests across a hybrid cloud application from a single test class. 
 - Provides the capability to test a range of interfaces from traditional 3270 terminals through to REST, mobile and browser-based tests.  
-- Enables unique, deep integration with z/OS and extends to other test tools, enabling tests to aggregate information from a range of sources.
+- Enables unique, deep integration with z/OS and can be used with other test tools, enabling tests to aggregate information from a range of sources.
 
 ## Testing without limitations
 Testing an endpoint, whether it be a 3270 terminal, a REST API or a web service is a simple operation and there are plenty of tools 
