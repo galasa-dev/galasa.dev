@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import KeyFeature from "../components/key-feature"
 import Footer from "../components/footer"
 import Announcement from "../components/announcement"
+import SEO from "../components/seo"
 
 import indexStyles from "./index.module.scss"
 import Button from "../components/button"
@@ -12,6 +13,7 @@ import consts from "../data/consts"
 
 const IndexPage = () => (
   <>
+    <SEO title="Home" />
     <div className={indexStyles.heroContainer}>
       <div>
         <h1 className={indexStyles.heroTitle}>
