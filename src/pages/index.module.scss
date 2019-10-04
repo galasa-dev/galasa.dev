@@ -15,13 +15,14 @@ $br-lg: 1124px;
 }
 
 .heroTitle {
-    font-size: 52px;
+    font-size: 38px;
     line-height: 1.17;
     font-weight: 400;
     max-width: 400px;
 
     @media screen and (min-width: $br-sm) {
         max-width: none;
+        font-size: 52px;
     }
 }
 
