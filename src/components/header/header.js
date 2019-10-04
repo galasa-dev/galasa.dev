@@ -59,13 +59,14 @@ const Header = () => {
                 }
               >
                 <h1 className={headerStyles.title}>
-                  <Identifier />
+                  <Identifier id="header-identifier" />
                 </h1>
                 <div
                   ref={navContainerNode}
                   className={headerStyles.navContainer}
                 >
                   <Link
+                    id="header-about"
                     to="/about"
                     onClick={() => setMenuOpen(false)}
                     className={

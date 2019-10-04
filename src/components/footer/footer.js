@@ -1,4 +1,5 @@
 import React from "react"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
@@ -12,19 +13,22 @@ const Footer = () => {
   return (
     <div className={footerStyles.footer}>
       <div className={footerStyles.identifier}>
-        <Identifier />
+        <Identifier id="footer-identifier" />
       </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
-        <a className={footerStyles.icon} href={consts.github_org_url}>
+        <OutboundLink
+          className={footerStyles.icon}
+          href={consts.github_org_url}
+        >
           <GitHubSVG />
-        </a>
-        <a className={footerStyles.icon} href={consts.twitter_url}>
+        </OutboundLink>
+        <OutboundLink className={footerStyles.icon} href={consts.twitter_url}>
           <TwitterSVG />
-        </a>
-        <a className={footerStyles.icon} href={consts.spectrum_url}>
+        </OutboundLink>
+        <OutboundLink className={footerStyles.icon} href={consts.spectrum_url}>
           <SpectrumSVG />
-        </a>
+        </OutboundLink>
       </div>
     </div>
   )

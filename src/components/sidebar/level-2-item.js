@@ -13,6 +13,7 @@ export default props => {
     <Location>
       {({ location }) => (
         <li
+          id={"sidebar-l2-" + item.path}
           className={
             sidebarStyles.level2Item +
             " " +
