@@ -47,9 +47,14 @@ export default () => {
       {({ location }) => {
         const sectionItem = getSection(location)
         return (
-          <nav className={sidebarStyles.nav}>
+          <nav id="sidebar" className={sidebarStyles.nav}>
             <h2 className={sidebarStyles.sidebarHeader}>
-              <Link to={sectionItem.root}>{sectionItem.title}</Link>
+              <Link
+                id={"sidebar-title-" + sectionItem.root}
+                to={sectionItem.root}
+              >
+                {sectionItem.title}
+              </Link>
             </h2>
             <div
               className={

@@ -24,6 +24,7 @@ export default props => {
     <Location>
       {({ location }) => (
         <li
+          id={"sidebar-l1-" + item.path}
           className={
             sidebarStyles.level1Item +
             " " +

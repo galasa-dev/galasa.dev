@@ -3,7 +3,7 @@ import React from "react"
 import identifierStyles from "./identifier.module.scss"
 import IdentifierSVG from "../../images/identifier.inline.svg"
 
-const Identifier = () => {
+const Identifier = ({ id = "identifier" }) => {
   const {
     site: {
       siteMetadata: { siteTitle },
@@ -19,7 +19,7 @@ const Identifier = () => {
   `)
 
   return (
-    <Link className={identifierStyles.identifier} to="/">
+    <Link id={id} className={identifierStyles.identifier} to="/">
       <IdentifierSVG className={identifierStyles.image} />
       {siteTitle}
     </Link>
