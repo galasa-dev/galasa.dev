@@ -7,9 +7,9 @@ Galasa is an open source deep integration test framework for teams looking to gi
 
 Galasa has been architected to ensure that the routine tasks of writing and executing tests are straightforward. The more complex parts of tests (such as provisioning) are abstracted into other components that can be written by experts and easily distributed to the team.
 
-## Which of these problems do you recognise?
+## Which of these problems do you recognize?
 
-If you've ever struggled to implement automated testing across a complex technology stack, you might recognize some of the same symptoms we identified during our design process:
+If you've ever struggled to implement automated testing across a complex technology stack, you might recognize some of the same symptoms we identified during our design process. Expand the following headings to see how Galasa solves these challenges:
 
 <details>
 <summary><b>Unreliable tests</b></summary>
