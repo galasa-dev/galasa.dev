@@ -24,7 +24,7 @@ Galasa is packaged with SimBank, a simulated version of a mainframe application 
 ## Installing the Galasa plug-in
 1. Launch Eclipse. If present, close any initial welcome screen.
 1. Choose *Help > Install New Software* from the main menu.
-1. Paste http://cicscit.hursley.ibm.com/galasa/resources/eclipse into the *Work with:* field.
+1. Paste the URL where the plugin is located (TO BE COMPLETED) into the *Work with:* field.
 1. Tick the *Galasa* box in the main panel, ensuring that both *Galasa* and *Galasa Core* are ticked.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new *Galasa* option on the main menu between *Run* and *Window*. If you choose *Run > Run Configurations* from the main menu, you will also observe two new entries: *Galasa* and *Galasa SimBank* as available options in the left-hand panel of the popup window.
