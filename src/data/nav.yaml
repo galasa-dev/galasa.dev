@@ -1,12 +1,26 @@
 - sections:
-    - title: About
-      root: /about/
-      items:
-        - title: About Galasa
-          path: /about/
-        - title: Benefits of Galasa
-          path: /about/automation
-        - title: Galasa and DevOps
-          path: /about/devops
-        - title: A brief history
-          path: /about/history
+  - title: About
+    root: /about/
+    items:
+      - title: About Galasa
+        path: /about/
+      - title: Benefits of Galasa
+        path: /about/automation
+      - title: Galasa and DevOps
+        path: /about/devops
+      - title: A brief history
+        path: /about/history
+  - title: Docs
+    root: /docs/
+    items: 
+      - title: Introduction and Architecture
+        path: /docs/
+      - title: Getting Started
+        path: /docs/getting-started/
+        items:
+          - title: Installing Galasa and SimBank
+            path: /docs/getting-started/installing
+          - title: Exploring SimBank manually
+            path: /docs/getting-started/simbank
+          - title: Running the SimBank IVT
+            path: /docs/getting-started/simbank-IVT

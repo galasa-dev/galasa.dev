@@ -75,6 +75,15 @@ const Header = () => {
                   >
                     About
                   </Link>
+                  <Link
+                    to="/docs"
+                    onClick={() => setMenuOpen(false)}
+                    className={
+                      headerStyles.navLink + " " + selector("docs", location)
+                    }
+                  >
+                    Docs
+                  </Link>
                 </div>
                 <div
                   className={headerStyles.closeX}

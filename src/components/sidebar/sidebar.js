@@ -22,6 +22,10 @@ export default () => {
           items {
             title
             path
+            items {
+              title
+              path
+            }
           }
         }
       }
