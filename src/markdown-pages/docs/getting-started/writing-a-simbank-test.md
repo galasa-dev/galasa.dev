@@ -3,31 +3,36 @@ path: "/docs/getting-started/writing-a-test"
 title: "Writing your own SimBank test"
 ---
 
-Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. Use the following scenario to help you create your own test that runs against SimBank. The scenario is run in Eclipse and creates a test that validates the sort code and balance associated with an account. 
+Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. Use the following scenario to help you create your own test that runs against SimBank in Eclipse. This scenario uses a 3270 terminal emulator to connect with SimBank and validates the sort code and balance that are associated with a SimBank account. 
 
-At this stage, Managers are not used and values are hard-coded - this scenario is designed to grow confidence in writing a simple Galasa test. 
+At this stage, Managers are not used, and values are hard-coded - this scenario is designed to grow confidence in writing a simple Galasa test. 
 
-## Create a new Galasa test class in Eclipse:
+<details>
+<summary><b>Create a new Galasa test class in Eclipse</b></summary>
 
-1. Start Eclipse. 
-2. Create a new test class by selecting *File > New > Other > Class* From the main menu and clicking *Next* 
+1. Start Eclipse and [launch SimBank](/docs/getting-started/simbank). 
+2. Create a new test class by selecting *File > New > Class* from the main menu and clicking *Next* 
 3. In the *Source Folder* field click *Browse* and navigate to *dev.galasa.simbank.tests* > *src/main/java* and click *OK* to add your class to the SimBank tests directory. 
 4. In the *Package* field, enter *dev.galasa.tests*.
-**Note:** The suffix *.tests* tells the Galasa framework that this file is a test file.  
+<p>**Tip:** The suffix *.tests* tells the Galasa framework that this file is a test file.</>  
 5. In the *Name* field, type *ValidateAccount*.
-5. Click *Finish*.
-
+5. Click *Finish*. 
 The following empty test class is created: 
 ```
 package dev.galasa.simbanks.tests;
 public class ValidateAccount {}
 ```
-## Set up the Galasa test:
-1. Check that the following code is in the test class:
+</details>
+
+<details>
+<summary><b>Set up the Galasa test</b></summary>
+
+1. Import the *dev.galasa.Test* package into your test class:
 ```
+package dev.galasa.simbanks.tests;
 import dev.galasa.Test;
+public class ValidateAccount {}
 ```
-If the code is not there, import the notation. This code imports the definitions required for your test to run.
 2. Add the *@Test* annotation to tell the Galasa framework that the code that follows this annotation is test code: 
 ```
 package dev.galasa.simbanks.tests;
@@ -35,15 +40,18 @@ import dev.galasa.Test;
 @Test
 public class ValidateAccount {}
 ```
+</details>
 
-
-## Write initial verification test:
+<details>
+<summary><b>Write a "not null" test</b></summary>
 
 In this scenario, we are testing that we get the correct sort code and balance returned when we browse SimBank for a specified account by using 3270 screens.
 
 1. Provision the resources that you need for the test. 
-We know that we need a 3270 terminal. A 3270 terminal needs a z/OS image to run, so the following code from *BasicAccountCreditTest* is copied into the test:
+We know that we need a 3270 terminal. The 3270 terminal needs a z/OS image to run, so the following code from *BasicAccountCreditTest* is copied into the test:
 ```  
+package dev.galasa.simbanks.tests;
+import dev.galasa.Test;
 import dev.galasa.zos.ZosImage;
 import dev.galasa.zos.IZosImage;
 import dev.galasa.zos3270.Zos3270Terminal;
@@ -57,8 +65,8 @@ public class ValidateAccount {
 	 public ITerminal terminal;
 } 
 ```  
-2. Write the verification test code.
-It's a good idea to write a "not null" test to check that everything is working before you write you test code. Create the test method by writing a *public void* method to check objects are loaded, and importing the assertThat method.
+2. Write a "not null" test method.
+It's a good idea to write a "not null" test method to check that everything is working before you write your test code. Create the test method by and importing the assertThat method and by writing a *public void* method to check that the objects you need are loaded.
 ```
 import static org.assertj.core.api.Assertions.assertThat;
 ```
@@ -67,8 +75,8 @@ public void testNotNull() {
 	        assertThat(terminal).isNotNull();
 	        }
 ```  
-**Note:** The brackets () indicate that the code a method.
-The following snippet shows the test code that we have written so far:  
+**Tip:** The brackets () indicate that the code is a method.
+The following snippet shows the test code that is written so far:  
 ```
 package dev.galasa.simbanks.tests;
 import dev.galasa.Test;
@@ -89,35 +97,41 @@ public class ValidateAccount {
 	        }
 }
 ```  
+</details>
 
-## Run the verification test
+<details>
+<summary><b>Run the "not null" test</b></summary>
+
 1. From the main menu, choose *Run > Run Configurations*.
-2. In the *Create, manage and run configurations* pop-up window, select *Galasa* in the left pane and select *New launch configuration* icon.
-3. In the *Project* field, browse to *dev.galasa.simbank.tests* and click *OK*.
-4. In the *Test class* field, browse to *dev.galasa.simbanks.tests.ValidateAccount*.
-5. Name the configuration. In this scenario we have named the configuration *ValidateAccount* and click *OK*.
+2. In the *Create, manage and run configurations* pop-up window, select *Galasa* in the left pane and click the *New launch configuration* icon.
+3. Name the configuration and click *OK*.. In this scenario we have named the configuration *ValidateAccount*.
+4. In the *Project* field, browse to *dev.galasa.simbank.tests* and click *OK*.
+5. In the *Test class* field, browse to *dev.galasa.simbanks.tests.ValidateAccount*.
 6. Select *Apply* > *Run*. 
-<p>A message *Passed - Test class dev.galasa.simbanks.tests.ValidateAccount* appears in the console window.</p>
 
-## Write the new test code 
-When the verification test completes successfully, write a second test method to validate the account sort code and balance. SimBank has an account with the number *123456789*, so we are using this account for our test in this scenario. 
+A message `Passed - Test class dev.galasa.simbanks.tests.ValidateAccount` appears in the console window.
+</details>
+
+<details>
+<summary><b>Write the validate account test code</b></summary> 
+
+When the "not null" test completes successfully, write a second test method to validate the account sort code and balance of a specified account. SimBank has an account with the number *123456789*, so we are using this account for our test in this scenario. 
 1. Import the following exceptions to help with debugging the test if it fails. If you do not import the following exceptions, Eclipse will flag this and prompt you to complete the imports. 
-
 ```
-import java.io.IOException;
-import java.net.URISyntaxException;
-import dev.galasa.artifact.TestBundleResourceException;
-import dev.galasa.http.HttpClientException;
-import dev.galasa.zos.ZosManagerException;
-import dev.galasa.zos3270.FieldNotFoundException;
-import dev.galasa.zos3270.KeyboardLockedException;
-import dev.galasa.zos3270.TextNotFoundException;
-import dev.galasa.zos3270.TimeoutException;
-import dev.galasa.zos3270.spi.DatastreamException;
-import dev.galasa.zos3270.spi.NetworkException;
+	 	import java.io.IOException;
+	 	import java.net.URISyntaxException;
+	 	import dev.galasa.artifact.TestBundleResourceException;
+		import dev.galasa.http.HttpClientException;
+		import dev.galasa.zos.ZosManagerException;
+		import dev.galasa.zos3270.FieldNotFoundException;
+		import dev.galasa.zos3270.KeyboardLockedException;
+		import dev.galasa.zos3270.TextNotFoundException;
+		import dev.galasa.zos3270.TimeoutException;
+		import dev.galasa.zos3270.spi.DatastreamException;
+		import dev.galasa.zos3270.spi.NetworkException;
 ```
 2. Create a *public void* method to log onto the terminal and open the application. 
-When using the 3270 screens, the cursor is positioned under the first letter of the field name, for example, the "U" of Userid. The ```.tab``` code moves the cursor to the field where a value can be entered. Each time the screen changes, we need to include ```waitforkeyboard``` code. 
+When using the 3270 screens, the cursor is positioned under the first letter of the field name, for example, the "U" of Userid. The `.tab` code moves the cursor to the field where a value can be entered. Each time the screen changes, we need to include `waitforkeyboard` code. 
 ```
 	 public void testValidateAccount() throws TestBundleResourceException, URISyntaxException, IOException, HttpClientException, ZosManagerException, DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException  {
 	        //Logon through the session manager
@@ -150,13 +164,19 @@ When using the 3270 screens, the cursor is positioned under the first letter of 
 	    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("56.72");
 	    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("Account Found");       
 ```
-**Tip:** If u have more than one method in your test, you can select which method(s) to run from the Run configurations screen by clicking search on *Test Method*.
+**Tip:** If you have more than one method in your test, you can select which method(s) to run from the Run configurations screen by clicking search on *Test Method*.
+</details>
 
-## Run the test
+<details>
+<summary><b>Run the validate account test</b></summary>
 
 1. From the main menu, choose *Run > Run Configurations*.
-2. In the *Create, manage and run configurations* pop-up window, select your *ValidateAccount* test.
+2. In the *Create, manage and run configurations* pop-up window, select the *ValidateAccount* test.
 3. Click *Run*. 
 
-<p>A message *Passed - Test class dev.galasa.simbanks.tests.ValidateAccount* appears in the console window.</p>
-You can view the results in the variables window by adding a breakpoint and stepping through the code. 
+A message `Passed - Test class dev.galasa.simbanks.tests.ValidateAccount` appears in the console window.
+You can view the results by double-clicking the relevant run in the *Galasa Results* tab. You can also add breakpoints to your code and step through to view the value of the variables used in the test.
+</details>
+
+Now create your own test to run against SimBank, or modify one of the tests provided, to get more experience in writing Galasa tests. 
+

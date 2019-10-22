@@ -1,10 +1,17 @@
 ---
 path: "/docs/getting-started/simbank-IVT"
-title: "Running the SimBank IVT"
+title: "Running the supplied SimBank tests"
 ---
-SimBank is accompanied by a set of proving tests that start with a basic Installation Verification Test (IVT). To follow this example,ensure that Eclipse is running and that you have launched the SimBank server as described [here](/docs/getting-started/simbank).
+SimBank comes with a selection of prepared Galasa tests:
 
-## Loading and running the SimBank installation verification tests (IVT)
+- A basic Installation Verification Test (IVT) using a manager that provides a 3270 terminal interface
+- A test that updates an account using web services
+- A test that uses a provisioned account object to perform a series of credit tests.
+
+
+
+## Running the SimBank installation verification test (IVT) - SimBankIVT.java
+1. Ensure that Eclipse is running and that you have launched the SimBank server as described [here](/docs/getting-started/simbank).
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
 1. Confirm your *New project* prefix (it's OK to leave it as `dev.galasa.simbank`) and press *Finish*. In your *Package Explorer* (if it's not visible, choose *Window > Show View > Package Explorer*), two new entries appear:
 ```
@@ -26,7 +33,7 @@ Even without any prior knowledge of Galasa, if you know a little Java, you will 
 The code starts off with some imports, and these are largely divided into three broad categories:
 
 * Interface and class definitions of Galasa managers, such as `HttpClient`, `IHttpClient` and the `zos3270` manager imports.
-* Application (Simbank) related imports - `Account`, `IAccount` and so on.
+* Application (SimBank) related imports - `Account`, `IAccount` and so on.
 * Some standard Java imports such as `java.io.IOException` and `java.math.BigDecimal`.
 
 ```
@@ -72,6 +79,7 @@ The code begins with the `@Test` annotation which is not a Galasa-specific struc
 Next at the beginning of the test class proper, four Galasa managers are declared via annotations, together with four corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
 
 ```
+@Test
 public class SimBankIVT{ 
 
     @ZosImage(imageTag="A")
@@ -135,3 +143,5 @@ Finally, four assertions confirm that the test has arrived at its destination sc
         assertThat(terminal.retrieveScreen()).containsOnlyOnce("UPDATE      Update Accounts    PF2");
         assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
 ```
+
+## Running BasicAccountCreditTest.java

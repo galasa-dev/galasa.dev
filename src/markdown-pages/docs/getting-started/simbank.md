@@ -1,10 +1,10 @@
 ---
 path: "/docs/getting-started/simbank"
-title: "SimBank"
+title: "Exploring SimBank"
 ---
-Distributed with Galasa, SimBank is a component that simulates a mainframe application. As delivered, it implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
+Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
-By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn how to use Galasa in anger, exposing problems before they become major obstacles.
+By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn Galasa's basic principles of operation before you need to learn how to connect Galasa to your own mainframe application-under-test.
 
 ## Launching SimBank
 1. Start Eclipse.
@@ -13,20 +13,23 @@ By exercising the Galasa framework against SimBank, you can pre-empt a lot (but 
 1. Type your preferred name for the run configuration in the *Name:* field, press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
-    2019-08-15 18:02:20 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
-    2019-08-15 18:02:21 INFO dev.galasa.simplatform.db.Database setDerbyHome Setting Derby home to C:\Users\<Username>\AppData\Local\Temp\galasaSimplatform3169992835626147051
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility <init> Creating SAF service
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 123456789 exists
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 123456789
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 987654321 exists
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 987654321
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility addUser Added user: IBMUSER
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.main.Simplatform main Loading services...
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.WebServiceListener listening on port: 2080
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.TelnetServiceListener listening on port: 2023
-    2019-08-15 18:02:22 INFO dev.galasa.simplatform.main.Simplatform main ... services loaded
+2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
+2019-10-21 14:24:35 INFO dev.galasa.simplatform.db.Database setDerbyHome Setting Derby home to C:\Users\<username>\AppData\Local\Temp\galasaSimplatform1440125512154994774
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility <init> Creating SAF service
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 123456789 exists
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 123456789
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 987654321 exists
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 987654321
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility addUser Added user: IBMUSER
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Loading services...
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.WebServiceListener listening on port: 2080
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.TelnetServiceListener listening on port: 2023
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main ... services loaded
+2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Starting Derby Network server....
+2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Derby Network server started on port 2027
+2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Simplatform started
 ```
 
      If you are a Mac or Linux user, the messages will be almost identical.
@@ -63,7 +66,7 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
     ![CICS home screen](./simbank-cics.png) 
 
 1. Press your terminal emulator's CLEAR SCREEN key and immediately press TAB to position the cursor on an (invisible) input field which will receive the name of a simulated CICS transaction.
-1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the Simbank main menu:
+1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the SimBank main menu:
 
     ![Main banking menu](./simbank-mainmenu.png) 
 
@@ -78,7 +81,7 @@ As you have been progressing through this process, Eclipse has been logging sele
 2019-08-16 10:38:54 INFO dev.galasa.simplatform.t3270.screens.AbstractScreen buildScreen Building Screen: BankMainMenu
 ```
 ### Browsing account information
-1. From the Simbank main menu, press PF1, taking you to the account menu screen.
+1. From the SimBank main menu, press PF1, taking you to the account menu screen.
 1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
     The account details are populated and it is apparent that account number 123456789 is 56.72 in credit.
 
@@ -89,7 +92,7 @@ As you have been progressing through this process, Eclipse has been logging sele
 Note that while it is a menu option, the `Update Accounts` functionality has not been implemented.
 
 ### Transferring funds between accounts
-1. From the Simbank main menu, press PF4, taking you to the Simbank transfer menu.
+1. From the SimBank main menu, press PF4, taking you to the SimBank transfer menu.
 1. Press TAB until the cursor is in the `Transfer from Account Number` field and enter `123456789`.
 1. Press TAB until the cursor is in the `Transfer to Account Number` field and enter `987654321`.
 1. Press TAB until the cursor is in the `Transfer Amount` field and enter `1`
@@ -104,4 +107,4 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 
 1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00.
 
-Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose *Running the provided SimBank tests* in the side-menu.
+Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose *Running the supplied SimBank tests* in the side-menu.

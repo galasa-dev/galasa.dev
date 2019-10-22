@@ -22,7 +22,7 @@
             path: /docs/getting-started/installing
           - title: Exploring SimBank
             path: /docs/getting-started/simbank
-          - title: Running the SimBank IVT
+          - title: Running the supplied SimBank tests
             path: /docs/getting-started/simbank-IVT
           - title: Writing your own SimBank test
             path: /docs/getting-started/writing-a-test
