@@ -4,7 +4,7 @@ title: "Running the supplied SimBank tests"
 ---
 SimBank comes with a selection of prepared Galasa tests:
 
-- A basic Installation Verification Test (IVT) using a manager that provides a 3270 terminal interface - `SimBankIVT.java`.
+- A basic Installation Verification Test (IVT) using a Manager that provides a 3270 terminal interface - `SimBankIVT.java`.
 - A test that updates an account using web services - `BasicAccountCreditTest.java`.
 - A test that uses a provisioned account object to perform a series of credit tests - `ProvisionedAccountCreditTests.java`.
 
@@ -30,7 +30,7 @@ Even without any prior knowledge of Galasa, if you know a little Java, you will 
 ### Imports
 The code starts off with some imports, and these are largely divided into three broad categories:
 
-* Interface and class definitions of Galasa managers, such as `HttpClient`, `IHttpClient` and the `zos3270` manager imports and their related exceptions.
+* Interface and class definitions of Galasa Managers, such as `HttpClient`, `IHttpClient` and the `zos3270` Manager imports and their related exceptions.
 * Application (SimBank) related imports - `Account`, `IAccount` and so on.
 * Some standard Java imports such as `java.io.IOException` and `java.math.BigDecimal`.
 
@@ -74,7 +74,7 @@ import java.util.HashMap;
 ### The `SimBankIVT` test class
 The class is first annotated with `@Test` - not a Galasa-specific structure - it provides a general hint to many types of Java tooling (for example, Maven or JUnit) that a method or class is a test (for scoping purposes).
 
-Next at the beginning of the test class proper, four Galasa managers are declared via annotations, together with four corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
+Next at the beginning of the test class proper, four Galasa Managers are declared via annotations, together with four corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
 
 ```
 @Test
@@ -126,7 +126,7 @@ Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enable
         .enter().waitForKeyboard();
 ```
 
-These methods are available via the imported `Zos3270Terminal` manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
+These methods are available via the imported `Zos3270Terminal` Manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
 
 Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
 ```
