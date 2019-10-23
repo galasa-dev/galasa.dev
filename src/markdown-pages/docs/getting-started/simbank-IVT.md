@@ -35,40 +35,33 @@ The code starts off with some imports, and these are largely divided into three 
 * Some standard Java imports such as `java.io.IOException` and `java.math.BigDecimal`.
 
 ```
-package galasa.test;
-
-import dev.galasa.Test;
-import dev.galasa.common.artifact.ArtifactManager;
-import dev.galasa.common.artifact.IArtifactManager;
-import dev.galasa.common.artifact.IBundleResources;
-import dev.galasa.common.artifact.TestBundleResourceException;
-import dev.galasa.common.http.HttpClient;
-import dev.galasa.common.http.HttpClientException;
-import dev.galasa.common.http.IHttpClient;
-import dev.galasa.common.zos.IZosImage;
-import dev.galasa.common.zos.ZosImage;
-import dev.galasa.common.zos.ZosManagerException;
-import dev.galasa.common.zos3270.FieldNotFoundException;
-import dev.galasa.common.zos3270.ITerminal;
-import dev.galasa.common.zos3270.KeyboardLockedException;
-import dev.galasa.common.zos3270.TextNotFoundException;
-import dev.galasa.common.zos3270.TimeoutException;
-import dev.galasa.common.zos3270.Zos3270Terminal;
-import dev.galasa.common.zos3270.spi.DatastreamException;
-import dev.galasa.common.zos3270.spi.NetworkException;
-import galasa.manager.Account;
-import galasa.manager.IAccount;
-import galasa.manager.ISimBank;
-import galasa.manager.SimBank;
+package dev.galasa.simbanks.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
+
+import dev.galasa.Test;
+import dev.galasa.artifact.ArtifactManager;
+import dev.galasa.artifact.IArtifactManager;
+import dev.galasa.artifact.TestBundleResourceException;
+import dev.galasa.core.manager.CoreManager;
+import dev.galasa.core.manager.ICoreManager;
+import dev.galasa.http.HttpClient;
+import dev.galasa.http.HttpClientException;
+import dev.galasa.http.IHttpClient;
+import dev.galasa.zos.IZosImage;
+import dev.galasa.zos.ZosImage;
+import dev.galasa.zos.ZosManagerException;
+import dev.galasa.zos3270.FieldNotFoundException;
+import dev.galasa.zos3270.ITerminal;
+import dev.galasa.zos3270.KeyboardLockedException;
+import dev.galasa.zos3270.TextNotFoundException;
+import dev.galasa.zos3270.TimeoutException;
+import dev.galasa.zos3270.Zos3270Terminal;
+import dev.galasa.zos3270.spi.DatastreamException;
+import dev.galasa.zos3270.spi.NetworkException;
 ```
 
 ### The `SimBankIVT` test class
@@ -131,7 +124,7 @@ These methods are available via the imported `Zos3270Terminal` Manager, which wa
 Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
 ```
     	//Assert that the session manager has a bank session available
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMBANK MAIN MENU");
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
     	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
 ```
 The test proceeds to open the banking application, pressing the PF1 key and clearing the screen, before tabbing to an input field and entering the name of the BANK transaction:
