@@ -92,13 +92,13 @@ public class SimBankIVT{
 Then a helper method `testNotNull` is defined - such methods can be very useful when creating and debugging new tests (... to eliminate the possibility that important elements of a test have not been initialized correctly).
 
 ```
-    @Test
-    public void testNotNull() {
-        //Check all objects loaded
-        assertThat(terminal).isNotNull();
-        assertThat(artifacts).isNotNull();
-        assertThat(client).isNotNull();
-    }
+@Test
+public void testNotNull() {
+    //Check all objects loaded
+    assertThat(terminal).isNotNull();
+    assertThat(artifacts).isNotNull();
+    assertThat(client).isNotNull();
+}
 ```
 
 Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. \*\*\*1\*\*\*.
@@ -110,37 +110,37 @@ Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enable
 * `type()` - where a sequence of characters are typed into an input field
 * `enter()` - where the ENTER key is pressed
 ```
-    @Test
-    public void checkBankIsAvailable() throws TestBundleResourceException, URISyntaxException, IOException, HttpClientException, ZosManagerException, DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException {
-    	//Logon through the session manager
-    	terminal.waitForKeyboard()
-        .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
-        .positionCursorToFieldContaining("Password").tab().type("SYS1")
-        .enter().waitForKeyboard();
+@Test
+public void checkBankIsAvailable() throws TestBundleResourceException, URISyntaxException, IOException, HttpClientException, ZosManagerException, DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException {
+    //Logon through the session manager
+    terminal.waitForKeyboard()
+    .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
+    .positionCursorToFieldContaining("Password").tab().type("SYS1")
+    .enter().waitForKeyboard();
 ```
 
 These methods are available via the imported `Zos3270Terminal` Manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
 
 Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
 ```
-    	//Assert that the session manager has a bank session available
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
-    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
+//Assert that the session manager has a bank session available
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
 ```
 The test proceeds to open the banking application, pressing the PF1 key and clearing the screen, before tabbing to an input field and entering the name of the BANK transaction:
 ```
-        //Open banking application
-        terminal.pf1().waitForKeyboard()
-        .clear().waitForKeyboard()
-        .tab().type("bank").enter().waitForKeyboard();
+//Open banking application
+terminal.pf1().waitForKeyboard()
+.clear().waitForKeyboard()
+.tab().type("bank").enter().waitForKeyboard();
 ```
 Finally, four assertions confirm that the test has arrived at its destination screen.
 ```
-        //Assert that the bank menu is showing
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("UPDATE      Update Accounts    PF2");
-        assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
+//Assert that the bank menu is showing
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("UPDATE      Update Accounts    PF2");
+assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
 ```
 
 # BasicAccountCreditTest.java
@@ -152,48 +152,48 @@ The spine of this test resembles that of `SimBankIVT.java`, with a nearly-identi
 
 After registering the password as confidential text, the code uses the facilities of the 3270 terminal in much the same way as the previous example to retrieve an account balance:
 ```
-    	coreManager.registerConfidentialText("SYS1", "IBMUSER password");
-        
-        //Initial actions to get into banking application
-    	terminal.waitForKeyboard()
-        .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
-        .positionCursorToFieldContaining("Password").tab().type("SYS1")
-        .enter().waitForKeyboard()
+coreManager.registerConfidentialText("SYS1", "IBMUSER password");
 
-        //Open banking application
-        .pf1().waitForKeyboard()
-        .clear().waitForKeyboard()
-        .tab().type("bank").enter().waitForKeyboard();
+//Initial actions to get into banking application
+terminal.waitForKeyboard()
+.positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
+.positionCursorToFieldContaining("Password").tab().type("SYS1")
+.enter().waitForKeyboard()
 
-        //Obtain the initial balance
-        BigDecimal userBalance = getBalance("123456789");
+//Open banking application
+.pf1().waitForKeyboard()
+.clear().waitForKeyboard()
+.tab().type("bank").enter().waitForKeyboard();
+
+//Obtain the initial balance
+BigDecimal userBalance = getBalance("123456789");
 ```
 Note that the `userBalance` is obtained by calling the private helper method `getBalance` - it is not annotated with `@Test`, and so will (correctly) not be identified to Galasa as a test method. It's also a good habit to declare such methods as *private* if possible.
 
 ```
-    private BigDecimal getBalance(String accountNum) throws DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
-        BigDecimal amount = BigDecimal.ZERO;
-        //Open account menu and enter account number
-        terminal.pf1().waitForKeyboard()
-                .positionCursorToFieldContaining("Account Number").tab()
-                .type(accountNum).enter().waitForKeyboard();
+private BigDecimal getBalance(String accountNum) throws DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+    BigDecimal amount = BigDecimal.ZERO;
+    //Open account menu and enter account number
+    terminal.pf1().waitForKeyboard()
+            .positionCursorToFieldContaining("Account Number").tab()
+            .type(accountNum).enter().waitForKeyboard();
 
-        //Retrieve balance from screen
-        amount = new BigDecimal(terminal.retrieveFieldTextAfterFieldWithString("Balance").trim());
+    //Retrieve balance from screen
+    amount = new BigDecimal(terminal.retrieveFieldTextAfterFieldWithString("Balance").trim());
 
-        //Return to bank menu
-        terminal.pf3().waitForKeyboard();
-        return amount;
-    }
+    //Return to bank menu
+    terminal.pf3().waitForKeyboard();
+    return amount;
+}
 ```
 
 Next, the amount to be credited to the designated account is prepared by assigning it to the variable `amount`, and a HashMap is declared and loaded with the ACCOUNT_NUMBER and AMOUNT parameters.
 ```
-        //Set the amount be credited and call web service
-        BigDecimal amount = BigDecimal.valueOf(500.50);
-        HashMap<String,Object> parameters = new HashMap<String,Object>();
-        parameters.put("ACCOUNT_NUMBER", "123456789");
-        parameters.put("AMOUNT", amount.toString());
+//Set the amount be credited and call web service
+BigDecimal amount = BigDecimal.valueOf(500.50);
+HashMap<String,Object> parameters = new HashMap<String,Object>();
+parameters.put("ACCOUNT_NUMBER", "123456789");
+parameters.put("AMOUNT", amount.toString());
 ```
 
 A sample web services request is created by populating the `testSkel.skel` skeleton SOAP message with the prepared parameters, and the web services request invoked. The actual call is made by `client`, an instance of our HTTPClient Manager.
