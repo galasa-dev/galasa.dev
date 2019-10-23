@@ -218,4 +218,6 @@ assertThat(newUserBalance).isEqualTo(userBalance.add(amount));
 # ProvisionedAccountCreditTests.java
 To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/getting-started/simbank) before running the test.
 
+This test illustrates some of the benefits of using custom Managers, and how to store test results in the test results archive.
+
 ** TO BE COMPLETED **
