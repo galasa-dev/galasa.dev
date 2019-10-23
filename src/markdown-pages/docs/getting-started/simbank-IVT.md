@@ -4,13 +4,11 @@ title: "Running the supplied SimBank tests"
 ---
 SimBank comes with a selection of prepared Galasa tests:
 
-- A basic Installation Verification Test (IVT) using a manager that provides a 3270 terminal interface
-- A test that updates an account using web services
-- A test that uses a provisioned account object to perform a series of credit tests.
+- A basic Installation Verification Test (IVT) using a manager that provides a 3270 terminal interface - `SimBankIVT.java`.
+- A test that updates an account using web services - `BasicAccountCreditTest.java`.
+- A test that uses a provisioned account object to perform a series of credit tests - `ProvisionedAccountCreditTests.java`.
 
-
-
-## Running the SimBank installation verification test (IVT) - SimBankIVT.java
+# SimBankIVT.java
 1. Ensure that Eclipse is running and that you have launched the SimBank server as described [here](/docs/getting-started/simbank).
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
 1. Confirm your *New project* prefix (it's OK to leave it as `dev.galasa.simbank`) and press *Finish*. In your *Package Explorer* (if it's not visible, choose *Window > Show View > Package Explorer*), two new entries appear:
@@ -24,15 +22,15 @@ dev.galasa.simbank.tests 
 1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simbank.tests`, then press *Search* to locate your test class, *SimBankIVT*.
 1. Un-tick the *Include ~/.galasa/override.properties* box when back in the main *Run Configurations* dialog.
 1. Press *Apply* then *Run*.
-1. The *SimBankIVT* tests run, and the Eclipse console displays their progress through to completion.
+1. The *SimBankIVT* tests run, and the Eclipse console displays their progress through to completion. You will also see a *live terminal* window in which the interactions with the 3270 terminal are captured - when the test has finished, you can use the attached controls to step back and forth along the sequence of screens.
 
-### `SimBankIVT.java` - exploring the code
+## `SimBankIVT.java` - exploring the code
 Even without any prior knowledge of Galasa, if you know a little Java, you will have no trouble understanding the flow of logic in `SimBankIVT.java`.
 
-#### Imports
+### Imports
 The code starts off with some imports, and these are largely divided into three broad categories:
 
-* Interface and class definitions of Galasa managers, such as `HttpClient`, `IHttpClient` and the `zos3270` manager imports.
+* Interface and class definitions of Galasa managers, such as `HttpClient`, `IHttpClient` and the `zos3270` manager imports and their related exceptions.
 * Application (SimBank) related imports - `Account`, `IAccount` and so on.
 * Some standard Java imports such as `java.io.IOException` and `java.math.BigDecimal`.
 
@@ -73,8 +71,8 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 ```
 
-#### The `SimBankIVT` test class
-The code begins with the `@Test` annotation which is not a Galasa-specific structure - it provides a general hint to many types of Java tooling (for example, Maven or JUnit) that a method or class is a test (for scoping purposes).
+### The `SimBankIVT` test class
+The class is first annotated with `@Test` - not a Galasa-specific structure - it provides a general hint to many types of Java tooling (for example, Maven or JUnit) that a method or class is a test (for scoping purposes).
 
 Next at the beginning of the test class proper, four Galasa managers are declared via annotations, together with four corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
 
@@ -93,9 +91,12 @@ public class SimBankIVT{
 
     @HttpClient
     public IHttpClient client;
+
+    @CoreManager
+    public ICoreManager coreManager;
 ```
 
-Then a helper method `testNotNull` is defined - such methods can be very useful when creating and debugging new tests, and its decoration with the `@Test` annotation ensures that it runs when the code is invoked by the test runner.
+Then a helper method `testNotNull` is defined - such methods can be very useful when creating and debugging new tests (... to eliminate the possibility that important elements of a test have not been initialized correctly).
 
 ```
     @Test
@@ -107,7 +108,9 @@ Then a helper method `testNotNull` is defined - such methods can be very useful 
     }
 ```
 
-Finally, the main test method itself - `checkBankIsAvailable()` - is defined, where a sequence of method calls chained off `terminal.waitForKeyboard()` enables Galasa to sign into the SimBank system using its session manager. It demonstrates using the following methods:
+Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. \*\*\*1\*\*\*.
+
+Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enables Galasa to sign into the SimBank system using its session manager. It demonstrates using the following methods:
 
 * `positionCursorToFieldContaining()` - which as its name implies, positions the cursor to a field containing a specific label
 * `tab()` - which presses the TAB key in the application under test
@@ -122,6 +125,9 @@ Finally, the main test method itself - `checkBankIsAvailable()` - is defined, wh
         .positionCursorToFieldContaining("Password").tab().type("SYS1")
         .enter().waitForKeyboard();
 ```
+
+These methods are available via the imported `Zos3270Terminal` manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
+
 Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
 ```
     	//Assert that the session manager has a bank session available
@@ -144,4 +150,12 @@ Finally, four assertions confirm that the test has arrived at its destination sc
         assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
 ```
 
-## Running BasicAccountCreditTest.java
+# BasicAccountCreditTest.java
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/getting-started/simbank) before running the test.
+
+** TO BE COMPLETED **
+
+# ProvisionedAccountCreditTests.java
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/getting-started/simbank) before running the test.
+
+** TO BE COMPLETED **
