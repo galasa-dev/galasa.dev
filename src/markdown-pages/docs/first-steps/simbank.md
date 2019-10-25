@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/simbank"
+path: "/docs/first-steps/simbank"
 title: "Exploring SimBank"
 ---
 Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.

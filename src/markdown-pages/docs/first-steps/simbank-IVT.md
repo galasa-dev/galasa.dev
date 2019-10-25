@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/simbank-IVT"
+path: "/docs/first-steps/simbank-IVT"
 title: "Running the supplied SimBank tests"
 ---
 SimBank comes with a selection of prepared Galasa tests:

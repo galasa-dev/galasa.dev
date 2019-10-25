@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/writing-a-test"
+path: "/docs/first-steps/writing-a-test"
 title: "Writing your own SimBank test"
 ---
 

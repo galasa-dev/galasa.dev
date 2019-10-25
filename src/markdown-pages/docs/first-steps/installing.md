@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/installing"
+path: "/docs/first-steps/installing"
 title: "Installing Galasa and SimBank"
 ---
 
