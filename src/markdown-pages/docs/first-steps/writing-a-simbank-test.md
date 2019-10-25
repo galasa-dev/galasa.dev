@@ -10,7 +10,7 @@ At this stage, values are hard-coded - this scenario is designed to grow confide
 <details>
 <summary><b>Create a new Galasa test class in Eclipse</b></summary>
 
-1. Start Eclipse and [launch SimBank](/docs/getting-started/simbank). 
+1. Start Eclipse and [launch SimBank](/docs/first-steps/simbank). 
 2. Create a new test class by selecting *File > New > Class* from the main menu and clicking *Next* 
 3. In the *Source Folder* field click *Browse* and navigate to *dev.galasa.simbank.tests* > *src/main/java* and click *OK* to add your class to the SimBank tests directory. 
 4. In the *Package* field, enter *dev.galasa.tests*. 
