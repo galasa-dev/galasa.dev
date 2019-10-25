@@ -2,14 +2,15 @@
 path: "/docs/first-steps/simbank"
 title: "Exploring SimBank"
 ---
-Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a toy banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
+Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a sample banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
 By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn Galasa's basic principles of operation before you need to learn how to connect Galasa to your own mainframe application-under-test.
 
 ## Launching SimBank
 1. Start Eclipse.
 1. From the main menu, choose *Run > Run Configurations*.
-1. In the popup *Create, manage and run configurations* window, select *Galasa SimBank* in the left pane and press *New Configuration*. 
+1. In the *Create, manage and run configurations* dialog, select *Galasa SimBank* in the left pane and press the *New launch configuration* icon:<br/><br/>
+ ![New launch configuration](./new-launch-configuration.png "New launch configuration icon"). 
 1. Type your preferred name for the run configuration in the *Name:* field, press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
@@ -40,7 +41,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 When you launch SimBank, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
 
 ### Logging in to the simulated application
-1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* via the Telnet protocol. 
+1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* via the Telnet protocol. No SSL configuration is required.
 1. Connect to the listening Telnet service with your 3270 emulator and review the logon screen:
 
     ![SimBank logon screen](./simbank-logon.png)
@@ -49,7 +50,7 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
     ![TAB to the userid field](./simbank-userid.png) 
 
-1. Enter the userid `IBMUSER`:
+1. Enter the userid `IBMUSER`
 
     ![Enter your userid](./simbank-ibmuser.png) 
 
@@ -65,7 +66,7 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
     ![CICS home screen](./simbank-cics.png) 
 
-1. Press your terminal emulator's CLEAR SCREEN key and immediately press TAB to position the cursor on an (invisible) input field which will receive the name of a simulated CICS transaction.
+1. Press your terminal emulator's CLEAR SCREEN key.
 1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the SimBank main menu:
 
     ![Main banking menu](./simbank-mainmenu.png) 
@@ -80,6 +81,7 @@ As you have been progressing through this process, Eclipse has been logging sele
 2019-08-16 10:36:19 INFO dev.galasa.simplatform.t3270.screens.AbstractScreen buildScreen Building Screen: CICSClearScreen
 2019-08-16 10:38:54 INFO dev.galasa.simplatform.t3270.screens.AbstractScreen buildScreen Building Screen: BankMainMenu
 ```
+This is an example of log output that can be useful when running tests.
 ### Browsing account information
 1. From the SimBank main menu, press PF1, taking you to the account menu screen.
 1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
@@ -88,8 +90,6 @@ As you have been progressing through this process, Eclipse has been logging sele
     ![Account balance](./simbank-balance.png)
 
 1. Press PF3 to return to the account menu screen.
-
-Note that while it is a menu option, the `Update Accounts` functionality has not been implemented.
 
 ### Transferring funds between accounts
 1. From the SimBank main menu, press PF4, taking you to the SimBank transfer menu.
@@ -105,6 +105,8 @@ Note that while it is a menu option, the `Update Accounts` functionality has not
 2019-08-16 13:50:53 INFO dev.galasa.simplatform.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321
 ```
 
-1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00.
+1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00, and that the 987654321 account has increased by the same amount.
+
+Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
 Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose *Running the supplied SimBank tests* in the side-menu.
