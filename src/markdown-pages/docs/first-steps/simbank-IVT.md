@@ -4,19 +4,19 @@ title: "Running the supplied SimBank tests"
 ---
 SimBank comes with a selection of prepared Galasa tests:
 
-- A basic Installation Verification Test (IVT) using a Manager that provides a 3270 terminal interface - `SimBankIVT.java`.
-- A test that updates an account using web services - `BasicAccountCreditTest.java`.
-- A test that uses a provisioned account object to perform a series of credit tests - `ProvisionedAccountCreditTests.java`.
+- A basic Installation Verification Test (IVT) logs on to SimBank and examines an account - `SimBankIVT.java`.
+- A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
+- A test that uses a provisioned account object to perform the same test as above in an improved test design - `ProvisionedAccountCreditTests.java`.
 
 # SimBankIVT.java
-1. Ensure that Eclipse is running and that you have launched the SimBank server as described [here](/docs/first-steps/simbank).
+1. Ensure that Eclipse is running and that you have launched SimBank as described [here](/docs/first-steps/simbank).
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
 1. Confirm your *New project* prefix (it's OK to leave it as `dev.galasa.simbank`) and press *Finish*. In your *Package Explorer* (if it's not visible, choose *Window > Show View > Package Explorer*), two new entries appear:
 ```
 dev.galasa.simbank.manager
 dev.galasa.simbank.tests 
 ```
-1. Expand *dev.galasa.simbank.tests > src/main/java > galasa.test* in your *Package Explorer* and select *SimBankIVT.java*.
+1. Expand *dev.galasa.simbank.tests > src/main/java > deve.galasa.simbank.tests* in your *Package Explorer* and select *SimBankIVT.java*.
 1. Choose *Run > Run Configurations* and look for and select *Galasa* in the left pane this time (not Galasa SimBank).
 1. Right-click *Galasa* and choose *New Configuration*.
 1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simbank.tests`, then press *Search* to locate your test class, *SimBankIVT*.
@@ -27,56 +27,18 @@ dev.galasa.simbank.tests 
 ## `SimBankIVT.java` - exploring the code
 Even without any prior knowledge of Galasa, if you know a little Java, you will have no trouble understanding the flow of logic in `SimBankIVT.java`.
 
-### Imports
-The code starts off with some imports, and these are largely divided into three broad categories:
-
-* Interface and class definitions of Galasa Managers, such as `HttpClient`, `IHttpClient` and the `zos3270` Manager imports and their related exceptions.
-* Application (SimBank) related imports - `Account`, `IAccount` and so on.
-* Some standard Java imports such as `java.io.IOException` and `java.math.BigDecimal`.
-
-```
-package dev.galasa.simbanks.tests;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-import dev.galasa.Test;
-import dev.galasa.artifact.ArtifactManager;
-import dev.galasa.artifact.IArtifactManager;
-import dev.galasa.artifact.TestBundleResourceException;
-import dev.galasa.core.manager.CoreManager;
-import dev.galasa.core.manager.ICoreManager;
-import dev.galasa.http.HttpClient;
-import dev.galasa.http.HttpClientException;
-import dev.galasa.http.IHttpClient;
-import dev.galasa.zos.IZosImage;
-import dev.galasa.zos.ZosImage;
-import dev.galasa.zos.ZosManagerException;
-import dev.galasa.zos3270.FieldNotFoundException;
-import dev.galasa.zos3270.ITerminal;
-import dev.galasa.zos3270.KeyboardLockedException;
-import dev.galasa.zos3270.TextNotFoundException;
-import dev.galasa.zos3270.TimeoutException;
-import dev.galasa.zos3270.Zos3270Terminal;
-import dev.galasa.zos3270.spi.DatastreamException;
-import dev.galasa.zos3270.spi.NetworkException;
-```
-
 ### The `SimBankIVT` test class
-The class is first annotated with `@Test` - not a Galasa-specific structure - it provides a general hint to many types of Java tooling (for example, Maven or JUnit) that a method or class is a test (for scoping purposes).
+The class is first annotated with `@Test` - informing the framework that a method or (as in this case) a class is a test.
 
-Next at the beginning of the test class proper, four Galasa Managers are declared via annotations, together with four corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
-
+Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
 ```
 @Test
 public class SimBankIVT{ 
 
-    @ZosImage(imageTag="A")
+    @ZosImage(imageTag="simbank")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="A")
+    @Zos3270Terminal(imageTag="simbank")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -88,8 +50,9 @@ public class SimBankIVT{
     @CoreManager
     public ICoreManager coreManager;
 ```
+Galasa will instantiate these objects - they are indeed, the Managers mentioned earlier.
 
-Then a helper method `testNotNull` is defined - such methods can be very useful when creating and debugging new tests (... to eliminate the possibility that important elements of a test have not been initialized correctly).
+Then a test method `testNotNull` is defined - when executed, this tests and demonstrates that Galasa has started the required Managers.
 
 ```
 @Test
@@ -100,14 +63,17 @@ public void testNotNull() {
     assertThat(client).isNotNull();
 }
 ```
+Each line includes an assertion that states that an instance of a Manager should not be `null`. If one or more of these assertions is not true, then the test will fail, alerting you to the fact that one or more Managers has not been initialized correctly.
 
-Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. \*\*\*1\*\*\*.
+Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. \*\*\*1\*\*\*. In a generated log, a completed password field might look like:
+```
+Userid ===> IBMUSER  Password ===> *1**
+```
+Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enables Galasa to sign into SimBank using its session manager. It demonstrates using the following methods:
 
-Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enables Galasa to sign into the SimBank system using its session manager. It demonstrates using the following methods:
-
-* `positionCursorToFieldContaining()` - which as its name implies, positions the cursor to a field containing a specific label
+* `positionCursorToFieldContaining(<string>)` - which as its name implies, positions the cursor to a field containing a specific label
 * `tab()` - which presses the TAB key in the application under test
-* `type()` - where a sequence of characters are typed into an input field
+* `type(<string>)` - where a sequence of characters are typed into an input field
 * `enter()` - where the ENTER key is pressed
 ```
 @Test
@@ -142,9 +108,9 @@ assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accou
 assertThat(terminal.retrieveScreen()).containsOnlyOnce("UPDATE      Update Accounts    PF2");
 assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
 ```
-
+If any assertion failed, then the whole test would be marked as a *failed* test.
 # BasicAccountCreditTest.java
-This test illustrates how to use web services to interface with the SimBank application, and how to use regular helper methods that you do not wish to be recognized as test methods.
+This test illustrates how to use web services to interface with the SimBank application, and how to use regular methods that you do not wish to be recognized as test methods.
 
 To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/first-steps/simbank) before running the test.
 
@@ -168,7 +134,7 @@ terminal.waitForKeyboard()
 //Obtain the initial balance
 BigDecimal userBalance = getBalance("123456789");
 ```
-Note that the `userBalance` is obtained by calling the private helper method `getBalance` - it is not annotated with `@Test`, and so will (correctly) not be identified to Galasa as a test method. It's also a good habit to declare such methods as *private* if possible.
+Note that the `userBalance` is obtained by calling the private method `getBalance` - it is not annotated with `@Test`, and so will (correctly) not be identified to Galasa as a test method. It's also a good habit to declare such methods as *private* if possible.
 
 ```
 private BigDecimal getBalance(String accountNum) throws DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
@@ -196,7 +162,7 @@ parameters.put("ACCOUNT_NUMBER", "123456789");
 parameters.put("AMOUNT", amount.toString());
 ```
 
-A sample web services request is created by populating the `testSkel.skel` skeleton SOAP message with the prepared parameters, and the web services request invoked. The actual call is made by `client`, an instance of our HTTPClient Manager.
+A sample web services request is created by populating the `testSkel.skel` skeleton SOAP message with the prepared parameters, and the web services request invoked. The actual call is made by `client`, an instance of our HTTPClient Manager. You can review the skeleton by expanding `src/main/resources > resources > skeletons` and browsing the `testSkel.skel` file.
 ```
 //Load sample request with the given parameters
 IBundleResources resources = artifacts.getBundleResources(this.getClass());
