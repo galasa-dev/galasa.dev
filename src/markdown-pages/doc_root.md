@@ -2,7 +2,7 @@
 path: "/docs"
 title: "Introduction"
 ---
-This hub page contains links to the main Galasa documentation. To get started with Galasa as quickly as possible, explore the *Getting Started* section on the left-hand menu. Read on to learn a little about Galasa's architecture first.
+This hub page contains links to the main Galasa documentation. To get going with Galasa as quickly as possible, explore the *First steps* section on the left-hand menu. Read on to learn a little about Galasa's architecture first.
 
 #Galasa's architecture
 At its top level, Galasa decomposes into three major components:

@@ -15,14 +15,14 @@
     items: 
       - title: Introduction and Architecture
         path: /docs/
-      - title: Getting Started
-        path: /docs/getting-started/
+      - title: First steps
+        path: /docs/first-steps/
         items:
           - title: Installing Galasa and SimBank
-            path: /docs/getting-started/installing
+            path: /docs/first-steps/installing
           - title: Exploring SimBank
-            path: /docs/getting-started/simbank
+            path: /docs/first-steps/simbank
           - title: Running the supplied SimBank tests
-            path: /docs/getting-started/simbank-IVT
+            path: /docs/first-steps/simbank-IVT
           - title: Writing your own SimBank test
-            path: /docs/getting-started/writing-a-test
+            path: /docs/first-steps/writing-a-test
