@@ -19,16 +19,16 @@ Galasa's core test framework orchestrates all component activities, and co-ordin
 
 The Galasa framework automatically recognizes your test definitions, and launches the required Managers and the test runner to provision and execute them. All without you having to explicitly invoke them.
 
-It is extremely unlikely that you would need to change the framework or test runner code during the normal range of testing activities. 
+It is extremely unlikely that you will need to change the framework or test runner code during the normal range of testing activities. 
 
 ##Managers
 The two main purposes of a Manager are to reduce the amount of boilerplate code within a test and provide proven tool interaction code. This makes the test code simpler and easier to write, understand and maintain, as the focus of a test's development shifts to validating application changes, rather than marshalling environmental resources.
 
-Sometimes, Managers perform a range of general-purpose services, at others they are much more focused. For example, the HTTPClientManager contains a wide range of facilities you might expect from a programmable HTTP client, while the DB2Manager confines its scope to a range of DB2 interactions.
+Sometimes, Managers perform a range of general-purpose services, and at other times, they are much more focused. For example, the HTTPClientManager contains a wide range of facilities you might expect from a programmable HTTP client, while the DB2Manager confines its scope to a range of DB2 interactions.
 
 Different managers can collaborate with each other to perform a joint task, including sharing information and getting other managers to complete tasks for them. This work is coordinated by the Galasa framework.
 
-Most managers you encounter will be one of three types:
+Most managers you encounter will be one of four types:
 
 * *Core Managers*: a set of central, fundamental Managers with wide-ranging use. Examples include *zosFileManager*, *zosBatchManager* and *zosCommandManager*. These are part of the core Galasa distribution.
 * *Product Managers*: a set of Managers responsible for test interactions with specific products, for example *CICSManager*, *WMQManager* and *DB2Manager*. Again, some product Managers will be part of the core Galasa distribution but it is also possible that your team may write its own Manager for a specialty product used in your organization.

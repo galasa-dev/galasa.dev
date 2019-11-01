@@ -100,12 +100,11 @@ terminal.pf1().waitForKeyboard()
 .clear().waitForKeyboard()
 .tab().type("bank").enter().waitForKeyboard();
 ```
-Finally, four assertions confirm that the test has arrived at its destination screen.
+Finally, three assertions confirm that the test has arrived at its destination screen.
 ```
 //Assert that the bank menu is showing
 assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
 assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
-assertThat(terminal.retrieveScreen()).containsOnlyOnce("UPDATE      Update Accounts    PF2");
 assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
 ```
 If any assertion failed, then the whole test would be marked as a *failed* test.
