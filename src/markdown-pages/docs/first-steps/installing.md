@@ -21,7 +21,7 @@ If you do not already have an Eclipse installation, you can [download and instal
 If you already have a version of Eclipse installed, it should be at the version codenamed Oxygen (released in June 2017) or later.
 
 ### A 3270 terminal emulator
-Galasa is packaged with SimBank, a simulated version of a mainframe application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. You will need a 3270 terminal emulator to enable you to connect with and explore SimBank before running Galasa's provided suite of automated tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
+Galasa is packaged with SimBank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. You will need a 3270 terminal emulator to enable you to connect with and explore SimBank before running Galasa's provided suite of automated tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
 
 ## Installing the Galasa plug-in
 1. Launch Eclipse. If present, close any initial welcome screen.
@@ -33,22 +33,29 @@ Galasa is packaged with SimBank, a simulated version of a mainframe application 
 
 ## Configuring Eclipse for Galasa
 1. Check to see if you have a `.galasa` folder in your user home directory - create it if there isn't one. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
-1. Create four empty files in your .galasa folder:
+1. Create two empty files in your .galasa folder:
 ```
 bootstrap.properties
-credentials.properties
 dss.properties
-overrides.properties
 ```
-1. Create and edit a fifth file in your `.galasa` folder called `cps.properties` so that it contains:
+1. Create and edit a file called `cps.properties` in your `.galasa` folder so that it contains:
 ```
-#Default
 zos.cluster.default.images=simbank
-#simbank
+simbank.instance.simbank.zos.image=simbank
 zos.image.simbank.default.hostname=127.0.0.1
 zos.image.simbank.ipv4.hostname=127.0.0.1
 zos.image.simbank.telnet.port=2023
-sim.image.simbank.web.port=2080
+zos.image.simbank.credentials=simbank
+sim.image.simbank.webnet.port=2080
+```
+1. Create and edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
+```
+secure.credentials.SIMBANK.username=IBMUSER
+secure.credentials.SIMBANK.password=SYS1
+```
+1. Create and edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
+```
+simbank.dse.instance.name=simbank
 ```
 1. Create an `.m2e` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
 ```
