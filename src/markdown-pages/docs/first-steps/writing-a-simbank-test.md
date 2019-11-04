@@ -2,182 +2,374 @@
 path: "/docs/first-steps/writing-a-test"
 title: "Writing your own SimBank test"
 ---
+Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven tranfer between two accounts. Have a go at following the instructions without looking at the code - you can use the three provided test examples as inspiration. Eclipse will help when you need to resolve imports and exceptions.
 
-Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. Use the following scenario to help you create your own test that runs against SimBank in Eclipse. This scenario uses a 3270 terminal emulator to connect with SimBank and validates the sort code and balance that are associated with a SimBank account. 
-
-At this stage, values are hard-coded - this scenario is designed to grow confidence in writing a simple Galasa test. 
-
-<details>
-<summary><b>Create a new Galasa test class in Eclipse</b></summary>
-
+##Create a new Galasa test class
 1. Start Eclipse and [launch SimBank](/docs/first-steps/simbank). 
-2. Create a new test class by selecting *File > New > Class* from the main menu and clicking *Next* 
-3. In the *Source Folder* field click *Browse* and navigate to *dev.galasa.simbank.tests* > *src/main/java* and click *OK* to add your class to the SimBank tests directory. 
-4. In the *Package* field, enter *dev.galasa.tests*. 
-5. In the *Name* field, type *ValidateAccount*.
-5. Click *Finish*. 
-The following empty test class is created: 
-```
-package dev.galasa.simbanks.tests;
-public class ValidateAccount {}
-```
-</details>
+1. Create a new test class by by selecting *File > New > Class*, completing the dialog as follows and then clicking *Finish*:
+![New Java Class](./create-new-class.png)
+1. Annotate the new class with the `@Test` annotation.
+You can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
+![Fix @Test import](./fix-import.png)
 
 <details>
-<summary><b>Set up the Galasa test</b></summary>
+<summary>Stage 1 - code so far</summary>
 
-1. Import the *dev.galasa.Test* package into your test class:
 ```
 package dev.galasa.simbanks.tests;
+
 import dev.galasa.Test;
-public class ValidateAccount {}
-```
-2. Add the *@Test* annotation to tell the Galasa framework that the code that follows this annotation is test code: 
-```
-package dev.galasa.simbanks.tests;
-import dev.galasa.Test;
+
 @Test
-public class ValidateAccount {}
-```
-</details>
+public class BasicTransferTest {
 
-<details>
-<summary><b>Write a "not null" test</b></summary>
-
-In this scenario, we are testing that we get the correct sort code and balance returned when we browse SimBank for a specified account by using 3270 screens.
-
-1. Provision the resources that you need for the test. 
-We know that we need a 3270 terminal. The 3270 terminal needs a z/OS image to run, so the following code from *BasicAccountCreditTest* is copied into the test:
-```  
-package dev.galasa.simbanks.tests;
-import dev.galasa.Test;
-import dev.galasa.zos.ZosImage;
-import dev.galasa.zos.IZosImage;
-import dev.galasa.zos3270.Zos3270Terminal;
-import dev.galasa.zos3270.ITerminal;
-@Test
-public class ValidateAccount {
-	 @ZosImage(imageTag="SimBank")
-     public IZosImage image;
-
-	 @Zos3270Terminal(imageTag="SimBank")
-	 public ITerminal terminal;
-} 
-```  
-2. Write a "not null" test method.
-It's a good idea to write a "not null" test method to check that everything is working before you write your test code. Create the test method by and importing the assertThat method and by writing a *public void* method to check that the objects you need are loaded.
-```
-import static org.assertj.core.api.Assertions.assertThat;
-```
-```
-@Test
-public void testNotNull() {
-	        assertThat(terminal).isNotNull();
-	        }
-```  
-The following snippet shows the test code that is written so far:  
-```
-package dev.galasa.simbanks.tests;
-import dev.galasa.Test;
-import dev.galasa.zos.ZosImage;
-import dev.galasa.zos.IZosImage;
-import dev.galasa.zos3270.Zos3270Terminal;
-import dev.galasa.zos3270.ITerminal;
-import static org.assertj.core.api.Assertions.assertThat;
-@Test
-public class ValidateAccount {
-	 @ZosImage(imageTag="SimBank")
-     public IZosImage image;
-
-	 @Zos3270Terminal(imageTag="SimBank")
-	 public ITerminal terminal;
-@Test 
-public void testNotNull() {
-	   assertThat(terminal).isNotNull();
-	    }
 }
-```  
+```
 </details>
 
+## Provision the necessary resources and write a *not null* test.
+
+4. Just inside your new test class, declare the required Managers and add a *not null* test. You will need declarations for `@ZosImage`, `@Zos3270Terminal`, `@ArtifactManager`, `@HttpClient`, `@CoreManager`, and `@Logger`. Make sure that `@ZosImage` and `@Zos3270Terminal` are assigned the imageTag `simbank`.
+1. Add a `testNotNull()` method that asserts that your `@Zos3270Terminal`, `@ArtifactManager` and `@HttpClient` have instantiated correctly.
+
 <details>
-<summary><b>Run the "not null" test method</b></summary>
+<summary>Stage 2 - code so far</summary>
 
-1. From the main menu, choose *Run > Run Configurations*.
-2. In the *Create, manage and run configurations* pop-up window, select *Galasa* in the left pane and click the *New launch configuration* icon.
-3. Name the configuration and click *OK*. In this scenario we have named the configuration *ValidateAccount*.
-4. In the *Project* field, browse to *dev.galasa.simbank.tests* and click *OK*.
-5. In the *Test class* field, browse to *dev.galasa.simbanks.tests.ValidateAccount*.
-6. Select *Apply* > *Run*. 
+```
+package dev.galasa.simbanks.tests;
 
-A message `Passed - Test method dev.galasa.simbanks.tests.ValidateAccount#testNotNull,type=Test` appears in the console window.
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.apache.commons.logging.Log;
+
+import dev.galasa.Test;
+import dev.galasa.artifact.ArtifactManager;
+import dev.galasa.artifact.IArtifactManager;
+import dev.galasa.core.manager.CoreManager;
+import dev.galasa.core.manager.ICoreManager;
+import dev.galasa.core.manager.Logger;
+import dev.galasa.http.HttpClient;
+import dev.galasa.http.IHttpClient;
+import dev.galasa.zos.IZosImage;
+import dev.galasa.zos.ZosImage;
+import dev.galasa.zos3270.ITerminal;
+import dev.galasa.zos3270.Zos3270Terminal;
+
+@Test
+public class BasicTransferTest {
+	@ZosImage(imageTag="simbank")
+    public IZosImage image;
+
+    @Zos3270Terminal(imageTag="simbank")
+    public ITerminal terminal;
+
+    @ArtifactManager
+    public IArtifactManager artifacts;
+
+    @HttpClient
+    public IHttpClient client;
+    
+    @CoreManager
+    public ICoreManager coreManager;
+    
+    @Logger
+    public Log logger;
+    
+
+    @Test
+    public void testNotNull() {
+        //Check all objects loaded
+        assertThat(terminal).isNotNull();
+        assertThat(artifacts).isNotNull();
+        assertThat(client).isNotNull();
+    }
+}
+
+```
+
 </details>
 
-<details>
-<summary><b>Write the validate account test method</b></summary> 
+You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first).
 
-When the "not null" test method completes successfully, write a second test method to validate the account sort code and balance of a specified account. SimBank has an account with the number *123456789*, so we are using this account for our test in this scenario. The test assumes that the sort-code is *11-01-45* and that the balance of the account is *56.72*.
-1. Import the following required exceptions, which can be used to help with debugging the test if it fails. If you do not import the exceptions, Eclipse flags this and prompts you to complete the imports. 
+## Create the main test method and open the main bank menu
+6. Inside your test class, create a public method called `transferCredit()`. Annotate it with `@Test`.
+1. Log on to SimBank using the `terminal` object, which is an instance of `ITerminal`. Use the credentials IBMUSER and SYS1.
+1. Use `assertThat()` to confirm that the session manager has a bank session available.
+1. Open the banking application.
+1. Use `assertThat()` to confirm that the bank menu is showing.
+
+Refer to the provided tests to see how to use the various `terminal` methods such as `waitForKeyboard`, `positionCursorToFieldContaining`, `enter`, `tab`, `clear`, `pf1` and `type`.
+
+<details>
+<summary>Stage 3 - the main `transferCredit()` method</summary>
+
 ```
-	 	import java.io.IOException;
-	 	import java.net.URISyntaxException;
-	 	import dev.galasa.artifact.TestBundleResourceException;
-		import dev.galasa.http.HttpClientException;
-		import dev.galasa.zos.ZosManagerException;
-		import dev.galasa.zos3270.FieldNotFoundException;
-		import dev.galasa.zos3270.KeyboardLockedException;
-		import dev.galasa.zos3270.TextNotFoundException;
-		import dev.galasa.zos3270.TimeoutException;
-		import dev.galasa.zos3270.spi.DatastreamException;
-		import dev.galasa.zos3270.spi.NetworkException;
+@Test
+public void transferCredit() throws TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+	//Logon through the session manager
+	terminal.waitForKeyboard()
+	.positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
+	.positionCursorToFieldContaining("Password").tab().type("SYS1")
+	.enter().waitForKeyboard();
+	
+	//Assert that the session manager has a bank session available
+	assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
+	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
+	
+	//Open banking application
+	terminal.pf1().waitForKeyboard()
+	.clear().waitForKeyboard()
+	.tab().type("bank").enter().waitForKeyboard();
+	
+	//Assert that the bank menu is showing
+	assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
+	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
+	assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
+    }
 ```
-2. Create a *public void* method to log onto the terminal and open the application. 
-When using the 3270 screens, the cursor is positioned under the first letter of the field name, for example, the "U" of Userid. The `.tab` code moves the cursor to the field where a value can be entered. Each time the screen changes, we need to include `waitforkeyboard` code. 
-```
-     @Test
-	 public void testValidateAccount() throws TestBundleResourceException, URISyntaxException, IOException, HttpClientException, ZosManagerException, DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException  {
-	        //Logon through the session manager
-	    	terminal.waitForKeyboard()
-	        .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
-	        .positionCursorToFieldContaining("Password").tab().type("SYS1")
-	        .enter().waitForKeyboard();	    	
-	    	 //Open the banking application
-	        terminal.pf1().waitForKeyboard()
-	        .clear().waitForKeyboard()
-	        .tab().type("bank").enter().waitForKeyboard();
-```  
-3. Create the new code to validate the correct sort code and balance is returned for account number *123456789*. 
-```        
-	        //Go to the Browse Accounts screen. 
-	        terminal.pf1().waitForKeyboard();
-	        //Position the cursor at Account Number field - the cursor is positioned under the letter A of the Account Number. The .tab code moves the cursor to the field where a value can be entered. 
-	        terminal.positionCursorToFieldContaining("Account Number").tab();
-	        //Enter the account number
-	        terminal.type("123456789");
-	        //The number is submitted by pressing enter on the terminal. The screen is refreshed, so we need the ```waitforkeyboard```  code
-	        //The *sortcode*, *balance* and message *Account Found* should appear on the terminal screen
-	        terminal.enter().waitForKeyboard();
-```
-3. Assert that the values returned are correct:
-```
-	        //Use the assert methods to test that the expected values are returned to the screen
-	        assertThat(terminal.retrieveScreen()).containsOnlyOnce("123456789");
-	    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("11-01-45");
-	    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("56.72");
-	    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("Account Found");       
-```
-**Tip:** If you have more than one method in your test, you can select which method(s) to run from the Run configurations screen by clicking search on *Test Method*.
 </details>
 
+## Retrieve the initial account balances and declare an amount to transfer
+11. Create a private `getBalance(<string>)` method by copying it from the `BasicAccountCreditTest.java` example.
+1. Retrieve the initial balances of accounts `123456789` and `987654321` and write them to the log. Use the `getBalance(<string>)` method you just created.
+1. Declare a `final BigDecimal transferAmount` variable to store an amount to transfer by instantiating a new `BigDecimal` object. 
+
 <details>
-<summary><b>Run the validate account test</b></summary>
+<summary>Stage 4 - the full `BasicTransferTest` code so far</summary>
 
-1. From the main menu, choose *Run > Run Configurations*.
-2. In the *Create, manage and run configurations* pop-up window, select the *ValidateAccount* test.
-3. Click *Run*. 
+```
 
-A message `Passed - Test method dev.galasa.simbanks.tests.ValidateAccount#testValidateAccount,type=Test` appears in the console window.
+@Test
+public class BasicTransferTest {
+	@ZosImage(imageTag="simbank")
+    public IZosImage image;
 
-*Note:* If the expected value for either the sort-code or account balance does not match the actual values, then a message `Failed - Test method dev.galasa.simbanks.tests.ValidateAccount#testValidateAccount,type=Test` appears in the console window.
+    @Zos3270Terminal(imageTag="simbank")
+    public ITerminal terminal;
+
+    @ArtifactManager
+    public IArtifactManager artifacts;
+
+    @HttpClient
+    public IHttpClient client;
+    
+    @CoreManager
+    public ICoreManager coreManager;
+    
+    @Logger
+    public Log logger;
+    
+
+    @Test
+    public void testNotNull() {
+        //Check all objects loaded
+        assertThat(terminal).isNotNull();
+        assertThat(artifacts).isNotNull();
+        assertThat(client).isNotNull();
+    }
+    
+
+    @Test
+    public void transferCredit() throws TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+    	//Logon through the session manager
+    	terminal.waitForKeyboard()
+        .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
+        .positionCursorToFieldContaining("Password").tab().type("SYS1")
+        .enter().waitForKeyboard();
+    	
+    	//Assert that the session manager has a bank session available
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
+    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
+    	
+        //Open banking application
+        terminal.pf1().waitForKeyboard()
+        .clear().waitForKeyboard()
+        .tab().type("bank").enter().waitForKeyboard();
+    	
+        //Assert that the bank menu is showing
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
+        
+        //Retrieve initial account balances
+        BigDecimal account123456789InitialBalance = getBalance("123456789");
+        logger.info("Pre-test balance for account 123456789 is " + account123456789InitialBalance.toString());
+        BigDecimal account987654321InitialBalance = getBalance("987654321");
+        logger.info("Pre-test balance for account 987654321 is " + account987654321InitialBalance.toString());
+        
+        //Declare the amount to be transferred
+        final BigDecimal transferAmount = new BigDecimal(10.0);
+    }
+    
+    private BigDecimal getBalance(String accountNum) throws DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+        BigDecimal amount = BigDecimal.ZERO;
+        //Open account menu and enter account number
+        terminal.pf1().waitForKeyboard()
+                .positionCursorToFieldContaining("Account Number").tab()
+                .type(accountNum).enter().waitForKeyboard();
+
+        //Retrieve balance from screen
+        amount = new BigDecimal(terminal.retrieveFieldTextAfterFieldWithString("Balance").trim());
+
+        //Return to bank menu
+        terminal.pf3().waitForKeyboard();
+        return amount;
+    }
+    
+}
+```
+</details>
+
+## Automate Galasa to make the transfer and check that everything is correct.
+14. Choose the TRANFER MONEY option (PF4) and check that we are on the right screen - it contains the string SIMBANK TRANSFER MENU.
+1. Enter the transfer amount details using the various methods of your `terminal` instance. Note that you you have to convert the `transferAmount` to a `String` before you can use `terminal.type` to enter it into the screen's fields.
+1. Check that a `Transfer Success` message appears.
+1. Go back to the main bank menu (PF3).
+1. Retrieve the final balances and use assertions to check that the account balances have been debited and credited correctly.
+
+<details>
+<summary>The completed test code</summary>
+
+```
+package dev.galasa.simbanks.tests;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.math.BigDecimal;
+
+import org.apache.commons.logging.Log;
+
+import dev.galasa.Test;
+import dev.galasa.artifact.ArtifactManager;
+import dev.galasa.artifact.IArtifactManager;
+import dev.galasa.core.manager.CoreManager;
+import dev.galasa.core.manager.ICoreManager;
+import dev.galasa.core.manager.Logger;
+import dev.galasa.http.HttpClient;
+import dev.galasa.http.IHttpClient;
+import dev.galasa.zos.IZosImage;
+import dev.galasa.zos.ZosImage;
+import dev.galasa.zos3270.FieldNotFoundException;
+import dev.galasa.zos3270.ITerminal;
+import dev.galasa.zos3270.KeyboardLockedException;
+import dev.galasa.zos3270.TextNotFoundException;
+import dev.galasa.zos3270.TimeoutException;
+import dev.galasa.zos3270.Zos3270Terminal;
+import dev.galasa.zos3270.spi.DatastreamException;
+import dev.galasa.zos3270.spi.NetworkException;
+
+@Test
+public class BasicTransferTest {
+	@ZosImage(imageTag="simbank")
+    public IZosImage image;
+
+    @Zos3270Terminal(imageTag="simbank")
+    public ITerminal terminal;
+
+    @ArtifactManager
+    public IArtifactManager artifacts;
+
+    @HttpClient
+    public IHttpClient client;
+    
+    @CoreManager
+    public ICoreManager coreManager;
+    
+    @Logger
+    public Log logger;
+    
+
+    @Test
+    public void testNotNull() {
+        //Check all objects loaded
+        assertThat(terminal).isNotNull();
+        assertThat(artifacts).isNotNull();
+        assertThat(client).isNotNull();
+    }
+    
+    @Test
+    public void transferCredit() throws TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+    	//Logon through the session manager
+    	terminal.waitForKeyboard()
+        .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
+        .positionCursorToFieldContaining("Password").tab().type("SYS1")
+        .enter().waitForKeyboard();
+    	
+    	//Assert that the session manager has a bank session available
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMPLATFORM MAIN MENU");
+    	assertThat(terminal.retrieveScreen()).containsOnlyOnce("BANKTEST");
+    	
+        //Open banking application
+        terminal.pf1().waitForKeyboard()
+        .clear().waitForKeyboard()
+        .tab().type("bank").enter().waitForKeyboard();
+    	
+        //Assert that the bank menu is showing
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("Options     Description        PFKey ");
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("BROWSE      Browse Accounts    PF1");
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Money     PF4");
+        
+        //Retrieve initial account balances
+        BigDecimal account123456789InitialBalance = getBalance("123456789");
+        logger.info("Pre-test balance for account 123456789 is " + account123456789InitialBalance.toString());
+        BigDecimal account987654321InitialBalance = getBalance("987654321");
+        logger.info("Pre-test balance for account 987654321 is " + account987654321InitialBalance.toString());
+        
+        //Declare the amount to be transferred
+        final BigDecimal transferAmount = new BigDecimal(10.0);
+        
+        //Choose the Transfer Money option
+        terminal.pf4().waitForKeyboard();
+        
+        //Assert that we are on the right screen
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("SIMBANK TRANSFER MENU");
+        
+        //Enter the transfer amount details
+        //Open account menu and enter account numbers and transfer amount
+        terminal.positionCursorToFieldContaining("Transfer from Account Number").tab()
+                .type("123456789").enter().waitForKeyboard();
+        terminal.positionCursorToFieldContaining("Transfer to Account Number").tab()
+        		.type("987654321").enter().waitForKeyboard();
+        terminal.positionCursorToFieldContaining("Transfer Amount").tab()
+				.type(transferAmount.toString()).enter().waitForKeyboard();
+        
+        //Assert that the transfer was successful
+        assertThat(terminal.retrieveScreen()).containsOnlyOnce("Transfer Successful");
+        
+        //Back to main menu - important we do this to prepare for getBalance().
+        terminal.pf3().waitForKeyboard();
+        
+        //Retrieve final account balances
+        BigDecimal account123456789FinalBalance = getBalance("123456789");
+        logger.info("Final balance for account 123456789 is " + account123456789FinalBalance.toString());
+        BigDecimal account987654321FinalBalance = getBalance("987654321");
+        logger.info("Final balance for account 987654321 is " + account987654321FinalBalance.toString());
+        
+        //Assert that the final balances differ by exactly the transferred amount
+        assertThat(account123456789FinalBalance).isEqualTo(account123456789InitialBalance.subtract(transferAmount));
+        assertThat(account987654321FinalBalance).isEqualTo(account987654321InitialBalance.add(transferAmount));
+    }
+    
+    private BigDecimal getBalance(String accountNum) throws DatastreamException, TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
+        BigDecimal amount = BigDecimal.ZERO;
+        //Open account menu and enter account number
+        terminal.pf1().waitForKeyboard()
+                .positionCursorToFieldContaining("Account Number").tab()
+                .type(accountNum).enter().waitForKeyboard();
+
+        //Retrieve balance from screen
+        amount = new BigDecimal(terminal.retrieveFieldTextAfterFieldWithString("Balance").trim());
+
+        //Return to bank menu
+        terminal.pf3().waitForKeyboard();
+        return amount;
+    }
+    
+}
+
+```
+</details>
+
 
 You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab and selecting the *Run Log* tab. You can also add breakpoints to your code and step through to view the value of the variables used in the test.
 </details>

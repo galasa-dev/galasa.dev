@@ -30,7 +30,7 @@ Even without any prior knowledge of Galasa, if you know a little Java, you will 
 ### The `SimBankIVT` test class
 The class is first annotated with `@Test` - informing the framework that a method or (as in this case) a class is a test.
 
-Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on.
+Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on. Using the `imageTag="simbank"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties.
 ```
 @Test
 public class SimBankIVT{ 
@@ -52,7 +52,9 @@ public class SimBankIVT{
 ```
 Galasa will instantiate these objects - they are indeed, the Managers mentioned earlier.
 
-Then a test method `testNotNull` is defined - when executed, this tests and demonstrates that Galasa has started the required Managers.
+Note that as a general principle, any objects, classes or methods that you wish to interact with the Galasa test framework should be declared as `public`.
+
+Next, a test method `testNotNull` is defined - when executed, this tests and demonstrates that Galasa has started the required Managers.
 
 ```
 @Test
