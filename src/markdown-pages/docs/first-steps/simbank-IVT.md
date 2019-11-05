@@ -16,11 +16,10 @@ SimBank comes with a selection of prepared Galasa tests:
 dev.galasa.simbank.manager
 dev.galasa.simbank.tests 
 ```
-1. Expand *dev.galasa.simbank.tests > src/main/java > deve.galasa.simbank.tests* in your *Package Explorer* and select *SimBankIVT.java*.
+1. Right-click on `dev.galasa.simbank.manager` and choose *Run As > Maven install* - wait a few moments for the dependencies to load and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`.
 1. Choose *Run > Run Configurations* and look for and select *Galasa* in the left pane this time (not Galasa SimBank).
-1. Right-click *Galasa* and choose *New Configuration*.
+1. Right-click *Galasa*, choose *New Configuration* and give it a name.
 1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simbank.tests`, then press *Search* to locate your test class, *SimBankIVT*.
-1. Un-tick the *Include ~/.galasa/override.properties* box when back in the main *Run Configurations* dialog.
 1. Press *Apply* then *Run*.
 1. The *SimBankIVT* tests run, and the Eclipse console displays their progress through to completion. You will also see a *live terminal* window in which the interactions with the 3270 terminal are captured - when the test has finished, you can use the attached controls to step back and forth along the sequence of screens.
 

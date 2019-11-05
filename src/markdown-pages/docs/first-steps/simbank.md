@@ -9,9 +9,8 @@ By exercising the Galasa framework against SimBank, you can pre-empt a lot (but 
 ## Launching SimBank
 1. Start Eclipse.
 1. From the main menu, choose *Run > Run Configurations*.
-1. In the *Create, manage and run configurations* dialog, select *Galasa SimBank* in the left pane and press the *New launch configuration* icon:<br/><br/>
- ![New launch configuration](./new-launch-configuration.png "New launch configuration icon"). 
-1. Type your preferred name for the run configuration in the *Name:* field, press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
+1. In the *Create, manage and run configurations* dialog, right-click *Galasa SimBank* in the left pane and choose *New Configuration*.
+1. Type your preferred name for the run configuration in the *Name:* field (a relevant name such as *SimBank* is fine), press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
 2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
