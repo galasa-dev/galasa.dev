@@ -27,7 +27,7 @@ Galasa is packaged with SimBank, a simulated version of an application that help
 1. Launch Eclipse. If present, close any initial welcome screen.
 1. Choose *Help > Install New Software* from the main menu.
 1. Paste `https://p2.galasa.dev/` into the *Work with* field.
-1. Tick the *Galasa* box in the main panel, ensuring that *Galasa* all of its child elements are ticked.
+1. Tick the *Galasa* box in the main panel, ensuring that *Galasa* and all of its child elements are ticked.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new *Galasa* option on the main menu between *Run* and *Window*. If you choose *Run > Run Configurations* from the main menu, you will also observe two new entries: *Galasa* and *Galasa SimBank* as available options in the left-hand panel of the popup window.
 
@@ -57,7 +57,7 @@ secure.credentials.SIMBANK.password=SYS1
 ```
 simbank.dse.instance.name=simbank
 ```
-1. Create an `.m2e` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
+1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
