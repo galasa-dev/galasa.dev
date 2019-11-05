@@ -101,7 +101,7 @@ You can run the *Not Null* test by creating a new run configuration as in the ot
 Refer to the provided tests to see how to use the various `terminal` methods such as `waitForKeyboard`, `positionCursorToFieldContaining`, `enter`, `tab`, `clear`, `pf1` and `type`.
 
 <details>
-<summary>Stage 3 - the main `transferCredit()` method</summary>
+<summary>Stage 3 - the main `transferCredit()` method (in progress)</summary>
 
 ```
 @Test
@@ -221,7 +221,7 @@ public class BasicTransferTest {
 </details>
 
 ## Automate Galasa to make the transfer and check that everything is correct.
-14. Choose the TRANFER MONEY option (PF4) and check that we are on the right screen - it contains the string SIMBANK TRANSFER MENU.
+14. Choose the TRANSFER MONEY option (PF4) and check that we are on the right screen - it contains the string SIMBANK TRANSFER MENU.
 1. Enter the transfer amount details using the various methods of your `terminal` instance. Note that you you have to convert the `transferAmount` to a `String` before you can use `terminal.type` to enter it into the screen's fields.
 1. Check that a `Transfer Success` message appears.
 1. Go back to the main bank menu (PF3).
