@@ -370,9 +370,10 @@ public class BasicTransferTest {
 ```
 </details>
 
+If you haven't yet done so, you can run the final test by first ensuring that SimBank is already running and then creating and running a new run configuration as you did with the other examples. 
 
 You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab and selecting the *Run Log* tab. You can also add breakpoints to your code and step through to view the value of the variables used in the test.
 </details>
 
-Now create your own test to run against SimBank, or copy and modify one of the tests provided, to get more experience in writing Galasa tests. 
+Now create your *own* test to run against SimBank, or copy and modify one of the tests provided, to get more experience in writing Galasa tests. You could also try rewriting *this* test to use a provisioning Manager (e.g. IAccount) just as the `ProvisionedAccoutCreditTests.java` example improved the design of `BasicAccountCreditTests.java`.
 
