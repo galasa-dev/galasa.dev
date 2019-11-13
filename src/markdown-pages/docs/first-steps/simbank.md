@@ -42,7 +42,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 When you launch SimBank, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
 
 ### Logging in to the simulated application
-1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* via the Telnet protocol. No SSL configuration is required.
+1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* (or IP address 127.0.0.1 if the *localhost* alias has not been set up) via the Telnet protocol. No SSL configuration is required.
 1. Connect to the listening Telnet service with your 3270 emulator and review the logon screen:
 
     ![SimBank logon screen](./simbank-logon.png)
