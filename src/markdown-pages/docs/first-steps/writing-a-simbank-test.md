@@ -11,6 +11,7 @@ Now you have run through the tests provided as part of SimBank, you can have a g
 1. Annotate the new class with the `@Test` annotation.
 You can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
 ![Fix @Test import](./fix-import.png)
+You can use a similar technique later on when you need to resolve exceptions in the `throws` clause of the `transferCredit()` method.
 
 <details>
 <summary>Stage 1 - code so far</summary>
@@ -89,7 +90,7 @@ public class BasicTransferTest {
 
 </details>
 
-You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first).
+You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/first-steps/simbank-IVT).
 
 ## Create the main test method and open the main bank menu
 6. Inside your test class, create a public method called `transferCredit()`. Annotate it with `@Test`.
@@ -223,7 +224,7 @@ public class BasicTransferTest {
 ## Automate Galasa to make the transfer and check that everything is correct.
 14. Choose the TRANSFER MONEY option (PF4) and check that we are on the right screen - it contains the string SIMBANK TRANSFER MENU.
 1. Enter the transfer amount details using the various methods of your `terminal` instance. Note that you you have to convert the `transferAmount` to a `String` before you can use `terminal.type` to enter it into the screen's fields.
-1. Check that a `Transfer Success` message appears.
+1. Check that a `Transfer Successful` message appears.
 1. Go back to the main bank menu (PF3).
 1. Retrieve the final balances and use assertions to check that the account balances have been debited and credited correctly.
 
@@ -372,7 +373,7 @@ public class BasicTransferTest {
 
 If you haven't yet done so, you can run the final test by first ensuring that SimBank is already running and then creating and running a new run configuration as you did with the other examples. 
 
-You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab and selecting the *Run Log* tab. You can also add breakpoints to your code and step through to view the value of the variables used in the test.
+You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab and selecting the *Run Log* tab. 
 </details>
 
 Now create your *own* test to run against SimBank, or copy and modify one of the tests provided, to get more experience in writing Galasa tests. You could also try rewriting *this* test to use a provisioning Manager (e.g. IAccount) just as the `ProvisionedAccoutCreditTests.java` example improved the design of `BasicAccountCreditTests.java`.

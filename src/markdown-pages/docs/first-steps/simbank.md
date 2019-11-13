@@ -7,7 +7,9 @@ Distributed with Galasa, SimBank is a component that simulates a mainframe appli
 By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn Galasa's basic principles of operation before you need to learn how to connect Galasa to your own mainframe application-under-test.
 
 ## Launching SimBank
-1. Start Eclipse.
+If you have previously started SimBank, then select and run its run configuration. If not, complete the following steps:
+
+1. Start Eclipse. 
 1. From the main menu, choose *Run > Run Configurations*.
 1. In the *Create, manage and run configurations* dialog, right-click *Galasa SimBank* in the left pane and choose *New Configuration*.
 1. Type your preferred name for the run configuration in the *Name:* field (a relevant name such as *SimBank* is fine), press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
