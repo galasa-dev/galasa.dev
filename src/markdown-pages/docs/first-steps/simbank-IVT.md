@@ -258,3 +258,4 @@ assertThat(newUserBalance).isEqualTo(userBalance.add(amount));
 
 logger.info("Balances matched");
 ```
+Now you are familiarized with the provided tests, you can attempt to write your own. Take a look at [Writing your own SimBank test](/docs/first-steps/writing-a-test) for some clues.

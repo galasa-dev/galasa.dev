@@ -106,7 +106,7 @@ This is an example of log output that can be useful when running tests.
 2019-08-16 13:50:53 INFO dev.galasa.simplatform.application.Bank transferMoney Transfering  1.0 from account: 123456789 to account: 987654321
 ```
 
-1. Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00, and that the 987654321 account has increased by the same amount.
+Press PF3 and once again browse the 123456789 account as described previously to verify that its total credit has decreased by the transferred 1.00, and that the 987654321 account has increased by the same amount.
 
 Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
