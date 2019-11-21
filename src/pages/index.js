@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import KeyFeature from "../components/key-feature"
 import Footer from "../components/footer"
@@ -31,13 +30,11 @@ const IndexPage = () => (
     </div>
     <div className={indexStyles.announcementContainer}>
       <Announcement title="We're excited to launch Galasa!">
-        Follow us on{" "}
-        <OutboundLink href={consts.twitter_url}>Twitter</OutboundLink>, track
-        our progress on{" "}
-        <OutboundLink href={consts.github_org_url}>GitHub</OutboundLink> and{" "}
-        <OutboundLink href={consts.spectrum_url}>chat with us</OutboundLink> to
-        see how Galasa can help you. The first Beta release of Galasa, 0.3.0,
-        will be available soon.
+        Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
+        progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
+        <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
+        help you. The first Beta release of Galasa, 0.3.0, will be available
+        soon.
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>

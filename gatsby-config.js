@@ -74,21 +74,6 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          process.env.GA_TRACKING_ID,
-        ],
-        gtagConfig: {
-          anonymize_ip: true,
-          link_attribution: true,
-        },
-        pluginConfig: {
-          respectDNT: true,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Galasa`,
