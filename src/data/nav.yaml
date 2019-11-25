@@ -18,7 +18,7 @@
       - title: First steps
         path: /docs/first-steps/
         items:
-          - title: Installing Galasa and SimBank
+          - title: Installing the Galasa Eclipse plug-in
             path: /docs/first-steps/installing
           - title: Exploring SimBank
             path: /docs/first-steps/simbank

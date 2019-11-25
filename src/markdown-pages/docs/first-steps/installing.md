@@ -1,6 +1,6 @@
 ---
 path: "/docs/first-steps/installing"
-title: "Installing Galasa and SimBank"
+title: "Installing the Galasa Eclipse plug-in"
 ---
 
 Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">here</a>) and the download and integration of the Galasa plug-in from a known update site such as the <a href="https://marketplace.eclipse.org" target="_blank">Eclipse Marketplace</a>. The Galasa plug-in is accompanied by SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform). 
