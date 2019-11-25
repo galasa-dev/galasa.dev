@@ -36,7 +36,7 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 
      If you are a Mac or Linux user, the messages will be almost identical.
 
-5. The SimBank process has been launched, and is listening on port *2023* for Telnet connections, and on port *2080* for web services connections (which are not explored further in this section).
+5. The SimBank process has been launched, and is listening on port *2023* for Telnet connections, on port *2080* for web services connections and on port *2027* for Derby SQL connections. Neither web services or Derby connections are explored further in this section.
 
 ## Manually exploring the SimBank application
 When you launch SimBank, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
