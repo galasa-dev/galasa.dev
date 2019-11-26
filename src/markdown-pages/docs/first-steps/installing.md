@@ -32,33 +32,48 @@ Galasa is packaged with SimBank, a simulated version of an application that help
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new *Galasa* option on the main menu between *Run* and *Window*. If you choose *Run > Run Configurations* from the main menu, you will also observe two new entries: *Galasa* and *Galasa SimBank* as available options in the left-hand panel of the popup window.
 
 ## Configuring Eclipse for Galasa
-1. If it is running, close Eclipse.
-1. Check to see if you have a `.galasa` folder in your user home directory - create it if there isn't one. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
+<!-- 1. If it is running, close Eclipse. -->
+<!-- 1. Check to see if you have a `.galasa` folder in your user home directory - create it if there isn't one. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
 1. Create two empty files in your .galasa folder:
 ```
 bootstrap.properties
 dss.properties
+``` -->
+1. Choose *Galasa > Setup Galasa Workspace* from the main Eclipse menu - this command creates some necessary configuration files. Your Eclipse console confirms its progress with some messages:
+
+    ```
+    Setting up the Galasa workspace
+    Creating the ~/.galasa files
+    Created the ~/.galasa directory
+    Created an empty Bootstrap Properties file ~/.galasa/bootstrap.properties
+    Created an empty Overrides Properties file ~/.galasa/overrides.properties
+    Created an empty Credentials Properties file ~/.galasa/credentials.properties
+    Created an empty CPS Properties file ~/.galasa/cps.properties
+    Created an empty DSS Properties file ~/.galasa/dss.properties
+    The ~/.m2 directory already exists
+    Created the ~/.m2/.settings.xml example file
+    Setup complete
 ```
-1. Create and edit a file called `cps.properties` in your `.galasa` folder so that it contains:
+1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
+
+    ```
+    zos.dse.tag.simbank.imageid=SIMBANK
+
+    simbank.dse.instance.name=SIMBANK
+    simbank.instance.SIMBANK.zos.image=SIMBANK
+
+    zos.image.SIMBANK.ipv4.hostname=127.0.0.1
+    zos.image.SIMBANK.telnet.port=2023
+    zos.image.SIMBANK.telnet.tls=false
+    zos.image.SIMBANK.credentials=SIMFRAME
 ```
-zos.cluster.default.images=simbank
-simbank.instance.simbank.zos.image=simbank
-zos.image.simbank.default.hostname=127.0.0.1
-zos.image.simbank.ipv4.hostname=127.0.0.1
-zos.image.simbank.telnet.port=2023
-zos.image.simbank.credentials=simbank
-sim.image.simbank.webnet.port=2080
-```
-1. Create and edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
 ```
 secure.credentials.SIMBANK.username=IBMUSER
 secure.credentials.SIMBANK.password=SYS1
 ```
-1. Create and edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
-```
-simbank.dse.instance.name=simbank
-```
-1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
+<!-- 1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -92,6 +107,6 @@ simbank.dse.instance.name=simbank
 1. Launch Eclipse.
 1. Choose *Window > Preferences* and then *Maven > User Settings*.
 1. Complete the *Global Setting* field by pressing *Browse* and navigating to the `settings.xml` file you just set up. Press *Apply* and *Close* when finished.
-1. Choose *Window > Preferences > Galasa*, complete the *Remote Maven URI* field as `https://nexus.galasa.dev/repository/master`, and click *Apply and Close*.
+1. Choose *Window > Preferences > Galasa*, complete the *Remote Maven URI* field as `https://nexus.galasa.dev/repository/master`, and click *Apply and Close*. -->
 
 Your local Eclipse Galasa installation is now ready for some work.
