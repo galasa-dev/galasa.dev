@@ -35,7 +35,12 @@ const IndexPage = () => (
         <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
         help you.
         <p className={indexStyles.announcementText}>
-        Version 0.3.0 allows you to explore a provided example application using the Galasa Eclipse plugin - a first step towards running your own tests against your own applications. Stay tuned for future releases which include support for more Managers, a full automation ecosystem, and dashboards to help you track the progress of your tests over time.
+          Version 0.3.0 allows you to explore a provided example application
+          using the Galasa Eclipse plugin - a first step towards running your
+          own tests against your own applications. Stay tuned for future
+          releases which include support for more Managers, a full automation
+          ecosystem, and dashboards to help you track the progress of your tests
+          over time.
         </p>
       </Announcement>
     </div>
