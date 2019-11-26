@@ -3,6 +3,8 @@
 $br-sm: 600px;
 $br-lg: 1124px;
 
+
+
 .heroContainer {
     display: grid;
     gap: 2rem;
@@ -47,6 +49,8 @@ $br-lg: 1124px;
     }
 }
 
+
+
 %blockContainer {
     display: grid;
     gap: 8px;
@@ -59,6 +63,11 @@ $br-lg: 1124px;
 .announcementContainer {
     @extend %blockContainer;
     margin-bottom: 32px;
+}
+
+.announcementText {
+    font-size: 14px;
+    font-style: italic;
 }
 
 .keyFeatureContainer {

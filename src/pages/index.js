@@ -33,8 +33,10 @@ const IndexPage = () => (
         Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
         progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
         <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
-        help you. The first Beta release of Galasa, 0.3.0, will be available
-        soon.
+        help you.
+        <p className={indexStyles.announcementText}>
+        Version 0.3.0 allows you to explore a provided example application using the Galasa Eclipse plugin - a first step towards running your own tests against your own applications. Stay tuned for future releases which include support for more Managers, a full automation ecosystem, and dashboards to help you track the progress of your tests over time.
+        </p>
       </Announcement>
     </div>
     <div className={indexStyles.keyFeatureContainer}>
