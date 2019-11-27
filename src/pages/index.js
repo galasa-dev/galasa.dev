@@ -25,6 +25,9 @@ const IndexPage = () => (
         </p>
         <div className={indexStyles.heroButtons}>
           <Button target={"/about"}>Learn more</Button>
+          <Button target={"/docs/first-steps"} flash={false} primary={false}>
+            First steps
+          </Button>
         </div>
       </div>
     </div>
