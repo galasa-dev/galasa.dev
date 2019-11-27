@@ -1,5 +1,5 @@
 ---
-path: "/docs/first-steps/installing"
+path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 

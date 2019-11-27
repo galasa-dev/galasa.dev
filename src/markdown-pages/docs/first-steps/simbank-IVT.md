@@ -1,5 +1,5 @@
 ---
-path: "/docs/first-steps/simbank-IVT"
+path: "/docs/getting-started/simbank-IVT"
 title: "Running the supplied SimBank tests"
 ---
 SimBank comes with a selection of prepared Galasa tests:
@@ -9,7 +9,7 @@ SimBank comes with a selection of prepared Galasa tests:
 - A test that uses a provisioned account object to perform the same test as above in an improved test design - `ProvisionedAccountCreditTests.java`.
 
 # SimBankIVT.java
-1. Ensure that Eclipse is running and that you have launched SimBank as described [here](/docs/first-steps/simbank).
+1. Ensure that Eclipse is running and that you have launched SimBank as described [here](/docs/getting-started/simbank).
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
 1. Confirm your *New project* prefix (it's OK to leave it as `dev.galasa.simbank`) and press *Finish*. In your *Package Explorer* (if it's not visible, choose *Window > Show View > Package Explorer*), two new entries appear:
 ```
@@ -112,7 +112,7 @@ If any assertion failed, then the whole test would be marked as a *failed* test.
 # BasicAccountCreditTest.java
 This test illustrates how to use web services to interface with the SimBank application, and how to use regular methods that you do not wish to be recognized as test methods.
 
-To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/first-steps/simbank) before running the test.
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/getting-started/simbank) before running the test.
 
 The spine of this test resembles that of `SimBankIVT.java`, with a nearly-identical collection of imports and invoked Managers within the main test class - `BasicAccountCreditTest` in this case.
 
@@ -182,7 +182,7 @@ BigDecimal newUserBalance = getBalance("123456789");
 assertThat(newUserBalance).isEqualTo(userBalance.add(amount));
 ```
 # ProvisionedAccountCreditTests.java
-To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/first-steps/simbank) before running the test.
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. Don't forget that you need to launch [SimBank](/docs/getting-started/simbank) before running the test.
 
 This test performs the same function as `BasicAccountCreditTest.java` but has an improved design which includes the use of a provisioned account object, which, once declared as:
 ```
@@ -258,4 +258,4 @@ assertThat(newUserBalance).isEqualTo(userBalance.add(amount));
 
 logger.info("Balances matched");
 ```
-Now you are familiarized with the provided tests, you can attempt to write your own. Take a look at [Writing your own SimBank test](/docs/first-steps/writing-a-test) for some clues.
+Now you are familiarized with the provided tests, you can attempt to write your own. Take a look at [Writing your own SimBank test](/docs/getting-started/writing-a-test) for some clues.

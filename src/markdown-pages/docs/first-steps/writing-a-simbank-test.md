@@ -1,11 +1,11 @@
 ---
-path: "/docs/first-steps/writing-a-test"
+path: "/docs/getting-started/writing-a-test"
 title: "Writing your own SimBank test"
 ---
 Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven tranfer between two accounts. Have a go at following the instructions without looking at the code - you can use the three provided test examples as inspiration. Eclipse will help when you need to resolve imports and exceptions.
 
 ##Create a new Galasa test class
-1. Start Eclipse and [launch SimBank](/docs/first-steps/simbank). 
+1. Start Eclipse and [launch SimBank](/docs/getting-started/simbank). 
 1. Create a new test class by by selecting *File > New > Class*, completing the dialog as follows and then clicking *Finish*:
 ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
@@ -90,7 +90,7 @@ public class BasicTransferTest {
 
 </details>
 
-You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/first-steps/simbank-IVT).
+You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/getting-started/simbank-IVT).
 
 ## Create the main test method and open the main bank menu
 6. Inside your test class, create a public method called `transferCredit()`. Annotate it with `@Test`.

@@ -15,14 +15,14 @@
     items: 
       - title: Introduction and Architecture
         path: /docs/
-      - title: First steps
-        path: /docs/first-steps/
+      - title: Getting started
+        path: /docs/getting-started/
         items:
           - title: Installing the Galasa Eclipse plug-in
-            path: /docs/first-steps/installing
+            path: /docs/getting-started/installing
           - title: Exploring SimBank
-            path: /docs/first-steps/simbank
+            path: /docs/getting-started/simbank
           - title: Running the supplied SimBank tests
-            path: /docs/first-steps/simbank-IVT
+            path: /docs/getting-started/simbank-IVT
           - title: Writing your own SimBank test
-            path: /docs/first-steps/writing-a-test
+            path: /docs/getting-started/writing-a-test
