@@ -42,7 +42,8 @@ $br-lg: 1124px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: 150px;
+    // margin-bottom: 150px;
+    margin-bottom: 10px;
 
     @media screen and (min-width: $br-sm) {
         flex-direction: row;
