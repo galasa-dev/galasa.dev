@@ -37,9 +37,9 @@ const IndexPage = () => (
     </div>
     <div className={indexStyles.announcementContainer}>
       <Announcement title="We're excited to launch Galasa!">
-        Follow us on <a href={consts.twitter_url}>Twitter</a>, track our
-        progress on <a href={consts.github_org_url}>GitHub</a> and{" "}
-        <a href={consts.spectrum_url}>chat with us</a> to see how Galasa can
+        Follow us on <a href={consts.twitter_url} target="_blank" rel="noopener noreferrer">Twitter</a>, track our
+        progress on <a href={consts.github_org_url} target="_blank" rel="noopener noreferrer">GitHub</a> and{" "}
+        <a href={consts.spectrum_url} target="_blank" rel="noopener noreferrer">chat with us</a> to see how Galasa can
         help you.
         <p className={indexStyles.announcementText}>
           Version 0.3.0 allows you to explore a provided example application
