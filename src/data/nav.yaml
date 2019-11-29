@@ -20,7 +20,7 @@
         items:
           - title: Installing the Galasa Eclipse plug-in
             path: /docs/getting-started/installing
-          - title: Exploring SimBank
+          - title: Exploring Galasa SimBank
             path: /docs/getting-started/simbank
           - title: Running the supplied SimBank tests
             path: /docs/getting-started/simbank-IVT
