@@ -16,13 +16,28 @@ const Footer = () => {
       </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
-        <a className={footerStyles.icon} href={consts.github_org_url}>
+        <a
+          className={footerStyles.icon}
+          href={consts.github_org_url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GitHubSVG />
         </a>
-        <a className={footerStyles.icon} href={consts.twitter_url}>
+        <a
+          className={footerStyles.icon}
+          href={consts.twitter_url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <TwitterSVG />
         </a>
-        <a className={footerStyles.icon} href={consts.spectrum_url}>
+        <a
+          className={footerStyles.icon}
+          href={consts.spectrum_url}
+          target="blank"
+          rel="noopener noreferrer"
+        >
           <SpectrumSVG />
         </a>
       </div>
