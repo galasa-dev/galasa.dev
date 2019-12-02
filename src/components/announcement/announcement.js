@@ -6,7 +6,7 @@ const Announcement = ({ children, title }) => {
   return (
     <div
       className={
-        announcementStyles.announcement + " " + announcementStyles.flash
+        announcementStyles.announcement //+ " " + announcementStyles.flash
       }
     >
       <h3>{title}</h3>
