@@ -3,7 +3,7 @@ path: "/about/automation"
 title: Galasa benefits
 ---
 
-80% of all enterprise testing is manual. Imagine how much faster you could deploy applications if you could automate a significant proportion of this. 
+It is estimated that 80% of all enterprise testing is manual. Imagine how much faster you could deploy applications if you could automate a significant proportion of this. 
 
 Automated testing and agile delivery are traditionally seen as being available only in greenfield projects, but with the introduction of Galasa, you can be agile in a mainframe environment as well. 
 
