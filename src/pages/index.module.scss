@@ -43,7 +43,7 @@ $br-lg: 1124px;
     flex-direction: column;
     justify-content: flex-start;
     // margin-bottom: 150px;
-    margin-bottom: 150px;
+    margin-bottom: 10px;
 
     @media screen and (min-width: $br-sm) {
         flex-direction: row;
@@ -62,14 +62,12 @@ $br-lg: 1124px;
 }
 
 .announcementContainer {
-    // @extend %blockContainer;
-    padding-left: 20px;
+    @extend %blockContainer;
     margin-bottom: 32px;
-    margin-top: 50px;
 }
 
 .announcementText {
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
 }
 
