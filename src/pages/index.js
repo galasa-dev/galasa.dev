@@ -111,9 +111,9 @@ const IndexPage = () => (
       <KeyFeature title="Integrate across systems">
         Galasa integrates easily into your{" "}
         <Link to="/about/devops">DevOps strategy</Link> and can be used
-        alongside other test tools. Able to access z/OS files and commands,
-        Galasa comes with extensive pluggable support for integration with z/OS
-        subsystems.
+        alongside other test tools. Able to access external files and commands,
+        Galasa comes with pluggable support for deep integration with multiple
+        Operating Systems, including z/OS subsystems.
       </KeyFeature>
       <KeyFeature title="Get the test data you need, fast">
         Galasa can integrate with your test data strategy by helping you to
