@@ -38,4 +38,4 @@ Most managers you encounter will be one of four types:
 As well as consuming the services of Managers either delivered with Galasa or written by others, you may need to write a Manager specific to your application under test. This is to abstract *application-specific* boilerplate functionality into a single place, removed from the tests themselves. 
 
 ##The test runner
-Under the direction of the core framework, the Galasa test runner is responible for actually executing your tests.
+Under the direction of the core framework, the Galasa test runner is responsible for actually executing your tests.
