@@ -28,14 +28,14 @@ Sometimes, Managers perform a range of general-purpose services, and at other ti
 
 Different managers can collaborate with each other to perform a joint task, including sharing information and getting other managers to complete tasks for them. This work is coordinated by the Galasa framework.
 
-Most managers you encounter will be one of four types:
+Three types of Manager are delivered with Galasa:
 
 * *Core Managers*: a set of central, fundamental Managers with wide-ranging use. Examples include *zosFileManager*, *zosBatchManager* and *zosCommandManager*. These are part of the core Galasa distribution.
 * *Product Managers*: a set of Managers responsible for test interactions with specific products, for example *CICSManager*, *WMQManager* and *DB2Manager*. Again, some product Managers will be part of the core Galasa distribution but it is also possible that your team may write its own Manager for a specialty product used in your organization.
 * *Other, or ancillary Managers*: a set of Managers to orchestrate the integration of a range of useful software tools and components, such as *SeleniumManager*, *JMeterManager* and *DockerManager*. It is likely that you will write your own Managers to expose the services of similar tools and components used within your team.
 
 ###Application-specific Managers
-As well as consuming the services of Managers either delivered with Galasa or written by others, you may need to write a Manager specific to your application under test. This is to abstract *application-specific* boilerplate functionality into a single place, removed from the tests themselves. 
+As well as consuming the services of Managers either delivered with Galasa or written by others, you may need to write a Manager specific to your application under test - an *application-specific Manager*. This is to abstract *application-specific* boilerplate functionality into a single place, removed from the tests themselves. 
 
 ##The test runner
 Under the direction of the core framework, the Galasa test runner is responsible for actually executing your tests.

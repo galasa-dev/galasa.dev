@@ -8,7 +8,7 @@ Don't forget that whenever you create a test, or modify an existing one, you nee
 
 ##Create a new Galasa test class
 1. Start Eclipse and [launch SimBank](/docs/getting-started/simbank). 
-1. Create a new test class by by selecting *File > New > Class*, completing the dialog as follows and then clicking *Finish*:
+1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*:
 ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
 You can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
@@ -375,7 +375,7 @@ public class BasicTransferTest {
 
 If you haven't yet done so, you can run the final test by first ensuring that SimBank is already running and then creating and running a new run configuration as you did with the other examples. 
 
-You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab and selecting the *Run Log* tab. 
+You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab (if it is not visible, choose *Window > Show View > Other*, expand *Galasa* and choose *Galasa Results*). If, instead, you see a `Framework not initialised` message, choose *Galasa > Initialise Galasa Framework* from the main menu first.
 </details>
 
 Now create your *own* test to run against SimBank, or copy and modify one of the tests provided, to get more experience in writing Galasa tests. You could also try rewriting *this* test to use a provisioning Manager (e.g. IAccount) just as the `ProvisionedAccoutCreditTests.java` example improved the design of `BasicAccountCreditTests.java`.

@@ -21,7 +21,10 @@ dev.galasa.simbank.tests 
 1. Right-click *Galasa*, choose *New Configuration* and give it a name.
 1. In the dialog, choose *Browse* to locate your project - `dev.galasa.simbank.tests`, then press *Search* to locate your test class, *SimBankIVT*.
 1. Press *Apply* then *Run*.
-1. The *SimBankIVT* tests run, and the Eclipse console displays their progress through to completion. You will also see a *live terminal* window in which the interactions with the 3270 terminal are captured - when the test has finished, you can use the attached controls to step back and forth along the sequence of screens.
+1. The *SimBankIVT* tests run, and the Eclipse console displays their progress through to completion - you will see a console message like: <br/>
+`INFO dev.galasa.boot.Launcher.launch - Boot complete`
+<br/>
+ when the tests have finished. You will also see a *live terminal* window in which the interactions with the 3270 terminal are captured - you can use the attached controls to step back and forth along the sequence of screens. 
 
 ## `SimBankIVT.java` - exploring the code
 Even without any prior knowledge of Galasa, if you know a little Java, you will have no trouble understanding the flow of logic in `SimBankIVT.java`.
