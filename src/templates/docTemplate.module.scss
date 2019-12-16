@@ -110,4 +110,41 @@
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="7.44" y="0.5" width="1.11" height="15"/><path d="M8.05,1V15H8V1h.1m1-1H7V16h2.1V0Z"/></svg>');
         }
     }
+
+    table {
+        border-collapse: collapse;
+        margin: 50px 0 20px 0;
+
+        @media screen and (min-width: $br-single-column) {
+            min-width: 500px;
+        }
+
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 8px;
+
+            @media screen and (min-width: $br-single-column) {
+                min-width: 200px;
+                padding: 19px;
+            }
+
+            &[align="center"] {
+                text-align: center;
+            }
+
+            &[align="right"] {
+                text-align: right;
+            }
+        }
+
+        th {
+            color: #000;
+        }
+
+        tr {
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+    }
 }
