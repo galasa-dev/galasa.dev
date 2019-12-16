@@ -14,6 +14,22 @@ const Footer = () => {
       <div className={footerStyles.identifier}>
         <Identifier id="footer-identifier" />
       </div>
+      <div className={footerStyles.links}>
+        <a
+          href="https://www.ibm.com/privacy/us/en/"
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          Privacy policy
+        </a>
+        <a
+          href="https://www.ibm.com/legal"
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          Terms of use
+        </a>
+      </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
         <a
