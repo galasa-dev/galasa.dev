@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
