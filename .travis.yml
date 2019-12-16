@@ -7,21 +7,21 @@ deploy:
     skip_cleanup: true
     on:
       repo: galasa-dev/galasa.dev
-      branch: announce-master
+      branch: master
       condition: "$DO_CF_DEPLOY = true"
   - provider: script
     script: DEPLOY_REGION="eu-gb" DEPLOY_VARS_FILE=vars.london.yml "./.travis/deploy-cf.sh"
     skip_cleanup: true
     on:
       repo: galasa-dev/galasa.dev
-      branch: announce-master
+      branch: master
       condition: "$DO_CF_DEPLOY = true"
   - provider: script
     script: DEPLOY_REGION="au-syd" DEPLOY_VARS_FILE=vars.sydney.yml "./.travis/deploy-cf.sh"
     skip_cleanup: true
     on:
       repo: galasa-dev/galasa.dev
-      branch: announce-master
+      branch: master
       condition: "$DO_CF_DEPLOY = true"
 matrix:
   include:
