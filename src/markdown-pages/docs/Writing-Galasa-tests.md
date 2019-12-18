@@ -3,7 +3,7 @@ path: "/docs/writing-Galasa-tests"
 title: "Writing a Galasa test"
 ---
 
-Top tips for writing Galasa tests:
+Take a look at the following sections for hints and tips on making your tests easier to understand, use and maintain. 
 
 ## Keep it small and simple
 
