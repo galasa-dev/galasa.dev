@@ -1,6 +1,6 @@
 ---
-path: "/documentation/which-tests-to-automate"
-title: "Which tests shall I automate?"
+path: "/docs/which-tests-to-automate"
+title: "Which tests shall I automate first?"
 ---
   
 

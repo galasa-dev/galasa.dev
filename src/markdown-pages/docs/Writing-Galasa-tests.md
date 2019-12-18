@@ -1,6 +1,6 @@
 ---
 path: "/docs/writing-Galasa-tests"
-title: "Writing Galasa tests"
+title: "Writing a Galasa test"
 ---
 
 Top tips for writing Galasa tests:
