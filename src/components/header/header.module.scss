@@ -1,0 +1,229 @@
+@import "../../styles/styles";
+
+$navLink-margin-top: 40px;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: $theme-color;
+    color: #fff;
+    border-bottom-right-radius: 50px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+
+    a {
+        color: #fff;
+    }
+
+    @include full-width-container;
+    
+    @media screen and (min-width: $br-small) {
+        min-height: initial;
+        flex-direction: row;
+        align-items: baseline;
+        
+        .hamburger {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: $br-small - 1) {
+        &.openMenu {
+
+            z-index: 3;
+            height: 100vh;
+            border-bottom-right-radius: 0;
+            padding-bottom: 0;
+    
+            .navContainer {
+                display: flex;
+            }
+            .closeX {
+                display: block;
+            }
+            .hamburger {
+                display: none;
+            }
+        }
+    }
+
+    &::after {
+        $height: 50px;
+
+        content: " ";
+        position: absolute;
+        bottom: -($height);
+        height: $height;
+        width: $height;
+        left: 0;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50"><defs><mask id="m"><rect width="100%" height="100%" fill="%23fff"/><circle r="50" cx="50" cy="50" fill="%23000"/></mask></defs><rect width="100%" height="100%" fill="%2303429D" mask="url(%23m)"/></svg>');
+    }
+}
+
+.title {
+    @media screen and (min-width: $br-small) {
+        flex-grow: 1;
+    }
+}
+
+.navContainer {
+    display: none;
+    flex-direction: column;
+    margin: 53px (-$margin-container-sm) 0 (-$margin-container-sm);
+    padding: 0 $margin-container-sm;
+    overflow-y: scroll;
+    
+    @media screen and (min-width: $br-small) {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+        border-bottom: none;
+    }
+}
+
+.navContainerIcons {
+    display: flex;
+    margin: 60px 0 16px 0;
+
+    @media screen and (min-width: $br-small) {
+        margin: 0;
+    }
+}
+
+a.navLink {
+    float: right;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    margin: 0 0 21px 0;
+    font-family: "Open Sans", sans-serif;
+
+    $lozenge-height: 16px;
+
+    @media screen and (min-width: $br-small) {
+        &::after {
+            content: " ";
+            display: block;
+            background-color: #FCFCFC;
+            opacity: 50%;
+            width: 100%;
+            height: $lozenge-height;
+            top: 0 - $navLink-margin-top - $lozenge-height;
+            position: absolute;
+            border-radius: $lozenge-height / 2;
+            transition-property: top, opacity;
+            transition-duration: 0.1s, 0.4s;
+            transition-timing-function: ease-in-out;
+        }
+    }
+
+    &.selected {
+        &::after {
+            top: 0 - $navLink-margin-top - ($lozenge-height / 2);
+            opacity: 100%;
+        }
+    }
+
+    &:hover {
+        
+        &::after {
+            top: 0 - $navLink-margin-top - ($lozenge-height / 2);
+        }
+    }
+
+    @media screen and (min-width: $br-small) {
+        font-size: 18px;
+        margin-left: 2em;
+        margin-top: $navLink-margin-top;
+        margin-bottom: $navLink-margin-top;
+        font-weight: 600;
+        font-family: "Open Sans", sans-serif;
+    }
+}
+
+.footerRepeatedLinks {
+    display: flex;
+    margin: 60px 0 16px 0;
+    flex-direction: column;
+    
+}
+
+.footerRepeatedLink {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    margin: 0 0 28px 0;
+    font-family: "Open Sans", sans-serif;
+
+    @media screen and (min-width: $br-small) {
+        display: none;
+    }
+}
+
+%menu-enablement-image {
+    position: absolute;
+    top: 50px;
+    right: $margin-container-sm;
+    font-size: 54px;
+    padding: 10px;
+    margin-top: -15px;
+    margin-right: -10px;
+}
+
+.closeX {
+    @extend %menu-enablement-image;
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger {
+    @extend %menu-enablement-image;
+    display: block;
+    cursor: pointer;
+}
+
+.image {
+    width: 20px;
+    height: 16px;
+    display: block;
+}
+
+.icon {
+    
+    display: inline;
+    margin-right: 23px;
+
+    svg {
+        height: 28px;
+    }
+
+    @media screen and (min-width: $br-small) {
+        display: inline-block;
+        margin-top: 38px;
+        margin-left: 2em;
+        margin-right: 0;
+
+        svg {
+            width: 30px;
+            vertical-align: middle;
+        }
+    }
+}
+.extraMobileHeight {
+
+    padding-bottom: 20px + $topic-path-space;
+
+    @media screen and (min-width: $br-small) {
+        padding-bottom:13px + $topic-path-space;
+    }
+
+    @media screen and (min-width: $br-single-column) {
+        padding-bottom: 0;
+    }
+}

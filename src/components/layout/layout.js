@@ -2,61 +2,51 @@ import React from "react"
 import Helmet from "react-helmet"
 
 import Header from "../header"
-import { ThemeProvider, ThemeConsumer } from "../theme"
+import Footer from "../footer"
+import Sidebar from "../sidebar"
 
 import "./global-layout.scss"
-import impactStyles from "./layout.impact.module.scss"
-import readableStyles from "./layout.readable.module.scss"
+import layoutStyles from "./layout.module.scss"
 
-const getTheme = path => {
-  if (path === "/") {
-    return "impact"
-  } else {
-    return "readable"
-  }
-}
-
-const getStyles = theme => {
-  if (theme === "impact") {
-    return impactStyles
-  } else {
-    return readableStyles
-  }
-}
-
-const Layout = ({ children, data, path }) => {
-  const theme = getTheme(path)
+const Layout = ({ children, location: { pathname } }) => {
+  const frontPage = pathname === "/"
+  const extraHeightHeader = !frontPage
+  const content = frontPage ? (
+    <main className={layoutStyles.frontMain}>{children}</main>
+  ) : (
+    <>
+      <main className={layoutStyles.generalMain}>
+        <div className={layoutStyles.docNav}>
+          <Sidebar />
+        </div>
+        {children}
+      </main>
+    </>
+  )
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <ThemeConsumer>
-          {theme => (
-            <>
-              <Helmet>
-                <link
-                  href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap"
-                  rel="stylesheet"
-                />
-                <link
-                  href="https://fonts.googleapis.com/css?family=Work+Sans:400,500&display=swap"
-                  rel="stylesheet"
-                />
-                <link
-                  href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
-                  rel="stylesheet"
-                />
-                <html className={getStyles(theme).globalStyle} />
-                <body />
-              </Helmet>
-              <div className={getStyles(theme).container}>
-                <Header />
-                <main>{children}</main>
-              </div>
-            </>
-          )}
-        </ThemeConsumer>
-      </ThemeProvider>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
+          rel="stylesheet"
+        />
+        <html className={layoutStyles.globalStyle} />
+        <body />
+      </Helmet>
+      <div className={layoutStyles.container}>
+        <Header extraHeight={extraHeightHeader} />
+        {content}
+        <Footer />
+      </div>
     </>
   )
 }

@@ -1,4 +1,5 @@
 @import "../../styles/styles";
+@import "solarized-light-customized";
 
 html {
     font-family: "Open Sans", sans-serif;
@@ -8,9 +9,7 @@ html {
 
 body {
     margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 2;
+    line-height: 1.7;
     font-size: 16px;
     transition-property: background-color;
     transition-duration: $transition-speed;
@@ -25,11 +24,60 @@ ul {
     padding-inline-start: 40px;
 }
 
-pre, code, kbd {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.95rem;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: "Work Sans", sans-serif;
+}
+
+/** Gatsby prismjs highlighting */
+.gatsby-highlight {
+    overflow: visible;
+    position: relative;
+    background-color: #f3f3e5;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    padding: 1em;
+    margin: 40px 0;
+    
+    /* Shadow in separate pseudo-element to merge well with tag shadow */
+    &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 12px 40px;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        z-index: -1;
+    }
+
+    /* Language tag at top of <pre> element */
+    &:not([data-language="text"])[data-language] {
+        margin-top: 70px;
+        
+        &::after {
+            content: attr(data-language);
+            font-variant: small-caps;
+
+            box-shadow: rgba(0, 0, 0, 0.1) 0 12px 40px;
+            background-color: inherit;
+            padding: 5px 1em 0 1em;
+            border-top: 5px solid $highlight-color;
+
+            position: absolute;
+            bottom: calc(100% - 5px);
+            left: 0;
+            height: 40px;
+            z-index: -1;
+
+        }
+    }
+
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+    padding: 0;
+    padding-left: 2.8em;
+    overflow: initial;
 }

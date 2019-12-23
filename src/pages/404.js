@@ -1,7 +1,5 @@
 import React from "react"
 
-import Footer from "../components/footer"
-
 import _404Styles from "./404.module.scss"
 
 const _404Page = () => (
@@ -13,7 +11,6 @@ const _404Page = () => (
         The page you were looking for has moved or doesn't exist.
       </p>
     </div>
-    <Footer />
   </>
 )
 

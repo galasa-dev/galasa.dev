@@ -1,0 +1,53 @@
+@import "../../styles/styles";
+
+.container {
+    margin: 0 $margin-container-sm;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+
+    @media screen and (min-width: $br-container-md) {
+        margin: 0 $margin-container-md;
+    }
+
+    @media screen and (min-width: $br-container-lg) {
+        max-width: $width-container-lg;
+        margin: 0 auto;
+    }
+}
+
+.globalStyle {
+    body {
+        background-color: #F8F8F8;
+        color: #010610;
+    }
+}
+
+.docNav {
+  @media screen and (min-width: $br-single-column) {
+    position: sticky;
+    width: $navWidthMd;
+    overflow-y: scroll;
+    top: 110px;
+    max-height: calc(100vh - 110px);
+
+    align-self: flex-start;
+    flex-shrink: 0;
+    padding-top: 40px;
+  }
+
+  @media screen and (min-width: $br-container-lg) {
+    width: $navWidthLg;
+  }
+}
+
+.generalMain {
+    padding-bottom: 141px;
+    flex-grow: 1;
+
+    display: flex;
+}
+
+.frontMain {
+    padding-bottom: 141px;
+}
