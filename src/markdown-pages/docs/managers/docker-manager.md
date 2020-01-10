@@ -1,5 +1,5 @@
 ---
-path: "/docs/managers//$filename-manager"
+path: "/docs/managers/docker-manager"
 title: "Docker Manager"
 ---
 ## Docker Manager
