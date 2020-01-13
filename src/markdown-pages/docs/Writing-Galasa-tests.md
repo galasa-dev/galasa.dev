@@ -1,5 +1,5 @@
 ---
-path: "/docs/writing-Galasa-tests"
+path: "/docs/writing-galasa-tests"
 title: "Writing a Galasa test"
 ---
 
