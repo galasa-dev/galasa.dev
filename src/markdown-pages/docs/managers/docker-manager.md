@@ -164,7 +164,7 @@ The following are properties used to configure the Docker Manager.
 | Required:  | No |
 | Default value: | If not provided, Docker Hub will be added |
 | Valid values: | A comma separated list of URLs. |
-| Examples: | <code>docker.default.registries=https://docker.galasa.dev<br> docker.default.registries=https://docker.galasa.dev,https://docker.galasa.dev</code> |
+| Examples: | <code>docker.default.registries=`https://docker.galasa.dev`<br> docker.default.registries=`https://docker.galasa.dev`,`https://docker.galasa.dev`</code> |
 
 In order to decouple Docker Registries from the Galasa Test, this property allows for the Docker Manager to search for images.  The main reason being if the customer docker registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image.  When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the Docker Hub URL must be included.
  

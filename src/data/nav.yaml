@@ -26,6 +26,11 @@
             path: /docs/getting-started/simbank-IVT
           - title: Writing your own SimBank test
             path: /docs/getting-started/writing-a-test
+      - title: Managers
+        path: /docs/managers/
+        items: 
+          - title: Docker Manager
+            path: /docs/managers/docker-manager
       - title: Choosing tests to automate
         path: /docs/which-tests-to-automate
       - title: Writing Galasa tests
