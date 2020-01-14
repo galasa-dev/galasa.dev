@@ -1,6 +1,6 @@
 ---
 path: "/docs/which-tests-to-automate"
-title: "Which tests shall I automate first?"
+title: "Which tests should I automate first?"
 ---
 
 Moving from manual to automated testing minimizes the need to code mundane, repetitive tasks within numerous test scripts. Testers' time can be freed up, providing the opportunity to focus on more complex tests, for example, ad hoc and exploratory tests.
