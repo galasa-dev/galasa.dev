@@ -2,7 +2,6 @@
 path: "/docs/managers/docker-manager"
 title: "Docker Manager"
 ---
-## Docker Manager
 
 ## Overview
 The Docker Manager provides a test with the ability to run Docker Containers on a Docker Server  that is provided by the Galasa infrastructure.   The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test application in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
@@ -164,7 +163,7 @@ The following are properties used to configure the Docker Manager.
 | Required:  | No |
 | Default value: | If not provided, Docker Hub will be added |
 | Valid values: | A comma separated list of URLs. |
-| Examples: | <code>docker.default.registries=`https://docker.galasa.dev`<br> docker.default.registries=`https://docker.galasa.dev`,`https://docker.galasa.dev`</code> |
+| Examples: | <code>docker.default.registries=https://docker.galasa.dev<br> docker.default.registries=https://docker.galasa.dev, https://docker.galasa.dev</code> |
 
 In order to decouple Docker Registries from the Galasa Test, this property allows for the Docker Manager to search for images.  The main reason being if the customer docker registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image.  When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the Docker Hub URL must be included.
  
