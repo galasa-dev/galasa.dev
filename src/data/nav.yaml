@@ -22,10 +22,19 @@
             path: /docs/getting-started/installing
           - title: Exploring Galasa SimBank
             path: /docs/getting-started/simbank
-          - title: Running the supplied SimBank tests
-            path: /docs/getting-started/simbank-IVT
+      - title: Running the supplied SimBank tests
+        path: /docs/running-simbank-tests
+        items:
+          - title: The SimBank IVT 
+            path: /docs/running-simbank-tests/simbank-IVT
+          - title: BasicAccountCreditTest
+            path: /docs/running-simbank-tests/basic-account-credit-test
+          - title: ProvisionedAccountCreditTests
+            path: /docs/running-simbank-tests/provisioned-account-credit-tests
+          - title: BatchAccountsOpenTest
+            path: /docs/running-simbank-tests/batch-accounts-open-test
           - title: Writing your own SimBank test
-            path: /docs/getting-started/writing-a-test
+            path: /docs/running-simbank-tests/writing-a-simbank-test
       - title: Managers
         path: /docs/managers/
         items: 

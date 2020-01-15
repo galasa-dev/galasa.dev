@@ -1,13 +1,13 @@
 ---
-path: "/docs/getting-started/writing-a-test"
+path: "/docs/running-simbank-tests/writing-a-simbank-test"
 title: "Writing your own SimBank test"
 ---
-Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Have a go at following the instructions without looking at the code - you can use the three provided test examples as inspiration. Eclipse will help when you need to resolve imports and exceptions.
+Now you have run through the tests provided as part of SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Why not attempt to follow the instructions without looking at the code? You can use the provided test examples as a reference and for inspiration. Eclipse will help when you need to resolve imports and exceptions.
 
-Don't forget that whenever you create a test, or modify an existing one, you need to right-click the *project* (for example, `dev.galasa.simbank.tests`) containing the new or modified test and choose *Run As > Maven install*. This ensures that the correct version of the test is submitted to the test runner.
+Don't forget that whenever you create a test, or modify an existing one, you need to right-click the containing *project* (for example, `dev.galasa.simbank.tests`) containing the new or modified test and choose *Run As > Maven install*. This ensures that the correct version of the test is submitted to the test runner.
 
 ##Create a new Galasa test class
-1. Start Eclipse and [launch SimBank](/docs/getting-started/simbank). 
+1. Start Eclipse with the example projects open and [launch SimBank](/docs/getting-started/simbank). 
 1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*:
 ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
