@@ -26,6 +26,6 @@ Take a look at the following sections for hints and tips on making your tests ea
 ## Use existing features to help you
 
 1. Use **@BeforeClass**, **@AfterClass**, **@Before** and **@After**  annotated methods to drive behaviour that needs to be done at the beginning and end of each test class and before and after each test method is executed. Annotations help readability and avoids test methods calling those functions themselves.
-2. Use the **@StoredArtifactRoot** annotation to access the result archive. Here you can store any artifact that your test has produced. 
-3. Use the **@Logger** annotation to trace output from your test, making it easier diagnose the cause of a failure. There's an example of this annotation in the SimBank ProvisionedAccountCreditTest.
+2. Use the **@StoredArtifactRoot** annotation to access the result archive. Here you can store any artifact that your test has produced. There's an example of this annotation in the SimBank ProvisionedAccountCreditTests. 
+3. Use the **@Logger** annotation to record aspects of your test, making it easier diagnose the cause of a failure. There's an example of this annotation in the SimBank ProvisionedAccountCreditTests.
 4. Remember that your test might be running multiple times in parallel, so don't rely on resources that aren't thread safe.  For example, interacting with a shared file.  Ideally use functions of the Managers to reserve and protect resources or use shared resources such as those within the test bundle.
