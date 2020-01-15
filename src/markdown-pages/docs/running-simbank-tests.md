@@ -9,9 +9,9 @@ SimBank comes with a selection of prepared Galasa tests:
 - A test that uses a provisioned account object to perform the same test as above in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-## Creating an example Galasa project
+All of these example tests become available when you set up a Galasa example project within Eclipse.
 
-All of these example tests become available when you set up a Galasa example project within Eclipse:
+## Creating an example Galasa project
 
 1. Ensure that Eclipse is running.
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
@@ -24,3 +24,5 @@ dev.galasa.simbank.tests 
 1. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
 ![SimBank tests](./provided-tests.png)
+
+Explore these tests by selecting from the left-hand menu - if you are new to Galasa, *The SimBank IVT* is the best place to start.
