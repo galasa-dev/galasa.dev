@@ -92,7 +92,7 @@ public class BasicTransferTest {
 
 </details>
 
-You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/getting-started/simbank-IVT).
+You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/running-simbank-tests/simbank-IVT).
 
 ## Create the main test method and open the main bank menu
 6. Inside your test class, create a public method called `transferCredit()`. Annotate it with `@Test`.
