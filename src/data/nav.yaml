@@ -37,6 +37,3 @@
             path: /docs/running-simbank-tests/writing-a-simbank-test
       - title: Managers
         path: /docs/managers/
-        items: 
-          - title: Docker Manager
-            path: /docs/managers/docker-manager
