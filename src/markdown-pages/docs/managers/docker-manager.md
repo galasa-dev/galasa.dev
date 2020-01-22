@@ -3,6 +3,8 @@ path: "/docs/managers/docker-manager"
 title: "Docker Manager"
 ---
 
+**ALPHA - This manager is being actively developed. It is subject to change and has not been extensively tested.**
+
 ## Overview
 This Manager enables tests to run Docker containers on a Docker Engine provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
@@ -21,7 +23,7 @@ The following annotations are available with the Docker Manager
 | Attribute: `dockerContainerTag` |  The <code>tag</code> is used to identify the Docker Container to other Managers or Shared Environments.  If a test is using multiple  Docker Containers, each separate Docker Container must have a unique tag.  If two DockerContainers use the same tag, they will refer to the  same actual Docker Container. |
 | Attribute: `image` |  The <code>image</code> attribute provides the Docker Image that is used to create the Docker Container.  It image name must not  include the Docker Registry as this is provided in the CPS.   If using a public official image from DockerHub,  then the  image name must be prefixed with <code>library/</code>, for example <code>library/httpd:latest</code>, the Docker Manager will not default to the library namespace like the Docker commands do. |
 | Attribute: `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically.   If the  Test needs to perform some work before the Container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the Container. |
-| Attribute: `DockerServerTag` |  Dont think we need this attribute |
+| Attribute: `DockerEngineTag` |  Dont think we need this attribute |
 | Syntax: | <code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> |
 | Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the Container.<br><br> See [DockerContainer](https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html) and [IDockerContainer](https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html) to find out more. |
 
@@ -160,6 +162,28 @@ String log = httpcontainer.getStdOut();
 
 The following are properties used to configure the Docker Manager.
  
+| Property: | Docker Engine CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | docker.engine |
+| Description: | Provides location of the Docker Engine |
+| Required:  | Yes - the hostname of the Docker Engine must be provided |
+| Default value: | None |
+| Valid values: | A valid DNS name or IPv4/6 address |
+| Examples: | <code>docker.engine=docker.example.company.org<br> docker.engine=192.168.2.3 </code> |
+
+Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
+ 
+| Property: | Docker Engine Port CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | docker.engine.port |
+| Description: | Provides TCP Port of the Docker Engine |
+| Required:  | No |
+| Default value: | 2375 |
+| Valid values: | Any valid TCP Port number |
+| Examples: | <code>docker.engine.port=2375</code> |
+
+The Docker Manager will communicate with the Docker Engine via TCP.   The Docker Engine will need to be  configured to open the TCP port, which will normally be 2375.  If the port is not the default one, then this property will need to be provided in the CPS.
+ 
 | Property: | Default Docker Registries CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.default.registries |
@@ -192,25 +216,3 @@ If the <code>docker.registry.ID.credentials</code> CPS property is missing, the 
 | Examples: | <code>docker.registry.LOCAL.url=https://registry.local.com</code> |
 
 If the Registry requires credentials for Authentication, then the ID for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
- 
-| Property: | Docker Engine CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | docker.engine.server |
-| Description: | Provides location of the Docker Engine |
-| Required:  | Yes - the hostname of the Docker Engine must be provided |
-| Default value: | None |
-| Valid values: | A valid DNS name or IPv4/6 address |
-| Examples: | <code>docker.engine.server=docker.example.company.org<br> docker.engine.server=192.168.2.3 </code> |
-
-Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
- 
-| Property: | Docker Engine Port CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | docker.engine.server.port |
-| Description: | Provides TCP Port of the Docker Engine |
-| Required:  | No |
-| Default value: | 2375 |
-| Valid values: | Any valid TCP Port number |
-| Examples: | <code>docker.engine.server.port=2375</code> |
-
-The Docker Manager will communicate with the Docker Engine via TCP.   The Docker Engine will need to be  configured to open the TCP port, which will normally be 2375.  If the port is not the default one, then this property will need to be provided in the CPS.
