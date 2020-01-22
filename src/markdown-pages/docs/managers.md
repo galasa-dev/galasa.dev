@@ -10,7 +10,7 @@ title: "Managers"
 
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
-| <b>Artifact Manager</b><img src="./alpha.png">| Enables tests to store test artifacts (e.g. output files) for later review. Often used by other Managers, it is equally valid for your own test code to invoke the services of an Artifact Manager.|
+| <b>Artifact Manager</b><img src="./alpha.png">| Enables tests to manage test artifacts (e.g. input files and output files) and resources. Often used by other Managers, it is equally valid for your own test code to invoke the services of an Artifact Manager.|
 | <b>Core Manager</b><img src="./beta.png"> | Provides a number of fundamental services that are most likely to be consumed by other Managers, not test authors. |
 | <b>[Docker Manager](/docs/managers/docker-manager)</b><img src="./alpha.png"> | This Manager enables tests to run Docker containers on a Docker server provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. |
 | <b>HTTP Client Manager</b><img src="./alpha.png"> | Provides an opportunity to write tests that incorporate an extensive range of HTTP client requests. |
