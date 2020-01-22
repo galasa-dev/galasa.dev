@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests/batch-accounts-open-test"
 title: "BatchAccountsOpenTest"
 ---
-This test uses the z/OS Batch Manager to add a set of accounts to the SimBank system via a z/OS batch job.
+This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the SimBank system via a z/OS batch job.
 
 When you installed the Galasa Eclipse plug-in, some of the configuration information you set in the `overrides.properties` file was specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
 
@@ -28,7 +28,7 @@ For brevity, package declarations and imports are omitted in the following walkt
 
 ## Walkthrough - BatchAccountsOpenTest
 
-First, some Managers are declared, including two new but related Managers - `ZosBatch` and `ZosBatchJobname`.
+First, some Managers are declared, including a new Manager - `ZosBatch` and a related annotation and interface `ZosBatchJobname`.
 
 ```
 	@ZosBatch(imageTag = "simbank")
@@ -117,6 +117,48 @@ Finally, the return code is examined and if it is not 0, the test is failed:
 		}
 		logger.info("Batch job complete RETCODE=" + batchJob.getRetcode());
 ```
+You can run this example just like the others - don't forget to launch SimBank first, and create a new run configuration.
+
+By using the concepts introduced in this example, you can write your own z/OS Batch Manager tests.
+
+The z/OS Batch Manager stores the job output in the test results main archive store.
+
+## Reviewing the stored artifacts
+When `BatchAccountsOpenTest` has finished running, you can expand the relevant entry in the *Galasa Results* tab - if it is not initially visible, choose *Galasa > Initialise Galasa Framework* and then *Window > Show View > Other* and finally, *Galasa Results*. 
+
+For example, your *Galasa Results* tab might resemble:
+
+![Galasa Results](./galasa-results.png)
+
+Double-click on a run and you can explore the three tabs in the main pane:
+
+* <b>General</b>: presenting some useful overview metrics about the run, and its payload of tests and test classes
+* <b>Run Log</b>: which stores the console messages emitted by Eclipse as the test ran. These include:
+
+```
+ Record Number   Account Number   Sort-code           Balance
+ =============   ==============   =========   ===============
+ 000001          901000001        20-40-60           1,000.00 - Account opened
+ 000002          901000002        20-40-60           1,000.00 - Account opened
+ 000003          901000003        20-40-60           1,000.00 - Account opened
+ 000004          901000004        20-40-60           1,000.00 - Account opened
+ 000005          901000005        20-40-60           1,000.00 - Account opened
+ 000006          901000006        20-40-60           1,000.00 - Account opened
+ 000007          901000007        20-40-60           1,000.00 - Account opened
+ 000008          901000008        20-40-60           1,000.00 - Account opened
+ 000009          901000009        20-40-60           1,000.00 - Account opened
+0  Records read            9
+   Records rejected        0
+   Records processed       9
+
+```
+
+* <b>Stored Artifacts</b>: which contain a variety of detailed test-related outputs - the specifics are determined by the writer of the z/OS Batch Manager in this case.
+
+![Stored Artifacts](./stored-artifacts.png)
+
+The outputs include the constructed input JCL and several of the usual JES batch output datasets.
+
 <details>
 <summary>BatchAccountsOpenTest - full source listing</summary>
 
