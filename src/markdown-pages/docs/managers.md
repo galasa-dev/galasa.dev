@@ -19,9 +19,9 @@ title: "Managers"
 
 | Key |   | 
 | :------------------------ | :------------------------------------- | 
-| ![alpha](./alpha.png)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
-| ![beta](./beta.png)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
-| ![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. It may still contain one or more known or unknown bugs.|
+| <br>![alpha](./alpha.png)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
+| <br>![beta](./beta.png)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
+| <br>![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. It may still contain one or more known or unknown bugs.|
 
 ## Managers under development
 | Name | Description | 
