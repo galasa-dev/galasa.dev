@@ -81,6 +81,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-catch-links`,
     `gatsby-transformer-yaml`,
     {
       resolve: "gatsby-plugin-react-svg",

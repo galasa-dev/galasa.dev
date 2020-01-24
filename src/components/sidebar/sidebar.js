@@ -10,14 +10,13 @@ import Level1Item from "./level-1-item"
 
 export default () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  
+
   // Close menu when navigation (PUSH or POP) occurs
   useEffect(() => {
     return globalHistory.listen(() => {
       setMenuOpen(false)
-    });
-  }, []);
-
+    })
+  }, [])
 
   const {
     navYaml: { sections },
