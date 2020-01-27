@@ -26,7 +26,7 @@ The two main purposes of a Manager are to reduce the amount of boilerplate code 
 
 Sometimes, Managers perform a range of general-purpose services, and at other times, they are much more focused. For example, the HTTPClientManager contains a wide range of facilities you might expect from a programmable HTTP client, while the DB2Manager confines its scope to a range of DB2 interactions.
 
-Different managers can collaborate with each other to perform a joint task, including sharing information and getting other managers to complete tasks for them. This work is coordinated by the Galasa framework.
+Different Managers can collaborate with each other to perform a joint task, including sharing information and getting other Managers to complete tasks for them. This work is coordinated by the Galasa framework.
 
 Three types of Manager are delivered with Galasa:
 
@@ -36,6 +36,8 @@ Three types of Manager are delivered with Galasa:
 
 ###Application-specific Managers
 As well as consuming the services of Managers either delivered with Galasa or written by others, you may need to write a Manager specific to your application under test - an *application-specific Manager*. This is to abstract *application-specific* boilerplate functionality into a single place, removed from the tests themselves. 
+
+A [summary table describing Managers](managers.md) that are currently available or planned for future releases is available in the Managers topic.
 
 ##The test runner
 Under the direction of the core framework, the Galasa test runner is responsible for actually executing your tests.
