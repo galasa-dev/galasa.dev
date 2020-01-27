@@ -10,7 +10,7 @@ title: "Managers"
 
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
-| <b>Artifact Manager</b><img src="./alpha.png">| Enables tests to store test artifacts (e.g. output files) for later review. Often used by other Managers, it is equally valid for your own test code to invoke the services of an Artifact Manager.|
+| <b>Artifact Manager</b><img src="./alpha.png">| Enables tests to manage test artifacts (e.g. input files and output files) and resources. Often used by other Managers, it is equally valid for your own test code to invoke the services of an Artifact Manager.|
 | <b>Core Manager</b><img src="./beta.png"> | Provides a number of fundamental services that are most likely to be consumed by other Managers, not test authors. |
 | <b>[Docker Manager](/docs/managers/docker-manager)</b><img src="./alpha.png"> | This Manager enables tests to run Docker containers on a Docker server provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. |
 | <b>HTTP Client Manager</b><img src="./alpha.png"> | Provides an opportunity to write tests that incorporate an extensive range of HTTP client requests. |
@@ -19,9 +19,9 @@ title: "Managers"
 
 | Key |   | 
 | :------------------------ | :------------------------------------- | 
-| ![alpha](./alpha.png)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
-| ![beta](./beta.png)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
-| ![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. It may still contain one or more known or unknown bugs.|
+| <br>![alpha](./alpha.png)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
+| <br>![beta](./beta.png)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
+| <br>![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. It may still contain one or more known or unknown bugs.|
 
 ## Managers under development
 | Name | Description | 
