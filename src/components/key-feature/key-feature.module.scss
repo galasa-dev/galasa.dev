@@ -1,45 +1,45 @@
 @import "../../styles/styles";
 
 .keyFeature {
-    display: grid;
-    align-items: center;
-    grid-auto-flow: dense;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: dense;
 
-    @media screen and (min-width: $br-single-column) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 80px;
-    }
+  @media screen and (min-width: $br-single-column) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+  }
 
-    &:nth-child(2n) {
-        .info {
-            grid-column: 2;
-        }
+  &:nth-child(2n) {
+    .info {
+      grid-column: 2;
     }
+  }
 }
 
 .title {
-    font-size: 42px;
-    font-weight: 400;
-    line-height: 49px;
-    @include highlight-underline;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 49px;
+  @include highlight-underline;
 }
 
 .body {
-    margin-top: 35px;
-     a {
-         color: currentColor;
-         text-decoration: underline;
+  margin-top: 35px;
+  a {
+    color: currentColor;
+    text-decoration: underline;
 
-         &:hover {
-             text-decoration: none;
-         }
-     }
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .illustration {
-    display: none;
+  display: none;
 
-    @media screen and (min-width: $br-single-column) {
-        display: block;
-    }
+  @media screen and (min-width: $br-single-column) {
+    display: block;
+  }
 }

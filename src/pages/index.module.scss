@@ -1,95 +1,91 @@
-@import "../styles/styles"; 
+@import "../styles/styles";
 
 $br-sm: 600px;
 $br-lg: 800px;
 $br-lg: 1124px;
 
-
-
 .heroContainer {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(1, 1fr);
-    position: relative;
-    z-index: 1;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+  position: relative;
+  z-index: 1;
 
-    @include full-width-container;
-    
-    $header-height: 107px;
+  @include full-width-container;
 
-    padding-top: $header-height;
-    margin-top: -$header-height;
-    
-    background-color: #03429D;
-    color: #fff;
-    border-bottom-right-radius: 50px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-    
-    @media screen and (min-width: $br-container-md) {
-        background-position: right -80% center;
-    }
+  $header-height: 107px;
 
-    @media screen and (min-width: $br-lg) {
-        background-image: url('../images/hero-illustration.svg');
-        background-repeat: no-repeat;
-        background-position: 120%;
-    }
+  padding-top: $header-height;
+  margin-top: -$header-height;
 
-    @media screen and (min-width: $br-container-lg) {
-        background-position: 100%;
-    }
+  background-color: #03429d;
+  color: #fff;
+  border-bottom-right-radius: 50px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    @media screen and (min-width: $br-lg) {
-        grid-template-columns: 8fr 4fr;
-    }
+  @media screen and (min-width: $br-container-md) {
+    background-position: right -80% center;
+  }
 
-    
-    &::after {
-        content: " ";
-        position: absolute;
-        bottom: -50px;
-        height: 50px;
-        width: 50px;
-        left: 0;
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50"><mask id="m"><rect width="100%" height="100%" fill="%23fff"/><circle r="50" cx="50" cy="50" fill="%23000"/></mask><rect width="100%" height="100%" fill="%2303429D" mask="url(%23m)"/></svg>');
-    }
+  @media screen and (min-width: $br-lg) {
+    background-image: url("../images/hero-illustration.svg");
+    background-repeat: no-repeat;
+    background-position: 120%;
+  }
+
+  @media screen and (min-width: $br-container-lg) {
+    background-position: 100%;
+  }
+
+  @media screen and (min-width: $br-lg) {
+    grid-template-columns: 8fr 4fr;
+  }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    bottom: -50px;
+    height: 50px;
+    width: 50px;
+    left: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50"><mask id="m"><rect width="100%" height="100%" fill="%23fff"/><circle r="50" cx="50" cy="50" fill="%23000"/></mask><rect width="100%" height="100%" fill="%2303429D" mask="url(%23m)"/></svg>');
+  }
 }
 
 .heroTitle {
-    font-size: 38px;
-    line-height: 1.17;
-    font-weight: 400;
-    max-width: 400px;
-    margin-top: 125px;
-    margin-bottom: 34px;
+  font-size: 38px;
+  line-height: 1.17;
+  font-weight: 400;
+  max-width: 400px;
+  margin-top: 125px;
+  margin-bottom: 34px;
 
-    @media screen and (min-width: $br-sm) {
-        max-width: none;
-        font-size: 52px;
-    }
+  @media screen and (min-width: $br-sm) {
+    max-width: none;
+    font-size: 52px;
+  }
 }
 
 .heroDescription {
-    font-size: 16px;
-    margin-bottom: 58px;
+  font-size: 16px;
+  margin-bottom: 58px;
 
-    @media screen and (min-width: $br-sm) {
-        max-width: 435px;
-    }
+  @media screen and (min-width: $br-sm) {
+    max-width: 435px;
+  }
 }
 
 .heroButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 190px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 190px;
 }
 
 .keyFeatureContainer {
-    display: grid;
-    gap: 185px;
-    padding-top: 185px;
+  display: grid;
+  gap: 185px;
+  padding-top: 185px;
 }

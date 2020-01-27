@@ -1,26 +1,26 @@
 @import "../../styles/styles";
 
 .container {
-    margin: 0 $margin-container-sm;
-    flex-direction: column;
-    display: flex;
-    min-height: 100vh;
+  margin: 0 $margin-container-sm;
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
 
-    @media screen and (min-width: $br-container-md) {
-        margin: 0 $margin-container-md;
-    }
+  @media screen and (min-width: $br-container-md) {
+    margin: 0 $margin-container-md;
+  }
 
-    @media screen and (min-width: $br-container-lg) {
-        max-width: $width-container-lg;
-        margin: 0 auto;
-    }
+  @media screen and (min-width: $br-container-lg) {
+    max-width: $width-container-lg;
+    margin: 0 auto;
+  }
 }
 
 .globalStyle {
-    body {
-        background-color: #F8F8F8;
-        color: #010610;
-    }
+  body {
+    background-color: #f8f8f8;
+    color: #010610;
+  }
 }
 
 .docNav {
@@ -42,12 +42,12 @@
 }
 
 .generalMain {
-    padding-bottom: 141px;
-    flex-grow: 1;
+  padding-bottom: 141px;
+  flex-grow: 1;
 
-    display: flex;
+  display: flex;
 }
 
 .frontMain {
-    padding-bottom: 141px;
+  padding-bottom: 141px;
 }
