@@ -22,7 +22,7 @@ The following annotations are available with the Kubernetes Manager
 | Description: | The <code>@KubernetesNamespace</code> annotation will request the Kubernetes Manager allocate a namespace on the infrastructure Kubernetes Clusters.  The test can request as many Namesapces as required that  can be supported simultaneously by the Kubernetes Manager configuration. |
 | Attribute: `kubernetesNamespaceTag` |  The <code>kubernetesNamespaceTag</code> is used to identify the Kubernetes names to other Managers or Shared Environments.  If a test is using multiple  Kubernetes Namespace, each separate Kubernetes Namesapce must have a unique tag.  If two Kubernetes Namespace use the same tag, they will refer to the  same actual Kubernetes Namespace. |
 | Syntax: | <code>@KubernetesNamespace<br> public IKubernetesNamesapce namespace;<br> </code> |
-| Notes: | The <code>IKubernetesNamespace</code> interface gives the test access to create and manage resources on the Kubernetes cluster.  See [KubernetesNamespace](https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/KubernetesNamespace.html) and [IKubernetesNamespace](https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/IKubernetesNamespace.html) to find out more. |
+| Notes: | The <code>IKubernetesNamespace</code> interface gives the test access to create and manage resources on the Kubernetes cluster.  See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/KubernetesNamespace.html" target="_blank">KubernetesNamespace</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/IKubernetesNamespace.html" target="_blank">IKubernetesNamespace</a> to find out more. |
 
 ## Code Snippets
 
