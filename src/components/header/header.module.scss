@@ -73,13 +73,14 @@ $navLink-margin-top: 40px;
   flex-direction: column;
   margin: 53px (-$margin-container-sm) 0 (-$margin-container-sm);
   padding: 0 $margin-container-sm;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @media screen and (min-width: $br-small) {
     display: flex;
     flex-direction: row;
     margin-top: 0;
     border-bottom: none;
+    overflow-y: visible;
   }
 }
 

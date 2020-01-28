@@ -27,7 +27,7 @@
   @media screen and (min-width: $br-single-column) {
     position: sticky;
     width: $navWidthMd;
-    overflow-y: scroll;
+    overflow-y: auto;
     top: 110px;
     max-height: calc(100vh - 110px);
 

@@ -184,7 +184,6 @@ $icon-text-separation: 19px;
   list-style: none;
   margin: 0;
   padding-inline-start: $icon-text-separation;
-  overflow-y: scroll;
   max-height: calc(100vh - #{$navBlockTop} - #{3 * $navBlockPaddingTB});
   opacity: 0;
   visibility: hidden;
