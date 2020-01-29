@@ -13,7 +13,7 @@
   - title: Docs
     root: /docs/
     items: 
-      - title: Introduction and Architecture
+      - title: Introduction and architecture
         path: /docs/
       - title: Getting started
         path: /docs/getting-started/
