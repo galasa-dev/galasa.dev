@@ -2,7 +2,7 @@
 path: "/docs"
 title: "Introduction"
 ---
-This hub page contains links to the main Galasa documentation. To get going with Galasa as quickly as possible, explore the [Getting started](getting-started.md) section. Read on to learn a little about Galasa's architecture first.
+This hub page contains links to the main Galasa documentation. To get going with Galasa as quickly as possible, explore the [Getting started](/docs/getting-started) section. Read on to learn a little about Galasa's architecture first.
 
 #Galasa's architecture
 At its top level, Galasa decomposes into three major components:
@@ -37,7 +37,7 @@ Three types of Manager are delivered with Galasa:
 ###Application-specific Managers
 As well as consuming the services of Managers either delivered with Galasa or written by others, you may need to write a Manager specific to your application under test - an *application-specific Manager*. This is to abstract *application-specific* boilerplate functionality into a single place, removed from the tests themselves. 
 
-A [summary table describing Managers](managers.md) that are currently available or planned for future releases is available in the Managers topic.
+A [summary table describing Managers](/docs/managers) that are currently available or planned for future releases is available in the Managers topic.
 
 ##The test runner
 Under the direction of the core framework, the Galasa test runner is responsible for actually executing your tests.
