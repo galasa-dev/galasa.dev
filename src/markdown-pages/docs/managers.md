@@ -10,6 +10,7 @@ title: "Managers"
 | <b>Artifact Manager</b><img src="./alpha.png">| Enables tests to manage test artifacts (e.g. input files and output files) and resources. Often used by other Managers, it can also be useful for your own test code to invoke the services of an Artifact Manager.|
 | <b>Core Manager</b><img src="./beta.png"> | Provides a number of fundamental services that are most likely to be consumed by other Managers, not test authors. |
 | <b>[Docker Manager](/docs/managers/docker-manager)</b><img src="./alpha.png"> | This Manager enables tests to run Docker containers on a Docker server provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. |
+| <b>[ElasticLog Manager](/docs/managers/elasticlog-manager)</b><img src="./alpha.png"> | This Manager enables tests to export data to ElasticSearch and is intended to allow Galasa administrators to experiment with Elastic/Kabana dashboards. |
 | <b>[Ecosystem Manager](/docs/managers/galasa-ecosystem-manager)</b><img src="./alpha.png"> | Provides a test with a fully-provisioned Galasa ecosystem. |
 | <b>HTTP Client Manager</b><img src="./alpha.png"> | Provides an opportunity to write tests that incorporate an extensive range of HTTP client requests. |
 | <b>[Kubernetes Manager](/docs/managers/kubernetes-manager)</b><img src="./alpha.png"> | Provides tests with access to a Kubernetes namespace so that you can scale up your automated test infrastructure and leverage Kubernetes' container management services. |
