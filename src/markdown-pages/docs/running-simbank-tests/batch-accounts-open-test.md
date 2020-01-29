@@ -133,23 +133,16 @@ For example, your *Galasa Results* tab might resemble:
 Double-click on a run and you can explore the three tabs in the main pane:
 
 * <b>General</b>: presenting some useful overview metrics about the run, and its payload of tests and test classes
-* <b>Run Log</b>: which stores the console messages emitted by Eclipse as the test ran. These include:
+* <b>Run Log</b>: which stores the console messages emitted by Eclipse as the test ran, which end with the following lines signifying test success:
 
 ```
- Record Number   Account Number   Sort-code           Balance
- =============   ==============   =========   ===============
- 000001          901000001        20-40-60           1,000.00 - Account opened
- 000002          901000002        20-40-60           1,000.00 - Account opened
- 000003          901000003        20-40-60           1,000.00 - Account opened
- 000004          901000004        20-40-60           1,000.00 - Account opened
- 000005          901000005        20-40-60           1,000.00 - Account opened
- 000006          901000006        20-40-60           1,000.00 - Account opened
- 000007          901000007        20-40-60           1,000.00 - Account opened
- 000008          901000008        20-40-60           1,000.00 - Account opened
- 000009          901000009        20-40-60           1,000.00 - Account opened
-0  Records read            9
-   Records rejected        0
-   Records processed       9
+****************************************************************************************************
+*** Passed - Test method dev.galasa.simbanks.tests.BatchAccountsOpenTest#batchOpenAccountsTest,type=Test
+****************************************************************************************************
+28/01/2020 09:31:53.738 INFO dev.galasa.framework.TestClassWrapper.runTestMethods - Ending
+****************************************************************************************************
+*** Passed - Test class dev.galasa.simbanks.tests.BatchAccountsOpenTest
+****************************************************************************************************
 
 ```
 
