@@ -19,10 +19,12 @@ title: "Managers"
 | Key |   | 
 | :------------------------ | :------------------------------------- | 
 | <br>![alpha](./alpha.png)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
-| <br>![beta](./beta.png)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
-| <br>![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. It may still contain one or more known or unknown bugs.|
+| <br>![beta](./beta.png)| This Manager is feature complete but it has not been fully tested and might be subject to change.|
+| <br>![GA](./ga.png)| This Manager is feature complete, has passed all tests and is deemed Generally Available. |
 
 ## Managers under development
+The following Managers are not currently available but are planned for a future release:
+
 | Name | Description | 
 | ------------------------ | :------------------------------------- | 
 | <b>CECI Manager</b> | Enables tests that communicate with CICS regions via CECI.|
