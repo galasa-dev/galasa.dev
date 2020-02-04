@@ -68,3 +68,13 @@ Will set the CPS property `bob` with the value `hello`and retrieve it again.
 ## Configuration Properties
 
 The following are properties used to configure the Galasa Ecosystem Manager.
+ 
+| Property: | Kubernetes Ecosystem Tag Shared Environment |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.ecosystem.tag.XXXXXX.shared.environment |
+| Description: | Informs the Galasa Ecosystem Manager which Shared Environment will be assigned to a Ecosystem Tag |
+| Required:  | No |
+| Default value: | none |
+| Valid values: | A valid Shared Environment |
+| Examples: | <code>galasaecosystem.ecosystem.tag.SHARED.shared.environment=M1</code> |
+

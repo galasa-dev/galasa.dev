@@ -7,12 +7,13 @@ title: "Managers"
 
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
-| **Artifact Manager** ![alpha](../../images/alpha.svg)| Enables tests to store test artifacts (e.g. output files) for later review. Often used by other Managers, it can also be useful for your own test code to invoke the services of an Artifact Manager.|
-| **Core Manager** ![beta](../../images/beta.svg) | Provides a number of fundamental services that are most likely to be consumed by other Managers, not test authors. |
+| **Artifact Manager** ![alpha](../../images/alpha.svg)| Assists tests in retrieving and manipulating artifacts/resources that reside in the *resources* directory of a test bundle. It also provides access to an object that enables you to perform substitutions on skeleton files.|
+| **Core Manager** ![beta](../../images/beta.svg) | Provides tests with access to some of the most common features within the Galasa framework, such as the ability to retrieve credentials and the name of the test run. |
 | **[Docker Manager](/docs/managers/docker-manager)** ![alpha](../../images/alpha.svg) | This Manager enables tests to run Docker containers on a Docker server provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. |
+| **[ElasticLog Manager](/docs/managers/elasticlog-manager)** ![alpha](../../images/alpha.svg) | This Manager enables tests to export data to ElasticSearch and is intended to allow Galasa administrators to experiment with Elastic/Kabana dashboards. |
 | **[Ecosystem Manager](/docs/managers/galasa-ecosystem-manager)** ![alpha](../../images/alpha.svg) | Provides a test with a fully-provisioned Galasa ecosystem. |
 | **HTTP Client Manager** ![alpha](../../images/alpha.svg) | Provides an opportunity to write tests that incorporate an extensive range of HTTP client requests. |
-| **[Kubernetes Manager](/docs/managers/kubernetes-manager)**![alpha](../../images/alpha.svg) | Provides tests with access to a Kubernetes namespace so that you can scale up your automated test infrastructure and leverage Kubernetes' container management services. |
+| **[Kubernetes Manager](/docs/managers/kubernetes-manager)** ![alpha](../../images/alpha.svg) | Provides tests with access to a Kubernetes namespace so that you can scale up your automated test infrastructure and leverage Kubernetes' container management services. |
 | **3270 Manager** ![alpha](../../images/alpha.svg)| Permits tests that can interact with z/OS via 3270 terminals.|
 | **zOS Batch Manager** ![release](../../images/release.svg) | The z/OS Batch Manager uses the z/OSMF Restful interface to enable tests that can submit z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager. | 
 
@@ -20,9 +21,12 @@ title: "Managers"
 | :------------------------ | :------------------------------------- | 
 | ![alpha](../../images/alpha.svg)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
 | ![beta](../../images/beta.svg)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
-| ![release](../../images/release.svg)| This Manager is feature complete, has passed all tests and is deemed release grade. It may still contain one or more known or unknown bugs.|
+| ![release](../../images/release.svg)| This Manager is feature complete, has passed all tests and is deemed release grade.|
+
 
 ## Managers under development
+The following Managers are not currently available but are planned for a future release:
+
 | Name | Description | 
 | ------------------------ | :------------------------------------- | 
 | **CECI Manager** | Enables tests that communicate with CICS regions via CECI.|
