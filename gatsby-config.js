@@ -1,5 +1,20 @@
 const path = require(`path`)
 
+const consts = {
+  githubRepoName: "galasa.dev",
+  githubOrgName: "galasa-dev",
+  twitterUrl: "https://twitter.com/galasa_dev",
+  spectrumUrl: "https://spectrum.chat/galasa",
+}
+
+consts.githubOrgUrl = `https://github.com/${consts.githubOrgName}`
+consts.githubRepoUrl = `${consts.githubOrgUrl}/${consts.githubRepoName}`
+consts.githubRepoSlug = `${consts.githubOrgName}/${consts.githubRepoName}`
+
+const buildRepoSlug = process.env.TRAVIS_PULL_REQUEST_SLUG || process.env.TRAVIS_REPO_SLUG || consts.githubRepoSlug
+consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
+consts.buildBranch = process.env.TRAVIS_PULL_REQUEST_BRANCH || process.env.TRAVIS_BRANCH || "master"
+
 const eslintOptions = process.env.CI === `true` ? {
   failOnError: true,
   failOnWarning: true,
@@ -10,6 +25,7 @@ module.exports = {
     title: `galasa`,
     description: `Galasa is an open source deep integration test framework for teams looking to give more power to their testers.`,
     siteUrl: `https://galasa.dev`,
+    consts,
   },
   plugins: [
     {
@@ -43,6 +59,8 @@ module.exports = {
               maxWidth: 1080,
             },
           },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
@@ -63,6 +81,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    {
+      resolve: `@danbruegge/gatsby-plugin-stylelint`,
+      options: {
+        files: ["**/*.{css,s(a|c)ss}"],
+      },
+    },
+    `gatsby-plugin-catch-links`,
     `gatsby-transformer-yaml`,
     {
       resolve: "gatsby-plugin-react-svg",

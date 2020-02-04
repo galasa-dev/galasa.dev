@@ -20,4 +20,6 @@ After JAT was rolled out across CICS, the team fully automated their tests, incl
 ## The Future
 The success of JAT inspired us to perfect the architecture and release our exciting new framework as Galasa. 
 
-We’d love you to get involved with the project, and help us establish a collaborative community where we can share great ideas and build new, cool Galasa features together.
+Galasa is a type of Snout Moth and a moth was attached to the first "bug" report by Grace Hopper where she reported the "first actual case of a bug being found" as a moth had flown into a relay. While we do not know if it was a Galasa moth in the relay, we quite like the name.
+
+We’d love you to get involved with the project and help us establish a collaborative community where we can share great ideas and build new, cool Galasa features together.

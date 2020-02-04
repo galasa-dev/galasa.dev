@@ -1,241 +1,321 @@
 @import "../../styles/styles";
 
-.nav {
-
-
-    @media screen and (min-width: $br-single-column) {
-        margin-left: $margin-container-md;
-    }
-
-    @media screen and (min-width: $br-container-lg) {
-        margin-left: calc((100vw - #{$width-container-lg}) / 2);
-    }
-}
+$navBlockTop: 100px + $topic-path-space;
+$navBlockPaddingTB: 10px;
 
 .navBlock {
-    background-color: #fff;
-    padding: 12px $margin-container-sm;
-    display: flex;
-    position: relative;
-    margin-left: - $margin-container-sm;
-    margin-right: - $margin-container-sm;
-    align-items: flex-start;
+  background-color: #fff;
+  padding: $navBlockPaddingTB 18px;
+  position: fixed;
+  left: $margin-container-sm;
+  top: $navBlockTop;
+  z-index: 2;
+  border-radius: 11px;
+  box-shadow: rgba(0, 0, 0, 0.03) 0 6px 22px;
+  width: calc(100vw - #{2 * $margin-container-sm});
 
-    @media screen and (min-width: $br-container-md) {
-        margin: 0;
-    }
+  transition: box-shadow 0.4s ease-in-out;
+
+  display: flex;
+  align-items: flex-start;
+
+  &.openMenu {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 12px 40px;
 
     @media screen and (min-width: $br-single-column) {
-        background-color: transparent;
-        display: block;
-        padding: 0;
-        margin-top: 76px;
+      box-shadow: none;
     }
+  }
 
-    &:before {
-        content: " ";
-        display: block;
-        position: absolute;
-        width: 16px;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        background-color: #E6E6E6;
+  @media screen and (min-width: $br-container-md) {
+    left: 50%;
+    margin-left: calc(-50vw + #{$margin-container-md});
+    width: calc(100vw - #{2 * $margin-container-md});
+  }
 
-        @media screen and (min-width: $br-single-column) {
-            display: none;
-        }
-    }
+  @media screen and (min-width: $br-single-column) {
+    position: static;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    box-shadow: none;
+    background-color: transparent;
+  }
 }
 
 .sidebarHeader {
-    font-size: 32px;
-    margin: 50px 0;
+  position: fixed;
+  top: 73px;
+  z-index: 2;
+  font-weight: 400;
+  width: calc(100vw - #{2 * $margin-container-sm});
+
+  font-size: 14px;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  line-height: 1.4;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  @media screen and (min-width: $br-container-md) {
+    width: calc(100vw - #{2 * $margin-container-md});
+  }
+
+  @media screen and (min-width: $br-single-column) {
+    position: static;
+    margin: 0 0 40px 0;
+    color: $theme-color;
+    width: auto;
+
+    font-size: 42px;
+    line-height: 49px;
     a {
-        text-decoration: none;
-        font-weight: 400;
+      text-decoration: none;
+      font-weight: 400;
+      display: block;
     }
+  }
 }
 
-.hamburger {
-    @extend %image;
-    display: block;
+.sideBarHeaderSeparator {
+  @media screen and (min-width: $br-single-column) {
+    display: none;
+  }
+}
+
+.sideBarHeaderCurrentTopic {
+  font-size: 18px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+
+  @media screen and (min-width: $br-single-column) {
+    display: none;
+  }
+}
+
+.toc {
+  @extend %image;
+  display: block;
+  cursor: pointer;
 }
 
 .cross {
-    @extend %image;
-    display: none;
+  @extend %image;
+  display: none;
 }
 
 %image {
-    width: 20px;
-    padding: 8px 0;
-    @media screen and (min-width: $br-single-column) {
-        display: none;
-    }
+  flex: 0 0 16px;
+  padding: 8px 0;
+  @media screen and (min-width: $br-single-column) {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $br-single-column - 1) {
-    .openMenu {
-        .hamburger {
-            display: none;
-        }
-        
-        .cross {
-            display: block;
-        }
+  .openMenu {
+    .toc {
+      display: none;
     }
+
+    .cross {
+      display: block;
+    }
+
+    .level1List {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .topicsHeader {
+      display: none;
+    }
+  }
 }
 
 %sidebarItemLink {
-    font-size: 16px;
-    text-decoration: none;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  font-weight: inherit;
 }
 
 %sidebarItem {
-    position: relative;
-    display: none;
+  position: relative;
+  display: none;
+  margin: 16px 0;
 
-    @media screen and (min-width: $br-single-column) {
-        display: list-item;
-    }
+  @media screen and (min-width: $br-single-column) {
+    display: list-item;
+    margin: 3px 0;
+  }
 }
 
 .openMenu %sidebarItem {
-    display: list-item;
+  display: list-item;
+}
+
+$icon-text-separation: 19px;
+
+.topicsHeader {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding-inline-start: $icon-text-separation;
+  cursor: pointer;
+
+  @media screen and (min-width: $br-single-column) {
+    display: none;
+  }
 }
 
 .level1List {
-    list-style: none;
-    margin: 0;
-    padding-inline-start: 19px;
+  list-style: none;
+  margin: 0;
+  padding-inline-start: $icon-text-separation;
+  max-height: calc(100vh - #{$navBlockTop} - #{3 * $navBlockPaddingTB});
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+  width: 100%;
 
-    @media screen and (min-width: $br-single-column) {
-        padding-inline-start: unset;
-    }
+  @media screen and (min-width: $br-single-column) {
+    padding-top: 0;
+    padding-inline-start: unset;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    overflow-y: initial;
+    color: #606060;
+  }
 }
 
 .level1Item {
-    @extend %sidebarItem;
-    margin: 0;
-    position: relative;
+  @extend %sidebarItem;
+  position: relative;
+  font-weight: 500;
+  color: #5c5c5c;
 
-    @media screen and (min-width: $br-single-column) {
-        margin: 40px 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
+
+  a {
+    @extend %sidebarItemLink;
+    font-family: "Work Sans", sans-serif;
+    color: currentColor;
+  }
+
+  @media screen and (min-width: $br-single-column) {
+    color: #606060;
 
     a {
-        @extend %sidebarItemLink;
-        font-weight: 600;
-        color: #5C5C5C;
+      font-family: "Open Sans", sans-serif;
+      transition: color 0.4s ease-in-out;
     }
+  }
 }
 
-.level2List {
-    list-style-type: none;
-    padding-left: 40px;
-    
+$level2ListPaddingL: 30px;
 
-    & li a:before {
-        content: '–';
-        position: absolute;
-        margin-left: -20px;
-    }
+.level2List {
+  list-style-type: none;
+  padding-inline-start: $level2ListPaddingL;
 }
 
 .level2Item {
-    @extend %sidebarItem;
-    margin: 16px 0;
-    a {
-        @extend %sidebarItemLink;
-        font-weight: 400;
-        color: #000000;
-    }
-}
+  @extend %sidebarItem;
+  font-weight: 400;
+  color: #000000;
 
-.itemInNavPath {
-    display: list-item;
+  a {
+    color: currentColor;
+    @extend %sidebarItemLink;
+  }
+
+  @media screen and (min-width: $br-single-column) {
+    color: #606060;
+
+    a {
+      transition: color 0.4s ease-in-out;
+    }
+  }
 }
 
 .markerInNavPath {
-    
-    a {
-        font-weight: 600;
-        color: #000000;
-    }
+  a {
+    color: #1a1b1d;
+  }
 }
 
+$lozenge-width: 16px;
 
+$selectedPositionRight: -7px;
 
 %marker {
-    position: relative;
-    
-    &:before {
-        @media screen and (min-width: max($br-container-md, $br-single-column)) {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            background-color: $color-nav-marker;
-            content: " ";
-            transition-property: width;
-            transition-duration: $transition-speed;
-            transition-timing-function: ease-in-out;
-        }
+  @media screen and (min-width: $br-single-column) {
+    a {
+      position: relative;
+      padding: -($selectedPositionRight) 1rem;
+      border-radius: $lozenge-width / 2;
+      transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
     }
+  }
 }
 
 .level1Marker {
-    @extend %marker;
+  @extend %marker;
 
-    &:before {
-        @media screen and (min-width: max($br-container-md, $br-single-column)) {
-            left: - ($margin-container-md);
-        }
-
-        @media screen and (min-width: $br-container-lg) {
-            left: calc((100vw - #{$width-container-lg}) / -2);
-        }
+  @media screen and (min-width: $br-single-column) {
+    &:hover {
+      a {
+        color: #fff;
+        background-color: rgba($theme-color, 0.5);
+      }
     }
+  }
 
-    &.level1MarkerSelected {
-
-        &:before {
-            @media screen and (min-width: max($br-container-md, $br-single-column)) {
-                width: $margin-container-md - 16px;
-            }
-    
-            @media screen and (min-width: $br-container-lg) {
-                width: calc(((100vw - #{$width-container-lg}) / 2) - 16px)
-            }
-        }
+  &.level1MarkerSelected {
+    font-weight: 500;
+    @media screen and (min-width: $br-single-column) {
+      a {
+        color: #fff;
+        background-color: $theme-color;
+      }
     }
-
+  }
 }
 
 .level2Marker {
-    @extend %marker;
+  @extend %marker;
 
-    &:before {
-        @media screen and (min-width: max($br-container-md, $br-single-column)) {
-            left: - ($margin-container-md) - 40px;
-        }
-
-        @media screen and (min-width: $br-container-lg) {
-            left: calc((100vw - #{$width-container-lg}) / -2 - 40px);
-        }
+  @media screen and (min-width: $br-single-column) {
+    &:hover {
+      a {
+        color: #fff;
+        background-color: rgba($theme-color, 0.5);
+      }
     }
+  }
 
-    &.level2MarkerSelected {
-
-        &:before {
-            @media screen and (min-width: max($br-container-md, $br-single-column)) {
-                width: $margin-container-md;
-            }
-    
-            @media screen and (min-width: $br-container-lg) {
-                width: calc(((100vw - #{$width-container-lg}) / 2))
-            }
-        }
+  &.level2MarkerSelected {
+    font-weight: 500;
+    @media screen and (min-width: $br-single-column) {
+      a {
+        color: #fff;
+        background-color: $theme-color;
+      }
     }
-
+  }
 }
