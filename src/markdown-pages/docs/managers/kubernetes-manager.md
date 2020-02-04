@@ -9,7 +9,7 @@ title: "Kubernetes Manager"
 This Manager provides a test with a Kubernetes Namespace to utilize.  The test will provide YAML representations of the resources that the test requires. <br><br> As an absolute minimum, the CPS property <code>kubernetes.cluster.K8S.url</code> must be provided and a credential <code>secure.credentials.K8S.token</code> for the API token. <br><br> The Kubernetes Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
 ## Limitations
-The Manager only supports the following Kubernetes resources:-<br> - Deployment<br> - StatefulSet<br> - Service<br> - Secret<br> - ConfigMap<br> - PersistentVolumeClaim<br>  If additional resources are required, please raise an Issue.
+The Manager only supports the following Kubernetes resources:-<br> - Deployment - StatefulSet - Service - Secret - ConfigMap - PersistentVolumeClaim  If additional resources are required, please raise an Issue.
 
 
 ## Annotations
@@ -93,8 +93,8 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.ids |
 | Description: | Provides a comma separated list of the active Kubernetes Clusters defined in the CPS |
 | Required:  | No |
-| Default value: | Will default to a single cluster ID of K8S the property is missing |
-| Valid values: | a comma separated list of alphanumeric IDs.  Normally uppercased. |
+| Default value: | Defaults to a single cluster ID of K8S if the property is missing |
+| Valid values: | A comma separated list of alphanumeric IDs.  Normally uppercased. |
 | Examples: | <code>kubernetes.cluster.ids=K8S,ALTERNATE</code> |
 
  
@@ -102,9 +102,9 @@ The following are properties used to configure the Kubernetes Manager.
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.[XXXX.]credentials |
 | Description: | Provides the Credentials ID for the token required to access the Kubernetes Cluster |
-| Required:  | no |
+| Required:  | No |
 | Default value: | K8S |
-| Valid values: | a valid credentials ID, Galasa convention states IDs should be uppercase |
+| Valid values: | A valid credentials ID, Galasa convention states IDs should be uppercase |
 | Examples: | <code>kubernetes.cluster.K8S.credentials=K8S<br> kubernetes.cluster.credentials=K8S</code> |
 
  
@@ -113,8 +113,8 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.[XXXX.]max.slots |
 | Description: | Specifies the maximum number of slots(namespaces) that can be allocated at one time on the cluster |
 | Required:  | No |
-| Default value: | Will 2 if not provided |
-| Valid values: | Integer value.  If the value is < 0, it will effectively disable the cluster. |
+| Default value: | Defaults to "2" if not provided |
+| Valid values: | Integer value.  A value < 0, disables the cluster. |
 | Examples: | <code>kubernetes.cluster.K8S.max.slots=5</code> |
 
  
@@ -123,7 +123,7 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.namespace.tag.XXXXXX.shared.environment |
 | Description: | Informs the Kubernetes Manager which Shared Environment will be assigned to a Namespace Tag |
 | Required:  | No |
-| Default value: | none |
+| Default value: | None |
 | Valid values: | A valid Shared Environment |
 | Examples: | <code>kubernetes.namespace.tag.SHARED.shared.environment=M1</code> |
 
@@ -133,8 +133,8 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.[XXXX.]namespaces |
 | Description: | Provides a comma separated list of the namespaces that are available on the cluster |
 | Required:  | No |
-| Default value: | Will default to galasa{1-2} is not provided |
-| Valid values: | a comma separated list of valid Kubernetes namespaces,  with resource pooling expanders |
+| Default value: | Defaults to galasa{1-2} if not provided |
+| Valid values: | A comma separated list of valid Kubernetes namespaces with resource pooling expanders |
 | Examples: | <code>kubernetes.cluster.K8S.namespaces=galasa1,galasa{2-9}<br> kubebernetes.cluster.namespaces=bob1,bob2,bob3</code> |
 
  
@@ -143,7 +143,7 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.XXXX.nodeport.proxy.hostname |
 | Description: | Gives the hostname that NodePorts can be accessed on. |
 | Required:  | No |
-| Default value: | The hostname as specified in the API Url |
+| Default value: | The hostname as specified in the API URL |
 | Valid values: | A valid URL hostname |
 | Examples: | <code>kubernetes.cluster.K8S.nodeport.proxy.hostname=cluster.org</code> |
 
@@ -151,10 +151,10 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Override Storage Class CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.[XXXX.]override.storageclass |
-| Description: | Provides a Kubernetes StorageClass that will be set on all PersistentVolumeClaims that are created in the Kubernetes Namespace.   The value of this property will be set in the property spec.storageClassName |
+| Description: | Provides a Kubernetes StorageClass that will be set on all PersistentVolumeClaims that are created in the Kubernetes namespace.   The value of this property is set in the property spec.storageClassName |
 | Required:  | No |
-| Default value: | none |
-| Valid values: | a valid StorageClass that is defined in the Kubernetes Cluster |
+| Default value: | None |
+| Valid values: | A valid StorageClass that is defined in the Kubernetes Cluster |
 | Examples: | <code>kubernetes.cluster.K8S.override.storageclass=fast<br> kubernetes.cluster.override.storageclass=slow</code> |
 
  
@@ -163,7 +163,7 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.XXXX.url |
 | Description: | The API URL of the Kubernetes Cluster |
 | Required:  | Yes |
-| Default value: | none |
+| Default value: | None |
 | Valid values: | A valid URL |
 | Examples: | <code>kubernetes.cluster.K8S.url=http://cluster.org:8443</code> |
 
