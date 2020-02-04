@@ -18,7 +18,7 @@ You can use a similar technique later on when you need to resolve exceptions in 
 <details>
 <summary>Stage 1 - code so far</summary>
 
-```
+```java
 package dev.galasa.simbanks.tests;
 
 import dev.galasa.Test;
@@ -38,7 +38,7 @@ public class BasicTransferTest {
 <details>
 <summary>Stage 2 - code so far</summary>
 
-```
+```java
 package dev.galasa.simbanks.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -106,7 +106,7 @@ Refer to the provided tests to see how to use the various `terminal` methods suc
 <details>
 <summary>Stage 3 - the main `transferCredit()` method (in progress)</summary>
 
-```
+```java
 @Test
 public void transferCredit() throws TimeoutException, KeyboardLockedException, NetworkException, FieldNotFoundException, TextNotFoundException, InterruptedException {
 	//Logon through the session manager
@@ -140,8 +140,7 @@ public void transferCredit() throws TimeoutException, KeyboardLockedException, N
 <details>
 <summary>Stage 4 - the full `BasicTransferTest` code so far</summary>
 
-```
-
+```java
 @Test
 public class BasicTransferTest {
 	@ZosImage(imageTag="simbank")
@@ -233,7 +232,7 @@ public class BasicTransferTest {
 <details>
 <summary>The completed test code</summary>
 
-```
+```java
 package dev.galasa.simbanks.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,27 +1,40 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React, { useState, useRef, useEffect } from "react"
 import { Location } from "@reach/router"
-import { ThemeConsumer } from "../theme"
 import Hamburger from "../../images/hamburger.inline.svg"
 import Cross from "../../images/cross.inline.svg"
+import GitHubSVG from "../../images/github.inline.svg"
+import TwitterSVG from "../../images/twitter.inline.svg"
+import SpectrumSVG from "../../images/spectrum.inline.svg"
 
 import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
 
-import impactStyles from "./header.impact.module.scss"
-import readableStyles from "./header.readable.module.scss"
+import headerStyles from "./header.module.scss"
 
-const Header = () => {
+const Header = ({ extraHeight }) => {
+  const {
+    site: {
+      siteMetadata: {
+        consts: { githubOrgUrl, twitterUrl, spectrumUrl },
+      },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          consts {
+            githubOrgUrl
+            twitterUrl
+            spectrumUrl
+          }
+        }
+      }
+    }
+  `)
+
   const [menuOpen, setMenuOpen] = useState(false)
   const navContainerNode = useRef()
-
-  const getStyles = theme => {
-    if (theme === "impact") {
-      return impactStyles
-    } else {
-      return readableStyles
-    }
-  }
 
   const handleClick = e => {
     if (!navContainerNode.current.contains(e.target)) {
@@ -39,69 +52,87 @@ const Header = () => {
 
   return (
     <Location>
-      {({ location }) => (
-        <ThemeConsumer>
-          {theme => {
-            const headerStyles = getStyles(theme)
+      {({ location }) => {
+        const selector = (section, location) => {
+          return isSelectedSection(section, location)
+            ? headerStyles.selected
+            : ""
+        }
 
-            const selector = (section, location) => {
-              return isSelectedSection(section, location)
-                ? headerStyles.selected
-                : ""
+        return (
+          <header
+            className={
+              headerStyles.header +
+              " " +
+              (menuOpen ? headerStyles.openMenu : "") +
+              " " +
+              (extraHeight ? headerStyles.extraMobileHeight : "")
             }
-
-            return (
-              <header
+          >
+            <h1 className={headerStyles.title}>
+              <Identifier id="header-identifier" />
+            </h1>
+            <div ref={navContainerNode} className={headerStyles.navContainer}>
+              <Link
+                id="header-about"
+                to="/about"
+                onClick={() => setMenuOpen(false)}
                 className={
-                  headerStyles.header +
-                  " " +
-                  (menuOpen ? headerStyles.openMenu : "")
+                  headerStyles.navLink + " " + selector("about", location)
                 }
               >
-                <h1 className={headerStyles.title}>
-                  <Identifier id="header-identifier" />
-                </h1>
-                <div
-                  ref={navContainerNode}
-                  className={headerStyles.navContainer}
+                About
+              </Link>
+              <Link
+                to="/docs"
+                onClick={() => setMenuOpen(false)}
+                className={
+                  headerStyles.navLink + " " + selector("docs", location)
+                }
+              >
+                Docs
+              </Link>
+              <div className={headerStyles.footerRepeatedLinks}>
+                <a
+                  className={headerStyles.footerRepeatedLink}
+                  href="https://www.ibm.com/privacy/us/en/"
                 >
-                  <Link
-                    id="header-about"
-                    to="/about"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink + " " + selector("about", location)
-                    }
-                  >
-                    About
-                  </Link>
-                  <Link
-                    to="/docs"
-                    onClick={() => setMenuOpen(false)}
-                    className={
-                      headerStyles.navLink + " " + selector("docs", location)
-                    }
-                  >
-                    Docs
-                  </Link>
-                </div>
-                <div
-                  className={headerStyles.closeX}
-                  onClick={() => setMenuOpen(false)}
+                  Privacy policy
+                </a>
+                <a
+                  className={headerStyles.footerRepeatedLink}
+                  href="https://www.ibm.com/legal"
                 >
-                  <Cross className={headerStyles.image} />
-                </div>
-                <div
-                  className={headerStyles.hamburger}
-                  onClick={() => setMenuOpen(true)}
-                >
-                  <Hamburger className={headerStyles.image} />
-                </div>
-              </header>
-            )
-          }}
-        </ThemeConsumer>
-      )}
+                  Terms of use
+                </a>
+              </div>
+              <div className={headerStyles.navContainerIcons}>
+                <a className={headerStyles.icon} href={githubOrgUrl}>
+                  <GitHubSVG />
+                </a>
+                <a className={headerStyles.icon} href={twitterUrl}>
+                  <TwitterSVG />
+                </a>
+                <a className={headerStyles.icon} href={spectrumUrl}>
+                  <SpectrumSVG />
+                </a>
+              </div>
+            </div>
+            <div
+              className={headerStyles.closeX}
+              onClick={() => setMenuOpen(false)}
+            >
+              <Cross className={headerStyles.image} />
+            </div>
+            <div
+              className={headerStyles.hamburger}
+              onClick={() => setMenuOpen(true)}
+            >
+              <Hamburger className={headerStyles.image} />
+            </div>
+          </header>
+        )
+      }}
     </Location>
   )
 }

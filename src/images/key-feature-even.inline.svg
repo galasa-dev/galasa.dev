@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="421.5" height="356.308" viewBox="0 0 421.5 356.308">
+  <g data-name="Group 117" transform="translate(-217.206 -388.181)">
+    <path data-name="Path 129" d="M229.908,585.677V743.99H630.346V388.682H229.908" transform="translate(7.86 0)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <g data-name="Path 130" transform="translate(0 9.858)" fill="#f4e982" stroke-miterlimit="10">
+      <path d="M 393.0641479492188 550.2468872070312 L 217.7059326171875 550.2468872070312 L 217.7059326171875 405.1119384765625 L 269.9840698242188 405.1119384765625 L 393.0641479492188 550.2468872070312 Z" stroke="none"/>
+      <path d="M 218.2059326171875 405.6119384765625 L 218.2059326171875 549.7468872070312 L 391.9845581054688 549.7468872070312 L 269.7525024414062 405.6119384765625 L 218.2059326171875 405.6119384765625 M 217.2059326171875 404.6119384765625 L 270.2156372070312 404.6119384765625 L 394.1437377929688 550.7468872070312 L 217.2059326171875 550.7468872070312 L 217.2059326171875 404.6119384765625 Z" stroke="none"/>
+    </g>
+    <path data-name="Path 131" d="M263.67,404.612h31.519L516.541,655.334h-35.1Z" transform="translate(28.753 9.858)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <g data-name="Ellipse 49" transform="translate(511.811 685.98)" fill="#f4e982" stroke="#000" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="17.551" cy="17.551" r="17.551" stroke="none"/>
+      <circle cx="17.551" cy="17.551" r="17.051" fill="none"/>
+    </g>
+    <g data-name="Ellipse 50" transform="translate(511.811 415.545)" fill="#efa284" stroke="#000" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="17.551" cy="17.551" r="17.551" stroke="none"/>
+      <circle cx="17.551" cy="17.551" r="17.051" fill="none"/>
+    </g>
+    <circle data-name="Ellipse 51" cx="17.551" cy="17.551" r="17.551" transform="translate(511.811 462.641)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <circle data-name="Ellipse 52" cx="17.551" cy="17.551" r="17.551" transform="translate(511.811 480.191)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 130" y2="306.611" transform="translate(608.836 414.47)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 131" y2="306.611" transform="translate(599.881 414.47)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 132" x2="83.344" y2="96.342" transform="translate(403.783 568.85)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 133" x2="83.344" y2="96.342" transform="translate(256.147 633.638)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 134" x2="57.924" y2="66.957" transform="translate(256.147 617.893)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <line data-name="Line 135" x2="83.344" y2="96.342" transform="translate(348.846 414.47)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <rect data-name="Rectangle 259" width="156.376" height="9.026" transform="translate(237.768 560.605)" fill="#dde1e8"/>
+  </g>
+</svg>
