@@ -3,7 +3,7 @@ path: "/about/devops"
 title: "Galasa and DevOps"
 ---
 ## What is DevOps?
-DevOps is a set of processes that enable development and operations teams to build and deliver quality software in a repeatable, fast and error-free way. 
+ DevOps is a set of processes that enable development and operations teams to continuously deliver high quality software in a fast, reliable, repeatable way.  
 
 ## Benefits of Galasa as part of a DevOps strategy 
 Galasa as part of a DevOps strategy can provide significant benefit in three key areas:
