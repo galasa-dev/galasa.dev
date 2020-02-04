@@ -1,0 +1,20 @@
+@mixin full-width-container {
+  margin-left: (-$margin-container-sm);
+  margin-right: (-$margin-container-sm);
+  padding-left: $margin-container-sm;
+  padding-right: $margin-container-sm;
+
+  @media screen and (min-width: $br-container-md) {
+    margin-left: (-$margin-container-md);
+    margin-right: (-$margin-container-md);
+    padding-left: $margin-container-md;
+    padding-right: $margin-container-md;
+  }
+
+  @media screen and (min-width: $br-container-lg) {
+    margin-left: calc((100vw - #{$width-container-lg}) / -2);
+    margin-right: calc((100vw - #{$width-container-lg}) / -2);
+    padding-left: calc((100vw - #{$width-container-lg}) / 2);
+    padding-right: calc((100vw - #{$width-container-lg}) / 2);
+  }
+}

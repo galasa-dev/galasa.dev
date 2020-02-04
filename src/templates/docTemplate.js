@@ -1,27 +1,42 @@
 import React from "react"
 import { graphql } from "gatsby"
 import layoutStyles from "./docTemplate.module.scss"
-import Footer from "../components/footer"
-import Sidebar from "../components/sidebar"
 import SEO from "../components/seo"
+import GitHubSVG from "../images/github.inline.svg"
 
-export default function Template({ data }) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+export default function Template({
+  data: {
+    site: {
+      siteMetadata: {
+        consts: { buildRepoUrl, buildBranch },
+      },
+    },
+    markdownRemark: { frontmatter, html },
+  },
+  pageContext: { repoRelativePath },
+}) {
+  const MarkdownPageFooter = ({ repoRelativePath }) => (
+    <div className={layoutStyles.metaFooter}>
+      <a
+        className={layoutStyles.editLink}
+        href={`${buildRepoUrl}/blob/${buildBranch}/${repoRelativePath}`}
+      >
+        <GitHubSVG className={layoutStyles.editIcon} /> Edit this page on GitHub
+      </a>
+    </div>
+  )
+
   return (
     <>
       <SEO title={frontmatter.title} />
-      <div className={layoutStyles.docContainer}>
-        <div className={layoutStyles.docNav}>
-          <Sidebar />
-        </div>
+      <div className={layoutStyles.docWrapper}>
         <div className={layoutStyles.docContent}>
-          <h1>{frontmatter.title}</h1>
+          <h1 className={layoutStyles.topicTitle}>{frontmatter.title}</h1>
           <div
-            className="doc-post-content"
+            className={layoutStyles.docPostContent}
             dangerouslySetInnerHTML={{ __html: html }}
           />
-          <Footer />
+          <MarkdownPageFooter repoRelativePath={repoRelativePath} />
         </div>
       </div>
     </>
@@ -30,6 +45,14 @@ export default function Template({ data }) {
 
 export const pageQuery = graphql`
   query($path: String!) {
+    site {
+      siteMetadata {
+        consts {
+          buildRepoUrl
+          buildBranch
+        }
+      }
+    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

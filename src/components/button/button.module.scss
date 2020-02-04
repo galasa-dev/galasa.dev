@@ -1,35 +1,59 @@
 @import "../../styles/styles";
 
+.buttonContainer {
+  position: relative;
+  z-index: 0;
+}
+
 .button {
-    display: inline-block;
-    padding: 16px 51px;
-    text-decoration: none;
-    margin-right: 8px;
-    margin-bottom: 32px;
+  display: inline-block;
+  padding: 16px 51px;
+  text-decoration: none;
+  margin-right: 20px;
+  margin-bottom: 32px;
+  border-radius: 3px;
 }
 
-.primary {
-    border-left: 10px solid #0067BC;
-    background-color: #0085F3;
-}
+a.primary {
+  color: #010610;
+  background-color: $highlight-color;
+  position: relative;
+  transition-property: left top;
+  transition-duration: 0.1s;
+  left: 0;
+  top: 0;
 
-.secondary {
+  &::after {
+    content: " ";
+    display: block;
     border: 2px solid #fff;
-    background-color: #000;
+    width: 100%;
+    height: 100%;
+    left: 8px;
+    top: 10px;
+
+    transition-property: left top;
+    transition-duration: 0.1s;
+
+    position: absolute;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #ffd936;
+
+    &::after {
+      left: 4px;
+      top: 5px;
+    }
+  }
 }
 
-.flash {
-    position: relative;
-
-    &:before {
-        content: " ";
-        display: block;
-        position: absolute;
-        width: 10000px;
-        right: 100%;
-        top: 0;
-        bottom: 0;
-        background-color: #212121;
-        z-index: -1;
-    }
+a.secondary {
+  color: #fff;
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
