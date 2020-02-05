@@ -3,13 +3,13 @@ path: "/docs/managers/kubernetes-manager"
 title: "Kubernetes Manager"
 ---
 
-**ALPHA - This Manager has been written to provide a Kubernetes Namespace for the Galasa integrated test pipeline.  It has the bare  minimum code necessary to do that.  It has not been extensively tested (other than on the pipeline).  The TPI is subject to change.  However, saying all that,  it can be used within tests.**
+**ALPHA - This Manager provides a Kubernetes namespace for the Galasa integrated test pipeline.  It has the bare  minimum code necessary to do that.  It has not been extensively tested (other than on the pipeline) and is subject to change.  However, saying all that,  it can be used within tests.**
 
 ## Overview
-This Manager provides a test with a Kubernetes Namespace to utilize.  The test will provide YAML representations of the resources that the test requires. <br><br> As an absolute minimum, the CPS property <code>kubernetes.cluster.K8S.url</code> must be provided and a credential <code>secure.credentials.K8S.token</code> for the API token. <br><br> The Kubernetes Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
+This Manager provides a test with a Kubernetes namespace to utilize.  The test provides YAML representations of the resources that the test requires. <br><br> As an absolute minimum, the CPS property <code>kubernetes.cluster.K8S.url</code> must be provided as well as a credential <code>secure.credentials.K8S.token</code> for the API token. <br><br> The Kubernetes Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
 ## Limitations
-The Manager only supports the following Kubernetes resources:-<br> - Deployment - StatefulSet - Service - Secret - ConfigMap - PersistentVolumeClaim  If additional resources are required, please raise an Issue.
+The Manager only supports the following Kubernetes resources:-<br> <br> - Deployment<br> - StatefulSet<br> - Service<br> - Secret<br> - ConfigMap<br> - PersistentVolumeClaim<br> <br> If additional resources are required, please raise a GitHub issue.
 
 
 ## Annotations
@@ -19,8 +19,8 @@ The following annotations are available with the Kubernetes Manager
 | Annotation: | Kubernetes Namespace |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @KubernetesNamespace |
-| Description: | The <code>@KubernetesNamespace</code> annotation will request the Kubernetes Manager allocate a namespace on the infrastructure Kubernetes Clusters.  The test can request as many Namesapces as required that  can be supported simultaneously by the Kubernetes Manager configuration. |
-| Attribute: `kubernetesNamespaceTag` |  The <code>kubernetesNamespaceTag</code> is used to identify the Kubernetes names to other Managers or Shared Environments.  If a test is using multiple  Kubernetes Namespace, each separate Kubernetes Namesapce must have a unique tag.  If two Kubernetes Namespace use the same tag, they will refer to the  same actual Kubernetes Namespace. |
+| Description: | The <code>@KubernetesNamespace</code> annotation requests the Kubernetes Manager to allocate a namespace on the infrastructure Kubernetes clusters.  The test can request as many namespaces as required so long as they  can be supported simultaneously by the Kubernetes Manager configuration. |
+| Attribute: `kubernetesNamespaceTag` |  The <code>kubernetesNamespaceTag</code> identifies the Kubernetes names to other Managers or Shared Environments.  If a test is using multiple  Kubernetes namespace, each separate Kubernetes namespace must have a unique tag.  If more than one Kubernetes namespace use the same tag, they will refer to the  same Kubernetes namespace. |
 | Syntax: | <code>@KubernetesNamespace<br> public IKubernetesNamesapce namespace;<br> </code> |
 | Notes: | The <code>IKubernetesNamespace</code> interface gives the test access to create and manage resources on the Kubernetes cluster.  See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/KubernetesNamespace.html" target="_blank">KubernetesNamespace</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/IKubernetesNamespace.html" target="_blank">IKubernetesNamespace</a> to find out more. |
 
@@ -91,7 +91,7 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Cluster IDs CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.ids |
-| Description: | Provides a comma separated list of the active Kubernetes Clusters defined in the CPS |
+| Description: | Provides a comma separated list of the active Kubernetes Clusters that are defined in the CPS |
 | Required:  | No |
 | Default value: | Defaults to a single cluster ID of K8S if the property is missing |
 | Valid values: | A comma separated list of alphanumeric IDs.  Normally uppercased. |
@@ -101,10 +101,10 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Cluster Credentials CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.[XXXX.]credentials |
-| Description: | Provides the Credentials ID for the token required to access the Kubernetes Cluster |
+| Description: | Provides the Credentials ID for the token required to access the Kubernetes cluster |
 | Required:  | No |
 | Default value: | K8S |
-| Valid values: | A valid credentials ID, Galasa convention states IDs should be uppercase |
+| Valid values: | A valid credentials ID. Galasa convention states IDs should be uppercase |
 | Examples: | <code>kubernetes.cluster.K8S.credentials=K8S<br> kubernetes.cluster.credentials=K8S</code> |
 
  
@@ -113,15 +113,15 @@ The following are properties used to configure the Kubernetes Manager.
 | Name: | kubernetes.cluster.[XXXX.]max.slots |
 | Description: | Specifies the maximum number of slots(namespaces) that can be allocated at one time on the cluster |
 | Required:  | No |
-| Default value: | Defaults to "2" if not provided |
-| Valid values: | Integer value.  A value < 0, disables the cluster. |
+| Default value: | Defaults to 2 if not provided |
+| Valid values: | Integer value.  A value <0 disables the cluster. |
 | Examples: | <code>kubernetes.cluster.K8S.max.slots=5</code> |
 
  
 | Property: | Kubernetes Tag Shared Environment |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.namespace.tag.XXXXXX.shared.environment |
-| Description: | Informs the Kubernetes Manager which Shared Environment will be assigned to a Namespace Tag |
+| Description: | Tells the Kubernetes Manager which Shared Environment is assigned to a namespace tag |
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A valid Shared Environment |
@@ -141,7 +141,7 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Node Port Proxy Hostname CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.XXXX.nodeport.proxy.hostname |
-| Description: | Gives the hostname that NodePorts can be accessed on. |
+| Description: | Provides the hostname that NodePorts can be accessed on. |
 | Required:  | No |
 | Default value: | The hostname as specified in the API URL |
 | Valid values: | A valid URL hostname |
@@ -151,10 +151,10 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Override Storage Class CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.[XXXX.]override.storageclass |
-| Description: | Provides a Kubernetes StorageClass that will be set on all PersistentVolumeClaims that are created in the Kubernetes namespace.   The value of this property is set in the property spec.storageClassName |
+| Description: | Provides a Kubernetes StorageClass that is set on all PersistentVolumeClaims that are created in the Kubernetes namespace.   The value of this property is set in the property *spec.storageClassName* |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | A valid StorageClass that is defined in the Kubernetes Cluster |
+| Valid values: | A valid StorageClass that is defined in the Kubernetes cluster |
 | Examples: | <code>kubernetes.cluster.K8S.override.storageclass=fast<br> kubernetes.cluster.override.storageclass=slow</code> |
 
  
@@ -171,9 +171,9 @@ The following are properties used to configure the Kubernetes Manager.
 | Property: | Kubernetes Validate Cluster Certificate CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | kubernetes.cluster.[XXXX.]validate.certificate |
-| Description: | Should the Kubernetes Cluster API Certificate be validated |
+| Description: | Validates the Kubernetes Cluster API Certificate |
 | Required:  | No |
 | Default value: | true |
-| Valid values: | Either true or false |
+| Valid values: | true or false |
 | Examples: | <code>kubernetes.cluster.K8S.validate.certificate=false<br> kubernetes.cluster.validate.certificate=true</code> |
 
