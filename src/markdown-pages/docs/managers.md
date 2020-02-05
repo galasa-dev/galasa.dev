@@ -9,7 +9,7 @@ title: "Managers"
 | :------------------------ | :------------------------------------- | 
 | **Artifact Manager**<br> ![release](../../images/release.svg)| Provides straightforward access to resources within a test bundle. It also provides templating services.|
 | **Core Manager**<br> ![release](../../images/release.svg) | Provides tests with access to some of the most common features within the Galasa framework, such as the ability to retrieve credentials and the name of the test run. |
-| **[Docker Manager](/docs/managers/docker-manager)**<br> ![beta](../../images/beta.svg) | This Manager enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the tesing process. |
+| **[Docker Manager](/docs/managers/docker-manager)**<br> ![beta](../../images/beta.svg) | This Manager enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. |
 | **[ElasticLog Manager](/docs/managers/elasticlog-manager)**<br> ![alpha](../../images/alpha.svg) | This Manager exports test results to ElasticSearch, which can be subsequently used within Kabana dashboards. |
 | **[Galasa Ecosystem Manager](/docs/managers/galasa-ecosystem-manager)** <br>![alpha](../../images/alpha.svg) | Deploys an entire Galasa ecosystem to Kubernetes to enable integration testing against Galasa. |
 | **HTTP Client Manager**<br> ![alpha](../../images/alpha.svg) | Provides a common setup of HTTP client operations for the test (or a Manager) to use. |
