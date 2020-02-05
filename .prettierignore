@@ -12,4 +12,5 @@ Staticfile
 *.sh
 *.svg
 *.xml
+*.scss
 
