@@ -3,10 +3,10 @@ path: "/docs/managers/kubernetes-manager"
 title: "Kubernetes Manager"
 ---
 
-**ALPHA - This Manager provides a Kubernetes namespace for the Galasa integrated test pipeline.  It has the bare  minimum code necessary to do that.  It has not been extensively tested (other than on the pipeline) and is subject to change.  However, saying all that,  it can be used within tests.**
+**ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested.**
 
 ## Overview
-This Manager provides a test with a Kubernetes namespace to utilize.  The test provides YAML representations of the resources that the test requires. <br><br> As an absolute minimum, the CPS property <code>kubernetes.cluster.K8S.url</code> must be provided as well as a credential <code>secure.credentials.K8S.token</code> for the API token. <br><br> The Kubernetes Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
+This Manager provides a test with a Kubernetes Namespace to utilize. The test will provide YAML representations of the resources that the test requires. <br><br> As an absolute minimum, the CPS property <code>kubernetes.cluster.K8S.url</code> must be provided as well as a credential <code>secure.credentials.K8S.token</code> for the API token. <br><br> The Kubernetes Manager supports Galasa Shared Environments. Shared environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
 ## Limitations
 The Manager only supports the following Kubernetes resources:-<br> <br> - Deployment<br> - StatefulSet<br> - Service<br> - Secret<br> - ConfigMap<br> - PersistentVolumeClaim<br> <br> If additional resources are required, please raise a GitHub issue.
@@ -30,25 +30,25 @@ Use the following code snippets to help you get started with the Kubernetes Mana
  
 ### Create Kubernetes namespaces for the Kubernetes Manager to use
 
-Note: Isolated namespaces must be provided for the Kubernetes Manager to use.  The Manager will delete any resource that 
-exists on the namespace once a Test has finished.
+Note: Isolated namespaces must be provided for the Kubernetes Manager to use.  The Manager deletes any resources that 
+exist on the namespace once a test has finished.
 
-The following are example scripts and YAML files necessary to create namspaces:-
+The following are example scripts and yaml files necessary to create namespaces:
 1. [Namespace creation script](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/namespaces.yaml)
 1. [Create Service Account for the Manager to use (including api token)](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/account.sh)
 1. [The RBAC rules to be applied to each namespace](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/rbac.yaml)
 The following snippet shows the minimum code that is required to request a Docker container in a Galasa test:
 
-### Obtain a Kubernetes namespace
+### Obtain a Kubernetes Namespace
 
 ```java
 @KubernetesNamespace()
 public IKubernetesNamespace namespace;
 ```
 
-This code will request the Kubernetes Manager allocate a namespace for the test to use.
+This code requests the Kubernetes Manager to allocate a namespace for the test to use.
 
-There is no limit in Galasa on how many Kuberentes namespaces can be used within a single test. The only limit is the number of Kuberentes namespaces that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of namespaces defined in the Kubernetes cluster.  If there are not enough "slots" available for an automated run, the run is put back on the queue in "waiting" state to retry.  Local test runs fail if there are not enough container "slots" available.
+There is no limit in Galasa on how many Kubernetes Namespaces can be used within a single test. The only limit is the number of Kubernetes Namespaces that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of namespaces defined in the Kubernetes cluster.  If there are not enough slots available for an automated run, the run is put back on the queue in waiting state to retry.  Local test runs fail if there are not enough container slots available.
 
 ### Create a resource on the namespace
 
@@ -70,7 +70,7 @@ public void test() {
 
 ```
 
-In this snippet, the test will retrieve the contents of the `/example.yaml` resource file as a String.  The YAML file is passed the the namespace for creation.  The YAML must contain only one Kubernetes resource.
+In this snippet, the test retrieves the contents of the `/example.yaml` resource file as a String.  The yaml file is passed the namespace for creation.  The yaml must contain only one Kubernetes resource.
 
 The resource is created but is not checked to see if the resource has been started or allocated.
 
