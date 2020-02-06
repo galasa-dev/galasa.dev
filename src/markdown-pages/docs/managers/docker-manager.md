@@ -19,32 +19,32 @@ The following annotations are available with the Docker Manager
 | Annotation: | Docker Container |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @DockerContainer |
-| Description: | The <code>@DockerContainer</code> annotation will request the Docker Manager allocate a slot and start a container  on the infrastructure Docker Engines.  The test can request as many Containers as required that  can be supported simultaneously by the Docker Manager configuration. |
-| Attribute: `dockerContainerTag` |  The <code>dockerContainerTag</code> is used to identify the Docker Container to other Managers or Shared Environments.  If a test is using multiple  Docker Containers, each separate Docker Container must have a unique tag.  If two DockerContainers use the same tag, they will refer to the  same actual Docker Container. |
+| Description: | The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration. |
+| Attribute: `dockerContainerTag` |  The <code>dockerContainerTag</code> is used to identify the Docker Container to other Managers or Shared Environments.  If a test is using multiple  Docker Containers, each separate Docker Container must have a unique tag. If two Docker Containers use the same tag, they will refer to the  same Docker Container. |
 | Attribute: `image` |  The <code>image</code> attribute provides the Docker Image that is used to create the Docker Container.  The image name must not  include the Docker Registry as this is provided in the CPS.   If using a public official image from DockerHub,  then the  image name must be prefixed with <code>library/</code>, for example <code>library/httpd:latest</code>, the Docker Manager will not default to the library namespace like the Docker commands do. |
-| Attribute: `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically.   If the  Test needs to perform some work before the Container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the Container. |
+| Attribute: `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically. If the  test needs to perform some work before the container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the container. |
 | Attribute: `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a container can be run on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag. |
 | Syntax: | <code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> |
-| Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the Container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. |
+| Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. |
 
 ## Code Snippets
 
 Use the following code snippets to help you get started with the Docker Manager.
  
-### Create a Docker container
+### Create a Docker Container
 
-The following snippet shows the minimum code that is required to request a Docker container in a Galasa test:
+The following snippet shows the minimum code that is required to request a Docker Container in a Galasa test:
 
 ```
-@Dockercontainer(image="httpd:latest", tag="http", start=true)
-public IDockercontainer container1;
+@DockerContainer(image="httpd:latest", tag="http", start=true)
+public IDockerContainer container1;
 ```
 
-The code creates a Docker Container with an Apache HTTP Server running on it in port 80. Although this does not provide much, it does give a known target HTTP Server that you can start and stop in order to test how your application responds in those circumstances.  By accessing the *container1* field, you can find the IP address and port that was used for the Container. 
+The code creates a Docker Container with an Apache HTTP Server running on port 80. Although this does not provide much, it does give a known target HTTP Server that you can start and stop in order to test how your application responds in those circumstances.  By accessing the *container1* field, you can find the IP address and port that was used for the container. 
 
-At the end of the test, the Docker Manager automatically stops and discards the Docker container. If for some reason the test was not able to do this, the Docker Manager Resource Management routines perform the same clean up after the Galasa Ecosystem discovers the test has disappeared.
+At the end of the test, the Docker Manager automatically stops and discards the Docker Container. If for some reason the test was not able to do this, the Docker Manager resource management routines perform the same clean up after the Galasa Ecosystem discovers the test has disappeared.
 
-There's no limit in Galasa on how many Docker containers can be used within a single test. The only limit is the number of Docker containers that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of containers that can be supported by the Docker Server or Swarm.  If there are not enough "slots" available for an automated run, the run is put back on the queue in "waiting" state to retry.  Local test runs fail if there are not enough container "slots" available.
+There is no limit in Galasa on how many Docker Containers can be used within a single test. The only limit is the number of Docker Containers that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of containers that can be supported by the Docker Server or Swarm.  If there are not enough slots available for an automated run, the run is put back on the queue in *waiting* state to retry. Local test runs fail if there are not enough container slots available.
 
 
 ### Obtain the IP address and port of an exposed container port
@@ -52,10 +52,10 @@ There's no limit in Galasa on how many Docker containers can be used within a si
 Find the IP address and port by using the following code which provisions and starts an Apache HTTP server on port 80:
 
 ```
-@Dockercontainer(image="httpd:latest")
-public IDockercontainer httpcontainer;
+@DockerContainer(image="httpd:latest")
+public IDockerContainer httpContainer;
 ...
-InetSocketAddress port80 = httpcontainer.getFirstSocketForExposedPort(80);
+InetSocketAddress port80 = httpContainer.getFirstSocketForExposedPort(80);
 ```
 
 
@@ -64,35 +64,35 @@ InetSocketAddress port80 = httpcontainer.getFirstSocketForExposedPort(80);
 Stop and start your Apache HTTP Server to test how your application responds by using the following code:
 
 ```
-@Dockercontainer(image="httpd:latest")
-public IDockercontainer httpcontainer;
+@DockerContainer(image="httpd:latest")
+public IDockerContainer httpContainer;
 ...
-httpcontainer.stop();
+httpContainer.stop();
 
-httpcontainer.start();
+httpContainer.start();
 ```
 
 ### Run a command in the container
 
-Use the following code to execute a command within the Docker Container and return the resulting output.
+Use the following code to execute a command within the Docker Container and return the resulting output:
 ```
-@Dockercontainer(image="httpd:latest")
-public IDockercontainer httpcontainer;
+@DockerContainer(image="httpd:latest")
+public IDockerContainer httpcontainer;
 ...
-IDockerExec exec = httpcontainer.exec("ls","-l","/var/log");
+IDockerExec exec = httpContainer.exec("ls","-l","/var/log");
 exec.waitForExec();
 String output = exec.getCurrentOutput();
 ```
 
 ### Retrieve the log of the container
 
-Use the following code to retrieve the container log.
+Use the following code to retrieve the container log:
 
 ```
-@Dockercontainer(image="httpd:latest")
-public IDockercontainer httpcontainer;
+@DockerContainer(image="httpd:latest")
+public IDockerContainer httpContainer;
 ...
-String log = httpcontainer.getStdOut();
+String log = httpContainer.getStdOut();
 ```
 ## Configuration Properties
 
@@ -119,7 +119,7 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 | Valid values: | Any valid TCP Port number |
 | Examples: | <code>docker.engine.port=2375</code> |
 
-The Docker Manager will communicate with the Docker Engine via TCP.   The Docker Engine will need to be  configured to open the TCP port, which will normally be 2375.  If the port is not the default one, then this property will need to be provided in the CPS.
+The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be  configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
 
  
 | Property: | Default Docker Registries CPS Property |
@@ -131,7 +131,7 @@ The Docker Manager will communicate with the Docker Engine via TCP.   The Docker
 | Valid values: | A comma separated list of ID.  See CPS property <code>docker.registry.ID</code> |
 | Examples: | <code>docker.default.registries=LOCAL,DOCKERHUB</code> |
 
-In order to decouple Docker Registries from the Galasa Test, this property allows for the Docker Manager to search for images.  The main reason being if the customer docker registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image.  When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the DOCKERHUB id must be included.
+To decouple Docker Registries from the Galasa test, this property allows the Docker Manager to search for images. The main reason being if the customer Docker Registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image. When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the DOCKERHUB id must be included.
 
  
 | Property: | Docker Registry Credentials CPS Property |
@@ -149,11 +149,11 @@ If the <code>docker.registry.ID.credentials</code> CPS property is missing, the 
 | Property: | Docker Registry URL CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.registry.ID.url |
-| Description: | Provides the URL of a Docker Registry that is used by the Docker Manager |
-| Required:  | Yes if the Registry ID is used in the CPS Property <code>docker.default.registries</code>.  However,  the Docker Manager will default DOCKERHUB to <code>https://registry.hub.docker.com</code> if not provided. |
-| Default value: | None, except for DOCKERHUB where the default is <code>https://registry.hub.docker.com</code>. |
-| Valid values: | A valid URL. |
+| Description: | Provides the URL of a Docker Registry that is used by the Docker Manager. |
+| Required:  | Yes if the Registry ID is used in the CPS Property <code>docker.default.registries</code>. However,  the Docker Manager will default DOCKERHUB to <code>https://registry.hub.docker.com</code> if not provided. |
+| Default value: | None, except for DOCKERHUB where the default is <code>https://registry.hub.docker.com</code> |
+| Valid values: | A valid URL |
 | Examples: | <code>docker.registry.LOCAL.url=https://registry.local.com</code> |
 
-If the Registry requires credentials for Authentication, then the ID for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
+If the Docker Registry requires credentials for authentication, then the id for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
 
