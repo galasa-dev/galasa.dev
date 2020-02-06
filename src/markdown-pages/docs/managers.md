@@ -12,27 +12,27 @@ title: "Managers"
 | **[Docker Manager](/docs/managers/docker-manager)**<br> ![beta](../../images/beta.svg) | Enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. |
 | **[ElasticLog Manager](/docs/managers/elasticlog-manager)**<br> ![alpha](../../images/alpha.svg) | Exports test results to ElasticSearch, which can be subsequently used within Kabana dashboards. |
 | **[Galasa Ecosystem Manager](/docs/managers/galasa-ecosystem-manager)** <br>![alpha](../../images/alpha.svg) | Deploys an entire Galasa ecosystem to Kubernetes to enable integration testing against Galasa. |
-| **HTTP Client Manager**<br> ![alpha](../../images/alpha.svg) | Provides a common setup of HTTP client operations for the test (or a Manager) to use. |
+| **HTTP Client Manager**<br> ![beta](../../images/beta.svg) | Provides a common setup of HTTP client operations for the test (or a Manager) to use. |
 | **IP Network Manager**<br> ![alpha](../../images/alpha.svg) | Provides configuration information for IP-based servers. |
 | **[Kubernetes Manager](/docs/managers/kubernetes-manager)**<br> ![alpha](../../images/alpha.svg) | Provisions Kubernetes namespaces for tests (or Managers) to use. |
 | **Linux Manager**<br> ![alpha](../../images/alpha.svg) | Provides Linux server configuration properties. Drives provisioning by other Managers such as the OpenStack Manager. |
 | **OpenStack Manager**<br> ![alpha](../../images/alpha.svg) | Provisions servers within OpenStack. This Manager currently only supports Linux and provides the servers via the Linux Manager. |
 | **z/OS 3270 Manager**<br> ![alpha](../../images/alpha.svg)| Provides tests and Managers with a 3270 client.|
 | **z/OS Batch Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with the ability to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager. | 
-| **z/OS File Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. | 
-| **z/OS Console Manager**<br> ![release](../../images/release.svg) | Allows tests and Managers to use z/OS console commands. | 
+| **z/OS Console Manager**<br> ![release](../../images/release.svg) | Allows tests and Managers to use z/OS console commands. |
+| **z/OS File Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. |
+| **z/OS Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. |   
 | **z/OS PT Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with access to z/OS PT. It is used by the Batch, File and Console Managers. | 
-| **z/OS Manager**<br> ![release](../../images/release.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. | 
+
 
 | Key |   | 
 | :------------------------ | :------------------------------------- | 
 | ![alpha](../../images/alpha.svg)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
-| ![beta](../../images/beta.svg)| This Manager is feature complete but is likely to contain multiple known or unknown bugs.|
+| ![beta](../../images/beta.svg)| This Manager is feature complete but may contain known or unknown bugs.|
 | ![release](../../images/release.svg)| This Manager is feature complete, has passed all tests and is deemed release grade.|
 
 
 ## Future Managers
-The following Managers are not currently available but are planned for a future release:
 
 | Name | Description | 
 | ------------------------ | :------------------------------------- | 
@@ -65,5 +65,5 @@ The following Managers are not currently available but are planned for a future 
 | **z/OS DB2 Manager** | Providing configuration information to DB2 instances, this Manager also provisions DB2 instances and schemas.|
 | **z/OS MQ Manager** | Provisions and configures z/OS MQ subsystems.|
 | **z/OS Security Manager** | Creates and maintains userids and profiles in RACF.|
-| **z/VM Manager** | Provisions and configures z/VM userids, mainly for provisioning z/OS and zLinux systems.|
+| **z/VM Manager** | Provisions and configures z/VM userids, mainly for provisioning z/OS and z/Linux systems.|
 | **ZOWE Manager** | Provides configuration information for and provisions ZOWE instances.|
