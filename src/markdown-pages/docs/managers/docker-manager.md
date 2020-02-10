@@ -3,7 +3,7 @@ path: "/docs/managers/docker-manager"
 title: "Docker Manager"
 ---
 
-**ALPHA - This manager is being actively developed. It is subject to change and has not been extensively tested.**
+**BETA**
 
 ## Overview
 This Manager enables tests to run Docker containers on a Docker Engine provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
@@ -36,8 +36,8 @@ Use the following code snippets to help you get started with the Docker Manager.
 The following snippet shows the minimum code that is required to request a Docker Container in a Galasa test:
 
 ```
-@DockerContainer(image="httpd:latest", tag="http", start=true)
-public IDockerContainer container1;
+@Dockercontainer(image="library/httpd:latest", tag="http", start=true)
+public IDockercontainer container1;
 ```
 
 The code creates a Docker Container with an Apache HTTP Server running on port 80. Although this does not provide much, it does give a known target HTTP Server that you can start and stop in order to test how your application responds in those circumstances.  By accessing the *container1* field, you can find the IP address and port that was used for the container. 
@@ -52,8 +52,8 @@ There is no limit in Galasa on how many Docker Containers can be used within a s
 Find the IP address and port by using the following code which provisions and starts an Apache HTTP server on port 80:
 
 ```
-@DockerContainer(image="httpd:latest")
-public IDockerContainer httpContainer;
+@Dockercontainer(image="library/httpd:latest")
+public IDockercontainer httpcontainer;
 ...
 InetSocketAddress port80 = httpContainer.getFirstSocketForExposedPort(80);
 ```
@@ -64,8 +64,8 @@ InetSocketAddress port80 = httpContainer.getFirstSocketForExposedPort(80);
 Stop and start your Apache HTTP Server to test how your application responds by using the following code:
 
 ```
-@DockerContainer(image="httpd:latest")
-public IDockerContainer httpContainer;
+@Dockercontainer(image="library/httpd:latest")
+public IDockercontainer httpcontainer;
 ...
 httpContainer.stop();
 
@@ -76,8 +76,8 @@ httpContainer.start();
 
 Use the following code to execute a command within the Docker Container and return the resulting output:
 ```
-@DockerContainer(image="httpd:latest")
-public IDockerContainer httpcontainer;
+@Dockercontainer(image="library/httpd:latest")
+public IDockercontainer httpcontainer;
 ...
 IDockerExec exec = httpContainer.exec("ls","-l","/var/log");
 exec.waitForExec();
@@ -89,8 +89,8 @@ String output = exec.getCurrentOutput();
 Use the following code to retrieve the container log:
 
 ```
-@DockerContainer(image="httpd:latest")
-public IDockerContainer httpContainer;
+@Dockercontainer(image="library/httpd:latest")
+public IDockercontainer httpcontainer;
 ...
 String log = httpContainer.getStdOut();
 ```
@@ -100,12 +100,12 @@ The following are properties used to configure the Docker Manager.
  
 | Property: | Docker Engine CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | docker.engine |
+| Name: | docker.engine.[engineId].hostname |
 | Description: | Provides location of the Docker Engine |
 | Required:  | Yes - the hostname of the Docker Engine must be provided |
 | Default value: | None |
 | Valid values: | A valid DNS name or IPv4/6 address |
-| Examples: | <code>docker.engine=docker.example.company.org<br> docker.engine=192.168.2.3 </code> |
+| Examples: | <code>docker.engine.[engineId].hostname=docker.example.company.org<br> docker.engine.[engineId].hostname=192.168.2.3 </code> |
 
 Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
 
