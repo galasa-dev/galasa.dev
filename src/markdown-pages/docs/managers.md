@@ -40,7 +40,6 @@ title: "Managers"
 | **Artifactory Manager** | Provides the ability to retrieve artifacts from Artifactory servers. |
 | **CECI Manager** | Provides CECI 3270 interaction - initially supporting containers and link programs.|
 | **CEMT Manager** | Provides CEMT 3270 interaction.|
-| **CICS SFR Manager** | Configures Service Flow Runtime instances in CICS TS servers.|
 | **CICS TS Manager** | Provides configuration information for pre-existing CICS TS servers. Drives provisioning services from other managers, e.g. z/OS PT.|
 | **CICS z/OS PT Provisioning Manager** | Provisions CICS TS servers for the CICS TS Manager.|
 | **GitHub Manager** | Enables tests to retrieve artifacts from GitHub and enables test results to be influenced by the status of issues.|
