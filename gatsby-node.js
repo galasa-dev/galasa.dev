@@ -7,28 +7,52 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        limit: 1000
-      ) {
+      markdownPagesFilesystemPlugin: sitePlugin(name: {
+        eq: "gatsby-source-filesystem"
+      }
+      pluginOptions:{
+        name:{
+          eq: "markdown-pages"
+        }
+      }) {
+        pluginOptions {
+          path
+        }
+      } 
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
+            parent {
+              ... on File {
+                relativePath
+              }
+            }
             frontmatter {
-                path
+              path
+              
             }
           }
         }
       }
     }
+
   `).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
 
+    const projectRelativeMdBasePath = path.relative(process.cwd(), result.data.markdownPagesFilesystemPlugin.pluginOptions.path)
+    const projectLocationInRepo = "."
+    const repoRelativeMdBasePath = path.join(projectLocationInRepo, projectRelativeMdBasePath)
+
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: docTemplate,
-        context: { title: node.frontmatter.title },
+        context: {
+          title: node.frontmatter.title,
+          repoRelativePath: path.join(repoRelativeMdBasePath, node.parent.relativePath),
+         },
       })
     })
   })
@@ -36,7 +60,7 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   if (!(process.env.NODE_ENV === "production")) {
     actions.setWebpackConfig({
-      devtool: "eval-source-map"
-    });
+      devtool: "eval-source-map",
+    })
   }
-};
+}

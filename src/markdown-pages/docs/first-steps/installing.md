@@ -3,7 +3,7 @@ path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 
-Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">here</a>) and the download and integration of the Galasa plug-in from a known update site. The Galasa plug-in is accompanied by SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform). 
+Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in from a known update site. The Galasa plug-in is accompanied by SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform). 
 
 <!-- Later, you are likely to want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it. -->
 
@@ -53,12 +53,12 @@ dss.properties
     The ~/.m2 directory already exists
     Created the ~/.m2/.settings.xml example file
     Setup complete
-```
+    ```
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
-
-    ```
+    ```properties
     zos.dse.tag.simbank.imageid=SIMBANK
+    zos.dse.tag.simbank.clusterid=SIMBANK
 
     simbank.dse.instance.name=SIMBANK
     simbank.instance.SIMBANK.zos.image=SIMBANK
@@ -66,13 +66,18 @@ dss.properties
     zos.image.SIMBANK.ipv4.hostname=127.0.0.1
     zos.image.SIMBANK.telnet.port=2023
     zos.image.SIMBANK.telnet.tls=false
-    zos.image.SIMBANK.credentials=SIMFRAME
-```
+    zos.image.SIMBANK.credentials=SIMBANK
+
+    zosmf.server.SIMBANK.images=SIMBANK
+    zosmf.server.SIMBANK.hostname=127.0.0.1
+    zosmf.server.SIMBANK.port=2040
+    zosmf.server.SIMBANK.https=false
+    ```
 1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
-```
-secure.credentials.SIMBANK.username=IBMUSER
-secure.credentials.SIMBANK.password=SYS1
-```
+    ```properties
+    secure.credentials.SIMBANK.username=IBMUSER
+    secure.credentials.SIMBANK.password=SYS1
+    ```
 <!-- 1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents: 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"

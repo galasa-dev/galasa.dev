@@ -1,0 +1,15 @@
+public
+.cache
+
+.DS_Store
+.gitignore
+.graphqlconfig
+.nvmrc
+.prettierignore
+Staticfile
+*.ai
+*.png
+*.sh
+*.svg
+*.xml
+
