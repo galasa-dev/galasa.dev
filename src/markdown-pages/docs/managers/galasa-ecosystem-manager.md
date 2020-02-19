@@ -70,6 +70,16 @@ Sets the CPS property `bob` with the value `hello` and retrieves it again.
 
 The following are properties used to configure the Galasa Ecosystem Manager.
  
+| Property: | Docker Image Version |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.docker.version |
+| Description: | The versions of the Docker images to be used with the Ecosystem |
+| Required:  | Yes |
+| Default value: | The setting of galasaecosystem.maven.version |
+| Valid values: | A valid Docker version literial |
+| Examples: | <code>galasaecosystem.docker.version=0.4.0</code> |
+
+ 
 | Property: | Kubernetes Ecosystem Tag Shared Environment |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.ecosystem.tag.XXXXXX.shared.environment |
@@ -78,4 +88,24 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | None |
 | Valid values: | A valid Shared Environment |
 | Examples: | <code>galasaecosystem.ecosystem.tag.SHARED.shared.environment=M1</code> |
+
+ 
+| Property: | Maven Repository URL |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.maven.repository |
+| Description: | The location of the Maven Repository all artifacts will be downloaded from |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: | Value URL |
+| Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
+
+ 
+| Property: | Maven Artifact Version |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.maven.version |
+| Description: | The versions of the Maven artifacts to be used with the Ecosystem |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: | A valid maven version literial |
+| Examples: | <code>galasaecosystem.maven.version=0.4.0</code> |
 
