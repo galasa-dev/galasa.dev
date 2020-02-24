@@ -70,6 +70,16 @@ Sets the CPS property `bob` with the value `hello` and retrieves it again.
 
 The following are properties used to configure the Galasa Ecosystem Manager.
  
+| Property: | Docker Registry |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.docker.registry |
+| Description: | The registry that contains the Docker images |
+| Required:  | No |
+| Default value: | docker.galasa.dev |
+| Valid values: | a valid hostname |
+| Examples: | <code>galasaecosystem.docker.version=docker.galasa.dev</code> |
+
+ 
 | Property: | Docker Image Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.version |
