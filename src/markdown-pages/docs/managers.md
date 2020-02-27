@@ -18,11 +18,14 @@ title: "Managers"
 | **Linux Manager**<br> ![alpha](../../images/alpha.svg) | Provides Linux server configuration properties. Drives provisioning by other Managers such as the OpenStack Manager. |
 | **OpenStack Manager**<br> ![alpha](../../images/alpha.svg) | Provisions servers within OpenStack. This Manager currently only supports Linux and provides the servers via the Linux Manager. |
 | **z/OS 3270 Manager**<br> ![alpha](../../images/alpha.svg)| Provides tests and Managers with a 3270 client.|
-| **z/OS Batch Manager**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager. | 
-| **z/OS Console Manager**<br> ![beta](../../images/beta.svg) | Allows tests and Managers to use z/OS console commands. |
-| **z/OS File Manager**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. |
-| **z/OS Manager**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. |   
-| **z/OS MF Manager**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with access to z/OS MF functions. It is used by the Batch, File and Console Managers. | 
+| **[z/OS Batch Manager](/docs/managers/zos-batch-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager. | 
+| **[z/OS Batch z/OS MF Manager](/docs/managers/zos-batch-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Batch Manager using z/OS MF. Can only be used via the z/OS Batch Manager interface. |
+| **[z/OS Console Manager](/docs/managers/zos-console-manager)**<br> ![beta](../../images/beta.svg) | Allows tests and Managers to use z/OS console commands. |
+| **[z/OS Console zOS MF Manager](/docs/managers/zos-console-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Console using z/OS MF. Can only be used via the z/OS Console Manager interface. |
+| **[z/OS File Manager](/docs/managers/zos-file-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. |
+| **[z/OS File zOS MF Manager](/docs/managers/zos-file-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS File Manager using z/OS MF. Can only be used via the z/OS File Manager interface. |
+| **[z/OS Manager](/docs/managers/zos-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. |   
+| **[z/OS MF Manager](/docs/managers/zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with access to z/OS MF functions. It is used by the Batch, File and Console Managers by default. | 
 
 
 | Key |   | 
