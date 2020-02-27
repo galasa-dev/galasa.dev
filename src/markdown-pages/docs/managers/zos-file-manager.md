@@ -1,17 +1,17 @@
 ---
-path: "/docs/managers/zos-batch-manager"
-title: "zOS Batch Manager"
+path: "/docs/managers/zos-file-manager"
+title: "zOS file Manager"
 ---
 
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager enables Galasa tests to submit Batch Jobs to run on a zOS image. <br><br> The manager is implemented using the zOS/MF Manager by default. <br><br>
+This Manager enables Galasa tests to manage data sets and UNIIX files on a zOS image. <br><br> The manager is implemented using the zOS/MF Manager by default. <br><br>
 
 
 ## Annotations
 
-The following annotations are available with the zOS Batch Manager
+The following annotations are available with the zOS file Manager
  
 | Annotation: | zOS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
@@ -40,7 +40,7 @@ The following annotations are available with the zOS Batch Manager
 
 ## Code Snippets
 
-Use the following code snippets to help you get started with the zOS Batch Manager.
+Use the following code snippets to help you get started with the zOS file Manager.
  
 ### Request a zOS Console instance
 
