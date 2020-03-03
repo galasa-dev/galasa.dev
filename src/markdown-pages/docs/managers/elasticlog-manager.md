@@ -6,6 +6,7 @@ title: "ElasticLog Manager"
 **ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested. It is available for Galasa administrators to utilise to experiment with Elastic/Kibana dashboards**
 
 ## Overview
+
 This Manager exports test results to an elastic search endpoint, where the data can be visualized on a Kibana dashboard.  Other Managers can contribute to the information that is exported to Elastic. <br><br> As an absolute minimum, the CPS properties <code>elasticlog.endpoint.address</code> and <code>elasticlog.endpoint.index</code>  must be provided. By default, this manager will only log automated tests, to enable logging from locally run tests,  <code>elasticlog.local.run.log</code> must be set to true. The bundle must also be loaded by the framework but using  <code>framework.extra.bundles=dev.galasa.elasticlog.manager</code> in bootstrap.properties. <br><br> This Manager provides two ElasticSearch indexes; one of all test data, and one of the latest run for each test case and each  test environment.
 
 ## Limitations
