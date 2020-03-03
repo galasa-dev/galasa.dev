@@ -6,29 +6,29 @@ title: "zOS Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager provides Galasa tests with access to a zOS image.
+This Manager provides Galasa tests with access to a z/OS image.
 
 
 ## Annotations
 
 The following annotations are available with the zOS Manager
  
-| Annotation: | zOS Batch Manager |
+| Annotation: | z/OS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosBatch |
-| Description: | The <code>@ZosBatch</code> annotation will request the zOS Batch Manager to provide a zOS Batch instance associated with a zOS image.  The test can request multiple zOS Batch instances with the default being associated with the <b>primary</b> zOS image.<br> At test end, the manager will store job output with the test results archive and remove jobs from the JES queue. |
-| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the zOS image. |
+| Description: | The <code>@ZosBatch</code> annotation requests the z/OS Batch Manager to provide a z/OS Batch instance associated with a z/OS image.  The test can request multiple z/OS Batch instances, with the default being associated with the <b>primary</b> zOS image.<br> At test end, the Manager stores the job output with the test results archive and removes jobs from the JES queue. |
+| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosBatch(imageTag="A")<br> public IZosBatch zosBatchA;<br></code> |
 | Notes: | The <code>IZosBatch</code> interface has a single method, {@link IZosBatch#submitJob(String, IZosBatchJobname)} to submit a JCL  as a <code>String</code> and returns a <code>IZosBatchJob</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/ZosBatch.html" target="_blank">ZosBatch</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatch.html" target="_blank">IZosBatch</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatchJob.html" target="_blank">IZosBatchJob</a> to find out more. |
 
  
-| Annotation: | zOS Console Manager |
+| Annotation: | z/OS Console Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosConsole |
-| Description: | The <code>@ZosConsole</code> annotation will request the zOS Console Manager to provide a zOS Console instance associated with a zOS image.  The test can request multiple zOS Console instances with the default being associated with the <b>primary</b> zOS image.<br> |
+| Description: | The <code>@ZosConsole</code> annotation requests the z/OS Console Manager to provide a z/OS Console instance associated with a z/OS image.  The test can request multiple z/OS Console instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
 | Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosConsole(imageTag="A")<br> public IZosConsole zosConsoleA;<br></code> |
-| Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the zOS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
+| Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the z/OS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
 
  
 | Annotation: | zOS File Manager |
@@ -128,9 +128,9 @@ Batch job failed RETCODE=ABEND S0C4
 ```
 
 
-### Retrieve the job output to test run output
+### Retrieve the job output
 
-Use the following code to execute a command within the Docker Container and return the resulting output:
+Use the following code to retrieve the output from a zOS Batch Job:
 
 ```
 IZosBatchJobOutput jobOutput = batchJob.retrieveOutput();
