@@ -1,17 +1,17 @@
 ---
-path: "/docs/managers/zos-console-manager"
-title: "zOS Console Manager"
+path: "/docs/managers/z-os-file-manager"
+title: "z/OS file Manager"
 ---
 
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager enables Galasa tests to issue console commands on a z/OS image. <br><br> The Manager is implemented using the z/OS MF Manager by default. <br><br>
+This Manager enables Galasa tests to manage data sets and UNIX files on a z/OS image. <br><br> The Manager is implemented using the z/OS MF Manager by default. <br><br>
 
 
 ## Annotations
 
-The following annotations are available with the zOS Console Manager
+The following annotations are available with the z/OS file Manager
  
 | Annotation: | z/OS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
@@ -40,7 +40,7 @@ The following annotations are available with the zOS Console Manager
 
 ## Code Snippets
 
-Use the following code snippets to help you get started with the zOS Console Manager.
+Use the following code snippets to help you get started with the z/OS file Manager.
  
 ### Request a zOS Console instance
 
