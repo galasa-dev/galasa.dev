@@ -65,8 +65,9 @@ dss.properties
 
     zos.image.SIMBANK.ipv4.hostname=127.0.0.1
     zos.image.SIMBANK.telnet.port=2023
+    zos.image.SIMBANK.webnet.port=2080
     zos.image.SIMBANK.telnet.tls=false
-    zos.image.SIMBANK.credentials=SIMBANK
+    zos.image.SIMBANK.credentials.id=SIMBANK
 
     zosmf.server.SIMBANK.images=SIMBANK
     zosmf.server.SIMBANK.hostname=127.0.0.1
