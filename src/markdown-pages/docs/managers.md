@@ -8,6 +8,7 @@ title: "Managers"
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
 | **Artifact Manager**<br> ![release](../../images/release.svg)| Provides access to resources within a test bundle. It also provides templating services.|
+| **CECI Manager**<br> ![alpha](../../images/alpha.svg) | Provides CECI 3270 interaction - initially supporting containers and link programs.|
 | **Core Manager**<br> ![release](../../images/release.svg) | Provides tests with access to some of the most common features within the Galasa framework, such as the ability to retrieve credentials and the name of the test run. |
 | **[Docker Manager](/docs/managers/docker-manager)**<br> ![release](../../images/release.svg) | Enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. |
 | **[ElasticLog Manager](/docs/managers/elasticlog-manager)**<br> ![alpha](../../images/alpha.svg) | Exports test results to ElasticSearch, which can be subsequently used within Kibana dashboards. |
@@ -18,13 +19,10 @@ title: "Managers"
 | **Linux Manager**<br> ![alpha](../../images/alpha.svg) | Provides Linux server configuration properties. Drives provisioning by other Managers such as the OpenStack Manager. |
 | **OpenStack Manager**<br> ![alpha](../../images/alpha.svg) | Provisions servers within OpenStack. This Manager currently only supports Linux and provides the servers via the Linux Manager. |
 | **z/OS 3270 Manager**<br> ![alpha](../../images/alpha.svg)| Provides tests and Managers with a 3270 client.|
-| **[z/OS Batch Manager](/docs/managers/zos-batch-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager. | 
 | **[z/OS Batch z/OS MF Manager](/docs/managers/zos-batch-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Batch Manager using z/OS MF. Can only be used via the z/OS Batch Manager interface. |
-| **[z/OS Console Manager](/docs/managers/zos-console-manager)**<br> ![beta](../../images/beta.svg) | Allows tests and Managers to use z/OS console commands. |
 | **[z/OS Console z/OS MF Manager](/docs/managers/zos-console-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Console using z/OS MF. Can only be used via the z/OS Console Manager interface. |
-| **[z/OS File Manager](/docs/managers/zos-file-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. |
 | **[z/OS File z/OS MF Manager](/docs/managers/zos-file-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS File Manager using z/OS MF. Can only be used via the z/OS File Manager interface. |
-| **[z/OS Manager](/docs/managers/zos-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. |   
+| **[z/OS Manager](/docs/managers/zos-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. Additionally, the z/OS Manager provides access to the following annotations:<br> - **z/OS Batch** which enables tests and Managers to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager.<br> - **z/OS Console** which allows tests and Managers to issue z/OS console commands.<br> - **z/OS File** which provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS. |   
 | **[z/OS MF Manager](/docs/managers/zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with access to z/OS MF functions. It is used by the Batch, File and Console Managers by default. | 
 
 
@@ -41,7 +39,6 @@ title: "Managers"
 | ------------------------ | :------------------------------------- | 
 | **AIX Manager** | Provisions AIX server configuration properties, and helps drive provisioning by other Managers such as the OpenStack Manager.|
 | **Artifactory Manager** | Provides the ability to retrieve artifacts from Artifactory servers. |
-| **CECI Manager** | Provides CECI 3270 interaction - initially supporting containers and link programs.|
 | **CEMT Manager** | Provides CEMT 3270 interaction.|
 | **CICS TS Manager** | Provides configuration information for pre-existing CICS TS servers. Drives provisioning services from other managers, e.g. z/OS PT.|
 | **CICS z/OS PT Provisioning Manager** | Provisions CICS TS servers for the CICS TS Manager.|
