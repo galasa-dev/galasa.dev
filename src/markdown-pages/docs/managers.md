@@ -8,7 +8,7 @@ title: "Managers"
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
 | **Artifact Manager**<br> ![release](../../images/release.svg)| Provides access to resources within a test bundle. It also provides templating services.|
-| **CECI Manager**<br> ![alpha](../../images/alpha.svg) | Provides CECI 3270 interaction - initially supporting containers and link programs.|
+| **[CECI Manager](/docs/managers/cics-ts-ceci-manager)**<br> ![alpha](../../images/alpha.svg) | Provides CECI 3270 interaction - initially supporting containers and link programs.|
 | **Core Manager**<br> ![release](../../images/release.svg) | Provides tests with access to some of the most common features within the Galasa framework, such as the ability to retrieve credentials and the name of the test run. |
 | **[Docker Manager](/docs/managers/docker-manager)**<br> ![release](../../images/release.svg) | Enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. |
 | **[ElasticLog Manager](/docs/managers/elasticlog-manager)**<br> ![alpha](../../images/alpha.svg) | Exports test results to ElasticSearch, which can be subsequently used within Kibana dashboards. |
