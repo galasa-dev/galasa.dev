@@ -13,7 +13,7 @@ This Manager provides Galasa tests with access to a z/OS image.
 
 The following annotations are available with the zOS Manager
  
-| Annotation: | z/OS Batch Manager |
+| Annotation: | z/OS Batch |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosBatch |
 | Description: | The <code>@ZosBatch</code> annotation requests the z/OS Batch Manager to provide a z/OS Batch instance associated with a z/OS image.  The test can request multiple z/OS Batch instances, with the default being associated with the <b>primary</b> zOS image.<br> At test end, the Manager stores the job output with the test results archive and removes jobs from the JES queue. |
@@ -22,7 +22,7 @@ The following annotations are available with the zOS Manager
 | Notes: | The <code>IZosBatch</code> interface has a single method, {@link IZosBatch#submitJob(String, IZosBatchJobname)} to submit a JCL  as a <code>String</code> and returns a <code>IZosBatchJob</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/ZosBatch.html" target="_blank">ZosBatch</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatch.html" target="_blank">IZosBatch</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatchJob.html" target="_blank">IZosBatchJob</a> to find out more. |
 
  
-| Annotation: | z/OS Console Manager |
+| Annotation: | z/OS Console |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosConsole |
 | Description: | The <code>@ZosConsole</code> annotation requests the z/OS Console Manager to provide a z/OS Console instance associated with a z/OS image.  The test can request multiple z/OS Console instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
@@ -31,7 +31,7 @@ The following annotations are available with the zOS Manager
 | Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the z/OS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
 
  
-| Annotation: | z/OS File Manager |
+| Annotation: | z/OS File |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosFileHandler |
 | Description: | The <code>@ZosFileHandler</code> annotation requests the z/OS File Manager to provide a handler to manage data sets and UNIX files on a z/OS image.  A single z/OS File Handler instance can manage multiple z/OS data sets and UNIX files on multiple z/OS images.<br> Files are deleted at method end unless created with the object's *createRetain()* method where it is deleted at test end.<br> |
