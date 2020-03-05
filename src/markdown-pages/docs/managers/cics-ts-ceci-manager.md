@@ -18,7 +18,7 @@ The following annotations are available with the CICS TS CECI Manager
 | Name: | @CECI |
 | Description: | The <code>@CECI</code> annotation will request the CICS/TS CECI Manager to provide a CECI instance. |
 | Syntax: | @CECI<br> public ICECI ceci;<br> |
-| Notes: | Requests to the <code>ICECI</code> Manager interface requires a <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> object which is logged on to CICS and is at  the CECI initial screen.<br><br> If mixed case is required, the test should first issue <code>CEOT TRANIDONLY</code> to the <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> before invoking <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> methods.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/CECI.html" target="_blank">CECI</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> to find out more. |
+| Notes: | Requests to the <code>ICECI</code> Manager interface requires a <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> object which is logged on to CICS and is at  the CECI initial screen.<br><br> If mixed case is required, the terminal should be presented with no upper case translate status. For example, the test could first issue <code>CEOT TRANIDONLY</code> to the <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> before invoking <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> methods.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/CECI.html" target="_blank">CECI</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> to find out more. |
 
 ## Code Snippets
 
@@ -72,7 +72,7 @@ if (!resp.isNormal()) {
 Link to PROGRAM "MYPROG" with the CHANNEL "MY-CHANNEL":
 
 ```
-eib = ceci.linkProgramWithChannel(ceciTerminal, "MYPROG", "MY_CHANNEL", null, null, false);
+eib = ceci.linkProgramWithChannel(ceciTerminal, "MYPROG", "MY-CHANNEL", null, null, false);
 if (!resp.isNormal()) {
     ...
 }
@@ -84,7 +84,7 @@ eib = ceci.getContainer(ceciTerminal, "MY-CHANNEL", "MY-CONTAINER-OUT", "&DATAOU
 if (!resp.isNormal()) {
     ...
 }
-String dataOut = ceci.getVariable(ceciTerminal, "&DATAOUT");
+String dataOut = ceci.retrieveVariableText(ceciTerminal, "&DATAOUT");
 ```
 
 
@@ -96,7 +96,7 @@ Create a binary CECI variable:
 
 ```
 char[] data = {0x0C7, 0x081, 0x093, 0x081, 0x0A2, 0x081, 0x040, 0x0C4, 0x081, 0x0A3, 0x081};
-ceci.setVariableBinary(ceciTerminal, "&BINDATA", data);
+ceci.defineVariableBinary(ceciTerminal, "&BINDATA", data);
 ```
 Write the binary variable to a TS QUEUE called "MYQUEUE": 
 
@@ -113,4 +113,26 @@ The "MYQUEUE" now contains the following data:
 
 ```
 Galasa Data
+```
+
+
+### Confirm the signed on userid 
+
+Use the following code to issue the CICS ASSIGN API and retrieve the signed on userid from the response: 
+
+
+```
+String command = "ASSIGN";
+ICECIResponse resp = ceci.issueCommand(ceciTerminal, command);
+String userid = resp.getResponseOutputValues().get("USERID").getTextValue();
+
+```
+
+Alternatively, issue ASSIGN and assign the userid value to a variable:
+
+```
+String command = "ASSIGN USERID(&USERID)";
+ICECIResponse resp = ceci.issueCommand(ceciTerminal, command);
+String userid = ceci.retrieveVariableText("&USERID");
+
 ```
