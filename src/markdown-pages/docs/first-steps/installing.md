@@ -21,7 +21,7 @@ If you do not already have an Eclipse installation, you can <a href="https://www
 If you already have a version of Eclipse installed, it should be at the version codenamed Oxygen (released in June 2017) or later.
 
 ### A 3270 terminal emulator
-Galasa is packaged with SimBank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. You will need a 3270 terminal emulator to enable you to connect with and explore SimBank before running Galasa's provided suite of automated tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
+Galasa is packaged with SimBank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. You will need a 3270 terminal emulator to enable you to connect with and explore SimBank before running Galasa's provided suite of automated tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS. Note that you do not need a 3270 emulator like PCOMM to use Galasa, only to explore SimBank from the perspective of an end user.
 
 ## Installing the Galasa plug-in
 1. Launch Eclipse. If present, close any initial welcome screen.
