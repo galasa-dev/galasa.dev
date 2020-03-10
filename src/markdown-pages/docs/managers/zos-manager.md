@@ -105,6 +105,19 @@ IZosBatchJob batchJob = zosBatch.submitJob(jcl, null);
 ```
 
 
+### Submit a zOS Batch Job with job card parameters
+
+Submit a zOS Batch Job using the supplied JCL, a Galasa allocated Job Name and overidding the default input and message class:
+
+```
+String jcl = "//STEP1    EXEC PGM=IEFBR14";
+ZosBatchJobcard jobcard = new ZosBatchJobcard().
+                          .setInputClass("B")
+                          .setMsgClass("X");
+IZosBatchJob batchJob = zosBatch.submitJob(jcl, null, jobcard);
+```
+
+
 ### Wait for zOS Batch Job to complete
 
 Wait for zOS Batch job to complete and check maximum return code:
