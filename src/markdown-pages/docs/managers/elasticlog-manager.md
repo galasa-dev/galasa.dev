@@ -3,13 +3,13 @@ path: "/docs/managers/elasticlog-manager"
 title: "ElasticLog Manager"
 ---
 
-**ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested. It is available for Galasa administrators to utilise to experiment with Elastic/Kibana dashboards**
+**ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested. It is available for Galasa administrators to utilise to experiment with Elasticsearch and Kibana dashboards**
 
 ## Overview
-This Manager exports test results to an elastic search endpoint, where the data can be visualized on a Kibana dashboard.  Other Managers can contribute to the information that is exported to Elastic. <br><br> As an absolute minimum, the CPS properties <code>elasticlog.endpoint.address</code> and <code>elasticlog.endpoint.index</code>  must be provided. By default, this Manager only logs automated tests. To enable logging from locally run tests,  <code>elasticlog.local.run.log</code> must be set to true. The bundle must also be loaded by the framework by using  <code>framework.extra.bundles=dev.galasa.elasticlog.manager</code> in bootstrap.properties. <br><br> This Manager provides two ElasticSearch indexes; one of all test data, and one of the latest run for each test case and each  test environment.
+This Manager exports test results to an elastic search endpoint, where the data can be visualized on a Kibana dashboard.  Other Managers can contribute to the information that is exported to Elastic. <br><br> As an absolute minimum, the CPS properties <br> <code>elasticlog.endpoint.address</code><br>and<br><code>elasticlog.endpoint.index</code><br> must be provided. By default, this Manager only logs automated tests. To enable logging from locally run tests, <br> <code>elasticlog.local.run.log</code> must be set to true.<br> The bundle must also be loaded by the framework by using<br> <code>framework.extra.bundles=dev.galasa.elasticlog.manager</code><br> in bootstrap.properties. <br><br> This Manager provides two ElasticSearch indexes; one of all test data, and one of the latest run for each test case and each  test environment.
 
 ## Limitations
-The Manager logs the following test information:<br> <br> - testCase<br> - runId<br> - startTimestamp<br> - endTimestamp<br> - requestor<br> - result<br> - testTooling<br> - testType<br> - testingEnvironment<br> - productRelease<br> - buildLevel<br> - customBuild<br> - testingAreas<br> - tags<br> <br> <br> If additional testing information is required, please raise a GitHub issue.
+The Manager logs the following test information:<br> <br> - testCase<br> - runId<br> - startTimestamp<br> - endTimestamp<br> - requestor<br> - result<br> - testTooling<br> - testType<br> - testingEnvironment<br> - productRelease<br> - buildLevel<br> - customBuild<br> - testingAreas<br> - tags<br> <br> If additional testing information is required, please raise a GitHub issue.
 
 
 ## Configuration Properties
@@ -21,7 +21,7 @@ The following are properties used to configure the ElasticLog Manager.
 | Name: | elastic.endpoint.address |
 | Description: | Provides an address to send elastic requests to |
 | Required:  | Yes |
-| Default value: | https://yoursitehere.com/elasticendpoint |
+| Default value: | $default |
 | Valid values: | Any valid URI string |
 | Examples: | <code>elastic.endpoint.address=https://yoursitehere.com/elasticendpoint</code> |
 
@@ -31,7 +31,7 @@ The following are properties used to configure the ElasticLog Manager.
 | Name: | elastic.endpoint.index |
 | Description: | Provides the index in elasticsearch to which requests are directed |
 | Required:  | Yes |
-| Default value: | galasa |
+| Default value: | $default |
 | Valid values: | Any lowercase, single-word string |
 | Examples: | <code>elastic.endpoint.index=galasa</code> |
 
