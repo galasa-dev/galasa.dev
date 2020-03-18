@@ -57,8 +57,8 @@ dss.properties
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
     ```properties
-    zos.dse.tag.simbank.imageid=SIMBANK
-    zos.dse.tag.simbank.clusterid=SIMBANK
+    zos.dse.tag.SIMBANK.imageid=SIMBANK
+    zos.dse.tag.SIMBANK.clusterid=SIMBANK
 
     simbank.dse.instance.name=SIMBANK
     simbank.instance.SIMBANK.zos.image=SIMBANK
