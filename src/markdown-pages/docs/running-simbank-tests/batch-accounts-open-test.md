@@ -7,8 +7,8 @@ This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) 
 When you installed the Galasa Eclipse plug-in, some of the configuration information you set in the `overrides.properties` file was specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
 
 ```properties
-zos.dse.tag.simbank.imageid=SIMBANK
-zos.dse.tag.simbank.clusterid=SIMBANK
+zos.dse.tag.SIMBANK.imageid=SIMBANK
+zos.dse.tag.SIMBANK.clusterid=SIMBANK
 
 simbank.dse.instance.name=SIMBANK
 simbank.instance.SIMBANK.zos.image=SIMBANK
