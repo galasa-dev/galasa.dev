@@ -1,39 +1,44 @@
 - sections:
-  - title: About
-    root: /about/
-    items:
-      - title: About Galasa
-        path: /about/
-      - title: Benefits of Galasa
-        path: /about/automation
-      - title: Galasa and DevOps
-        path: /about/devops
-      - title: A brief history
-        path: /about/history
-  - title: Docs
-    root: /docs/
-    items: 
-      - title: Introduction and architecture
-        path: /docs/
-      - title: Getting started
-        path: /docs/getting-started/
-        items:
-          - title: Installing the Galasa Eclipse plug-in
-            path: /docs/getting-started/installing
-          - title: Exploring Galasa SimBank
-            path: /docs/getting-started/simbank
-      - title: Running the supplied SimBank tests
-        path: /docs/running-simbank-tests
-        items:
-          - title: The SimBank IVT 
-            path: /docs/running-simbank-tests/simbank-IVT
-          - title: BasicAccountCreditTest
-            path: /docs/running-simbank-tests/basic-account-credit-test
-          - title: ProvisionedAccountCreditTests
-            path: /docs/running-simbank-tests/provisioned-account-credit-tests
-          - title: BatchAccountsOpenTest
-            path: /docs/running-simbank-tests/batch-accounts-open-test
-          - title: Writing your own SimBank test
-            path: /docs/running-simbank-tests/writing-a-simbank-test
-      - title: Managers
-        path: /docs/managers/
+    - title: About
+      root: /about/
+      items:
+        - title: About Galasa
+          path: /about/
+        - title: Benefits of Galasa
+          path: /about/automation
+        - title: Galasa and DevOps
+          path: /about/devops
+        - title: A brief history
+          path: /about/history
+    - title: Docs
+      root: /docs/
+      items:
+        - title: Introduction and architecture
+          path: /docs/
+        - title: Getting started
+          path: /docs/getting-started/
+          items:
+            - title: Installing the Galasa Eclipse plug-in
+              path: /docs/getting-started/installing
+            - title: Exploring Galasa SimBank
+              path: /docs/getting-started/simbank
+        - title: Running the supplied SimBank tests
+          path: /docs/running-simbank-tests
+          items:
+            - title: The SimBank IVT
+              path: /docs/running-simbank-tests/simbank-IVT
+            - title: BasicAccountCreditTest
+              path: /docs/running-simbank-tests/basic-account-credit-test
+            - title: ProvisionedAccountCreditTests
+              path: /docs/running-simbank-tests/provisioned-account-credit-tests
+            - title: BatchAccountsOpenTest
+              path: /docs/running-simbank-tests/batch-accounts-open-test
+            - title: Writing your own SimBank test
+              path: /docs/running-simbank-tests/writing-a-simbank-test
+        - title: Managers
+          path: /docs/managers/
+        - title: Writing your own independent Galasa tests
+          path: /docs/writing-own-tests
+          items:
+            - title: Setting up a Galasa project
+              path: /docs/writing-own-tests/setting-up-galasa-project
