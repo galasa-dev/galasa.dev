@@ -13,7 +13,7 @@ All of these example tests become available when you set up a Galasa example pro
 
 ## Creating an example Galasa project
 
-<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating.   If the bundles fail to build correctly, you can force the Maven build by right-clicking the *project* and selecting *Run As > Maven Install*.  We will resolve this issue for 0.5.0.
+<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating.   If the bundles fail to build correctly, you can force the Maven build by right-clicking the *project* and selecting *Run As > Maven Install*.  We will resolve this issue in a future release.
 
 1. Ensure that Eclipse is running.
 1. Choose *File > New > Example*, select *SimBank example projects* and press *Next*.
