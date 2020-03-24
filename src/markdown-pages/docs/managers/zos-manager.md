@@ -155,6 +155,62 @@ for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
 }
 
 ```
+
+
+### Obtain a list of active jobs
+
+Use the following code to obtain a list of active jobs called *MYJOB1* with an owner of *USERID*:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("MYJOB1", "USERID");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        ...
+    }
+}
+
+```
+
+
+### Retrieve the content of a specific spool file from an active CICS region
+
+Use the following code to retrieve and process the output from the *MSGUSR* spool file:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        String msgusr = cicsJob.getSpoolFile("MSGUSR");
+        if (msgusr.contains("DFHAC2236")) {
+            ...
+        }
+        break;
+    }
+}
+
+```
+
+
+The code retrieves a list of CICS regions named *CICSRGN* with and owner of *CICSUSR*. It then loops through until it finds the first active region. The content of the *MSGUSR* spool file is obtained and checked for the string *DFHAC2236*.
+
+In this example, we assume there will only one spool file with the ddname of *MSGUSR*. If this were not the case, the following code could be used:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    List<IZosBatchJobOutputSpoolFile> spoolFiles = job.retrieveOutput().getSpoolFiles();
+    for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
+        if (spoolFile.getDdname().equals("SYSOUT") &&
+            spoolFile.getStepname().equals("STEP2")) {
+            String output = spoolFile.getRecords();
+            ...
+        }
+    }
+}
+
+```
+
+Here, the code retrieves the content of the *SYSOUT* spool file for job step *STEP2*.
  
 ### Request a zOS File Handler instance
 
