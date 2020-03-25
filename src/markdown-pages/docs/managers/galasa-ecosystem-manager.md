@@ -12,11 +12,12 @@ This Manager provides the test with a fully provisioned Galasa Ecosystem on whic
 The Manager only supports the following platforms:<br> - Kubernetes Namespace<br> <br> In the near future, this Manager will be able to provision ecosystems in Docker and on a plain Linux server
 
 
-<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the Galasa Ecosystem Manager
- 
+<details>
+<summary>Kubernetes Ecosystem</summary>
+
 | Annotation: | Kubernetes Ecosystem |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @KubernetesEcosystem |
@@ -29,8 +30,9 @@ The following annotations are available with the Galasa Ecosystem Manager
 
 </details>
 
-<details><summary>Code Snippets</summary>
-## Code Snippets
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the Galasa Ecosystem Manager.
  
@@ -70,13 +72,14 @@ String value = ecosystem.getCpsProperty("bob")
 
 Sets the CPS property `bob` with the value `hello` and retrieves it again.
 
-</details>
 
-<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the Galasa Ecosystem Manager.
  
+<details>
+<summary>Docker Registry</summary>
+
 | Property: | Docker Registry |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.registry |
@@ -86,7 +89,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | a valid hostname |
 | Examples: | <code>galasaecosystem.docker.version=docker.galasa.dev</code> |
 
+</details>
  
+<details>
+<summary>Docker Image Version</summary>
+
 | Property: | Docker Image Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.version |
@@ -96,7 +103,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | A valid Docker version literial |
 | Examples: | <code>galasaecosystem.docker.version=0.4.0</code> |
 
+</details>
  
+<details>
+<summary>Kubernetes Ecosystem Tag Shared Environment</summary>
+
 | Property: | Kubernetes Ecosystem Tag Shared Environment |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.ecosystem.tag.XXXXXX.shared.environment |
@@ -106,7 +117,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | A valid Shared Environment |
 | Examples: | <code>galasaecosystem.ecosystem.tag.SHARED.shared.environment=M1</code> |
 
+</details>
  
+<details>
+<summary>Maven Repository URL</summary>
+
 | Property: | Maven Repository URL |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.repository |
@@ -116,7 +131,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | Value URL |
 | Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
 
+</details>
  
+<details>
+<summary>Maven Artifact Version</summary>
+
 | Property: | Maven Artifact Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.version |

@@ -12,11 +12,12 @@ This Manager enables tests to run Docker Containers on a Docker Engine provided 
 The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.
 
 
-<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the Docker Manager
- 
+<details>
+<summary>Docker Container</summary>
+
 | Annotation: | Docker Container |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @DockerContainer |
@@ -30,8 +31,9 @@ The following annotations are available with the Docker Manager
 
 </details>
 
-<details><summary>Code Snippets</summary>
-## Code Snippets
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the Docker Manager.
  
@@ -100,13 +102,14 @@ String log = httpContainer.getStdOut();
 ```
 
 
-</details>
 
-<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the Docker Manager.
  
+<details>
+<summary>Docker Engine CPS Property</summary>
+
 | Property: | Docker Engine CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.engine.[engineId].hostname |
@@ -118,7 +121,11 @@ The following are properties used to configure the Docker Manager.
 
 Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
 
+</details>
  
+<details>
+<summary>Docker Engine Port CPS Property</summary>
+
 | Property: | Docker Engine Port CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.engine.port |
@@ -130,7 +137,11 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 
 The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be  configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
 
+</details>
  
+<details>
+<summary>Default Docker Registries CPS Property</summary>
+
 | Property: | Default Docker Registries CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.default.registries |
@@ -142,7 +153,11 @@ The Docker Manager communicates with the Docker Engine via TCP. The Docker Engin
 
 To decouple Docker Registries from the Galasa test, this property allows the Docker Manager to search for images. The main reason being if the customer Docker Registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image. When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the DOCKERHUB id must be included.
 
+</details>
  
+<details>
+<summary>Docker Registry Credentials CPS Property</summary>
+
 | Property: | Docker Registry Credentials CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.registry.[ID.]credentials |
@@ -154,7 +169,11 @@ To decouple Docker Registries from the Galasa test, this property allows the Doc
 
 If the <code>docker.registry.ID.credentials</code> CPS property is missing, the Docker Manager will attempt to use the credentials ID that is provided in <code>docker.registry.credentials</code>, if that is missing, then the default credentials  ID of <code>DOCKER</code> will be used.
 
+</details>
  
+<details>
+<summary>Docker Registry URL CPS Property</summary>
+
 | Property: | Docker Registry URL CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.registry.ID.url |
