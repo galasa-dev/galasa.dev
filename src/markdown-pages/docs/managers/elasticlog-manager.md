@@ -12,15 +12,16 @@ This Manager exports test results to an elastic search endpoint, where the data 
 The Manager logs the following test information:<br> <br> - testCase<br> - runId<br> - startTimestamp<br> - endTimestamp<br> - requestor<br> - result<br> - testTooling<br> - testType<br> - testingEnvironment<br> - productRelease<br> - buildLevel<br> - customBuild<br> - testingAreas<br> - tags<br> <br> If additional testing information is required, please raise a GitHub issue.
 
 
-</details>
 
-</details>
 
-<details><summary>Configuration Properties</summary>
+
 ## Configuration Properties
 
 The following are properties used to configure the ElasticLog Manager.
  
+<details>
+<summary>ElasticLog Endpoint Address CPS Property</summary>
+
 | Property: | ElasticLog Endpoint Address CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | elastic.endpoint.address |
@@ -30,7 +31,11 @@ The following are properties used to configure the ElasticLog Manager.
 | Valid values: | Any valid URI string |
 | Examples: | <code>elastic.endpoint.address=https://yoursitehere.com/elasticendpoint</code> |
 
+</details>
  
+<details>
+<summary>ElasticLog Endpoint Index CPS Property</summary>
+
 | Property: | ElasticLog Endpoint Index CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | elastic.endpoint.index |
@@ -42,7 +47,11 @@ The following are properties used to configure the ElasticLog Manager.
 
 If the index does not exist, the index is created and is mapped to the Galasa run.</br> If the index exists, it must be mapped to the relevant Galasa run.
 
+</details>
  
+<details>
+<summary>ElasticLog Endpoint Local Run CPS Property</summary>
+
 | Property: | ElasticLog Endpoint Local Run CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | elastic.local.run.log |

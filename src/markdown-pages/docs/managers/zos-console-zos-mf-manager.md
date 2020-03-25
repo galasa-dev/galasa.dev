@@ -9,8 +9,6 @@ title: "zOS Console zOS MF Manager"
 This Manager is the internal implementation of the zOS Console Manager using zOS/MF.
 
 
-</details>
 
-</details>
 
-</details>
+

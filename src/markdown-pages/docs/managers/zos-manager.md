@@ -9,11 +9,12 @@ title: "zOS Manager"
 This Manager provides Galasa tests with access to a z/OS image.
 
 
-<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the zOS Manager
- 
+<details>
+<summary>z/OS Batch</summary>
+
 | Annotation: | z/OS Batch |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosBatch |
@@ -22,7 +23,11 @@ The following annotations are available with the zOS Manager
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosBatch(imageTag="A")<br> public IZosBatch zosBatchA;<br></code> |
 | Notes: | The <code>IZosBatch</code> interface has a single method, {@link IZosBatch#submitJob(String, IZosBatchJobname)} to submit a JCL  as a <code>String</code> and returns a <code>IZosBatchJob</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/ZosBatch.html" target="_blank">ZosBatch</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatch.html" target="_blank">IZosBatch</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatchJob.html" target="_blank">IZosBatchJob</a> to find out more. |
 
- 
+</details>
+
+<details>
+<summary>z/OS Console</summary>
+
 | Annotation: | z/OS Console |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosConsole |
@@ -31,7 +36,11 @@ The following annotations are available with the zOS Manager
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosConsole(imageTag="A")<br> public IZosConsole zosConsoleA;<br></code> |
 | Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the z/OS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
 
- 
+</details>
+
+<details>
+<summary>z/OS File</summary>
+
 | Annotation: | z/OS File |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosFileHandler |
@@ -41,8 +50,9 @@ The following annotations are available with the zOS Manager
 
 </details>
 
-<details><summary>Code Snippets</summary>
-## Code Snippets
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
  
@@ -367,6 +377,4 @@ vsamDataSet.create();
 ### Read a zOS UNIX File
 
 *To be completed...*
-</details>
 
-</details>

@@ -9,8 +9,6 @@ title: "zOS File zOS MF Manager"
 This Manager is the internal implementation of the zOS File Manager using zOS/MF.
 
 
-</details>
 
-</details>
 
-</details>
+
