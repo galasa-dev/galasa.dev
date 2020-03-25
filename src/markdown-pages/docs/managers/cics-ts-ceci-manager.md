@@ -8,7 +8,6 @@ title: "CICS TS CECI Manager"
 ## Overview
 This manager allows Galasa tests to issue CICS/TS CECI commands.
 
-
 <details><summary>Annotations</summary>
 
 The following annotations are available with the CICS TS CECI Manager
@@ -138,3 +137,6 @@ ICECIResponse resp = ceci.issueCommand(ceciTerminal, command);
 String userid = ceci.retrieveVariableText("&USERID");
 
 ```
+</details>
+
+</details>
