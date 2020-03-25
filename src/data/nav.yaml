@@ -42,3 +42,5 @@
           items:
             - title: Setting up a Galasa project
               path: /docs/writing-own-tests/setting-up-galasa-project
+            - title: Writing test classes
+              path: /docs/writing-own-tests/writing-test-classes
