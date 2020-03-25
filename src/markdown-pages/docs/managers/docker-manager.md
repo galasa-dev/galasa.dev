@@ -12,6 +12,7 @@ This Manager enables tests to run Docker Containers on a Docker Engine provided 
 The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.
 
 
+<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the Docker Manager
@@ -27,6 +28,9 @@ The following annotations are available with the Docker Manager
 | Syntax: | <code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> |
 | Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. |
 
+</details>
+
+<details><summary>Code Snippets</summary>
 ## Code Snippets
 
 Use the following code snippets to help you get started with the Docker Manager.
@@ -96,6 +100,9 @@ String log = httpContainer.getStdOut();
 ```
 
 
+</details>
+
+<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the Docker Manager.
@@ -159,3 +166,4 @@ If the <code>docker.registry.ID.credentials</code> CPS property is missing, the 
 
 If the Docker Registry requires credentials for authentication, then the id for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
 
+</details>

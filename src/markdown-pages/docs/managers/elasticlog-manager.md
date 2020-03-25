@@ -12,6 +12,11 @@ This Manager exports test results to an elastic search endpoint, where the data 
 The Manager logs the following test information:<br> <br> - testCase<br> - runId<br> - startTimestamp<br> - endTimestamp<br> - requestor<br> - result<br> - testTooling<br> - testType<br> - testingEnvironment<br> - productRelease<br> - buildLevel<br> - customBuild<br> - testingAreas<br> - tags<br> <br> If additional testing information is required, please raise a GitHub issue.
 
 
+</details>
+
+</details>
+
+<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the ElasticLog Manager.
@@ -49,3 +54,4 @@ If the index does not exist, the index is created and is mapped to the Galasa ru
 
 ElasticLog Manager will not run automatically for a local run. <br> By setting this property to true, the manager will activate locally.
 
+</details>

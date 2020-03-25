@@ -9,6 +9,7 @@ title: "zOS Manager"
 This Manager provides Galasa tests with access to a z/OS image.
 
 
+<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the zOS Manager
@@ -38,6 +39,9 @@ The following annotations are available with the zOS Manager
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and z/OS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
 
+</details>
+
+<details><summary>Code Snippets</summary>
 ## Code Snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
@@ -363,3 +367,6 @@ vsamDataSet.create();
 ### Read a zOS UNIX File
 
 *To be completed...*
+</details>
+
+</details>
