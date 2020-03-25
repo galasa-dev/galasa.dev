@@ -12,6 +12,7 @@ This Manager provides a test with a Kubernetes Namespace to utilize. The test wi
 The Manager only supports the following Kubernetes resources:-<br> <br> - Deployment<br> - StatefulSet<br> - Service<br> - Secret<br> - ConfigMap<br> - PersistentVolumeClaim<br> <br> If additional resources are required, please raise a GitHub issue.
 
 
+<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the Kubernetes Manager
@@ -24,6 +25,9 @@ The following annotations are available with the Kubernetes Manager
 | Syntax: | <code>@KubernetesNamespace<br> public IKubernetesNamesapce namespace;<br> </code> |
 | Notes: | The <code>IKubernetesNamespace</code> interface gives the test access to create and manage resources on the Kubernetes cluster.  See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/KubernetesNamespace.html" target="_blank">KubernetesNamespace</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/kubernetes/IKubernetesNamespace.html" target="_blank">IKubernetesNamespace</a> to find out more. |
 
+</details>
+
+<details><summary>Code Snippets</summary>
 ## Code Snippets
 
 Use the following code snippets to help you get started with the Kubernetes Manager.
@@ -84,6 +88,9 @@ List<IPodLog> podLogs = statefulSet.getPodLogs("containername");
 ```
 
 As Deployments and StatefulSets can have multiple pods and therefore containers with the same name,  a List is returned containing all the current logs for all the named containers.
+</details>
+
+<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the Kubernetes Manager.
@@ -177,3 +184,4 @@ The following are properties used to configure the Kubernetes Manager.
 | Valid values: | true or false |
 | Examples: | <code>kubernetes.cluster.K8S.validate.certificate=false<br> kubernetes.cluster.validate.certificate=true</code> |
 
+</details>

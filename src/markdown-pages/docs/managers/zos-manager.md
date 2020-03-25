@@ -9,6 +9,7 @@ title: "zOS Manager"
 This Manager provides Galasa tests with access to a z/OS image.
 
 
+<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the zOS Manager
@@ -38,6 +39,9 @@ The following annotations are available with the zOS Manager
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and z/OS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
 
+</details>
+
+<details><summary>Code Snippets</summary>
 ## Code Snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
@@ -155,6 +159,62 @@ for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
 }
 
 ```
+
+
+### Obtain a list of active jobs
+
+Use the following code to obtain a list of active jobs called *MYJOB1* with an owner of *USERID*:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("MYJOB1", "USERID");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        ...
+    }
+}
+
+```
+
+
+### Retrieve the content of a specific spool file from an active CICS region
+
+Use the following code to retrieve and process the output from the *MSGUSR* spool file:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        String msgusr = cicsJob.getSpoolFile("MSGUSR");
+        if (msgusr.contains("DFHAC2236")) {
+            ...
+        }
+        break;
+    }
+}
+
+```
+
+
+The code retrieves a list of CICS regions named *CICSRGN* with and owner of *CICSUSR*. It then loops through until it finds the first active region. The content of the *MSGUSR* spool file is obtained and checked for the string *DFHAC2236*.
+
+In this example, we assume there will only one spool file with the ddname of *MSGUSR*. If this were not the case, the following code could be used:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    List<IZosBatchJobOutputSpoolFile> spoolFiles = job.retrieveOutput().getSpoolFiles();
+    for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
+        if (spoolFile.getDdname().equals("SYSOUT") &&
+            spoolFile.getStepname().equals("STEP2")) {
+            String output = spoolFile.getRecords();
+            ...
+        }
+    }
+}
+
+```
+
+Here, the code retrieves the content of the *SYSOUT* spool file for job step *STEP2*.
  
 ### Request a zOS File Handler instance
 
@@ -307,3 +367,6 @@ vsamDataSet.create();
 ### Read a zOS UNIX File
 
 *To be completed...*
+</details>
+
+</details>

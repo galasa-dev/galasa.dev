@@ -8,11 +8,13 @@ title: "Docker Manager"
 ## Overview
 This Manager enables tests to run Docker Containers on a Docker Engine provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker Container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
-<details><summary>Limitations</summary>
+## Limitations
 The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.</details>
 
 
-<details><summary>Annotations</summary>
+
+## Annotations
+
 
 The following annotations are available with the Docker Manager
  
@@ -28,12 +30,12 @@ The following annotations are available with the Docker Manager
 | Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. |
 </details>
 
-<details><summary>Code Snippets</summary>
+
+## Code Snippets
 
 Use the following code snippets to help you get started with the Docker Manager.
  
-<details>
-<summary>Create a Docker Container</summary>
+### Create a Docker Container
 
 The following snippet shows the minimum code that is required to request a Docker Container in a Galasa test:
 
@@ -48,10 +50,8 @@ The code creates a Docker Container with an Apache HTTP Server running on port 8
 At the end of the test, the Docker Manager automatically stops and discards the Docker Container. If for some reason the test was not able to do this, the Docker Manager resource management routines perform the same clean up after the Galasa Ecosystem discovers the test has disappeared.
 
 There is no limit in Galasa on how many Docker Containers can be used within a single test. The only limit is the number of Docker Containers that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of containers that can be supported by the Docker Server or Swarm.  If there are not enough slots available for an automated run, the run is put back on the queue in *waiting* state to retry. Local test runs fail if there are not enough container slots available.
-</details>
 
-<details>
-<summary>Obtain the IP address and port of an exposed container port</summary>
+### Obtain the IP address and port of an exposed container port
 
 Find the IP address and port by using the following code which provisions and starts an Apache HTTP server on port 80:
 
@@ -61,10 +61,9 @@ public IDockercontainer httpcontainer;
 ...
 InetSocketAddress port80 = httpContainer.getFirstSocketForExposedPort(80);
 ```
-</details>
 
-<details>
-<summary>Stop and Start a container</summary>
+
+### Stop and Start a container
 
 Stop and start your Apache HTTP Server to test how your application responds by using the following code:
 
@@ -76,10 +75,8 @@ httpContainer.stop();
 
 httpContainer.start();
 ```
-</details>
 
-<details>
-<summary>Run a command in the container</summary>
+### Run a command in the container
 
 Use the following code to execute a command within the Docker Container and return the resulting output:
 ```
@@ -90,10 +87,8 @@ IDockerExec exec = httpContainer.exec("ls","-l","/var/log");
 exec.waitForExec();
 String output = exec.getCurrentOutput();
 ```
-</details>
 
-<details>
-<summary>Retrieve the log of the container</summary>
+### Retrieve the log of the container
 
 Use the following code to retrieve the container log:
 
@@ -103,14 +98,14 @@ public IDockercontainer httpcontainer;
 ...
 String log = httpContainer.getStdOut();
 ```
-</details>
 
-<details><summary>Configuration Properties</summary>
+
+
+## Configuration Properties
 
 The following are properties used to configure the Docker Manager.
-
+ 
 | Property: | Docker Engine CPS Property |
-
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.engine.[engineId].hostname |
 | Description: | Provides location of the Docker Engine |
@@ -119,7 +114,7 @@ The following are properties used to configure the Docker Manager.
 | Valid values: | A valid DNS name or IPv4/6 address |
 | Examples: | <code>docker.engine.[engineId].hostname=docker.example.company.org<br> docker.engine.[engineId].hostname=192.168.2.3 </code> |
 
-Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS. </details>
+Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
 
 
 | Property: | Docker Engine Port CPS Property |
@@ -168,4 +163,5 @@ If the <code>docker.registry.ID.credentials</code> CPS property is missing, the 
 | Examples: | <code>docker.registry.LOCAL.url=https://registry.local.com</code> |
 
 If the Docker Registry requires credentials for authentication, then the id for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
-</details>
+
+
