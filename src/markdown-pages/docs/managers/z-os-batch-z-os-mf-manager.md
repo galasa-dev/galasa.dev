@@ -9,6 +9,11 @@ title: "z/OS Batch z/OS MF Manager"
 This Manager is the internal implementation of the z/OS Batch Manager using z/OS MF.
 
 
+</details>
+
+</details>
+
+<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the z/OS Batch z/OS MF Manager.
@@ -92,3 +97,4 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjobe.MVSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
 
+</details>

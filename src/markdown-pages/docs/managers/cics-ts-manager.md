@@ -9,3 +9,8 @@ title: "CICS TS Manager"
 This manager provides Galasa tests to CICS/TS functions.
 
 
+</details>
+
+</details>
+
+</details>
