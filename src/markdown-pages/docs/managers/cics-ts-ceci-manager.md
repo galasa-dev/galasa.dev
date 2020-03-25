@@ -12,7 +12,9 @@ This manager allows Galasa tests to issue CICS/TS CECI commands.
 ## Annotations
 
 The following annotations are available with the CICS TS CECI Manager
- 
+<details>
+<summary>CICS/TS CECI Manager</summary>
+
 | Annotation: | CICS/TS CECI Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @CECI |
@@ -20,7 +22,11 @@ The following annotations are available with the CICS TS CECI Manager
 | Syntax: | @CECI<br> public ICECI ceci;<br> |
 | Notes: | Requests to the <code>ICECI</code> Manager interface requires a <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> object which is logged on to CICS and is at  the CECI initial screen.<br><br> If mixed case is required, the terminal should be presented with no upper case translate status. For example, the test could first issue <code>CEOT TRANIDONLY</code> to the <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> before invoking <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> methods.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/CECI.html" target="_blank">CECI</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ICECI.html" target="_blank">ICECI</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/cicsts/ceci/ITerminal.html" target="_blank">ITerminal</a> to find out more. |
 
-## Code Snippets
+</details>
+
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the CICS TS CECI Manager.
  
@@ -136,3 +142,4 @@ ICECIResponse resp = ceci.issueCommand(ceciTerminal, command);
 String userid = ceci.retrieveVariableText("&USERID");
 
 ```
+

@@ -9,10 +9,16 @@ title: "z/OS Batch z/OS MF Manager"
 This Manager is the internal implementation of the z/OS Batch Manager using z/OS MF.
 
 
+
+
+
 ## Configuration Properties
 
 The following are properties used to configure the z/OS Batch z/OS MF Manager.
  
+<details>
+<summary>zOS Batch default input class</summary>
+
 | Property: | zOS Batch default input class |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].input.class |
@@ -22,7 +28,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | a valid JES input class literal |
 | Examples: | <code>zosbatch.default.MVSA.input.class=S</code><br> <code>zosbatch.default.input.class=A</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch job execution wait timeout</summary>
+
 | Property: | zOS Batch job execution wait timeout |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].timeout |
@@ -32,7 +42,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | 0 to {@link Integer#MAX_VALUE} |
 | Examples: | <code>zosbatch.batchjob.MVSA.timeout=350</code><br> <code>zosbatch.batchjob.default.timeout=60</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch jobname prefix</summary>
+
 | Property: | zOS Batch jobname prefix |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.jobname.[imageid].prefix |
@@ -42,7 +56,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | 1-7 characters |
 | Examples: | <code>zosbatch.jobname.MVSA.prefix=JOB</code><br> <code>zosbatch.jobname.default.prefix=XXX</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch default input class</summary>
+
 | Property: | zOS Batch default input class |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].input.class |
@@ -52,7 +70,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | a valid JES input class literal |
 | Examples: | <code>zosbatch.default.MVSA.input.class=S</code><br> <code>zosbatch.default.input.class=A</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch default message level</summary>
+
 | Property: | zOS Batch default message level |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].message.level |
@@ -62,7 +84,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | a valid JES message level |
 | Examples: | <code>zosbatch.default.MVSA.message.level=(1,1)</code><br> <code>zosbatch.default.message.level=(2,0)</code> |
 
+</details>
  
+<details>
+<summary>Restrict zOS batch processing to the zOSMF server on the specified image</summary>
+
 | Property: | Restrict zOS batch processing to the zOSMF server on the specified image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].restrict.to.image |
@@ -72,7 +98,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch job truncate JCL</summary>
+
 | Property: | zOS Batch job truncate JCL |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].truncate.jcl.records |
@@ -82,7 +112,11 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjobe.MVSA.truncate.jcl.records=true</code><br> <code>zosbatch.batchjob.default.truncate.jcl.records=false</code> |
 
+</details>
  
+<details>
+<summary>zOS Batch job use SYSAFF</summary>
+
 | Property: | zOS Batch job use SYSAFF |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].use.sysaff |
@@ -92,3 +126,4 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjobe.MVSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
 
+</details>

@@ -12,7 +12,9 @@ This Manager provides Galasa tests with access to a z/OS image.
 ## Annotations
 
 The following annotations are available with the zOS Manager
- 
+<details>
+<summary>z/OS Batch</summary>
+
 | Annotation: | z/OS Batch |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosBatch |
@@ -21,7 +23,11 @@ The following annotations are available with the zOS Manager
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosBatch(imageTag="A")<br> public IZosBatch zosBatchA;<br></code> |
 | Notes: | The <code>IZosBatch</code> interface has a single method, {@link IZosBatch#submitJob(String, IZosBatchJobname)} to submit a JCL  as a <code>String</code> and returns a <code>IZosBatchJob</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/ZosBatch.html" target="_blank">ZosBatch</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatch.html" target="_blank">IZosBatch</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatchJob.html" target="_blank">IZosBatchJob</a> to find out more. |
 
- 
+</details>
+
+<details>
+<summary>z/OS Console</summary>
+
 | Annotation: | z/OS Console |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosConsole |
@@ -30,7 +36,11 @@ The following annotations are available with the zOS Manager
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosConsole(imageTag="A")<br> public IZosConsole zosConsoleA;<br></code> |
 | Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the z/OS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
 
- 
+</details>
+
+<details>
+<summary>z/OS File</summary>
+
 | Annotation: | z/OS File |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosFileHandler |
@@ -38,7 +48,11 @@ The following annotations are available with the zOS Manager
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and z/OS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
 
-## Code Snippets
+</details>
+
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
  
@@ -155,6 +169,62 @@ for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
 }
 
 ```
+
+
+### Obtain a list of active jobs
+
+Use the following code to obtain a list of active jobs called *MYJOB1* with an owner of *USERID*:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("MYJOB1", "USERID");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        ...
+    }
+}
+
+```
+
+
+### Retrieve the content of a specific spool file from an active CICS region
+
+Use the following code to retrieve and process the output from the *MSGUSR* spool file:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    if (job.getStatus().equals("ACTIVE")) {
+        String msgusr = cicsJob.getSpoolFile("MSGUSR");
+        if (msgusr.contains("DFHAC2236")) {
+            ...
+        }
+        break;
+    }
+}
+
+```
+
+
+The code retrieves a list of CICS regions named *CICSRGN* with and owner of *CICSUSR*. It then loops through until it finds the first active region. The content of the *MSGUSR* spool file is obtained and checked for the string *DFHAC2236*.
+
+In this example, we assume there will only one spool file with the ddname of *MSGUSR*. If this were not the case, the following code could be used:
+
+```
+List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
+for (IZosBatchJob job : jobs) {
+    List<IZosBatchJobOutputSpoolFile> spoolFiles = job.retrieveOutput().getSpoolFiles();
+    for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
+        if (spoolFile.getDdname().equals("SYSOUT") &&
+            spoolFile.getStepname().equals("STEP2")) {
+            String output = spoolFile.getRecords();
+            ...
+        }
+    }
+}
+
+```
+
+Here, the code retrieves the content of the *SYSOUT* spool file for job step *STEP2*.
  
 ### Request a zOS File Handler instance
 
@@ -307,3 +377,4 @@ vsamDataSet.create();
 ### Read a zOS UNIX File
 
 *To be completed...*
+
