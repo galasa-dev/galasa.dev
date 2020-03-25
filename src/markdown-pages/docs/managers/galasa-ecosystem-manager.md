@@ -12,11 +12,11 @@ This Manager provides the test with a fully provisioned Galasa Ecosystem on whic
 The Manager only supports the following platforms:<br> - Kubernetes Namespace<br> <br> In the near future, this Manager will be able to provision ecosystems in Docker and on a plain Linux server
 
 
-<details><summary>Annotations</summary>
 ## Annotations
 
 The following annotations are available with the Galasa Ecosystem Manager
- 
+<details>
+<summary>Kubernetes Ecosystem</summary>
 | Annotation: | Kubernetes Ecosystem |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @KubernetesEcosystem |
@@ -26,11 +26,12 @@ The following annotations are available with the Galasa Ecosystem Manager
 | Attribute: `yamlDirectory` |  The <code>yamlDirectory</code> points to a resource directory within the test bundle that contains a set of override yaml files to use when creating the  ecosystem.  Each file must end with .yaml to be found.  If a directory or resource is not provided, the stable yaml files within the Galasa Ecosystem Manager will be used. |
 | Syntax: | <code>@KubernetesEcosystem<br> public IKubernetesEcosystem ecosystem;<br> <br> @KubernetesEcosystem(yamlDirectory="/k8syaml"<br> public IKubernetesEcosystem ecosystem;<br> </code> |
 | Notes: | The <code>IKubernetesEcosystem</code> interface gives the test access to the URLs of the services and API endpoints within the Ecosystem. When the test runs all the services that are required by the test are known to be up and working.<br> <br> The test must provide a @KubernetesNamespace IKubernetesNamespace annotation, as this is where the Ecosystem is provisioned in.  In the future, Docker and Linux will be options. <br> The Galasa Ecosystem has its own stable versions of the Kubernetes yaml files that are needed to create the entire Ecosystem.  If you want to override those and use your own yaml files, then use the yamlDirectory attribute.  If a resource is missing in the test's set, then the stable version is used. |
-
 </details>
 
-<details><summary>Code Snippets</summary>
-## Code Snippets
+
+
+<details>
+<summary>Code snippets</summary>
 
 Use the following code snippets to help you get started with the Galasa Ecosystem Manager.
  
@@ -72,11 +73,12 @@ Sets the CPS property `bob` with the value `hello` and retrieves it again.
 
 </details>
 
-<details><summary>Configuration Properties</summary>
 ## Configuration Properties
 
 The following are properties used to configure the Galasa Ecosystem Manager.
  
+<details>
+<summary>Docker Registry</summary>
 | Property: | Docker Registry |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.registry |
@@ -85,8 +87,10 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | docker.galasa.dev |
 | Valid values: | a valid hostname |
 | Examples: | <code>galasaecosystem.docker.version=docker.galasa.dev</code> |
-
+</details>
  
+<details>
+<summary>Docker Image Version</summary>
 | Property: | Docker Image Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.version |
@@ -95,8 +99,10 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | The setting of galasaecosystem.maven.version |
 | Valid values: | A valid Docker version literial |
 | Examples: | <code>galasaecosystem.docker.version=0.4.0</code> |
-
+</details>
  
+<details>
+<summary>Kubernetes Ecosystem Tag Shared Environment</summary>
 | Property: | Kubernetes Ecosystem Tag Shared Environment |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.ecosystem.tag.XXXXXX.shared.environment |
@@ -105,8 +111,10 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | None |
 | Valid values: | A valid Shared Environment |
 | Examples: | <code>galasaecosystem.ecosystem.tag.SHARED.shared.environment=M1</code> |
-
+</details>
  
+<details>
+<summary>Maven Repository URL</summary>
 | Property: | Maven Repository URL |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.repository |
@@ -115,8 +123,10 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | None |
 | Valid values: | Value URL |
 | Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
-
+</details>
  
+<details>
+<summary>Maven Artifact Version</summary>
 | Property: | Maven Artifact Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.version |
@@ -125,5 +135,4 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | None |
 | Valid values: | A valid maven version literial |
 | Examples: | <code>galasaecosystem.maven.version=0.4.0</code> |
-
 </details>
