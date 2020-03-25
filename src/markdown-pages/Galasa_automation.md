@@ -39,7 +39,7 @@ Tests written for Galasa can be run locally on your computer for manual debuggin
 - A single API runs any test regardless of underlying technology.
 - Tests can be dynamically selected from a catalog.
 - Environment stability is assured before tests are run.
-- Test results are automatically monitored.
+- Test results can be monitored automatically.
 
 
 <b>A single point of control:</b>
