@@ -44,3 +44,5 @@
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
+            - title: Test streams
+              path: /docs/writing-own-tests/test-streams
