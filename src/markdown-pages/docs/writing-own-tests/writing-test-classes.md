@@ -62,3 +62,49 @@ public ICoreManager coreManager;
 ```
 
 The Core Manager provides a method to obtain credentials via an ID - but the test may not know the ID before it runs, so it would be difficult to do this via an annotated field.
+
+## Example tests
+
+Review the SimBank sample tests to see how these principles are applied in practice. With one or two exceptions, these sample tests will be kept up to date with the latest specifications.
+
+## Pitfalls and tips when writing test code
+
+### Do not use <code>System.out</code> or <code>System.err</code>
+
+Although using `System.out.println` may be satisfactory when running tests locally, these messages will be lost if running in automation. Use a logger instead. The Core Manager provides an annotated field to make this straightforward:
+
+```java
+@Logger
+public Log Logger;
+```
+
+and then:
+
+```java
+logger.info("This is a message");
+```
+
+Any message written using this method is saved in the run log.
+
+### Keep all test resources within the test project
+
+When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include jCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs aganst, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
+
+You can access resources in a test project using the Artifact Manager:
+
+```java
+@BundleResources
+public IBundleResources bundleResources;
+
+InputStream resource = bundleResources.retriefeFile("job.jcl");
+```
+
+### Discovering Manager resources
+
+The best way to learn what fields, annotations and methods that a Manager provides is to use the Manager reference pages on this site. Auto-completion and Javadoc are also great resources when you know what you are looking for. The Manager reference pages contain code snippets and describe what fields and annotations apply to each Manager. The source code for the Managers can be found in the Github Managers repository - where you can also usually find an informative VT (Verification Test) project for each Manager.
+
+Most Managers tend to comply with a naming standard, although it is not required or enforced. The Java bundle name tends to be `dev.galasa.managerid.manager` where `managerid` is the name of the Manager - for example `dev.galasa.core.manager`. Inside the bundle is the TPI (Tester Programming Interface) package, which tends to be named `dev.galasa.managerid` and includes all the annotations and interfaces a tester can employ to use the Manager. A test should never use any resource in a package with `internal` or `spi` in its name. By using these same naming conventions, you can use autocompletion and/or javadoc to locate Manager functionality across the project.
+
+### JVM lifecycles
+
+Galasa tests run in Java and use a JVM to execute. JVMs only exist for the life of the test - this is to avoid problems with memory leaks and resource locking between test runs. Because of this, a test can start threads, lock resources and so on without worring too much about cleaning up.
