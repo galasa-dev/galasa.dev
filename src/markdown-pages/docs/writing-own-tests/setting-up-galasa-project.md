@@ -26,10 +26,10 @@ It is convenient to use Eclipse's sub-project feature, so that a full (parent) G
 We are going to build a hierarchy of projects, where the parent project contains:
 
 - A Managers sub-project, allowing you to extend the provided range of Managers. In practice, if you have no intention of writing a Manager, you can omit this - it is included in the sample project for completeness.
-- An OBR (OSGi Bundle Resource) sub-project, which is mandatory. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies.
+- An OBR (OSGi Bundle Repository) sub-project, which is mandatory. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies.
 - One or more test sub-projects, that as the name implies, contain the tests themselves. The sample project will contain just one test project.
 
-The parent project establishes all the dependencies for the sub-projects/modules. Building all the modules in the order of the dependencies - it will build the Manager module before the test projects that use it.
+The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
 
 For simplicity, it is assumed that your will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming example, the version of all projects is set to `0.1.0-SNAPSHOT`. The `SNAPSHOT` element forces Galasa to run with the absolute latest copy of your built test project.
 
@@ -371,4 +371,4 @@ When viewed in the _Package Explorer_ your set of projects should resemble (your
 
 Right-click the parent project _com.example.tests.parent_, choose _Run As > Maven install_ and wait for the build process to complete.
 
-Choose _Run > Run Configurations_ from the main menue, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
+Choose _Run > Run Configurations_ from the main menu, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.

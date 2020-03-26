@@ -46,3 +46,5 @@
               path: /docs/writing-own-tests/writing-test-classes
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
+            - title: Key principles for writing tests
+              path: /docs/writing-own-tests/key-principles
