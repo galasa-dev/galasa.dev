@@ -107,4 +107,4 @@ Most Managers tend to comply with a naming standard, although it is not required
 
 ### JVM lifecycles
 
-Galasa tests run in Java and use a JVM to execute. JVMs only exist for the life of the test - this is to avoid problems with memory leaks and resource locking between test runs. Because of this, a test can start threads, lock resources and so on without worring too much about cleaning up.
+Galasa tests run in Java and use a JVM to execute. JVMs only exist for the life of the test - this is to avoid problems with memory leaks and resource locking between test runs. Because of this, a test can start threads, lock resources and so on without worrying too much about cleaning up. 
