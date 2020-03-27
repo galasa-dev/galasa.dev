@@ -78,7 +78,7 @@ Of course, the four `pom.xml` files all have different contents!
 Set up the files in their designated directories as follows:
 
 <details>
-<summary><code>com.example.tests.parent/com.example.tests.parent/pom.xml</code></summary>
+<summary><code>com.example.tests.parent/pom.xml</code></summary>
 
 Read the commentary at the bottom of the listing for an explanation of the key elements.
 
