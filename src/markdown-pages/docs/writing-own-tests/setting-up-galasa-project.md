@@ -37,7 +37,7 @@ For simplicity, it is assumed that your will only have one version of a test in 
 
 This setup is designed as an example of how to create a project structure that might ultimately be deployed to a Maven repository so that your Galasa automation system can find everything it needs to run.
 
-In a temporary directory, create the following file structure:
+In a temporary directory - and you can do this with whatever tools you choose, no need to use Eclipse - create the following file structure:
 
 ```
 ────com.example.tests.parent
