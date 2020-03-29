@@ -17,7 +17,7 @@ Once loaded by the Galasa test runner, there are a few further annotations that 
 
 **`@Test`**
 <br>
-This annotation identifies a method as one that contains test code. Such methods are executed by Galasa by the order in which they appear in the test class - from top to bottom. If a test method fails, the ollowing test methods are bypassed to encourage short, sharp parallel testing. This behaviour can be overridden using the `@StopOnError` annotation on the `class` statement.
+This annotation identifies a method as one that contains test code. Such methods are executed by Galasa by the order in which they appear in the test class - from top to bottom. If a test method fails, the following test methods are bypassed to encourage short, sharp parallel testing. This behaviour can be overridden using the `@StopOnError` annotation on the `class` statement.
 
 When a test method succeeds it is marked as PASSED, and if there is an exception it is marked FAILED. Managers can override this marking - for example, if a test throws a specific exception, a Manager could set the result to DISASTER.
 
@@ -37,7 +37,7 @@ Methods marked `@Before` and `@After` are executed before and after every `@Test
 
 These methods are typically used to reset resources before a test or perhaps check logs for post-test error messages.
 
-Failures that occure in `@Before` and `@After` result in the test method being marked as FAILED, as it is likely that such methods contain test checking code.
+Failures that occur in `@Before` and `@After` result in the test method being marked as FAILED, as it is likely that such methods contain test checking code.
 
 **Manager annotated fields**
 <br>
@@ -88,7 +88,7 @@ Any message written using this method is saved in the run log.
 
 ### Keep all test resources within the test project
 
-When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include jCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs aganst, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
+When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include jCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs against, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
 
 You can access resources in a test project using the Artifact Manager:
 
@@ -107,4 +107,4 @@ Most Managers tend to comply with a naming standard, although it is not required
 
 ### JVM lifecycles
 
-Galasa tests run in Java and use a JVM to execute. JVMs only exist for the life of the test - this is to avoid problems with memory leaks and resource locking between test runs. Because of this, a test can start threads, lock resources and so on without worrying too much about cleaning up. 
+Galasa tests run in Java and use a JVM to execute. JVMs only exist for the life of the test - this is to avoid problems with memory leaks and resource locking between test runs. Because of this, a test can start threads, lock resources and so on without worrying too much about cleaning up.

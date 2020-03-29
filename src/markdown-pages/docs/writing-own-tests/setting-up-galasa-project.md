@@ -37,7 +37,7 @@ For simplicity, it is assumed that your will only have one version of a test in 
 
 This setup is designed as an example of how to create a project structure that might ultimately be deployed to a Maven repository so that your Galasa automation system can find everything it needs to run.
 
-In a temporary directory, create the following file structure:
+In a temporary directory - and you can do this with whatever tools you choose, no need to use Eclipse - create the following file structure:
 
 ```
 ────com.example.tests.parent
@@ -78,7 +78,7 @@ Of course, the four `pom.xml` files all have different contents!
 Set up the files in their designated directories as follows:
 
 <details>
-<summary><code>com.example.tests.parent/com.example.tests.parent/pom.xml</code></summary>
+<summary><code>com.example.tests.parent/pom.xml</code></summary>
 
 Read the commentary at the bottom of the listing for an explanation of the key elements.
 
