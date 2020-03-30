@@ -52,7 +52,7 @@ public String runName;
 
 is provided by the Core Manager. This populates the `runName` field with a String representing the run's name, which can be used to create a unique resource name that won't clash with other runs.
 
-The framework ensures that all correctly coded fields are filled before executing any test code, so test code doesn't need to bother itself with validating the fields themselves. If a field cannot be populated by a Manager, the test is marked as ENVIRONMENT_FAILURE or RESOURCE_EXHAUSTION and an automated rerun queued.
+The framework ensures that all correctly coded fields are filled before executing any test code, so test code doesn't need to bother itself with validating the fields themselves. If a field cannot be populated by a Manager, the test is marked as `ENVIRONMENT_FAILURE` or `RESOURCE_EXHAUSTION` and an automated rerun queued.
 
 A few Managers provide direct access to themselves, for example the Core Manager:
 
@@ -88,7 +88,7 @@ Any message written using this method is saved in the run log.
 
 ### Keep all test resources within the test project
 
-When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include jCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs against, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
+When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include JCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs against, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
 
 You can access resources in a test project using the Artifact Manager:
 
