@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests/simbank-IVT"
 title: "Running the SimBank Installation Verification Test"
 ---
-This basic test logs on to SimBank and examines an account.
+This basic test logs on to Galasa SimBank and examines an account.
 1. Create your initial example projects as described in <a href="/docs/running-simbank-tests" target="_blank">Running the supplied SimBank tests</a> - a once-only activity.
 1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring SimBank</a>.
 1. Choose *Run > Run Configurations* and look for and select *Galasa* in the left pane (not Galasa SimBank).
