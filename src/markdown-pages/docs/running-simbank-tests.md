@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests"
 title: "Running the supplied SimBank tests"
 ---
-SimBank comes with a selection of prepared Galasa tests:
+Galasa SimBank comes with a selection of prepared Galasa tests:
 
 - A basic Installation Verification Test (IVT) logs on to SimBank and examines an account - `SimBankIVT.java`.
 - A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
