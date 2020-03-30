@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests/batch-accounts-open-test"
 title: "BatchAccountsOpenTest"
 ---
-This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the SimBank system via a z/OS batch job.
+This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the Galasa SimBank system via a z/OS batch job.
 
 When you installed the Galasa Eclipse plug-in, some of the configuration information you set in the `overrides.properties` file was specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
 
