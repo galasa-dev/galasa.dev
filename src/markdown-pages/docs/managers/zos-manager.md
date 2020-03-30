@@ -56,7 +56,7 @@ The following annotations are available with the zOS Manager
 
 Use the following code snippets to help you get started with the zOS Manager.
  
-### Request a zOS Console instance
+<details><summary>Request a zOS Console instance</summary>
 
 The following snippet shows the code that is required to request a zOS Console instance in a Galasa test:
 
@@ -69,9 +69,9 @@ public IZosConsole zosConsole;
 ```
 
 The code creates a zOS Console instance associated with the zOS Image allocated in the *zosImageA* field.
+</details>
 
-
-### Issue a zOS Console command and retrieve the immediate response
+<details><summary>Issue a zOS Console command and retrieve the immediate response</summary>
 
 Issue a zOS Console command and retrieve the immediate console command response:
 
@@ -81,9 +81,10 @@ IZosConsoleCommand consoleCommand = zosConsole.issueCommand(command);
 String immediateResponse = consoleCommand.getResponse();
 
 ```
+</details>
 
 
-### Issue a zOS Console command and retrieve the delayed response
+<details><summary>Issue a zOS Console command and retrieve the delayed response</summary>
 
 Issue a zOS Console command and retrieve the delayed console command response:
 
@@ -93,8 +94,9 @@ IZosConsoleCommand consoleCommand = zosConsole.issueCommand(command);
 String delayedResponse = consoleCommand.requestResponse();
 
 ```
+</details>
  
-### Request a zOS Batch instance
+<details><summary>Request a zOS Batch instance</summary>
 
 The following snippet shows the code that is required to request a zOS Batch instance in a Galasa test:
 
@@ -108,8 +110,9 @@ public IZosBatch zosBatch;
 
 
 The code creates a zOS Batch instance associated with the allocated with the zOS Image allocated in the *zosImageA* field.
+</details>
 
-### Submit a zOS Batch Job
+<details><summary>Submit a zOS Batch Job</summary>
 
 Submit a zOS Batch Job using the supplied JCL and a Galasa allocated Job Name:
 
@@ -117,9 +120,10 @@ Submit a zOS Batch Job using the supplied JCL and a Galasa allocated Job Name:
 String jcl = "//STEP1    EXEC PGM=IEFBR14";
 IZosBatchJob batchJob = zosBatch.submitJob(jcl, null);
 ```
+</details>
 
 
-### Submit a zOS Batch Job with job card parameters
+<details><summary>Submit a zOS Batch Job with job card parameters</summary>
 
 Submit a zOS Batch Job using the supplied JCL, a Galasa allocated Job Name and overidding the default input and message class:
 
@@ -130,9 +134,9 @@ ZosBatchJobcard jobcard = new ZosBatchJobcard().
                           .setMsgClass("X");
 IZosBatchJob batchJob = zosBatch.submitJob(jcl, null, jobcard);
 ```
+</details>
 
-
-### Wait for zOS Batch Job to complete
+<details><summary>Wait for zOS Batch Job to complete</summary>
 
 Wait for zOS Batch job to complete and check maximum return code:
 
@@ -153,9 +157,10 @@ or
 ```
 Batch job failed RETCODE=ABEND S0C4
 ```
+</details>
 
 
-### Retrieve the job output
+<details><summary>Retrieve the job output</summary>
 
 Use the following code to retrieve the output from a zOS Batch Job:
 
@@ -169,9 +174,9 @@ for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
 }
 
 ```
+</details>
 
-
-### Obtain a list of active jobs
+<details><summary>Obtain a list of active jobs</summary>
 
 Use the following code to obtain a list of active jobs called *MYJOB1* with an owner of *USERID*:
 
@@ -184,9 +189,9 @@ for (IZosBatchJob job : jobs) {
 }
 
 ```
+</details>
 
-
-### Retrieve the content of a specific spool file from an active CICS region
+<details><summary>Retrieve the content of a specific spool file from an active CICS region</summary>
 
 Use the following code to retrieve and process the output from the *MSGUSR* spool file:
 
@@ -225,8 +230,9 @@ for (IZosBatchJob job : jobs) {
 ```
 
 Here, the code retrieves the content of the *SYSOUT* spool file for job step *STEP2*.
+</details>
  
-### Request a zOS File Handler instance
+<details><summary>Request a zOS File Handler instance</summary>
 
 The following snippet shows the code that is required to request a zOS File Handler instance in a Galasa test:
 
@@ -234,9 +240,9 @@ The following snippet shows the code that is required to request a zOS File Hand
 @ZosFileHandler
 public IZosFileHandler zosFileHandler;
 ```
+</details>
 
-
-### Read the content of an existing sequential data set
+<details><summary>Read the content of an existing sequential data set</summary>
 
 Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content:
 
@@ -253,9 +259,10 @@ if (dataSet.exists()) {
     ...
 }
 ```
+</details>
 
 
-### Read the content of an existing partitioned data set member
+<details><summary>Read the content of an existing partitioned data set member</summary>
 
 Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content:
 
@@ -273,9 +280,10 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zo
         ...
     }
 ```
+</details>
 
 
-### Create a new sequential data set
+<details><summary>Create a new sequential data set</summary>
 
 Create a new *IZosDataset* object representing a new sequential data set. If the data set does not exist, allocate the data set with attributes to the equivalent of the following JCL:
 
@@ -310,9 +318,9 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosIma
     records.add("RECORD 3");
     dataSet.store(String.join("\n", records));
 ```
+</details>
 
-
-### Create a new partitioned data set member
+<details><summary>Create a new partitioned data set member</summary>
 
 Create a new *IZosDataset* object representing a new partitioned data (PDS) set member. If the data set does not exist, allocate the PDS with attributes to the equivalent of the following JCL:
 
@@ -361,9 +369,9 @@ use
 dataSet.setDatasetType(DSType.PDSE);
 ```
 instead of setting the number of directory blocks.
+</details>
 
-
-### Create a new VSAM KSDS
+<details><summary>Create a new VSAM KSDS</summary>
 
 Create a new *IZosVSAMDataset* object representing a new VSAM KSDS data set. If the data set is allocated with a minimum set of attributes:
 
@@ -373,8 +381,10 @@ vsamDataSet.setSpace(VSAMSpaceUnit.CYLINDERS, 1, 1);
 vsamDataSet.setRecordSize(50, 101);
 vsamDataSet.create();
 ```
+</details>
 
-### Read a zOS UNIX File
+<details><summary>Read a zOS UNIX File</summary>
 
 *To be completed...*
+</details>
 
