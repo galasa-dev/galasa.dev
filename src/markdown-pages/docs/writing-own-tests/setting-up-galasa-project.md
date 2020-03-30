@@ -355,7 +355,6 @@ If you have followed through on any of the provided SimBank tests, you will have
 
 - `<packaging>` is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
 - Any custom Manager and test projects need to be included so that an OBR and test catalog is built after examination of the contents of these projects.
-- There is no need to include Managers or dependencies that exist in the Galasa uber OBR, unless you wish to override or replace the supplied OBRs.
 
 </details>
 
