@@ -92,8 +92,8 @@ $br-lg: 1124px;
 
 .announceBanner {
   font-size: 22px;
-  margin-top: -20px;
-  margin-bottom: 35px;
+  margin-top: -10px;
+  margin-bottom: 25px;
 
   @media screen and (min-width: $br-sm) {
     max-width: 435px;
@@ -102,7 +102,6 @@ $br-lg: 1124px;
 
 .announceDescription {
   font-size: 18px;
-  margin-top: -20px;
   margin-bottom: 58px;
 
   @media screen and (min-width: $br-sm) {
@@ -113,7 +112,6 @@ $br-lg: 1124px;
 .announceLink {
   color: #ffd936;
   font-size: 18px;
-  margin-top: -20px;
   margin-bottom: 58px;
 
   @media screen and (min-width: $br-sm) {

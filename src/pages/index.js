@@ -110,6 +110,7 @@ const IndexPage = () => (
           </Link>{" "}
           the Galasa Eclipse plug-in today.
         </p>
+        <br></br>
         <div className={indexStyles.heroButtons}>
           <Button target={"/docs/getting-started"} flash={true} primary={true}>
             Get Started
