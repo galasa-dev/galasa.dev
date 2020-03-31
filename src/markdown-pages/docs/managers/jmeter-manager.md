@@ -18,7 +18,7 @@ The JMeter manager is not able for the JMeter tests to be run remotely away from
 
 Use the following code snippets to help you get started with the JMeter Manager.
  
-### Create a JMeter session
+<details><summary>Create a JMeter session</summary>
 
 The following snippet shows the minimum code that is required to request a Docker Container in a Galasa test:
 
@@ -40,8 +40,9 @@ public IJMeterSession session;
 
 
 There is no limit in Galasa on how many JMeter sessions can be used within a single test. The only limit is the number of Containers that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of containers that can be supported by the Docker Server or Swarm.  If there are not enough slots available for an automated run, the run is put back on the queue in *waiting* state to retry. **Local test runs fail if there are not enough container slots available.**
+</details>
 
-### Setting your actual JMX-file in the session with artifact manager
+<details><summary>Setting your actual JMX-file in the session with artifact manager</summary>
 
 
 ```
@@ -49,8 +50,9 @@ There is no limit in Galasa on how many JMeter sessions can be used within a sin
     InputStream jmxStream = bundleResources.retrieveFile("/test.jmx");
     session2.setJmxFile(jmxStream);
 ```
+</details>
 
-### Setting your actual properties-file in the session with artifact manager
+<details><summary>Setting your actual properties-file in the session with artifact manager</summary>
 
 This will kill of the session by simply sending a kill-signal towards the JMeter container and removing it from the running sessions.
 
@@ -59,8 +61,9 @@ This will kill of the session by simply sending a kill-signal towards the JMeter
     InputStream propStream = bundleResources.retrieveFile("/jmeter.properties");
     session.applyProperties(propStream);
 ```
+</details>
 
-### Starting up the JMeter session
+<details><summary>Starting up the JMeter session</summary>
 
 You are able to attach a specific timeout to the session or use the *default timeout of 60 seconds* towards the JMeter session. This command will only be succesfully executed if you have set your JMX-file properly using the `session.setJmxFile(inputStream)`-method. *Timeout is in milli-seconds.*
 
@@ -69,55 +72,61 @@ You are able to attach a specific timeout to the session or use the *default tim
     ...
      session.startJmeter(60000);
 ```
+</details>
 
-
-### Obtaining the JMX-file from the JMeter-execution as a String
+<details><summary>Obtaining the JMX-file from the JMeter-execution as a String</summary>
 
 The following snippet allows the tester to access the used JMX file in the JMeter session.
 
 ```
 session.getJmxFile();
 ```
+</details>
 
-### Obtaining the Logfile from the JMeter-execution as a String
+<details><summary>Obtaining the Logfile from the JMeter-execution as a String</summary>
 
 The following snippet allows the tester to access the execution logFile that is created upon execution of the JMX-file inside the container.
 
 ```
 session.getLogFile();
 ```
+</details>
 
-### Obtaining the console output as a String
+<details><summary>Obtaining the console output as a String</summary>
 
 The following snippet allows the tester to see the console output of the JMeter container. In most cases there will be no output towards the console except when the JMX-file itself is corrupt or wrongly written. Otherwise if a correctly written JMX-file endures errors during execution this will be represented in the log files or the JTL-file.
 
 ```
 session.getConsoleOutput();
 ```
+</details>
 
-### Obtaining any specific generated file from the JMeter-execution as a String
+<details><summary>Obtaining any specific generated file from the JMeter-execution as a String</summary>
 
 The following snippet allows the tester to access the execution any file that is created upon execution of the JMX-file inside the container. In this example you can retrieve the JTL-file as a String containing the actual execution results made ready for a CSV (the name of this JTL-file has the same prefix as your JMX-file).
 
 ```
 session.getListenerFile("test.jtl")
 ```
+</details>
 
 
-### Obtaining a basic form of making sure your JMX-file executed correctly
+<details><summary>Obtaining a basic form of making sure your JMX-file executed correctly</summary>
 
 The following snippet allows the tester to make sure his test actually got performed to a basic degree. Further analysis can be done personally by the tester by retrieving the logs  and/ or JTL-files. The boolean will return true if the JMX-file has performed its funciton properly, otherwise it would return false.
 
 ```
 session.statusTest();
 ```
+</details>
 
-### Killing of the session
+<details><summary>Killing of the session</summary>
 
 This will kill of the session by simply sending a kill-signal towards the JMeter container and removing it from the running sessions.
 
 ```
 session.stopTest();
 ```
+</details>
 
 
