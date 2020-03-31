@@ -41,7 +41,7 @@ Failures that occur in `@Before` and `@After` result in the test method being ma
 
 **Manager annotated fields**
 <br>
-Before any of the `@` methods in a test class are executed, the Galasa test runner interrogates any active Managers to populate their _test fields_ with appropriate values. These fields are highly-dependent on the Managers, and you will need to review the Manager reference documentation to appreciate what is available.
+Before any of the `@` methods in a test class are executed, the Galasa test runner requests any active Managers to populate their _test fields_ with appropriate values. These fields are highly-dependent on the Managers, and you will need to review the Manager reference documentation to appreciate what is available.
 
 As an example, the test field
 
@@ -52,7 +52,7 @@ public String runName;
 
 is provided by the Core Manager. This populates the `runName` field with a String representing the run's name, which can be used to create a unique resource name that won't clash with other runs.
 
-The framework ensures that all correctly coded fields are filled before executing any test code, so test code doesn't need to bother itself with validating the fields themselves. If a field cannot be populated by a Manager, the test is marked as `ENVIRONMENT_FAILURE` or `RESOURCE_EXHAUSTION` and an automated rerun queued.
+The framework ensures that all correctly coded fields are filled before executing any test code, so test code doesn't need to bother itself with validating the fields themselves. If a field cannot be populated by a Manager, the test is marked either as `ENVIRONMENT_FAILURE`, or as `RESOURCE_EXHAUSTION` in which case an automated rerun is queued.
 
 A few Managers provide direct access to themselves, for example the Core Manager:
 
@@ -101,9 +101,9 @@ InputStream resource = bundleResources.retriefeFile("job.jcl");
 
 ### Discovering Manager resources
 
-The best way to learn what fields, annotations and methods that a Manager provides is to use the Manager reference pages on this site. Auto-completion and Javadoc are also great resources when you know what you are looking for. The Manager reference pages contain code snippets and describe what fields and annotations apply to each Manager. The source code for the Managers can be found in the Github Managers repository - where you can also usually find an informative VT (Verification Test) project for each Manager.
+The best way to learn what fields, annotations and methods that a Manager provides is to use the Manager reference pages on this site. Auto-completion and Javadoc are also great resources when you know what you are looking for. The Manager reference pages contain code snippets and describe what fields and annotations apply to each Manager. The source code for the Managers can be found in the Github Managers repository - where you can also usually find an Installation Verification Test (VT) project for each Manager.
 
-Most Managers tend to comply with a naming standard, although it is not required or enforced. The Java bundle name tends to be `dev.galasa.managerid.manager` where `managerid` is the name of the Manager - for example `dev.galasa.core.manager`. Inside the bundle is the TPI (Tester Programming Interface) package, which tends to be named `dev.galasa.managerid` and includes all the annotations and interfaces a tester can employ to use the Manager. A test should never use any resource in a package with `internal` or `spi` in its name. By using these same naming conventions, you can use autocompletion and/or javadoc to locate Manager functionality across the project.
+All Managers should comply with a naming standard, although it is not currently enforced. The Java bundle name tends to be `dev.galasa.managerid.manager` where `managerid` is the name of the Manager - for example `dev.galasa.core.manager`. Inside the bundle is the TPI (Tester Programming Interface) package, which tends to be named `dev.galasa.managerid` and includes all the annotations and interfaces a tester can employ to use the Manager. A test should never use any resource in a package with `internal` or `spi` in its name. By using these same naming conventions, you can use autocompletion and/or javadoc to locate Manager functionality across the project.
 
 ### JVM lifecycles
 
