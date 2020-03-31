@@ -31,7 +31,7 @@ We are going to build a hierarchy of projects, where the parent project contains
 
 The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
 
-For simplicity, it is assumed that your will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming example, the version of all projects is set to `0.1.0-SNAPSHOT`. The `SNAPSHOT` element forces Galasa to run with the absolute latest copy of your built test project.
+For simplicity, it is assumed that you will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming example, the version of all projects is set to `0.1.0-SNAPSHOT`. The `SNAPSHOT` element forces Galasa to run with the absolute latest copy of your built test project.
 
 ## Setting up the filesystem
 
@@ -47,7 +47,7 @@ In a temporary directory - and you can do this with whatever tools you choose, n
     │   └───src
     │       └───main
     │           ├───java
-    │           │   MostBasicTest.java
+    │           │   │   MostBasicTest.java
     │           └───resources
     ├───com.example.tests.manager
     │   │   pom.xml
@@ -57,10 +57,6 @@ In a temporary directory - and you can do this with whatever tools you choose, n
     │           └───resources
     └───com.example.tests.obr
         │   pom.xml
-        └───src
-            └───main
-                ├───java
-                └───resources
 ```
 
 The names of the root folders are not part of Maven's opinionated stance (they were just chosen for this exercise - but there is a conventional pattern to follow), however, the names of the lower level folders (`src`, `main`, `java` and so on) most certainly are.
@@ -360,9 +356,11 @@ If you have followed through on any of the provided SimBank tests, you will have
 
 ## Importing the prepared directory into Eclipse
 
-Launch Eclipse and choose _File > Open Projects From File System..._
+Launch Eclipse and choose _File > Import..._
 
-Navigate to your root project directory - _com.example.tests.parent_ in this case and make sure you choose _Search for nested projects_ in the dialog. Follow the remaining prompts to complete the import.
+In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
+
+Navigate to your root project directory - _com.example.tests.parent_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
 
 When viewed in the _Package Explorer_ your set of projects should resemble (your project won't yet have those _target_ folders - they indicate that the project has been built at least once):
 
