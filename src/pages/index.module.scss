@@ -89,3 +89,34 @@ $br-lg: 1124px;
   gap: 185px;
   padding-top: 185px;
 }
+
+.announceBanner {
+  font-size: 22px;
+  margin-top: -20px;
+  margin-bottom: 35px;
+
+  @media screen and (min-width: $br-sm) {
+    max-width: 435px;
+  }
+}
+
+.announceDescription {
+  font-size: 18px;
+  margin-top: -20px;
+  margin-bottom: 58px;
+
+  @media screen and (min-width: $br-sm) {
+    max-width: 435px;
+  }
+}
+
+.announceLink {
+  color: #ffd936;
+  font-size: 18px;
+  margin-top: -20px;
+  margin-bottom: 58px;
+
+  @media screen and (min-width: $br-sm) {
+    max-width: 435px;
+  }
+}
