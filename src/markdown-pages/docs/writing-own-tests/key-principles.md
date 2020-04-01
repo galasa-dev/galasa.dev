@@ -23,7 +23,7 @@ These suggestions are written in the anticipation that your tests are ultimately
 
 <details><summary>Many short, sharp tests are far better than a few long tests</summary>
 
-- Lots of short, sharp tests means you can run more tests in parallel. Galasa's ecosystem has been designed for scale, and can cope with thousands of tests running in parallel. It is best, if any bottleneck exists, that it is the target environment.
+- Lots of short, sharp tests means you can run more tests in parallel. Galasa's ecosystem has been designed for scale, and can cope with thousands of tests running in parallel.
 - In a CI/CD pipeline, the more parallelism you can introduce, the more testing can happen in the shortest time, meaning your developers can receive feedback faster.
 - A single test class that takes an hour to run six test methods can be run in ten minutes if those six methods could be split apart and run in parallel.
   </details>
@@ -62,7 +62,7 @@ These suggestions are written in the anticipation that your tests are ultimately
 - Use the logger via the `@Logger` annotation to pepper the run log with test state, possibly logging variables pertinent to the running test. This will help align the run log and the test class when analysing a problem. There is an example of this annotation in the SimBank <a href="/docs/running-simbank-tests/provisioned-account-credit-tests" target="_blank">`ProvisionedAccountCreditTest`</a> example.
 - When your test encounters an error, use the logger to be explicit about the type of error encountered. Messages such as `Did not see the expected result` are far less useful than `Expected to see message-A but actually saw message-B`.
 - Use the Stored Artifact facility to save test material that will help you to diagnose test failures when tests are running in an unsupervised manner. It is annoying when the rerun of a test works flawlessly, but you know perfectly well that there is still a bug in there somewhere.
-- The Stored Artifact facility can flag particularly interesting information. Use it in failure scenarios to raise engineers' attention to the key failure-causing output.
+- The Stored Artifact facility can flag particularly interesting information. Use it in failure scenarios to raise engineers' attention to the key failure-causing output. There is an example of this annotation in the SimBank <a href="/docs/running-simbank-tests/provisioned-account-credit-tests" target="_blank">`ProvisionedAccountCreditTest`</a> example.
   </details>
 
 <details><summary>Your test code is a valuable asset</summary>

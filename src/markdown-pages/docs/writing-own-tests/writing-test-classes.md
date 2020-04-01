@@ -88,7 +88,7 @@ Any message written using this method is saved in the run log.
 
 ### Keep all test resources within the test project
 
-When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include JCL, or DB2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs against, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
+When diagnosing or maintaining a test project, it is helpful if all the resources it consumes are within the same project - examples include JCL, or Db2 DDL. While it is possible to keep resources with the target environment, it makes portability an issue. If your test runs against, say, a remote server MVS1, and MVS1 contains some resources such as JCL, it is fine if you remain on MVS1 only. If you later decide to run the test on MVS2, you will need to copy all the resources across before you can run your test. A better solution is to keep the resources within the current test project and deploy them as part of the test run.
 
 You can access resources in a test project using the Artifact Manager:
 
@@ -96,7 +96,7 @@ You can access resources in a test project using the Artifact Manager:
 @BundleResources
 public IBundleResources bundleResources;
 
-InputStream resource = bundleResources.retriefeFile("job.jcl");
+InputStream resource = bundleResources.retrieveFile("job.jcl");
 ```
 
 ### Discovering Manager resources
