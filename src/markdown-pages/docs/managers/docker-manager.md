@@ -15,7 +15,9 @@ The Docker Manager supports only AMD64 platforms. It is planned to expand the ca
 ## Annotations
 
 The following annotations are available with the Docker Manager
- 
+<details>
+<summary>Docker Container</summary>
+
 | Annotation: | Docker Container |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @DockerContainer |
@@ -27,11 +29,15 @@ The following annotations are available with the Docker Manager
 | Syntax: | <code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> |
 | Notes: | The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. |
 
-## Code Snippets
+</details>
+
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the Docker Manager.
  
-### Create a Docker Container
+<details><summary>Create a Docker Container</summary>
 
 The following snippet shows the minimum code that is required to request a Docker Container in a Galasa test:
 
@@ -46,9 +52,9 @@ The code creates a Docker Container with an Apache HTTP Server running on port 8
 At the end of the test, the Docker Manager automatically stops and discards the Docker Container. If for some reason the test was not able to do this, the Docker Manager resource management routines perform the same clean up after the Galasa Ecosystem discovers the test has disappeared.
 
 There is no limit in Galasa on how many Docker Containers can be used within a single test. The only limit is the number of Docker Containers that can be started in the Galasa Ecosystem. This limit is set by the Galasa Administrator and is typically set to the maximum number of containers that can be supported by the Docker Server or Swarm.  If there are not enough slots available for an automated run, the run is put back on the queue in *waiting* state to retry. Local test runs fail if there are not enough container slots available.
+</details>
 
-
-### Obtain the IP address and port of an exposed container port
+<details><summary>Obtain the IP address and port of an exposed container port</summary>
 
 Find the IP address and port by using the following code which provisions and starts an Apache HTTP server on port 80:
 
@@ -58,9 +64,9 @@ public IDockercontainer httpcontainer;
 ...
 InetSocketAddress port80 = httpContainer.getFirstSocketForExposedPort(80);
 ```
+</details>
 
-
-### Stop and Start a container
+<details><summary>Stop and Start a container</summary>
 
 Stop and start your Apache HTTP Server to test how your application responds by using the following code:
 
@@ -72,8 +78,9 @@ httpContainer.stop();
 
 httpContainer.start();
 ```
+</details>
 
-### Run a command in the container
+<details><summary>Run a command in the container</summary>
 
 Use the following code to execute a command within the Docker Container and return the resulting output:
 ```
@@ -84,8 +91,9 @@ IDockerExec exec = httpContainer.exec("ls","-l","/var/log");
 exec.waitForExec();
 String output = exec.getCurrentOutput();
 ```
+</details>
 
-### Retrieve the log of the container
+<details><summary>Retrieve the log of the container</summary>
 
 Use the following code to retrieve the container log:
 
@@ -95,10 +103,16 @@ public IDockercontainer httpcontainer;
 ...
 String log = httpContainer.getStdOut();
 ```
+</details>
+
+
 ## Configuration Properties
 
 The following are properties used to configure the Docker Manager.
  
+<details>
+<summary>Docker Engine CPS Property</summary>
+
 | Property: | Docker Engine CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.engine.[engineId].hostname |
@@ -110,7 +124,11 @@ The following are properties used to configure the Docker Manager.
 
 Currently, the Docker Manager supports only a single Docker Engine although it is planned to allow multiple Engines to be configured.<br> To allow local runs to access the local Docker Engine, you must add this property to the CPS and enable the TCP port of your local Docker Engine.<br> If the Docker Engine is not using the default TCP port, you must provide the *docker.engine.port* configuration property in the CPS.
 
+</details>
  
+<details>
+<summary>Docker Engine Port CPS Property</summary>
+
 | Property: | Docker Engine Port CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.engine.port |
@@ -122,7 +140,11 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 
 The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be  configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
 
+</details>
  
+<details>
+<summary>Default Docker Registries CPS Property</summary>
+
 | Property: | Default Docker Registries CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.default.registries |
@@ -134,7 +156,11 @@ The Docker Manager communicates with the Docker Engine via TCP. The Docker Engin
 
 To decouple Docker Registries from the Galasa test, this property allows the Docker Manager to search for images. The main reason being if the customer Docker Registry moves, only this property needs  to change, instead of having to change the source code of lots of tests. <br> <br> The registries are searched in order when looking for an image. When the image is located, the search stops.  <br> <br> If this property is provided in the CPS, the Docker Hub registry is not automatically appended. If it is required, then the DOCKERHUB id must be included.
 
+</details>
  
+<details>
+<summary>Docker Registry Credentials CPS Property</summary>
+
 | Property: | Docker Registry Credentials CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.registry.[ID.]credentials |
@@ -146,7 +172,11 @@ To decouple Docker Registries from the Galasa test, this property allows the Doc
 
 If the <code>docker.registry.ID.credentials</code> CPS property is missing, the Docker Manager will attempt to use the credentials ID that is provided in <code>docker.registry.credentials</code>, if that is missing, then the default credentials  ID of <code>DOCKER</code> will be used.
 
+</details>
  
+<details>
+<summary>Docker Registry URL CPS Property</summary>
+
 | Property: | Docker Registry URL CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | docker.registry.ID.url |
@@ -158,3 +188,4 @@ If the <code>docker.registry.ID.credentials</code> CPS property is missing, the 
 
 If the Docker Registry requires credentials for authentication, then the id for the credentials must be provided using the CPS property  <code>docker.registry.ID.credentials</code> or <code>docker.registry.credentials</code>
 
+</details>

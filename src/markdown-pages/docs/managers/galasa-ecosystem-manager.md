@@ -15,7 +15,9 @@ The Manager only supports the following platforms:<br> - Kubernetes Namespace<br
 ## Annotations
 
 The following annotations are available with the Galasa Ecosystem Manager
- 
+<details>
+<summary>Kubernetes Ecosystem</summary>
+
 | Annotation: | Kubernetes Ecosystem |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @KubernetesEcosystem |
@@ -26,11 +28,15 @@ The following annotations are available with the Galasa Ecosystem Manager
 | Syntax: | <code>@KubernetesEcosystem<br> public IKubernetesEcosystem ecosystem;<br> <br> @KubernetesEcosystem(yamlDirectory="/k8syaml"<br> public IKubernetesEcosystem ecosystem;<br> </code> |
 | Notes: | The <code>IKubernetesEcosystem</code> interface gives the test access to the URLs of the services and API endpoints within the Ecosystem. When the test runs all the services that are required by the test are known to be up and working.<br> <br> The test must provide a @KubernetesNamespace IKubernetesNamespace annotation, as this is where the Ecosystem is provisioned in.  In the future, Docker and Linux will be options. <br> The Galasa Ecosystem has its own stable versions of the Kubernetes yaml files that are needed to create the entire Ecosystem.  If you want to override those and use your own yaml files, then use the yamlDirectory attribute.  If a resource is missing in the test's set, then the stable version is used. |
 
-## Code Snippets
+</details>
+
+
+
+## Code snippets
 
 Use the following code snippets to help you get started with the Galasa Ecosystem Manager.
  
-### Obtain a Kubernetes Namespace
+<details><summary>Obtain a Kubernetes Namespace</summary>
 
 ```java
 @KubernetesEcosystem
@@ -42,8 +48,9 @@ public IKubernetesNamespace namespace;
 
 This code requests that the Galasa Ecosystem be provisioned in a Kubernetes Namespace. The default tag for both of them is 
 PRIMARY.
+</details>
 
-### Retrieve the RAS Endpoint
+<details><summary>Retrieve the RAS Endpoint</summary>
 
 ```java
 @KubernetesEcosystem
@@ -55,8 +62,9 @@ URI ras = ecosystem.getEndpoint(EcosystemEndpoint.RAS);
 
 This snippet demonstrates how to retrieve the Result Archive Store (RAS) endpoint. Be aware, that the URI is 
 prefixed with the store type, e.g. couchdb:http://couchdb.server:5984. This is the same for the CPS, DSS and CREDS.
+</details>
 
-### Set and retrieve a CPS property
+<details><summary>Set and retrieve a CPS property</summary>
 
 ```java
 ecosystem.setCpsProperty("bob", "hello");
@@ -65,11 +73,15 @@ String value = ecosystem.getCpsProperty("bob")
 ```
 
 Sets the CPS property `bob` with the value `hello` and retrieves it again.
+</details>
 
 ## Configuration Properties
 
 The following are properties used to configure the Galasa Ecosystem Manager.
  
+<details>
+<summary>Docker Registry</summary>
+
 | Property: | Docker Registry |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.registry |
@@ -79,7 +91,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | a valid hostname |
 | Examples: | <code>galasaecosystem.docker.version=docker.galasa.dev</code> |
 
+</details>
  
+<details>
+<summary>Docker Image Version</summary>
+
 | Property: | Docker Image Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.docker.version |
@@ -89,7 +105,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | A valid Docker version literial |
 | Examples: | <code>galasaecosystem.docker.version=0.4.0</code> |
 
+</details>
  
+<details>
+<summary>Kubernetes Ecosystem Tag Shared Environment</summary>
+
 | Property: | Kubernetes Ecosystem Tag Shared Environment |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.ecosystem.tag.XXXXXX.shared.environment |
@@ -99,7 +119,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | A valid Shared Environment |
 | Examples: | <code>galasaecosystem.ecosystem.tag.SHARED.shared.environment=M1</code> |
 
+</details>
  
+<details>
+<summary>Maven Repository URL</summary>
+
 | Property: | Maven Repository URL |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.repository |
@@ -109,7 +133,11 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | Value URL |
 | Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
 
+</details>
  
+<details>
+<summary>Maven Artifact Version</summary>
+
 | Property: | Maven Artifact Version |
 | --------------------------------------- | :------------------------------------- |
 | Name: | galasaecosystem.maven.version |
@@ -119,3 +147,4 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Valid values: | A valid maven version literial |
 | Examples: | <code>galasaecosystem.maven.version=0.4.0</code> |
 
+</details>

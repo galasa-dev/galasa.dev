@@ -1,5 +1,5 @@
 ---
-path: "/docs/managers/zos-manager"
+path: "/docs/managers/zos-managertestformat"
 title: "zOS Manager"
 ---
 
@@ -8,55 +8,48 @@ title: "zOS Manager"
 ## Overview
 This Manager provides Galasa tests with access to a z/OS image.
 
-
 ## Annotations
 
-The following annotations are available with the zOS Manager
 <details>
-<summary>z/OS Batch</summary>
+<summary><code>@ZosBatch</code>
+</summary>
 
-| Annotation: | z/OS Batch |
+| Manager Name:  | z/OS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
-| Name: | @ZosBatch |
-| Description: | The <code>@ZosBatch</code> annotation requests the z/OS Manager to provide a z/OS Batch instance associated with a z/OS image.  The test can request multiple z/OS Batch instances, with the default being associated with the <b>primary</b> zOS image.<br> At test end, the Manager stores the job output with the test results archive and removes jobs from the JES queue. |
+| Description: | The <code>@ZosBatch</code> annotation requests the z/OS Batch Manager to provide a z/OS Batch instance associated with a z/OS image.  The test can request multiple z/OS Batch instances, with the default being associated with the <b>primary</b> zOS image.<br> At test end, the Manager stores the job output with the test results archive and removes jobs from the JES queue. |
 | Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosBatch(imageTag="A")<br> public IZosBatch zosBatchA;<br></code> |
 | Notes: | The <code>IZosBatch</code> interface has a single method, {@link IZosBatch#submitJob(String, IZosBatchJobname)} to submit a JCL  as a <code>String</code> and returns a <code>IZosBatchJob</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/ZosBatch.html" target="_blank">ZosBatch</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatch.html" target="_blank">IZosBatch</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosbatch/IZosBatchJob.html" target="_blank">IZosBatchJob</a> to find out more. |
-
 </details>
 
 <details>
-<summary>z/OS Console</summary>
+<summary><code>@ZosConsole</code>  
+</summary>
 
-| Annotation: | z/OS Console |
+| Manager Name: | z/OS Console Manager  |
 | --------------------------------------- | :------------------------------------- |
-| Name: | @ZosConsole |
-| Description: | The <code>@ZosConsole</code> annotation requests the z/OS Manager to provide a z/OS Console instance associated with a z/OS image.  The test can request multiple z/OS Console instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
+| Description: | The <code>@ZosConsole</code> annotation requests the z/OS Console Manager to provide a z/OS Console instance associated with a z/OS image.  The test can request multiple z/OS Console instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
 | Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosConsole(imageTag="A")<br> public IZosConsole zosConsoleA;<br></code> |
 | Notes: | The <code>IZosConsole</code> interface has two methods, {@link IZosConsole#issueCommand(String)} and {@link IZosConsole#issueCommand(String, String)} to issue a command to the z/OS console and returns a <code>IZosConsoleCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/ZosConsole.html" target="_blank">ZosConsole</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsole.html" target="_blank">IZosConsole</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosconsole/IZosConsoleCommand.html" target="_blank">IZosConsoleCommand</a> to find out more. |
-
 </details>
 
 <details>
-<summary>z/OS File</summary>
+<summary><code>@ZosFileHandler</code> 
+</summary>
 
-| Annotation: | z/OS File |
+| Manager Name: | z/OS File Manager  |
 | --------------------------------------- | :------------------------------------- |
-| Name: | @ZosFileHandler |
-| Description: | The <code>@ZosFileHandler</code> annotation requests the z/OS Manager to provide a handler instance to manage data sets and UNIX files on a z/OS image.  A single z/OS File Handler instance can manage multiple z/OS data sets and UNIX files on multiple z/OS images.<br> Files are deleted at method end unless created with the object's *createRetain()* method where it is deleted at test end.<br> |
+| Description: | The <code>@ZosFileHandler</code> annotation requests the z/OS File Manager to provide a handler to manage data sets and UNIX files on a z/OS image.  A single z/OS File Handler instance can manage multiple z/OS data sets and UNIX files on multiple z/OS images.<br> Files are deleted at method end unless created with the object's *createRetain()* method where it is deleted at test end.<br> |
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and z/OS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
-
 </details>
 
+## Code Snippets
 
-
-## Code snippets
-
-Use the following code snippets to help you get started with the zOS Manager.
- 
-<details><summary>Request a zOS Console instance</summary>
+<details>
+<summary> 
+<b>Request a zOS Console instance</b></summary>
 
 The following snippet shows the code that is required to request a zOS Console instance in a Galasa test:
 
@@ -71,7 +64,9 @@ public IZosConsole zosConsole;
 The code creates a zOS Console instance associated with the zOS Image allocated in the *zosImageA* field.
 </details>
 
-<details><summary>Issue a zOS Console command and retrieve the immediate response</summary>
+<details>
+<summary> 
+<b>Issue a zOS Console command and retrieve the immediate response</b></summary>
 
 Issue a zOS Console command and retrieve the immediate console command response:
 
@@ -83,8 +78,9 @@ String immediateResponse = consoleCommand.getResponse();
 ```
 </details>
 
-
-<details><summary>Issue a zOS Console command and retrieve the delayed response</summary>
+<details>
+<summary> 
+<b>Issue a zOS Console command and retrieve the delayed response</b></summary>
 
 Issue a zOS Console command and retrieve the delayed console command response:
 
@@ -95,8 +91,10 @@ String delayedResponse = consoleCommand.requestResponse();
 
 ```
 </details>
- 
-<details><summary>Request a zOS Batch instance</summary>
+
+<details>
+<summary> 
+<b>Request a zOS Batch instance</b></summary>
 
 The following snippet shows the code that is required to request a zOS Batch instance in a Galasa test:
 
@@ -112,7 +110,9 @@ public IZosBatch zosBatch;
 The code creates a zOS Batch instance associated with the allocated with the zOS Image allocated in the *zosImageA* field.
 </details>
 
-<details><summary>Submit a zOS Batch Job</summary>
+<details>
+<summary> 
+<b>Submit a zOS Batch Job</b></summary>
 
 Submit a zOS Batch Job using the supplied JCL and a Galasa allocated Job Name:
 
@@ -122,21 +122,9 @@ IZosBatchJob batchJob = zosBatch.submitJob(jcl, null);
 ```
 </details>
 
-
-<details><summary>Submit a zOS Batch Job with job card parameters</summary>
-
-Submit a zOS Batch Job using the supplied JCL, a Galasa allocated Job Name and overidding the default input and message class:
-
-```
-String jcl = "//STEP1    EXEC PGM=IEFBR14";
-ZosBatchJobcard jobcard = new ZosBatchJobcard().
-                          .setInputClass("B")
-                          .setMsgClass("X");
-IZosBatchJob batchJob = zosBatch.submitJob(jcl, null, jobcard);
-```
-</details>
-
-<details><summary>Wait for zOS Batch Job to complete</summary>
+<details>
+<summary> 
+<b>Wait for zOS Batch Job to complete</b></summary>
 
 Wait for zOS Batch job to complete and check maximum return code:
 
@@ -159,8 +147,9 @@ Batch job failed RETCODE=ABEND S0C4
 ```
 </details>
 
-
-<details><summary>Retrieve the job output</summary>
+<details>
+<summary> 
+<b>Retrieve the job output</b></summary>
 
 Use the following code to retrieve the output from a zOS Batch Job:
 
@@ -174,65 +163,11 @@ for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
 }
 
 ```
-</details>
+</details> 
 
-<details><summary>Obtain a list of active jobs</summary>
-
-Use the following code to obtain a list of active jobs called *MYJOB1* with an owner of *USERID*:
-
-```
-List<IZosBatchJob> jobs = zosBatch.getJobs("MYJOB1", "USERID");
-for (IZosBatchJob job : jobs) {
-    if (job.getStatus().equals("ACTIVE")) {
-        ...
-    }
-}
-
-```
-</details>
-
-<details><summary>Retrieve the content of a specific spool file from an active CICS region</summary>
-
-Use the following code to retrieve and process the output from the *MSGUSR* spool file:
-
-```
-List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
-for (IZosBatchJob job : jobs) {
-    if (job.getStatus().equals("ACTIVE")) {
-        String msgusr = cicsJob.getSpoolFile("MSGUSR");
-        if (msgusr.contains("DFHAC2236")) {
-            ...
-        }
-        break;
-    }
-}
-
-```
-
-
-The code retrieves a list of CICS regions named *CICSRGN* with and owner of *CICSUSR*. It then loops through until it finds the first active region. The content of the *MSGUSR* spool file is obtained and checked for the string *DFHAC2236*.
-
-In this example, we assume there will only one spool file with the ddname of *MSGUSR*. If this were not the case, the following code could be used:
-
-```
-List<IZosBatchJob> jobs = zosBatch.getJobs("CICSRGN", "CICSUSR");
-for (IZosBatchJob job : jobs) {
-    List<IZosBatchJobOutputSpoolFile> spoolFiles = job.retrieveOutput().getSpoolFiles();
-    for (IZosBatchJobOutputSpoolFile spoolFile : spoolFiles) {
-        if (spoolFile.getDdname().equals("SYSOUT") &&
-            spoolFile.getStepname().equals("STEP2")) {
-            String output = spoolFile.getRecords();
-            ...
-        }
-    }
-}
-
-```
-
-Here, the code retrieves the content of the *SYSOUT* spool file for job step *STEP2*.
-</details>
- 
-<details><summary>Request a zOS File Handler instance</summary>
+<details>
+<summary> 
+<b>Request a zOS File Handler instance</b></summary>
 
 The following snippet shows the code that is required to request a zOS File Handler instance in a Galasa test:
 
@@ -242,7 +177,9 @@ public IZosFileHandler zosFileHandler;
 ```
 </details>
 
-<details><summary>Read the content of an existing sequential data set</summary>
+<details>
+<summary> 
+<b>Read the content of an existing sequential data set</b></summary>
 
 Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content:
 
@@ -261,8 +198,9 @@ if (dataSet.exists()) {
 ```
 </details>
 
-
-<details><summary>Read the content of an existing partitioned data set member</summary>
+<details>
+<summary> 
+<b>Read the content of an existing partitioned data set member</b></summary>
 
 Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content:
 
@@ -282,8 +220,9 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zo
 ```
 </details>
 
-
-<details><summary>Create a new sequential data set</summary>
+<details>
+<summary> 
+<b>Create a new sequential data set</b></summary>
 
 Create a new *IZosDataset* object representing a new sequential data set. If the data set does not exist, allocate the data set with attributes to the equivalent of the following JCL:
 
@@ -320,7 +259,9 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosIma
 ```
 </details>
 
-<details><summary>Create a new partitioned data set member</summary>
+<details>
+<summary> 
+<b>Create a new partitioned data set member</b></summary>
 
 Create a new *IZosDataset* object representing a new partitioned data (PDS) set member. If the data set does not exist, allocate the PDS with attributes to the equivalent of the following JCL:
 
@@ -371,7 +312,9 @@ dataSet.setDatasetType(DSType.PDSE);
 instead of setting the number of directory blocks.
 </details>
 
-<details><summary>Create a new VSAM KSDS</summary>
+<details>
+<summary> 
+<b>Create a new VSAM KSDS</b></summary>
 
 Create a new *IZosVSAMDataset* object representing a new VSAM KSDS data set. If the data set is allocated with a minimum set of attributes:
 
@@ -381,10 +324,11 @@ vsamDataSet.setSpace(VSAMSpaceUnit.CYLINDERS, 1, 1);
 vsamDataSet.setRecordSize(50, 101);
 vsamDataSet.create();
 ```
-</details>
+</detials>
 
-<details><summary>Read a zOS UNIX File</summary>
+<details>
+<summary> 
+<b>Read a zOS UNIX File</b></summary>
 
 *To be completed...*
 </details>
-

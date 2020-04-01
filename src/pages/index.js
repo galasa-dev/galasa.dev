@@ -89,6 +89,28 @@ const IndexPage = () => (
           Start running repeatable, reliable, automated tests and deliver your
           software changes faster and with confidence.
         </p>
+        <p className={indexStyles.announceBanner}>
+          Release 0.6.0 of Galasa is now available!
+        </p>
+        <p className={indexStyles.announceDescription}>
+          Highlights:
+          <ul>
+            <li>Selenium Manager (alpha)</li>
+            <li>JMeter Manager (alpha)</li>
+            <li>
+              Documentation update -{" "}
+              <i>Writing your own independent Galasa tests</i>
+            </li>
+          </ul>
+          <Link
+            to="/docs/getting-started/installing"
+            className={indexStyles.announceLink}
+          >
+            Install
+          </Link>{" "}
+          the Galasa Eclipse plug-in today.
+        </p>
+        <br></br>
         <div className={indexStyles.heroButtons}>
           <Button target={"/docs/getting-started"} flash={true} primary={true}>
             Get Started
