@@ -17,23 +17,27 @@ Use the following code snippets to help you get started with the Artifact Manage
  
 <details><summary>Create the Artifact Manager</summary>
 
-The following snippet shows the minimum code that is required to request the Artifact Manager in a test:
+The ArtifactManager allows you to stream resources from within the same bundles as your test class.  The easiest way to accomplish this is to use the BundleResources annotation:
+
+```
+@BundleResources
+IBundleResources resources;
+```
+The resources object now references the list of resources that are held within the test bundle under /src/main/resources/  These resources can now be accessed directly by the test code, by calling methods on the resources object.
+
+Alternativley if the resources are within another class you can use the ArtifactManager annotation to address the manager directly:
 
 ```
 @ArtifactManager
 public IArtifactManager artifacts;
 ```
 
-The code creates an interface to the Artifact Manager. The Artifact Manager allows the test to stream resources from the same bundle as the test and can also be used to substitute parameters into a skeleton file.
-</details>
-
-<details><summary>Create a reference to the bundles resources</summary>
+This will provision an instance of the artifact manager.  In order to obtain a IBundleResources object to reference the content of the resources within a test bundle you will need to use the api:
 
 ```
 IBundleResources resources = artifacts.getBundleResources(this.getClass());
 ```
 
-The IBundleResources object now references the list of resources that are held within the test bundle under /src/main/resources/  These resources can now be accessed directly by the test code.
 </details>
 
 <details><summary>Retrieving the content of a file as a string</summary> 
