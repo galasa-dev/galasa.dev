@@ -3,7 +3,7 @@ path: "/docs/managers"
 title: "Managers"
 ---
 
-You can find links to the Javadoc API documentation for all the Galasa Managers on the [overview page](https://javadoc-snapshot.galasa.dev/overview-summary.html). 
+You can find links to the Javadoc API documentation for all the Galasa Managers on the [overview page](https://javadoc.galasa.dev/).
 
 ## Managers provided with the current Galasa distribution
 
