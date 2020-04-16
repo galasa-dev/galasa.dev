@@ -3,12 +3,10 @@ path: "/docs/managers/artifact-manager"
 title: "Artifact Manager"
 ---
 
-**Release.**
+**Release**
 
 ## Overview
 This manager allows a test to access files stored within the same bundle as the test code itself.  Helper methods are provided to stream and substitute symbolics within the loaded file <br><br>
-
-
 
 
 ## Code snippets
