@@ -1,4 +1,9 @@
 - sections:
+    - title: Releases
+      root: /releases/
+      items:
+        - title: Highlights
+          path: /releases/highlights
     - title: About
       root: /about/
       items:
