@@ -6,7 +6,7 @@ title: "CICS TS CECI Manager"
 **Alpha - This Manager is being actively developed. It is subject to change and has not been extensively tested.**
 
 ## Overview
-This manager allows Galasa tests to issue CICS/TS CECI commands.
+This manager allows Galasa tests to issue CICS/TS CECI commands. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/ceci/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 ## Annotations

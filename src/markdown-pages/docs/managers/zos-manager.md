@@ -50,11 +50,68 @@ The following annotations are available with the zOS Manager
 
 </details>
 
+<details>
+<summary>z/OS TSO</summary>
+
+| Annotation: | z/OS TSO |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @ZosTSO |
+| Description: | The <code>@ZosTSO</code> annotation requests the z/OS Manager to provide a z/OS TSO instance associated with a z/OS image.  The test can request multiple z/OS TSO instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
+| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
+| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosTSO(imageTag="A")<br> public IZosTSO zosTSOA;<br></code> |
+| Notes: | The <code>IZosTSO</code> interface provides the method {@link IZosTSO#issueCommand(String)} to issue a command to z/OS TSO and returns a <code>IZosTSOCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/ZosTSO.html" target="_blank">ZosTSO</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/IZosTSO.html" target="_blank">IZosTSO</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/IZosTSOCommand.html" target="_blank">IZosTSOCommand</a> to find out more. |
+
+</details>
+
+<details>
+<summary>z/OS UNIX</summary>
+
+| Annotation: | z/OS UNIX |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @ZosUNIX |
+| Description: | The <code>@ZosUNIX</code> annotation requests the z/OS Manager to provide a z/OS UNIX instance associated with a z/OS image.  The test can request multiple z/OS UNIX instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
+| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
+| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosUNIX(imageTag="A")<br> public IZosUNIX zosUNIXA;<br></code> |
+| Notes: | The <code>IZosUNIX</code> interface provides the method {@link IZosUNIX#issueCommand(String)} to issue a command to z/OS UNIX and returns a <code>IZosUNIXCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/ZosUNIX.html" target="_blank">ZosUNIX</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/IZosUNIX.html" target="_blank">IZosUNIX</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/IZosUNIXCommand.html" target="_blank">IZosUNIXCommand</a> to find out more. |
+
+</details>
+
 
 
 ## Code snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
+ 
+### Request a zOS TSO Command instance
+
+The following snippet shows the code that is required to request a zOS TSO Command instance in a Galasa test:
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+
+@ZosTSO(imageTag="A")
+public IZosTSO tso;
+```
+
+The code creates a zOS TSO Command instance associated with the zOS Image allocated in the *zosImageA* field.
+
+
+### Issue a zOS TSO Command and retrieve the immediate response
+
+Issue the zOS TSO `TIME` Command and retrieve the response:
+
+```
+String tsoCommandString = "TIME";
+IZosTSOCommand tsoCommand = tso.issueCommand(tsoCommandString);
+String tsoResponse = tsoCommand.getResponse();
+```
+
+The String `response`  contains the value of the TSO TIME command, e.g. 
+
+```
+IKJ56650I TIME-04:17:14 PM. CPU-00:00:00 SERVICE-290 SESSION-00:00:00 APRIL 15,2020
+```
  
 <details><summary>Request a zOS Console instance</summary>
 
@@ -387,4 +444,66 @@ vsamDataSet.create();
 
 *To be completed...*
 </details>
+ 
+### Request a zOS UNIX Command instance
 
+The following snippet shows the code that is required to request a zOS UNIX Command instance in a Galasa test:
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+
+@ZosUNIX(imageTag="A")
+public IZosUNIX unix;
+```
+
+The code creates a zOS UNIX Command instance associated with the zOS Image allocated in the *zosImageA* field.
+
+
+### Issue a zOS UNIX Command and retrieve the immediate response
+
+Issue the zOS UNIX `date` Command and retrieve the response:
+
+```
+String unixCommandString = "date";
+IZosUNIXCommand unixCommand = unix.issueCommand(unixCommandString);
+String unixResponse = unixCommand.getResponse();
+```
+
+The String `response`  contains the value of the UNIX TIME command, e.g. 
+
+```
+Wed Apr 15 16:17:14 BST 2020
+```
+
+## Configuration Properties
+
+The following are properties used to configure the zOS Manager.
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS TSO Command Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS TSO Command Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.[imageid].tso.manager |
+| Description: | The name of the Bundle that implements the zOS TSO Command Manager |
+| Required:  | No |
+| Default value: | dev.galasa.zostso.ssh.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.MVSA.tso.manager=dev.galasa.zostso.ssh.manager</code><br> <code>zos.bundle.extra.tso.manager=dev.galasa.zostso.ssh.manager</code> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS UNIX Command Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS UNIX Command Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.[imageid].unix.manager |
+| Description: | The name of the Bundle that implements the zOS UNIX Command Manager |
+| Required:  | No |
+| Default value: | dev.galasa.zosunix.ssh.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.MVSA.unix.manager=dev.galasa.zosunix.ssh.manager</code><br> <code>zos.bundle.extra.unix.manager=dev.galasa.zosunix.ssh.manager</code> |
+
+</details>
