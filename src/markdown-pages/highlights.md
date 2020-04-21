@@ -9,9 +9,6 @@ Galasa is an open source project and is delivered using a continuous delivery mo
 
 ## 0.7.0 - Release Highlights
 <b>Release date (UTC) - 2020-05-01</b>
-- <b> Manager ()</b> - 
-- <b> Manager ()</b> - 
-- <b>Documentation update</b> 
 
 
 ### 0.6.0 - Release Highlights
