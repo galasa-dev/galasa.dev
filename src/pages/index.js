@@ -98,7 +98,7 @@ const IndexPage = () => (
           <Button target={"/about"} flash={true} primary={true}>
             Learn more
           </Button>
-          <Button target={"/releases/highlights"} flash={true} primary={true}>
+          <Button target={"/releases"} flash={true} primary={true}>
             0.7.0 highlights
           </Button>
         </div>
