@@ -23,11 +23,12 @@ const keyFeatures = [
     title: "Integrate across systems",
     body: (
       <>
-        Galasa integrates easily into your{" "}
-        <Link to="/about/devops">DevOps strategy</Link> and can be used
-        alongside other test tools. Able to access external files and commands,
-        Galasa comes with pluggable support for deep integration with multiple
-        Operating Systems, including z/OS subsystems.
+        Whether your application runs in z/OS, on Linux, inside a container, or
+        as combination of those, Galasa can interrogate all parts of that
+        application and integrate a mix of tooling into a single test. When
+        you’re ready, Galasa integrates easily into your{" "}
+        <Link to="/about/devops">DevOps strategy</Link>, and can be used
+        alongside other test tools.
       </>
     ),
   },
@@ -83,39 +84,23 @@ const IndexPage = () => (
     <div className={indexStyles.heroContainer}>
       <div>
         <h1 className={indexStyles.heroTitle}>
-          Deep integration testing for power-seeking testers
+          Deep integration testing for z/OS powered hybrid cloud applications
         </h1>
         <p className={indexStyles.heroDescription}>
-          Start running repeatable, reliable, automated tests and deliver your
-          software changes faster and with confidence.
-        </p>
-        <p className={indexStyles.announceBanner}>
-          Release 0.6.0 of Galasa is now available!
-        </p>
-        <p className={indexStyles.announceDescription}>
-          Highlights:
-          <ul>
-            <li>Selenium Manager (alpha)</li>
-            <li>JMeter Manager (alpha)</li>
-            <li>
-              Documentation update -{" "}
-              <i>Writing your own independent Galasa tests</i>
-            </li>
-          </ul>
-          <Link
-            to="/docs/getting-started/installing"
-            className={indexStyles.announceLink}
-          >
-            Install
-          </Link>{" "}
-          the Galasa Eclipse plug-in today.
+          Allowing you to test applications at scale regardless of platform - including
+          z/OS
         </p>
         <br></br>
         <div className={indexStyles.heroButtons}>
           <Button target={"/docs/getting-started"} flash={true} primary={true}>
             Get Started
           </Button>
-          <Button target={"/about"}>Learn more</Button>
+          <Button target={"/about"} flash={true} primary={true}>
+            Learn more
+          </Button>
+          <Button target={"/releases/highlights"} flash={true} primary={true}>
+            0.7.0 highlights
+          </Button>
         </div>
       </div>
     </div>
