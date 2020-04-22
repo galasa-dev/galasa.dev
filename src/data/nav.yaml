@@ -4,8 +4,8 @@
       items:
         - title: Highlights
           path: /releases/highlights
-        - title: Licenses
-          path: /releases/licenses
+        - title: License
+          path: /releases/license
     - title: About
       root: /about/
       items:
