@@ -1,4 +1,13 @@
 - sections:
+    - title: Releases
+      root: /releases/
+      items:
+        - title: Highlights
+          path: /releases/highlights
+        - title: Licenses
+          path: /releases/licenses
+        - title: Contributing to Galasa
+          path: /releases/contributing
     - title: About
       root: /about/
       items:
