@@ -14,7 +14,7 @@ const keyFeatures = [
       <>
         With Galasa you can run reliable, repeatable, scalable, automated
         integration tests instead of time-consuming manual ones. Use the time
-        saved to focus on designing more complex tests to root out those
+        you save to focus on designing more complex tests to root out those
         hard-to-find application defects.
       </>
     ),
@@ -87,8 +87,8 @@ const IndexPage = () => (
           Deep integration testing for z/OS powered hybrid cloud applications
         </h1>
         <p className={indexStyles.heroDescription}>
-          Allowing you to test applications at scale regardless of platform - including
-          z/OS
+          Allowing you to test applications at scale regardless of platform -
+          including z/OS
         </p>
         <br></br>
         <div className={indexStyles.heroButtons}>
