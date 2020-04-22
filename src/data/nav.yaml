@@ -3,7 +3,7 @@
       root: /releases/
       items:
         - title: Highlights
-          path: /releases/highlights
+          path: /releases/
         - title: License
           path: /releases/license
     - title: About
