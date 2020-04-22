@@ -85,7 +85,9 @@ dss.properties
    ```
 
 1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
-   `properties secure.credentials.SIMBANK.username=IBMUSER secure.credentials.SIMBANK.password=SYS1`
+   ```
+   properties secure.credentials.SIMBANK.username=IBMUSER 
+   secure.credentials.SIMBANK.password=SYS1```
    <!-- 1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents:
 
 ```
