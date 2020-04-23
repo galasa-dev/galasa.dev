@@ -4,7 +4,7 @@ title: "Support"
 ---
 If you find any problems whilst you’re using Galasa, get in touch and get the help you need:
 
--  Search our project management repository on GitHub and our Spectrum channel, perhaps someone has already had a similar issue and solved it.
+-  Search our [project management repository](https://github.com/galasa-dev/projectmanagement/issues) on GitHub and our [Spectrum](https://spectrum.chat/galasa) channel, perhaps someone has already had a similar issue and solved it.
 -  If you have an error message or java stack trace exception, feel free to raise an issue in the project management repository and the Galasa community will get back to you as soon as possible.
 -  If you have a question or a query, try our Spectrum channel. Here, experts and users from the community can come together to help you out and answer your question.
 
