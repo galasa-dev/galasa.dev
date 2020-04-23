@@ -102,7 +102,7 @@ const Header = ({ extraHeight }) => {
                 Releases
               </Link>
               <Link
-                to="/docs/support"
+                to="/support"
                 onClick={() => setMenuOpen(false)}
                 className={
                   headerStyles.navLink + " " + selector("support", location)
