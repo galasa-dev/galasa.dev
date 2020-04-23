@@ -11,14 +11,17 @@ Galasa is an open source project and is delivered using a continuous delivery mo
 <b>Release date - 2020-04-30 UTC</b>
 
 
-### 0.6.0 - Release Highlights
+<details>
+<summary><b>0.6.0 - Release Highlights</summary></b>
 <b>Release date - 2020-04-01 UTC</b>
 
 - <b>Selenium Manager (alpha)</b> - enabling a test to run Selenium WebDrivers in order to drive Web Browsers during the test. 
 - <b>JMeter Manager (alpha)</b> - enabling a JMeter session to run inside a Docker Container.
 - <b>Documentation update</b> - how to start writing your own independent Galasa tests. 
+</details>
 
-### 0.5.0 - Release Highlights
+<details>
+<summary><b>0.5.0 - Release Highlights</summary></b>
 <b>Release date - 2020-03-09 UTC</b>
 
 - <b>z/OS Batch Manager (beta)</b> - enabling tests and Managers to submit, monitor and retrieve z/OS batch jobs.
@@ -27,8 +30,10 @@ Galasa is an open source project and is delivered using a continuous delivery mo
 - <b>Docker Manager (release) </b> - enabling containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. 
 - <b>Documentation update</b> - how to start writing your own Simbank tests. 
 - <b>Documentation update</b> - new SimBank z/OS Batch Manager tutorial available.
+</details>
 
-### 0.4.0 - Release Highlights
+<details>
+<summary><b>0.4.0 - Release Highlights</summary></b>
 <b>Release date - 2020-02-12 UTC</b>
 
 - <b>Docker Manager (beta)</b> - enabling the provisioning of Docker Containers for tests to use.
@@ -37,14 +42,15 @@ Galasa is an open source project and is delivered using a continuous delivery mo
 - <b> Elastic Logger Manager (alpha)</b> - enabling test results to be exported to Elastic Search.
 - <b> Shared Environment (alpha) - enabling Managers to create a testing environment for multiple tests to use.
 - <b>Documentation update</b> - Manager reference pages are available.
+</details>
 
-
-### 0.3.0 - Release Highlights
+<details>
+<summary><b>0.3.0 - Release Highlights</summary></b>
 <b>Release date - 2019-12-04 UTC</b>
 
 - <b>Launch of website</b> - providing alpha documentation and installing guide.
 - <b>Galasa:Simbank</b> - implementing a sample banking application against which you can configure and run a set of provided tests.
 - <b>z/OS Manager (beta)</b> - providing tests and Managers with configuration information about z/OS images and Sysplexes. 
-
+</details>
 
 
