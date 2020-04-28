@@ -6,7 +6,7 @@ title: "zOS Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager provides Galasa tests with access to a z/OS image.
+This Manager provides Galasa tests with access to a z/OS image.<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 ## Annotations
@@ -82,7 +82,7 @@ The following annotations are available with the zOS Manager
 
 Use the following code snippets to help you get started with the zOS Manager.
  
-### Request a zOS TSO Command instance
+<details><summary>Request a zOS TSO Command instance
 
 The following snippet shows the code that is required to request a zOS TSO Command instance in a Galasa test:
 
@@ -95,9 +95,9 @@ public IZosTSO tso;
 ```
 
 The code creates a zOS TSO Command instance associated with the zOS Image allocated in the *zosImageA* field.
+</details>
 
-
-### Issue a zOS TSO Command and retrieve the immediate response
+<details><summary>Issue a zOS TSO Command and retrieve the immediate response
 
 Issue the zOS TSO `TIME` Command and retrieve the response:
 
@@ -112,6 +112,7 @@ The String `response`  contains the value of the TSO TIME command, e.g.
 ```
 IKJ56650I TIME-04:17:14 PM. CPU-00:00:00 SERVICE-290 SESSION-00:00:00 APRIL 15,2020
 ```
+</details>
  
 <details><summary>Request a zOS Console instance</summary>
 
@@ -445,7 +446,7 @@ vsamDataSet.create();
 *To be completed...*
 </details>
  
-### Request a zOS UNIX Command instance
+<details><summary>Request a zOS UNIX Command instance
 
 The following snippet shows the code that is required to request a zOS UNIX Command instance in a Galasa test:
 
@@ -458,9 +459,9 @@ public IZosUNIX unix;
 ```
 
 The code creates a zOS UNIX Command instance associated with the zOS Image allocated in the *zosImageA* field.
+</details>
 
-
-### Issue a zOS UNIX Command and retrieve the immediate response
+<details><summary>Issue a zOS UNIX Command and retrieve the immediate response
 
 Issue the zOS UNIX `date` Command and retrieve the response:
 
@@ -475,6 +476,7 @@ The String `response`  contains the value of the UNIX TIME command, e.g.
 ```
 Wed Apr 15 16:17:14 BST 2020
 ```
+</details>
 
 ## Configuration Properties
 
