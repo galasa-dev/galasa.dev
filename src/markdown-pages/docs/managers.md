@@ -17,11 +17,11 @@ You can find links to the Javadoc API documentation for all the Galasa Managers 
 | **[Galasa Ecosystem Manager](/docs/managers/galasa-ecosystem-manager)**<br>![alpha](../../images/alpha.svg) | Deploys an entire Galasa ecosystem to Kubernetes to enable integration testing against Galasa. |
 | **HTTP Client Manager**<br> ![beta](../../images/beta.svg) | Provides a common setup of HTTP client operations for the test (or a Manager) to use. |
 | **IP Network Manager**<br> ![alpha](../../images/alpha.svg) | Provides configuration information for IP-based servers. |
-| **[JMeter Manager](/docs/managers/jmeter-manager)**<br>![alpha](../../images/alpha.svg) | Configures and runs JMeter testing via Docker containers.|
+| **[JMeter Manager](/docs/managers/jmeter-manager)**<br>![beta](../../images/beta.svg) | Configures and runs JMeter testing via Docker containers.|
 | **[Kubernetes Manager](/docs/managers/kubernetes-manager)**<br> ![alpha](../../images/alpha.svg) | Provisions Kubernetes namespaces for tests (or Managers) to use. |
 | **Linux Manager**<br> ![alpha](../../images/alpha.svg) | Provides Linux server configuration properties. Drives provisioning by other Managers such as the OpenStack Manager. |
 | **OpenStack Manager**<br> ![alpha](../../images/alpha.svg) | Provisions servers within OpenStack. This Manager currently only supports Linux and provides the servers via the Linux Manager. |
-| **[Selenium Manager](/docs/managers/selenium-manager)**<br> ![alpha](../../images/alpha.svg) | Allows tests to drive Web Browser testing using Selenium.|
+| **[Selenium Manager](/docs/managers/selenium-manager)**<br> ![beta](../../images/beta.svg) | Allows tests to drive Web Browser testing using Selenium.|
 | **z/OS 3270 Manager**<br> ![alpha](../../images/alpha.svg)| Provides tests and Managers with a 3270 client.|
 | **[z/OS Batch z/OS MF Manager](/docs/managers/zos-batch-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Batch Manager using z/OS MF. Can only be used via the z/OS Batch Manager interface. |
 | **[z/OS Console z/OS MF Manager](/docs/managers/zos-console-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS Console using z/OS MF. Can only be used via the z/OS Console Manager interface. |
