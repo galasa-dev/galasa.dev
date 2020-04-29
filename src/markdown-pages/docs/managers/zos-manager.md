@@ -82,7 +82,7 @@ The following annotations are available with the zOS Manager
 
 Use the following code snippets to help you get started with the zOS Manager.
  
-<details><summary>Request a zOS TSO Command instance
+<details><summary>Request a zOS TSO Command instance</summary>
 
 The following snippet shows the code that is required to request a zOS TSO Command instance in a Galasa test:
 
@@ -97,7 +97,7 @@ public IZosTSO tso;
 The code creates a zOS TSO Command instance associated with the zOS Image allocated in the *zosImageA* field.
 </details>
 
-<details><summary>Issue a zOS TSO Command and retrieve the immediate response
+<details><summary>Issue a zOS TSO Command and retrieve the immediate response</summary>
 
 Issue the zOS TSO `TIME` Command and retrieve the response:
 
@@ -446,7 +446,7 @@ vsamDataSet.create();
 *To be completed...*
 </details>
  
-<details><summary>Request a zOS UNIX Command instance
+<details><summary>Request a zOS UNIX Command instance</summary>
 
 The following snippet shows the code that is required to request a zOS UNIX Command instance in a Galasa test:
 
@@ -461,7 +461,7 @@ public IZosUNIX unix;
 The code creates a zOS UNIX Command instance associated with the zOS Image allocated in the *zosImageA* field.
 </details>
 
-<details><summary>Issue a zOS UNIX Command and retrieve the immediate response
+<details><summary>Issue a zOS UNIX Command and retrieve the immediate response</summary>
 
 Issue the zOS UNIX `date` Command and retrieve the response:
 
