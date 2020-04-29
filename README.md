@@ -2,6 +2,8 @@
 
 This repository contains the source for the Galasa test automation system homepage.
 
+If you are interested in the development of Galasa, take a look at the documentation and feel free to post a question on [Spectrum](https://spectrum.chat/galasa?tab=posts) or raise new ideas / features / bugs etc. as issues on [GitHub](https://github.com/galasa-dev/projectmanagement).
+
 ## Getting started
 
 To use the site locally, follow the following instructions:
@@ -28,8 +30,6 @@ npm run serve
 ```
 
 ## Contributing
-
-If you are interested in the development of Galasa, take a look at the documentation and feel free to post a question on [Spectrum](https://spectrum.chat/galasa?tab=posts) or raise new ideas / features / bugs etc. as issues on [GitHub](https://github.com/galasa-dev/projectmanagement).
 
 Take a look at the [contribution guidelines](https://github.com/galasa-dev/projectmanagement/blob/master/contributing.md).
 
