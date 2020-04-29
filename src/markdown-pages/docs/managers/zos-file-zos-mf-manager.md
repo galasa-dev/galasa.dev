@@ -6,7 +6,7 @@ title: "zOS File zOS MF Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager is the internal implementation of the z/OS File Manager using z/OS MF. <p> See the <a href="../zos-manager">z/OS Manager</a> for details of the z/OS File Annotations.
+This Manager is the internal implementation of the zOS File Manager using zOS/MF. <p> See the <a href="../zos-manager">zOS Manager</a> for details of the z/OS File Annotations.
 
 
 
@@ -14,7 +14,7 @@ This Manager is the internal implementation of the z/OS File Manager using z/OS 
 
 ## Configuration Properties
 
-The following are properties used to configure the z/OS File z/OS MF Manager.
+The following are properties used to configure the zOS File zOS MF Manager.
  
 <details>
 <summary>The maximum number of items from a directory list</summary>
@@ -22,7 +22,7 @@ The following are properties used to configure the z/OS File z/OS MF Manager.
 | Property: | The maximum number of items from a directory list |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosfile.unix.[imageid].directory.list.max.items |
-| Description: | The maximum number of items z/OS MF returns when listing the content of a directory |
+| Description: | The maximum number of items zOSMF returns when listing the content of a directory |
 | Required:  | No |
 | Default value: | 1000 |
 | Valid values: | $validValues |
@@ -31,12 +31,12 @@ The following are properties used to configure the z/OS File z/OS MF Manager.
 </details>
  
 <details>
-<summary>Restrict processing to the z/OS MF server on the specified image</summary>
+<summary>Restrict processing to the zOSMF server on the specified image</summary>
 
-| Property: | Restrict processing to the z/OS MF server on the specified image |
+| Property: | Restrict processing to the zOSMF server on the specified image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosfile.zosmf.[imageid].restrict.to.image |
-| Description: | Use only the z/OS MF server running on the image associated with the z/OS data set or file |
+| Description: | Use only the zOSMF server running on the image associated with the zOS data set or file |
 | Required:  | No |
 | Default value: | False |
 | Valid values: | $validValues |
