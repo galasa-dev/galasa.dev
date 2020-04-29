@@ -302,7 +302,7 @@ public IZosFileHandler zosFileHandler;
 
 <details><summary>Read the content of an existing sequential data set</summary>
 
-Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content:
+Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content in text mode:
 
 ```
 @ZosImage(imageTag="A")
@@ -313,7 +313,7 @@ public IZosFileHandler zosFileHandler;
 ...
 IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ", zosImageA);
 if (dataSet.exists()) {
-    String dataSet.retrieve();
+    String dataSet.retrieveAsText();
     ...
 }
 ```
@@ -322,7 +322,7 @@ if (dataSet.exists()) {
 
 <details><summary>Read the content of an existing partitioned data set member</summary>
 
-Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content:
+Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content in text mode:
 
 ```
 @ZosImage(imageTag="A")
@@ -334,7 +334,7 @@ public IZosFileHandler zosFileHandler;
 IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zosImageA);
     String memberName = "MEMBER1";
     if (dataSet.exists() && dataSet.memberExists(memberName)) {
-        String content = dataSet.memberRetrieve(memberName);
+        String content = dataSet.memberRetrieveAsText(memberName);
         ...
     }
 ```
@@ -350,7 +350,7 @@ Create a new *IZosDataset* object representing a new sequential data set. If the
 //            DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=32720,
 //            UNIT=SYSDA,SPACE=(TRK,(1,1))
 ```
-Finally, content is written to the data set:
+Finally, content is written to the data set in text mode:
 
 
 ```
@@ -374,7 +374,7 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosIma
     records.add("RECORD 1");
     records.add("RECORD 2");
     records.add("RECORD 3");
-    dataSet.store(String.join("\n", records));
+    dataSet.storeText(String.join("\n", records));
 ```
 </details>
 
@@ -387,7 +387,7 @@ Create a new *IZosDataset* object representing a new partitioned data (PDS) set 
 //            DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=32720,
 //            UNIT=SYSDA,SPACE=(TRK,(1,1,15))
 ```
-Finally, content is written to a member in the PDS:
+Finally, content is written to a member in the PDS in text mode:
 
 
 ```
@@ -413,7 +413,7 @@ List<String> records = new ArrayList<>();
     records.add("RECORD 1");
     records.add("RECORD 2");
     records.add("RECORD 3");
-    dataSet.memberStore(memberName, String.join("\n", records));
+    dataSet.memberStoreText(memberName, String.join("\n", records));
 }
 ```
 To create a PDS/E, i.e. the JCL equivalent of
@@ -483,16 +483,170 @@ Wed Apr 15 16:17:14 BST 2020
 The following are properties used to configure the zOS Manager.
  
 <details>
+<summary>Extra bundle to required to implement the zOS Batch Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS Batch Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.batch.manager |
+| Description: | The name of the Bundle that implements the zOS Batch Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>The zOS Cluster ID</summary>
+
+| Property: | The zOS Cluster ID |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.tag.[tag].clusterid |
+| Description: | The zOS Cluster ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
+
+</details>
+ 
+<details>
+<summary>The images for a zOS Cluster</summary>
+
+| Property: | The images for a zOS Cluster |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.cluster.[clusterId].images |
+| Description: | The zOS Images for the specifies Cluster |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.cluster.[clusterId].images=SYSA,SYSB,SYSC</code><br> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS Console Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS Console Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.console.manager |
+| Description: | The name of the Bundle that implements the zOS Console Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosconsole.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.console.manager=dev.galasa.common.zosconsole.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>Developer Supplied Environment zOS Image Cluster ID</summary>
+
+| Property: | Developer Supplied Environment zOS Image Cluster ID |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].clusterid |
+| Description: | The Cluster ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].clusterid=PLEXA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Developer Supplied Environment zOS Image</summary>
+
+| Property: | Developer Supplied Environment zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].imageid |
+| Description: | The image ID of the Developer Supplied Environment for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS File Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS File Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.file.manager |
+| Description: | The name of the Bundle that implements the zOS File Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosfile.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.file.manager=dev.galasa.common.zosfile.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>IP Host ID of the zOS Image</summary>
+
+| Property: | IP Host ID of the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[tag].iphostidr |
+| Description: | The IP Host ID of the zOS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the zOS Image ID is returned |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.image.[tag].iphostidr=sysa.ibm.com</code><br> |
+
+</details>
+ 
+<details>
+<summary>The zOS Image</summary>
+
+| Property: | The zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].imageid |
+| Description: | The image ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Maximum slots for zOS Image</summary>
+
+| Property: | Maximum slots for zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[tag].max.slots |
+| Description: | The maximum slots available on a zOS Image for the specified tag |
+| Required:  | No |
+| Default value: | 2 |
+| Valid values: | $validValues |
+| Examples: | <code>zos.image.[tag].max.slots=2</code><br> |
+
+</details>
+ 
+<details>
+<summary>The run data set HLQ for the zOS Image</summary>
+
+| Property: | The run data set HLQ for the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.run.[image].dataset.hlq |
+| Description: | The data set HLQ(s) for temporary data sets created on zOS Image.<br>  If CPS property zos.run.[image].dataset.hlq exists, then that is returned |
+| Required:  | No |
+| Default value: | runuser.GALASA |
+| Valid values: | $validValues |
+| Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
+
+</details>
+ 
+<details>
 <summary>Extra bundle to required to implement the zOS TSO Command Manager</summary>
 
 | Property: | Extra bundle to required to implement the zOS TSO Command Manager |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.bundle.extra.[imageid].tso.manager |
+| Name: | zos.bundle.extra.tso.manager |
 | Description: | The name of the Bundle that implements the zOS TSO Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zostso.ssh.manager |
 | Valid values: | $validValues |
-| Examples: | <code>zos.bundle.extra.MVSA.tso.manager=dev.galasa.zostso.ssh.manager</code><br> <code>zos.bundle.extra.tso.manager=dev.galasa.zostso.ssh.manager</code> |
+| Examples: | <code>zos.bundle.extra.tso.manager=dev.galasa.zostso.ssh.manager</code> |
 
 </details>
  
@@ -501,11 +655,11 @@ The following are properties used to configure the zOS Manager.
 
 | Property: | Extra bundle to required to implement the zOS UNIX Command Manager |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.bundle.extra.[imageid].unix.manager |
+| Name: | zos.bundle.extra.unix.manager |
 | Description: | The name of the Bundle that implements the zOS UNIX Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zosunix.ssh.manager |
 | Valid values: | $validValues |
-| Examples: | <code>zos.bundle.extra.MVSA.unix.manager=dev.galasa.zosunix.ssh.manager</code><br> <code>zos.bundle.extra.unix.manager=dev.galasa.zosunix.ssh.manager</code> |
+| Examples: | <code>zos.bundle.extra.unix.manager=dev.galasa.zosunix.ssh.manager</code> |
 
 </details>
