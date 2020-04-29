@@ -83,7 +83,7 @@ dss.properties
    zosmf.server.SIMBANK.port=2040
    zosmf.server.SIMBANK.https=false
    ```
-
+Note: When using SimBank, the `overrides.properties` file is partially populated on creation and requires editing. The reason for this is to highlight how the test connects to the SimBank instance. Otherwise, the `overrides.properties` file is created as an empty file.
 1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
 
    
@@ -91,7 +91,7 @@ dss.properties
    secure.credentials.SIMBANK.username=IBMUSER 
    secure.credentials.SIMBANK.password=SYS1
    ```   
-
+Note: If you have previously installed Galasa, this file is already populated. 
    <!-- 1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents:
 
 ```
