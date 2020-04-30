@@ -6,7 +6,7 @@ title: "z/OS Batch z/OS MF Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager is the internal implementation of the z/OS Batch Manager using z/OS MF. <p> See the [z/OS Manager](zos-manager) for details of the z/OS Batch annotations and code snippets.
+This Manager is the internal implementation of the z/OS Batch Manager using z/OS MF. <p> See the [z/OS Manager](zos-manager) for details of the z/OS Batch annotations and code snippets.<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zosbatch/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 
