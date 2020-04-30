@@ -8,8 +8,8 @@ title: "Highlights"
 Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [installing the Galasa plug-in](/docs/getting-started/installing) on this site and you can access the source code in [GitHub](https://github.com/galasa-dev). Visit our [Spectrum](https://spectrum.chat/galasa) channel to ask a question or to start sharing usage and development experiences with other Galasa users and the IBM team. You can open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement) in GitHub. 
 
 ## 0.7.0 - Release Highlights
-- NEW TSO Command SSH Manager (alpha)
-- NEW UNIX Command SSH Manager (alpha)
+- NEW TSO Command SSH Manager (alpha) - securely issue TSO commands
+- NEW UNIX Command SSH Manager (alpha) - securely issue UNIX commands
 - Selenium manager is now in Beta
 - JMeter manager is now in Beta
 - CICS CECI manager is now in Beta
