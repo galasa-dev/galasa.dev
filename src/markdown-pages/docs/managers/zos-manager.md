@@ -6,7 +6,7 @@ title: "zOS Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager provides Galasa tests with access to a z/OS image.
+This Manager provides Galasa tests with access to a z/OS image.<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 ## Annotations
@@ -50,11 +50,69 @@ The following annotations are available with the zOS Manager
 
 </details>
 
+<details>
+<summary>z/OS TSO</summary>
+
+| Annotation: | z/OS TSO |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @ZosTSO |
+| Description: | The <code>@ZosTSO</code> annotation requests the z/OS Manager to provide a z/OS TSO instance associated with a z/OS image.  The test can request multiple z/OS TSO instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
+| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
+| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosTSO(imageTag="A")<br> public IZosTSO zosTSOA;<br></code> |
+| Notes: | The <code>IZosTSO</code> interface provides the method {@link IZosTSO#issueCommand(String)} to issue a command to z/OS TSO and returns a <code>IZosTSOCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/ZosTSO.html" target="_blank">ZosTSO</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/IZosTSO.html" target="_blank">IZosTSO</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zostso/IZosTSOCommand.html" target="_blank">IZosTSOCommand</a> to find out more. |
+
+</details>
+
+<details>
+<summary>z/OS UNIX</summary>
+
+| Annotation: | z/OS UNIX |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @ZosUNIX |
+| Description: | The <code>@ZosUNIX</code> annotation requests the z/OS Manager to provide a z/OS UNIX instance associated with a z/OS image.  The test can request multiple z/OS UNIX instances, with the default being associated with the <b>primary</b> z/OS image.<br> |
+| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
+| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosUNIX(imageTag="A")<br> public IZosUNIX zosUNIXA;<br></code> |
+| Notes: | The <code>IZosUNIX</code> interface provides the method {@link IZosUNIX#issueCommand(String)} to issue a command to z/OS UNIX and returns a <code>IZosUNIXCommand</code> instance.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/ZosUNIX.html" target="_blank">ZosUNIX</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/IZosUNIX.html" target="_blank">IZosUNIX</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosunix/IZosUNIXCommand.html" target="_blank">IZosUNIXCommand</a> to find out more. |
+
+</details>
+
 
 
 ## Code snippets
 
 Use the following code snippets to help you get started with the zOS Manager.
+ 
+<details><summary>Request a zOS TSO Command instance</summary>
+
+The following snippet shows the code that is required to request a zOS TSO Command instance in a Galasa test:
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+
+@ZosTSO(imageTag="A")
+public IZosTSO tso;
+```
+
+The code creates a zOS TSO Command instance associated with the zOS Image allocated in the *zosImageA* field.
+</details>
+
+<details><summary>Issue a zOS TSO Command and retrieve the immediate response</summary>
+
+Issue the zOS TSO `TIME` Command and retrieve the response:
+
+```
+String tsoCommandString = "TIME";
+IZosTSOCommand tsoCommand = tso.issueCommand(tsoCommandString);
+String tsoResponse = tsoCommand.getResponse();
+```
+
+The String `response`  contains the value of the TSO TIME command, e.g. 
+
+```
+IKJ56650I TIME-04:17:14 PM. CPU-00:00:00 SERVICE-290 SESSION-00:00:00 APRIL 15,2020
+```
+</details>
  
 <details><summary>Request a zOS Console instance</summary>
 
@@ -244,7 +302,7 @@ public IZosFileHandler zosFileHandler;
 
 <details><summary>Read the content of an existing sequential data set</summary>
 
-Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content:
+Create a new *IZosDataset* object representing an existing sequential data set. If the data set exists, retrieve the content in text mode:
 
 ```
 @ZosImage(imageTag="A")
@@ -255,7 +313,7 @@ public IZosFileHandler zosFileHandler;
 ...
 IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ", zosImageA);
 if (dataSet.exists()) {
-    String dataSet.retrieve();
+    String dataSet.retrieveAsText();
     ...
 }
 ```
@@ -264,7 +322,7 @@ if (dataSet.exists()) {
 
 <details><summary>Read the content of an existing partitioned data set member</summary>
 
-Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content:
+Create a new *IZosDataset* object representing an existing partitioned data set (PDS). If the PDS exists, check if the member exists and retrieve it's content in text mode:
 
 ```
 @ZosImage(imageTag="A")
@@ -276,7 +334,7 @@ public IZosFileHandler zosFileHandler;
 IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zosImageA);
     String memberName = "MEMBER1";
     if (dataSet.exists() && dataSet.memberExists(memberName)) {
-        String content = dataSet.memberRetrieve(memberName);
+        String content = dataSet.memberRetrieveAsText(memberName);
         ...
     }
 ```
@@ -292,7 +350,7 @@ Create a new *IZosDataset* object representing a new sequential data set. If the
 //            DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=32720,
 //            UNIT=SYSDA,SPACE=(TRK,(1,1))
 ```
-Finally, content is written to the data set:
+Finally, content is written to the data set in text mode:
 
 
 ```
@@ -316,7 +374,7 @@ IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosIma
     records.add("RECORD 1");
     records.add("RECORD 2");
     records.add("RECORD 3");
-    dataSet.store(String.join("\n", records));
+    dataSet.storeText(String.join("\n", records));
 ```
 </details>
 
@@ -329,7 +387,7 @@ Create a new *IZosDataset* object representing a new partitioned data (PDS) set 
 //            DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=32720,
 //            UNIT=SYSDA,SPACE=(TRK,(1,1,15))
 ```
-Finally, content is written to a member in the PDS:
+Finally, content is written to a member in the PDS in text mode:
 
 
 ```
@@ -355,7 +413,7 @@ List<String> records = new ArrayList<>();
     records.add("RECORD 1");
     records.add("RECORD 2");
     records.add("RECORD 3");
-    dataSet.memberStore(memberName, String.join("\n", records));
+    dataSet.memberStoreText(memberName, String.join("\n", records));
 }
 ```
 To create a PDS/E, i.e. the JCL equivalent of
@@ -387,4 +445,221 @@ vsamDataSet.create();
 
 *To be completed...*
 </details>
+ 
+<details><summary>Request a zOS UNIX Command instance</summary>
 
+The following snippet shows the code that is required to request a zOS UNIX Command instance in a Galasa test:
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+
+@ZosUNIX(imageTag="A")
+public IZosUNIX unix;
+```
+
+The code creates a zOS UNIX Command instance associated with the zOS Image allocated in the *zosImageA* field.
+</details>
+
+<details><summary>Issue a zOS UNIX Command and retrieve the immediate response</summary>
+
+Issue the zOS UNIX `date` Command and retrieve the response:
+
+```
+String unixCommandString = "date";
+IZosUNIXCommand unixCommand = unix.issueCommand(unixCommandString);
+String unixResponse = unixCommand.getResponse();
+```
+
+The String `response`  contains the value of the UNIX TIME command, e.g. 
+
+```
+Wed Apr 15 16:17:14 BST 2020
+```
+</details>
+
+## Configuration Properties
+
+The following are properties used to configure the zOS Manager.
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS Batch Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS Batch Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.batch.manager |
+| Description: | The name of the Bundle that implements the zOS Batch Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>The zOS Cluster ID</summary>
+
+| Property: | The zOS Cluster ID |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.tag.[tag].clusterid |
+| Description: | The zOS Cluster ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
+
+</details>
+ 
+<details>
+<summary>The images for a zOS Cluster</summary>
+
+| Property: | The images for a zOS Cluster |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.cluster.[clusterId].images |
+| Description: | The zOS Images for the specifies Cluster |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.cluster.[clusterId].images=SYSA,SYSB,SYSC</code><br> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS Console Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS Console Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.console.manager |
+| Description: | The name of the Bundle that implements the zOS Console Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosconsole.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.console.manager=dev.galasa.common.zosconsole.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>Developer Supplied Environment zOS Image Cluster ID</summary>
+
+| Property: | Developer Supplied Environment zOS Image Cluster ID |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].clusterid |
+| Description: | The Cluster ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].clusterid=PLEXA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Developer Supplied Environment zOS Image</summary>
+
+| Property: | Developer Supplied Environment zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].imageid |
+| Description: | The image ID of the Developer Supplied Environment for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS File Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS File Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.file.manager |
+| Description: | The name of the Bundle that implements the zOS File Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosfile.zosmf.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.file.manager=dev.galasa.common.zosfile.zosmf.manager</code><br> |
+
+</details>
+ 
+<details>
+<summary>IP Host ID of the zOS Image</summary>
+
+| Property: | IP Host ID of the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[tag].iphostidr |
+| Description: | The IP Host ID of the zOS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the zOS Image ID is returned |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.image.[tag].iphostidr=sysa.ibm.com</code><br> |
+
+</details>
+ 
+<details>
+<summary>The zOS Image</summary>
+
+| Property: | The zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.dse.tag.[tag].imageid |
+| Description: | The image ID for the specified tag |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Maximum slots for zOS Image</summary>
+
+| Property: | Maximum slots for zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[tag].max.slots |
+| Description: | The maximum slots available on a zOS Image for the specified tag |
+| Required:  | No |
+| Default value: | 2 |
+| Valid values: | $validValues |
+| Examples: | <code>zos.image.[tag].max.slots=2</code><br> |
+
+</details>
+ 
+<details>
+<summary>The run data set HLQ for the zOS Image</summary>
+
+| Property: | The run data set HLQ for the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.run.[image].dataset.hlq |
+| Description: | The data set HLQ(s) for temporary data sets created on zOS Image.<br>  If CPS property zos.run.[image].dataset.hlq exists, then that is returned |
+| Required:  | No |
+| Default value: | runuser.GALASA |
+| Valid values: | $validValues |
+| Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS TSO Command Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS TSO Command Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.tso.manager |
+| Description: | The name of the Bundle that implements the zOS TSO Command Manager |
+| Required:  | No |
+| Default value: | dev.galasa.zostso.ssh.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.tso.manager=dev.galasa.zostso.ssh.manager</code> |
+
+</details>
+ 
+<details>
+<summary>Extra bundle to required to implement the zOS UNIX Command Manager</summary>
+
+| Property: | Extra bundle to required to implement the zOS UNIX Command Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.bundle.extra.unix.manager |
+| Description: | The name of the Bundle that implements the zOS UNIX Command Manager |
+| Required:  | No |
+| Default value: | dev.galasa.zosunix.ssh.manager |
+| Valid values: | $validValues |
+| Examples: | <code>zos.bundle.extra.unix.manager=dev.galasa.zosunix.ssh.manager</code> |
+
+</details>

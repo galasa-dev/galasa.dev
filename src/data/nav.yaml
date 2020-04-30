@@ -1,4 +1,11 @@
 - sections:
+    - title: Releases
+      root: /releases/
+      items:
+        - title: Highlights
+          path: /releases/
+        - title: License
+          path: /releases/license
     - title: About
       root: /about/
       items:
@@ -48,3 +55,8 @@
               path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
+    - title: Support
+      root: /support/
+      items:
+        - title: Support
+          path: /support/        

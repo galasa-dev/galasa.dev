@@ -92,6 +92,24 @@ const Header = ({ extraHeight }) => {
               >
                 Docs
               </Link>
+              <Link
+                to="/releases"
+                onClick={() => setMenuOpen(false)}
+                className={
+                  headerStyles.navLink + " " + selector("releases", location)
+                }
+              >
+                Releases
+              </Link>
+              <Link
+                to="/support"
+                onClick={() => setMenuOpen(false)}
+                className={
+                  headerStyles.navLink + " " + selector("support", location)
+                }
+              >
+                Support
+              </Link>
               <div className={headerStyles.footerRepeatedLinks}>
                 <a
                   className={headerStyles.footerRepeatedLink}
