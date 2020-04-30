@@ -10,7 +10,7 @@ You can find links to the Javadoc API documentation for all the Galasa Managers 
 | Name | Description | 
 | :------------------------ | :------------------------------------- | 
 | **[Artifact Manager](/docs/managers/artifact-manager)**<br> ![release](../../images/release.svg)| Provides access to resources within a test bundle. It also provides templating services.|
-| **[CECI Manager](/docs/managers/cics-ts-ceci-manager)**<br> ![alpha](../../images/alpha.svg) | Provides CECI 3270 interaction - initially supporting containers and link programs.|
+| **[CECI Manager](/docs/managers/cics-ts-ceci-manager)**<br> ![beta](../../images/beta.svg) | Provides CECI 3270 interaction - initially supporting containers and link programs.|
 | **Core Manager**<br> ![release](../../images/release.svg) | Provides tests with access to some of the most common features within the Galasa framework, such as the ability to retrieve credentials and the name of the test run. |
 | **[Docker Manager](/docs/managers/docker-manager)**<br> ![release](../../images/release.svg) | Enables containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process. |
 | **[ElasticLog Manager](/docs/managers/elasticlog-manager)**<br> ![alpha](../../images/alpha.svg) | Exports test results to ElasticSearch, which can be subsequently used within Kibana dashboards. |
@@ -28,14 +28,14 @@ You can find links to the Javadoc API documentation for all the Galasa Managers 
 | **[z/OS File z/OS MF Manager](/docs/managers/zos-file-zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS File Manager using z/OS MF. Can only be used via the z/OS File Manager interface. |
 | **[z/OS Manager](/docs/managers/zos-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. Additionally, the z/OS Manager provides access to the following annotations:<br> - **z/OS Batch** which enables tests and Managers to submit, monitor and retrieve z/OS batch jobs. See [BatchAccountsOpenTest](/docs/running-simbank-tests/batch-accounts-open-test) for a walkthrough of a test that employs this Manager.<br> - **z/OS Console** which allows tests and Managers to issue z/OS console commands.<br> - **z/OS File** which provides tests and Managers with the ability to transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE or KSDS.<br> - **z/OS TSO** which requests the z/OS Manager to provide a z/OS TSO instance associated with a z/OS image. <br> - **z/OS UNIX** which requests the z/OS Manager to provide a z/OS UNIX instance associated with a z/OS image. |   
 | **[z/OS MF Manager](/docs/managers/zos-mf-manager)**<br> ![beta](../../images/beta.svg) | Provides tests and Managers with access to z/OS MF functions. It is used by the Batch, File and Console Managers by default. | 
-| **[z/OS TSO Command SSH Manager](/docs/managers/zos-tso-command-ssh-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS TSO Command Manager using SSH. Can only be used via the z/OS TSO Command Manager interface. |
-| **[z/OS UNIX Command SSH Manager](/docs/managers/zos-unix-command-ssh-manager)**<br> ![beta](../../images/beta.svg) | Provides the default implementation of the z/OS UNIX Command Manager using SSH. Can only be used via the z/OS UNIX Command Manager interface. |
+| **[z/OS TSO Command SSH Manager](/docs/managers/zos-tso-command-ssh-manager)**<br> ![alpha](../../images/alpha.svg) | Provides the default implementation of the z/OS TSO Command Manager using SSH. Can only be used via the z/OS TSO Command Manager interface. |
+| **[z/OS UNIX Command SSH Manager](/docs/managers/zos-unix-command-ssh-manager)**<br> ![alpha](../../images/alpha.svg) | Provides the default implementation of the z/OS UNIX Command Manager using SSH. Can only be used via the z/OS UNIX Command Manager interface. |
 
 
 | Key |   | 
 | :------------------------ | :------------------------------------- | 
 | ![alpha](../../images/alpha.svg)| This Manager is being actively developed. It is subject to change and has not been extensively tested.|
-| ![beta](../../images/beta.svg)| This Manager is feature complete but may contain known or unknown bugs.|
+| ![beta](../../images/beta.svg)| This Manager is almost ready.  It has been tested and the TPI is stable, but there may be minor changes to come.|
 | ![release](../../images/release.svg)| This Manager is feature complete, has passed all tests and is deemed release grade.|
 
 
