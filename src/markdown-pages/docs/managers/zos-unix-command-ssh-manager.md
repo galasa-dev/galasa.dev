@@ -3,10 +3,10 @@ path: "/docs/managers/zos-unix-command-ssh-manager"
 title: "zOS UNIX Command SSH Manager"
 ---
 
-**ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested.**
+**BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager is the internal implementation of the zOS UNIX Command Manager using SSH. <p> See the <a href="../zos-manager">zOS Manager</a> for details of the zOS UNIX Command Manager Annotations.
+This Manager is the internal implementation of the zOS UNIX Command Manager using SSH.
 
 
 
