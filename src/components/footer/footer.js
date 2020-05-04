@@ -39,13 +39,28 @@ const Footer = () => {
       </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
-        <a className={footerStyles.icon} href={githubOrgUrl}>
+        <a
+          className={footerStyles.icon}
+          href={githubOrgUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <GitHubSVG />
         </a>
-        <a className={footerStyles.icon} href={twitterUrl}>
+        <a
+          className={footerStyles.icon}
+          href={twitterUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <TwitterSVG />
         </a>
-        <a className={footerStyles.icon} href={spectrumUrl}>
+        <a
+          className={footerStyles.icon}
+          href={spectrumUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <SpectrumSVG />
         </a>
       </div>
