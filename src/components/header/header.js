@@ -125,16 +125,28 @@ const Header = ({ extraHeight }) => {
                 </a>
               </div>
               <div className={headerStyles.navContainerIcons}>
-                <a className={headerStyles.icon} href={githubOrgUrl} target="_blank"
-                  rel="noopener noreferrer">
+                <a
+                  className={headerStyles.icon}
+                  href={githubOrgUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <GitHubSVG />
                 </a>
-                <a className={headerStyles.icon} href={twitterUrl} target="_blank"
-                  rel="noopener noreferrer">
+                <a
+                  className={headerStyles.icon}
+                  href={twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TwitterSVG />
                 </a>
-                <a className={headerStyles.icon} href={spectrumUrl} target="_blank"
-                  rel="noopener noreferrer">
+                <a
+                  className={headerStyles.icon}
+                  href={spectrumUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <SpectrumSVG />
                 </a>
               </div>
