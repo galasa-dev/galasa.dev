@@ -75,7 +75,6 @@ The `HashMap` will eventually deposit its contents in the designated substitutio
 Loading the JCL with the parameters:
 ```java
 // Load the JCL with the given substitution parameters
-IBundleResources resources = artifacts.getBundleResources(this.getClass());
 InputStream inputStream = resources.retrieveSkeletonFile("/resources/skeletons/SIMBANK.jcl", parameters);
 String jcl = resources.streamAsString(inputStream);
 ```
