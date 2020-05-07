@@ -78,7 +78,7 @@ Loading the JCL with the parameters:
 InputStream inputStream = resources.retrieveSkeletonFile("/resources/skeletons/SIMBANK.jcl", parameters);
 String jcl = resources.streamAsString(inputStream);
 ```
-At this stage, the String `jcl` will contain:
+At this stage, the String `jcl` contains:
 ```
 //SIMBANK  EXEC PGM=SIMBANK
 //SYSOUT   DD SYSOUT=*
