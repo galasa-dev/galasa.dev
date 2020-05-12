@@ -57,9 +57,6 @@ to retrieve the contents of a web page.
 This code makes a get request to the given path.
 
 ```java
-@Httpclient
-public IHttpClient client;
-
 String pageContent = client.get("/images",false);
 ```
 
@@ -75,10 +72,10 @@ The following code is an example of one way to download a file using streams.
 @Httpclient
 public IHttpClient client;
 
-File f = new File("/tmp/dev.galasa_0.3.0.jar");
+File f = new File("/tmp/dev.galasa_0.7.0.jar");
 
 client.setURI(new URI("https://p2.galasa.dev"));
-CloseableHttpResponse response = client.getFile("/plugins/dev.galasa_0.3.0.jar");
+CloseableHttpResponse response = client.getFile("/plugins/dev.galasa_0.7.0.jar");
 InputStream in = response.getEntity().getContent();
 OutputStream out = new FileOutputStream(f);
 int count;
@@ -92,7 +89,7 @@ out.close();
 
 The snippet begins by declaring `client` as before and `f`, an instance of `File`. The client's URI is set and its `getFile` method called to return `response` - an instance of `CloseableHttpResponse`.
 
-The two streams `in` and `out` are declared and initialized and the data transferred from one to the other in 2048 byte chunks, after which the output stream is flushed and then closed.
+The two streams `in` and `out` are declared and initialized and the data transferred from `in` to `out` in 2048 byte chunks, after which the output stream is flushed and then closed.
 
 </details>
 
