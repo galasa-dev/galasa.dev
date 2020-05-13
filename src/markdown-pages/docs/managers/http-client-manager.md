@@ -20,17 +20,17 @@ Use the following code snippets to help you get started with the HTTP Client Man
 This code instantiates an HTTP Client.
 
 ```java
-@Httpclient
+@HttpClient
 public IHttpClient client;
 ```
 
 You can just as simply instantiate multiple HTTP Clients.
 
 ```java
-@Httpclient
+@HttpClient
 public IHttpClient client1;
 
-@Httpclient
+@HttpClient
 public IHttpClient client2;
 ```
 
@@ -41,7 +41,7 @@ public IHttpClient client2;
 This code sets an HTTP Client's target URI.
 
 ```java
-@Httpclient
+@HttpClient
 public IHttpClient client;
 
 client.setURI("http://www.google.com");
@@ -69,7 +69,7 @@ The second parameter - a boolean - causes the function to retry as required if s
 The following code is an example of one way to download a file using streams.
 
 ```java
-@Httpclient
+@HttpClient
 public IHttpClient client;
 
 File f = new File("/tmp/dev.galasa_0.7.0.jar");
