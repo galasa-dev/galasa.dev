@@ -10,7 +10,7 @@ Galasa is an open source project and is delivered using a continuous delivery mo
 ## 0.8.0 - Release Highlights
 
 - NEW Improvements in Artifact Manager make streaming text content a single-step process
-- NEW alpha version of a Visual Studio Code Galasa extension
+- NEW alpha version of a Visual Studio Code Galasa extension - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 - _only_ Java 8, and a version of Maven that supports Java 8)
 - 3270 Manager bug fixes and updates
 - Message lines in the run log are now smaller
 - Documentation updates - HTTP Client Manager and the z/OS family of Managers
