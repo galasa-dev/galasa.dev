@@ -6,7 +6,7 @@ title: "zOS MF Manager"
 **BETA - This Manager is feature complete but may contain known or unknown bugs.**
 
 ## Overview
-This Manager provides Galasa tests with access to a zOS/MF server.
+This Manager provides Galasa tests with access to a zOS/MF server. Use the z/OS MF Manager to simplify areas of z/OS system management. The z/OS MF Manager can be called from a test or from other Managers. For example, the z/OS Manager calls the z/OS MF Manager to implement z/OS file, console and batch functions via the relevant interface.
 
 
 ## Annotations
