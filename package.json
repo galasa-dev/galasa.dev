@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "author": "Ben Cox <ben.cox@uk.ibm.com>",
   "dependencies": {
-    "@babel/runtime": "^7.10.1",
+    "@babel/runtime": "^7.8.3",
     "gatsby": "^2.19.1",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-catch-links": "^2.1.24",
