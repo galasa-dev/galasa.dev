@@ -4,8 +4,6 @@ import { Location } from "@reach/router"
 import Hamburger from "../../images/hamburger.inline.svg"
 import Cross from "../../images/cross.inline.svg"
 import GitHubSVG from "../../images/github.inline.svg"
-import TwitterSVG from "../../images/twitter.inline.svg"
-import SpectrumSVG from "../../images/spectrum.inline.svg"
 
 import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
@@ -16,7 +14,7 @@ const Header = ({ extraHeight }) => {
   const {
     site: {
       siteMetadata: {
-        consts: { githubOrgUrl, twitterUrl, spectrumUrl },
+        consts: { githubOrgUrl },
       },
     },
   } = useStaticQuery(graphql`
@@ -25,9 +23,7 @@ const Header = ({ extraHeight }) => {
         siteMetadata {
           consts {
             githubOrgUrl
-            twitterUrl
-            spectrumUrl
-          }
+             }
         }
       }
     }
@@ -132,22 +128,6 @@ const Header = ({ extraHeight }) => {
                   rel="noopener noreferrer"
                 >
                   <GitHubSVG />
-                </a>
-                <a
-                  className={headerStyles.icon}
-                  href={twitterUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TwitterSVG />
-                </a>
-                <a
-                  className={headerStyles.icon}
-                  href={spectrumUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <SpectrumSVG />
                 </a>
               </div>
             </div>

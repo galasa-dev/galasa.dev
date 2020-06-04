@@ -5,13 +5,14 @@ import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
 import TwitterSVG from "../../images/twitter.inline.svg"
 import SpectrumSVG from "../../images/spectrum.inline.svg"
+import SlackSVG from "../../images/slack.inline.svg"
 import footerStyles from "./footer.module.scss"
 
 const Footer = () => {
   const {
     site: {
       siteMetadata: {
-        consts: { githubOrgUrl, twitterUrl, spectrumUrl },
+        consts: { githubOrgUrl, twitterUrl, spectrumUrl, slackUrl },
       },
     },
   } = useStaticQuery(graphql`
@@ -22,6 +23,7 @@ const Footer = () => {
             githubOrgUrl
             twitterUrl
             spectrumUrl
+            slackUrl
           }
         }
       }
@@ -57,11 +59,11 @@ const Footer = () => {
         </a>
         <a
           className={footerStyles.icon}
-          href={spectrumUrl}
+          href={slackUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <SpectrumSVG />
+          <SlackSVG />
         </a>
       </div>
     </footer>
