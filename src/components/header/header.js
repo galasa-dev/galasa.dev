@@ -23,7 +23,7 @@ const Header = ({ extraHeight }) => {
         siteMetadata {
           consts {
             githubOrgUrl
-             }
+          }
         }
       }
     }
