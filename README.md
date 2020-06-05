@@ -2,7 +2,7 @@
 
 This repository contains the source for the Galasa test automation system homepage.
 
-If you are interested in the development of Galasa, take a look at the documentation and feel free to post a question on [Spectrum](https://spectrum.chat/galasa?tab=posts) or raise new ideas / features / bugs etc. as issues on [GitHub](https://github.com/galasa-dev/projectmanagement).
+If you are interested in the development of Galasa, take a look at the documentation and feel free to post a question on the [Galasa Slack Channel](https://galasa.slack.com) or raise new ideas / features / bugs etc. as issues on [GitHub](https://github.com/galasa-dev/projectmanagement). If you're not a member of the Slack channel yet, you can <a href="https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA" target="_blank"> register to join</a>.
 
 ## Getting started
 
