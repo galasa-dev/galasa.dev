@@ -57,11 +57,13 @@ to retrieve the contents of a web page.
 This code makes a get request to the given path.
 
 ```java
-String pageContent = client.get("/images",false);
+client.setURI(new URI("https://httpbin.org"));
+String pageContent = client.getText("/get").getContent();
 ```
 
-Use this call after a prior call to `setURI` to establish the URI endpoint of your request.
-The second parameter - a boolean - causes the function to retry as required if set to `true`.
+These two lines use the HTTPClient to perform a GET request against the URL https://httpbin.org/get.
+The getText method is used as we want to retrieve the response as a string.  Alternatives for XML, JSON and JAXB objects exist.
+There are also methods for the other HTTP verbs such as PUT, POST and DELETE
 
 </details>
 
