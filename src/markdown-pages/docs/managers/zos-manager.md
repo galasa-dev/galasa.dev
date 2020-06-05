@@ -583,12 +583,12 @@ The following are properties used to configure the zOS Manager.
 
 | Property: | IP Host ID of the zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[tag].iphostidr |
+| Name: | zos.image.[tag].iphostid |
 | Description: | The IP Host ID of the zOS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the zOS Image ID is returned |
 | Required:  | No |
 | Default value: | None |
 | Valid values: | $validValues |
-| Examples: | <code>zos.image.[tag].iphostidr=sysa.ibm.com</code><br> |
+| Examples: | <code>zos.image.[tag].iphostid=sysa.ibm.com</code><br> |
 
 </details>
  

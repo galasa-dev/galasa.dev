@@ -4,7 +4,7 @@ const consts = {
   githubRepoName: "galasa.dev",
   githubOrgName: "galasa-dev",
   twitterUrl: "https://twitter.com/galasa_dev",
-  spectrumUrl: "https://spectrum.chat/galasa",
+  slackUrl: "https://galasa.slack.com",
 }
 
 consts.githubOrgUrl = `https://github.com/${consts.githubOrgName}`
