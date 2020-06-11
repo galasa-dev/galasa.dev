@@ -4,7 +4,7 @@ const consts = {
   githubRepoName: "galasa.dev",
   githubOrgName: "galasa-dev",
   twitterUrl: "https://twitter.com/galasa_dev",
-  slackUrl: "https://galasa.slack.com",
+  slackUrl: "https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA",
 }
 
 consts.githubOrgUrl = `https://github.com/${consts.githubOrgName}`
