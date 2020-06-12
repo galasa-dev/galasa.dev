@@ -7,7 +7,7 @@ title: "Highlights"
 
 Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [installing the Galasa plug-in](/docs/getting-started/installing) on this site. 
 
-Visit the <a href="https://galasa.slack.com" target="_blank"> Galasa Slack channel</a> to ask a question or to start sharing usage and development experiences with other Galasa users and the IBM team. If you're not a member of the Slack channel yet, you can <a href="https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA" target="_blank"> register to join</a>.
+Post a question or share your experiences with other users in our <a href="https://galasa.slack.com" target="_blank"> Galasa Slack</a> workspace. <a href="https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA" target="_blank"> Register to join</a> first if you're not yet a member.
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
