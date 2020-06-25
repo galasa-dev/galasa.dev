@@ -9,7 +9,7 @@ You can raise new ideas / features / bugs etc. as issues on [GitHub](https://git
 
 To use the site locally, follow the following instructions:
 
-1. Ensure you have installed Node.js 8 or later - we recommend 10 or later.
+1. Ensure you have installed Node.js at the same version as specified in the [`.nvmrc`](./.nvmrc) file.
 1. Clone this repository to your own machine.
 1. From the root of the repository, install all the required dependencies:
     ```sh
