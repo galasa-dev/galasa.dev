@@ -59,16 +59,16 @@ The following are properties used to configure the z/OS Batch z/OS MF Manager.
 </details>
  
 <details>
-<summary>zOS Batch default input class</summary>
+<summary>zOS Batch default MSGCLASS</summary>
 
-| Property: | zOS Batch default input class |
+| Property: | zOS Batch default MSGCLASS |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.default.[imageid].input.class |
-| Description: | The default input class to set on the job card for submitted jobs |
+| Name: | zosbatch.default.[imageid].message.class |
+| Description: | The default message class to set on the job card for submitted jobs |
 | Required:  | No |
 | Default value: | A |
-| Valid values: | a valid JES input class literal |
-| Examples: | <code>zosbatch.default.MVSA.input.class=S</code><br> <code>zosbatch.default.input.class=A</code> |
+| Valid values: | a valid JES message class literal |
+| Examples: | <code>zosbatch.default.MVSA.message.class=S</code><br> <code>zosbatch.default.message.class=A</code> |
 
 </details>
  
