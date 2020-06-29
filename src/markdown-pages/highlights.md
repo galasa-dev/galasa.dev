@@ -11,13 +11,22 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.8.0 - Release Highlights
+## 0.9.0 - Release Highlights
 
 - NEW Improvements in Artifact Manager make streaming text content a single-step process
 - NEW alpha version of a Visual Studio Code Galasa extension - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 JDK, and _only_ Java 8 JDK, plus a version of Maven that supports Java 8)
 - 3270 Manager bug fixes and updates
 - Message lines in the run log are now shorter
 - Documentation updates - HTTP Client Manager and the z/OS family of Managers
+
+<details>
+<summary><b>0.8.0 - Release Highlights</b></summary>
+- NEW Improvements in Artifact Manager make streaming text content a single-step process
+- NEW alpha version of a Visual Studio Code Galasa extension - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 JDK, and _only_ Java 8 JDK, plus a version of Maven that supports Java 8)
+- 3270 Manager bug fixes and updates
+- Message lines in the run log are now shorter
+- Documentation updates - HTTP Client Manager and the z/OS family of Managers
+</details>
 
 <details>
 <summary><b>0.7.0 - Release Highlights</b></summary>
