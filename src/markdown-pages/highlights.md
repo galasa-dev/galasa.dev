@@ -15,11 +15,13 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - CECI Manager is now in Release
 - HTTP Client Manager is now in Release
+- Updates to the Visual Studio Code Galasa extension, including full support for local runs - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 JDK, and _only_ Java 8 JDK, plus a version of Maven that supports Java 8)
 - Documentation updates - z/OS 3270 Manager and IP Network Manager
 - Landing page improvements
 
 <details>
 <summary><b>0.8.0 - Release Highlights</b></summary>
+
 - NEW Improvements in Artifact Manager make streaming text content a single-step process
 - NEW alpha version of a Visual Studio Code Galasa extension - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 JDK, and _only_ Java 8 JDK, plus a version of Maven that supports Java 8)
 - 3270 Manager bug fixes and updates
