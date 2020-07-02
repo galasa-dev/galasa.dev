@@ -3,7 +3,7 @@ path: "/docs/managers/cics-ts-ceci-manager"
 title: "CICS TS CECI Manager"
 ---
 
-**BETA - This Manager is almost ready.  It has been tested and the TPI is stable, but there may be minor changes to come.**
+**Release**
 
 ## Overview
 This manager allows Galasa tests to issue CICS/TS CECI commands.<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/ceci/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
