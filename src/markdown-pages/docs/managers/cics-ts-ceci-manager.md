@@ -3,10 +3,10 @@ path: "/docs/managers/cics-ts-ceci-manager"
 title: "CICS TS CECI Manager"
 ---
 
-**BETA - This Manager is almost ready.  It has been tested and the TPI is stable, but there may be minor changes to come.**
+**Release**
 
 ## Overview
-This manager allows Galasa tests to issue CICS/TS CECI commands.<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/ceci/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
+This Manager allows Galasa tests to issue CICS/TS CECI commands.<br><br> Use the command-level interpreter (CECI) Manager to request a CECI instance in a Galasa test,  issue basic CECI commands  which can be processed interactively on a 3270 screen and  retrieve results. Examples of using this Manager can include writing data to a temporary storage  queue, linking to a CICS program or retrieving the signed on user id. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/ceci/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 ## Annotations
