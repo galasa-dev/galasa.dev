@@ -106,7 +106,7 @@ const Header = ({ extraHeight }) => {
               >
                 Support
               </Link>
-            <div className={headerStyles.footerRepeatedLinks}>
+              <div className={headerStyles.footerRepeatedLinks}>
                 <a
                   className={headerStyles.footerRepeatedLink}
                   href="https://www.ibm.com/privacy/us/en/"
