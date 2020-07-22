@@ -90,7 +90,7 @@ The following snippet shows the code that is required to request a zOS TSO Comma
 @ZosImage(imageTag="A")
 public IZosImage zosImageA;
 
-@ZosTSO(imageTag="A")
+@ZosTSOCommand(imageTag="A")
 public IZosTSOCommand tsoCommand;
 ```
 
