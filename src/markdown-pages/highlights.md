@@ -11,13 +11,23 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.9.0 - Release Highlights
+## 0.10.0 - Release Highlights
+
+- z/OS Program Manager is now in Alpha
+- IZosConsoleCommand requestResponse() method now implemented. Used to return console output that's not part of the immediate response (e.g. due to timeout, delay due to heavy system activity) or return additional console output after the immediate response. 
+- Various bug fixes
+- Documentation updates - upgrading and z/OS Program Manager
+
+
+<details>
+<summary><b>0.9.0 - Release Highlights</b></summary>
 
 - CECI Manager is now in Release
 - HTTP Client Manager is now in Release
 - Updates to the Visual Studio Code Galasa extension, including full support for local runs - search for _Galasa_ in the extensions marketplace and check the ReadMe for prerequisites (essentially, Java 8 JDK, and _only_ Java 8 JDK, plus a version of Maven that supports Java 8)
 - Documentation updates - z/OS 3270 Manager and IP Network Manager
 - Landing page improvements
+</details>
 
 <details>
 <summary><b>0.8.0 - Release Highlights</b></summary>
