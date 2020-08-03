@@ -14,7 +14,6 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.10.0 - Release Highlights
 
 - z/OS Program Manager is now in Alpha
-- IZosConsoleCommand requestResponse() method now implemented. Used to return console output that's not part of the immediate response (e.g. due to timeout, delay due to heavy system activity) or return additional console output after the immediate response. 
 - Various bug fixes
 - Documentation updates - upgrading and z/OS Program Manager
 
