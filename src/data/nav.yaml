@@ -55,8 +55,10 @@
               path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
+        - title: Upgrading
+          path: /docs/upgrading  
     - title: Support
       root: /support/
       items:
         - title: Support
-          path: /support/        
+          path: /support/
