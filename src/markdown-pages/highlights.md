@@ -14,6 +14,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.10.0 - Release Highlights
 
 - z/OS Program Manager is now in Alpha
+- Docker Operator is now in Alpha. The Docker Operator creates Galasa ecosystems in Docker, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-extensions-parent/dev.galasa.docker.operator) for more information.  
 - Various bug fixes
 - Documentation updates - upgrading and z/OS Program Manager
 
