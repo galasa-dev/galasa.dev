@@ -22,7 +22,7 @@ The following annotations are available with the zOS Program Manager
 | Attribute: `name` |  The program name |
 | Attribute: `location` |  Path to the location of the program source in the Galasa test bundle. This can be either the full path including the file name or the directory containing the source with the name specified in the name attribute with the extension specified in the language attribute.  |
 | Attribute: `language` |  The programming language. See <a href="https://javadoc-snapshot.galasa.dev/ZosProgram/Language.html" target="_blank">ZosProgram.Language</a> |
-| Attribute: `isCics` |  Is a CICS program. |
+| Attribute: `cics` |  Is a CICS program and requires the CICS translator. |
 | Attribute: `loadlib` |  The load module data set name |
 | Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosProgram(imageTag="A")<br> public IZosProgram zosProgramA;<br></code> |
@@ -32,49 +32,124 @@ The following annotations are available with the zOS Program Manager
 
 
 
+## Code snippets
+
+Use the following code snippets to help you get started with the zOS Program Manager.
+ 
+<details><summary>Compile and Link a COBOL program</summary>
+
+The following snippet shows the code that is required to compile and link a *COBOL* program called *MYPROG* in a Galasa test:
+
+```
+@ZosProgram(name = "MYPROG",
+        location = "source",
+        language = Language.COBOL,
+        imageTag = "A")
+public IZosProgram myprog;
+```
+
+The program source is stored in a file named *MYPROG.cbl* in a folder named *source* in the test bundle resources folder. 
+The manager builds the JCL to compile and link the source code and submits it on the zOS Image allocated in the *zosImageA* field.
+</details>
+
+<details><summary>Run the compiled program</summary>
+
+The following snippet shows the code required to run the compiled program in a batch job:
+
+```
+@ZosImage(imageTag = "A")
+public IZosImage image;
+
+@ZosBatch(imageTag = "A")
+public IZosBatch zosBatch;
+
+...
+
+StringBuilder jcl = new StringBuilder();
+jcl.append("//STEP1   EXEC PGM=");
+jcl.append(myprog.getName());
+jcl.append("\n");
+jcl.append("//STEPLIB DD DSN=");
+jcl.append(myprog.getLoadlib().getName());
+jcl.append(",DISP=SHR\n");
+jcl.append("//SYSOUT  DD SYSOUT=*");
+IZosBatchJob job = zosBatch.submitJob(jcl.toString(), null);
+...
+```
+
+The manager created a load library for *MYPROG* because the *@ZosProgram* annotation did not specify one. The name of the library is obtained using the *getLoadlib()* method on the field so that it can be added to the *STEPLIB* in the JCL. 
+</details>
 
 ## Configuration Properties
 
 The following are properties used to configure the zOS Program Manager.
  
 <details>
-<summary>zOS CICS data set HLQ</summary>
+<summary>zOS CICS data set Prefix</summary>
 
-| Property: | zOS CICS data set HLQ |
+| Property: | zOS CICS data set Prefix |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosprogram.cics.[imageid].dataset.hlq |
-| Description: | zOS CICS data set High Level Qualifier |
-| Required:  | No |
-| Default value: | COBOL: CICS |
+| Name: | zosprogram.cics.[imageid].dataset.prefix |
+| Description: | zOS CICS data set prefix |
+| Required:  | Yes |
+| Default value: | None |
 | Valid values: | $validValues |
-| Examples: | <code>zosprogram.cics.MVSA.dataset.hlq=CICS</code><br> <code>zosprogram.cics.default.dataset.hlq=SYS1,CICS</code> |
+| Examples: | <code>zosprogram.cics.MVSA.dataset.prefix=CICS</code><br> <code>zosprogram.cics.default.dataset.prefix=SYS1,CICS</code> |
 
 </details>
  
 <details>
-<summary>zOS Language Environment data set HLQ</summary>
+<summary>zOS LanguageExtended Environment data set prefix</summary>
 
-| Property: | zOS Language Environment data set HLQ |
+| Property: | zOS LanguageExtended Environment data set prefix |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosprogram.le.[imageid].dataset.hlq |
-| Description: | zOS Language Environment data set High Level Qualifier |
-| Required:  | No |
-| Default value: | CEE |
+| Name: | zosprogram.le.[imageid].dataset.prefix |
+| Description: | zOS LanguageExtended Environment data set prefix |
+| Required:  | Yes |
+| Default value: | None |
 | Valid values: | $validValues |
-| Examples: | <code>zosprogram.le.MVSA.dataset.hlq=CEE</code><br> <code>zosprogram.le.dataset.hlq=SYS1.LE,CEE</code> |
+| Examples: | <code>zosprogram.le.MVSA.dataset.prefix=CEE</code><br> <code>zosprogram.le.dataset.prefix=SYS1.LE,CEE</code> |
 
 </details>
  
 <details>
-<summary>zOS Program Language data set HLQ</summary>
+<summary>zOS Program LanguageExtended specific custom compile syslibs</summary>
 
-| Property: | zOS Program Language data set HLQ |
+| Property: | zOS Program LanguageExtended specific custom compile syslibs |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosprogram.[language].[imageid].dataset.hlq |
-| Description: | zOS Program Language data set High Level Qualifier |
+| Name: | zosprogram.[language].[imageid].compile.syslibs |
+| Description: | zOS Program LanguageExtended data set prefix |
 | Required:  | No |
-| Default value: | COBOL: IGY.V6R3M0 |
+| Default value: | None |
 | Valid values: | $validValues |
-| Examples: | <code>zosprogram.cobol.MVSA.dataset.hlq=IGY.V6R3M0</code><br> <code>zosprogram.cobol.dataset.hlq=SYS1.COBIL,IGY.V6R3M0</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,TEAM.COPYBOOK</code> |
+
+</details>
+ 
+<details>
+<summary>zOS Program LanguageExtended data set prefix</summary>
+
+| Property: | zOS Program LanguageExtended data set prefix |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosprogram.[language].[imageid].dataset.prefix |
+| Description: | zOS Program LanguageExtended data set High Level Qualifier |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zosprogram.cobol.MVSA.dataset.prefix=IGY.V6R3M0</code><br> <code>zosprogram.cobol.dataset.prefix=SYS1.COBIL,IGY.V6R3M0</code> |
+
+</details>
+ 
+<details>
+<summary>zOS Program LanguageExtended specific custom link syslibs</summary>
+
+| Property: | zOS Program LanguageExtended specific custom link syslibs |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosprogram.[language].[imageid].link.syslibs |
+| Description: | zOS Program LanguageExtended data set prefix |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,TEAM.LOADLIB</code> |
 
 </details>
