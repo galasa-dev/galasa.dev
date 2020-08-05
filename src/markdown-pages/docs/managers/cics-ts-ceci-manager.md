@@ -39,7 +39,7 @@ The following snippet shows the code that is required to request a CECI instance
 public ICECI ceci;
 ```
 
-The code creates a CICS/TS CECI instance associated with the zOS Image allocated in the *zosImageA* field. The CECI instance will also require a 3270 terminal instance:
+The code creates a CICS/TS CECI instance. The CECI instance will also require a 3270 terminal instance:
 
 ```
 @ZosImage(imageTag="A")
@@ -48,6 +48,9 @@ public IZosImage zosImageA;
 @Zos3270Terminal(imageTag="A")
 public ITerminal ceciTerminal;
 ```
+The 3270 terminal is associated with the zOS Image allocated in the *zosImageA* field.
+
+
 </details>
 
 <details><summary>Issue a basic CECI command</summary>
