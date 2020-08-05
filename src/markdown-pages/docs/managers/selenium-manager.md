@@ -84,6 +84,20 @@ The following are properties used to configure the Selenium Manager.
 </details>
  
 <details>
+<summary>Selenium Gecko Preferences CPS Property</summary>
+
+| Property: | Selenium Gecko Preferences CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.instance.INSTANCE.gecko.preferences |
+| Description: | Provides extra preferences to use when using the gecko driver for extensions |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | A comma seperated list of key value pairs for the preferences |
+| Examples: | <code>selenium.instance.PRIMARY.gecko.preferences=app.update.silent=false,dom.popup_maximum=0</code> |
+
+</details>
+ 
+<details>
 <summary>Selenium Gecko Profile CPS Property</summary>
 
 | Property: | Selenium Gecko Profile CPS Property |
@@ -94,6 +108,20 @@ The following are properties used to configure the Selenium Manager.
 | Default value: | $default |
 | Valid values: | A valid String name of a profile |
 | Examples: | <code>selenium.instance.PRIMARY.gecko.profile=default</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Screenshot Failure CPS Property</summary>
+
+| Property: | Selenium Screenshot Failure CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.screenshot.failure |
+| Description: | Takes a screenshot on a test method failing |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | true or false |
+| Examples: | <code>selenium.screenshot.failure=true</code> |
 
 </details>
  
