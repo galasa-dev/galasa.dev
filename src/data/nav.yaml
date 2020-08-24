@@ -11,7 +11,7 @@
       items:
         - title: About Galasa
           path: /about/
-        - title: Why Galasa
+        - title: Why Galasa is different
           path: /about/different
         - title: Benefits of Galasa
           path: /about/automation
