@@ -15,8 +15,8 @@ If you've ever struggled to implement automated testing across a complex technol
 
 Automating tests effectively and consistently across multiple environments and multiple tools requires a framework that can support and integrate across the whole application stack. The same test must also be capable of running against multiple z/OS environments without code changes.
 
-Galasa is designed to work in hybrid cloud applications, operating with the entire application stack, so you can  provision in a cloud environment, but bind to a z/OS test environment.
-The Galasa framework works across multiple technologies in a consistent way, providing a platform to test different aspects of the application stack in the same language and in the same fashion. One test case can interact with 3270 emulators, Selenium, JMeter, batch jobs and other applications. 
+Galasa is designed to work in hybrid cloud applications, operating with the entire application stack, so you can provision in a cloud environment, but bind to a z/OS test environment.
+The Galasa framework integrates and wrappers multiple techonolgies and test tooling in a consistent way, providing a platform to test different aspects of the application stack in the same language and in the same fashion. One test case can interact with 3270 emulators, Selenium, JMeter, batch jobs and other applications. 
 </details>
 
 <details>
@@ -31,7 +31,7 @@ Galasa enables real data verification by interrogating a CICS (or other) applica
 
 Test data is often in a state of flux, resulting in the breaking of existing tests and difficulty in snapshotting and data integrity.
 
-Galasa enables you to provision your own test data from scratch or find valid test data within an existing data lake. Test data is locked within the Galasa framework whilst in use, so that it cannot be corrupted by other test runs.
+Galasa enables you to generate test data on the fly via an application manager or find valid test data within an existing data lake. Use an application manager to lock test data within the Galasa framework whilst in use, so that it cannot be corrupted by other test runs.
 
 You can integrate Galasa tests with your existing tooling, allowing you to share data between tools within the same test.
 </details>
@@ -78,7 +78,7 @@ Galasa's dashboard integrates all your test results in one place, making reporti
 <details>
 <summary><b>Maintaining performance levels</b></summary>
 
-Running scripts and tooling on tools such as Jenkins can lead to performance issues – ideally the tests and the Jenkins nodes should not share workload. Whilst you don’t want to miss defects by limiting the number of tests run, the more tests that are running the longer the testing phase takes, and the increased amount of computer resources that are required from the Jenkins node will limit the throughput.
+Running scripts and tooling on tools such as Jenkins can lead to performance issues – ideally the tests and the Jenkins nodes should not share workload. Whilst you don’t want to miss defects by limiting the number of tests run, the more tests that are running the longer the testing phase takes, and the increased amount of computer resources that are required from the Jenkins node will limit the throughput. Locking resources within the framework prevents tests from colliding; instead tests are queued until those resources become available.
 
 Galasa’s tests as a service allows the test workload to be moved off a Jenkins node, with the added benefit of being capable to scale horizontally in its own cloud environment. 
 </details>
@@ -102,7 +102,7 @@ Galasa tests can scale horizontally without changing the underlying test code an
 <details>
 <summary><b>Minimizing manual intervention</b></summary>
 
-Manual testing involves a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
+Manual testing is expensive, involving a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
 
 Galasa makes tests quicker to write and easier to maintain by extracting the boilerplate code out of the tests. Just import the components you need from within your test code to access the abstracted functionality, gaining the benefit of the expertise of the person who wrote them, and the productivity introduced by their simple use.
  
