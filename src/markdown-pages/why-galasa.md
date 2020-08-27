@@ -31,7 +31,7 @@ Galasa enables real data verification by interrogating a CICS (or other) applica
 
 Test data is often in a state of flux, resulting in the breaking of existing tests and difficulty in snapshotting and data integrity.
 
-Galasa enables you to generate test data on the fly via an application manager or find valid test data within an existing data lake. Use an application manager to lock test data within the Galasa framework whilst in use, so that it cannot be corrupted by other test runs.
+Galasa provides the mechanisms through the use of Application Managers to either generate test data on the fly, or to locate valid test data from a data lake. Data can then be locked whilst in use, preventing cross contamination with other running tests.
 
 You can integrate Galasa tests with your existing tooling, allowing you to share data between tools within the same test.
 </details>
@@ -102,7 +102,7 @@ Galasa tests can scale horizontally without changing the underlying test code an
 <details>
 <summary><b>Minimizing manual intervention</b></summary>
 
-Manual testing is expensive, involving a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain.
+Manual testing involves a significant amount of human intervention, which means tests can take too long to write and are hard to understand and maintain. This process is particularly laborious and expensive when problems are found and re-builds required.
 
 Galasa makes tests quicker to write and easier to maintain by extracting the boilerplate code out of the tests. Just import the components you need from within your test code to access the abstracted functionality, gaining the benefit of the expertise of the person who wrote them, and the productivity introduced by their simple use.
  
