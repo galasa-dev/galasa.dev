@@ -25,6 +25,7 @@ The following annotations are available with the zOS Program Manager
 | Attribute: `cics` |  Is a CICS program and requires the CICS translator. |
 | Attribute: `loadlib` |  The load module data set name |
 | Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
+| Attribute: `compile` |  Compile this zOS program. |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosProgram(imageTag="A")<br> public IZosProgram zosProgramA;<br></code> |
 | Notes: | The <code>IZosProgram</code> interface has a number of methods to manage the zOS Program. See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosprogram/ZosProgram.html" target="_blank">ZosProgram</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosprogram/IZosProgram.html" target="_blank">IZosProgram</a> to find out more. |
 
