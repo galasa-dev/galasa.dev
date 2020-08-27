@@ -11,6 +11,8 @@
       items:
         - title: About Galasa
           path: /about/
+        - title: Why Galasa is different
+          path: /about/different
         - title: Benefits of Galasa
           path: /about/automation
         - title: Galasa and DevOps
@@ -62,3 +64,9 @@
       items:
         - title: Support
           path: /support/
+    - title: Community
+      root: /community/
+      items:
+        - title: Get involved
+          path: /community/
+
