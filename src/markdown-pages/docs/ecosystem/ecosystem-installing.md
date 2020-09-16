@@ -3,7 +3,7 @@ path: "/docs/ecosystem/installing"
 title: "Installing the Galasa Ecosystem in Docker"
 ---
 
-The following section explains how to bring up a Galasa ecosystem on a Docker server by using a Docker operator. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
+The following section explains how to install and configure a Galasa ecosystem on a Docker server by using a Docker operator. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
 
 The instructions assume a basic understanding of how Docker works.
 
