@@ -65,7 +65,7 @@ The following are properties used to configure the zOS MF Manager.
 
 | Property: | zOSMF Server hostname |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[imageid].https |
+| Name: | zosmf.server.[imageid].hostname |
 | Description: | The hostname zOSMF server |
 | Required:  | Yes |
 | Default value: | None |
