@@ -18,7 +18,7 @@ However, there are limitations to taking a local-only approach:
 ### Benefits of using the Galasa ecosystem
 
 - <b>Sharing tests across an enterprise</b><br>
-When run tests inside the ecosystem, the Galasa framework provides the ability to scale horizontally to run large numbers of tests in parallel - enabling more testing to complete in a shorter timeframe. The ability to run tests at scale is one of the key features that differentiates Galasa from other test frameworks. Data is locked whilst in use, preventing cross contamination with other running tests. 
+When tests run inside the ecosystem, the Galasa framework provides the ability to scale horizontally to run large numbers of tests in parallel - enabling more testing to complete in a shorter timeframe. The ability to run tests at scale is one of the key features that differentiates Galasa from other test frameworks. Data is locked whilst in use, preventing cross contamination with other running tests. 
 
 - <b>Re-usability</b><br> 
  With Galasa, one person completes the configurations for use across all test runs. Galasa configurations are maintained in a single location - the Configuration Property Store (CPS) and so can be shared across an organization for use by other tests.  Setting these properties centrally establishes a single source of truth and means that testers do not need to know about or configure these properties each time they write a new test. Test run results, run logs and artifacts are also stored in one central location, again enabling sharing across teams.
