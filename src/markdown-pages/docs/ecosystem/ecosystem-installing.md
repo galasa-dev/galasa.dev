@@ -3,15 +3,19 @@ path: "/docs/ecosystem/installing"
 title: "Installing the Galasa Ecosystem in Docker"
 ---
 
-The following section explains how to install and configure a Galasa ecosystem on a Docker server by using a Docker operator. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
+The following section explains how to install and configure a Galasa ecosystem on a Docker engine by using a <a href="https://github.com/galasa-dev/extensions/tree/master/galasa-extensions-parent/dev.galasa.docker.operator" target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
 
 The instructions assume a basic understanding of how Docker works.
 
-### Before you begin
+## Prerequisites
 
-To bring up a Galasa ecosystem using Docker, you need access to a virtual machine (VM) with a Docker engine, Docker desktop and an etcd server installed on it. The VM hosts the ecosystem which runs docker containers, inside which are Galasa microservices, including the etcd server which contains the CPS, DSS and CREDs stores. It is possible to install a Docker engine on a local machine for experimentation purposes, but to realise the power of Galasa you need to run the docker engine on a VM.
+To bring up the Galasa ecosystem using Docker, you need access to a virtual machine (VM) with the following installations on it: 
 
-Typically, a dedicated person, for example the test architect or test lead, is authorized to edit the CPS file. The file can be edited locally by using etcdctl, or by running the commands directly on the VM. Testers typically interact with the etcd server by putting or getting the value of a key. 
+- a Docker engine
+- Docker desktop 
+- an etcd server 
+
+It is possible to install a Docker engine on a local machine for experimentation purposes, but to realise the power of Galasa you need to run the Docker engine on a VM.
 
 The VM requires a minimum of 8GB of memory, 4 VCPUs and 80GB of storage. Docker has a default value of 4GB of memory set, so you need to change this value. In Docker desktop you do this by using the ```Preferences > Resources``` tab.
 
@@ -24,31 +28,31 @@ If the VM or workstation has a firewall running, you might need to open the foll
     8082 - Jenkins
 
 
-### Installing a docker engine and an etcd server
+### Installing the docker engine and the etcd server
 
 
-1. Install a docker engine 
+1. Install the docker engine 
 
 Instructions to install a Docker engine can be found on the <a href="https://docs.docker.com/engine/install/" target="_blank"> Docker Documentation</a> page. We are not aware of a minimum version of Docker engine the Docker operator requires. 
 
 If you are using a Mac or Windows OS, you need Docker desktop running a "socat" container.
 
-2. Install an etcd server
+2. Install the etcd server
 
-You can install an etcd server with <a href="https://brew.sh/" target="_blank"> homebrew</a> by running the command ```brew install etcd``` either from the etcdctl interface (etcdctl is a command line tool for interacting with an etcd server) or by logging onto the VM via SSH.  
+Install an etcd server with <a href="https://brew.sh/" target="_blank"> homebrew</a> by running the command ```brew install etcd``` either from the etcdctl interface (etcdctl is a command line tool for interacting with an etcd server) or by logging onto the VM via SSH.  
 
 
 
 3. Connect to the etcd server
 
-To connect up to the etcd server you need to set two environment variables by running the following commands:
+Connect to the etcd server by setting the two following environment variables by running the following commands:
 
 ```
 export ETCDCTL_ENDPOINTS={YOUR_HOSTNAME}:2379
 export ETCDCTL_API=3
 ```
 
-The API version environment variable ETCDCTL_API is set to 3 in this example, as this is the latest version and also supports the commands that are used to check and set CPS properties on the etcd server.
+The API version environment variable *ETCDCTL_API* is set to ```3``` in this example, as this version and above supports the commands that are used to check and set CPS properties on the etcd server.
 
 
 ### Installing the Galasa ecosystem in a Docker engine
@@ -136,3 +140,9 @@ For example, use the 3270 Manager to connect to your mainframe to drive 3270 scr
 To deploy your tests to the ecosystem  you must deploy the Maven test bundle and OBR bundle to the Nexus repository. The automation engines can find them by using the CPS properties. 
 
 The tests can then be run in Eclipse by using the automation tab. 
+
+
+# Where to put the following info - its a little confusing atm 
+The VM hosts the ecosystem which runs Docker containers. Inside the containers are the Galasa microservices, including the etcd server which hosts the CPS, DSS and CREDs stores. For more information about the architecture of the Galasa ecosystem, see <a href="https://galasa.dev/docs/ecosystem/architecture" target="_blank"> Ecosystem architecture</a>
+
+Typically, a dedicated person, for example the test architect or test lead, is authorized to edit the CPS file. The file can be edited locally by using etcdctl, or by running the commands directly on the VM. Testers typically interact with the etcd server by putting or getting the value of a key. 
