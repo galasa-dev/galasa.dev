@@ -104,7 +104,7 @@ The Jenkins server has a *SimBank_IVT* build job that runs a Jenkins pipeline to
 You can also submit automation tests from within Eclipse instead of Jenkins; select *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
 
-### Where to put the following info - its a little confusing atm 
+### Notes - not for review
 
 ## Next steps
 
