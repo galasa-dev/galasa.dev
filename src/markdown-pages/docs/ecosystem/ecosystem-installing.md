@@ -21,29 +21,33 @@ You can run Docker commands directly on the VM, or you can install Docker deskto
 
 The Docker operator automatically brings up the the following servers on the VM:
 
-    etcd - Contains the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs). 
-    CouchDB - Contains the Result Archive Store (RAS)
-    API - The Galasa API server,  including the bootstrap
-    ResMan - The Resource Manager service, handling the clean-up and management of resources in Galasa
-    Engine controller - Responsible for spinning up docker containers to execute individual Galasa automation runs.
-    Metrics server - Indicates the health of the ecosystem to a Prometheus server
+Name   |                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| :-------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| etcd| Contains the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs)                                             |
+| CouchDB| Contains the Result Archive Store (RAS)                                            |
+| API| The Galasa API server, including the bootstrap                                            |
+| ResMan| The Resource Manager service, handling the clean-up and management of resources in Galasa                                            |
+| Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs             |
+| Metrics server | Indicates the health of the ecosystem to a Prometheus server          |
+
 
 The following servers are not required by the ecosystem but are automatically deployed by the Docker Operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
 
-    Nexus - A Nexus server for deploying Maven artifacts to the ecosystem.
-    Jenkins - A demonstration Jenkins server to show how to run Galasa tests in a pipeline
-    Simplatform - Provides an instance of SimBank so that IVTs and demonstration pipelines can be run.
-
+Name   |                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| :-------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nexus| A Nexus server for deploying Maven artifacts to the ecosystem.                                          |
+| Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline                                           |
+| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run.bootstrap                                            |
 
 For more detailed information about these servers, see the [Ecosystem architecture](ecosystem-architecture) documentation.
 
 If the VM has a firewall running, you might need to open the following ports:
 
-    2379 - etcd
-    5984 - CouchDB
-    8080 - API
-    8081 - Nexus
-    8082 - Jenkins
+2379 - etcd <br>
+5984 - CouchDB<br>
+8080 - API <br>
+8081 - Nexus <br>
+8082 - Jenkins <br>
 
 
 ## Installing the Galasa ecosystem on the Docker engine
@@ -70,24 +74,19 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yam
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
-This command brings up the  <a href="https://github.com/galasa-dev/docs/ecosystem" target="_blank"> microservices</a> that are required to run a Galasa ecosystem. 
+This command brings up the  <a href="https://github.com/galasa-dev/docs/ecosystem" target="_blank"> microservices</a> that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. 
 
-When the command completes, nine docker containers should be running. 
-
-3. View the active containers
-
-Use the command ```docker ps``` to view the active containers.
+3. View the active containers by running the ```docker ps``` command.
 
 4. Connect to the ecosystem
 
-From your IDE, reconfigure Galasa to point to the Galasa ecosystem by editing the bootstrap. 
-The bootstrap contains the information that Galasa needs to bring up a framework in the Eclispe environment to connect to the ecosystem. 
+The bootstrap contains the information that Galasa needs to bring up a framework in the Eclispe environment to connect to the ecosystem. From your IDE, reconfigure Galasa to point to the Galasa ecosystem by editing the bootstrap.
 
 In Eclipse you can edit the bootstrap by completing the following steps:
 
-i.  Select *Windows > Preferences > Network connections* 
-ii. Click **Add host**?
-iii. Click **Apply and close**   
+i.  Select *Eclispe > Preferences > Galasa* <br>
+ii. Update  **Bootstrap URI** to point to ```http://{hostname}:8080/bootstrap``` <br>
+iii. Press **Apply**   <br>
 
 
 ## Verifying the installation
@@ -96,14 +95,13 @@ The Jenkins server that was automatically installed by the Docker operator, host
 
 1. Go to ```http://{hostname}:8082```, using the username of ```admin``` and password of ```galasaadmin``` (you can change the password). 
 2. Run *SimBankIVT*  - you can follow its progress in the job console. Run the Docker command ```docker ps -a``` to see the run container being created. When the run finishes successfully, the Jenkins job is updated to report that the test passed.
-3. View the output of the automated run by changing the Eclipse preferences for Galasa by setting the bootstrap preference to ```http://{hostname}:8080/bootstrap```.
-4.  After applying and closing the preferences, select *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
-5. Click the *Galasa* icon on the Eclipse toolbar. Two new Galasa views open; *Galasa Results* and *Galasa Runs*. 
-6. Run the Jenkins job again to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and a automation RAS. 
-7. On the automation branch, expand "All runs" and then expand "Today's runs" to view the automation run from Jenkins. 
-8. Double-click the run name to open the results window, which you can use to explore the test result.
+3. Ensure that the bootstrap is set to ```http://{hostname}:8080/bootstrap``` and then select *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
+4. Click the *Galasa* icon on the Eclipse toolbar. Two new Galasa views open; *Galasa Results* and *Galasa Runs*. 
+5. Run the Jenkins job again to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and a automation RAS. 
+6. On the automation branch, expand **All runs** and then expand **Today's runs** to view the automation run from Jenkins. 
+7. Double-click the run name to open the results window, which you can use to explore the test result.
 
-Alternativley, you can submit automation tests from within Eclipse instead of Jenkins; select *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
+Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
 
 ### Notes - not for review

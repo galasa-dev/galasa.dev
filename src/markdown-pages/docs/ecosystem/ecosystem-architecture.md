@@ -3,7 +3,7 @@ path: "/docs/ecosystem/architecture"
 title: "Ecosystem Architecture"
 ---
 
-The Galasa ecosystem contains all of the servers and monitors that are required to run Galasa tests in an automated environment or DevOps pipeline. The following diagram provides a high-level representation of the Galasa ecosystem architecture:<br> ![Galasa ecosystem architecture:](ecosystem-overview.png)
+The Galasa ecosystem contains all of the servers and monitors that are required to run Galasa tests in an automated environment or DevOps pipeline. The following diagram provides a high-level representation of the Galasa ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.png)
 
 <br>The ecosystem is made up of a collection of microservices for orchestrating runtimes, monitoring tests and resources, and providing clean-up of those resources if required. The ecosystem provides a centralized store for run configurations, a single location for storing all test results and test artifacts, and utilizes a REST endpoint that can be called from any IDE or pipeline. 
 
