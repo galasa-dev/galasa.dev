@@ -46,19 +46,11 @@ zos.image.SIMIMAGE.telnet.tls=true
 The use of the string SIMBANK in the annotation is understood by the Manager supplying the property and it ties to the infix part of the attribute name in the CPS properties.
 
 ### Galasa Ecosystem
-From your knowledge of your physical zOS ecosystem, you can configure your Galasa Ecosystem so that tests can exploit zOS and Galasa’s management of its resources. Here you can configure zOS clusters and the images they contain (or non-clustered images) .If you have been working through the SIMBANK sample shipped with Galasa, you may have customised or added to its configuration . You may find it helpful to reuse and evolve that configuration as the basis for a suitable configuration for a Galasa zOS Ecosystem. 
+From your knowledge of your physical z/OS ecosystem, you can configure your Galasa Ecosystem so that tests can exploit z/OS and Galasa’s management of its resources. Here you can configure z/OS clusters and the images they contain (or non-clustered images). If you have been working through the SIMBANK sample shipped with Galasa, you might have customised or added to its configuration. You might find it helpful to reuse and evolve that configuration as the basis for a suitable configuration for a Galasa z/OS Ecosystem. 
 
-CPS properties are attribute value pairs but with more complexity in the attribute name. This will largely require the respecification of the infix part of the attribute name[the following text refers to a now possibly obsolete version. of the WebUI design]
-If you would prefer, you can start from this (these?) basic alternatives	• SIMBANK (original basic specification)		
-	• SIMBANK (my modified specification - imported from your DSE)
-	• A single Cluster, two image example containing configuration for each one of the IBM capabilities (as shipped with Galasa)
-	• From scratch.
-	• [Other suggestions for more (or fewer) starting points, welcome]
-	From your starting point, we can start to migrate to a zOS Ecosystem, guided by how you want to deliver these zOS capabilities:
-	• Clusters, Images, purpose of images and then, 
-	• guided by testing capability that may exploit the images you have configured or 
-	• capability that is independent of the topology but which delivers test capability that you need for your ecosystem.
+### Other
 
+CPS properties are attribute value pairs but with more complexity in the attribute name. This will largely require the respecification of the infix part of the attribute name[
 You can configure the CPS properties by using etcdctl. If you have a large number of properties to configure using etcdctl might be time-consuming. A quicker option in this scenario is to use the Galasa web UI.  
 
 1. Use the Docker command ```docker exec -it galasa.cps /bin /sh```  to log onto the etcd server. 
