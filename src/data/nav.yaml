@@ -62,6 +62,8 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
+            - title: Installing the Ecosystem on Docker
+              path: /docs/ecosystem/installing
         - title: Upgrading
           path: /docs/upgrading  
     - title: Support
