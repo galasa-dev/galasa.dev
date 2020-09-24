@@ -11,47 +11,43 @@ The instructions assume a basic understanding of how Docker works.
 
 To bring up the Galasa ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
 
-The VM requires a minimum of 8GB of memory, 4 VCPUs and 80GB of storage. Docker has a default value of 4GB of memory set, so you need to change this value by using the 
-```docker run -it --memory="[memory_limit]" [docker_image]``` command where *memory_limit* is set to **8g** and *docker_image* is (for example) **ubuntu**. 
+The VM requires a minimum of 8GB of memory, 4 VCPUs and 80GB of storage. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: 
+```docker run -it --memory="[memory_limit]" [docker_image]``` <br>
+where *memory_limit* is set to **8g** and *docker_image* is (for example) **ubuntu**. 
 
 Instructions on installing a Docker engine can be found on the <a href="https://docs.docker.com/engine/install/" target="_blank"> Docker documentation</a> page. We are not aware of a minimum version of Docker engine the Docker operator requires. 
 
 
 ## About the Docker Operator
 
-The Docker operator automatically brings up several servers on the VM. The first set of servers that are listed in the following section are required for the Galasa ecosystem. The second set of servers are not required for the Galasa ecosystem but are instantiated by the Docker operator to enable you to run an IVT test to verify that the ecosystem is installed correctly on the VM. 
+The Docker operator automatically brings up several servers on the VM. The servers that are listed in the first table in following section are required for the Galasa ecosystem. The servers listed in the second table are not required for the Galasa ecosystem but are instantiated by the Docker operator to enable you to run an IVT test to verify that the ecosystem is installed correctly on the VM. 
 
-For more detailed information about these servers, see the [Ecosystem architecture](ecosystem-architecture) documentation.
+For more detailed information about these servers, see the [Ecosystem architecture](architecture) documentation.
 
-Name   |                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| :-------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| etcd| Contains the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs)                                             |
-| CouchDB| Contains the Result Archive Store (RAS)                                            |
-| API| The Galasa API server, including the bootstrap                                            |
-| ResMan| The Resource Manager service, handling the clean-up and management of resources in Galasa                                            |
-| Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs             |
-| Metrics server | Indicates the health of the ecosystem to a Prometheus server          |
+*Note:* If the VM has a firewall running, you might need to open the ports listed in the following tables:
+
+| Name      | Description | Port
+| ----------- | ----------- |----------- |
+| etcd| Contains the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs)       | 2379 |
+| CouchDB| Contains the Result Archive Store (RAS)   |  5984  |
+| API| The Galasa API server, including the bootstrap     |  8080    |
+| ResMan| The Resource Manager service, handling the clean-up and management of resources in Galasa     | NA |
+| Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs    | NA |
+| Metrics server | Indicates the health of the ecosystem to a Prometheus server   | NA |
 
 
 The following servers are not required by the ecosystem but are automatically deployed by the Docker Operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
 
-Name   |                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| :-------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nexus| A Nexus server for deploying Maven artifacts to the ecosystem.                                          |
-| Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline                                           |
-| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run                                          |
+| Name      | Description | Port
+| ----------- | ----------- |----------- |
+| Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
+| Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline  | 8082 |
+| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    | NA |
 
-If the VM has a firewall running, you might need to open the following ports:
-
-2379 - etcd <br>
-5984 - CouchDB<br>
-8080 - API <br>
-8081 - Nexus <br>
-8082 - Jenkins <br>
 
 ## Installing the Galasa ecosystem on the Docker engine
 
-The ecosystem needs to know the hostname or IP address of the VM on which the Docker engine is running. Due to the way Docker works, you cannot use *localhost* or *127.0.0.1*; you must use the actual VM hostname or IP address. This information is provided in a *config.yaml* file. 
+The ecosystem needs to know the hostname or IP address of the VM on which the Docker engine is running. Due to the way Docker works, you cannot use ```localhost``` or  ```127.0.0.1``` - you must use the actual VM hostname or IP address. This information is provided in a *config.yaml* file. 
 
 1. Copy the following YAML to create a *config.yaml* file on your VM, making a note of the full path of the file:
 
@@ -73,7 +69,7 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yam
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
-This command brings up the  <a href="https://github.com/galasa-dev/docs/ecosystem" target="_blank"> microservices</a> that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. Note that the command might take a little time to complete. 
+This command brings up the  <a href="https://github.com/galasa-dev/docs/ecosystem/architecture" target="_blank"> microservices</a> that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
 
 3. View the active containers by running the ```docker ps``` command.
 
@@ -98,10 +94,10 @@ The Jenkins server that was automatically installed by the Docker operator hosts
 2. Run *SimBankIVT*  - you can follow its progress in the job console by running the Docker command ```docker ps -a``` to see the run container being created. When the run finishes successfully, the Jenkins job is updated to report that the test passed.
 3. View the output of the automated run by selecting *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
 4. Click the *Galasa* icon on the Eclipse toolbar. Two new Galasa views open; *Galasa Results* and *Galasa Runs*. 
-5. Run the Jenkins job again by clicking **Build Now** to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and an automation RAS. 
+5. Run the Jenkins job again to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and an automation RAS. 
 6. On the automation branch, expand **All runs** and then expand **Today's runs** to view the automation run from Jenkins. 
 7. Double-click the run name to open the results window, which you can use to view the test results.
 
-Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
+Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select the *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
-Now that the ecosystem is successfully created on the VM, anyone with access to the VM can run tests using the centralized configuration settings and can view the same test logs and results. Tests can be run headlessly, without the need to keep individual workstations active.  
+Now that the ecosystem is successfully created on the VM, anyone with access to that VM can run tests that use the centralized configuration settings and can view the test logs and results. Tests can be run headlessly, without the need to keep individual workstations active.  
