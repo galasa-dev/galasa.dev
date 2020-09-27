@@ -20,7 +20,7 @@ Instructions on installing a Docker engine can be found on the <a href="https://
 
 The Docker operator automatically brings up the following servers on the VM. For more detailed information about these servers, see the [Ecosystem architecture](architecture) documentation.
 
-*Note:* If the VM has a firewall running, you might need to open the ports listed in the following tables.
+*Note:* If the VM has a firewall running, you might need to open the ports that are listed in the following tables.
 
 The following servers are required for the Galasa ecosystem:  
 
