@@ -18,7 +18,7 @@ Instructions on installing a Docker engine can be found on the <a href="https://
 
 ## About the Docker Operator
 
-The Docker operator automatically brings up the following servers on the VM. For more detailed information about these servers, see the Ecosystem architecture documentation.
+The Docker operator automatically brings up the following servers on the VM. For more detailed information about these servers, see the [Ecosystem architecture](/docs/ecosystem/architecture) documentation.
 
 *Note:* If the VM has a firewall running, you might need to open the ports that are listed in the following tables.
 
@@ -67,7 +67,7 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yam
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
-This command brings up the [microservices](architecture) that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
+This command brings up the [microservices](/docs/ecosystem/architecture) that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
 
 3. View the active containers by running the ```docker ps``` command.
 
