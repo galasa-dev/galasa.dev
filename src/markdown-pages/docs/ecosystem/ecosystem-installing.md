@@ -67,7 +67,7 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yam
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
-This command brings up the  <a href="https://github.com/galasa-dev/docs/ecosystem/architecture" target="_blank"> microservices</a> that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
+This command brings up the [microservices](architecture) that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
 
 3. View the active containers by running the ```docker ps``` command.
 
