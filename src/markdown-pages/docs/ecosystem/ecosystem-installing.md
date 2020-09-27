@@ -18,23 +18,23 @@ Instructions on installing a Docker engine can be found on the <a href="https://
 
 ## About the Docker Operator
 
-The Docker operator automatically brings up several servers on the VM. The servers that are listed in the first table in following section are required for the Galasa ecosystem. The servers listed in the second table are not required for the Galasa ecosystem but are instantiated by the Docker operator to enable you to run an IVT test to verify that the ecosystem is installed correctly on the VM. 
+The Docker operator automatically brings up the following servers on the VM. For more detailed information about these servers, see the [Ecosystem architecture](architecture) documentation.
 
-For more detailed information about these servers, see the [Ecosystem architecture](architecture) documentation.
+*Note:* If the VM has a firewall running, you might need to open the ports listed in the following tables.
 
-*Note:* If the VM has a firewall running, you might need to open the ports listed in the following tables:
+The following servers are required for the Galasa ecosystem:  
+
 
 | Name      | Description | Port
 | ----------- | ----------- |----------- |
 | etcd| Contains the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs)       | 2379 |
 | CouchDB| Contains the Result Archive Store (RAS)   |  5984  |
-| API| The Galasa API server, including the bootstrap     |  8080    |
-| ResMan| The Resource Manager service, handling the clean-up and management of resources in Galasa     | NA |
+| API server | The Galasa API server, including the bootstrap     |  8080    |
+| Resource Management | The resource management service, handling the clean-up and management of resources in Galasa     | NA |
 | Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs    | NA |
 | Metrics server | Indicates the health of the ecosystem to a Prometheus server   | NA |
 
-
-The following servers are not required by the ecosystem but are automatically deployed by the Docker Operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
+The following servers are not required by the ecosystem but are automatically deployed by the Docker operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
 
 | Name      | Description | Port
 | ----------- | ----------- |----------- |
@@ -96,6 +96,6 @@ The Jenkins server that was automatically installed by the Docker operator hosts
 6. On the automation branch, expand **All runs** and then expand **Today's runs** to view the automation run from Jenkins. 
 7. Double-click the run name to open the results window, which you can use to view the test results.
 
-Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select the *Galasa->Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
+Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select the *Galasa > Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
 Now that the ecosystem is successfully created on the VM, anyone with access to that VM can run tests that use the centralized configuration settings and can view the test logs and results. Tests can be run headlessly, without the need to keep individual workstations active.  
