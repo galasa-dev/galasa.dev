@@ -9,7 +9,7 @@ The following section explains how to install a Galasa ecosystem on a Docker eng
 
 To bring up the Galasa ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
 
-The VM requires a minimum of 8GB of memory, 4 VCPUs and 80GB of storage. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: 
+The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: 
 ```docker run -it --memory="[memory_limit]" [docker_image]``` <br>
 where *memory_limit* is set to **8g** and *docker_image* is (for example) **ubuntu**. 
 
@@ -86,11 +86,11 @@ In Eclipse, you can edit the bootstrap by completing the following steps:
 
 ## Verifying the installation
 
-The Jenkins server that was automatically installed by the Docker operator hosts a *SimBank_IVT* build job that runs a Jenkins pipeline to request the *SimBankIVT* test run in the Galasa ecosystem. 
+The Jenkins server that was automatically installed by the Docker operator hosts a *SimBank_IVT* build job. This job runs a Jenkins pipeline, which requests the *SimBankIVT* test to run in the Galasa ecosystem.
 
-1. Go to ```http://{hostname}:8082```, using the username of ```admin``` and password of ```galasaadmin``` (you can change the password). 
-2. Run *SimBankIVT*  - you can follow its progress in the job console by running the Docker command ```docker ps -a``` to see the run container being created. When the run finishes successfully, the Jenkins job is updated to report that the test passed.
-3. View the output of the automated run by selecting *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
+1. Go to ```http://{hostname}:8082```, using the username of ```admin``` and password of ```galasaadmin```. The *SimBankIVT* test is displayed in the Jenkins dashboard. 
+2. Click the *SimBankIVT* link and select **Build Now** to run the test. If you are quick, you can follow its progress in the job console by running the Docker command ```docker ps -a``` to see the run container being created. When the run finishes successfully, the Jenkins job is updated to report that the test passed. 
+3. View the output of the automated run in Eclipse by selecting *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
 4. Click the *Galasa* icon on the Eclipse toolbar. Two new Galasa views open; *Galasa Results* and *Galasa Runs*. 
 5. Run the Jenkins job again to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and an automation RAS. 
 6. On the automation branch, expand **All runs** and then expand **Today's runs** to view the automation run from Jenkins. 
