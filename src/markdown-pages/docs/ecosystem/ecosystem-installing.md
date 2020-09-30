@@ -9,7 +9,7 @@ The following section explains how to install a Galasa ecosystem on a Docker eng
 
 To bring up the Galasa ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
 
-The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: ```docker run -it --memory="[memory_limit]" [docker_image]``` <br>
+The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. The size of the VM provided is directly related to the number of tests that can be run in parallel. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: ```docker run -it --memory="[memory_limit]" [docker_image]``` <br>
 where *memory_limit* is set to **8g** and *docker_image* is (for example) **ubuntu**. 
 
 Instructions on installing a Docker engine can be found on the <a href="https://docs.docker.com/engine/install/" target="_blank"> Docker documentation</a> page. We are not aware of a minimum version of Docker engine the Docker operator requires. 
@@ -39,7 +39,7 @@ The following servers are not required by the ecosystem but are automatically de
 | ----------- | ----------- |----------- |
 | Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
 | Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline  | 8082 |
-| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    | NA |
+| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
 
 ## Installing the Galasa ecosystem on the Docker engine
