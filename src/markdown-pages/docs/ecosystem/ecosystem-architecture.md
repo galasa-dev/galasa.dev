@@ -3,7 +3,7 @@ path: "/docs/ecosystem/architecture"
 title: "Ecosystem Architecture"
 ---
 
-The Galasa ecosystem contains all of the servers and monitors that are required to run Galasa tests in an automated environment or DevOps pipeline. The following diagram provides a high-level representation of the Galasa ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.svg)
+The Galasa ecosystem contains all of the servers and monitors that are required to run Galasa tests in an automated environment or as part of a DevOps pipeline. The following diagram provides a high-level representation of the Galasa ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.svg)
 
 <br>The ecosystem is made up of a collection of microservices for orchestrating runtimes, monitoring tests and resources, and providing clean-up of those resources if required. The ecosystem provides a centralized store for run configurations, a single location for storing all test results and test artifacts, and utilizes a REST endpoint that can be called from any IDE or pipeline. 
 
@@ -23,7 +23,7 @@ The following diagram highlights a some of the key components that make up the G
 | **Dynamic Status Store**               | The dynamic status store (DSS) provides status information about the ecosystem and the tests that are running. The DSS is used by the resource manager and engine controller to ensure the limits that are set in the CPS configuration are not exceeded. DSS property values change dynamically as tests are run, showing the resources that are currently being used, shared or locked by a test, so that workloads can be limited to avoid throttling. When running in automation, the DSS is shared by every instance of the framework.                                                             |
 | **Result Archive Store**                      | The result archive store (RAS) is a single database which stores all elements of a test, including the test results, run logs, and test artifacts. These elements can be used to help diagnose the cause of any failures encountered as a result of running a test, or to gather information about a test.  Storing all of this information in one place makes it simple for entire teams to view results.                              |
 | **Credentials Store**                   | The credentials store (CREDs) securely provides the credentials, for example, password, username and authentication token that are required for a test to run in automation. The CREDs is hosted in the etcd server.    |
-| **etcd**                       | The etcd server is a highly available key-value pair store which hosts the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs). The CPS, DSS contain information that are used by all tests and the CREDs is used only for automation runs.  The etcd server stores and maintains a single, consistent source of the truth about the status of the ecosystem at any given point in time.      |
+| **etcd**                       | The etcd server is a highly available key-value pair store which hosts the Configuration Property Store (CPS), the Dynamic Status Store (DSS) and the Credentials Store (CREDs). The etcd server stores and maintains a single, consistent source of the truth about the status of the ecosystem at any given point in time.      |
 | **CouchDB**                       | This database runs inside Docker container or Kubernetes pod and contains the Result Archive Store (RAS).        |
 
 
@@ -60,7 +60,8 @@ The following diagram highlights a some of the key components that make up the G
 
 |                                   |                                                                                                                          |
 | ------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| **Prometheus**                       | The Prometheus server scrapes and stores metrics from defined endpoints from the metrics server. These metrics provide information on the rate of  throughput of tests in the ecosystem.   |
+| **Prometheus**                       | The Prometheus server scrapes and stores metrics from defined endpoints from the metrics server. These metrics provide information on the rate of  throughput of tests in the ecosystem
+.   |
 | **Grafana**                       | A dashboard for visualizing Prometheus metrics. Data can be explored through queries and drilldown.       |
 | **Elasticsearch**                       | Provides an Elastic search instance to record the results of automated test runs.        |
 | **Kabana**                       | A dashboard for visualizing Elasticsearch metrics. Data can be explored through queries and drilldown.       |

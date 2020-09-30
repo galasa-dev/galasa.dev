@@ -14,9 +14,10 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.11.0 - Release Highlights
 
-- Galasa Ecosystem Operator is now in Alpha. The Galasa Ecosystem Operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-operator) for more information.  
+- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-operator) for more information.  
+- z/OS 3270 improvements and fixes, including support for NEGTSECURE ports and for z/VM (TN3270)
 - Various bug fixes
-- Documentation updates - Galasa Ecosystem - overview, architecture and Docker Operator installation guide, documentation improvements
+- Documentation updates - Galasa Ecosystem - overview, architecture and Docker operator installation guide, documentation improvements
 
 <details>
 <summary><b>0.10.0 - Release Highlights</b></summary>
