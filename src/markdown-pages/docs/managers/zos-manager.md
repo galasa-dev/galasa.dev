@@ -663,6 +663,20 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
+<summary>zOS Batch restrict processing to the server on the specified image</summary>
+
+| Property: | zOS Batch restrict processing to the server on the specified image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosbatch.batchjob.[imageid].restrict.to.image |
+| Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the zOS Batch job |
+| Required:  | No |
+| Default value: | false |
+| Valid values: | true or false |
+| Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
+
+</details>
+ 
+<details>
 <summary>zOS Batch default input class</summary>
 
 | Property: | zOS Batch default input class |
@@ -733,20 +747,6 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>Restrict zOS batch processing to the server on the specified image</summary>
-
-| Property: | Restrict zOS batch processing to the server on the specified image |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.batchjob.[imageid].restrict.to.image |
-| Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the zOS Batch job |
-| Required:  | No |
-| Default value: | false |
-| Valid values: | true or false |
-| Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
-
-</details>
- 
-<details>
 <summary>zOS Batch job truncate JCL</summary>
 
 | Property: | zOS Batch job truncate JCL |
@@ -771,5 +771,47 @@ The following are properties used to configure the zOS Manager.
 | Default value: | true |
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjobe.MVSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
+
+</details>
+ 
+<details>
+<summary>zOS File the maximum number of items from a UNIX directory list</summary>
+
+| Property: | zOS File the maximum number of items from a UNIX directory list |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosfile.unix.[imageid].directory.list.max.items |
+| Description: | The maximum number of items the server (e.g. zOSMF, RSE API, etc) returns when listing the content of a UNIX directory |
+| Required:  | No |
+| Default value: | 1000 |
+| Valid values: | $validValues |
+| Examples: | <code>zosfile.unix.[imageid].directory.list.max.items=1000</code><br> |
+
+</details>
+ 
+<details>
+<summary>zOS File restrict processing to the server on the specified image</summary>
+
+| Property: | zOS File restrict processing to the server on the specified image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosfile.file.[imageid].restrict.to.image |
+| Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the zOS data set or file |
+| Required:  | No |
+| Default value: | False |
+| Valid values: | $validValues |
+| Examples: | <code>zosfile.file.restrict.to.image=true</code><br> <cods>zosfile.file.SYSA.restrict.to.image=true</code> |
+
+</details>
+ 
+<details>
+<summary>zOS File UNIX permission bits to be used in creating the file or directory</summary>
+
+| Property: | zOS File UNIX permission bits to be used in creating the file or directory |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosfile.[imageid].unix.file.permission |
+| Description: | The UNIX file or directory permission bits to be used in creating the file or directory |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | $validValues |
+| Examples: | <code>zosfile.unix.file.permission=rwxrwx---</code><br> <code>zosfile.SYSA.unix.file.permission=rwxrwxrrx</code> |
 
 </details>
