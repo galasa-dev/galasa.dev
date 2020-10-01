@@ -60,8 +60,7 @@ The following diagram highlights a some of the key components that make up the G
 
 |                                   |                                                                                                                          |
 | ------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| **Prometheus**                       | The Prometheus server scrapes and stores metrics from defined endpoints from the metrics server. These metrics provide information on the rate of  throughput of tests in the ecosystem
-.   |
+| **Prometheus**                       | The Prometheus server scrapes and stores metrics from defined endpoints from the metrics server. These metrics provide information on the rate of  throughput of tests in the ecosystem.   |
 | **Grafana**                       | A dashboard for visualizing Prometheus metrics. Data can be explored through queries and drilldown.       |
 | **Elasticsearch**                       | Provides an Elastic search instance to record the results of automated test runs.        |
 | **Kabana**                       | A dashboard for visualizing Elasticsearch metrics. Data can be explored through queries and drilldown.       |
