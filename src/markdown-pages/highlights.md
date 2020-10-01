@@ -11,7 +11,16 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.10.0 - Release Highlights
+
+## 0.11.0 - Release Highlights
+
+- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-operator) for more information.  
+- z/OS 3270 improvements and fixes, including support for NEGTSECURE ports and for z/VM (TN3270)
+- Various bug fixes
+- Documentation updates - Galasa Ecosystem - overview, architecture and Docker operator installation guide, documentation improvements
+
+<details>
+<summary><b>0.10.0 - Release Highlights</b></summary>
 
 - z/OS Program Manager is now in Alpha
 - Docker Operator is now in Alpha. The Docker Operator creates Galasa ecosystems in Docker, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-extensions-parent/dev.galasa.docker.operator) for more information.  
