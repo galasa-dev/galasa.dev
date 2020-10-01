@@ -57,6 +57,13 @@
               path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
+        - title: The Galasa ecosystem
+          path: /docs/ecosystem
+          items:
+            - title: Ecosystem architecture
+              path: /docs/ecosystem/architecture
+            - title: Installing the Ecosystem on Docker
+              path: /docs/ecosystem/installing
         - title: Upgrading
           path: /docs/upgrading  
     - title: Support

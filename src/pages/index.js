@@ -103,7 +103,7 @@ const IndexPage = () => (
             Learn more
           </Button>
           <Button target={"/releases"} flash={true} primary={true}>
-            0.10.0 highlights
+            0.11.0 highlights
           </Button>
         </div>
       </div>

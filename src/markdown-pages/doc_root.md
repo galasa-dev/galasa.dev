@@ -12,7 +12,7 @@ At its top level, Galasa decomposes into three major components:
 * A test runner
 
 *Galasa's key components (not all Managers are currently implemented)*
-![Galasa architecture](galasa-architecture.svg)
+![Galasa architecture](galasa-architecture-framework.svg)
 
 ## The core framework
 Galasa's core framework orchestrates all component activities, and co-ordinates with the test runner to actually execute your tests. You never have to write code to *invoke* your tests - you just write the code that defines them, as a set of one or more test classes and the methods within. 
