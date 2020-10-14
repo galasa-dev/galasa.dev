@@ -9,8 +9,7 @@ The following section explains how to install a Galasa ecosystem on a Docker eng
 
 To bring up the Galasa ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
 
-The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. The size of the VM provided is directly related to the number of tests that can be run in parallel. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value by using the following command: ```docker run -it --memory="[memory_limit]" [docker_image]``` <br>
-where *memory_limit* is set to **8g** and *docker_image* is (for example) **ubuntu**. 
+The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. The size of the VM provided is directly related to the number of tests that can be run in parallel. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value which you can do by using Docker Desktop. 
 
 Instructions on installing a Docker engine can be found on the <a href="https://docs.docker.com/engine/install/" target="_blank"> Docker documentation</a> page. We are not aware of a minimum version of Docker engine the Docker operator requires. 
 
