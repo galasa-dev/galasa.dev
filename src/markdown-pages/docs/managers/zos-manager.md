@@ -336,14 +336,14 @@ Create a new *IZosDataset* object representing an existing sequential data set. 
 
 ```
 @ZosImage(imageTag="A")
-public IZosImage zosImageA;
+public IZosImage zosImage;
 
 @ZosFileHandler
 public IZosFileHandler zosFileHandler;
 ...
-IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ", zosImageA);
+IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ", zosImage);
 if (dataSet.exists()) {
-    String dataSet.retrieveAsText();
+    String content = dataSet.retrieveAsText();
     ...
 }
 ```
@@ -356,12 +356,12 @@ Create a new *IZosDataset* object representing an existing partitioned data set 
 
 ```
 @ZosImage(imageTag="A")
-public IZosImage zosImageA;
+public IZosImage zosImage;
 
 @ZosFileHandler
 public IZosFileHandler zosFileHandler;
 ...
-IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zosImageA);
+IZosDataset dataSet = zosFileHandler.newDataset("GALASA.EXISTING.DATASET.SEQ, zosImage);
     String memberName = "MEMBER1";
     if (dataSet.exists() && dataSet.memberExists(memberName)) {
         String content = dataSet.memberRetrieveAsText(memberName);
@@ -385,12 +385,12 @@ Finally, content is written to the data set in text mode:
 
 ```
 @ZosImage(imageTag="A")
-public IZosImage zosImageA;
+public IZosImage zosImage;
 
 @ZosFileHandler
 public IZosFileHandler zosFileHandler;
 ...
-IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosImageA);
+IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.SEQ", zosImage);
     if (!dataSet.exists()) {
         dataSet.setDatasetOrganization(DatasetOrganization.SEQUENTIAL);
         dataSet.setRecordFormat(RecordFormat.FIXED_BLOCKED);
@@ -422,12 +422,12 @@ Finally, content is written to a member in the PDS in text mode:
 
 ```
 @ZosImage(imageTag="A")
-public IZosImage zosImageA;
+public IZosImage zosImage;
 
 @ZosFileHandler
 public IZosFileHandler zosFileHandler;
 ...
-IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.PDS", zosImageA);
+IZosDataset dataSet = zosFileHandler.newDataset("GALASA.NEW.DATASET.PDS", zosImage);
 if (!dataSet.exists()) {
     dataSet.setDatasetOrganization(DatasetOrganization.SEQUENTIAL);
     dataSet.setRecordFormat(RecordFormat.FIXED_BLOCKED);
@@ -454,7 +454,7 @@ DSNTYPE=LIBRARY
 use
 
 ```
-dataSet.setDatasetType(DSType.PDSE);
+dataSet.setDatasetType(DSType.LIBRARY);
 ```
 instead of setting the number of directory blocks.
 </details>
@@ -464,16 +464,71 @@ instead of setting the number of directory blocks.
 Create a new *IZosVSAMDataset* object representing a new VSAM KSDS data set. If the data set is allocated with a minimum set of attributes:
 
 ```
-IZosVSAMDataset vsamDataSet = zosFileHandler.newVSAMDataset("ROBERTD.GALASA.TEST.DS.ANOTHER.KSDS", zosImageA);
+IZosVSAMDataset vsamDataSet = zosFileHandler.newVSAMDataset("ROBERTD.GALASA.TEST.DS.ANOTHER.KSDS", zosImage);
 vsamDataSet.setSpace(VSAMSpaceUnit.CYLINDERS, 1, 1);
 vsamDataSet.setRecordSize(50, 101);
 vsamDataSet.create();
 ```
 </details>
 
-<details><summary>Read a zOS UNIX File</summary>
+<details><summary>Read the contents of a zOS UNIX File</summary>
 
-*To be completed...*
+Create a new *IZosDataset* object representing a UNIX file. If the file exists, retrieve the content in text mode:
+
+```
+IZosUNIXFile unixFile = zosFileHandler.newUNIXFile("/tmp/Galasa/existingFile", zosImage);
+if (unixFile.exists()) {
+    unixFile.setDataType(UNIXFileDataType.TEXT);
+    String content = unixFile.retrieve();
+}
+```
+
+</details>
+
+<details><summary>Read the contents of a zOS UNIX File</summary>
+
+Create a new *IZosDataset* object representing a new UNIX file. If UNIX file does not exist, create it. Write to the file in binary mode:
+
+```
+IZosUNIXFile unixFile = zosFileHandler.newUNIXFile("/tmp/Galasa/newFile", zosImage);
+if (!unixFile.exists()) {
+    unixFile.create();
+}
+List<String> properties = new ArrayList<>();
+properties.add("dev.galasa.property1=value1");
+properties.add("dev.galasa.property2=value2");
+properties.add("dev.galasa.property3=value3");
+unixFile.setDataType(UNIXFileDataType.BINARY);
+unixFile.store(String.join("\n", properties));
+```
+
+</details>
+
+<details><summary>List the contents of a zOS UNIX Directory</summary>
+
+Create a new *IZosDataset* object representing a new UNIX directory. If UNIX directory exists, list its contents:
+
+```
+IZosUNIXFile unixDirectory = zosFileHandler.newUNIXFile("/tmp/Galasa/", zosImage);
+if (unixDirectory.exists())
+{
+    Map<String, String> dir = unixDirectory.directoryListRecursive();
+    for (Map.Entry<String, String> entry : dir.entrySet()) {
+        logger.info(String.format("%2$-9s: %1$s", entry.getKey(), entry.getValue()));
+   }
+}
+```
+
+Example output:
+
+```
+directory: /tmp/Galasa/dira
+file     : /tmp/Galasa/dira/file1
+file     : /tmp/Galasa/dira/file2
+file     : /tmp/Galasa/existingFile
+file     : /tmp/Galasa/newFile
+```
+
 </details>
 
 ## Configuration Properties
