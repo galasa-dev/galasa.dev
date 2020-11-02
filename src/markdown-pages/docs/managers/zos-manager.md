@@ -536,9 +536,9 @@ file     : /tmp/Galasa/newFile
 The following are properties used to configure the zOS Manager.
  
 <details>
-<summary>Extra bundle to required to implement the zOS Batch Manager</summary>
+<summary>Extra bundle required to implement the zOS Batch Manager</summary>
 
-| Property: | Extra bundle to required to implement the zOS Batch Manager |
+| Property: | Extra bundle required to implement the zOS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.batch.manager |
 | Description: | The name of the Bundle that implements the zOS Batch Manager |
@@ -569,7 +569,7 @@ The following are properties used to configure the zOS Manager.
 | Property: | The images for a zOS Cluster |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.cluster.[clusterId].images |
-| Description: | The zOS Images for the specifies Cluster |
+| Description: | The zOS Images for the specified cluster |
 | Required:  | No |
 | Default value: | None |
 | Valid values: | $validValues |
@@ -578,9 +578,9 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>Extra bundle to required to implement the zOS Console Manager</summary>
+<summary>Extra bundle required to implement the zOS Console Manager</summary>
 
-| Property: | Extra bundle to required to implement the zOS Console Manager |
+| Property: | Extra bundle required to implement the zOS Console Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.console.manager |
 | Description: | The name of the Bundle that implements the zOS Console Manager |
@@ -620,9 +620,9 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>Extra bundle to required to implement the zOS File Manager</summary>
+<summary>Extra bundle required to implement the zOS File Manager</summary>
 
-| Property: | Extra bundle to required to implement the zOS File Manager |
+| Property: | Extra bundle required to implement the zOS File Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.file.manager |
 | Description: | The name of the Bundle that implements the zOS File Manager |
@@ -690,9 +690,9 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>Extra bundle to required to implement the zOS TSO Command Manager</summary>
+<summary>Extra bundle required to implement the zOS TSO Command Manager</summary>
 
-| Property: | Extra bundle to required to implement the zOS TSO Command Manager |
+| Property: | Extra bundle required to implement the zOS TSO Command Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.tsocommand.manager |
 | Description: | The name of the Bundle that implements the zOS TSO Command Manager |
@@ -704,9 +704,9 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>Extra bundle to required to implement the zOS UNIX Command Manager</summary>
+<summary>Extra bundle required to implement the zOS UNIX Command Manager</summary>
 
-| Property: | Extra bundle to required to implement the zOS UNIX Command Manager |
+| Property: | Extra bundle required to implement the zOS UNIX Command Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.unixcomand.manager |
 | Description: | The name of the Bundle that implements the zOS UNIX Command Manager |
