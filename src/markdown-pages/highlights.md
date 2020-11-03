@@ -12,12 +12,21 @@ Post a question or share your experiences with other users in our <a href="https
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.11.0 - Release Highlights
+## 0.12.0 - Release Highlights
+
+- z/OS Manager support for RSE - provides tests and Managers with access to RSE functions, and implementations of z/OS Batch and File Manager by using the RSE API.
+- CPS Backup feature - enables CPS properties to be output to a plain-text file. Use ```--backupcps``` as a command-line option when running the *galasa-boot* jar alongside the file option ```-f``` or ```--file``` to specify an output file for the properties.
+- Various bug fixes
+- Updated documentation for RSA, Linux and Open Stack Managers
+
+<details>
+<summary><b>0.11.0 - Release Highlights</b></summary>
 
 - Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator) for more information.  
 - z/OS 3270 improvements and fixes, including support for NEGTSECURE ports and for z/VM (TN3270)
 - Various bug fixes
 - Documentation updates - Galasa Ecosystem - overview, architecture and Docker operator installation guide, documentation improvements
+</details>
 
 <details>
 <summary><b>0.10.0 - Release Highlights</b></summary>
