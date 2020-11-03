@@ -14,7 +14,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.12.0 - Release Highlights
 
-- z/OS Manager support for RSA - provides tests and Managers with access to RSE API functions, and implementations of z/OS Batch and File Manager by using the RSE API.
+- z/OS Manager support for RSE - provides tests and Managers with access to RSE functions, and implementations of z/OS Batch and File Manager by using the RSE API.
 - CPS Backup feature - enables CPS properties to be output to a plain-text file. Use ```--backupcps``` as a command-line option when running the *galasa-boot* jar alongside the file option ```-f``` or ```--file``` to specify an output file for the properties.
 - Various bug fixes
 - Updated documentation for RSA, Linux and Open Stack Managers
