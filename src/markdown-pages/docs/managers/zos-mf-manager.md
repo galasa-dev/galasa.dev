@@ -47,44 +47,58 @@ The following are properties used to configure the zOS MF Manager.
 </details>
  
 <details>
+<summary>zOSMF Image Servers</summary>
+
+| Property: | zOSMF Image Servers |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosmf.image.IMAGEID.servers |
+| Description: | The zOSMF servers for use with z/OS Image, the zOS/MF do not need to be running the actual z/OS Image |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | Comma separated zOS/MF server IDs |
+| Examples: | <code>zosmf.image.MV2C.servers=MFSYSA,MFSYSB</code><br> |
+
+</details>
+ 
+<details>
 <summary>zOSMF Server retry request</summary>
 
 | Property: | zOSMF Server retry request |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[imageid].https |
+| Name: | zosmf.server.[SERVERID].request.retry |
 | Description: | The number of times to retry when zOSMF request fails |
 | Required:  | No |
 | Default value: | 3 |
-| Valid values: | $validValues |
-| Examples: | <code>zosmf.server.request.retry=5</code><br> <code>zosmf.server.SYSA.request.retry=5</code> |
+| Valid values: | numerical value > 0 |
+| Examples: | <code>zosmf.server.request.retry=5</code><br> <code>zosmf.server.MFSYSA.request.retry=5</code> |
 
 </details>
  
 <details>
-<summary>zOSMF Server hostname</summary>
+<summary>zOSMF Server Credentials</summary>
 
-| Property: | zOSMF Server hostname |
+| Property: | zOSMF Server Credentials |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[imageid].hostname |
-| Description: | The hostname zOSMF server |
-| Required:  | Yes |
-| Default value: | None |
-| Valid values: | $validValues |
-| Examples: | <code>zosmf.server.hostname=zosmfserver.ibm.com</code><br> <code>zosmf.server.SYSA.hostname=zosmfserver.ibm.com</code> |
-
-</details>
- 
-<details>
-<summary>zOSMF Server images</summary>
-
-| Property: | zOSMF Server images |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[clusterid].images |
-| Description: | The zOSMF server images active on the supplied cluster |
+| Name: | zosmf.server.[SERVERID].credentials |
+| Description: | The z/OS credentials to use when accessing the zOS/MF server |
 | Required:  | No |
-| Default value: | True |
-| Valid values: | $validValues |
-| Examples: | <code>zosmf.server.images=SYSA,SYSB</code><br> <code>zosmf.server.PLEXA.images=SYSA,SYSB</code> |
+| Default value: | None, however the zOS/MF Manager will use the default z/OS image credentials |
+| Valid values: | Valid credential ID |
+| Examples: | <code>zosmf.server.MFSYSA.credentials=ZOS</code><br> |
+
+</details>
+ 
+<details>
+<summary>zOSMF Server Image</summary>
+
+| Property: | zOSMF Server Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosmf.server.SERVERID.image |
+| Description: | The z/OS image ID this zOS/MF server lives on |
+| Required:  | No |
+| Default value: | The SERVERID value is used as the z/OS image ID |
+| Valid values: | z/OS image IDs |
+| Examples: | <code>zosmf.server.MFSYSA.image=SYSA</code><br> |
 
 </details>
  
@@ -93,11 +107,25 @@ The following are properties used to configure the zOS MF Manager.
 
 | Property: | zOSMF Server port |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[imageid].https |
-| Description: | The hostname zOSMF server |
-| Required:  | Yes |
+| Name: | zosmf.server.[imageid].port |
+| Description: | The port number of the zOS/MF server |
+| Required:  | No |
+| Default value: | 443 |
+| Valid values: | A valid IP port number |
+| Examples: | <code>zosmf.server.port=443</code><br> <code>zosmf.server.MFSYSA.port=443</code> |
+
+</details>
+ 
+<details>
+<summary>zOSMF Sysplex Servers</summary>
+
+| Property: | zOSMF Sysplex Servers |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosmf.sysplex.[SYSPLEXID].default.servers |
+| Description: | The zOSMF servers active on the supplied sysplex |
+| Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
-| Examples: | <code>zosmf.server.port=443</code><br> <code>zosmf.server.SYSA.port=443</code> |
+| Valid values: | Comma separated zOS/MF server IDs |
+| Examples: | <code>zosmf.sysplex.default.servers=MFSYSA,MFSYSB</code><br> <code>zosmf.sysplex.PLEXA.default.servers=MFSYSA,MFSYSB</code> |
 
 </details>
