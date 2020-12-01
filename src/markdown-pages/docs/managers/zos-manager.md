@@ -676,6 +676,20 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
+<summary>The SYSNAME for zOS Image</summary>
+
+| Property: | The SYSNAME for zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[imageid].sysname |
+| Description: | The SYSNAME for the zOS image |
+| Required:  | No |
+| Default value: | The image ID of the image |
+| Valid values: | $validValues |
+| Examples: | <code>zos.image.IMAGEA.sysname=SYSA</code><br> |
+
+</details>
+ 
+<details>
 <summary>The run data set HLQ for the zOS Image</summary>
 
 | Property: | The run data set HLQ for the zOS Image |
@@ -686,6 +700,20 @@ The following are properties used to configure the zOS Manager.
 | Default value: | runuser.GALASA |
 | Valid values: | $validValues |
 | Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
+
+</details>
+ 
+<details>
+<summary>The run data UNIX path prefix for the zOS Image</summary>
+
+| Property: | The run data UNIX path prefix for the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.run.[image].unix.path.prefix |
+| Description: | The UNIX path prefix for temporary data sets created on zOS Image.<br>  If CPS property zos.run.[image].unix.path.prefix exists, then that is returned |
+| Required:  | No |
+| Default value: | /u/runuser/Galasa |
+| Valid values: | $validValues |
+| Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
 
 </details>
  
