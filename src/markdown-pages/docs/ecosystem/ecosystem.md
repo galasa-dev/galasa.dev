@@ -3,7 +3,7 @@ path: "/docs/ecosystem"
 title: "The Galasa Ecosystem"
 ---
 
-To realise the full power of Galasa, you need to run your tests inside a Galasa ecosystem.
+To realise the full power of Galasa, you need to run your tests inside a Galasa ecosystem. The Galasa ecosystem is a cloud native application which exposes a sequence of microservices that are used to manage the set of running tests.
 
 The SimBank tests showcase how the Galasa framework can run inside a locally hosted JVM. Local runs use their own Galasa property files to act as configurational services, making it easy to instantiate and run tests. 
 
