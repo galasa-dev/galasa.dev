@@ -13,6 +13,24 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.13.0 - Release Highlights
 
+- CEDA Manager is now in Alpha, providing CEDA 3270 interaction
+- CEMT Manager is now in Alpha, providing CEMT 3270 interaction 
+- Changes to the following CPS properties for z/OS MF:
+```
+zosmf.server.SERVERID.image=IMAGEID
+zosmf.server.SERVERID.https=true
+zosmf.server.SERVERID.port=443
+zosmf.server.SERVERID.request.retry=3
+zosmf.server.SERVERID.credentials=ZOS
+zosmf.sysplex.PLEXID.default.servers=SERVERID,SERVERID
+zosmf.image.IMAGEID.servers=SERVERID,SERVERID
+```
+If you have zOS/MF servers on each z/OS image, the following properties are the minimum that are required:
+```
+zos.image.MV2D.ipv4.hostname=winmvs2d.hursley.ibm.com
+zosmf.server.port=9999
+```
+These settings assume a zOS/MF server on MV2D and the port overridden from `443` to `9999` for all zOS/MF servers. 
 - Various bug fixes
 - Documentation enhancements, including updates to About and Ecosystem documentation
 
