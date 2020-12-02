@@ -11,13 +11,38 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.13.0 - Release Highlights
 
-## 0.12.0 - Release Highlights
+- CEDA Manager is now in Alpha, providing CEDA 3270 interaction
+- CEMT Manager is now in Alpha, providing CEMT 3270 interaction 
+- Changes to the following CPS properties for z/OS MF:
+```
+zosmf.server.SERVERID.image=IMAGEID
+zosmf.server.SERVERID.https=true
+zosmf.server.SERVERID.port=443
+zosmf.server.SERVERID.request.retry=3
+zosmf.server.SERVERID.credentials=ZOS
+zosmf.sysplex.PLEXID.default.servers=SERVERID,SERVERID
+zosmf.image.IMAGEID.servers=SERVERID,SERVERID
+```
+If you have zOS/MF servers on each z/OS image, the following properties are the minimum that are required:
+```
+zos.image.MV2D.ipv4.hostname=winmvs2d.hursley.ibm.com
+zosmf.server.port=9999
+```
+These settings assume a zOS/MF server on MV2D and the port overridden from `443` to `9999` for all zOS/MF servers. 
+- Various bug fixes
+- Documentation enhancements, including updates to About and Ecosystem documentation
+
+
+<details>
+<summary><b>0.12.0 - Release Highlights</b></summary>
 
 - z/OS Manager support for RSE - provides tests and Managers with access to RSE functions, and implementations of z/OS Batch and File Manager by using the RSE API.
 - CPS Backup feature - enables CPS properties to be output to a plain-text file. Use ```--backupcps``` as a command-line option when running the *galasa-boot* jar alongside the file option ```-f``` or ```--file``` to specify an output file for the properties.
 - Various bug fixes
 - Updated documentation for RSA, Linux and Open Stack Managers
+</details>
 
 <details>
 <summary><b>0.11.0 - Release Highlights</b></summary>
