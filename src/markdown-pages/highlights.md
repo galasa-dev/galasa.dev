@@ -14,7 +14,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.13.0 - Release Highlights
 
 - Various bug fixes
-- Documentation enhancements, inlcuding updates to About documentation
+- Documentation enhancements, including updates to About and Ecosystem documentation
 
 
 <details>
