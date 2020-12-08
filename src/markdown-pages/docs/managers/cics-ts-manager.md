@@ -52,7 +52,7 @@ The following are properties used to configure the CICS TS Manager.
 | Name: | cicsts.extra.bundles |
 | Description: | The symbolic names of any bundles that need to be loaded                     with the CICS TS Manager |
 | Required:  | No |
-| Default value: | None |
+| Default value: | dev.galasa.cicsts.ceci.manager,dev.galasa.cicsts.ceda.manager,dev.galasa.cicsts.cemt.manager |
 | Valid values: | bundle symbolic names comma separated |
 | Examples: | <code>cicsts.extra.bundles=org.example.cicsts.provisioning</code><br> |
 

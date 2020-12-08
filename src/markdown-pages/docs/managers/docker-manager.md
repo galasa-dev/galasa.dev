@@ -111,6 +111,20 @@ String log = httpContainer.getStdOut();
 The following are properties used to configure the Docker Manager.
  
 <details>
+<summary>Docker Engine DSE CPS Property</summary>
+
+| Property: | Docker Engine DSE CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | docker.dse.engine.[engineTag] |
+| Description: | A property that allows a image to be tagged, and then selected from a test class |
+| Required:  | No |
+| Default value: | PRIMARY |
+| Valid values: | An ID for the engine, e.g. LOCAL |
+| Examples: | <code>docker.dse.engine.PRIMARY=LOCAL<br> </code> |
+
+</details>
+ 
+<details>
 <summary>Docker Engine CPS Property</summary>
 
 | Property: | Docker Engine CPS Property |
@@ -139,6 +153,22 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 | Examples: | <code>docker.engine.port=2375</code> |
 
 The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be  configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
+
+</details>
+ 
+<details>
+<summary>Docker Engines CPS Property</summary>
+
+| Property: | Docker Engines CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | docker.default.engines |
+| Description: | Comma seperated list of availble docker engines |
+| Required:  | Yes - at least one engine needs to be defined |
+| Default value: | None |
+| Valid values: | An ID for the engine, e.g. LOCAL |
+| Examples: | <code>docker.default.engines=LOCAL<br> </code> |
+
+Currently, the Docker Manager supports only a single Docker Engine group called "default" although it is planned to allow multiple Engine groups to be configured.<br>
 
 </details>
  
