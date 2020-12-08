@@ -23,7 +23,7 @@ When a test method succeeds it is marked as PASSED, and if there is an exception
 
 **`@BeforeClass` and `@AfterClass`**
 <br>
-Methods marked `@Beforeclass` and `@AfterClass` are executed once before and once after any `@Test` method respectively. They are executed in the order they appear in the sources.
+Methods marked `@Beforeclass` and `@AfterClass` are executed once before and once after all tests in the class respectively. They are executed in the order they appear in the sources.
 
 Such methods are used to perform setup and tear-down for the test class, for example, setting up an HTTP server that all of the `@Test` methods will use.
 

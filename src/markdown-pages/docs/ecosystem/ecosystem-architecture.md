@@ -10,7 +10,7 @@ The following diagram provides a high-level representation of the Galasa ecosyst
 
 ### Key components:
 
-The following diagram highlights a some of the key components that make up the Galasa ecosystem and examples of external resources with which Galasa can interact: ![Galasa ecosystem:](ecosystem-architecture.svg)
+The following diagram highlights a some of the key components that make up the Galasa ecosystem and examples of external resources with which Galasa can interact: ![Galasa ecosystem:](galasa-ecosystem-architecture.svg)
 
 <br>Expand the following sections to find out more about the key components of the Galasa ecosystem:
 
