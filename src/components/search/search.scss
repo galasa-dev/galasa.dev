@@ -1,0 +1,14 @@
+@import "../../styles/constants";
+
+.DocSearch-Modal {
+  --docsearch-highlight-color: #{$theme-color};
+  --docsearch-logo-color: #{$theme-color};
+}
+
+.DocSearch-Form {
+  --docsearch-searchbox-shadow: inset 0 0 0 2px #{$theme-color};
+}
+
+.DocSearch-Footer-Hint-Keys {
+  display: inline-flex;
+}

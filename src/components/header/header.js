@@ -7,6 +7,7 @@ import GitHubSVG from "../../images/github.inline.svg"
 
 import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
+import Search from "../search"
 
 import headerStyles from "./header.module.scss"
 
@@ -69,75 +70,78 @@ const Header = ({ extraHeight }) => {
               <Identifier id="header-identifier" />
             </h1>
             <div ref={navContainerNode} className={headerStyles.navContainer}>
-              <Link
-                id="header-about"
-                to="/about"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("about", location)
-                }
-              >
-                About
-              </Link>
-              <Link
-                to="/docs"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("docs", location)
-                }
-              >
-                Docs
-              </Link>
-              <Link
-                to="/releases"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("releases", location)
-                }
-              >
-                Releases
-              </Link>
-              <Link
-                to="/support"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("support", location)
-                }
-              >
-                Support
-              </Link>
-              <Link
-                to="/community"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("community", location)
-                }
-              >
-                Community
-              </Link>
-              <Link
-                to="/hub"
-                onClick={() => setMenuOpen(false)}
-                className={
-                  headerStyles.navLink + " " + selector("hub", location)
-                }
-              >
-                Hub
-              </Link>
-              <div className={headerStyles.footerRepeatedLinks}>
-                <a
-                  className={headerStyles.footerRepeatedLink}
-                  href="https://www.ibm.com/privacy/us/en/"
+              <div className={headerStyles.navContainerMainTitles}>
+                <Link
+                  id="header-about"
+                  to="/about"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("about", location)
+                  }
                 >
-                  Privacy policy
-                </a>
-                <a
-                  className={headerStyles.footerRepeatedLink}
-                  href="https://www.ibm.com/legal"
+                  About
+                </Link>
+                <Link
+                  to="/docs"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("docs", location)
+                  }
                 >
-                  Terms of use
-                </a>
+                  Docs
+                </Link>
+                <Link
+                  to="/releases"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("releases", location)
+                  }
+                >
+                  Releases
+                </Link>
+                <Link
+                  to="/support"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("support", location)
+                  }
+                >
+                  Support
+                </Link>
+                <Link
+                  to="/community"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("community", location)
+                  }
+                >
+                  Community
+                </Link>
+                <Link
+                  to="/hub"
+                  onClick={() => setMenuOpen(false)}
+                  className={
+                    headerStyles.navLink + " " + selector("hub", location)
+                  }
+                >
+                  Hub
+                </Link>
+                <div className={headerStyles.footerRepeatedLinks}>
+                  <a
+                    className={headerStyles.footerRepeatedLink}
+                    href="https://www.ibm.com/privacy/us/en/"
+                  >
+                    Privacy policy
+                  </a>
+                  <a
+                    className={headerStyles.footerRepeatedLink}
+                    href="https://www.ibm.com/legal"
+                  >
+                    Terms of use
+                  </a>
+                </div>
               </div>
+              <Search />
               <div className={headerStyles.navContainerIcons}>
                 <a
                   className={headerStyles.icon}

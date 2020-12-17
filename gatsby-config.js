@@ -5,6 +5,11 @@ const consts = {
   githubOrgName: "galasa-dev",
   twitterUrl: "https://twitter.com/galasa_dev",
   slackUrl: "https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA",
+  algolia: {
+    appId: "BH4D9OD16A",
+    apiKey: "27908f168baedd02638b964a96b84986",
+    indexName: "galasa",
+  },
 }
 
 consts.githubOrgUrl = `https://github.com/${consts.githubOrgName}`
