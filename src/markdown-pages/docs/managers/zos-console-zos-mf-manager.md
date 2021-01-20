@@ -12,20 +12,3 @@ This Manager is the internal implementation of the z/OS Console Manager using zO
 
 
 
-## Configuration Properties
-
-The following are properties used to configure the zOS Console zOS MF Manager.
- 
-<details>
-<summary>Restrict zOS console processing to the zOSMF server on the specified image</summary>
-
-| Property: | Restrict zOS console processing to the zOSMF server on the specified image |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zosconsole.console.[imageid].restrict.to.image |
-| Description: | Use only the zOSMF server running on the image associated with the zOS Console |
-| Required:  | No |
-| Default value: | False |
-| Valid values: | $validValues |
-| Examples: | <code>zosconsole.console.restrict.to.image=true</code><br> <code>zosconsole.console.SYSA.restrict.to.image=true</code> |
-
-</details>

@@ -858,6 +858,20 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
+<summary>Restrict zOS console processing to the zOSMF server on the specified image</summary>
+
+| Property: | Restrict zOS console processing to the zOSMF server on the specified image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zosconsole.console.[imageid].restrict.to.image |
+| Description: | Use only the zOSMF server running on the image associated with the zOS Console |
+| Required:  | No |
+| Default value: | False |
+| Valid values: | $validValues |
+| Examples: | <code>zosconsole.console.restrict.to.image=true</code><br> <code>zosconsole.console.SYSA.restrict.to.image=true</code> |
+
+</details>
+ 
+<details>
 <summary>zOS File the maximum number of items from a UNIX directory list</summary>
 
 | Property: | zOS File the maximum number of items from a UNIX directory list |
