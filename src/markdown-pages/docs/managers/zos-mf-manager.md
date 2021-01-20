@@ -107,7 +107,7 @@ The following are properties used to configure the zOS MF Manager.
 
 | Property: | zOSMF Server port |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosmf.server.[imageid].port |
+| Name: | zosmf.server.[serverid].port |
 | Description: | The port number of the zOS/MF server |
 | Required:  | No |
 | Default value: | 443 |
