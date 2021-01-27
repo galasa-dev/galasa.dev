@@ -55,8 +55,6 @@ For example, you might want to use an cluster called *CLUSTER2*. You can do this
 
 1.	Edit the CPS properties file:
 ```
-Zos.dse.tag.CLUSTER2.clusterid=CLUSTER2
-Zos.dse.tag.CLUSTER2.imageid=CLUSTER2
 zos.image.CLUSTER2.ipv4.hostname= winmvs2c.example.com
 zos.image.CLUSTER2.telnet.port=23
 zos.image.CLUSTER2.telnet.tls=false
