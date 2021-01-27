@@ -3,7 +3,7 @@ path: "/docs/writing-own-tests/binding-tests"
 title: "Binding tests to an environment"
 ---
 
-Ideally, you want to avoid hard coding within your test. If you hard code target hostnames, port numbers and so on, it means that the test is not portable, so you can't run the same test against different environments without changing the test code. You can avoid hard coding in Galasa tests by using attributes. The properties that are associated with an attribute are stored in the CPS file. 
+Ideally, you want to avoid hard coding within your test. If you hard code target hostnames, port numbers and so on, you can't run the same test against different environments without changing the test code. You can avoid hard coding in Galasa tests by using attributes. The properties that are associated with an attribute are stored in the CPS file. 
 
 Galasa Managers use attributes and their associated properties to bind a test to an environment at runtime. Using attributes to enable late binding of the test material to the system under test allows the same test to run against multiple environments without changing the test itself. 
 
@@ -17,7 +17,7 @@ The test declares that a z/OS image is required for the test to run and that thi
     public IZosImage image;
 ```
 
-When the z/OS Manager reads the code, it creates a z/OS image by using the *imageTag* attribute to ascertain which set of properties from the CPS it needs to load to create the required image.
+When the z/OS Manager reads the code, it creates a z/OS image by using the *imageTag* attribute to ascertain which set of properties from the CPS it needs to load to create that image.
 
 In this example, the following properties are associated with the *SIMBANK* z/OS image in the CPS file:
 ```
@@ -29,14 +29,14 @@ zos.image.SIMBANK.credentials=SIMBANK
 
 ## Building on the SimBank example
 
-When you create your own test that runs against a z/OS image, you probably want to call that image something other than *SIMBANK*. For example you might want to use an image called *zosImage1*.
+When you create your own test that runs against a z/OS image, you probably want to call that image something other than *SIMBANK*. For example, you might want to use an image called *zosImage1*.
 
 You can do this by editing the CPS file to contain the properties that you want *zosImage1* to have and by declaring *zosImage1* in your test code, as per the following steps:
 
 1.	Edit the CPS properties file (either locally or in your ecosystem) to define the properties of the image: 
 ```
-zos.image.zosImage1.ipv4.hostname=xxx.x.x.x
-zos.image.zosImage1.telnet.port=xx
+zos.image.zosImage1.ipv4.hostname=127.0.0.1
+zos.image.zosImage1.telnet.port=23
 zos.image.zosImage1.telnet.tls=false
 ```
 
@@ -51,9 +51,7 @@ The z/OS Manager reads the test code and creates the image object by using the p
 
 What if you want to run your test against an image in a cluster? By editing the CPS properties file, you can define clusters containing images against which your test can run . Once defined, Galasa can dynamically select an image from that cluster at run time.
 
-For example, you might want to use an cluster called *CLUSTER2*.
-
-You can do this by editing the CPS file to contain the properties that you want *CLUSTER2* to have and by declaring *CLUSTER2* in your test code, as per the following steps:
+For example, you might want to use an cluster called *CLUSTER2*. You can do this by editing the CPS file to contain the properties that you want *CLUSTER2* to have and by declaring *CLUSTER2* in your test code, as per the following steps:
 
 1.	Edit the CPS properties file:
 ```
@@ -69,7 +67,7 @@ zos.image.CLUSTER2.telnet.tls=false
 @ZosImage(imageTag="CLUSTER2")
    public IZosImage image;
 ```
-Once defined, Galasa dynamically selects an image inside *CLUSTER2* at run time, against which the test is run.
+Galasa dynamically selects an image inside *CLUSTER2* at run time, against which the test is run.
 
 ## Troubleshooting
 
