@@ -29,7 +29,7 @@ matrix:
     script:
       - npm run build
       - npm run serve &
-      - npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 http://localhost:9000
+      - npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/87 http://localhost:9000
     after_success: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh && ibmcloud cf install -v 6.51.0 -f && ibmcloud api https://cloud.ibm.com && ibmcloud login --apikey ${DEPLOY_API_KEY} --no-region
 
     env: DO_CF_DEPLOY=true
