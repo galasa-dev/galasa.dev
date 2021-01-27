@@ -12,3 +12,20 @@ This Manager is the internal implementation of the zOS TSO Command Manager using
 
 
 
+## Configuration Properties
+
+The following are properties used to configure the zOS TSO Command SSH Manager.
+ 
+<details>
+<summary>The tsocmd path</summary>
+
+| Property: | The tsocmd path |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zostsocommand.[imageid].tsocmd.command.path |
+| Description: | The path to the tsocmd command |
+| Required:  | No |
+| Default value: | tsocmd |
+| Valid values: | $validValues |
+| Examples: | <code>zostsocommand.command.tsocmd.path=tsocmd</code><br> <code>zostsocommand.MFSYSA.tsocmd.command.path=/tools/tsocmd</code> |
+
+</details>
