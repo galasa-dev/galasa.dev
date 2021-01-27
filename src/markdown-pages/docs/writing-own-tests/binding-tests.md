@@ -12,7 +12,6 @@ Galasa Managers use attributes and their associated properties to bind a test to
 Let’s look at an example in the SimBank ```BatchAccountsOpenTest.java``` test code where the *imageTag* attribute is used to avoid hard coding an endpoint for a z/OS image.
 
 The test declares that a z/OS image is required for the test to run and that this image is called *SIMBANK* by using the following test code: 
-
 ```
 @ZosImage(imageTag="SIMBANK")
     public IZosImage image;
@@ -21,7 +20,6 @@ The test declares that a z/OS image is required for the test to run and that thi
 When the z/OS Manager reads the code, it creates a z/OS image by using the *imageTag* attribute to ascertain which set of properties from the CPS it needs to load to create the required image.
 
 In this example, the following properties are associated with the *SIMBANK* z/OS image in the CPS file:
-
 ```
 zos.image.SIMBANK.ipv4.hostname=127.0.0.1
 zos.image.SIMBANK.telnet.port=2023
@@ -35,8 +33,7 @@ When you create your own test that runs against a z/OS image, you probably want 
 
 You can do this by editing the CPS file to contain the properties that you want *zosImage1* to have and by declaring *zosImage1* in your test code, as per the following steps:
 
-1.	Edit the CPS properties file (either locally or in your ecosystem) to define the properties of the image. 
-
+1.	Edit the CPS properties file (either locally or in your ecosystem) to define the properties of the image: 
 ```
 zos.image.zosImage1.ipv4.hostname=xxx.x.x.x
 zos.image.zosImage1.telnet.port=xx
@@ -45,8 +42,8 @@ zos.image.zosImage1.telnet.tls=false
 
 2.	In the test code, declare a z/OS image called *zosImage1*:
 ```
- 	@ZosImage(imageTag="zosImage1")
-    	   public IZosImage image;
+@ZosImage(imageTag="zosImage1")
+   public IZosImage image;
 ```
 The z/OS Manager reads the test code and creates the image object by using the properties associated with *zosImage1* in the CPS file. 
 
@@ -68,10 +65,9 @@ zos.image.CLUSTER2.telnet.tls=false
 ```
 
 2.	In your test code, declare a z/OS image called *CLUSTER2*:
-
 ```
- 	@ZosImage(imageTag="CLUSTER2")
-    	   public IZosImage image;
+@ZosImage(imageTag="CLUSTER2")
+   public IZosImage image;
 ```
 Once defined, Galasa dynamically selects an image inside *CLUSTER2* at run time, against which the test is run.
 
