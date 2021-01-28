@@ -5,7 +5,7 @@ title: "Binding tests to an environment"
 
 Ideally, you want to avoid hard coding within your test. If you hard code target hostnames, port numbers and so on, you can't run the same test against different environments without changing the test code. 
 
-In Galasa, when an annotation refers to a resource, for example a z/OS image, you can use the ```imageTag``` attribute to avoid hard coding the endpoint of that z/OS image in your test code. The properties that are associated with the attribute are stored in the CPS file. 
+In Galasa, when an annotation refers to a resource, for example a z/OS image, you can use the *imageTag* attribute to avoid hard coding the endpoint of that z/OS image in your test code. The properties that are associated with the attribute are stored in the CPS file. 
 
 Galasa Managers use attributes and their associated properties to bind a test to an environment at runtime. Using attributes to enable late binding of the test material to the system under test allows the same test to run against multiple environments without changing the test itself. 
 
@@ -53,11 +53,11 @@ The z/OS Manager reads the test code and creates the image object by using the p
 
 What if you want to run your test against an image in a cluster? By editing the CPS properties file, you can define clusters containing images against which your test can run . Once defined, Galasa can dynamically select an image from that cluster at run time.
 
-For example, you might want to use a cluster called *CLUSTER2* which contains two z/OS images called *IMAGEA* and *IMAGEB*. You can do this by editing the CPS file to contain *CLUSTER2* and that you want it to contain, along with the properties of those images, as per the following example:
+For example, you might want to define a cluster called *CLUSTER2* which contains two z/OS images called *IMAGEA* and *IMAGEB*. You can do this by udpating the CPS file to define *CLUSTER2* and the images that you want it to contain, along with the properties of those images, as per the following example:
 
 ```
 # CLUSTER2
-zos.cluster.CLUSTER2.images=IMAGEA, IMAGEB
+zos.cluster.CLUSTER2.images=IMAGEA,IMAGEB
 
 zos.image.IMAGEA.ipv4.hostname=winmvs2a.example.com
 zos.image.IMAGEA.telnet.port=23
@@ -74,16 +74,23 @@ zos.image.IMAGEB.max.slots=1
 zos.image.IMAGEB.clusterid=CLUSTER2
 ```
 
-The images are linked back to the *CLUSTER2* cluster by using ```zos.image.IMAGEA.clusterid=CLUSTER2``` and ```zos.image.IMAGEB.clusterid=CLUSTER2``` code. 
+The images are linked back to the *CLUSTER2* cluster by using  the following code: 
 
-In your test code, set the imageTag to *CLUSTER2*, as per the following example:
+```
+zos.image.IMAGEA.clusterid=CLUSTER2
+zos.image.IMAGEB.clusterid=CLUSTER2
+```  
+
+In the test code, set the *imageTag* to *CLUSTER2*, as per the following example:
 
 ```
 @ZosImage(imageTag="CLUSTER2")
    public IZosImage image;
 ```
 
-Galasa dynamically selects either *IMAGEA* or *IMAGEB* from *CLUSTER2* at run time. *IMAGEA* has a maximum number of slots set to ```1```. So, if that slot is in use, Galasa binds the test to *IMAGEB* at run time if *IMAGEB* is available. Images can be added to *CLUSTER2* by updating the CPS file, without the need to recompile the test. 
+When the test runs, Galasa dynamically selects either *IMAGEA* or *IMAGEB* from *CLUSTER2* at run time. 
+
+For example, in the CPS file *IMAGEA* has a maximum number of slots set to ```1```. If that slot is in use, Galasa binds the test to *IMAGEB* at run time, if *IMAGEB* is available. Images can be added to *CLUSTER2* by updating the CPS file, without the need to recompile the test. 
 
 In this way, Galasa manages the inbound workload of tests and splits them across LPARS. Only when a test is told where it can run is it bound to that environment. 
 
