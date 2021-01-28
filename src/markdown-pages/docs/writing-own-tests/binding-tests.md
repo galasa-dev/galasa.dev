@@ -1,6 +1,6 @@
 ---
 path: "/docs/writing-own-tests/binding-tests"
-title: "Binding tests to an environment"
+title: "Testing across environments"
 ---
 
 Ideally, you want to avoid hard coding within your test. If you hard code target hostnames, port numbers and so on, you can't run the same test against different environments without changing the test code. 

@@ -120,7 +120,7 @@ Read the commentary at the bottom of the listing for an explanation of the key e
     		<dependency>
     			<groupId>dev.galasa</groupId>
     			<artifactId>galasa-bom</artifactId>
-    			<version>0.13.0</version>
+    			<version>0.14.0</version>
     			<type>pom</type>
     			<scope>import</scope>
     		</dependency>
@@ -182,7 +182,7 @@ Read the commentary at the bottom of the listing for an explanation of the key e
     			<groupId>dev.galasa</groupId>
     			<artifactId>galasa-maven-plugin</artifactId>
     			<extensions>true</extensions>
-    			<version>0.13.0</version>
+    			<version>0.14.0</version>
     			<executions>
     				<execution>
     					<id>build-testcatalog</id>
@@ -209,7 +209,7 @@ Some comments:
 - `<modules>` details what sub-modules (sub-projects) are contained within this parent project. Usually, when the parent project is built, so are the sub-modules.
 - `<distributionManagement>` controls where Maven deploys the project when built. A variable is used so that the same project can be built and deployed to different test stream repositories.
 - The `<properties>` element specifies properties such as file encoding and Java version numbers. Its `<unpackBundle>` sub-element is required if you are including custom Managers within the project structure.
-- `<dependencyManagement>` establishes the versions of dependencies in all of the sub-modules. A BOM project is provided by the Galasa team that includes the versions of all of the released Managers. Set the version of Galasa you wish to run against - in this case 0.13.0 - and all the Manager versions are imported.
+- `<dependencyManagement>` establishes the versions of dependencies in all of the sub-modules. A BOM project is provided by the Galasa team that includes the versions of all of the released Managers. Set the version of Galasa you wish to run against - in this case 0.14.0 - and all the Manager versions are imported.
 - `<dependencies>` list all the Managers you wish to make available for your tests and custom Manager if present. You could include `<dependencies>` in each of the sub-modules, but it is easier to maintain the list here.
 - `<plugins>` identify the Maven plugins to be used during the build process. The `maven-bundle-plugin` builds OSGi bundles (the Manager and test projects), indicated by `<packaging>bundle</packaging>`. The `galasa-maven-plugin` is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project.
 
