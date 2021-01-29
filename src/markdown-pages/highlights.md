@@ -14,6 +14,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.14.0 - Release Highlights
 
 - z/OS Console oeconsol Manager is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command.
+- Enhanced Docker functionality, including volumes and custom start up configurations
 - Documentation enhancements, including updates on Managers and writing test cases
 
 <details>
