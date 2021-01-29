@@ -15,6 +15,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - z/OS Console oeconsol Manager is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command.
 - Enhanced Docker functionality, including volumes and custom start up configurations
+- CPS restore from file functionality. Use the ```--restorecps``` command-line parameter when initialising the framework to trigger the restore CPS functionality.  Specify the file to restore from by using ```-f``` or ```--file```  in the KVP format  ```(<property>=<value>)```, with one new property per line.
+- ```@ContinueOnTestFailure``` annotation. Use the annotation in the test class or switch the same functionality on globally by using the CPS property ```framework.continue.on.test.failure=true```.
 - Documentation enhancements, including updates on Managers and writing test cases
 
 <details>
