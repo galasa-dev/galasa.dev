@@ -31,34 +31,6 @@ The following annotations are available with the Docker Manager
 
 </details>
 
-<details>
-<summary>Docker Container Configuation</summary>
-
-| Annotation: | Docker Container Configuation |
-| --------------------------------------- | :------------------------------------- |
-| Name: | @DockerContainerConfig |
-| Description: | The code>@DockerContainerConfig</code> annotation provides an object to manually configure certain aspects of a containers run. Within the annotation, volumes can be requests, for both binding and provisioning. Look at the Docker volume annotation  description for more details. The IDockerContainerConfig object it self allows for non provisioing configurations to be set at test time and  ammended between container startups. The IDockerContainer object needs to use the startWithConfig() method to take use of the customised  startup config |
-| Attribute: `dockerVolumes` |  Multiple volumes can be mounted within a single configuration  @return |
-| Syntax: | <code>@DockerContainerConfig(      dockerVolumes =  { |
-
-</details>
-
-<details>
-<summary>Docker Volume</summary>
-
-| Annotation: | Docker Volume |
-| --------------------------------------- | :------------------------------------- |
-| Name: | @DockerVolume |
-| Description: | The code>@DockerVolume</code> annotation provides the capability to bind or provision docker volumes. The  volumes were desgined with three Docker volume use cases in mind:  1. Mounting configuration - in this usecase any volume to be mounted contains configuration data and must not be edited by the running      container, as this could affect parallelization of test running. Therefore, in the DockerVolume annotation, if a volume name is provided      (aka already exists), the mount will be read only.  2. Sharing volumes - when a volume is required for multiple containers to use to share data. This shoult not be a provided volume, so it      is expected that a volume name will not be passed to the DockerVolume annotation, and the docker engine will generate a name. This      volume will be tagged for later reference. Current limitation is that the config used to provision the volume must be used for all      containers wanting to mount the same volume. This results in the path having to be the same in all containers.  3. Persisting data - There may be a use case for a volume to exsist outside the life span of the test. For this I have encorparated a      boolean called persist on the DockerVolume annotation. This is not indefinate, but controlled by resource management. A good default      would probably be 24 hours, but can utimately be set by the user with a CPS property. |
-| Attribute: `existingVolumeName` |  By default it is expected that Galasa should provision and control the volume. This field should only be used if beinding to an already exisitng volume.  @return |
-| Attribute: `mountPath` |  Where to mount the volume on the container.  @return |
-| Attribute: `volumeTag` |  When wanting to reference a mount that is going to be provisioned, this tage will be used.  @return |
-| Attribute: `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a volume can be allocated on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag.  @return |
-| Attribute: `readOnly` |  This field is used to protect this volume. If this volume is intended to be mounted to multiple containers, which you do not want  editing the contents, set this to be true  @return |
-| Syntax: | <code>@DockerContainerConfig(      dockerVolumes =  {           // A read only mount, as a specific volume was requested. |
-
-</details>
-
 
 
 ## Code snippets
@@ -139,20 +111,6 @@ String log = httpContainer.getStdOut();
 The following are properties used to configure the Docker Manager.
  
 <details>
-<summary>Docker Engine DSE CPS Property</summary>
-
-| Property: | Docker Engine DSE CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | docker.dse.engine.[engineTag] |
-| Description: | A property that allows a image to be tagged, and then selected from a test class |
-| Required:  | No |
-| Default value: | PRIMARY |
-| Valid values: | An ID for the engine, e.g. LOCAL |
-| Examples: | <code>docker.dse.engine.PRIMARY=LOCAL<br> </code> |
-
-</details>
- 
-<details>
 <summary>Docker Engine CPS Property</summary>
 
 | Property: | Docker Engine CPS Property |
@@ -181,22 +139,6 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 | Examples: | <code>docker.engine.port=2375</code> |
 
 The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be  configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
-
-</details>
- 
-<details>
-<summary>Docker Engines CPS Property</summary>
-
-| Property: | Docker Engines CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | docker.default.engines |
-| Description: | Comma seperated list of availble docker engines |
-| Required:  | Yes - at least one engine needs to be defined |
-| Default value: | None |
-| Valid values: | An ID for the engine, e.g. LOCAL |
-| Examples: | <code>docker.default.engines=LOCAL<br> </code> |
-
-Currently, the Docker Manager supports only a single Docker Engine group called "default" although it is planned to allow multiple Engine groups to be configured.<br>
 
 </details>
  

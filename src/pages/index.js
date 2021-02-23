@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 
 import indexStyles from "./index.module.scss"
 import Button from "../components/button"
+import { Helmet } from "react-helmet"
+import { withPrefix} from "gatsby"
 
 const keyFeatures = [
   {
@@ -84,6 +86,14 @@ const keyFeatures = [
 
 const IndexPage = () => (
   <>
+    <Helmet>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+    </Helmet>
+    <Helmet>
+        <script src={withPrefix('docsearch.js')} type="text/javascript" />
+    </Helmet>
+
+
     <SEO title="Home" />
     <div className={indexStyles.heroContainer}>
       <div>
@@ -103,7 +113,7 @@ const IndexPage = () => (
             Learn more
           </Button>
           <Button target={"/releases"} flash={true} primary={true}>
-            0.14.0 highlights
+            0.12.0 highlights
           </Button>
         </div>
       </div>

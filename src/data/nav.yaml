@@ -53,8 +53,6 @@
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
-            - title: Testing across environments
-              path: /docs/writing-own-tests/binding-tests
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests

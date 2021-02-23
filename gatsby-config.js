@@ -28,6 +28,16 @@ module.exports = {
     consts,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-algolia-docsearch`,
+      options: {
+        apiKey: "27908f168baedd02638b964a96b84986", // required
+        indexName: "galasa", // required
+        inputSelector: ".docsearch", // required
+        debug: false // (bool) Optional. Default `false`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

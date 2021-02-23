@@ -9,6 +9,7 @@ import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
 
 import headerStyles from "./header.module.scss"
+import Search from "../../components/search"
 
 const Header = ({ extraHeight }) => {
   const {
@@ -47,6 +48,7 @@ const Header = ({ extraHeight }) => {
   }, [])
 
   return (
+    
     <Location>
       {({ location }) => {
         const selector = (section, location) => {
@@ -68,6 +70,8 @@ const Header = ({ extraHeight }) => {
             <h1 className={headerStyles.title}>
               <Identifier id="header-identifier" />
             </h1>
+            <Search/>
+
             <div ref={navContainerNode} className={headerStyles.navContainer}>
               <Link
                 id="header-about"

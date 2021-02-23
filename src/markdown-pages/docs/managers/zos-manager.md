@@ -44,7 +44,7 @@ The following annotations are available with the zOS Manager
 | Annotation: | z/OS File |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosFileHandler |
-| Description: | The <code>@ZosFileHandler</code> annotation requests the z/OS Manager to provide a handler instance to manage data sets and UNIX files on a z/OS image.  A single z/OS File Handler instance can manage multiple z/OS data sets and UNIX files on multiple z/OS images.<br> |
+| Description: | The <code>@ZosFileHandler</code> annotation requests the z/OS Manager to provide a handler instance to manage data sets and UNIX files on a z/OS image.  A single z/OS File Handler instance can manage multiple z/OS data sets and UNIX files on multiple z/OS images.<br> Files are deleted at method end unless created with the object's *createRetain()* method where it is deleted at test end.<br> |
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and z/OS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
 
@@ -676,20 +676,6 @@ The following are properties used to configure the zOS Manager.
 </details>
  
 <details>
-<summary>The SYSNAME for zOS Image</summary>
-
-| Property: | The SYSNAME for zOS Image |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[imageid].sysname |
-| Description: | The SYSNAME for the zOS image |
-| Required:  | No |
-| Default value: | The image ID of the image |
-| Valid values: | $validValues |
-| Examples: | <code>zos.image.IMAGEA.sysname=SYSA</code><br> |
-
-</details>
- 
-<details>
 <summary>The run data set HLQ for the zOS Image</summary>
 
 | Property: | The run data set HLQ for the zOS Image |
@@ -700,20 +686,6 @@ The following are properties used to configure the zOS Manager.
 | Default value: | runuser.GALASA |
 | Valid values: | $validValues |
 | Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
-
-</details>
- 
-<details>
-<summary>The run data UNIX path prefix for the zOS Image</summary>
-
-| Property: | The run data UNIX path prefix for the zOS Image |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zos.run.[image].unix.path.prefix |
-| Description: | The UNIX path prefix for temporary data sets created on zOS Image.<br>  If CPS property zos.run.[image].unix.path.prefix exists, then that is returned |
-| Required:  | No |
-| Default value: | /u/runuser/Galasa |
-| Valid values: | $validValues |
-| Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
 
 </details>
  
@@ -854,20 +826,6 @@ The following are properties used to configure the zOS Manager.
 | Default value: | true |
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjobe.MVSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
-
-</details>
- 
-<details>
-<summary>Restrict zOS console processing to the zOSMF server on the specified image</summary>
-
-| Property: | Restrict zOS console processing to the zOSMF server on the specified image |
-| --------------------------------------- | :------------------------------------- |
-| Name: | zosconsole.console.[imageid].restrict.to.image |
-| Description: | Use only the zOSMF server running on the image associated with the zOS Console |
-| Required:  | No |
-| Default value: | False |
-| Valid values: | $validValues |
-| Examples: | <code>zosconsole.console.restrict.to.image=true</code><br> <code>zosconsole.console.SYSA.restrict.to.image=true</code> |
 
 </details>
  
