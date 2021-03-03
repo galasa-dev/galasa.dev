@@ -48,6 +48,12 @@ a.primary {
       top: 5px;
     }
   }
+
+  &:active {
+    position: relative;
+    top: 3px;
+    left: 2px;
+  }
 }
 
 a.secondary {
