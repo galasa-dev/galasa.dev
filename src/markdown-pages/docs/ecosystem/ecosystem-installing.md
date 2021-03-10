@@ -18,7 +18,7 @@ Instructions on installing a Docker engine can be found on the <a href="https://
 
 The Docker operator automatically brings up the following servers on the VM. For more detailed information about these servers, see the [Ecosystem architecture](/docs/ecosystem/architecture) documentation.
 
-*Note:* If the VM has a firewall running, you might need to open the ports that are listed in the following tables.
+*Note:* If the VM has a firewall running, you might need to open the ports that are listed in the following tables.  
 
 The following servers are required for the Galasa ecosystem:  
 
@@ -50,13 +50,15 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 ```
 hostname: {hostname}
 galasaRegistry: docker.galasa.dev
-version: 0.9.0
+version: 0.15.0
 engineController:
-  controllerVersion: 0.10.0
-  engineVersion: 0.9.0
+  controllerVersion: 0.15.0
+  engineVersion: 0.15.0
 ```
 
 Change the ```{hostname}``` value to your hostname. Note the two spaces on the last two lines -  they are important in YAML.
+
+If you opened any ports, check that the port numbers are correct in the *config.yaml* file. 
 
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
