@@ -65,6 +65,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   }
 }
