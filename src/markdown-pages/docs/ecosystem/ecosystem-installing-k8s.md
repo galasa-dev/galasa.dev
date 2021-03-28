@@ -22,7 +22,7 @@ Like the Docker Operator, the Kubernetes Operator installs Galasa, but it also m
 
 The Kubernetes Operator is made up of two components: the ```CustomResourceDefinition``` (CRD) and the physical operator. The CRD defines the Galasa Ecosystem custom resource and the operator deployment to the cluster. The physical operator is hosted as a deployment and is brought up as a pod. The pod maintains the state of the namespace and any custom resources defined within that namespace.
 
-For security reasons, the Kubernetes Operator is scoped to a namespace rather than cluster wide. Create your own namespace for your operator to run in and for the ecosystem to be hosted in. Creating your own namespace avoids cross-contamination and improves security. 
+For security reasons, the Kubernetes Operator is scoped to a namespace rather than cluster wide. Create your own namespace for your operator to run in and for the ecosystem to be hosted. Creating your own namespace avoids cross-contamination and improves security. 
 
 ## Installing the Galasa Ecosystem in a Kubernetes cluster 
 
@@ -31,7 +31,7 @@ You must deploy the operator by using the YAML that is provided in the <a href=h
 Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster. 
 Note that the examples use a relative path - check that you use the correct file path for your configuration.
 
-1. Define the custom resource definition by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_galasaecosystems_crd.yaml target="_blank"> CRD</a> that is provided with Galasa and running the following command: 
+1. Define the custom resource definition to your cluster by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_galasaecosystems_crd.yaml target="_blank"> CRD</a> that is provided with Galasa and running the following command: 
 ```
 kubectl apply -f deploy/crds/galasa.dev_galasaecosystems_crd.yaml
 ```
@@ -39,7 +39,7 @@ A message is displayed to confirm that the custom resource definition is success
 2. Define the service account by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/service_account.yaml target="_blank"> service_account.yaml</a> that is provided with Galasa and running the following command:
 ```
 kubectl apply -f service_account.yaml
-```
+``` 
 3. Define the role by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/role.yaml target="_blank"> role.yaml</a> that is provided with Galasa and running the following command:
 ```
 kubectl apply -f role.yaml
@@ -52,16 +52,16 @@ kubectl apply -f role_binding.yaml
 ```
 kubectl apply -f deploy/operator.yaml
 ```
-6. Check that the pod has come up cleanly by running the ```kubectl get pod``` command. The following service is displayed with a status of *Running*:
+6. Check that the pod Galasa operator has come up cleanly by running the ```kubectl get pod``` command. The following service is displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
 galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
 ```
 The operator and custom resource definitions are now installed and ready to bring up a Galasa Ecosystem. 
 
-## Bringing up the Galasa Ecosystem
+## Creating the Galasa Ecosystem
 
-Bring up the ecosystem by using the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml target="_blank"> custom resource sample</a> that is provided with Galasa.
+Create the ecosystem by using the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml target="_blank"> custom resource sample</a> that is provided with Galasa.
 
 1. Update the ```externalhostname``` value in the custom resource sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
 2. Check that the Galasa version in the sample is the latest version.
@@ -111,29 +111,23 @@ In Eclipse, you can edit the Bootstrap and run the SimBank tests by completing t
 1.  Select *Eclipse > Preferences > Galasa* 
 2.  Update **Bootstrap URI** to point to the Bootstrap URL that is returned by running the ``` kubectl get GalasaEcosystem``` command.
 3.  Apply and close the preferences.   
-4.  Run the four SimBank tests in parallel by selecting the *Galasa > Submit tests to automation* option from the Eclipse menu. 
-5. Click the Galasa logo to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
-6. Click *Finish*.
-7. Check that the pods were brought up on the Ecosystem namespace by running the ```kubectl get pods``` command. The following services, including SimBank, are displayed with a status of *Running*:
+4.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
+5.  Select the four SimBank tests to run them in parallel and click *Finish*. 
+5.  Click the Galasa logo to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
+6.   Check that the pods are brought up on the Ecosystem namespace by running the ```kubectl get pods``` command. The following services, including SimBank, are displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
-galasa-ecosystem-apiserver-6d848f4689-5w7sw           1/1     Running   
-galasa-ecosystem-cps-0                                1/1     Running   
-galasa-ecosystem-engine-controller-6fbb6bfc46-z6659   1/1     Running   
-galasa-ecosystem-grafana-5dd447dd8f-tsz7h             1/1     Running   
-galasa-ecosystem-metrics-bb865dff-f7xdj               1/1     Running   
-galasa-ecosystem-prometheus-c85cdbb97-s8rhc           1/1     Running   
-galasa-ecosystem-ras-0                                1/1     Running   
-galasa-ecosystem-resource-monitor-b7669c6b7-bq4x7     1/1     Running
-galasa-ecosystem-simbank-74dd896c5-f84zc              1/1     Running   
+galasa-ecosystem-apiserver-6d848f4689-5w7sw                 1/1     Running   
+galasa-ecosystem-cps-0                                      1/1     Running   
+galasa-ecosystem-engine-controller-6fbb6bfc46-z6659         1/1     Running   
+galasa-ecosystem-grafana-5dd447dd8f-tsz7h                   1/1     Running   
+galasa-ecosystem-metrics-bb865dff-f7xdj                     1/1     Running   
+galasa-ecosystem-prometheus-c85cdbb97-s8rhc                 1/1     Running   
+galasa-ecosystem-ras-0                                      1/1     Running   
+galasa-ecosystem-resource-monitor-b7669c6b7-bq4x7           1/1     Running
+galasa-ecosystem-simbank-74dd896c5-f84zc                    1/1     Running   
 galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
 ```
-
-
-### Next steps 
-
-Run your own tests from the artifact repository by [setting up a test stream](../../writing-own-tests/test-streams). 
-
 
 ### Troubleshooting
 
