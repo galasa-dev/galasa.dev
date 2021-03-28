@@ -117,15 +117,15 @@ In Eclipse, you can edit the Bootstrap and run the SimBank tests by completing t
 7. Check that the pods were brought up on the Ecosystem namespace by running the ```kubectl get pods``` command. The following services, including SimBank, are displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
-galasa-ecosystem-demos-apiserver-6d848f4689-5w7sw           1/1     Running   
-galasa-ecosystem-demos-cps-0                                1/1     Running   
-galasa-ecosystem-demos-engine-controller-6fbb6bfc46-z6659   1/1     Running   
-galasa-ecosystem-demos-grafana-5dd447dd8f-tsz7h             1/1     Running   
-galasa-ecosystem-demos-metrics-bb865dff-f7xdj               1/1     Running   
-galasa-ecosystem-demos-prometheus-c85cdbb97-s8rhc           1/1     Running   
-galasa-ecosystem-demos-ras-0                                1/1     Running   
-galasa-ecosystem-demos-resource-monitor-b7669c6b7-bq4x7     1/1     Running
-galasa-ecosystem-demos-simbank-74dd896c5-f84zc              1/1     Running   
+galasa-ecosystem-apiserver-6d848f4689-5w7sw           1/1     Running   
+galasa-ecosystem-cps-0                                1/1     Running   
+galasa-ecosystem-engine-controller-6fbb6bfc46-z6659   1/1     Running   
+galasa-ecosystem-grafana-5dd447dd8f-tsz7h             1/1     Running   
+galasa-ecosystem-metrics-bb865dff-f7xdj               1/1     Running   
+galasa-ecosystem-prometheus-c85cdbb97-s8rhc           1/1     Running   
+galasa-ecosystem-ras-0                                1/1     Running   
+galasa-ecosystem-resource-monitor-b7669c6b7-bq4x7     1/1     Running
+galasa-ecosystem-simbank-74dd896c5-f84zc              1/1     Running   
 galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
 ```
 
