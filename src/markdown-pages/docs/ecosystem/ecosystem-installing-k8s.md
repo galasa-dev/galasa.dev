@@ -14,7 +14,7 @@ The following section explains how to install a Galasa ecosystem by using the <a
 
 ## About the Kubernetes Operator
 
-If you want to try out the Galasa Ecosystem locally, use the [Docker Operator](../installing) to install a Galasa Ecosystem on a Docker engine.
+If you want to try out the Galasa Ecosystem locally, use the [Docker Operator](ecosystem-installing) to install a Galasa Ecosystem on a Docker engine.
 
 If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
 
@@ -114,20 +114,6 @@ In Eclipse, you can edit the Bootstrap and run the SimBank tests by completing t
 4.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
 5.  Select the four SimBank tests to run them in parallel and click *Finish*. 
 5.  Click the Galasa logo to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
-6.   Check that the pods are brought up on the Ecosystem namespace by running the ```kubectl get pods``` command. The following services, including SimBank, are displayed with a status of *Running*:
-```
-NAME                                                        READY   STATUS    
-galasa-ecosystem-apiserver-6d848f4689-5w7sw                 1/1     Running   
-galasa-ecosystem-cps-0                                      1/1     Running   
-galasa-ecosystem-engine-controller-6fbb6bfc46-z6659         1/1     Running   
-galasa-ecosystem-grafana-5dd447dd8f-tsz7h                   1/1     Running   
-galasa-ecosystem-metrics-bb865dff-f7xdj                     1/1     Running   
-galasa-ecosystem-prometheus-c85cdbb97-s8rhc                 1/1     Running   
-galasa-ecosystem-ras-0                                      1/1     Running   
-galasa-ecosystem-resource-monitor-b7669c6b7-bq4x7           1/1     Running
-galasa-ecosystem-simbank-74dd896c5-f84zc                    1/1     Running   
-galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
-```
 
 ### Troubleshooting
 
