@@ -1,28 +1,26 @@
 ---
 path: "/docs/ecosystem/installing/k8s"
-title: "Installing the Galasa Ecosystem on Kubernetes"
+title: "Installing the Ecosystem on Kubernetes"
 ---
 
-The following section explains how to install a Galasa ecosystem by using the <a href="https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator" target="_blank"> Kubernetes Ecosystem Operator</a>. To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
+The following section explains how to install a Galasa ecosystem by using the <a href="https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator" target="_blank"> Kubernetes Operator</a>. To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
+
+*Note:* If you are looking to create a local proof of concept first, you can install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](ecosystem-installing).
 
 ## Prerequisites
 
 - The Kubernetes command-line tool **kubectl** must be installed on the machine that is used to deploy the operator and must be configured to point at your Kubernetes cluster. 
 - You must have a Kubernetes cluster at version 1.16 or higher. You can check the version number by running the ```kubectl version``` command.  
 
-*Note:* If you are deploying the operator on a cluster which does not have access to the internet, you can build and host the docker image by using the *DockerFile* in the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/build/Dockerfile target="_blank"> build/DockerFile directory</a> and your own docker image registry.
-
 ## About the Kubernetes Operator
-
-If you want to try out the Galasa Ecosystem locally, use the [Docker Operator](ecosystem-installing) to install a Galasa Ecosystem on a Docker engine.
 
 If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
 
-Like the Docker Operator, the Kubernetes Operator installs Galasa, but it also maintains the health of Galasa and manages its lifecycle. If a problem arises in the cluster, the operator attempts to resolve the issue. 
+Like the Docker Operator, the Kubernetes Operator installs the Galasa Ecosystem, but in addition, it also maintains the state of the ecosystem and the services it brings up. 
 
 The Kubernetes Operator is made up of two components: the ```CustomResourceDefinition``` (CRD) and the physical operator. The CRD defines the Galasa Ecosystem custom resource and the operator deployment to the cluster. The physical operator is hosted as a deployment and is brought up as a pod. The pod maintains the state of the namespace and any custom resources defined within that namespace.
 
-For security reasons, the Kubernetes Operator is scoped to a namespace rather than cluster wide. Create your own namespace for your operator to run in and for the ecosystem to be hosted. Creating your own namespace avoids cross-contamination and improves security. 
+The Kubernetes Operator requires a high privilege level, so for security reasons, the  operator is scoped to a namespace rather than cluster wide. Create your own namespace for your operator to run in and for the ecosystem to be hosted. Creating your own namespace avoids cross-contamination and improves security. 
 
 ## Installing the Galasa Ecosystem in a Kubernetes cluster 
 
@@ -31,11 +29,11 @@ You must deploy the operator by using the YAML that is provided in the <a href=h
 Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster. 
 Note that the examples use a relative path - check that you use the correct file path for your configuration.
 
-1. Define the custom resource definition to your cluster by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_galasaecosystems_crd.yaml target="_blank"> CRD</a> that is provided with Galasa and running the following command: 
+1. Define the custom resource definition (CRD) to your cluster by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_galasaecosystems_crd.yaml target="_blank"> CRD</a> that is provided with Galasa and running the following command:  
 ```
 kubectl apply -f deploy/crds/galasa.dev_galasaecosystems_crd.yaml
 ```
-A message is displayed to confirm that the custom resource definition is successfully created.
+The CRD allows the topology and basic configuration for an ecosystem to be defined. A message is displayed to confirm that the CRD is successfully created.
 2. Define the service account by using the <a href=https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator/deploy/service_account.yaml target="_blank"> service_account.yaml</a> that is provided with Galasa and running the following command:
 ```
 kubectl apply -f service_account.yaml
@@ -63,8 +61,9 @@ The operator and custom resource definitions are now installed and ready to brin
 
 Create the ecosystem by using the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml target="_blank"> custom resource sample</a> that is provided with Galasa.
 
-1. Update the ```externalhostname``` value in the custom resource sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
-2. Check that the Galasa version in the sample is the latest version.
+
+1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
+2. Update any other default configurations required for the sample to work with your cluster and ensure that the Galasa version in the sample is the latest version.
 3. Install the sample by running the following command:
 ```
 kubectl apply -f deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml
@@ -85,7 +84,7 @@ http://<HOSTNAME>:32319/bootstrap
 GRAFANAURL :
 http://<HOSTNAME>:31091/galasa-grafana
 ```
-The command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
+Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
 5. Check that the pods are brought up successfully on the ecosystem namespace by running the ```kubectl get pods``` command. The following services are displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    

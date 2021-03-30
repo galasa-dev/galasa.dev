@@ -3,7 +3,7 @@ path: "/docs/managers/zos-file-manager"
 title: "zOS file Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 ## Overview
 This Manager enables Galasa tests to manage data sets and UNIIX files on a zOS image. <br><br> The manager is implemented using the zOS/MF Manager by default. <br><br>

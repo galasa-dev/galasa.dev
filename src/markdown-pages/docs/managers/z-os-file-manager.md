@@ -3,7 +3,7 @@ path: "/docs/managers/z-os-file-manager"
 title: "z/OS file Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 ## Overview
 This Manager enables Galasa tests to manage data sets and UNIX files on a z/OS image. <br><br> The Manager is implemented using the z/OS MF Manager by default. <br><br>
