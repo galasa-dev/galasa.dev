@@ -5,7 +5,7 @@ title: "Installing the Ecosystem on Kubernetes"
 
 The following section explains how to install a Galasa ecosystem by using the <a href="https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator" target="_blank"> Kubernetes Operator</a>. To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
 
-*Note:* If you are looking to create a local proof of concept first, you can install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](ecosystem-installing).
+*Note:* If you are looking to create a local proof of concept first, you can install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](installing).
 
 ## Prerequisites
 
