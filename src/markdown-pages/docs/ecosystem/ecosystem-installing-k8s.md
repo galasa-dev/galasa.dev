@@ -5,7 +5,9 @@ title: "Installing the Ecosystem on Kubernetes"
 
 The following section explains how to install a Galasa ecosystem by using the <a href="https://github.com/galasa-dev/extensions/tree/master/galasa-ecosystem-kubernetes-operator" target="_blank"> Kubernetes Operator</a>. To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
 
-*Note:* If you are looking to create a local proof of concept first, you can install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](installing).
+If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
+
+If you are looking to create a local proof of concept, you might want to first install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](../installing).
 
 ## Prerequisites
 
@@ -13,8 +15,6 @@ The following section explains how to install a Galasa ecosystem by using the <a
 - You must have a Kubernetes cluster at version 1.16 or higher. You can check the version number by running the ```kubectl version``` command.  
 
 ## About the Kubernetes Operator
-
-If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
 
 Like the Docker Operator, the Kubernetes Operator installs the Galasa Ecosystem, but in addition, it also maintains the state of the ecosystem and the services it brings up. 
 
@@ -57,13 +57,13 @@ galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running
 ```
 The operator and custom resource definitions are now installed and ready to bring up a Galasa Ecosystem. 
 
-## Creating the Galasa Ecosystem
+## Bringing up the Galasa Ecosystem
 
-Create the ecosystem by using the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml target="_blank"> custom resource sample</a> that is provided with Galasa.
+Bring up the ecosystem by using the <a href=https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator/deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml target="_blank"> custom resource sample</a> that is provided with Galasa.
 
 
 1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
-2. Update any other default configurations required for the sample to work with your cluster and ensure that the Galasa version in the sample is the latest version.
+2. Update any other default configurations required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number.
 3. Install the sample by running the following command:
 ```
 kubectl apply -f deploy/crds/galasa.dev_v1alpha1_galasaecosystem_cr.yaml
@@ -103,16 +103,16 @@ galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running
 
 You can verify the installation by connecting to an Eclipse session, reconfiguring Galasa to point to the Galasa Ecosystem, and running the SimBank tests that are provided with Galasa. 
 
-To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the Bootstrap. The Bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to an ecosystem.  
+To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to an ecosystem.  
 
-In Eclipse, you can edit the Bootstrap and run the SimBank tests by completing the following steps:
+In Eclipse, you can edit the bootstrap and run the SimBank tests by completing the following steps:
 
 1.  Select *Eclipse > Preferences > Galasa* 
 2.  Update **Bootstrap URI** to point to the Bootstrap URL that is returned by running the ``` kubectl get GalasaEcosystem``` command.
 3.  Apply and close the preferences.   
 4.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
 5.  Select the four SimBank tests to run them in parallel and click *Finish*. 
-5.  Click the Galasa logo to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
+5.  Click the *Galasa* icon on the Eclipse toolbar to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
 
 ### Troubleshooting
 
