@@ -13,7 +13,6 @@ The information about *Result*, *Test Class* and *End time* in the results table
 
 A side navigation toolbar provides five options that enable you to customise the view of your test history in the **Test History** page:
 ### The Organise table toolbar 
-![Organise table icon](../../images/table.svg)
 Set the table height to either regular or compressed, and the text format to either no wrap or wrap. Choose to show or hide columns of information about the test runs. For example, options such as *Bundle*, *Short Name*, *LPAR*, *Requestor*, *Requested time*, *Metadata* and *Pass History* are hidden from the table when the page first loads but can be added to the table by using this toolbar. Alternatively, you can hide any of the default columns apart from *Result* and *Run Name*.
 ### The Filter tests toolbar
 Filter test history by *Test Class*, *Bundle*, *Requestor* and *Result*. View tests that ran within a specific timeframe, or that completed more than 24 hours previously by setting a time range. If there is a combination of filters that are used regularly, save this set of filters by clicking *Add to saved filters* at the bottom of the toolbar.
