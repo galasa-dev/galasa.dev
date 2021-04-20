@@ -3,10 +3,11 @@ path: "/docs/managers/rse-api-manager"
 title: "RSE API Manager"
 ---
 
-**ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested.**
+**ALPHA**
 
 ## Overview
-This Manager provides Galasa tests with access to a RSE API server.
+This Manager provides Galasa tests with access to a RSE API server. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zosrseapi/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
+
 
 
 ## Annotations

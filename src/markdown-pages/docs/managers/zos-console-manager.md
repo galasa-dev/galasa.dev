@@ -3,7 +3,7 @@ path: "/docs/managers/zos-console-manager"
 title: "zOS Console Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 ## Overview
 This Manager enables Galasa tests to issue console commands on a z/OS image. <br><br> The Manager is implemented using the z/OS MF Manager by default. <br><br>

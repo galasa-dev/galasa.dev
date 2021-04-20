@@ -6,7 +6,7 @@ title: "Artifact Manager"
 **Release**
 
 ## Overview
-This Manager allows a test to access files that are stored within the same bundle as the test code itself.  Helper methods are provided to stream and substitute symbolics within the loaded file. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/artifact/package-summary.html">Javadoc documentation for this Manager here</a>. <br><br>
+This Manager allows a test to access files that are stored within the same bundle as the test code itself.  Helper methods are provided to stream and substitute symbolics within the loaded file. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/artifact/package-summary.html" target="_blank" rel="noopener noreferrer"> Javadoc documentation for this Manager here</a>. <br><br>
 
 
 
