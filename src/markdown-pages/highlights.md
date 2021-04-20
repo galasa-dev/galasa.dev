@@ -11,20 +11,13 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.15.0 - Release Highlights
-
-
-- Documentation enhancements, including Installing the Galasa Ecosystem on Docker and Kubernetes
-
-<details>
-<summary><b>0.14.0 - Release Highlights</b></summary>
+## 0.14.0 - Release Highlights
 
 - <a href="https://github.com/galasa-dev/managers/tree/master/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zosconsole.oeconsol.manager" target="_blank"> z/OS Console oeconsol Manager</a> is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command. 
 - Enhanced Docker functionality, including volumes and custom start up configurations
 - CPS restore from file functionality. Use the ```--restorecps``` command-line parameter when initialising the framework to trigger the restore CPS functionality.  Specify the file to restore from by using ```-f``` or ```--file```  in the KVP format  ```(<property>=<value>)```, with one new property per line.
 - ```@ContinueOnTestFailure``` annotation. Use the annotation in the test class or switch the same functionality on globally by using the CPS property ```framework.continue.on.test.failure=true```.
 - Documentation enhancements, including updates on Managers and writing test cases
-</details>
 
 <details>
 <summary><b>0.13.0 - Release Highlights</b></summary>

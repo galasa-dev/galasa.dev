@@ -7,7 +7,7 @@ The following section explains how to install a Galasa ecosystem by using the <a
 
 If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
 
-If you are looking to create a local proof of concept, you might want to first install a Galasa Ecosystem on a Docker engine by using the [Docker Operator](../installing).
+If you are looking to create a local proof of concept, you might want to first install a Galasa Ecosystem on a Docker engine by using the Docker Operator.
 
 ## Prerequisites
 
