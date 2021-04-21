@@ -75,14 +75,10 @@ kubectl get GalasaEcosystem
 ```
 The following example shows the information that is returned by running the command: 
 ```
-NAME : 
-galasa-ecosystem                  
-READY :  
-true
-BOOTSTRAPURL :  
-http://<HOSTNAME>:32319/bootstrap                                    
-GRAFANAURL :
-http://<HOSTNAME>:31091/galasa-grafana
+NAME : galasa-ecosystem                  
+READY :  true
+BOOTSTRAPURL : http://<HOSTNAME>:32319/bootstrap                                    
+GRAFANAURL : http://<HOSTNAME>:31091/galasa-grafana
 ```
 Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
 5. Check that the pods are brought up successfully on the ecosystem namespace by running the ```kubectl get pods``` command. The following services are displayed with a status of *Running*:
