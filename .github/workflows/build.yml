@@ -1,0 +1,32 @@
+name: build
+on: [push, pull_request]
+jobs:
+  build-galasa-dot-dev:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      
+      - uses: nelonoel/branch-name@v1.0.1
+      
+      - run: env
+      
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          BASE_REPO_SLUG: ${{ github.repository }}
+          PR_REPO_SLUG: ${{ github.event.pull_request.head.repo.full_name }}
+          PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+
+      - name: Serve the site
+        run: npm run serve &
+
+      - name: Check for broken links
+        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 http://localhost:9000
