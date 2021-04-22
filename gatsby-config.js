@@ -1,7 +1,5 @@
 const path = require(`path`)
 
-console.log(process.env);
-
 const consts = {
   githubRepoName: "galasa.dev",
   githubOrgName: "galasa-dev",
@@ -13,10 +11,8 @@ consts.githubOrgUrl = `https://github.com/${consts.githubOrgName}`
 consts.githubRepoUrl = `${consts.githubOrgUrl}/${consts.githubRepoName}`
 consts.githubRepoSlug = `${consts.githubOrgName}/${consts.githubRepoName}`
 
-// const buildRepoSlug = process.env.TRAVIS_PULL_REQUEST_SLUG || process.env.TRAVIS_REPO_SLUG || consts.githubRepoSlug
 const buildRepoSlug = process.env.PR_REPO_SLUG || process.env.BASE_REPO_SLUG || consts.githubRepoSlug
 consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
-// consts.buildBranch = process.env.TRAVIS_PULL_REQUEST_BRANCH || process.env.TRAVIS_BRANCH || "master"
 consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "master"
 
 const eslintOptions = process.env.CI === `true` ? {

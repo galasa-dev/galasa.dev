@@ -1,6 +1,24 @@
 name: build
 on: [push, pull_request]
 jobs:
+
+  check-code-formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - run: npm ci
+
+      - run: ./.github/scripts/prettier-check.sh
+        shell: bash
+
   build-galasa-dot-dev:
     runs-on: ubuntu-latest
     
@@ -30,3 +48,20 @@ jobs:
 
       - name: Check for broken links
         run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 http://localhost:9000
+
+      - name: Upload raw site
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-raw-site
+          path: public
+
+      - name: Create WAR
+        run: ./.github/scripts/war.sh
+        shell: bash
+
+      - name: Upload WAR
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-war
+          path: galasa.dev-site.war
+  
