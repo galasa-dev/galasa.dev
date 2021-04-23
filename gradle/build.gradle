@@ -1,0 +1,35 @@
+plugins {
+    id "io.openliberty.tools.gradle.Liberty"
+}
+
+group 'dev.galasa'
+version '1.0-SNAPSHOT' // TODO
+
+dependencies {
+    libertyRuntime group: 'io.openliberty', name: 'openliberty-runtime', version: '21.0.0.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+liberty {
+    server {
+        name = 'galasaServer'
+
+        bootstrapProperties = [
+                'default.http.port':'9080', // TODO
+        ]
+
+        deploy {
+            apps = [
+                file("../galasa.dev-site.war", PathValidation.FILE)
+            ]
+        }
+
+        packageLiberty {
+            packageType = 'jar'
+            include = 'minify,runnable'
+        }
+    }
+}
