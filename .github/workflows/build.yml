@@ -2,7 +2,8 @@ name: build
 on: [push, pull_request]
 jobs:
 
-  check-code-formatting:
+  prettier:
+    name: Check code formatting
     runs-on: ubuntu-latest
 
     steps:
@@ -17,9 +18,10 @@ jobs:
       - run: npm ci
 
       - run: ./.github/scripts/prettier-check.sh
-        shell: bash
 
-  build-galasa-dotdev:
+  # Build the site to be deployed to galasa.dev
+  build-dotdev:
+    name: Build the galasa.dev site
     runs-on: ubuntu-latest
     
     steps:
@@ -52,18 +54,56 @@ jobs:
         with:
           name: output-dotdev-raw-site
           path: public
-
-      - name: Create WAR
-        run: ./.github/scripts/war.sh
-        shell: bash
-
-      - name: Upload WAR
-        uses: actions/upload-artifact@v2
-        with:
-          name: output-war
-          path: galasa.dev-site.war
   
-  build-galasa-local:
+  # Deploy the site to galasa.dev
+  deploy-dotdev:
+    name: Deploy to galasa.dev
+    runs-on: ubuntu-latest
+    needs: [ build-dotdev, prettier ]
+    if: github.ref == 'refs/heads/main'
+    strategy:
+      matrix:
+        region:
+          - api: api.us-south.cf.cloud.ibm.com
+            vars-file: vars.dallas.yml
+          - api: api.eu-gb.cf.cloud.ibm.com
+            vars-file: vars.london.yml
+          - api: api.au-syd.cf.cloud.ibm.com
+            vars-file: vars.sydney.yml
+
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: repo
+
+      - name: Download raw site
+        uses: actions/download-artifact@v2
+        with:
+          name: output-dotdev-raw-site
+          path: site
+
+      - name: Merge Cloud Foundry metadata
+        run: cp -av repo/cf/. site/
+
+      - name: Deploy to IBM Cloud
+        # uses: IBM/cloudfoundry-deploy@v2.0
+        uses: ind1go/cloudfoundry-deploy@vars-file
+        with:
+          IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+          IBM_CLOUD_CF_API: ${{ matrix.region.api }}
+          IBM_CLOUD_CF_ORG: ${{ secrets.IBM_CLOUD_CF_ORG }}
+          IBM_CLOUD_CF_SPACE: ${{ secrets.IBM_CLOUD_CF_SPACE }}
+          APP_MANIFEST_FILE: repo/manifest.yml
+          APP_VARS_FILE: repo/${{ matrix.region.vars-file }}
+          
+
+          
+  
+  # Build the site for local deployment in closed networks
+  build-local:
+    name: Build the local site
     runs-on: ubuntu-latest
     
     steps:
@@ -100,7 +140,6 @@ jobs:
 
       - name: Create WAR
         run: ./.github/scripts/war.sh
-        shell: bash
 
       - name: Upload WAR
         uses: actions/upload-artifact@v2
