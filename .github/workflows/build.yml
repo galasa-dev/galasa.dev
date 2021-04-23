@@ -19,7 +19,7 @@ jobs:
       - run: ./.github/scripts/prettier-check.sh
         shell: bash
 
-  build-galasa-dot-dev:
+  build-galasa-dotdev:
     runs-on: ubuntu-latest
     
     steps:
@@ -32,8 +32,6 @@ jobs:
           node-version: 14
       
       - uses: nelonoel/branch-name@v1.0.1
-      
-      - run: env
       
       - run: npm ci
 
@@ -52,7 +50,7 @@ jobs:
       - name: Upload raw site
         uses: actions/upload-artifact@v2
         with:
-          name: output-raw-site
+          name: output-dotdev-raw-site
           path: public
 
       - name: Create WAR
@@ -63,5 +61,50 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: output-war
+          path: galasa.dev-site.war
+  
+  build-galasa-local:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      
+      - uses: nelonoel/branch-name@v1.0.1
+      
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          BASE_REPO_SLUG: ${{ github.repository }}
+          PR_REPO_SLUG: ${{ github.event.pull_request.head.repo.full_name }}
+          PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+          GATSBY_GALASA_ENV: "LOCAL"
+
+      - name: Serve the site
+        run: npm run serve &
+
+      - name: Check for broken links
+        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 http://localhost:9000
+
+      - name: Upload raw site
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-local-raw-site
+          path: public
+
+      - name: Create WAR
+        run: ./.github/scripts/war.sh
+        shell: bash
+
+      - name: Upload WAR
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-local-war
           path: galasa.dev-site.war
   
