@@ -70,16 +70,58 @@ The code shows different ways of gaining information about the web page to be te
 The following are properties used to configure the Selenium Manager.
  
 <details>
-<summary>Selenium DSE Instance CPS Property</summary>
+<summary>Selenium Available Drivers CPS Property</summary>
 
-| Property: | Selenium DSE Instance CPS Property |
+| Property: | Selenium Available Drivers CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | selenium.dse.instance.name |
-| Description: | Provides a DSE instance for selenium properties |
+| Name: | selenium.driver.type |
+| Description: | Describes the selenium driver types that can be selected. |
 | Required:  | No |
-| Default value: | PRIMARY |
-| Valid values: | A valid uppercase String |
-| Examples: | <code>selenium.dse.instance.name=PRIMARY</code> |
+| Default value: | $default |
+| Valid values: | A valid String the describes any of the supported drivers: FIREFOX,CHROME,OPERA,EDGE |
+| Examples: | <code>selenium.available.drivers=CHROME,FIREFOX,OPERA,EDGE</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Default Driver CPS Property</summary>
+
+| Property: | Selenium Default Driver CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.default.driver.type |
+| Description: | If set, describes the default the selenium driver that will be used. |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | A valid String representation of a type. Available choices: local, docker, kubernetes, grid |
+| Examples: | <code>selenium.default.driver=FIREFOX</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Driver Version for Containerised Node</summary>
+
+| Property: | Selenium Driver Version for Containerised Node |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.image.node.version |
+| Description: | Provides the version number for the docker image that will be used for both the provisioning of docker and kubernetes selenium nodes. |
+| Required:  | no |
+| Default value: | $default |
+| Valid values: | 4.0.0-beta-2-20210317 |
+| Examples: | <code>selenium.image.node.version=4.0.0-beta-2-20210317</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Driver Max Slots CPS Property</summary>
+
+| Property: | Selenium Driver Max Slots CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.driver.max.slots |
+| Description: | Allows number of concurrent drivers to be limited. If docker selected, the docker slot limit will also be enforced |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | Int value for number of congruent drivers |
+| Examples: | <code>selenium.driver.max.slots=3</code> |
 
 </details>
  
@@ -88,12 +130,12 @@ The following are properties used to configure the Selenium Manager.
 
 | Property: | Selenium Gecko Preferences CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | selenium.instance.INSTANCE.gecko.preferences |
+| Name: | selenium.local.gecko.preferences |
 | Description: | Provides extra preferences to use when using the gecko driver for extensions |
 | Required:  | No |
 | Default value: | $default |
 | Valid values: | A comma seperated list of key value pairs for the preferences |
-| Examples: | <code>selenium.instance.PRIMARY.gecko.preferences=app.update.silent=false,dom.popup_maximum=0</code> |
+| Examples: | <code>selenium.local.gecko.preferences=app.update.silent=false,dom.popup_maximum=0</code> |
 
 </details>
  
@@ -102,12 +144,68 @@ The following are properties used to configure the Selenium Manager.
 
 | Property: | Selenium Gecko Profile CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | selenium.instance.INSTANCE.gecko.profile |
+| Name: | selenium.local.gecko.profile |
 | Description: | Provides a profile to use when using the gecko driver for extensions |
 | Required:  | No |
 | Default value: | $default |
 | Valid values: | A valid String name of a profile |
-| Examples: | <code>selenium.instance.PRIMARY.gecko.profile=default</code> |
+| Examples: | <code>selenium.local.gecko.profile=default</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Grid Endpoint CPS Property</summary>
+
+| Property: | Selenium Grid Endpoint CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.grid.endpoint |
+| Description: | States the grid endpoint |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | ip's and hostnames for a selenium grid |
+| Examples: | <code>selenium.grid.endpoint=127.0.0.1:4444</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Kubernetes Namespace</summary>
+
+| Property: | Selenium Kubernetes Namespace |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.kubernetes.namespace |
+| Description: | Provides the name of the namespace for the nodes to be provisioned on |
+| Required:  | Yes |
+| Default value: | $default |
+| Valid values: | A valid String representation an available namespace on your k8's cluster |
+| Examples: | <code>selenium.kubernetes.namespace=galasa</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Node Selector CPS Property</summary>
+
+| Property: | Selenium Node Selector CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.kubernetes.node.selector |
+| Description: | Node Selector tags to be added to the pod yaml that runs the Selenium Grid inside a k8's cluster. Multiple selectors can be passed comma seperated |
+| Required:  | No |
+| Default value: | $default |
+| Valid values: | Comma seperated list of any node selectors: beta.kubernetes.io/arch: amd64, platform: myplatform |
+| Examples: | <code>selenium.kubernetes.node.selector=beta.kubernetes.io/arch: amd64</code> |
+
+</details>
+ 
+<details>
+<summary>Selenium Driver Path CPS Property</summary>
+
+| Property: | Selenium Driver Path CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | selenium.local.driver.BROWSER.path |
+| Description: | Provides a path to a local webdriver on the system being tested |
+| Required:  | Yes |
+| Default value: | $default |
+| Valid values: | A valid String representation of a path |
+| Examples: | <code>selenium.local.driver.CHROME.path=/usr/bin/chromedriver</code> |
 
 </details>
  
@@ -130,25 +228,11 @@ The following are properties used to configure the Selenium Manager.
 
 | Property: | Selenium Driver Type CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | selenium.instance.INSTANCE.web.driver |
-| Description: | Provides the browser of the webdriver needed for a given instance |
-| Required:  | Yes |
+| Name: | selenium.driver.type |
+| Description: | Describes the selenium runtime that will be used. |
+| Required:  | No |
 | Default value: | $default |
-| Valid values: | GECKO,IE,EDGE,CHROME |
-| Examples: | <code>selenium.instance.PRIMARY.web.driver=GECKO</code> |
-
-</details>
- 
-<details>
-<summary>Selenium Driver Path CPS Property</summary>
-
-| Property: | Selenium Driver Path CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | selenium.instance.INSTANCE.browser.path |
-| Description: | Provides a path to the webdriver on the system being tested |
-| Required:  | Yes |
-| Default value: | $default |
-| Valid values: | A valid String representation of a path |
-| Examples: | <code>selenium.instance.PRIMARY.chrome.path=/usr/bin/chromedriver</code> |
+| Valid values: | A valid String representation of a type. Available choices: local, docker, kubernetes, grid |
+| Examples: | <code>selenium.driver.type=docker</code> |
 
 </details>
