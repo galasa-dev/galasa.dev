@@ -3,7 +3,7 @@ path: "/docs/managers/zos-managertestformat"
 title: "zOS Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 ## Overview
 This Manager provides Galasa tests with access to a z/OS image.
