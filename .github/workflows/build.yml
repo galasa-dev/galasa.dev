@@ -70,6 +70,7 @@ jobs:
             vars-file: vars.london.yml
           - api: api.au-syd.cf.cloud.ibm.com
             vars-file: vars.sydney.yml
+      max-parallel: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
