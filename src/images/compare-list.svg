@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px"
+	 height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#F1F1F1;}
+	.st2{display:inline;}
+	.st3{fill:none;stroke:#60A3FF;stroke-width:2.000000e-02;stroke-miterlimit:10;}
+	.st4{fill:none;}
+</style>
+<g id="padding" class="st0">
+	<path class="st1" d="M32,32H0V0h32V32z M2,30h28V2H2V30z"/>
+</g>
+<g id="grid" class="st0">
+	<g id="grid_434_" class="st2">
+		<path class="st3" d="M32,32H0V0h32V32z M1,32V0 M2,32V0 M3,32V0 M4,32V0 M5,32V0 M6,32V0 M7,32V0 M8,32V0 M9,32V0 M10,32V0 M11,32
+			V0 M12,32V0 M13,32V0 M14,32V0 M15,32V0 M16,32V0 M17,32V0 M18,32V0 M19,32V0 M20,32V0 M21,32V0 M22,32V0 M23,32V0 M24,32V0
+			 M25,32V0 M26,32V0 M27,32V0 M28,32V0 M29,32V0 M30,32V0 M31,32V0 M32,31H0 M32,30H0 M32,29H0 M32,28H0 M32,27H0 M32,26H0 M32,25
+			H0 M32,24H0 M32,23H0 M32,22H0 M32,21H0 M32,20H0 M32,19H0 M32,18H0 M32,17H0 M32,16H0 M32,15H0 M32,14H0 M32,13H0 M32,12H0
+			 M32,11H0 M32,10H0 M32,9H0 M32,8H0 M32,7H0 M32,6H0 M32,5H0 M32,4H0 M32,3H0 M32,2H0 M32,1H0"/>
+		<path class="st3" d="M0,0l32,32 M0,32L32,0"/>
+	</g>
+</g>
+<g id="Layer_3">
+	<g>
+		<rect id="_Transparent_Rectangle_" class="st4" width="32" height="32"/>
+	</g>
+	<g>
+		<rect x="2" y="6" width="2" height="2"/>
+		<rect x="6" y="6" width="7" height="2"/>
+		<rect x="2" y="15" width="2" height="2"/>
+		<rect x="6" y="15" width="7" height="2"/>
+		<rect x="2" y="24" width="2" height="2"/>
+		<rect x="6" y="24" width="7" height="2"/>
+		<rect x="19" y="6" width="2" height="2"/>
+		<rect x="23" y="6" width="7" height="2"/>
+		<rect x="19" y="15" width="2" height="2"/>
+		<rect x="23" y="15" width="7" height="2"/>
+		<rect x="19" y="24" width="2" height="2"/>
+		<rect x="23" y="24" width="7" height="2"/>
+		<rect x="15" y="4" width="2" height="25"/>
+	</g>
+</g>
+</svg>
