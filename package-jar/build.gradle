@@ -18,7 +18,8 @@ liberty {
         name = 'galasaServer'
 
         bootstrapProperties = [
-                'default.http.port':'9080', // TODO
+                'server.http.port':'9080', // TODO
+                'server.http.host':'localhost', // TODO
         ]
 
         deploy {

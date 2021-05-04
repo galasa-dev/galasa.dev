@@ -169,10 +169,10 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew --info --stacktrace libertyPackage
-        working-directory: gradle
+        working-directory: package-jar
 
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
           name: output-local-jar
-          path: gradle/build/libs/galasa.dev-runnable.jar
+          path: package-jar/build/libs/galasa.dev-runnable.jar
