@@ -30,6 +30,22 @@ The following annotations are available with the Galasa Ecosystem Manager
 
 </details>
 
+<details>
+<summary>Local Ecosystem</summary>
+
+| Annotation: | Local Ecosystem |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @LocalEcosystem |
+| Description: | The <code>@LocalEcosystem</code> annotation requests the Galasa Ecosystem Manager to provision a local running environment on a Linux or Windows instance.   The Local running environment will  use the FPF file configuration and not run any of the servers by default. |
+| Attribute: `ecosystemTag` |  The <code>ecosystemNamespaceTag</code> is used to identify the Ecosystem to other Managers or Shared Environments.  If a test is using multiple  Ecosystems, each separate Ecosystem must have a unique tag.  If two Ecosystems use the same tag, they refer to the  same Ecosystem. |
+| Attribute: `linuxImageTag` |  The <code>linuxImageTag</code> identifies which tagged Linux image is to be used to deploy the Galasa Ecosystem into. |
+| Attribute: `windowsImageTag` |  The <code>windowsImageTag</code> identifies which tagged Windows image is to be used to deploy the Galasa Ecosystem into. |
+| Attribute: `javaInstallationTag` |  The <code>javaInstallationTag</code> to which Java installation on the image is to be used to run the Galasa tests and services. |
+| Syntax: | <code>@LocaEcosystem(linuxImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> <br> @LocalEcosystem(windowsImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> </code> |
+| Notes: | The <code>ILocalEcosystem</code> interface gives the test access FPF services and the ability to run tests from the commandline. The Manager will pre-configure the CPS, DSS and CREDS before the test begins.<br> <br> The test must provide a @LocalNamespace ILocalNamespace annotation, as this is where the Ecosystem is provisioned in. <br> The annotation must provide either a Windows or Linux image tag, but not both and must provide a @JavaInstallation tag. |
+
+</details>
+
 
 
 ## Code snippets
@@ -132,6 +148,20 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Default value: | None |
 | Valid values: | Value URL |
 | Examples: | <code>galasaecosystem.maven.repository=https://nexus.galasa.dev/repository/maven-development</code> |
+
+</details>
+ 
+<details>
+<summary>Maven use default local repository</summary>
+
+| Property: | Maven use default local repository |
+| --------------------------------------- | :------------------------------------- |
+| Name: | galasaecosystem.maven.use.default.local.repository |
+| Description: | The Local ecosystems will use a dedicated local repository, however, this slows the installation, so setting this property to true will use the normal ~/.m2/repository so downloads happen only once per day, useful for rapid development and testings |
+| Required:  | No |
+| Default value: | false |
+| Valid values: | true or false |
+| Examples: | <code>galasaecosystem.maven.use.default.local.repository=true</code> |
 
 </details>
  
