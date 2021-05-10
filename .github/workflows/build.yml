@@ -155,7 +155,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Download raw site
+      - name: Download WAR
         uses: actions/download-artifact@v2
         with:
           name: output-local-war
@@ -167,8 +167,16 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Gradle
-        run: ./gradlew --info --stacktrace libertyPackage
+        run: ./gradlew --info  libertyPackage
         working-directory: package-jar
+
+      - name: Publish with Gradle
+        if: ${{ github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/next' }}
+        run: ./gradlew --info publish
+        working-directory: package-jar
+        with:
+          ORG_GRADLE_PROJECT_galasaNexusUsername: ${{ secrets.NEXUS_USERNAME }}
+          ORG_GRADLE_PROJECT_galasaNexusPassword: ${{ secrets.NEXUS_PASSWORD }}
 
       - name: Upload JAR
         uses: actions/upload-artifact@v2
