@@ -18,7 +18,7 @@ liberty {
     server {
         name = 'galasaServer'
 
-        bootstrapProperties = [
+        defaultVar = [
                 'server.http.port':'9080',
                 'server.http.host':'localhost',
         ]
