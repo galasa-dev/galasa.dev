@@ -47,4 +47,4 @@ npm run format
 
 ## License
 
-This code is under the [Eclipse Public License 2.0](https://github.com/galasa-dev/maven/blob/master/LICENSE).
+This code is under the [Eclipse Public License 2.0](./LICENSE).
