@@ -60,7 +60,7 @@ code[class*="language-"] ::selection {
 }
 
 .token.punctuation {
-  color: #586e75;
+  color: #414c50;
 }
 
 .token.namespace {
@@ -74,7 +74,7 @@ code[class*="language-"] ::selection {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #268bd2;
+  color: #07416b;
 }
 
 .token.selector,
@@ -84,11 +84,11 @@ code[class*="language-"] ::selection {
 .token.builtin,
 .token.url,
 .token.inserted {
-  color: #16716a;
+  color: #0b5750;
 }
 
 .token.entity {
-  color: #606060;
+  color: #464545;
   background: #eee8d5;
   cursor: help;
 }
@@ -96,12 +96,12 @@ code[class*="language-"] ::selection {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #586501;
+  color: #394105;
 }
 
 .token.function,
 .token.class-name {
-  color: #9c7603;
+  color: #684e02;
 }
 
 .token.regex,
