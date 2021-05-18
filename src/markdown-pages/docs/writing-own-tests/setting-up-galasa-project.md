@@ -76,7 +76,7 @@ Set up the files in their designated directories as follows:
 <details>
 <summary><code>com.example.tests.parent/pom.xml</code></summary>
 
-Read the commentary at the bottom of the listing for an explanation of the key elements.
+Read the commentary for an explanation of the key elements.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
