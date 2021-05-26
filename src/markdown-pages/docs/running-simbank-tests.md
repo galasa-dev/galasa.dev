@@ -19,12 +19,10 @@ All of these example tests become available when you set up a Galasa example pro
 1. Ensure that Eclipse is running.
 1. Choose _File > New > Example_, select _SimBank example projects_ and press _Next_.
 1. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:
-
 ```
 dev.galasa.simbank.manager
 dev.galasa.simbank.tests 
 ```
-
 1. Right-click on `dev.galasa.simbank.manager` and choose _Run As > Maven install_ - wait a few moments for the dependencies to load and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`.
 1. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
