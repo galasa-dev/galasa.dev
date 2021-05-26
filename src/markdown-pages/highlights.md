@@ -13,20 +13,20 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.15.0 - Release Highlights
 
-- Galasa now runs in any version of Java from 8 onwards.
+- Galasa now runs in any version of Java from version 8 onwards.
 - The Galasa Eclipse plug-in now supports all levels of Eclipse from Photon onwards. 
 - Docker and Kubernetes provisioning implementations are available for the Selenium Manager. Additionally, a Selenium Grid can be used from Galasa. Local drivers are used in the same way as previous releases (with edited CPS configurations). 
 - The *Find* dialog box is now working in the **Run Log** view of the Eclipse Editor.
-- The ```IManager.youAreRequired()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release ```0.15.0```.
-- The ```AbstractManager.addDependentManager()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release ```0.15.0```.
+- The ```IManager.youAreRequired()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release 0.15.0.
+- The ```AbstractManager.addDependentManager()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release 0.15.0.
 - The Core Manager is always loaded for every test run.
 - The Docker Manager now supports exposed ports.
-- Basic Java and Windows Managers have been added. These Managers will initially be used internally for testing Galasa itself. 
 - Increased test coverage delivered via IVTs and Integration testing
+- Basic Java and Windows Managers have been added. These Managers will initially be used internally for testing Galasa itself. 
 - Various bug fixes
 - Our internal Galasa build has moved to Gradle. No user impact is expected, but if you do find any problems whilst you’re using Galasa, you can raise an issue in the project management repository or post a question in our Galasa Slack workspace.
-- The Maven Bundle Plugin that is used in the builds is now set to version ```5.1.1``` for Java compatibility.
-- The GPG key to sign the Maven artifacts is now ```5AB3E02B```
+- The Maven Bundle Plugin that is used in the Galasa builds is now set to version ```5.1.1``` for Java compatibility.
+- The GPG key to sign Maven artifacts is set to  ```5AB3E02B```
 - Galasa is available for distribution as a zip file, enabling the Galasa plug-in to be downloaded and installed if access to Maven, Docker or Kubernetes is not available.
 - Documentation updates - Installing the Galasa Ecosystem on Kubernetes documentation plus various documentation fixes.
 
