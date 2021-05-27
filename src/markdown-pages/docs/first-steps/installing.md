@@ -23,6 +23,14 @@ If you do not already have an Eclipse installation, you can <a href="https://www
 
 If you already have a version of Eclipse installed, it should be at the version codenamed Photon (released in June 2018) or later.  
 
+### Gradle (Required with the packaged version of Galasa)
+
+If you are installing the packaged version of Galasa, you will need to install Gradle version 6.8.2 which is used to build the Galasa software. 
+
+### Docker (Required if using the Docker image in the packaged version of Galasa)
+
+If you are installing the packaged version of Galasa and want to deploy the docker image provided in the package, you will need to install Docker version 20.10.2. You might want to choose this method if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
+
 ### (Optional) A 3270 terminal emulator
 
 Although you do not need a 3270 emulator to run a galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
@@ -31,7 +39,13 @@ Although you do not need a 3270 emulator to run a galasa test (even if it tests 
 
 1. Launch Eclipse. If present, close any initial welcome screen.
 1. Choose _Help > Install New Software_ from the main menu.
-1. Paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
+1. Choose from the following options:
+    a. If you are using the packaged version, complete the following steps
+        i. Click *Add* and then Select *Local*
+        ii. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK*
+    The Location field is populated, for example, ```file:///home/username/galasa-isolated-mvp/eclipse/```  
+    b. If you are not using the packaged version, complete the following steps  
+        i.  Paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new _Galasa_ option on the main menu between _Run_ and _Window_. If you choose _Run > Run Configurations_ from the main menu, you will also observe two new entries: _Galasa_ and _Galasa SimBank_ as available options in the left-hand panel of the popup window.
