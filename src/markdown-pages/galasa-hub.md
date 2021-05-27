@@ -13,7 +13,7 @@ Galasa's open source automation framework enables mainframe developers to automa
 <a href="https://developer.ibm.com/videos/mainframe-a-la-mode-galasa-integration-testing-for-ibm-z-and-beyond/" target="_blank">
  Watch the video</a>
   
-## Blog: Integration testing for Hybrid Cloud Applications using Galasa
+## Redpaper: Integration testing for Hybrid Cloud Applications using Galasa
 This paper explains how this testing can be achieved only in an effective and efficient way by autenable such automation. We specifically focus on Galasa. Galasa is an open-source deep integration test framework for hybrid cloud applications that allows teams to automate tests to run as part of a DevOps pipeline.<br>
 
 **Author: Will Yates et al**<br>

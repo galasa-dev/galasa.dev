@@ -27,8 +27,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Our internal Galasa build has moved to Gradle. No user impact is expected, but if you do find any problems whilst you’re using Galasa, you can raise an issue in the project management repository or post a question in our Galasa Slack workspace.
 - The Maven Bundle Plugin that is used in the Galasa builds is now set to version ```5.1.1``` for Java compatibility.
 - The GPG key to sign Maven artifacts is set to  ```5AB3E02B```
-- Galasa is available for distribution as a zip file, enabling the Galasa plug-in to be downloaded and installed if access to Maven, Docker or Kubernetes is not available.
-- Documentation updates - Installing the Galasa Ecosystem on Kubernetes documentation plus various documentation fixes.
+- Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artfiacts and Docker images for local running. This allows customers who do not have access to Maven Central, Eclipse Marketplace or DockerHub from their company network to use Galasa.
+- Documentation updates - Installing the Galasa Ecosystem on Kubernetes documentation plus various documentation enhancements.
 
 <details>
 <summary><b>0.14.0 - Release Highlights</b></summary>
