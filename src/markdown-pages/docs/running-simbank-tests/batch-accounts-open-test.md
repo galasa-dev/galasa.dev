@@ -24,7 +24,7 @@ zosmf.server.SIMBANK.port=2040
 zosmf.server.SIMBANK.https=false
 ```
 
-For brevity, package declarations and imports are omitted in the following walkthrough, but there is a full source listing at the bottom of the section.
+For brevity, package declarations and imports are omitted in the following walkthrough.
 
 ## Walkthrough - BatchAccountsOpenTest
 
