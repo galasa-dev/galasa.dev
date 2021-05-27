@@ -1,0 +1,99 @@
+plugins {
+    id 'io.openliberty.tools.gradle.Liberty'
+    id 'maven-publish'
+}
+
+group 'dev.galasa'
+version '1.0.0-SNAPSHOT'
+
+dependencies {
+    libertyRuntime group: 'io.openliberty', name: 'openliberty-runtime', version: '21.0.0.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+liberty {
+    server {
+        name = 'galasaServer'
+
+        defaultVar = [
+                'server.http.port':'9080',
+                'server.http.host':'localhost',
+        ]
+
+        deploy {
+            apps = [
+                file("../galasa.dev-site.war", PathValidation.FILE)
+            ]
+        }
+
+        packageLiberty {
+            packageType = 'jar'
+            include = 'minify,runnable'
+        }
+    }
+}
+
+private String getPackageName() {
+    if (liberty.server.packageLiberty.packageName != null && !liberty.server.packageLiberty.packageName.isEmpty()) {
+        return liberty.server.packageLiberty.packageName
+    }
+    return project.getName()
+}
+
+private setLibertyPackageInOutputs() {
+    def packageFile = new File(getBuildDir(), 'libs/' + getPackageName() + '.jar')
+    def wlpDir = new File(getBuildDir(), 'wlp')
+    libertyPackage.inputs.dir(fileTree(wlpDir) {
+        exclude 'usr/servers/galasaServer/logs/**'
+        exclude 'usr/servers/galasaServer/workarea'
+    })
+    libertyPackage.outputs.file(packageFile)
+}
+
+setLibertyPackageInOutputs()
+
+publishing {
+    publications {
+        runnableJar(MavenPublication) {
+            groupId 'dev.galasa'
+            artifactId 'galasa-www-isolated'
+            version project.version
+
+            artifact(libertyPackage.outputs.files.singleFile) {
+                builtBy libertyPackage
+            }
+
+            pom {
+                name = 'galasa.dev for closed networks'
+                description = 'The Galasa website for local deployment in closed networks'
+                url = 'https://galasa.dev'
+                licenses {
+                    license {
+                        name = 'Eclipse Public License - v 2.0'
+                        url = 'https://www.eclipse.org/legal/epl-2.0/'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/galasa-dev/galasa.dev'
+                    connection = 'scm:git:git://github.com/galasa-dev/galasa.dev.git'
+                    developerConnection = 'scm:git:git://github.com/galasa-dev/galasa.dev.git'
+                }
+            }
+
+        }
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = 'https://nexus.galasa.dev/repository/maven-staging-release/'
+            def snapshotsRepoUrl = 'https://nexus.galasa.dev/repository/maven-development/'
+            name = 'galasaNexus'
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials(PasswordCredentials)
+        }
+        mavenLocal()
+    }
+}

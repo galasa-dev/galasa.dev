@@ -11,13 +11,34 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.14.0 - Release Highlights
+## 0.15.0 - Release Highlights
+
+- Galasa now runs in any version of Java from version 8 onwards.
+- The Galasa Eclipse plug-in now supports all levels of Eclipse from Photon onwards. 
+- Docker and Kubernetes provisioning implementations are available for the Selenium Manager. Additionally, a Selenium Grid can be used from Galasa. Local drivers are used in the same way as previous releases (with edited CPS configurations). 
+- The *Find* dialog box is now working in the **Run Log** view of the Eclipse Editor.
+- The ```IManager.youAreRequired()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release 0.15.0.
+- The ```AbstractManager.addDependentManager()``` method signature has a new field. If you have a Custom Manager, you must recompile your Manager with this modification for it to run in release 0.15.0.
+- The Core Manager is always loaded for every test run.
+- The Docker Manager now supports exposed ports.
+- Increased test coverage delivered via IVTs and Integration testing
+- Basic Java and Windows Managers have been added. These Managers will initially be used internally for testing Galasa itself. 
+- Various bug fixes
+- Our internal Galasa build has moved to Gradle. No user impact is expected, but if you do find any problems whilst you’re using Galasa, you can raise an issue in the project management repository or post a question in our Galasa Slack workspace.
+- The Maven Bundle Plugin that is used in the Galasa builds is now set to version ```5.1.1``` for Java compatibility.
+- The GPG key to sign Maven artifacts is set to  ```5AB3E02B```
+- Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artfiacts and Docker images for local running. This allows customers who do not have access to Maven Central, Eclipse Marketplace or DockerHub from their company network to use Galasa.
+- Documentation updates - Installing the Galasa Ecosystem on Kubernetes documentation plus various documentation enhancements.
+
+<details>
+<summary><b>0.14.0 - Release Highlights</b></summary>
 
 - <a href="https://github.com/galasa-dev/managers/tree/master/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zosconsole.oeconsol.manager" target="_blank"> z/OS Console oeconsol Manager</a> is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command. 
 - Enhanced Docker functionality, including volumes and custom start up configurations
 - CPS restore from file functionality. Use the ```--restorecps``` command-line parameter when initialising the framework to trigger the restore CPS functionality.  Specify the file to restore from by using ```-f``` or ```--file```  in the KVP format  ```(<property>=<value>)```, with one new property per line.
 - ```@ContinueOnTestFailure``` annotation. Use the annotation in the test class or switch the same functionality on globally by using the CPS property ```framework.continue.on.test.failure=true```.
 - Documentation enhancements, including updates on Managers and writing test cases
+</details>
 
 <details>
 <summary><b>0.13.0 - Release Highlights</b></summary>

@@ -1,0 +1,8 @@
+pluginManagement {
+    plugins {
+        id "io.openliberty.tools.gradle.Liberty" version "3.1.2"
+    }
+}
+
+rootProject.name = 'galasa.dev-runnable'
+
