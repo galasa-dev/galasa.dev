@@ -13,7 +13,7 @@ consts.githubRepoSlug = `${consts.githubOrgName}/${consts.githubRepoName}`
 
 const buildRepoSlug = process.env.PR_REPO_SLUG || process.env.BASE_REPO_SLUG || consts.githubRepoSlug
 consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
-consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "master"
+consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "main"
 
 const eslintOptions = process.env.CI === `true` ? {
   failOnError: true,
