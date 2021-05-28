@@ -3,9 +3,11 @@ path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 
-Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Once the distribution is downloaded from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Downloads</a> website, the Galasa plug-in can be installed by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
+Galasa is available for distribution as a zip file which can be downloaded from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website or  accessed directly from the `https://p2.galasa.dev/` update site. 
 
-Users with access to Maven Central, Eclipse Marketplace and Docker Hub can install Galasa directly from `https://p2.galasa.dev/` by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
+The zip file contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
+
+Users without restricted internet access can install Galasa directly from `https://p2.galasa.dev/` update site.
 
 Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in from a known update site. The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 
@@ -27,11 +29,11 @@ If you do not already have an Eclipse installation, you can <a href="https://www
 
 If you already have a version of Eclipse installed, it should be at the version codenamed Photon (released in June 2018) or later.  
 
-### Gradle (Required with the packaged version of Galasa)
+### Gradle (Required for the Galasa zipped distribution)
 
 If you are installing the packaged version of Galasa, you will need to install Gradle version 6.8.2 which is used to build the Galasa software. 
 
-### Docker (Required if using the Docker image in the packaged version of Galasa)
+### Docker (Required if using the Docker image in the Galasa zipped distribution)
 
 If you are installing the packaged version of Galasa and want to deploy the docker image provided in the package, you will need to install Docker version 20.10.2. You might want to choose this method if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
@@ -44,12 +46,11 @@ Although you do not need a 3270 emulator to run a galasa test (even if it tests 
 1. Launch Eclipse. If present, close any initial welcome screen.
 1. Choose _Help > Install New Software_ from the main menu.
 1. Choose from the following options: 
-    1. If you are using the packaged version, complete the following steps:
-        1. Click *Add* and then Select *Local*
-        1. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK*
-        The **Location** field is populated, for example, ```file:///home/username/galasa-isolated-mvp/eclipse/```  
-    1. If you are not using the packaged version, complete the following steps:
-        1. Paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
+    a. If you are using the zipped distribution, complete the following steps:
+        i. Click *Add* and then Select *Local*
+        ii. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK* <br>
+        The **Location** field is populated, for example, `file:///home/username/galasa-isolated-mvp/eclipse/`.  
+    b. If you are not using the zipped distribution, paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new _Galasa_ option on the main menu between _Run_ and _Window_. If you choose _Run > Run Configurations_ from the main menu, you will also observe two new entries: _Galasa_ and _Galasa SimBank_ as available options in the left-hand panel of the popup window.
@@ -150,8 +151,8 @@ dss.properties
 1. Complete the _Global Setting_ field by pressing _Browse_ and navigating to the `settings.xml` file you just set up. Press _Apply_ and _Close_ when finished.
 1. Choose _Window > Preferences > Galasa_ 
 1. Choose from the following options: 
-    1. If you are using the packaged version, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
-    1. If you are not using the packaged version, change the _Remote Maven URI_ to the local maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven```
+    1. If you are not using the zipped distribution of Galasa, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
+    1. If you are using the zipped distribution, change the _Remote Maven URI_ to the local maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven```
 1. Click _Apply and Close_. -->
 
 Your local Eclipse Galasa installation is now ready for some work.

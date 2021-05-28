@@ -12,6 +12,10 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse.
 
+If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section.
+
+If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the _Creating an example Galasa project using Maven_ section.
+
 ## Creating an example Galasa project using Maven
 
 <b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
