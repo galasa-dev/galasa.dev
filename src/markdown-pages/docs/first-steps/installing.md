@@ -43,7 +43,7 @@ Although you do not need a 3270 emulator to run a galasa test (even if it tests 
     1. If you are using the packaged version, complete the following steps:
         1. Click *Add* and then Select *Local*
         1. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK*
-        The Location field is populated, for example, ```file:///home/username/galasa-isolated-mvp/eclipse/```  
+        The **Location** field is populated, for example, ```file:///home/username/galasa-isolated-mvp/eclipse/```  
     1. If you are not using the packaged version, complete the following steps:
         1. Paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked.
@@ -144,6 +144,10 @@ dss.properties
 1. Launch Eclipse.
 1. Choose _Window > Preferences_ and then _Maven > User Settings_.
 1. Complete the _Global Setting_ field by pressing _Browse_ and navigating to the `settings.xml` file you just set up. Press _Apply_ and _Close_ when finished.
-1. Choose _Window > Preferences > Galasa_, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`, and click _Apply and Close_. -->
+1. Choose _Window > Preferences > Galasa_ 
+1. Choose from the following options: 
+    1. If you are using the packaged version, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
+    1. If you are not using the packaged version, change the _Remote Maven URI_ to the local maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven```
+1. Click _Apply and Close_. -->
 
 Your local Eclipse Galasa installation is now ready for some work.
