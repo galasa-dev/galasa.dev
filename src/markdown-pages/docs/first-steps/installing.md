@@ -3,7 +3,7 @@ path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 
-Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Once the distribution is downloaded from <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Aqua</a>, the Galasa plug-in can be installed by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
+Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Once the distribution is downloaded from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Downloads</a> website, the Galasa plug-in can be installed by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
 
 Users with access to Maven Central, Eclipse Marketplace and Docker Hub can install Galasa directly from `https://p2.galasa.dev/` by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
 
