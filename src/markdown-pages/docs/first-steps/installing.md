@@ -46,11 +46,11 @@ Although you do not need a 3270 emulator to run a galasa test (even if it tests 
 1. Launch Eclipse. If present, close any initial welcome screen.
 1. Choose _Help > Install New Software_ from the main menu.
 1. Choose from the following options: 
-    a. If you are using the zipped distribution, complete the following steps:
-        i. Click *Add* and then Select *Local*
-        ii. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK* <br>
+    1. If you are using the zipped distribution, complete the following steps:
+        1. Click *Add* and then Select *Local*
+        1. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK* <br>
         The **Location** field is populated, for example, `file:///home/username/galasa-isolated-mvp/eclipse/`.  
-    b. If you are not using the zipped distribution, paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
+    1. If you are not using the zipped distribution, paste `https://p2.galasa.dev/` into the _Work with_ field and press _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new _Galasa_ option on the main menu between _Run_ and _Window_. If you choose _Run > Run Configurations_ from the main menu, you will also observe two new entries: _Galasa_ and _Galasa SimBank_ as available options in the left-hand panel of the popup window.
