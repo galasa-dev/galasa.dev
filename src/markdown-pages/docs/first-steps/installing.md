@@ -3,6 +3,10 @@ path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 
+Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Once the distribution is downloaded from <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Aqua</a>, the Galasa plug-in can be installed by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
+
+Users with access to Maven Central, Eclipse Marketplace and Docker Hub can install Galasa directly from `https://p2.galasa.dev/` by following the relevant instructions in the *Installing the Galasa plug-in* section of this page.
+
 Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in from a known update site. The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 
 <!-- Later, you are likely to want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it. -->
