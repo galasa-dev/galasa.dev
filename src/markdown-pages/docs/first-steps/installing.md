@@ -3,9 +3,9 @@ path: "/docs/getting-started/installing"
 title: "Installing the Galasa plug-in"
 ---
 
-You can download and install Galasa for local running, either from a downloadable zip file (zipped distribution) or directly from an update site. 
+You can install Galasa for local running either from a downloadable zip file (zipped distribution) or directly from an update site. 
 
-The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website and can be unzipped to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Eclipse plug-in, and the Maven directory contains dependencies that are needed for building tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use Docker if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
+The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website and can be extracted to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Eclipse plug-in, and the Maven directory contains dependencies that are required for building tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
 The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
 
@@ -35,15 +35,15 @@ If you already have a version of Eclipse installed, it should be at the version 
 
 ### Gradle (Required for the Galasa zipped distribution)
 
-If you are installing the packaged version of Galasa, you will need to install Gradle version 6.8.2 which is used to build the Galasa software. 
+If you are installing the Galasa zipped distribution, you need to install Gradle version 6.8.2 which is used to build the Galasa software. 
 
 ### Docker (Required if using the Docker image in the Galasa zipped distribution)
 
-If you are installing the packaged version of Galasa and want to deploy the docker image provided in the package, you will need to install Docker version 20.10.2. 
+If you are installing the Galasa zipped distribution and want to deploy the docker image provided in the package, you need to install Docker version 20.10.2. 
 
 ### (Optional) A 3270 terminal emulator
 
-Although you do not need a 3270 emulator to run a galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
+Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
 
 ## Installing the Galasa plug-in
 
@@ -52,8 +52,9 @@ Although you do not need a 3270 emulator to run a galasa test (even if it tests 
 1. Choose from the following options: 
     1. If you are using the zipped distribution, complete the following steps:
         1. Click *Add* and then Select *Local*
-        1. Navigate to the directory that the zip was unpacked into, select the Eclipse directory, and click *OK* <br>
-        The `Location` field is populated with the filepath information, for example, `file:///home/username/galasa-isolated-mvp/eclipse/` or the URL to the running container if you are using the Docker image, for example, `http://localhost:8080/eclipse`.
+        1. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK* <br>
+        The `Location` field is populated with the filepath information, for example, `file:///home/username/galasa-isolated-mvp/eclipse/`.<br>
+        Note: If you are using the Docker image, use the URL to the running container, for example, `http://localhost:8080/eclipse`.
         1.  Click _Enter_.       
     1. If you are not using the zipped distribution, paste `https://p2.galasa.dev/` into the _Work with_ field and click _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked.

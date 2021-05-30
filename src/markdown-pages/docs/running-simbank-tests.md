@@ -19,7 +19,8 @@ If you are using the Galasa plug-in from the update site, use Maven to build you
 ## Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
-2. Choose _Window > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, `file:///home/username/galasa-isolated-mvp/maven` or the URL to the running container if you are using the Docker image, for example, `http://localhost:8080/eclipse`. This setting enables running tests to access any dependencies.
+2. Choose _Window > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
+Note: If you are using the Docker image, use the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
 3. Click _Apply and Close_.
 4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
 5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
@@ -37,7 +38,7 @@ pluginManagement {
     }
 }
 ```
-If you are using the Docker image, set the URL to the running container. For example:
+Note: If you are using the Docker image, set the URL to the running container. For example:
 ```
 pluginManagement {
     repositories {
@@ -47,7 +48,7 @@ pluginManagement {
     }
 }
 ```  
-7. Modify the `build.gradle` file in `dev.galasa.simbank.manager` so that the project can locate any dependencies that are required for building Galasa. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
+7. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the project can locate any dependencies that are required for building Galasa. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
 ```
 pluginManagement {
     repositories {
@@ -57,7 +58,7 @@ pluginManagement {
     }
 }
 ```
-If you are using the Docker image, set the URL to the running container. For example:
+Note: If you are using the Docker image, set the URL to the running container. For example:
 ```
 pluginManagement {
     repositories {
@@ -67,7 +68,7 @@ pluginManagement {
     }
 }
 ```
-8. Modify the `build.gradle` file in `dev.galasa.simbank.tests` by making the same repository change as you did to the `build.gradle` in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
+8. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
 ```
 implementation'dev.galasa:dev.galasa.selenium.manager:0.+'
 ```
@@ -81,10 +82,11 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
     exclude group: 'com.google.guava', module: 'guava'
 }
 ```
-9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_
+9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
+Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
 10. Navigate to *Run > Run Configurations*
 11. In the *Create, manage and run configurations* dialog, right-click *Gradle Project* and choose *New Configuration*.
-12. Give the new configuration a meaningful name and add the Gradle task(s) ```clean build```.
+12. Give the new configuration a meaningful name and add ```clean build``` in the `Gradle Tasks` field.
 13. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
 14. Click `Apply` then `Run`.
 15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
@@ -95,10 +97,11 @@ Explore these tests by selecting from the left-hand menu - if you are new to Gal
 
 ## Creating an example Galasa project using Docker
 
-This example uses port `8080` but you can `8080` with a different port.
+This example uses port `8080` but you can substitute this value with a different port.
 
 1. Extract the docker image (`isolated.tar`) that is provided in the zipped distribution to a directory of your choice.
-2. Within the directory, run the command `sudo docker load -i isolated.tar`. A confirmation message is received which is similar to the following message:
+2. Within the directory, run the command `sudo docker load -i isolated.tar`.<br> 
+A confirmation message is received which is similar to the following message:
 ```
 Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 ```
@@ -106,13 +109,9 @@ Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 ```
 sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 ```
-The command returns the container ID upon success. For example:
-```
-$ sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
-1f339344dbdd3becb10663e362c85310db88f497183db2a25dc74a08a3ab05ef
-```
+The container ID is returned. 
 4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs 1f33```.
-5. Navigate to http://localhost:8080/ in a browser and replace any file URLs with the Docker container address.  
+5. Navigate to `http://localhost:8080/` in a browser and replace any file URLs with the Docker container address.  
 
 ## Creating an example Galasa project using Maven
 

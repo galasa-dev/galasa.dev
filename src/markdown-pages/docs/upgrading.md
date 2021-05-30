@@ -43,10 +43,10 @@ A simple way to do this is to complete the following steps:
 3. Check that the OBR version in the Galasa preferences references the new version of Galasa.<br><br>
     If you are using Eclipse, complete the following steps:<br><br>
         a. Go to *Eclipse > Preferences > Galasa* on a Mac or *Window > Preferences > Galasa* on Windows. <br><br>
-        b. Check the **OBR Version** field is blank, to automatically select the latest version.<br><br>
+        b. Check the *OBR Version* field is blank, to automatically select the latest version.<br><br>
     If you are using VS code, complete the following steps: <br><br>
         a. Go to  *File > Preferences > Settings* and expand the *Extensions* section.<br><br> 
-        b. Select *Galasa* and check that the **Version** field is using the default value of ```LATEST```, to automatically select the latest version. 
+        b. Select *Galasa* and check that the *Version* field is using the default value of ```LATEST```, to automatically select the latest version. 
 
 ## Troubleshooting
 
