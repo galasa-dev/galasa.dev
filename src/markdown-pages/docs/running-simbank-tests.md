@@ -12,39 +12,22 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse.
 
-If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section.
+If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, additionally complete the steps in _Creating an example Galasa project using Docker_.
 
 If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the _Creating an example Galasa project using Maven_ section.
-
-## Creating an example Galasa project using Maven
-
-<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
-
-1. Ensure that Eclipse is running.
-2. Choose _File > New > Example_, select _SimBank example projects_ and press _Next_.
-3. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
-```  
-dev.galasa.simbank.manager  
-dev.galasa.simbank.tests  
-```  
-4. Right-click on `dev.galasa.simbank.manager` and choose _Run As > Maven install_ - wait a few moments for the dependencies to load and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`.  
-5. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
-
-![SimBank tests](./provided-tests.png)
-
-Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
-
 
 ## Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
-2. Choose _File > New > Example_, select _SimBank example Gradle projects_ and press _Next_.
-3. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
+2. Choose _Window > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, `file:///home/username/galasa-isolated-mvp/maven` or the URL to the running container if you are using the Docker image, for example, `http://localhost:8080/eclipse`. This setting enables running tests to access any dependencies.
+3. Click _Apply and Close_.
+4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
+5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
 ```  
 dev.galasa.simbank.manager  
 dev.galasa.simbank.tests  
 ```  
-4. Add a ```pluginManagement``` section, at the top of the `settings.gradle` file in `dev.galasa.simbank.parent` so that the Gradle build can search the Maven directory for any required plug-ins. Specify the Maven repository as the location of the unzipped Maven directory. For example:
+6. Add a ```pluginManagement``` section, at the top of the `settings.gradle` file in `dev.galasa.simbank.parent` so that the Gradle build can search the Maven directory for any required plug-ins. Specify the Maven repository as the location of the unzipped Maven directory. For example:
 ```
 pluginManagement {
     repositories {
@@ -54,7 +37,17 @@ pluginManagement {
     }
 }
 ```
-5. Modify the `build.gradle` file in `dev.galasa.simbank.manager` so that the project can locate any dependencies that are required for building Galasa. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
+If you are using the Docker image, set the URL to the running container. For example:
+```
+pluginManagement {
+    repositories {
+        maven {
+            url = "http://localhost:8080/maven"
+        }
+    }
+}
+```  
+7. Modify the `build.gradle` file in `dev.galasa.simbank.manager` so that the project can locate any dependencies that are required for building Galasa. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
 ```
 pluginManagement {
     repositories {
@@ -64,7 +57,17 @@ pluginManagement {
     }
 }
 ```
-6. Modify the `build.gradle` file in `dev.galasa.simbank.tests` by making the same repository change as you did to the `build.gradle` in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
+If you are using the Docker image, set the URL to the running container. For example:
+```
+pluginManagement {
+    repositories {
+        maven {
+            url = "http://localhost:8080/maven"
+        }
+    }
+}
+```
+8. Modify the `build.gradle` file in `dev.galasa.simbank.tests` by making the same repository change as you did to the `build.gradle` in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
 ```
 implementation'dev.galasa:dev.galasa.selenium.manager:0.+'
 ```
@@ -78,13 +81,52 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
     exclude group: 'com.google.guava', module: 'guava'
 }
 ```
-7. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_
-8. Navigate to *Run > Run Configurations*
-9. In the *Create, manage and run configurations* dialog, right-click *Gradle Project* and choose *New Configuration*.
-10. Give the new configuration a meaningful name and add the Gradle task(s) ```clean build```.
-11. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
-12. Click `Apply` then `Run`.
-13. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
+9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_
+10. Navigate to *Run > Run Configurations*
+11. In the *Create, manage and run configurations* dialog, right-click *Gradle Project* and choose *New Configuration*.
+12. Give the new configuration a meaningful name and add the Gradle task(s) ```clean build```.
+13. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
+14. Click `Apply` then `Run`.
+15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
+
+![SimBank tests](./provided-tests.png)
+
+Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
+
+## Creating an example Galasa project using Docker
+
+This example uses port `8080` but you can `8080` with a different port.
+
+1. Extract the docker image (`isolated.tar`) that is provided in the zipped distribution to a directory of your choice.
+2. Within the directory, run the command `sudo docker load -i isolated.tar`. A confirmation message is received which is similar to the following message:
+```
+Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+```
+3. Run the container by using the following command:
+```
+sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+```
+The command returns the container ID upon success. For example:
+```
+$ sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+1f339344dbdd3becb10663e362c85310db88f497183db2a25dc74a08a3ab05ef
+```
+4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs 1f33```.
+5. Navigate to http://localhost:8080/ in a browser and replace any file URLs with the Docker container address.  
+
+## Creating an example Galasa project using Maven
+
+<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
+
+1. Ensure that Eclipse is running.
+2. Choose _File > New > Example_, select _SimBank example projects_ and click _Next_.
+3. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
+```  
+dev.galasa.simbank.manager  
+dev.galasa.simbank.tests  
+```  
+4. Right-click on `dev.galasa.simbank.manager` and choose _Run As > Maven install_ - wait a few moments for the dependencies to load and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`.  
+5. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
 ![SimBank tests](./provided-tests.png)
 
