@@ -12,7 +12,7 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse.
 
-If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, complete the steps in the  _Creating an example Galasa project using Docker_ section first and then complete the stemps in the _Creating an example Galasa project using Gradle_ section.
+If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, complete the steps in the  _Creating an example Galasa project using Docker_ section first and then complete the steps in the _Creating an example Galasa project using Gradle_ section.
 
 If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the _Creating an example Galasa project using Maven_ section.
 
@@ -20,7 +20,7 @@ If you are using the Galasa plug-in from the update site, use Maven to build you
 
 1. Ensure that Eclipse is running.
 2. Choose _Window > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
-Note: If you are using the Docker image, use the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
+Note: If you are using the Docker image, set the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
 3. Click _Apply and Close_.
 4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
 5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
@@ -75,11 +75,11 @@ implementation'dev.galasa:dev.galasa.selenium.manager:0.+'
 to:
 ```
 implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
-    exclude group: 'com.squareup.okio', module: 'okio'
-    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    exclude group: 'net.bytebuddy', module: 'byte-buddy'
-    exclude group: 'org.apache.commons', module: 'commons-exec'
-    exclude group: 'com.google.guava', module: 'guava'
+        exclude group: 'com.squareup.okio', module: 'okio'
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'net.bytebuddy', module: 'byte-buddy'
+        exclude group: 'org.apache.commons', module: 'commons-exec'
+        exclude group: 'com.google.guava', module: 'guava'
 }
 ```
 9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
