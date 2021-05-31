@@ -5,7 +5,7 @@ title: "Installing the Galasa plug-in"
 
 You can install Galasa for local running either from a downloadable zip file (zipped distribution) or directly from an update site. 
 
-The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website and can be extracted to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Eclipse plug-in, and the Maven directory contains dependencies that are required for building tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
+The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Eclipse plug-in, and the Maven directory contains dependencies that are required for building tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
 The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
 
@@ -39,7 +39,7 @@ If you are installing the Galasa zipped distribution, you need to install Gradle
 
 ### Docker (Required if using the Docker image in the Galasa zipped distribution)
 
-If you are installing the Galasa zipped distribution and want to deploy the docker image provided in the package, you need to install Docker version 20.10.2. 
+If you are installing the Galasa zipped distribution and want to deploy the docker image that is provided in the package, you need to install Docker version 20.10.2. 
 
 ### (Optional) A 3270 terminal emulator
 

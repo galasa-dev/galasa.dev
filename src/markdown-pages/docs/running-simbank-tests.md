@@ -12,7 +12,7 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse.
 
-If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, additionally complete the steps in _Creating an example Galasa project using Docker_.
+If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, complete the steps in the  _Creating an example Galasa project using Docker_ section first and then complete the stemps in the _Creating an example Galasa project using Gradle_ section.
 
 If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the _Creating an example Galasa project using Maven_ section.
 
@@ -91,7 +91,7 @@ Note: If you get an error connecting to the Gradle build, go to _Window > Prefer
 14. Click `Apply` then `Run`.
 15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
-![SimBank tests](./provided-tests.png)
+![SimBank tests](./gradle-dir.png)
 
 Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
 
@@ -110,8 +110,8 @@ Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 ```
 The container ID is returned. 
-4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs 1f33```.
-5. Navigate to `http://localhost:8080/` in a browser and replace any file URLs with the Docker container address.  
+4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs *container ID*``` where *container ID* is the identifier returned after running the previous command. 
+5. Complete the steps in the _Creating an example Galasa project using Gradle_ section, using the Docker image instructions for populating any required URLs.
 
 ## Creating an example Galasa project using Maven
 
