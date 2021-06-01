@@ -45,6 +45,29 @@ If you are installing the Galasa zipped distribution and want to deploy the dock
 
 Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
 
+## Using the zipped distribution
+
+If you are not using the Docker image, simply extract the contents of the zipped distribution file into a directory of your choice, and reference that directory when required during the plug-in installation process or when running SimBank tests that are provided with Galasa.
+
+If you are using the Docker image, complete the following steps to load and run the docker image that is inside the unzipped folder.
+
+The example uses port `8080` but you can use a different port.
+
+1. Extract the docker image (`isolated.tar`) that is provided in the zipped distribution to a directory of your choice.
+2. Within the directory, run the command `sudo docker load -i isolated.tar`.<br> 
+A confirmation message is received which is similar to the following message:
+```
+Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+```
+3. Run the container by using the following command:
+```
+sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+```
+The container ID is returned. 
+4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs *container ID*``` where *container ID* is the identifier returned after running the previous command. 
+
+You are now ready to install the Galasa plug-in. 
+
 ## Installing the Galasa plug-in
 
 1. Launch Eclipse. If present, close any initial welcome screen.

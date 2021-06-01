@@ -12,19 +12,20 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse.
 
-If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the _Creating an example Galasa project using Gradle_ section. If you are using the Docker image that is provided with the zipped distribution, complete the steps in the  _Creating an example Galasa project using Docker_ section first and then complete the steps in the _Creating an example Galasa project using Gradle_ section.
+If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the [_Creating an example Galasa project using Gradle_](#headgradle) section. 
 
-If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the _Creating an example Galasa project using Maven_ section.
+If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
 
-## Creating an example Galasa project using Gradle
+## <a name="headgradle"></a>Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
 2. Choose _Window > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
 Note: If you are using the Docker image, set the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
 3. Click _Apply and Close_.
 4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
-5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
+5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), three new entries appear:  
 ```  
+dev.galasa.simbank.parent
 dev.galasa.simbank.manager  
 dev.galasa.simbank.tests  
 ```  
@@ -95,30 +96,12 @@ Note: If you get an error connecting to the Gradle build, go to _Window > Prefer
 
 Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
 
-## Creating an example Galasa project using Docker
-
-This example uses port `8080` but you can substitute this value with a different port.
-
-1. Extract the docker image (`isolated.tar`) that is provided in the zipped distribution to a directory of your choice.
-2. Within the directory, run the command `sudo docker load -i isolated.tar`.<br> 
-A confirmation message is received which is similar to the following message:
-```
-Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
-```
-3. Run the container by using the following command:
-```
-sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
-```
-The container ID is returned. 
-4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs *container ID*``` where *container ID* is the identifier returned after running the previous command. 
-5. Complete the steps in the _Creating an example Galasa project using Gradle_ section, using the Docker image instructions for populating any required URLs.
-
-## Creating an example Galasa project using Maven
+## <a name="headmaven"></a>Creating an example Galasa project using Maven
 
 <b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
 
 1. Ensure that Eclipse is running.
-2. Choose _File > New > Example_, select _SimBank example projects_ and click _Next_.
+2. Choose _File > New > Example_, select _SimBank example Maven projects_ and click _Next_.
 3. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
 ```  
 dev.galasa.simbank.manager  
