@@ -49,24 +49,20 @@ pluginManagement {
     }
 }
 ```  
-7. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the project can locate any dependencies that are required for building Galasa. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
+7. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the  individual projects can locate any dependencies that they might require for building. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
 ```
-pluginManagement {
-    repositories {
+repositories {
         maven {
             url = "file:///home/username/galasa-isolated-mvp/maven"
         }
-    }
 }
 ```
 Note: If you are using the Docker image, set the URL to the running container. For example:
 ```
-pluginManagement {
-    repositories {
+repositories {
         maven {
             url = "http://localhost:8080/maven"
         }
-    }
 }
 ```
 8. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
