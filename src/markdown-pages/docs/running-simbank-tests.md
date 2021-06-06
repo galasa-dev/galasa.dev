@@ -92,9 +92,6 @@ Note: If you get an error connecting to the Gradle build, go to _Window > Prefer
 
 Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
 
-urther investigation has revealed the issue to be related to Big Sur update on Mac. 2 versions of jdk are installed after this update. Removing one solved the issue on my systems. 
-
-
 ## <a name="headmaven"></a>Creating an example Galasa project using Maven
 
 <b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
