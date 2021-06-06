@@ -83,14 +83,17 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
 10. Navigate to *Run > Run Configurations*
 11. In the *Create, manage and run configurations* dialog, right-click *Gradle Project* and choose *New Configuration*.
-12. Give the new configuration a meaningful name and add ```clean build``` in the `Gradle Tasks` field.
+12. Give the new configuration a meaningful name and add ```clean build``` in the `Gradle Tasks` field. <br> Note: If you encounter an error, try running "gradle clean build" from your terminal to generate more detailed error messages. 
 13. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
 14. Click `Apply` then `Run`.
 15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
-![SimBank tests](./gradle-dir.png)
+![SimBank tests](./provided-tests.png)
 
 Explore these tests by selecting from the left-hand menu - if you are new to Galasa, _The SimBank IVT_ is the best place to start.
+
+urther investigation has revealed the issue to be related to Big Sur update on Mac. 2 versions of jdk are installed after this update. Removing one solved the issue on my systems. 
+
 
 ## <a name="headmaven"></a>Creating an example Galasa project using Maven
 

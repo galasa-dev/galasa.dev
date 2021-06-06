@@ -53,18 +53,17 @@ If you are using the Docker image, complete the following steps to load and run 
 
 The example uses port `8080` but you can use a different port.
 
-1. Extract the docker image (`isolated.tar`) that is provided in the zipped distribution to a directory of your choice.
-2. Within the directory, run the command `sudo docker load -i isolated.tar`.<br> 
+1. Within the directory that contains the Docker image (`isolated.tar`), run the command `sudo docker load -i isolated.tar`.<br> 
 A confirmation message is received which is similar to the following message:
 ```
 Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
 ```
-3. Run the container by using the following command:
+2. Run the container by using the following command:
 ```
-sudo docker run -d -p 8080:80 docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT
+sudo docker run -d -p 8080:80 *loaded image value*
 ```
-The container ID is returned. 
-4. Check that the logs for the container do not contain any errors by running the command ```$ docker logs *container ID*``` where *container ID* is the identifier returned after running the previous command. 
+Where *loaded image value* is the value of the loaded image that is returned in step 1. In this example, the value is `docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT`. After running the command, the `container ID` value is returned. 
+3. Check that the logs for the container do not contain any errors by running the command ```$ docker logs *container ID*``` where *container ID* is the identifier returned after running the command in step 2. 
 
 You are now ready to install the Galasa plug-in. 
 
@@ -109,7 +108,7 @@ dss.properties
    Created the ~/.m2/.settings.xml example file
    Setup complete
    ```
-
+Note: The message `Not creating a ~/.m2/settings.xml as the Galasa remote maven uri preference is the default location of https://repo.maven.apache.org/maven2/` in the log can be safely ignored.
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
 
