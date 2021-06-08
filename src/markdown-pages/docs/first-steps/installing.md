@@ -5,7 +5,7 @@ title: "Installing the Galasa plug-in"
 
 You can install Galasa for local running either from a downloadable zip file (zipped distribution) or directly from an update site. 
 
-The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Download Eclipse Tools</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Eclipse plug-in, and the Maven directory contains dependencies that are required for building tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
+The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Mainframe Downloads</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains two directories (Eclipse and Maven) and an `isolated.tar` file. The Eclipse directory contains the Galasa plug-in, and the Maven directory contains dependencies that are required for building Galasa tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
 The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
 
@@ -13,7 +13,7 @@ Users without restricted internet access can install Galasa directly from the `h
 
 ## Getting started
 
-Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in from a known update site. The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
+Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 
 <!-- Later, you are likely to want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it. -->
 
@@ -35,11 +35,11 @@ If you already have a version of Eclipse installed, it should be at the version 
 
 ### Gradle (Required for the Galasa zipped distribution)
 
-If you are installing the Galasa zipped distribution, you need to install Gradle version 6.8.2 which is used to build the Galasa software. 
+If you are using the Galasa zipped distribution, you need to install Gradle version 6.8.2 which is used to build the Galasa software. 
 
 ### Docker (Required if using the Docker image in the Galasa zipped distribution)
 
-If you are installing the Galasa zipped distribution and want to deploy the docker image that is provided in the package, you need to install Docker version 20.10.2. 
+If you are using the Galasa zipped distribution and want to deploy the Docker image that is provided in the zip file, you need to install Docker version 20.10.2. 
 
 ### (Optional) A 3270 terminal emulator
 
@@ -47,23 +47,23 @@ Although you do not need a 3270 emulator to run a Galasa test (even if it tests 
 
 ## Using the zipped distribution
 
-If you are not using the Docker image, simply extract the contents of the zipped distribution file into a directory of your choice, and reference that directory when required during the plug-in installation process or when running SimBank tests that are provided with Galasa.
+If you are not using the Docker image, simply extract the contents of the zipped distribution file into a directory of your choice, and reference that directory when required during the plug-in installation process or when running the SimBank tests that are provided with Galasa.
 
-If you are using the Docker image, complete the following steps to load and run the docker image that is inside the unzipped folder.
+If you are using the Docker image, complete the following steps to load and run the docker image: 
 
-The example uses port `8080` but you can use a different port.
+Note: The example uses port `8080` but you can use a different port.
 
 1. Within the directory that contains the Docker image (`isolated.tar`), run the following command:
 ```
 sudo docker load -i isolated.tar
 ``` 
 A confirmation message is received which is similar to the following message:
-`Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT`
+`Loaded image: docker.galasa.dev/galasa-isolated-mvp-amd64:0.16.0`
 2. Run the container by using the following command:
 ```
 sudo docker run -d -p 8080:80 <loaded image value>
 ```
-where *loaded image value* is the value of the loaded image that is returned in step 1. In this example, the value is `docker.galasa.dev/galasa-isolated-mvp-amd64:0.15.0-SNAPSHOT`.<br> After running the command, the `container ID` value is returned. 
+where *loaded image value* is the value of the loaded image that is returned in step 1. In this example, the value is `docker.galasa.dev/galasa-isolated-mvp-amd64:0.16.0`.<br> After running the command, the `container ID` value is returned. 
 3. Check that the logs for the container do not contain any errors by running the following command:
 ```
 $ docker logs <container ID>
@@ -183,8 +183,8 @@ dss.properties
 1. Complete the _Global Setting_ field by pressing _Browse_ and navigating to the `settings.xml` file you just set up. Press _Apply_ and _Close_ when finished.
 1. Choose _Window > Preferences > Galasa_ 
 1. Choose from the following options: 
-    1. If you are not using the zipped distribution of Galasa, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
     1. If you are using the zipped distribution, change the _Remote Maven URI_ to the local maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven```
+    1. If you are not using the zipped distribution of Galasa, complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
 1. Click _Apply and Close_. -->
 
 Your local Eclipse Galasa installation is now ready for some work.

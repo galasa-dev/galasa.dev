@@ -27,7 +27,7 @@
         - title: Getting started
           path: /docs/getting-started/
           items:
-            - title: Installing the Galasa Eclipse plug-in
+            - title: Installing the Galasa plug-in
               path: /docs/getting-started/installing
             - title: Exploring Galasa SimBank
               path: /docs/getting-started/simbank
