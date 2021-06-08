@@ -35,11 +35,11 @@ If you already have a version of Eclipse installed, it should be at the version 
 
 ### Gradle (Required for the Galasa zipped distribution)
 
-If you are using the Galasa zipped distribution, you need to install Gradle version 6.8.2 which is used to build the Galasa software. 
+If you are using the Galasa zipped distribution, you will need to install Gradle version 6.8.2 which is used to build the Galasa software. 
 
 ### Docker (Required if using the Docker image in the Galasa zipped distribution)
 
-If you are using the Galasa zipped distribution and want to deploy the Docker image that is provided in the zip file, you need to install Docker version 20.10.2. 
+If you are using the Galasa zipped distribution and want to deploy the Docker image that is provided in the zip file, you will need to install Docker version 20.10.2. 
 
 ### (Optional) A 3270 terminal emulator
 
@@ -49,7 +49,7 @@ Although you do not need a 3270 emulator to run a Galasa test (even if it tests 
 
 If you are not using the Docker image, simply extract the contents of the zip file into a directory of your choice, and reference that directory when required during the plug-in installation process or when running the SimBank tests that are provided with Galasa.
 
-If you are using the Docker image, complete the following steps to load and run the docker image: 
+If you are using the Docker image, complete the following steps to load and run the Docker image: 
 
 Note: The example uses port `8080` but you can use a different port.
 
