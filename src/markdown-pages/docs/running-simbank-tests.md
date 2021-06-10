@@ -10,11 +10,13 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-All of these example tests become available when you set up a Galasa example project within Eclipse.
+All of these example tests become available when you set up a Galasa example project within Eclipse. 
 
 If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the [_Creating an example Galasa project using Gradle_](#headgradle) section. 
 
 If you are using the Galasa plug-in from the update site, use Maven to build your projects, following the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
+
+Note that there are some variations in the Eclipse interface, depending on the version of Eclipse that you are using.
 
 ## <a name="headgradle"></a>Creating an example Galasa project using Gradle
 
@@ -81,9 +83,9 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
 ```
 9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
-10. Navigate to *Run > Run Configurations*
-11. In the *Create, manage and run configurations* dialog, right-click *Gradle Project* and choose *New Configuration*.
-12. Give the new configuration a meaningful name and add ```clean build``` in the `Gradle Tasks` field. <br> Note: If you encounter an error, try running the `gradle clean build` command from the command line to generate more detailed error messages. 
+10. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
+11. Depending on version of Eclipse that you are using, either right-click *Gradle Project* and choose *New Configuration* or select _Gradle Task > add clean build_. 
+12. Provide a meaningful name and (depending on your version of Eclipse) add either  ```clean build``` in the `Gradle Tasks` field or click *Add* and type `clean` in the `Gradle Tasks` field and then click *Add* again and type `build`. <br> Note: If you encounter an error, try running the `gradle clean build` command from the command line to generate more detailed error messages. 
 13. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
 14. Click `Apply` then `Run`.
 15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
