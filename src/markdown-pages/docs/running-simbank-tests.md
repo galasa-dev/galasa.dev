@@ -21,7 +21,7 @@ Note that there are some variations in the Eclipse interface, depending on the v
 ## <a name="headgradle"></a>Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
-2. Depending on your Eclipse version, choose _Window > Preferences > Galasa_ or _Eclipse > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
+2. Depending on your operating system, choose _Window > Preferences > Galasa_ or _Eclipse > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
 Note: If you are using the Docker image, set the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
 3. Click _Apply and Close_.
 4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
