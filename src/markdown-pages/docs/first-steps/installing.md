@@ -113,7 +113,7 @@ dss.properties
    Created the ~/.m2/.settings.xml example file
    Setup complete
    ```
-Note: You can ignore the message _Not creating a ~/.m2/settings.xml as the Galasa remote maven uri preference is the default location of https://repo.maven.apache.org/maven2/_ if it appears in the logs.
+Note: You can ignore the message `Not creating a ~/.m2/settings.xml as the Galasa remote maven uri preference is the default location of ht<span>tps://</span>repo.maven.apache.org/maven2/` if it appears in the logs.
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
 
