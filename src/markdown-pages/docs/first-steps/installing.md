@@ -5,11 +5,15 @@ title: "Installing the Galasa plug-in"
 
 You can install Galasa either from a downloadable zip file (zipped distribution) or directly from an update site. 
 
-The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Mainframe Downloads</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (Eclipse, Maven and Javadoc), an `isolated.tar` file and a `docs.jar` file. The Eclipse directory contains the Galasa plug-in, and the Maven directory contains dependencies that are required for building Galasa tests. The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. The `docs.jar` file enables you to run the Galasa website locally on your machine. Instructions on how to do this are available in the `readme.txt` that is provided in the Galasa zip file. 
+The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Mainframe Downloads</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (Eclipse, Maven and Javadoc), an `isolated.tar` file and a `docs.jar` file. 
 
-The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
+The Eclipse directory contains the Galasa plug-in, and the Maven directory contains dependencies that are required for building Galasa tests. The Javadoc directory contains the Javadoc API documentation for the Galasa Managers.
 
-Users without restricted internet access who want to use open-source Galasa, can install Galasa directly from the `https://p2.galasa.dev/` update site.
+The `.tar` file is an optional Docker image that hosts both directories. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
+
+The `docs.jar` file enables you to run the Galasa website locally on your machine or on an internal server. Instructions on how to do this are available in the `readme.txt` that is provided in the Galasa zip file. 
+
+The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Users without restricted internet access who want to use open-source Galasa, can install Galasa directly from the `https://p2.galasa.dev/` update site.
 
 ## Getting started
 
