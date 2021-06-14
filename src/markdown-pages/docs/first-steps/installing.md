@@ -82,9 +82,7 @@ You are now ready to install the Galasa plug-in.
         1. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK*
         1. Check that the `Location` field is populated with the filepath information, for example, `file:///home/username/galasa-isolated-mvp/eclipse/`
         1.  Click _Enter_      
-    1. If you are using the zipped distribution hosted in Docker, complete the following steps:
-        1. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK*
-        1. Check that the `Location` field is populated with the URL to the running container, for example, `http://localhost:8080/eclipse` 
+    1. If you are using the zipped distribution hosted in Docker, populate the `Location` field with the URL to the running container, for example, `http://localhost:8080/eclipse` 
         1.  Click _Enter_          
     1. If you are not using the zipped distribution, paste `https://p2.galasa.dev/` into the _Work with_ field 
         1. Click _Enter_
