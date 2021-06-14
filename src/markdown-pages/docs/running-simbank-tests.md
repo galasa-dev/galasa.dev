@@ -21,17 +21,14 @@ Note that there are some variations in the Eclipse interface, depending on the v
 ## <a name="headgradle"></a>Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
-2. Depending on your operating system, choose _Window > Preferences > Galasa_ or _Eclipse > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, ```file:///home/username/galasa-isolated-mvp/maven``` to enable running tests to access any dependencies. <br>
-Note: If you are using the Docker image, set the URL to the running container, for example, `http://localhost:8080/eclipse`. <br>
-3. Click _Apply and Close_.
-4. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
-5. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), three new entries appear:  
+2. Choose _File > New > Example_, select _SimBank example Gradle projects_ and click _Next_.
+3. Confirm your _New project_ prefix (it's OK to leave it as `dev.galasa.simbank`) and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), three new entries appear:  
 ```  
 dev.galasa.simbank.parent
 dev.galasa.simbank.manager  
 dev.galasa.simbank.tests  
 ```  
-6. Add a ```pluginManagement``` section, at the top of the `settings.gradle` file in `dev.galasa.simbank.parent` so that the Gradle build can search the Maven directory for any required plug-ins. Specify the Maven repository as the location of the unzipped Maven directory. For example:
+4. Add a ```pluginManagement``` section, at the top of the `settings.gradle` file in `dev.galasa.simbank.parent` so that the Gradle build can search the Maven directory for any required plug-ins. Specify the Maven repository as the location of the unzipped Maven directory. For example:
 ```
 pluginManagement {
     repositories {
@@ -51,7 +48,7 @@ pluginManagement {
     }
 }
 ```  
-7. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the  individual projects can locate any dependencies that they might require for building. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
+5. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the  individual projects can locate any dependencies that they might require for building. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
 ```
 repositories {
         maven {
@@ -67,7 +64,7 @@ repositories {
         }
 }
 ```
-8. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
+6. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
 ```
 implementation'dev.galasa:dev.galasa.selenium.manager:0.+'
 ```
@@ -81,14 +78,14 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
         exclude group: 'com.google.guava', module: 'guava'
 }
 ```
-9. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
+7. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
-10. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
-11. Depending on version of Eclipse that you are using, either right-click *Gradle Project* and choose *New Configuration* or select _Gradle Task > add clean build_. 
-12. Provide a meaningful name and (depending on your version of Eclipse) add either  ```clean build``` in the `Gradle Tasks` field or click *Add* and type `clean` in the `Gradle Tasks` field and then click *Add* again and type `build`. <br> Note: If you encounter an error, try running the `gradle clean build` command from the command line to generate more detailed error messages. 
-13. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
-14. Click `Apply` then `Run`.
-15. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
+8. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
+9. Depending on version of Eclipse that you are using, either right-click *Gradle Project* and choose *New Configuration* or select _Gradle Task > add clean build_. 
+10. Provide a meaningful name and (depending on your version of Eclipse) add either  ```clean build``` in the `Gradle Tasks` field or click *Add* and type `clean` in the `Gradle Tasks` field and then click *Add* again and type `build`. <br> Note: If you encounter an error, try running the `gradle clean build` command from the command line to generate more detailed error messages. 
+11. Click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
+12. Click `Apply` then `Run`.
+13. Expand `dev.galasa.simbank.tests` (assuming you haven't changed your project name) and then `src.main.java` - and finally, explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
 
 ![SimBank tests](./provided-tests.png)
 
