@@ -102,9 +102,6 @@ bootstrap.properties
 dss.properties
 ``` -->
 
-1. Depending on your operating system, choose _Window > Preferences > Galasa_ or _Eclipse > Preferences > Galasa_ and change the _Remote Maven URI_ to the local Maven directory, for example, `file:///home/username/galasa-isolated-mvp/maven` to enable running tests to access any dependencies. <br>
-Note: If you are using the Docker image, set the URL to the running container, for example, `http://localhost:8080/maven`.
-1. Click _Apply and Close_.
 1. Choose _Galasa > Setup Galasa Workspace_ from the main Eclipse menu - this command creates some necessary configuration files. Your Eclipse console confirms its progress with some messages:
 
    ```
