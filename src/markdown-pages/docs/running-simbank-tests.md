@@ -51,7 +51,7 @@ pluginManagement {
     }
 }
 ```  
-1. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the  individual projects can locate any dependencies that they might require for building. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
+1. In `dev.galasa.simbank.manager`, modify the `build.gradle` file so that the individual projects can locate any dependencies that they might require for building. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory. For example:
 ```
 repositories {
         maven {
@@ -67,7 +67,15 @@ repositories {
         }
 }
 ```
-1. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. In addition, modify the Selenium Manager dependency in the file to remove packages that are not required. Change the dependency from:
+1. Modify the dependencies section in the `build.gradle` file by adding the following constraints::
+```
+constraints {
+        implementation('commons-codec:commons-codec:1.15')
+        implementation('org.apache.httpcomponents:httpcore:4.4.14')
+    }
+```
+1. In `dev.galasa.simbank.tests`, modify the `build.gradle` file by making the same repository change as you did to the `build.gradle` file in `dev.galasa.simbank.manager`. 
+1. Modify the Selenium Manager dependency in the `build.gradle` file to remove packages that are not required. Change the dependency from:
 ```
 implementation'dev.galasa:dev.galasa.selenium.manager:0.+'
 ```
@@ -80,6 +88,13 @@ implementation('dev.galasa:dev.galasa.selenium.manager:0.+'){
         exclude group: 'org.apache.commons', module: 'commons-exec'
         exclude group: 'com.google.guava', module: 'guava'
 }
+```
+1. Modify the dependencies section in the `build.gradle` file by adding the following constraints: 
+```
+constraints {
+        implementation('commons-codec:commons-codec:1.15')
+        implementation('org.apache.httpcomponents:httpcore:4.4.14')
+    }
 ```
 1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_<br>
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
