@@ -4,9 +4,12 @@ title: "Writing your own SimBank test"
 ---
 Now you have run through the tests provided as part of Galasa SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Why not attempt to follow the instructions without looking at the code? You can use the provided test examples as a reference and for inspiration. Eclipse will help when you need to resolve imports and exceptions.
 
+To write and run simple Galasa tests, you need a modest knowledge of Java. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests.
+
 Don't forget that whenever you create a test, or modify an existing one, you need to right-click the containing *project* (for example, `dev.galasa.simbank.tests`) containing the new or modified test and choose *Run As > Maven install*. This ensures that the correct version of the test is submitted to the test runner.
 
-##Create a new Galasa test class
+## Create a new Galasa test class
+
 1. Start Eclipse with the example projects open and [launch SimBank](/docs/getting-started/simbank). 
 1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*:
 ![New Java Class](./create-new-class.png)

@@ -11,7 +11,10 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.15.0 - Release Highlights
+## 0.16.0 - Release Highlights
+
+<details>
+<summary><b>0.15.0 - Release Highlights</b></summary>
 
 - Galasa now runs in any Java release from version 8 onwards.
 - The Galasa Eclipse plug-in now supports all levels of Eclipse from Photon onwards. 
@@ -29,6 +32,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - The GPG key to sign Maven artifacts is set to  ```5AB3E02B```
 - Galasa is available for distribution as a zip file, which contains the Eclipse plugin, and necessary Maven artifacts and Docker images for local running. This allows customers who do not have access to Maven Central, Eclipse Marketplace or Docker Hub from their company network to use Galasa.
 - Documentation updates - Installing the Galasa Ecosystem on Kubernetes documentation plus various documentation enhancements.
+</details>
 
 <details>
 <summary><b>0.14.0 - Release Highlights</b></summary>

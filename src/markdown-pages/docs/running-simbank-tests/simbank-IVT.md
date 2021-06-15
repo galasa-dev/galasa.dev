@@ -118,13 +118,3 @@ assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Mon
 ```
 
 If any assertion failed, then the whole test would be marked as a _failed_ test.
-
-## Viewing the test results
-
-You can view the results of your test runs in Eclipse by completing the following steps:
-
-1. Initialise the framework by selecting _Galasa > Initialise Galasa Framework_ from the Eclipse main menu.
-1. Open the _Galasa Results_ tab by selecting _Window > Show View > Other_, expand _Galasa_ and choose _Galasa Results_.
-1. Expand  _Local -> All runs -> Today’s runs_ to view the test run.
-1. Select the _Stored Artifacts_ tab to view test artifacts stored from the run, for example, terminal screens, recorded web requests and responses.  
-1. Select the _Run Log_ tab to see a record of the events and results from the test run. 
