@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/installing"
+path: "/docs/getting-started/installing-offline"
 title: "Installing the Galasa plug-in using the zipped distribution"
 ---
 
