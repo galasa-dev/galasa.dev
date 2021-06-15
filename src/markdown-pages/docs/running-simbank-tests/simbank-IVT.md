@@ -7,7 +7,7 @@ This basic test logs on to Galasa SimBank and examines an account.
 
 1. Create your initial example projects as described in <a href="/docs/running-simbank-tests" target="_blank">Running the supplied SimBank tests</a> - a once-only activity.
 1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring SimBank</a>.
-1. Choose _Run > Run Configurations_ and look for and select _Galasa_ in the left pane (not Galasa SimBank).
+1. Choose _Run > Run Configurations_ and look for and select _Galasa - Java_ in the left pane (not Galasa SimBank).
 1. Right-click _Galasa_, choose _New Configuration_ and give it a name.
 1. In the dialog, choose _Browse_ to locate your project - `dev.galasa.simbank.tests`, then press _Search_ to locate your test class, _SimBankIVT_.
 1. Press _Apply_ then _Run_.

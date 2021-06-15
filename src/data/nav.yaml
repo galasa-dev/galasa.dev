@@ -27,8 +27,10 @@
         - title: Getting started
           path: /docs/getting-started/
           items:
-            - title: Installing the Galasa plug-in
-              path: /docs/getting-started/installing
+            - title: Installing the Galasa plug-in online
+              path: /docs/getting-started/installing-online
+            - title: Installing the Galasa plug-in using the zipped distribution
+              path: /docs/getting-started/installing-offline
             - title: Exploring Galasa SimBank
               path: /docs/getting-started/simbank
         - title: Running the supplied SimBank tests
