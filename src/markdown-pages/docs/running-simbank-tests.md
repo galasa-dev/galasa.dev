@@ -142,13 +142,13 @@ pluginManagement {
     } 
     ```
 1. Ensure that you save the modifications that you made to the files.
-1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_. A `BUILD SUCCESSFUL` message is displayed when the project is refreshed successfully.<br>
+1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_. A _BUILD SUCCESSFUL_ message is displayed when the project is refreshed successfully.<br>
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
 1. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
 1. Depending on version of Eclipse that you are using, either right-click *Gradle Project* or *Gradle Task* and choose *New Configuration*. 
 1. Provide a meaningful name and set up your Gradle Task to run a clean build. 
 1. In _Working Directory_, click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
-1. Click `Apply` then `Run`. A `BUILD SUCCESSFUL` message is displayed in the _Console_ tab.
+1. Click _Apply_ then _Run_. A _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab.
 1. Expand `dev.galasa.simbank.tests` and then expand `src/main/java`.
 1. Explore the `dev.galasa.simbank.tests` package. You'll see the group of tests provided with SimBank:
 
