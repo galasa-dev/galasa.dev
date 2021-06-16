@@ -57,10 +57,10 @@ Note: The example uses port `8080` but you can use a different port.
 ```
 docker load -i isolated.tar
 ``` 
-The following confirmation message is received: _Loaded image: galasadev/galasa-mvp:0.16.0-main_
-2. Run the container by using the following command:
+The following confirmation message is received: _Loaded image: galasadev/galasa-distribution:0.16.0_
+2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa galasadev/galasa-mvp:0.16.0-main
+docker run -d -p 8080:80 --name galasa galasadev/galasa-distribution:0.16.0
 ```
 3. Go to `http:\\hostname:8080` to view the running container. 
 
