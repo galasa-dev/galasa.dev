@@ -13,7 +13,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.16.0 - Release Highlights
 
-- The 3270 Manager now supports different screen sizes and can respond to query partition with colour and hilite. It also supports `bind_image` and `sysrq renegotiation`. 
+- The 3270 Manager now supports different screen sizes and can respond to query partition with colour and highlight. It also supports `bind_image` and `sysreq renegotiation`. 
 - A range of Managers now have IVT tests associated with them. The IVTs help with testing the Managers themselves and also provide examples of how the Managers can be used.   
 - Selenium Manager has been updated to squash some null pointer exception causing bugs. 
 - Galasa tests can now be built with either Maven or Gradle. A set of Gradle example tests for SimBank is available. 
