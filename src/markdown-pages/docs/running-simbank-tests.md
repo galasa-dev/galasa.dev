@@ -74,18 +74,18 @@ pluginManagement {
 1. In `dev.galasa.simbank.manager`, modify the `build.gradle` file:
     1. In the repositories closure, replace `mavenCentral()` with the location of the unzipped Maven directory so that the individual projects can locate any dependencies that they might require for building. For example:
     ```dev.galasa.simbank.manager - build.gradle file
-            repositories {
-                maven {
-                    url = "file:///home/username/galasa-isolated-mvp/maven"
-                }
+    repositories {
+            maven {
+                url = "file:///home/username/galasa-isolated-mvp/maven"
+            }
     }
     ```
     Note: If you are using the Docker image, set the URL to the running container. For example:
     ```dev.galasa.simbank.manager - build.gradle file
-            repositories {
-                maven {
-                    url = "http://hostname:8080/maven"
-                }
+    repositories {
+            maven {
+                url = "http://hostname:8080/maven"
+            }
     }
     ```
     1. Modify the dependencies closure by adding the following constraints:
@@ -142,7 +142,7 @@ pluginManagement {
     } 
     ```
 1. Ensure that you save the modifications that you made to the files.
-1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_. A _BUILD SUCCESSFUL_ message is displayed when the project is refreshed successfully.<br>
+1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_. A _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab when the project is refreshed successfully.<br>
 Note: If you get an error connecting to the Gradle build, go to _Window > Preferences > Gradle_,  check the _Local installation directory_ box, browse to the folder in which you installed Gradle and click _OK_ and _Apply and Close_.
 1. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
 1. Depending on version of Eclipse that you are using, either right-click *Gradle Project* or *Gradle Task* and choose *New Configuration*. 

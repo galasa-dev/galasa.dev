@@ -15,6 +15,7 @@ This basic test logs on to Galasa SimBank and examines an account.
    `INFO dev.galasa.boot.Launcher.launch - Boot complete`
    <br/>
    when the tests have finished. You will also see a _live terminal_ window in which the interactions with the 3270 terminal are captured - you can use the attached controls to step back and forth along the sequence of screens.
+1. View the results of the test runs in Eclipse. Find out more in the [Viewing test results](/docs/running-simbank-tests/viewing-test-results) documentation.   
 
 ## Exploring the `SimBankIVT` test class
 
@@ -118,3 +119,5 @@ assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Mon
 ```
 
 If any assertion failed, then the whole test would be marked as a _failed_ test.
+
+
