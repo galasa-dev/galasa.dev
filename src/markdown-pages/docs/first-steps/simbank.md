@@ -110,4 +110,4 @@ Press PF3 and once again browse the 123456789 account as described previously to
 
 Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
-Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose _Running the supplied SimBank tests_ in the side-menu..
+Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose [Running the supplied SimBank tests](../docs/running-simbank-tests) in the side-menu.

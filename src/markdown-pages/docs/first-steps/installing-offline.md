@@ -47,9 +47,9 @@ Although you do not need a 3270 emulator to run a Galasa test (even if it tests 
 
 ## Getting started
 
-Extract the contents of the zip file into a directory of your choice, and reference that directory when required during the plug-in installation process or when running the SimBank tests that are provided with Galasa.
+Extract the contents of the zip file into a directory of your choice.
 
-If you are using the zipped distribution hosted in Docker, ensure that you have the appropriate privileges to run Docker commands on the server on which you are hosting the Galasa artifacts. Complete the following steps to load and run the Docker image: 
+If you are using the zipped distribution hosted in Docker, ensure that you have the appropriate privileges to run Docker commands on the server on which you are hosting the Galasa artifacts and complete the following steps to load and run the Docker image: 
 
 Note: The example uses port `8080` but you can use a different port.
 
@@ -57,7 +57,7 @@ Note: The example uses port `8080` but you can use a different port.
 ```
 docker load -i isolated.tar
 ``` 
-The following confirmation message is received: `Loaded image: galasadev/galasa-mvp:0.16.0-main`
+The following confirmation message is received: _Loaded image: galasadev/galasa-mvp:0.16.0-main_
 2. Run the container by using the following command:
 ```
 docker run -d -p 8080:80 --name galasa galasadev/galasa-mvp:0.16.0-main

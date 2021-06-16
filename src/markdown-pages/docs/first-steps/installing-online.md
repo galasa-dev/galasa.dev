@@ -61,7 +61,6 @@ dss.properties
    Created the ~/.m2/.settings.xml example file
    Setup complete
    ```
-Note: You can ignore the message _Not creating a ~/.m2/settings.xml as the Galasa remote maven uri preference is the default location..._ if it appears in the logs.
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
 
@@ -83,9 +82,6 @@ Note: You can ignore the message _Not creating a ~/.m2/settings.xml as the Galas
    zosmf.server.SIMBANK.port=2040
    zosmf.server.SIMBANK.https=false
    ```
-
-   Note: When using SimBank, the `overrides.properties` file is partially populated on creation and requires editing. The reason for this is to highlight how the test connects to the SimBank instance. Otherwise, the `overrides.properties` file is created as an empty file.
-
 1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
 
    ```properties
@@ -134,4 +130,4 @@ Note: You can ignore the message _Not creating a ~/.m2/settings.xml as the Galas
 1. Complete the _Remote Maven URI_ field as `https://nexus.galasa.dev/repository/master`
 1. Click _Apply and Close_. -->
 
-Your local Eclipse Galasa installation is now ready for some work.
+Your local Eclipse Galasa installation is now ready for some work. Start by [exploring Galasa Simbank](/docs/getting-started/simbank) to help you to learn about the Galasa basics. 

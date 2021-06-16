@@ -9,9 +9,11 @@ You can install Galasa either from a downloadable zip file (zipped distribution)
 
 The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Users without restricted internet access who want to use open-source Galasa, can install the Galasa Eclipse plug-in directly from the external update site.
 
-To install the Galasa plug-in using the offline zipped distribution, follow the instructions in [Installing the Galasa plug-in using the zipped distribution](/docs/getting-started/installing-offline). 
+To install the Galasa plug-in from the external update site, follow the instructions in [Installing the Galasa plug-in](/docs/getting-started/installing-online). 
 
-To install the Galasa plug-in from the online update site, follow the instructions in [Installing the Galasa plug-in online](/docs/getting-started/installing-online). 
+To install the Galasa plug-in using the zipped distribution, follow the instructions in [Installing the Galasa plug-in offline](/docs/getting-started/installing-offline). 
+
+
 
 You can then start [exploring Galasa Simbank](/docs/getting-started/simbank); a component distributed with Galasa that you can start playing with to help you to learn about the Galasa basics. 
 
