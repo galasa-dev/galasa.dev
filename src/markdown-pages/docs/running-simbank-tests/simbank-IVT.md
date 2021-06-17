@@ -7,7 +7,7 @@ This basic test logs on to Galasa SimBank and examines an account.
 
 1. Create your initial example projects as described in <a href="/docs/running-simbank-tests" target="_blank">Running the supplied SimBank tests</a> - a once-only activity.
 1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring SimBank</a>.
-1. Choose _Run > Run Configurations_ and look for and select _Galasa_ in the left pane (not Galasa SimBank).
+1. Choose _Run > Run Configurations_ and look for and select _Galasa - Java_ in the left pane (not Galasa SimBank).
 1. Right-click _Galasa_, choose _New Configuration_ and give it a name.
 1. In the dialog, choose _Browse_ to locate your project - `dev.galasa.simbank.tests`, then press _Search_ to locate your test class, _SimBankIVT_.
 1. Press _Apply_ then _Run_.
@@ -15,6 +15,7 @@ This basic test logs on to Galasa SimBank and examines an account.
    `INFO dev.galasa.boot.Launcher.launch - Boot complete`
    <br/>
    when the tests have finished. You will also see a _live terminal_ window in which the interactions with the 3270 terminal are captured - you can use the attached controls to step back and forth along the sequence of screens.
+1. View the results of the test runs in Eclipse. Find out more in the [Viewing test results](/docs/running-simbank-tests/viewing-test-results) documentation.   
 
 ## Exploring the `SimBankIVT` test class
 
@@ -118,3 +119,5 @@ assertThat(terminal.retrieveScreen()).containsOnlyOnce("TRANSF      Transfer Mon
 ```
 
 If any assertion failed, then the whole test would be marked as a _failed_ test.
+
+
