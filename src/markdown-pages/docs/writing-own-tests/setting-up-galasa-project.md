@@ -182,7 +182,7 @@ Read the commentary for an explanation of the key elements.
     			<groupId>dev.galasa</groupId>
     			<artifactId>galasa-maven-plugin</artifactId>
     			<extensions>true</extensions>
-    			<version>0.16.0</version>
+    			<version>0.15.0</version>
     			<executions>
     				<execution>
     					<id>build-testcatalog</id>
