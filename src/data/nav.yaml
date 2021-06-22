@@ -85,7 +85,7 @@
         - title: Get involved
           path: /community/
     - title: Hub
-      root: /huby/
+      root: /hub/
       items:
         - title: Galasa Hub
           path: /hub/          
