@@ -1,5 +1,5 @@
 ---
-path: "/docs/hub"
+path: "/hub"
 title: "Galasa Hub"
 ---
 
