@@ -6,7 +6,7 @@ title: "Galasa Hub"
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians. 
 
 ## Blog: IBM Z Application Continuous Testing using Galasa
-This tutorial focuses on how to use Galasa framework to do application testing automation for IBM Z applications. You will learn how to setup an Galasa Ecosystem, integrate Eclipse and Jenkins with Galasa Ecosystem and run IBM Z app Galasa test cases in Galasa Ecosystem from Eclipse and from Jenkins pipeline. <br>
+A tutorial focusing on using the Galasa framework for automated application testing on IBM Z applications. You will learn how to setup a Galasa Ecosystem, integrate Eclipse and Jenkins with the Ecosystem and run IBM Z application Galasa test cases in the Ecosystem from an Eclipse and a Jenkins pipeline. <br>
 
 **Author: Anuprakash Moothedath, June 11, 2021**<br>
 *Source: IBM.com*<br><br>
