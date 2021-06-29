@@ -32,6 +32,6 @@ This paper explains how this testing can be achieved only in an effective and ef
 ## Podcast: Using Galasa to streamline CICS testing
 Before software goes into production, it needs to be tested, and "It looks good to me" just isn't good enough. To ensure maximum coverage is attained, testing tools and frameworks are the way to go, and in this episode, we hear from Will Yates and Michael Baylis about how the Galasa Project helps them ensure solutions pass all the right tests.  <br>
 
-**Speakers: ![Will Yates](will.png) & ![Michael Baylis](mike.png), Jan 25, 2021**<br>
+Speakers: ![Will Yates](will.png) & ![Michael Baylis](mike.png), Jan 25, 2021<br>
 *Source: A Terminal Talk podcast*<br><br>
 <a href="https://www.terminaltalk.net/e/will-yates-and-michael-baylis-using-galasa-to-streamline-cics-testing/" target="_blank"> Listen to the podcast</a>
