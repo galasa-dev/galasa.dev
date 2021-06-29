@@ -3,6 +3,8 @@ path: "/docs/upgrading"
 title: "Upgrading"
 ---
 
+## Upgrading using the external update site
+
 You can get the latest version of Galasa in Eclipse by completing the following steps:
 
 1. Launch Eclipse. 
@@ -10,6 +12,16 @@ You can get the latest version of Galasa in Eclipse by completing the following 
 3. Select `https://p2.galasa.dev/` in the _Work with_ field to check whether a new version of Galasa is available.
 4. If a new version is available, tick the *Galasa* box in the main panel, ensuring that *Galasa* and all child elements are ticked.
 5. Follow the prompts to download and install the new version of Galasa. Eclipse restarts and the latest version is installed.
+
+## Upgrading using the Galasa zipped distribution
+
+1. Launch Eclipse. 
+2. Choose *Help > Install New Software* from the main menu.
+3. Select the filepath information, (or the URL to the running container if you are using Docker) in the _Location_ field to check whether a new version of Galasa is available.
+4. If a new version is available, tick the *Galasa* box in the main panel, ensuring that *Galasa* and all child elements are ticked.
+5. Follow the prompts to download and install the new version of Galasa. Eclipse restarts and the latest version is installed.
+
+
 
 ## Upgrading existing tests
 
@@ -58,5 +70,9 @@ To run a clean Maven install in Eclipse, complete the following steps:
 2. Right click your project and select *Run as > Maven install* 
 
 Alternatively, run the ```mvn clean install ``` command from the command line. 
+
+To run a clean Gradle install in Eclipse, complete the following steps: 
+
+
 
 If you are still having issues, you can force a full rebuild by deleting your *.m2* repository and creating a new build against your test projects and Managers by running a clean install.
