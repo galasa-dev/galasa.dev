@@ -36,6 +36,3 @@ Before software goes into production, it needs to be tested, and "It looks good 
 *Source: A Terminal Talk podcast*<br><br>
 <a href="https://www.terminaltalk.net/e/will-yates-and-michael-baylis-using-galasa-to-streamline-cics-testing/" target="_blank"> Listen to the podcast</a>
 
-| Will Yates ![will](./will.png) & Mike Baylis ![Mike Baylis](./mike.png)  | 
-|---|---|---|---|---|
-|   |   |   |   |   |
