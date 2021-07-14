@@ -19,7 +19,9 @@ The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  T
 
 The following section provides examples of how you can use the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides.
 
-### Getting help:
+### Getting help
+
+Use the following commands to get help.
 
 ```
 galasactl --help
@@ -27,7 +29,7 @@ galasactl runs --help
 galasactl runs prepare --help
 ```
 
-### Selecting tests from a test steam:
+### Selecting tests from a test steam
 
 The following example command selects tests from a test stream called `inttests` for inclusion in a portfolio called `test.yaml`. Tests are selected from test packages within the `inttests` test stream. Packages are selected if the name contains a specified string or matches the regex if --regex is specified.  
 
@@ -39,7 +41,7 @@ galasactl runs prepare
                         --package test.package.two
 ```
 
-### Selecting tests without a test stream:
+### Selecting tests without a test stream
 
 The following example command selects specified tests (`Test1` and `Test2`) from a test package called `test.package.one` and puts these tests in the `test.yaml` portfolio.   
 
@@ -94,6 +96,8 @@ galasactl runs prepare
 The following section provides examples of how you can use the `runs submit` command to complete various tasks, for example, getting help, submitting tests, and setting overrides.
 
 ### Getting help
+
+Use the following commands to get help.
 
 ```
 galasactl --help
