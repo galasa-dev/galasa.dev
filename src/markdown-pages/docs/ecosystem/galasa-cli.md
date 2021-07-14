@@ -5,6 +5,8 @@ title: "Using the Galasa CLI"
 
 Submit and monitor Galasa test runs either locally or in automation by using a command line interface (Galasa CLI). The Galasa CLI lets you submit and monitor test runs by using the same set of commands, regardless of the technology that you are using to run your pipeline. 
 
+You can access the code in the [galasa-dev/cli repository](https://github.com/galasa-dev/cli) in GitHub. 
+
 ## Getting started 
 
 To use the CLI commands you must reference the Galasa bootstrap file or URL. You can do this either by setting the `--bootstrap` flag or the `GALASA_BOOTSTRAP`environment variable.
@@ -43,7 +45,9 @@ galasactl runs prepare
 
 ### Selecting tests without a test stream
 
-The following example command selects specified tests (`Test1` and `Test2`) from a test package called `test.package.one` and puts these tests in the `test.yaml` portfolio.   
+You can use test class names to build a portfolio when a test stream or test catalog is not available. 
+
+The following example command selects specified tests (`Test1` and `Test2`) from a test package called `test.package.one` and puts these tests in the `test.yaml` portfolio. 
 
 ```
 galasactl runs prepare
