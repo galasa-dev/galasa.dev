@@ -115,6 +115,15 @@ const Header = ({ extraHeight }) => {
               >
                 Community
               </Link>
+              <Link
+                to="/hub"
+                onClick={() => setMenuOpen(false)}
+                className={
+                  headerStyles.navLink + " " + selector("hub", location)
+                }
+              >
+                Hub
+              </Link>
               <div className={headerStyles.footerRepeatedLinks}>
                 <a
                   className={headerStyles.footerRepeatedLink}
