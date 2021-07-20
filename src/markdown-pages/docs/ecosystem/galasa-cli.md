@@ -5,7 +5,7 @@ title: "Using the Galasa CLI"
 
 Submit and monitor Galasa test runs either locally or in automation by using a command line interface (Galasa CLI). The Galasa CLI lets you submit and monitor test runs by using the same set of commands, regardless of the technology that you are using to run your pipeline. 
 
-You can access the code in the [galasa-dev/cli repository](https://github.com/galasa-dev/cli) in GitHub. 
+[Download the CLI tool](https://github.com/galasa-dev/cli/releases) and [access the code](https://github.com/galasa-dev/cli) from the cli repository in GitHub. 
 
 ## Getting started 
 
@@ -13,17 +13,17 @@ To use the CLI commands you must reference the Galasa bootstrap file or URL. You
 
 There are two key commands - `runs prepare` and `runs submit`.
 
-The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple test streams. 
+The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple [test streams](../../docs/writing-own-tests/test-streams). 
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a test package. 
 
 ## Working with the `runs prepare` command
 
-The following section provides examples of how you can use the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides.
+The following section provides a subset of examples of how you can use the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides.
 
 ### Getting help
 
-Use the following commands to get help.
+Use the following commands to get more information about the command and command options.
 
 ```
 galasactl --help
@@ -97,11 +97,11 @@ galasactl runs prepare
 
 ## Working with the `runs submit` command
 
-The following section provides examples of how you can use the `runs submit` command to complete various tasks, for example, getting help, submitting tests, and setting overrides.
+The following section provides a subset of examples of how you can use the `runs submit` command to complete various tasks, for example, getting help, submitting tests, and setting overrides.
 
 ### Getting help
 
-Use the following commands to get help.
+Use the following commands to get more information about the command and command options.
 
 ```
 galasactl --help
@@ -125,6 +125,8 @@ galasactl runs submit
 ```
 
 ### Submitting tests without a portfolio
+
+You can use test class names to submit test runs without using a portfolio.
 
 The following command runs `Test1` and `Test2` from `test.package.one`. 
 

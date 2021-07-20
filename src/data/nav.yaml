@@ -72,6 +72,8 @@
               path: /docs/ecosystem/installing
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Using the Galasa CLI
+              path: /docs/ecosystem/ecosystem-cli
         - title: Upgrading
           path: /docs/upgrading  
     - title: Support
