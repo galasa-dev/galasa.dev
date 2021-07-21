@@ -57,11 +57,11 @@ galasactl runs prepare
 
 ### Setting test-specific overrides
 
-You can set overrides to be used with the tests in the portfolio by using the `--override` parameter. Overrides in the portfolio take precedence over the `Overides Properties` file.
+Specifying overrides is useful if you want to run a set of tests against a particular configuration without changing the test code. For example, you might have multiple versions of software that you need to test. How can you do that without changing the test code? The answer is to use override properties. If you are running tests locally, you can set overrides properties by editing your `Overrides Properties` file. If you are running tests in an ecosystem, you can use the `--override` parameter in the Galasa CLI. Note that overrides that are specified in the Galasa CLI take precedence over those set in your local `Overrides Properties` file.
 
 The following example creates a portfolio called `test.yaml` that contains tests from the `BestSoFar` test stream where the test package is `dev.galasa.simbank.tests`.
 
-All the tests in the `test.yaml` portfolio will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` command is run.
+All the tests in the `test.yaml` portfolio will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` command is run, regardless of the LPAR and cluster that is specified in the CPS properties file.
 
 ```
 galasactl runs prepare
