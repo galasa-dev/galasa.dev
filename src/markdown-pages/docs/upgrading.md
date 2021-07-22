@@ -82,6 +82,6 @@ To run a clean Gradle install in Eclipse, complete the following steps:
 1. Depending on version of Eclipse that you are using, either right-click *Gradle Project* or *Gradle Task* and choose *New Configuration*. 
 1. Provide a meaningful name and set up your Gradle Task to run a clean build. 
 
-Alternatively, run the ```gradlew clean build ``` command from the command line on Windows or ```./gradlew clean build``` on Mac and Linux.
+Alternatively, run the ```gradle clean build``` command from the command line.
 
 If you are still having issues, you can force a full rebuild by deleting your *.m2* repository and creating a new build against your test projects and Managers by running a clean install.
