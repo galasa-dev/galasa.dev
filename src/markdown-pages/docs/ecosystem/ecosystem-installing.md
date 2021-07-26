@@ -38,7 +38,7 @@ The following servers are not required by the ecosystem but are automatically de
 | ----------- | ----------- |----------- |
 | Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
 | Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline  | 8082 |
-| Simplatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
+| SimPlatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
 
 ## Installing the Galasa ecosystem on the Docker engine

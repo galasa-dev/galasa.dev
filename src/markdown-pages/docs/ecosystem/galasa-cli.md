@@ -17,6 +17,8 @@ The `runs prepare` command builds a portfolio of tests which can then be run by 
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a [test package](../../docs/running-simbank-tests/writing-a-simbank-test). 
 
+A subset of examples of using these commands is shown in the following sections. The examples build on the Galasa SimBank tests, which you can run non-locally if you have an ecosystem that is running SimPlatform.
+
 ## Working with the `runs prepare` command
 
 The following section provides a subset of examples on using the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides.
@@ -76,7 +78,7 @@ galasactl runs prepare
 
 In the following example, the first command creates a portfolio called `test.yaml` that contains tests from the `BestSoFar` test stream where the test package name is `dev.galasa.simbank.tests`. The second command adds more tests to the `test.yaml` portfolio from the `BestSoFar` test stream where the test package name is `dev.galasa.simbank.tests.two`. 
 
-All the tests in the `test.yaml` portfolio from `dev.galasa.simbank.tests` will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster. The tests from `dev.galasa.simbank.tests.two` will run on the z/OS LPAR `MV2D` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` command is run.
+All the tests in the `test.yaml` portfolio from the `dev.galasa.simbank.tests` package will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster. The tests from the `dev.galasa.simbank.tests.two` package will run on the z/OS LPAR `MV2D` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` command is run.
 
 ```
 galasactl runs prepare 
@@ -127,7 +129,7 @@ where:
 
 You can use test class names to submit test runs without using a portfolio.
 
-The following command runs `SimBankIVT` and `BasicAccountCreditTest` from `dev.galasa.simbank.tests`. 
+The following command runs the `SimBankIVT` and `BasicAccountCreditTest` tests from the  `dev.galasa.simbank.tests` package. 
 
 ```
 galasactl runs submit
