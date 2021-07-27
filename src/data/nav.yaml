@@ -74,13 +74,15 @@
               path: /docs/ecosystem/installing/k8s
         - title: Using the Galasa CLI
           path: /docs/ecosystem/ecosystem-cli
-          items:
-            - title: runs prepare 
-              path: /docs/ecosystem/ecosystem-cli-runs-prepare
-            - title: runs submit 
-              path: /docs/ecosystem/ecosystem-cli-runs-submit
         - title: Upgrading
           path: /docs/upgrading  
+        - title: Command Reference
+          path: /docs/cli-command-reference/cli-command-reference
+          items:
+            - title: runs prepare 
+              path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
+            - title: runs submit 
+              path: /docs/cli-command-reference/ecosystem-cli-runs-submit
     - title: Support
       root: /support/
       items:

@@ -1,13 +1,13 @@
 ---
-path: "/docs/ecosystem/ecosystem-cli-runs-prepare"
+path: "/docs/cli-command-reference/ecosystem-cli-runs-prepare"
 title: "The runs prepare command"
 ---
 
-The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple [test streams](../writing-own-tests/test-streams). 
+The `runs prepare` command builds a portfolio of tests which can then be run by using the [runs submit](../ecosystem-cli-runs-submit) command. You can build a portfolio of tests from single or multiple test streams. 
 
 ## Working with the `runs prepare` command
 
-The following section provides a subset of examples on using the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides. The examples build on the Galasa SimBank tests, which you can run non-locally if you have an ecosystem that is running SimPlatform.
+The following section provides a subset of examples that use the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides. The examples build on the Galasa SimBank tests, which you can run non-locally if you have an ecosystem that is running SimPlatform.
 
 ### Getting help
 

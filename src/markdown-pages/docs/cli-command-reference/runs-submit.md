@@ -1,9 +1,9 @@
 ---
-path: "/docs/ecosystem/ecosystem-cli-runs-submit"
+path: "/docs/cli-command-reference/ecosystem-cli-runs-submit"
 title: "The runs submit command"
 ---
 
-The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a [test package](../running-simbank-tests/writing-a-simbank-test). 
+The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a test package. 
 
 For information about creating a portfolio by using the Galasa CLI, see the documentation for the [runs prepare](../ecosystem-cli-runs-prepare) command.
 
@@ -23,9 +23,7 @@ galasactl runs runs --help
 
 ### Submitting tests from a portfolio
 
-This example assumes that you have created a `test.yaml` portfolio by using the [runs prepare](../ecosystem-cli-runs-prepare) command.
-
-The example command submits tests from the `test.yaml` portfolio, and specifies the following settings: 
+The following example assumes that you have created a `test.yaml` portfolio by using the [runs prepare](../ecosystem-cli-runs-prepare) command. The command submits tests from the `test.yaml` portfolio, and specifies the following settings: 
 ```
 galasactl runs submit
                         --portfolio test.yaml
