@@ -1,15 +1,27 @@
 ---
 path: "/docs/cli-command-reference/cli-command-reference"
-title: "Command Reference"
+title: "Using the Galasa CLI"
 ---
 
-Use the command reference section to find detailed information and examples on how to use the commands that are available with the Galasa CLI tool. 
+Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using to run your pipeline.
 
-For information about getting started with using the Galasa CLI, see [Using the Galasa CLI](/docs/ecosystem/ecosystem-cli).
+## Getting started 
 
-## Galasa CLI commands
+To use the Galasa CLI commands you must reference the Galasa bootstrap file or URL. You can do this either by setting the `--bootstrap` flag or the `GALASA_BOOTSTRAP`environment variable.
 
-The following section provides a summary of current commands, along with a brief description. 
+You can [access the code](https://github.com/galasa-dev/cli) and [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. The following versions of the Galasa CLI tool are available to download for different operating systems:
+
+| Operating system  |  Download  |
+| :---- | :-------- |
+| MacOSX  | galasactl-darwin-amd64 |
+| Linux amd64 | galasactl-linux-amd64 | 
+| zLinux  | galasactl-linux-s390x | 
+| Windows | galasactl-windows-amd64.exe | 
+
+
+## The CLI commands
+
+The following section provides a summary of current commands, along with a brief description. Click the links for more detailed information and examples on how to use the commands.
 
 <details>
 <summary>Runs commands</summary>
