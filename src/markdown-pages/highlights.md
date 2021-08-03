@@ -11,7 +11,20 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.16.0 - Release Highlights
+## 0.17.0 - Release Highlights
+
+-	The z/OS File Manager contains a breaking change in this release. The void store(String content) and String retrieve(String content) methods in IZosUNIXFile have been replaced with void storeText(String content), void storeBinary(byte[] content), String retrieveAsText() and byte[] retrieveAsBinary() methods. This means that binary data is transferred as byte[] rather than String and now matches IZosDataset and IZosVSAMDataset. If you are using the store() or retrieve() methods, you should change these to 
+storeText() and retrieveAsText() methods respectively.
+-	The Galasa CLI is available for submitting and monitoring Galasa test runs.
+-	You can now search stored artifacts through the eclipse editor.
+-	Various bug fixes and enhancements.
+-	Documentation updates – Galasa CLI documentation and Galasa Hub page. 
+-	Various documentation enhancements.
+
+
+
+<details>
+<summary><b>0.16.0 - Release Highlights</b></summary>
 
 - The 3270 Manager now supports different screen sizes and can respond to query partition with colour and highlight. It also supports `bind_image` and `sysreq renegotiation`. 
 - A range of Managers now have IVT tests associated with them. The IVTs help with testing the Managers themselves and also provide examples of how the Managers can be used.   
@@ -19,6 +32,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Galasa tests can now be built with either Maven or Gradle. A set of Gradle example tests for SimBank is available. 
 - Various bug fixes.
 - Documentation - updates to installing the Galasa plug-in, running the SimBank tests and viewing the test results.
+</details>
 
 <details>
 <summary><b>0.15.0 - Release Highlights</b></summary>
