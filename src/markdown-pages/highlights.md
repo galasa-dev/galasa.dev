@@ -13,8 +13,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.17.0 - Release Highlights
 
--	The z/OS File Manager contains a breaking change in this release. The void store(String content) and String retrieve(String content) methods in IZosUNIXFile have been replaced with void storeText(String content), void storeBinary(byte[] content), String retrieveAsText() and byte[] retrieveAsBinary() methods. This means that binary data is transferred as byte[] rather than String and now matches IZosDataset and IZosVSAMDataset. If you are using the store() or retrieve() methods, you should change these to 
-storeText() and retrieveAsText() methods respectively.
+-	The z/OS File Manager contains a breaking change in this release. The ```void store(String content)``` and ```String retrieve(String content)``` methods in ```IZosUNIXFile``` have been replaced with ```void storeText(String content)```, ```void storeBinary(byte[] content)```, ```String retrieveAsText()``` and ```byte[] retrieveAsBinary()``` methods. This means that binary data is transferred as ```byte[]``` rather than ```String``` and now matches ```IZosDataset``` and ```IZosVSAMDataset```. If you are using the store() or retrieve() methods, you should change these to 
+```storeText()``` and ```retrieveAsText()``` methods respectively.
 -	The Galasa CLI is available for submitting and monitoring Galasa test runs.
 -	You can now search stored artifacts through the eclipse editor.
 -	Various bug fixes and enhancements.
