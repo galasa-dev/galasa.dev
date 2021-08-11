@@ -3,7 +3,7 @@ path: "/docs/cli-command-reference/ecosystem-cli-runs-prepare"
 title: "The runs prepare command"
 ---
 
-The `runs prepare` command builds a portfolio of tests which can then be run by using the [runs submit](../ecosystem-cli-runs-submit) command. You can build a portfolio of tests from single or multiple test streams. 
+The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple test streams. 
 
 ## Working with the `runs prepare` command
 
@@ -84,4 +84,4 @@ galasactl runs prepare
                         --override zos.default.cluster=PLEX2
 ```
 
-You can now run the tests in your portfolio by using the [runs submit](../ecosystem-cli-runs-submit) command.
+You can now run the tests in your portfolio by using the `runs submit` command.

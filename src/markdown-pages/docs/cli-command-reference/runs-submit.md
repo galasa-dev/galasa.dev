@@ -5,7 +5,7 @@ title: "The runs submit command"
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a test package. 
 
-For information about creating a portfolio by using the Galasa CLI, see the documentation for the [runs prepare](../ecosystem-cli-runs-prepare) command.
+For information about creating a portfolio by using the Galasa CLI, see the documentation for the `runs prepare` command.
 
 ## Working with the `runs submit` command
 
@@ -50,7 +50,7 @@ galasactl runs submit
 
 ### Setting overrides for all tests during a run
 
-Specifying overrides is useful if you want to run a set of tests against a particular configuration without changing the test code. For example, you might have multiple versions of software that you need to test. How can you do that without changing the test code? The answer is to use override properties. If you are running tests locally, you can set overrides properties by editing your `Overrides Properties` file. If you are running tests in an ecosystem, you can use the `--override` parameter in the Galasa CLI. Note that overrides in the portfolio take precedence over the overrides on the `runs submit` command. This is so you can set general overrides on the submit, but have specific class overrides in the portfolio. 
+Specifying overrides is useful if you want to run a set of tests against a particular configuration without changing the test code. For example, you might have multiple versions of software that you need to test. How can you do that without changing the test code? The answer is to use override properties. If you are running tests locally, you can set overrides properties by editing your `Overrides Properties` file. If you are running tests in an ecosystem, you can use the `--override` parameter in the Galasa CLI. Note that overrides in the portfolio take precedence over the overrides on the `runs submit` command. This is so that you can set general overrides on the submit, but have specific class overrides in the portfolio. 
 
 The following command runs all the tests in the `test.yaml` portfolio are on the z/OS LPAR `MV2C` in the `PLEX2` cluster.
 

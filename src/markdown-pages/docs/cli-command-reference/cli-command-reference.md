@@ -28,7 +28,7 @@ The following section provides a summary of current commands, along with a brief
 
 |   |    |
 | :---- | :-------- |
-| **[runs prepare](/docs/cli-command-reference/ecosystem-cli-runs-prepare)**<br>  | Builds a portfolio of tests from single or multiple test streams. The portfolio can then be run by using the runs submit command. |
+| **[runs prepare](/docs/cli-command-reference/ecosystem-cli-runs-prepare)**<br>  | Builds a portfolio of tests from single or multiple test streams. The portfolio can then be run by using the `runs submit` command. |
 | **[runs submit](/docs/cli-command-reference/ecosystem-cli-runs-submit)**<br>  | Submits and monitors tests in the Galasa Ecosystem. Tests can be input either from a portfolio or directly from a test package.| 
 </details>
 
