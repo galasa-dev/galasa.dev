@@ -4,7 +4,7 @@ title: "Writing your own SimBank test"
 ---
 Now you have run through the tests provided as part of Galasa SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Why not attempt to follow the instructions without looking at the code? You can use the provided test examples as a reference and for inspiration. Eclipse will help when you need to resolve imports and exceptions.
 
-To write and run simple Galasa tests, you need a modest knowledge of Java. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests.
+To write and run simple Galasa tests, you need a modest knowledge of Java. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests. The <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent" target="_blank"> Manager installation verification tests (IVTs)</a> that are stored in GitHub provide useful reference material and can be used to aid understanding of how to  structure a test.
 
 Don't forget that whenever you create a test, or modify an existing one, you need to right-click the containing *project* (for example, `dev.galasa.simbank.tests`) containing the new or modified test and choose *Run As > Maven install*. This ensures that the correct version of the test is submitted to the test runner.
 
