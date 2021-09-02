@@ -1,3 +1,6 @@
+# 
+# Copyright contributors to the Galasa project
+#
 - sections:
     - title: Releases
       root: /releases/
@@ -63,7 +66,7 @@
               path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
-        - title: The Galasa ecosystem
+        - title: The Galasa Ecosystem
           path: /docs/ecosystem
           items:
             - title: Ecosystem architecture
@@ -74,6 +77,13 @@
               path: /docs/ecosystem/installing/k8s
         - title: Upgrading
           path: /docs/upgrading  
+        - title: Using the Galasa CLI
+          path: /docs/cli-command-reference/cli-command-reference
+          items:
+            - title: runs prepare 
+              path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
+            - title: runs submit 
+              path: /docs/cli-command-reference/ecosystem-cli-runs-submit
     - title: Support
       root: /support/
       items:
@@ -84,4 +94,9 @@
       items:
         - title: Get involved
           path: /community/
+    - title: Hub
+      root: /hub/
+      items:
+        - title: Galasa Hub
+          path: /hub/          
 
