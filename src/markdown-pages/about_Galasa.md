@@ -12,7 +12,7 @@ The Galasa framework is built with a knowledge of z/OS and cloud native platform
 Galasa is fully extensible. Galasa Managers enable Galasa to interact with any test technology, such as JMeter, Selenium, JCL and 3270 screens and more. 
 
 ### Pipeline integration
-Galasa provides a REST endpoint that can be called from any CI/CD pipeline, for example, a Jenkins pipeline. A Jenkins plug-in is supplied as part of Galasa. Running Galasa as part of your pipeline enables fast, reliable testing at scale - Galasa can run thousands of tests in parallel. 
+Galasa provides a REST endpoint that can be called from any CI/CD pipeline, for example, a Jenkins pipeline. Running Galasa as part of your pipeline enables fast, reliable testing at scale - Galasa can run thousands of tests in parallel. 
 
 ### Enterprise integration
 Galasa is not simply about providing the ability to write a test and run it in automation.  Galasa's test catalog enables you to understand and manage your tests, making it easy to schedule the right tests to run at the right time. Test results and artifacts are stored in a single repository, making reporting and problem determination simple when combined with native Kibana and Grafana dashboards. 
