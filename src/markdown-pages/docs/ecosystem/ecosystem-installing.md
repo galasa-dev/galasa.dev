@@ -80,7 +80,7 @@ The bootstrap contains the information that Galasa needs to bring up a framework
 In Eclipse, you can edit the bootstrap by completing the following steps:
 
 1.  Select *Eclipse > Preferences > Galasa* 
-2.  Update **Bootstrap URI** to point to ```http://{hostname}:8080/``` 
+2.  Update **Bootstrap URI** to point to ```http://{hostname}:8080/bootstrap``` 
 3.  Apply and close the preferences   
 
 
