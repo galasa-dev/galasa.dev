@@ -6,7 +6,7 @@ title: "Galasa Hub"
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians. 
 
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
-Find out how IBM Z and z/OS Platform Evaluation and Test (zPET) are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
+Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
 
 **Author: Gene Nitka, September 21, 2021**<br>
 *Source: IBM Developer*<br><br>
