@@ -197,7 +197,12 @@ function Search() {
     }
   `)
 
-  return <DocSearch {...algolia} />
+  const docSearchOpts = {
+    placeholder: "Search Galasa",
+    ...algolia
+  }
+
+  return <DocSearch {...docSearchOpts} />
 }
 
 export default Search;
