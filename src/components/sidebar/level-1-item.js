@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import React from "react"
 import { Link } from "gatsby"
 import { Location } from "@reach/router"

@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import React, { useRef, useState, useCallback, useMemo, forwardRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { useDocSearchKeyboardEvents } from "@docsearch/react"

@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import { Link, useStaticQuery, graphql } from "gatsby"
 import React, { useState, useRef, useEffect } from "react"
 import { Location } from "@reach/router"
