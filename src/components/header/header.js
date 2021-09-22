@@ -9,7 +9,7 @@ import GitHubSVG from "../../images/github.inline.svg"
 
 import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
-import Search from "../search"
+import { SearchOnNonLocal } from "../search"
 
 import headerStyles from "./header.module.scss"
 
@@ -143,7 +143,7 @@ const Header = ({ extraHeight }) => {
                   </a>
                 </div>
               </div>
-              <Search />
+              <SearchOnNonLocal />
               <div className={headerStyles.navContainerIcons}>
                 <a
                   className={headerStyles.icon}
