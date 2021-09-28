@@ -1,43 +1,13 @@
 ---
-path: "/docs/running-simbank-tests"
-title: "Running the supplied SimBank tests"
+path: "/docs/creating-project-Galasa/creating-project-offline-Gradle"
+title: "Creating an example project using Gradle with the zipped distribution"
 ---
 
-Galasa SimBank comes with a selection of prepared Galasa tests:
-
-- A basic Installation Verification Test (IVT) which logs on to SimBank  - `SimBankIVT.java`.
-- A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
-- A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
-- A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
-
-All of these example tests become available when you set up a Galasa example project within Eclipse. For more information, see the _Creating an example Galasa project_ documentation. 
-
-If you are using the Galasa plug-in from the external update site, use Maven to build your projects, following the instructions in _Creating an example Galasa project using Maven_](#headmaven) section.
-
-If you are using the Galasa zipped distribution you must use Gradle to build your projects, so follow the instructions in the [_Creating an example Galasa project using Gradle_](#headgradle) section. 
+If you are using the Galasa zipped distribution, complete the following steps to create a Galasa project  using Gradle. If you are using the Galasa plug-in from the external update site, follow the steps in the [Creating a Galasa project using Gradle](/docs/creating-project-Galasa/creating-project-online-Gradle)documentation. 
 
 Note that there are some variations in the Eclipse interface, depending on the version of Eclipse that you are using.
 
-## <a name="headmaven"></a>Creating an example Galasa project using Maven
-
-<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
-
-1. Ensure that Eclipse is running.
-2. Choose _File > New > Example_, select _SimBank example Maven projects_ and click _Next_.
-3. Confirm your _New project_ prefix as `dev.galasa.simbank` and press _Finish_. In your _Package Explorer_ (if it's not visible, choose _Window > Show View > Package Explorer_), two new entries appear:  
-```  
-dev.galasa.simbank.manager  
-dev.galasa.simbank.tests  
-```  
-4. Right-click on `dev.galasa.simbank.manager` and choose _Run As > Maven install_ - wait a few moments for the Maven build and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`. This is because the SimBank tests have a dependency on the SimBank Manager.
-5. Expand `dev.galasa.simbank.tests` and then expand `src/main/java`. 
-6. Explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
-
-![SimBank tests](./provided-tests.png)
-
-Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](/docs/running-simbank-tests/simbank-IVT) is the best place to start.
-
-## <a name="headgradle"></a>Creating an example Galasa project using Gradle
+## Creating an example Galasa project using Gradle (zipped distribution)
 
 1. Ensure that Eclipse is running.
 1. Depending on your operating system, choose either _Window > Preferences_ or _Eclipse > Preferences_, check that you are using the correct version of Gradle, and then select `Galasa` from the left hand pane.
