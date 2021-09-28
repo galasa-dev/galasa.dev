@@ -3,11 +3,13 @@ path: "/docs/creating-project-Galasa/creating-project-online-Gradle"
 title: "Creating an example project using Gradle"
 ---
 
-If you are using the Galasa plug-in from the external update site, complete the following steps to create a Galasa project using Gradle. If you are using the Galasa zipped distribution, following the steps in the  [Creating a Galasa project using Gradle with the zipped distribution](/docs/creating-project-Galasa/creating-project-offline-Gradle) documentation. 
-
-Note that there are some variations in the Eclipse interface, depending on the version of Eclipse that you are using.
+If you are using the Galasa zipped distribution, following the steps in the  [Creating a Galasa project using Gradle with the zipped distribution](/docs/creating-project-Galasa/creating-project-offline-Gradle) documentation. 
 
 ## Creating an example Galasa project using Gradle
+
+If you are using the Galasa plug-in from the external update site, complete the following steps to create an example Galasa project by using Gradle: 
+
+Note that there are some variations in the Eclipse interface, depending on the version of Eclipse that you are using.
 
 1. Ensure that Eclipse is running.
 1. Depending on your operating system, choose either _Window > Preferences_ or _Eclipse > Preferences_, check that you are using the correct version of Gradle.

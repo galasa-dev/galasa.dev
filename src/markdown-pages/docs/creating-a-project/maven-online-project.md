@@ -3,11 +3,13 @@ path: "/docs/creating-project-Galasa/creating-project-Maven"
 title: "Creating an example project using Maven"
 ---
 
-If you are using the Galasa plug-in from the external update site, complete the following steps to create a Galasa project by using Maven. 
+<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
+
+## Creating an example Galasa project using Maven
+
+If you are using the Galasa plug-in from the external update site, complete the following steps to create an example Galasa project by using Maven: 
 
 Note that there are some variations in the Eclipse interface, depending on the version of Eclipse that you are using.
-
-<b>NOTE:</b> Normally m2e (the Eclipse Maven plug-in) automatically compiles the test bundles and produces the necessary manifest and OSGi files. However, there appears to be an anomaly in m2e in the 2019 versions of Eclipse which we are investigating. If the bundles fail to build correctly, you can force the Maven build by right-clicking the _project_ and selecting _Run As > Maven Install_. We will resolve this issue in a future release.
 
 1. Ensure that Eclipse is running.
 2. Choose _File > New > Example_, select _SimBank example Maven projects_ and click _Next_.
