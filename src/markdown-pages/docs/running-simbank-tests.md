@@ -12,9 +12,9 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 
 All of these example tests become available when you set up a Galasa example project within Eclipse. 
 
-If you are using the Galasa plug-in from the external update site and are using Maven to build your project, follow the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
+If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
 
-If you are using the Galasa plug-in from the external update site and are using Gradle to build your project, follow the instructions in the [_Creating an example Galasa project using Gradle_](#headonlinegradle) section. 
+If you are using the Galasa plug-in from the external update site and are using Gradle, follow the instructions in the [_Creating an example Galasa project using Gradle_](#headonlinegradle) section. 
 
 If you are using the Galasa zipped distribution you must use Gradle to build your project, so follow the instructions in the [_Creating an example Galasa project using Gradle (zipped distribution)_](#headgradle) section. 
 
