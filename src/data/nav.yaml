@@ -36,15 +36,6 @@
               path: /docs/getting-started/installing-offline
             - title: Exploring Galasa SimBank
               path: /docs/getting-started/simbank
-        - title: Creating an example Galasa project
-          path: /docs/creating-project-Galasa
-          items:
-            - title: Creating an example project using Maven
-              path: /docs/creating-project-Galasa/creating-project-Maven
-            - title: Creating an example project using Gradle
-              path: /docs/creating-project-Galasa/creating-project-online-Gradle
-            - title: Creating an example project using Gradle - zipped distribution
-              path: /docs/creating-project-Galasa/creating-project-offline-Gradle
         - title: Running the supplied SimBank tests
           path: /docs/running-simbank-tests
           items:
