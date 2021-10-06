@@ -54,7 +54,7 @@ const Header = ({ extraHeight }) => {
       {({ location }) => {
         const selector = (section, location) => {
           return isSelectedSection(section, location)
-            ? headerStyles.selected
+            ? headerStyles.selected + " selected"
             : ""
         }
 
@@ -71,7 +71,11 @@ const Header = ({ extraHeight }) => {
             <h1 className={headerStyles.title}>
               <Identifier id="header-identifier" />
             </h1>
-            <div ref={navContainerNode} className={headerStyles.navContainer}>
+            <nav
+              ref={navContainerNode}
+              className={headerStyles.navContainer}
+              id="headerNav"
+            >
               <div className={headerStyles.navContainerMainTitles}>
                 <Link
                   id="header-about"
@@ -154,7 +158,7 @@ const Header = ({ extraHeight }) => {
                   <GitHubSVG />
                 </a>
               </div>
-            </div>
+            </nav>
             <div
               className={headerStyles.closeX}
               onClick={() => setMenuOpen(false)}

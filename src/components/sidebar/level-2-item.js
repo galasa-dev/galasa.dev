@@ -19,7 +19,9 @@ export default props => {
           className={
             sidebarStyles.level2Item +
             " " +
-            (isInNavPath(item, location) ? sidebarStyles.itemInNavPath : "")
+            "sidebar-l2" +
+            " " +
+            (isInNavPath(item, location) ? "itemInNavPath" : "")
           }
         >
           <div
@@ -27,10 +29,12 @@ export default props => {
               sidebarStyles.level2Marker +
               " " +
               (isSamePath(location.pathname, item.path)
-                ? sidebarStyles.level2MarkerSelected
+                ? sidebarStyles.level2MarkerSelected + " selected"
                 : "") +
               " " +
-              (isInNavPath(item, location) ? sidebarStyles.markerInNavPath : "")
+              (isInNavPath(item, location)
+                ? sidebarStyles.markerInNavPath + " markerInNavPath"
+                : "")
             }
           >
             <Link to={item.path}>{item.title}</Link>
