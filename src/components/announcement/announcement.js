@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import React from "react"
 
 import announcementStyles from "./announcement.module.scss"
