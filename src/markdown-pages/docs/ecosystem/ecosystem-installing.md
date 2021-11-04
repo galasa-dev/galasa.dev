@@ -37,7 +37,6 @@ The following servers are not required by the ecosystem but are automatically de
 | Name      | Description | Port
 | ----------- | ----------- |----------- |
 | Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
-| Jenkins| A demonstration Jenkins server to show how to run Galasa tests in a pipeline  | 8082 |
 | SimPlatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
 
@@ -86,16 +85,10 @@ In Eclipse, you can edit the bootstrap by completing the following steps:
 
 ## Verifying the installation
 
-The Jenkins server that was automatically installed by the Docker operator hosts a *SimBank_IVT* build job. This job runs a Jenkins pipeline, which requests the *SimBankIVT* test to run in the Galasa ecosystem.
+You can verify the ecosystem installation by using the Galasa command line interface (Galasa CLI) to run the _runs prepare_ and _runs submit_ commands. To find out more about the Galasa CLI, see [Using the Galasa CLI](/docs/cli-command-reference/cli-command-reference).
 
-1. Go to ```http://{hostname}:8082```, using the username of ```admin``` and password of ```galasaadmin```. The *SimBankIVT* test is displayed in the Jenkins dashboard. 
-2. Click the *SimBankIVT* link and select **Build Now** to run the test. If you are quick, you can follow its progress in the job console by running the Docker command ```docker ps -a``` to see the run container being created. When the run finishes successfully, the Jenkins job is updated to report that the test passed. 
-3. View the output of the automated run in Eclipse by selecting *Galasa > Initialise Galasa Framework* from the Eclipse menu. The Galasa console reporting runs successfully. 
-4. Click the *Galasa* icon on the Eclipse toolbar. Two new Galasa views open; *Galasa Results* and *Galasa Runs*. 
-5. Run the Jenkins job again to see the new run in the *Galasa Runs* view. The *Galasa Results* view contains two RASs; a local RAS and an automation RAS. 
-6. On the automation branch, expand **All runs** and then expand **Today's runs** to view the automation run from Jenkins. 
-7. Double-click the run name to open the results window, which you can use to view the test results.
+Alternatively, you can submit automation tests from within Eclipse; select the *Galasa > Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
-Alternatively, you can submit automation tests from within Eclipse instead of Jenkins; select the *Galasa > Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
+## Next steps
 
 Now that the ecosystem is successfully created on the VM, anyone with access to that VM can run tests that use the centralized configuration settings and can view the test logs and results. Tests can be run headlessly, without the need to keep individual workstations active.  

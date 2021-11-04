@@ -7,7 +7,7 @@ Galasa's ecosystem organises tests into _streams_. Test streams give you more op
 
 You can have as few or as many test streams as you wish.
 
-A stream is a group of tests that you wish to run in automation represented by a single OBR (OSGi Bundle Repository) and its equivalent test catalog. Galasa uses an OBR to locate your tests in a Maven repository, along with all of the Managers that a test project requires. A test catalog is generated directly from the test source, is always up to date, and is what you would use in Jenkins or Eclipse to select tests to run in automation.
+A stream is a group of tests that you wish to run in automation represented by a single OBR (OSGi Bundle Repository) and its equivalent test catalog. Galasa uses an OBR to locate your tests in a Maven repository, along with all of the Managers that a test project requires. A test catalog is generated directly from the test source, is always up to date, and is what you would use in Eclipse to select tests to run in automation.
 
 There are many ways to organise test streams:
 
