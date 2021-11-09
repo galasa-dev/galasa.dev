@@ -31,7 +31,7 @@ Galasa simplifies testing in such an environment. The following diagram shows an
 
 This sophisticated solution requires end-to-end integration testing of an application that runs on different platforms (z/OS and Cloud) and uses different technologies (a 3270 emulator, JCL batch job and Selenium Web Driver). 
 
-When run inside a [Galasa ecosystem](/docs/ecosystem), a Galasa test can be invoked from an IDE or as part of a CI/CD pipeline (a Jenkins pipeline in this scenario). The Galasa framework initializes the test environment, creates valid test data, runs the test and validates the test output. As all test results and artifacts are stored in one location, it's easy to generate reports and diagnose the cause of any failures.
+When run inside a [Galasa ecosystem](/docs/ecosystem), a Galasa test can be invoked from an IDE or as part of a CI/CD pipeline. The Galasa framework initializes the test environment, creates valid test data, runs the test and validates the test output. As all test results and artifacts are stored in one location, it's easy to generate reports and diagnose the cause of any failures.
 
 
 ## Use Galasa to help you to: 
