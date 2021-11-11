@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 @import "../../styles/styles";
 
 $navBlockTop: 100px + $topic-path-space;
@@ -189,6 +191,8 @@ $icon-text-separation: 19px;
   visibility: hidden;
   transition: opacity 0.4s ease-in-out;
   width: 100%;
+  overflow-y: auto;
+  padding-top: 5px;
 
   @media screen and (min-width: $br-single-column) {
     padding-top: 0;
