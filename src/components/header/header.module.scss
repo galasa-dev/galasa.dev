@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 @import "../../styles/styles";
 
 $navLink-margin-top: 40px;
@@ -40,6 +42,9 @@ $navLink-margin-top: 40px;
       .navContainer {
         display: flex;
       }
+      .navContainerMainTitles {
+        display: flex;
+      }
       .closeX {
         display: block;
       }
@@ -71,15 +76,24 @@ $navLink-margin-top: 40px;
 .navContainer {
   display: none;
   flex-direction: column;
+  overflow-y: auto;
   margin: 53px (-$margin-container-sm) 0 (-$margin-container-sm);
   padding: 0 $margin-container-sm;
-  overflow-y: auto;
 
   @media screen and (min-width: $br-small) {
     display: flex;
     flex-direction: row;
     margin-top: 0;
-    border-bottom: none;
+  }
+}
+
+.navContainerMainTitles {
+  display: none;
+  flex-direction: column;
+
+  @media screen and (min-width: $br-small) {
+    display: flex;
+    flex-direction: row;
     overflow-y: visible;
   }
 }
@@ -211,6 +225,7 @@ a.navLink {
     }
   }
 }
+
 .extraMobileHeight {
   padding-bottom: 20px + $topic-path-space;
 

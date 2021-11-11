@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import React from "react"
 import { Link } from "gatsby"
 import { Location } from "@reach/router"
@@ -28,7 +30,9 @@ export default props => {
           className={
             sidebarStyles.level1Item +
             " " +
-            (isInNavPath(item, location) ? sidebarStyles.itemInNavPath : "")
+            "sidebar-l1" +
+            " " +
+            (isInNavPath(item, location) ? "itemInNavPath" : "")
           }
         >
           <div
@@ -36,10 +40,12 @@ export default props => {
               sidebarStyles.level1Marker +
               " " +
               (isSamePath(location.pathname, item.path)
-                ? sidebarStyles.level1MarkerSelected
+                ? sidebarStyles.level1MarkerSelected + " selected"
                 : "") +
               " " +
-              (isInNavPath(item, location) ? sidebarStyles.markerInNavPath : "")
+              (isInNavPath(item, location)
+                ? sidebarStyles.markerInNavPath + " markerInNavPath"
+                : "")
             }
           >
             <Link to={item.path}>{item.title}</Link>

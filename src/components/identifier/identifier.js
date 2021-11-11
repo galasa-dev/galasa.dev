@@ -1,3 +1,5 @@
+/* Copyright contributors to the Galasa project */
+
 import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import identifierStyles from "./identifier.module.scss"
