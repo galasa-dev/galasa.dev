@@ -127,7 +127,7 @@ The following are properties used to configure the MQ Manager.
 | Property: | Queue Manager host CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | mq.server.[tag].host |
-| Description: | The channel for the specified tag |
+| Description: | The host for the specified tag |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
