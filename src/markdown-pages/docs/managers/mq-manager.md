@@ -21,6 +21,13 @@ The following annotations are available with the CICS TS CECI Manager
 | Description: | The <code>@QueueManager</code> annotation represents the name of the MQ Queue Manager |
 | Syntax: | @QueueManager<br> public IMessageQueueManager qmgr;<br> |
 | Notes: | The <code>IMessageQueueManager</code> interface enables connection to the MQ Queue Manager.  |
+</details>
+
+<details>
+<summary>MQ Queue</summary>
+
+| Annotation: |MQ Queue |
+| --------------------------------------- | :------------------------------------- |
 | Name: | @Queue |
 | Description: | The <code>@Queue</code> annotation represents the name of the MQ Queue |
 | Syntax: | @Queue<br> public IMessageQueue queue;<br> |
@@ -33,9 +40,9 @@ The following annotations are available with the CICS TS CECI Manager
 
 Use the following code snippets to help you get started with the MQ Manager.
  
-<details><summary>Instantiate an MQ Manager</summary>
+<details><summary>Create a MQ Manager</summary>
 
-The following snippet shows the code that is required to instantiate an MQ Manager:
+The following snippet shows the code that is required to create an instance of a MQ Manager:
 
 ```java
 @QueueManager
@@ -43,9 +50,9 @@ public IMessageQueueManager qmgr;
 ```
 </details>
 
-<details><summary>Instantiate an MQ Queue</summary>
+<details><summary>Instantiate a MQ Queue</summary>
 
-The following snippet shows the code that is required to instantiate an MQ Queue:
+The following snippet shows the code that is required to instantiate a MQ Queue:
 
 ```java
 @Queue(archive = "true", name = "GALASA.INPUT.QUEUE")
@@ -66,9 +73,9 @@ public IMessageQueue queue3;
 ```
 </details>
 
-<details><summary>Put a message on a queue</summary>
+<details><summary>Put messages to a queue</summary>
 
-The following snippet shows the code required to put a message on an MQ queue:
+The following snippet shows the code required to put a message on a queue:
 
 ```java
 TextMessage tm = qmgr.createTextMessage(testData);
@@ -76,9 +83,9 @@ queue.sendMessage(tm);
 ```
 </details>
 
-<details><summary>Read a message from a queue</summary>
+<details><summary>Read messages from a queue</summary>
 
-The following snippet shows the code required to read a message from an MQ queue:
+The following snippet shows the code required to read a message from a queue:
 
 ```java
 Message m = queue.getMessage();
@@ -88,7 +95,7 @@ String response = m.getBody(String.class);
 
 <details><summary>Clear messages from a queue</summary>
 
-The following snippet shows the code required to clear messages from an MQ queue:
+The following snippet shows the code required to clear messages from a queue:
 
 ```java
 queue.clearQueue();
