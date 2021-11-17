@@ -47,7 +47,7 @@ The following annotations are available with the MQ Manager
 
 ## Code snippets
 
-Use the following code snippets to help you get started with the MQ Manager. Galasa does not provision a new IBM MQ queue manager, or queues. Use the MQ Manager to connect a test to existing IBM MQ queue managers and queues
+Use the following code snippets to help you get started with the MQ Manager. Use the MQ Manager to connect a test to an existing IBM MQ queue manager and queue. Galasa does not provision new IBM MQ queue managers or queues. 
  
 <details><summary>Create an instance of an IBM MQ Manager</summary>
 
