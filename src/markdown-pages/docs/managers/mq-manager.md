@@ -30,11 +30,11 @@ The following annotations are available with the MQ Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Queue |
 | Description: | The <code>@Queue</code> annotation represents the name of the IBM MQ queue |
-| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is `PRIMARY`.  |
+| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is _PRIMARY_.  |
 | Attribute: `name` |  Specifies the name of the queue as it appears on the queue manager. Use the `name` attribute if the queue name never changes, regardless of environment.  |
-| Attribute: `tag` |  Use the `tag` attribute when the value of the queue name is defined by a property in the CPS file.  |
+| Attribute: `tag` |  The name of the queue. Use the `tag` attribute when the value of the queue name is defined by a property in the CPS file.  |
 | Notes: | You must specify either the `name` or the `tag` attribute but not both. If you specify both or neither, an exception is generated. |
-| Attribute: `archive` |  Store log data sets in the RAS. Valid values are `true` and `false`. |
+| Attribute: `archive` |  Store log data sets in the RAS to aid debugging. Default value is _true_. Valid values are _true_ and _false_. |
 | Syntax: | @Queue<br> public IMessageQueue queue;<br> |
 | Notes: | The <code>IMessageQueue</code> interface enables the test to put the provided messages onto the IBM MQ queues and retrieve messages from the IBM MQ queues.  |
 </details>
