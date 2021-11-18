@@ -212,7 +212,7 @@ The following are properties used to configure the MQ Manager.
 </details>
 
 <details>
-<summary>TQueue name for the tag CPS Property</summary>
+<summary>Queue name for the tag CPS Property</summary>
 
 | Property: | Queue name for the tag CPS Property |
 | --------------------------------------- | :------------------------------------- |
