@@ -18,7 +18,7 @@ The following annotations are available with the MQ Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @QueueManager |
 | Description: | The <code>@QueueManager</code> annotation represents the name of the IBM MQ queue manager |
-| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is `PRIMARY`. |
+| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is _PRIMARY_. |
 | Syntax: | @QueueManager<br> public IMessageQueueManager qmgr;<br> |
 | Notes: | The <code>IMessageQueueManager</code> interface enables connection to the IBM MQ queue manager.  |
 </details>
