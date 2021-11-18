@@ -6,8 +6,7 @@ title: "MQ Manager"
 **Alpha**
 
 ## Overview
-This Manager provides the ability to connect a test to an existing IBM MQ queue manager, enabling one or more messages to be written to and read from an existing IBM MQ queue. <br><br> 
-
+This Manager provides the ability to connect a test to an existing IBM MQ queue manager, enabling one or more messages to be written to and read from existing queues. <br><br> 
 
 ## Annotations
 
@@ -19,11 +18,7 @@ The following annotations are available with the MQ Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @QueueManager |
 | Description: | The <code>@QueueManager</code> annotation represents the name of the IBM MQ queue manager |
-| Attribute: `name` |  The name of the IBM MQ queue manager |
-| Attribute: `host` |  The host name of the system on which the IBM MQ queue manager is running |
-| Attribute: `port` |  The port number to connect to the IBM MQ queue manager |
-| Attribute: `channel` |  The name of the channel used to move messages  |
-| Attribute: `manager` |  The Galasa implementation of the IBM MQ queue manager |
+| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is `PRIMARY`. |
 | Syntax: | @QueueManager<br> public IMessageQueueManager qmgr;<br> |
 | Notes: | The <code>IMessageQueueManager</code> interface enables connection to the IBM MQ queue manager.  |
 </details>
@@ -35,12 +30,13 @@ The following annotations are available with the MQ Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Queue |
 | Description: | The <code>@Queue</code> annotation represents the name of the IBM MQ queue |
-| Attribute: `name` |  The name of the IBM MQ queue |
-| Attribute: `qmgr` |  The name of the IBM MQ queue manager which controls access to the IBM MQ queue |
-| Attribute: `archive` |  Archive log data sets. Valid values are `true` and `false`. |
-| Attribute: `manager` |  The Galasa implementation of the IBM MQ queue manager  |
+| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is `PRIMARY`.  |
+| Attribute: `name` |  Specifies the name of the queue as it appears on the queue manager. Use the `name` attribute if the queue name never changes, regardless of environment.  |
+| Attribute: `tag` |  Use the `tag` attribute when the value of the queue name is defined by a property in the CPS file.  |
+| Notes: | You must specify either the `name` or the `tag` attribute but not both. If you specify both or neither, an exception is generated. |
+| Attribute: `archive` |  Store log data sets in the RAS. Valid values are `true` and `false`. |
 | Syntax: | @Queue<br> public IMessageQueue queue;<br> |
-| Notes: | The <code>IMessageQueue</code> interface enables the test to put the provided messages onto the IBM MQ queue and retrieve messages from the IBM MQ queue. |
+| Notes: | The <code>IMessageQueue</code> interface enables the test to put the provided messages onto the IBM MQ queues and retrieve messages from the IBM MQ queues.  |
 </details>
 
 
@@ -136,26 +132,40 @@ The following are properties used to configure the MQ Manager.
 
 | Property: | Queue manager channel CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].channel |
-| Description: | The channel for the specified tag |
+| Name: | mq.server.[instanceid].channel |
+| Description: | The channel for the specified instance |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
-| Examples: | <code>mq.server.[tag].channel=DEV.APP.SVRCONN</code> |
+| Examples: | <code>mq.server.[instanceid].channel=DEV.APP.SVRCONN</code> |
 
 </details>
  
+<details>
+<summary>Queue manager credentials CPS Property</summary>
+
+| Property: | Queue manager credentials CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | mq.server.[instanceid].credentials.id |
+| Description: | The credentials for the queue Manager |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: |  |
+| Examples: | <code>mq.server.[instanceid].credentials.id=CRED1</code> |
+
+</details>
+
 <details>
 <summary>Queue manager host CPS Property</summary>
 
 | Property: | Queue manager host CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].host |
-| Description: | The host for the specified tag |
+| Name: | mq.server.[instanceid].host |
+| Description: | The host for the specified instance |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
-| Examples: | <code>mq.server.[tag].host=127.0.0.1</code> |
+| Examples: | <code>mq.server.[instanceid].host=127.0.0.1</code> |
 
 </details>
  
@@ -164,12 +174,12 @@ The following are properties used to configure the MQ Manager.
 
 | Property: | Queue manager name CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].name |
-| Description: | The queue manager name for the specified tag |
+| Name: | mq.server.[instanceid].name |
+| Description: | The queue manager name for the specified instance |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
-| Examples: | <code>mq.server.[tag].name=QM1</code> |
+| Examples: | <code>mq.server.[instanceid].name=QM1</code> |
 
 </details>
 
@@ -178,11 +188,40 @@ The following are properties used to configure the MQ Manager.
 
 | Property: | Queue manager port CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].port |
-| Description: | The queue manager port for the specified tag |
+| Name: | mq.server.[instanceid].port |
+| Description: | The queue manager port for the specified instance |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
-| Examples: | <code>mq.server.[tag].port=1414</code> |
+| Examples: | <code>mq.server.[instanceid].port=1414</code> |
 
 </details>
+
+<details>
+<summary>Instance ID for the tag CPS Property</summary>
+
+| Property: | Instance ID for the tag CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | mq.tag.[tag].instanceid |
+| Description: | The instance for the specified tag |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: |  |
+| Examples: | <code>mq.tag.[tag].instanceid=QUEUEMGR1</code> |
+
+</details>
+
+<details>
+<summary>TQueue name for the tag CPS Property</summary>
+
+| Property: | Queue name for the tag CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | mq.server.[tag].queuename |
+| Description: | The queue name for the specified tag |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: |  |
+| Examples: | <code>mq.server.[tag].queuename=GALASA.INPUT.QUEUE</code> |
+
+</details>
+
