@@ -18,7 +18,7 @@ The following annotations are available with the MQ Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @QueueManager |
 | Description: | The <code>@QueueManager</code> annotation represents the name of the IBM MQ queue manager |
-| Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is _PRIMARY_. |
+| Attribute: `tag` |  Specifies which queue manager to connect to. Default value is _PRIMARY_. |
 | Syntax: | @QueueManager<br> public IMessageQueueManager qmgr;<br> |
 | Notes: | The <code>IMessageQueueManager</code> interface enables connection to the IBM MQ queue manager.  |
 </details>
@@ -32,9 +32,9 @@ The following annotations are available with the MQ Manager
 | Description: | The <code>@Queue</code> annotation represents the name of the IBM MQ queue |
 | Attribute: `queueMgrTag` |  Specifies which queue manager to connect to. Default value is _PRIMARY_.  |
 | Attribute: `name` |  Specifies the name of the queue as it appears on the queue manager. Use the `name` attribute if the queue name never changes, regardless of environment.  |
-| Attribute: `tag` |  The name of the queue. Use the `tag` attribute when the value of the queue name is defined by a property in the CPS file.  |
+| Attribute: `tag` |  The name of the queue. Use the `tag` attribute when the value of the queue name is defined by a property in the CPS.  |
 | Notes: | You must specify either the `name` or the `tag` attribute but not both. If you specify both or neither, an exception is generated. |
-| Attribute: `archive` |  Store log data sets in the RAS to aid debugging. Default value is _true_. Valid values are _true_ and _false_. |
+| Attribute: `archive` |  Archive messages retrieved and sent messages from and to this queue into the RAS to aid debugging. Default value is _true_. Valid values are _true_ and _false_. |
 | Syntax: | @Queue<br> public IMessageQueue queue;<br> |
 | Notes: | The <code>IMessageQueue</code> interface enables the test to put the provided messages onto the IBM MQ queues and retrieve messages from the IBM MQ queues.  |
 </details>
@@ -86,7 +86,7 @@ public IMessageQueue queue3;
 
 <details><summary>Put messages to an IBM MQ queue</summary>
 
-The following snippets show the code required to create a text or binary message to put on an IBM MQ queue:
+Multiple message objects can be passed to the _sendMessage_ method. The following snippets show the code required to create a text or binary message to put on an IBM MQ queue: 
 
 ```java
 TextMessage tm = qmgr.createTextMessage(testData);
@@ -125,7 +125,39 @@ queue.clearQueue();
 
 ## Configuration Properties
 
-The following are properties used to configure the MQ Manager.
+The following are properties used to configure the MQ Manager:
+
+<details>
+<summary>Instance ID for the tag CPS Property</summary>
+
+| Property: | Instance ID for the tag CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | mq.tag.[tag].instanceid |
+| Description: | The instance for the specified tag |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: |  |
+| Examples: | <code>mq.tag.[tag].instanceid=QUEUEMGR1</code> |
+
+This property is associated with the _@QueueManager_ annotation attribute `tag`. You can use the `tag` attribute to avoid hardcoding in your test code. Because the properties that are associated with the attribute are stored in the CPS, the same test can run against a different queue manager without changing the test code. 
+
+</details>
+
+<details>
+<summary>Queue name for the tag CPS Property</summary>
+
+| Property: | Queue name for the tag CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | mq.server.[tag].queuename |
+| Description: | The queue name for the specified tag |
+| Required:  | Yes |
+| Default value: | None |
+| Valid values: |  |
+| Examples: | <code>mq.server.[tag].queuename=GALASA.INPUT.QUEUE</code> |
+
+This property is associated with the _@Queue_ annotation attribute `tag`. You can use the `tag` attribute to avoid hardcoding in your test code. Because the properties that are associated with the attribute are stored in the CPS, the same test can run against a different queue without changing the test code. 
+
+</details>
  
 <details>
 <summary>Queue manager channel CPS Property</summary>
@@ -197,31 +229,5 @@ The following are properties used to configure the MQ Manager.
 
 </details>
 
-<details>
-<summary>Instance ID for the tag CPS Property</summary>
 
-| Property: | Instance ID for the tag CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | mq.tag.[tag].instanceid |
-| Description: | The instance for the specified tag |
-| Required:  | Yes |
-| Default value: | None |
-| Valid values: |  |
-| Examples: | <code>mq.tag.[tag].instanceid=QUEUEMGR1</code> |
-
-</details>
-
-<details>
-<summary>Queue name for the tag CPS Property</summary>
-
-| Property: | Queue name for the tag CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].queuename |
-| Description: | The queue name for the specified tag |
-| Required:  | Yes |
-| Default value: | None |
-| Valid values: |  |
-| Examples: | <code>mq.server.[tag].queuename=GALASA.INPUT.QUEUE</code> |
-
-</details>
 
