@@ -83,7 +83,7 @@ public IMessageQueue queue2;
 public IMessageQueue queue3;
 ```
 
-You can also instantiate multiple queues on multiple queue managers:
+You can also instantiate multiple IBM MQ queues on multiple queue managers:
 
 ```java
 @QueueManager(tag = "DISTQMGR")
