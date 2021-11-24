@@ -8,6 +8,36 @@ title: "HTTP Client Manager"
 ## Overview
 This Manager provides a variety of common HTTP client                     operations you can use in your tests. For example, you                     can use this Manager in a test where you want to                     determine if a particular web page contains (or does not                     contain) some specific content. This is exactly how it is                     used in the <a href=                     "https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.docker.manager.ivt/src/main/java/dev/galasa/docker/manager/ivt/DockerManagerIVT.java"                     target="_blank" rel="noopener noreferrer"> Docker Manager                     IVT</a> (Installation Verification Test). As well as                     providing client functionality to people who write tests,                     it may also be used internally by other Managers to                     enrich their range of offered services.                      This Manager supports outbound HTTP calls, JSON requests,                     HTTP file transfer and Web Services calls. SSL is                     supported.                     You can view the <a href=                     "https://javadoc.galasa.dev/dev/galasa/http/package-summary.html"                     target="_blank" rel="noopener noreferrer">Javadoc                     documentation for the Manager here</a>. <br>                     <br>
 
+## Annotations
+
+The following annotations are available with the HTTP Client Manager:
+
+<details>
+<summary>HTTP Client Manager</summary>
+
+| Annotation: |HTTP Client Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @HttpClient |
+| Description: | The <code>@HttpClient</code> annotation specifies the name of the HTTP client |
+| Attribute: `archiveHeaders` |  Enables the request and response headers to be added to the RAS for each request that is made through the HTTP Client. Default value is _true_. Valid values are _true_ and _false_.     |
+| Syntax: | @HttpClient<br>public IHttpClient client;<br> |
+
+</details>
+## Annotations
+
+The following annotations are available with the HTTP Client Manager:
+
+<details>
+<summary>HTTP Client Manager</summary>
+
+| Annotation: |HTTP Client Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @HttpClient |
+| Description: | The <code>@HttpClient</code> annotation specifies the name of the HTTP client |
+| Attribute: `archiveHeaders` |  Enables the request and response headers to be added to the RAS for each request that is made through the HTTP Client. Default value is _true_. Valid values are _true_ and _false_.     |
+| Syntax: | @HttpClient<br>public IHttpClient client;<br> |
+
+</details>
 
 ## Code snippets
 
@@ -30,6 +60,17 @@ public IHttpClient client1;
 
 @HttpClient
 public IHttpClient client2;
+```
+
+</details>
+
+<details><summary>Archive request and response headers for an HTTP Client</summary>
+
+This code enables the request and response headers to be added to the RAS for each request that is made through the HTTP Client.
+
+```java
+@HttpClient(archiveHeaders = true)
+public IHttpClient client;
 ```
 
 </details>
@@ -92,6 +133,7 @@ The snippet begins by declaring `client` as before and `f`, an instance of `File
 The two streams `in` and `out` are declared and initialized and the data transferred from `in` to `out` in 2048 byte chunks, after which the output stream is flushed and then closed.
 
 </details>
+
 
 
 
