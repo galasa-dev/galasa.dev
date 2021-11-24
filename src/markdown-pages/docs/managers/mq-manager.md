@@ -63,7 +63,7 @@ The following snippet shows the code that is required to instantiate an IBM MQ q
 @QueueManager()
 public IMessageQueueManager qmgr;
 
-@Queue(archive = "true", name = "GALASA.INPUT.QUEUE")
+@Queue(archive = true, name = "GALASA.INPUT.QUEUE")
 public IMessageQueue queue;
 ```
 
@@ -73,14 +73,37 @@ You can just as simply instantiate multiple IBM MQ queues:
 @QueueManager()
 public IMessageQueueManager qmgr;
 
-@Queue(archive = "true", name = "GALASA.INPUT.QUEUE")
+@Queue(archive = true, name = "GALASA.INPUT.QUEUE")
 public IMessageQueue queue;
 	
-@Queue(archive = "false", name = "GALASA.INPUT.QUEUE2")
+@Queue(archive = false, name = "GALASA.INPUT.QUEUE2")
 public IMessageQueue queue2;
 	
 @Queue(tag = "NEWQUEUE")
 public IMessageQueue queue3;
+```
+</details>
+
+You can also instantiate multiple queues on multiple queue managers:
+
+```java
+@QueueManager(tag = "DISTQMGR")
+public IMessageQueueManager distributedQueueManager;
+
+@QueueManager(tag = "CLOUDQMGR")
+public IMessageQueueManager cloudQueueManager;
+	
+@Queue(archive = true, name = "GALASA.SEND.QUEUE1", queueMgrTag = "DISTQMGR")
+public IMessageQueue queue1;
+
+@Queue(archive = true, name = "GALASA.SEND.QUEUE2", queueMgrTag = "DISTQMGR")
+public IMessageQueue queue2;
+
+@Queue(archive = false, name = "GALASA.RECEIVE.QUEUE3", queueMgrTag = "CLOUDQMGR")
+public IMessageQueue queue3;
+	
+@Queue(archive = true, name = "GALASA.RECEIVE.QUEUE4", queueMgrTag = "CLOUDQMGR")
+public IMessageQueue queue4;
 ```
 </details>
 
@@ -148,12 +171,12 @@ This property is associated with the _@QueueManager_ annotation attribute `tag`.
 
 | Property: | Queue name for the tag CPS Property |
 | --------------------------------------- | :------------------------------------- |
-| Name: | mq.server.[tag].queuename |
+| Name: | mq.queue.[tag].queuename |
 | Description: | The queue name for the specified tag |
 | Required:  | Yes |
 | Default value: | None |
 | Valid values: |  |
-| Examples: | <code>mq.server.[tag].queuename=GALASA.INPUT.QUEUE</code> |
+| Examples: | <code>mq.queue.[tag].queuename=GALASA.INPUT.QUEUE</code> |
 
 This property is associated with the _@Queue_ annotation attribute `tag`. You can use the `tag` attribute to avoid hardcoding in your test code. Because the properties that are associated with the attribute are stored in the CPS, the same test can run against a different queue without changing the test code. 
 
