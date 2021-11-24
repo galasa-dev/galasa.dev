@@ -82,7 +82,6 @@ public IMessageQueue queue2;
 @Queue(tag = "NEWQUEUE")
 public IMessageQueue queue3;
 ```
-</details>
 
 You can also instantiate multiple queues on multiple queue managers:
 
