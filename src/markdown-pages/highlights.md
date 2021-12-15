@@ -13,7 +13,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.19.0 - Release Highlights
 
-- This release fixes the CVE-2021-44228 (Log4j 2.14 Vulnerability) by updating the dependency for Log4j to version 2.15. Galasa uses Log4j to log messages requested by a test class. In order for a Galasa test class to be exploited it must first access a malicious message and then choose to log that message. Within a test application this is very unlikely.
+- This release fixes the CVE-2021-44228 (Log4j 2.14 Vulnerability) by updating the dependency for Log4j to version 2.16. Galasa uses Log4j to log messages requested by a test class. In order for a Galasa test class to be exploited it must first access a malicious message and then choose to log that message. Within a test application this is very unlikely.
 - The Galasa MQ Manager is now in Alpha, providing the ability to connect a test to an existing IBM MQ queue manager, and enabling one or more messages to be written to and read from existing queues.
 - Various bug fixes and enhancements.
 - Various documentation updates, including MQ Manager documentation.
