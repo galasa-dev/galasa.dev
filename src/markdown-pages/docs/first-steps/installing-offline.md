@@ -31,7 +31,7 @@ Galasa tests and Managers are written in Java - you will need to install a Java 
 
 If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add plug-ins if and when you discover you need them.
 
-If you already have a version of Eclipse installed, it should be at the version codenamed Photon (released in June 2018) or later.  
+If you already have a version of Eclipse installed, it should be at the version codenamed Photon (released in June 2018) or later. _Note:_ The Java 17 JDK causes Galasa test runs to fail. We recommend using a Java 8, 11 or 16 JDK whilst we investigate this issue.
 
 ### Gradle 
 
@@ -57,10 +57,10 @@ Note: The example uses port `8080` but you can use a different port.
 ```
 docker load -i isolated.tar
 ``` 
-The following confirmation message is received: _Loaded image: galasadev/galasa-distribution:0.18.0_
+The following confirmation message is received: _Loaded image: galasadev/galasa-distribution:0.19.0_
 2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa galasadev/galasa-distribution:0.18.0
+docker run -d -p 8080:80 --name galasa galasadev/galasa-distribution:0.19.0
 ```
 3. Go to `http:\\hostname:8080` to view the running container. 
 

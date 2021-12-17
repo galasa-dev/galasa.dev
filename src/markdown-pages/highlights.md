@@ -11,10 +11,17 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.18.0 - Release Highlights
+## 0.19.0 - Release Highlights
+
+- The Galasa MQ Manager is now in Alpha, providing the ability to connect a test to an existing IBM MQ queue manager, and enabling one or more messages to be written to and read from existing queues.
+- Various bug fixes and enhancements.
+- Various documentation updates, including MQ Manager documentation.
+
+<details>
+<summary><b>0.18.0 - Release Highlights</b></summary>
 
 - Various bug fixes
-
+</details>
 
 <details>
 <summary><b>0.17.0 - Release Highlights</b></summary>
