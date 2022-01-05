@@ -123,8 +123,7 @@ The following are properties used to configure the zOS Program Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A comma separated list of one or more valid zOS data sets |
-| Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,\
-                                 TEAM.COPYBOOK</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,TEAM.COPYBOOK</code> |
 
 </details>
  
@@ -152,7 +151,6 @@ The following are properties used to configure the zOS Program Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A comma separated list of zOS data sets |
-| Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,\
-                              TEAM.LOADLIB</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,TEAM.LOADLIB</code> |
 
 </details>
