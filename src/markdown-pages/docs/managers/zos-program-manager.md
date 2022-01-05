@@ -91,66 +91,66 @@ The following are properties used to configure the zOS Program Manager.
 | Property: | zOS CICS data set Prefix |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosprogram.cics.[imageid].dataset.prefix |
-| Description: | zOS CICS data set prefix |
-| Required:  | Yes |
-| Default value: | None |
-| Valid values: | $validValues |
+| Description: |  The prefix of the CICS zOS data sets that contain load modules (SDFHLOAD) and source copybooks, macros, link SYSIN (SDFHC370, SDFHCOB, SDFHPL1, SDFHMAC, SDFHSAMP) that are used in program compile and link JCL. |
+| Required:  | Yes, for CICS programs only. The property is not used in non CICS programs |
+| Default value: | 'CICS' |
+| Valid values: | A comma separated list of one or more valid zOS data set prefixes |
 | Examples: | <code>zosprogram.cics.MVSA.dataset.prefix=CICS</code><br> <code>zosprogram.cics.default.dataset.prefix=SYS1,CICS</code> |
 
 </details>
  
 <details>
-<summary>zOS LanguageExtended Environment data set prefix</summary>
+<summary>zOS Language Environment data set prefix</summary>
 
-| Property: | zOS LanguageExtended Environment data set prefix |
+| Property: | zOS Language Environment data set prefix |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosprogram.le.[imageid].dataset.prefix |
-| Description: | zOS LanguageExtended Environment data set prefix |
+| Description: | The prefix of the Language Environment zOS data sets that contain load modules (SCEERUN, SCEERUN2) and source copybooks, macros, link SYSIN etc (SCEESAMP) that are used in program compile and link JCL. |
 | Required:  | Yes |
-| Default value: | None |
-| Valid values: | $validValues |
+| Default value: | 'CEE' |
+| Valid values: | A comma separated list of one or more valid zOS data set prefixess |
 | Examples: | <code>zosprogram.le.MVSA.dataset.prefix=CEE</code><br> <code>zosprogram.le.dataset.prefix=SYS1.LE,CEE</code> |
 
 </details>
  
 <details>
-<summary>zOS Program LanguageExtended specific custom compile syslibs</summary>
+<summary>zOS Program Language compile SYSLIBs</summary>
 
-| Property: | zOS Program LanguageExtended specific custom compile syslibs |
+| Property: | zOS Program Language compile SYSLIBs |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosprogram.[language].[imageid].compile.syslibs |
-| Description: | zOS Program LanguageExtended data set prefix |
+| Description: | The site specific and language specific (COBOL, C, PL1, ASSEMBLER) custom zOS data sets that contain source copybooks and macros that are used in the compile SYSLIB concatenation in the zOS program compile and link JCL. |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A comma separated list of one or more valid zOS data sets |
 | Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,TEAM.COPYBOOK</code> |
 
 </details>
  
 <details>
-<summary>zOS Program LanguageExtended data set prefix</summary>
+<summary>zOS Program Language data set prefix</summary>
 
-| Property: | zOS Program LanguageExtended data set prefix |
+| Property: | zOS Program Language data set prefix |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosprogram.[language].[imageid].dataset.prefix |
-| Description: | zOS Program LanguageExtended data set High Level Qualifier |
-| Required:  | Yes |
+| Description: | The prefix of the language specific zOS data sets that contain STEPLIB load modules that are used in program compile and link JCL, for example, in COBOL - SIGYCOMP, in C - SCCNCMP, in PL1 - SIBMZCMP |
+| Required:  | An entry is required for each language used, for example, COBOL, C, PL1, ASSEMBLER |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A comma separated list of one or more valid zOS data set prefixes |
 | Examples: | <code>zosprogram.cobol.MVSA.dataset.prefix=IGY.V6R3M0</code><br> <code>zosprogram.cobol.dataset.prefix=SYS1.COBIL,IGY.V6R3M0</code> |
 
 </details>
  
 <details>
-<summary>zOS Program LanguageExtended specific custom link syslibs</summary>
+<summary>zOS Program Language link SYSLIBs</summary>
 
-| Property: | zOS Program LanguageExtended specific custom link syslibs |
+| Property: | zOS Program Language link SYSLIBs |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosprogram.[language].[imageid].link.syslibs |
-| Description: | zOS Program LanguageExtended data set prefix |
+| Description: | The site specific and language specific (COBOL, C, PL1, ASSEMBLER) custom zOS data sets that contain load modules that are used in the link SYSLIB concatenation in the zOS program compile and link JCL. |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A comma separated list of zOS data sets |
 | Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,TEAM.LOADLIB</code> |
 
 </details>
