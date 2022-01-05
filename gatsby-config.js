@@ -6,8 +6,8 @@ const consts = {
   twitterUrl: "https://twitter.com/galasa_dev",
   slackUrl: "https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA",
   algolia: {
-    appId: "BH4D9OD16A",
-    apiKey: "27908f168baedd02638b964a96b84986",
+    appId: "0CBS2VLS6S",
+    apiKey: "46b619eff7e9e3900835e17fc7aa880b",
     indexName: "galasa",
   },
 }
