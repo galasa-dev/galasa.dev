@@ -6,7 +6,7 @@ title: "zOS Program Manager"
 **ALPHA - This Manager is being actively developed. It is subject to change and has not been extensively tested.**
 
 ## Overview
-This Manager allows Galasa tests to compile and link zOS Programs.<br><br>  The <code>@ZosProgram</code> annotation defines the program to the Galasa test. Program attributes, for example, program name, programming language and source location are specified by using the annotation  elements. <br><br> The source for the program is stored as a resource, along with the test. The z/OS Program Manager processes  each <code>@ZosProgram</code> annotation before any of the test methods are executed. The Manager  retrieves the source from the test bundle, builds and submits the relevant compile and link JCL based on  the programs attributes and CPS properties. The batch job is saved with the test run archive. The  program can be executed in the test by retrieving the library containing the load module by using  the <code>getLoadLibrary()</code> method. <br><br>  The Simbank tutorial <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a>BatchAccountsOpenTest  contains an example of running a simulated z/OS program called SIMBANK by using the <code>EXEC PGM=SIMBANK</code> command. <br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>. <br><br>
+This Manager allows Galasa tests to compile and link zOS Programs.<br><br>  The <code>@ZosProgram</code> annotation defines the program to the Galasa test. Program attributes, for example, program name, programming language and source location are specified by using the annotation  elements. <br><br> The source for the program is stored as a resource, along with the test. The z/OS Program Manager processes  each <code>@ZosProgram</code> annotation before any of the test methods are executed. The Manager  retrieves the source from the test bundle, builds and submits the relevant compile and link JCL based on  the programs attributes and CPS properties. The batch job is saved with the test run archive. The  program can be executed in the test by retrieving the library containing the load module by using  the <code>getLoadLibrary()</code> method. <br><br>  The Simbank tutorial <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a> contains an example of running a simulated z/OS program called SIMBANK by using the <code>EXEC PGM=SIMBANK</code> command. <br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>. <br><br>
 
 
 ## Annotations
@@ -123,7 +123,8 @@ The following are properties used to configure the zOS Program Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A comma separated list of one or more valid zOS data sets |
-| Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,TEAM.COPYBOOK</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.compile.syslibs=TEAM.COPYBOOK</code><br> <code>zosprogram.cobol.compile.syslibs=COMPANY.COPYBOOK,\
+                                 TEAM.COPYBOOK</code> |
 
 </details>
  
@@ -137,7 +138,7 @@ The following are properties used to configure the zOS Program Manager.
 | Required:  | An entry is required for each language used, for example, COBOL, C, PL1, ASSEMBLER |
 | Default value: | None |
 | Valid values: | A comma separated list of one or more valid zOS data set prefixes |
-| Examples: | <code>zosprogram.cobol.MVSA.dataset.prefix=IGY.V6R3M0</code><br> <code>zosprogram.cobol.dataset.prefix=SYS1.COBIL,IGY.V6R3M0</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.dataset.prefix=IGY.V6R3M0</code><br> <code>zosprogram.cobol.dataset.prefix=SYS1.COBOL,IGY.V6R3M0</code> |
 
 </details>
  
@@ -151,6 +152,7 @@ The following are properties used to configure the zOS Program Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A comma separated list of zOS data sets |
-| Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,TEAM.LOADLIB</code> |
+| Examples: | <code>zosprogram.cobol.MVSA.link.syslibs=TEAM.LOADLIB</code><br> <code>zosprogram.cobol.link.syslibs=COMPANY.LOADLIB,\
+                              TEAM.LOADLIB</code> |
 
 </details>
