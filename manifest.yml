@@ -5,7 +5,7 @@ applications:
   instances: 2
   path: ../site
   buildpacks:
-  - https://github.com/cloudfoundry/staticfile-buildpack#v1.4.43
+  - https://github.com/cloudfoundry/staticfile-buildpack#v1.5.28
   routes:
   - route: ((geo-route))
   - route: galasa.dev
