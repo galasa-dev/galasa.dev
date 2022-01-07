@@ -16,13 +16,13 @@ import {
   level2List,
 } from "./sidebar.module.scss"
 
-const Level1Item = props => {
+const Level1Item = (props) => {
   const { item, rootElement = false } = props
 
   let itemComps = null
   if (!rootElement) {
     itemComps = item.items
-      ? item.items.map(subItem => (
+      ? item.items.map((subItem) => (
           <Level2Item key={subItem.title} item={subItem} />
         ))
       : []

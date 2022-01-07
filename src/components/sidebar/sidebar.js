@@ -56,7 +56,9 @@ const Sidebar = () => {
     let sectionEnd = normalisedPath.indexOf("/", 1)
     if (sectionEnd === -1) sectionEnd = normalisedPath.length
     const sectionPath = normalisedPath.substring(0, sectionEnd)
-    return sections.find(section => normalisePath(section.root) === sectionPath)
+    return sections.find(
+      (section) => normalisePath(section.root) === sectionPath
+    )
   }
 
   function getTitle(location) {
@@ -82,7 +84,7 @@ const Sidebar = () => {
   }
 
   function getItemComponents(sectionItem, location) {
-    return sectionItem.items.map(item => (
+    return sectionItem.items.map((item) => (
       <Level1Item key={item.title} item={item} />
     ))
   }
@@ -139,7 +141,7 @@ const searchNavPath = (item, path) => {
     return true
   }
   if (item.items) {
-    return item.items.find(subItem => searchNavPath(subItem, path))
+    return item.items.find((subItem) => searchNavPath(subItem, path))
   }
 }
 
