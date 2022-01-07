@@ -10,8 +10,23 @@ import GitHubSVG from "../../images/github.inline.svg"
 import Identifier from "../identifier"
 import { isSelectedSection } from "../../utils/section"
 import { SearchOnNonLocal } from "../search"
-
-import headerStyles from "./header.module.scss"
+import {
+  selected,
+  header,
+  openMenu,
+  extraMobileHeight,
+  title,
+  navContainer,
+  navContainerMainTitles,
+  navLink,
+  footerRepeatedLinks,
+  footerRepeatedLink,
+  navContainerIcons,
+  icon,
+  closeX,
+  image,
+  hamburger,
+} from "./header.module.scss"
 
 const Header = ({ extraHeight }) => {
   const {
@@ -54,93 +69,77 @@ const Header = ({ extraHeight }) => {
       {({ location }) => {
         const selector = (section, location) => {
           return isSelectedSection(section, location)
-            ? headerStyles.selected + " selected"
+            ? selected + " selected"
             : ""
         }
 
         return (
           <header
             className={
-              headerStyles.header +
+              header +
               " " +
-              (menuOpen ? headerStyles.openMenu : "") +
+              (menuOpen ? openMenu : "") +
               " " +
-              (extraHeight ? headerStyles.extraMobileHeight : "")
+              (extraHeight ? extraMobileHeight : "")
             }
           >
-            <h1 className={headerStyles.title}>
+            <h1 className={title}>
               <Identifier id="header-identifier" />
             </h1>
-            <nav
-              ref={navContainerNode}
-              className={headerStyles.navContainer}
-              id="headerNav"
-            >
-              <div className={headerStyles.navContainerMainTitles}>
+            <nav ref={navContainerNode} className={navContainer} id="headerNav">
+              <div className={navContainerMainTitles}>
                 <Link
                   id="header-about"
                   to="/about"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("about", location)
-                  }
+                  className={navLink + " " + selector("about", location)}
                 >
                   About
                 </Link>
                 <Link
                   to="/docs"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("docs", location)
-                  }
+                  className={navLink + " " + selector("docs", location)}
                 >
                   Docs
                 </Link>
                 <Link
                   to="/releases"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("releases", location)
-                  }
+                  className={navLink + " " + selector("releases", location)}
                 >
                   Releases
                 </Link>
                 <Link
                   to="/support"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("support", location)
-                  }
+                  className={navLink + " " + selector("support", location)}
                 >
                   Support
                 </Link>
                 <Link
                   to="/community"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("community", location)
-                  }
+                  className={navLink + " " + selector("community", location)}
                 >
                   Community
                 </Link>
                 <Link
                   to="/hub"
                   onClick={() => setMenuOpen(false)}
-                  className={
-                    headerStyles.navLink + " " + selector("hub", location)
-                  }
+                  className={navLink + " " + selector("hub", location)}
                 >
                   Hub
                 </Link>
-                <div className={headerStyles.footerRepeatedLinks}>
+                <div className={footerRepeatedLinks}>
                   <a
-                    className={headerStyles.footerRepeatedLink}
+                    className={footerRepeatedLink}
                     href="https://www.ibm.com/privacy/us/en/"
                   >
                     Privacy policy
                   </a>
                   <a
-                    className={headerStyles.footerRepeatedLink}
+                    className={footerRepeatedLink}
                     href="https://www.ibm.com/legal"
                   >
                     Terms of use
@@ -148,9 +147,9 @@ const Header = ({ extraHeight }) => {
                 </div>
               </div>
               <SearchOnNonLocal />
-              <div className={headerStyles.navContainerIcons}>
+              <div className={navContainerIcons}>
                 <a
-                  className={headerStyles.icon}
+                  className={icon}
                   href={githubOrgUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -159,17 +158,11 @@ const Header = ({ extraHeight }) => {
                 </a>
               </div>
             </nav>
-            <div
-              className={headerStyles.closeX}
-              onClick={() => setMenuOpen(false)}
-            >
-              <Cross className={headerStyles.image} />
+            <div className={closeX} onClick={() => setMenuOpen(false)}>
+              <Cross className={image} />
             </div>
-            <div
-              className={headerStyles.hamburger}
-              onClick={() => setMenuOpen(true)}
-            >
-              <Hamburger className={headerStyles.image} />
+            <div className={hamburger} onClick={() => setMenuOpen(true)}>
+              <Hamburger className={image} />
             </div>
           </header>
         )

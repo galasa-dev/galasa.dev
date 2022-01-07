@@ -1,11 +1,17 @@
 /* Copyright contributors to the Galasa project */
 
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description = "", lang = "en", meta = [], title }) {
+interface PropTypes {
+  description: string,
+  lang: string,
+  meta: HTMLMetaElement[]
+  title: string,
+}
+
+const SEO = ({ description = "", lang = "en", meta = [], title }: PropTypes) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -62,13 +68,6 @@ function SEO({ description = "", lang = "en", meta = [], title }) {
       ].concat(meta)}
     />
   )
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO

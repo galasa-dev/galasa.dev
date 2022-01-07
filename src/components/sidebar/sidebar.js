@@ -7,10 +7,20 @@ import { normalisePath } from "../../utils/path"
 import Toc from "../../images/toc.inline.svg"
 import Cross from "../../images/cross.inline.svg"
 
-import sidebarStyles from "./sidebar.module.scss"
+import {
+  sidebarHeader,
+  sideBarHeaderSeparator,
+  sideBarHeaderCurrentTopic,
+  navBlock,
+  openMenu,
+  toc,
+  topicsHeader,
+  cross,
+  level1List,
+} from "./sidebar.module.scss"
 import Level1Item from "./level-1-item"
 
-export default () => {
+const Sidebar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   // Close menu when navigation (PUSH or POP) occurs
@@ -82,9 +92,9 @@ export default () => {
       {({ location }) => {
         const sectionItem = getSection(location)
         return (
-          <nav id="sidebar" className={sidebarStyles.nav}>
+          <nav id="sidebar">
             {sectionItem && (
-              <h1 className={sidebarStyles.sidebarHeader}>
+              <h1 className={sidebarHeader}>
                 <div>
                   <Link
                     id={"sidebar-title-" + sectionItem.root}
@@ -92,39 +102,21 @@ export default () => {
                   >
                     {sectionItem.title}
                   </Link>
-                  <span className={sidebarStyles.sideBarHeaderSeparator}>
-                    {" "}
-                    ::
-                  </span>
+                  <span className={sideBarHeaderSeparator}> ::</span>
                 </div>
-                <span className={sidebarStyles.sideBarHeaderCurrentTopic}>
+                <span className={sideBarHeaderCurrentTopic}>
                   {getTitle(location)}
                 </span>
               </h1>
             )}
-            <div
-              className={
-                sidebarStyles.navBlock +
-                " " +
-                (menuOpen ? sidebarStyles.openMenu : "")
-              }
-            >
-              <Toc
-                className={sidebarStyles.toc}
-                onClick={() => setMenuOpen(true)}
-              />
-              <div
-                className={sidebarStyles.topicsHeader}
-                onClick={() => setMenuOpen(true)}
-              >
+            <div className={navBlock + " " + (menuOpen ? openMenu : "")}>
+              <Toc className={toc} onClick={() => setMenuOpen(true)} />
+              <div className={topicsHeader} onClick={() => setMenuOpen(true)}>
                 Topics
               </div>
-              <Cross
-                className={sidebarStyles.cross}
-                onClick={() => setMenuOpen(false)}
-              />
+              <Cross className={cross} onClick={() => setMenuOpen(false)} />
               {sectionItem && (
-                <ul className={sidebarStyles.level1List}>
+                <ul className={level1List}>
                   {getItemComponents(sectionItem, location)}
                 </ul>
               )}
@@ -150,3 +142,5 @@ const searchNavPath = (item, path) => {
     return item.items.find(subItem => searchNavPath(subItem, path))
   }
 }
+
+export default Sidebar
