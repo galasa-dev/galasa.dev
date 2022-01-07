@@ -96,12 +96,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: `@danbruegge/gatsby-plugin-stylelint`,
-      options: {
-        files: ["**/*.{css,s(a|c)ss}"],
-      },
-    },
     `gatsby-plugin-catch-links`,
     `gatsby-transformer-yaml`,
     {

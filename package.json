@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
-    "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
     "@types/react-helmet": "^6.1.5",
     "babel-preset-gatsby": "^2.4.0",
     "eslint": "^7.32.0",
