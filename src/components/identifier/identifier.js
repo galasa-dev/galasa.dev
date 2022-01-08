@@ -2,7 +2,7 @@
 
 import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
-import identifierStyles from "./identifier.module.scss"
+import { identifier, image } from "./identifier.module.scss"
 import IdentifierSVG from "../../images/identifier.inline.svg"
 
 const Identifier = ({ id = "identifier" }) => {
@@ -21,8 +21,8 @@ const Identifier = ({ id = "identifier" }) => {
   `)
 
   return (
-    <Link id={id} className={identifierStyles.identifier} to="/">
-      <IdentifierSVG className={identifierStyles.image} />
+    <Link id={id} className={identifier} to="/">
+      <IdentifierSVG className={image} />
       {siteTitle}
     </Link>
   )

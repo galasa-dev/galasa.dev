@@ -8,15 +8,21 @@ import { isInNavPath } from "./sidebar"
 
 import Level2Item from "./level-2-item"
 
-import sidebarStyles from "./sidebar.module.scss"
+import {
+  level1Item,
+  level1Marker,
+  level1MarkerSelected,
+  markerInNavPath,
+  level2List,
+} from "./sidebar.module.scss"
 
-export default props => {
+const Level1Item = (props) => {
   const { item, rootElement = false } = props
 
   let itemComps = null
   if (!rootElement) {
     itemComps = item.items
-      ? item.items.map(subItem => (
+      ? item.items.map((subItem) => (
           <Level2Item key={subItem.title} item={subItem} />
         ))
       : []
@@ -28,7 +34,7 @@ export default props => {
         <li
           id={"sidebar-l1-" + item.path}
           className={
-            sidebarStyles.level1Item +
+            level1Item +
             " " +
             "sidebar-l1" +
             " " +
@@ -37,24 +43,26 @@ export default props => {
         >
           <div
             className={
-              sidebarStyles.level1Marker +
+              level1Marker +
               " " +
               (isSamePath(location.pathname, item.path)
-                ? sidebarStyles.level1MarkerSelected + " selected"
+                ? level1MarkerSelected + " selected"
                 : "") +
               " " +
               (isInNavPath(item, location)
-                ? sidebarStyles.markerInNavPath + " markerInNavPath"
+                ? markerInNavPath + " markerInNavPath"
                 : "")
             }
           >
             <Link to={item.path}>{item.title}</Link>
           </div>
           {itemComps && itemComps.length > 0 && (
-            <ul className={sidebarStyles.level2List}>{itemComps}</ul>
+            <ul className={level2List}>{itemComps}</ul>
           )}
         </li>
       )}
     </Location>
   )
 }
+
+export default Level1Item

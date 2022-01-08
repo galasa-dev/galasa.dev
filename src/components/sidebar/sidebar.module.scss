@@ -272,7 +272,7 @@ $selectedPositionRight: -7px;
     a {
       position: relative;
       padding: -($selectedPositionRight) 1rem;
-      border-radius: $lozenge-width / 2;
+      border-radius: $lozenge-width * 0.5;
       transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
     }
   }

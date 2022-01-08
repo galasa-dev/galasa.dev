@@ -8,17 +8,23 @@ import Footer from "../footer"
 import Sidebar from "../sidebar"
 
 import "./global-layout.scss"
-import layoutStyles from "./layout.module.scss"
+import {
+  frontMain,
+  generalMain,
+  docNav,
+  globalStyle,
+  container,
+} from "./layout.module.scss"
 
 const Layout = ({ children, location: { pathname } }) => {
   const frontPage = pathname === "/"
   const extraHeightHeader = !frontPage
   const content = frontPage ? (
-    <main className={layoutStyles.frontMain}>{children}</main>
+    <main className={frontMain}>{children}</main>
   ) : (
     <>
-      <main className={layoutStyles.generalMain}>
-        <div className={layoutStyles.docNav}>
+      <main className={generalMain}>
+        <div className={docNav}>
           <Sidebar />
         </div>
         {children}
@@ -41,10 +47,10 @@ const Layout = ({ children, location: { pathname } }) => {
           href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
           rel="stylesheet"
         />
-        <html className={layoutStyles.globalStyle} />
+        <html className={globalStyle} />
         <body />
       </Helmet>
-      <div className={layoutStyles.container}>
+      <div className={container}>
         <Header extraHeight={extraHeightHeader} />
         {content}
         <Footer />

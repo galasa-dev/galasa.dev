@@ -4,7 +4,13 @@ import { Link } from "gatsby"
 import KeyFeature from "../components/key-feature"
 import SEO from "../components/seo"
 
-import indexStyles from "./index.module.scss"
+import {
+  heroContainer,
+  heroDescription,
+  heroButtons,
+  heroTitle,
+  keyFeatureContainer,
+} from "./index.module.scss"
 import Button from "../components/button"
 
 const keyFeatures = [
@@ -85,33 +91,37 @@ const keyFeatures = [
 const IndexPage = () => (
   <>
     <SEO title="Home" />
-    <div className={indexStyles.heroContainer}>
+    <div className={heroContainer}>
       <div>
-        <h1 className={indexStyles.heroTitle}>
+        <h1 className={heroTitle}>
           Deep integration testing for z/OS powered hybrid cloud applications
         </h1>
-        <p className={indexStyles.heroDescription}>
+        <p className={heroDescription}>
           Allowing you to test applications at scale regardless of platform -
           including z/OS
         </p>
         <br></br>
-        <div className={indexStyles.heroButtons}>
-          <Button target={"/docs/getting-started"} flash={true} primary={true}>
+        <div className={heroButtons}>
+          <Button
+            target={"/docs/getting-started"}
+            flash={true}
+            isPrimary={true}
+          >
             Get Started
           </Button>
-          <Button target={"/about"} flash={true} primary={true}>
+          <Button target={"/about"} flash={true} isPrimary={true}>
             Learn more
           </Button>
-          <Button target={"/releases"} flash={true} primary={true}>
+          <Button target={"/releases"} flash={true} isPrimary={true}>
             0.19.0 highlights
           </Button>
         </div>
       </div>
     </div>
-    <div className={indexStyles.keyFeatureContainer}>
+    <div className={keyFeatureContainer}>
       {keyFeatures.map((item, i) => {
         return (
-          <KeyFeature title={item.title} index={i}>
+          <KeyFeature title={item.title} index={i} key={i}>
             {item.body}
           </KeyFeature>
         )
