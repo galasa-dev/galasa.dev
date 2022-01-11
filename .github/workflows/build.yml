@@ -87,8 +87,7 @@ jobs:
         run: cp -av repo/cf/. site/
 
       - name: Deploy to IBM Cloud
-        # uses: IBM/cloudfoundry-deploy@v2.0
-        uses: ind1go/cloudfoundry-deploy@vars-file
+        uses: IBM/cloudfoundry-deploy@v2.1
         with:
           IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
           IBM_CLOUD_CF_API: ${{ matrix.region.api }}

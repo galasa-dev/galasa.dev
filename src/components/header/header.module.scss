@@ -128,7 +128,7 @@ a.navLink {
       height: $lozenge-height;
       top: 0 - $navLink-margin-top - $lozenge-height;
       position: absolute;
-      border-radius: $lozenge-height / 2;
+      border-radius: $lozenge-height * 0.5;
       transition-property: top, opacity;
       transition-duration: 0.1s, 0.4s;
       transition-timing-function: ease-in-out;
@@ -137,14 +137,14 @@ a.navLink {
 
   &.selected {
     &::after {
-      top: 0 - $navLink-margin-top - ($lozenge-height / 2);
+      top: 0 - $navLink-margin-top - ($lozenge-height * 0.5);
       opacity: 1;
     }
   }
 
   &:hover {
     &::after {
-      top: 0 - $navLink-margin-top - ($lozenge-height / 2);
+      top: 0 - $navLink-margin-top - ($lozenge-height * 0.5);
     }
   }
 

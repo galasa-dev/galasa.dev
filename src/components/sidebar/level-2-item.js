@@ -6,9 +6,14 @@ import { Location } from "@reach/router"
 import { isSamePath } from "../../utils/path"
 import { isInNavPath } from "./sidebar"
 
-import sidebarStyles from "./sidebar.module.scss"
+import {
+  level2Item,
+  level2Marker,
+  level2MarkerSelected,
+  markerInNavPath,
+} from "./sidebar.module.scss"
 
-export default props => {
+const Level2Item = (props) => {
   const item = props.item
 
   return (
@@ -17,7 +22,7 @@ export default props => {
         <li
           id={"sidebar-l2-" + item.path}
           className={
-            sidebarStyles.level2Item +
+            level2Item +
             " " +
             "sidebar-l2" +
             " " +
@@ -26,14 +31,14 @@ export default props => {
         >
           <div
             className={
-              sidebarStyles.level2Marker +
+              level2Marker +
               " " +
               (isSamePath(location.pathname, item.path)
-                ? sidebarStyles.level2MarkerSelected + " selected"
+                ? level2MarkerSelected + " selected"
                 : "") +
               " " +
               (isInNavPath(item, location)
-                ? sidebarStyles.markerInNavPath + " markerInNavPath"
+                ? markerInNavPath + " markerInNavPath"
                 : "")
             }
           >
@@ -44,3 +49,5 @@ export default props => {
     </Location>
   )
 }
+
+export default Level2Item
