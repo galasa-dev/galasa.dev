@@ -32,7 +32,7 @@ npm run serve
 
 ## Contributing
 
-Take a look at the [contribution guidelines](https://github.com/galasa-dev/projectmanagement/blob/master/contributing.md).
+Take a look at the [contribution guidelines](https://github.com/galasa-dev/projectmanagement/blob/main/contributing.md).
 
 Any changes to the documentation should be contributed as pull requests:
 
