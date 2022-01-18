@@ -3,18 +3,19 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import buttonStyles from "./button.module.scss"
+import {
+  buttonContainer,
+  button,
+  primary,
+  secondary,
+} from "./button.module.scss"
 
-const Button = ({ target, children, flash = false, primary = false }) => {
+const Button = ({ target, children, flash = false, isPrimary = false }) => {
   return (
-    <div className={buttonStyles.buttonContainer}>
+    <div className={buttonContainer}>
       <Link
         to={target}
-        className={
-          buttonStyles.button +
-          " " +
-          (primary ? buttonStyles.primary : buttonStyles.secondary)
-        }
+        className={button + " " + (isPrimary ? primary : secondary)}
       >
         {children}
       </Link>

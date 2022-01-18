@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet"
 import { Link, useStaticQuery, graphql, navigate } from "gatsby"
 
 import SearchIcon from "../../images/search.inline.svg"
-import searchStyles from "./search.module.scss"
+import { button } from "./search.module.scss"
 
 let DocSearchModal = null;
 
@@ -27,7 +27,7 @@ const DocSearchButton = forwardRef<HTMLButtonElement, DocSearchButtonProps>(
         ref={ref}
         type="button"
         aria-label="Search"
-        className={`${searchStyles.button}`}
+        className={`${button}`}
         {...props}
       >
         <SearchIcon />
