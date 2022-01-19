@@ -72,7 +72,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 <details>
 <summary><b>0.14.0 - Release Highlights</b></summary>
 
-- <a href="https://github.com/galasa-dev/managers/tree/master/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zosconsole.oeconsol.manager" target="_blank"> z/OS Console oeconsol Manager</a> is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command. 
+- <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zosconsole.oeconsol.manager" target="_blank"> z/OS Console oeconsol Manager</a> is now in Alpha, providing an implementation of the z/OS Console by using the z/OS UNIX oeconsol command. 
 - Enhanced Docker functionality, including volumes and custom start up configurations
 - CPS restore from file functionality. Use the ```--restorecps``` command-line parameter when initialising the framework to trigger the restore CPS functionality.  Specify the file to restore from by using ```-f``` or ```--file```  in the KVP format  ```(<property>=<value>)```, with one new property per line.
 - ```@ContinueOnTestFailure``` annotation. Use the annotation in the test class or switch the same functionality on globally by using the CPS property ```framework.continue.on.test.failure=true```.
@@ -116,7 +116,7 @@ These settings assume a zOS/MF server on MV2D and the port overridden from `443`
 <details>
 <summary><b>0.11.0 - Release Highlights</b></summary>
 
-- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/blob/master/galasa-ecosystem-kubernetes-operator) for more information.  
+- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/blob/main/galasa-ecosystem-kubernetes-operator) for more information.  
 - z/OS 3270 improvements and fixes, including support for NEGTSECURE ports and for z/VM (TN3270)
 - Various bug fixes
 - Documentation updates - Galasa Ecosystem - overview, architecture and Docker operator installation guide, documentation improvements
@@ -126,7 +126,7 @@ These settings assume a zOS/MF server on MV2D and the port overridden from `443`
 <summary><b>0.10.0 - Release Highlights</b></summary>
 
 - z/OS Program Manager is now in Alpha
-- Docker Operator is now in Alpha. The Docker Operator creates Galasa ecosystems in Docker, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/tree/master/galasa-extensions-parent/dev.galasa.docker.operator) for more information.  
+- Docker Operator is now in Alpha. The Docker Operator creates Galasa ecosystems in Docker, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/galasa-docker-operator) for more information.  
 - Various bug fixes
 - Documentation updates - upgrading and z/OS Program Manager
 </details>
