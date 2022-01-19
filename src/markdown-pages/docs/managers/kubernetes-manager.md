@@ -40,9 +40,9 @@ Note: Isolated namespaces must be provided for the Kubernetes Manager to use.  T
 exist on the namespace once a test has finished.
 
 The following are example scripts and yaml files necessary to create namespaces:
-1. [Namespace creation script](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/namespaces.yaml)
-1. [Create Service Account for the Manager to use (including api token)](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/account.sh)
-1. [The RBAC rules to be applied to each namespace](https://github.com/galasa-dev/managers/blob/master/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/rbac.yaml)
+1. [Namespace creation script](https://github.com/galasa-dev/managers/blob/main/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/namespaces.yaml)
+1. [Create Service Account for the Manager to use (including api token)](https://github.com/galasa-dev/managers/blob/main/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/account.sh)
+1. [The RBAC rules to be applied to each namespace](https://github.com/galasa-dev/managers/blob/main/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.kubernetes.manager/examples/rbac.yaml)
 </details>
 
 <details><summary>Obtain a Kubernetes Namespace</summary>
