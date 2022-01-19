@@ -1,6 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
-import layoutStyles from "./docTemplate.module.scss"
+import {
+  metaFooter,
+  editLink,
+  editIcon,
+  docWrapper,
+  docContent,
+  topicTitle,
+  docPostContent,
+} from "./docTemplate.module.scss"
 import SEO from "../components/seo"
 import GitHubSVG from "../images/github.inline.svg"
 
@@ -16,12 +24,12 @@ export default function Template({
   pageContext: { repoRelativePath },
 }) {
   const MarkdownPageFooter = ({ repoRelativePath }) => (
-    <div className={layoutStyles.metaFooter}>
+    <div className={metaFooter}>
       <a
-        className={layoutStyles.editLink}
+        className={editLink}
         href={`${buildRepoUrl}/blob/${buildBranch}/${repoRelativePath}`}
       >
-        <GitHubSVG className={layoutStyles.editIcon} /> Edit this page on GitHub
+        <GitHubSVG className={editIcon} /> Edit this page on GitHub
       </a>
     </div>
   )
@@ -29,11 +37,11 @@ export default function Template({
   return (
     <>
       <SEO title={frontmatter.title} />
-      <div className={layoutStyles.docWrapper}>
-        <div className={layoutStyles.docContent}>
-          <h1 className={layoutStyles.topicTitle}>{frontmatter.title}</h1>
+      <div className={docWrapper}>
+        <div className={docContent}>
+          <h1 className={topicTitle}>{frontmatter.title}</h1>
           <div
-            className={layoutStyles.docPostContent}
+            className={docPostContent}
             dangerouslySetInnerHTML={{ __html: html }}
           />
           <MarkdownPageFooter repoRelativePath={repoRelativePath} />
@@ -44,7 +52,7 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     site {
       siteMetadata {
         consts {

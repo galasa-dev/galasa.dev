@@ -20,6 +20,15 @@ const buildRepoSlug = process.env.PR_REPO_SLUG || process.env.BASE_REPO_SLUG || 
 consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
 consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "main"
 
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  "node_modules",
+  "gatsby",
+  "dist",
+  "utils",
+  "eslint-rules"
+);
+
 const eslintOptions = process.env.CI === `true` ? {
   failOnError: true,
   failOnWarning: true,
@@ -72,8 +81,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
+        rulePaths: [gatsbyRequiredRules],
         stages: ['develop', 'build-javascript'],
-        options: eslintOptions,
+        ...eslintOptions,
       }
     },
     `gatsby-plugin-react-helmet`,
@@ -86,12 +96,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: `@danbruegge/gatsby-plugin-stylelint`,
-      options: {
-        files: ["**/*.{css,s(a|c)ss}"],
-      },
-    },
     `gatsby-plugin-catch-links`,
     `gatsby-transformer-yaml`,
     {
