@@ -14,7 +14,7 @@ If you are looking to create a local proof of concept, you might want to first i
 - The Kubernetes command-line tool **kubectl** must be installed on the machine that is used to deploy the operator and must be configured to point at your Kubernetes cluster. 
 - You must have a Kubernetes cluster at version 1.16 or higher. You can check the version number by running the ```kubectl version``` command.  
 
-## About the Kubernetes Operator kubectl apply -f role_binding.yaml
+## About the Kubernetes Operator 
 
 Like the Docker Operator, the Kubernetes Operator installs the Galasa Ecosystem, but in addition, it also maintains the state of the ecosystem and the services it brings up. 
 
@@ -24,14 +24,14 @@ The Kubernetes Operator requires a high privilege level, so for security reasons
 
 ## Installing the Galasa Ecosystem in a Kubernetes cluster 
 
-You must install the operator by using the *release.yaml* that is provided in the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/tree/main/releases/0.18.1 target="_blank"> repository</a> in GitHub. This repository contains the YAML that is required to define the custom resource definition object, service account, role, and role binding that the operator needs to perform work.
+You must install the operator by using the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/tree/main/releases/0.18.1 target="_blank">release.yaml </a> that is provided in the *galasa-kubernetes-operator* repository in GitHub. This repository contains the YAML that is required to define the custom resource definition object, service account, role, and role binding that the operator needs to perform work.
 
 Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster. 
 Note that the examples use a relative path - check that you use the correct file path for your configuration.
 
 ## Installing the Operator
 
-1. For a basic install that creates a namespace called *galasa* and installs the operator and relevant ecosystem CRD's, use the following command: 
+1. For a basic install that creates a namespace that is called *galasa* and installs the operator and relevant ecosystem CRD's, use the following command: 
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/galasa-dev/galasa-kubernetes-operator/main/releases/0.18.1/release.yaml
@@ -61,12 +61,12 @@ The operator and custom resource definitions are now installed and ready to brin
 Install the ecosystem by using the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank">basic.yaml</a> sample that is provided with Galasa.
 
 1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
-2. Update any other default configurations that are required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number. Take a look at the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank"> basic.yaml</a> sample for some examples of attributes that can be edited.
-3. Install the sample by running the following command:
+2. Update any other default configurations that are required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number. Take a look at the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank"> ecosystem_with_overrides.yaml</a> sample for some examples of attributes that can be edited.
+3. Install the *basic.yaml* sample by running the following command:
 ```
 kubectl apply -f basic.yaml
 ```
-The installation takes a few minutes. 
+The installation takes a few minutes.
 4. Check the status by running the following command:
 ```
 kubectl get galasaecosystem
