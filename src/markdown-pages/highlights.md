@@ -116,7 +116,7 @@ These settings assume a zOS/MF server on MV2D and the port overridden from `443`
 <details>
 <summary><b>0.11.0 - Release Highlights</b></summary>
 
-- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/extensions/blob/main/galasa-ecosystem-kubernetes-operator) for more information.  
+- Galasa Kubernetes operator is now in Alpha. The Kubernetes operator creates and maintains Galasa ecosystems by using Kubernetes, enabling Galasa tests to run in an automated environment or pipeline. See the [ReadMe](https://github.com/galasa-dev/galasa-kubernetes-operator) for more information.  
 - z/OS 3270 improvements and fixes, including support for NEGTSECURE ports and for z/VM (TN3270)
 - Various bug fixes
 - Documentation updates - Galasa Ecosystem - overview, architecture and Docker operator installation guide, documentation improvements
