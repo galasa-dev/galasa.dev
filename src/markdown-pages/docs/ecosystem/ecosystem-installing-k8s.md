@@ -37,18 +37,14 @@ Note that the examples use a relative path - check that you use the correct file
 kubectl apply -f https://raw.githubusercontent.com/galasa-dev/galasa-kubernetes-operator/main/releases/0.18.1/release.yaml
 ```
 
-This install limits all work to the *galasa* namespace. If you want to install the operator and ecosystem in a different namespace, you must edit the *release.yaml* sample. For example, you might want to edit the following attributes:
-
-- Custom resource definition (CRD) <br>
-The CRD allows the topology and basic configuration for an ecosystem to be defined. A message is displayed to confirm that the CRD is successfully created.
-- Service account 
-- Role
-- Role binding 
+This install limits all work to the *galasa* namespace. If you want to install the operator and ecosystem in a different namespace, you must edit the *release.yaml* sample. For example, you might want to edit the CRD, service account, role and role binding attributes.
 
 2. Deploy the operator by using the following command:
+
 ```
 kubectl apply -f https://raw.githubusercontent.com/galasa-dev/galasa-kubernetes-operator/main/releases/0.18.1/release.yaml
 ```
+
 3. Check that the pod is started cleanly by running the ```kubectl get pod``` command. The following service is displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
@@ -56,9 +52,9 @@ galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running
 ```
 The operator and custom resource definitions are now installed and ready to bring up a Galasa Ecosystem. 
 
-## Installing the Galasa Ecosystem
+## Bringing up the Galasa Ecosystem
 
-Install the ecosystem by using the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank">basic.yaml</a> sample that is provided with Galasa.
+Bring up the ecosystem by using the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank">basic.yaml</a> sample that is provided with Galasa.
 
 1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
 2. Update any other default configurations that are required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number. Take a look at the <a href=https://github.com/galasa-dev/galasa-kubernetes-operator/examples/basic.yaml target="_blank"> ecosystem_with_overrides.yaml</a> sample for some examples of attributes that can be edited.
@@ -66,7 +62,7 @@ Install the ecosystem by using the <a href=https://github.com/galasa-dev/galasa-
 ```
 kubectl apply -f basic.yaml
 ```
-The installation takes a few minutes.
+The installation takes a few minutes.<br>
 4. Check the status by running the following command:
 ```
 kubectl get galasaecosystem
@@ -78,7 +74,7 @@ READY :  true
 BOOTSTRAPURL : http://<HOSTNAME>:32319/bootstrap                                    
 GRAFANAURL : http://<HOSTNAME>:31091/galasa-grafana
 ```
-Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
+Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.<br>
 5. Check that the pods are brought up successfully on the ecosystem namespace by running the ```kubectl get pods``` command. The following services are displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
@@ -102,7 +98,7 @@ To reconfigure Galasa to point to the Galasa Ecosystem that you created, you nee
 In Eclipse, you can edit the bootstrap and run the SimBank tests by completing the following steps:
 
 1.  Select *Eclipse > Preferences > Galasa* 
-2.  Update **Bootstrap URI** to point to the Bootstrap URL that is returned by running the ``` kubectl get GalasaEcosystem``` command.
+2.  Update **Bootstrap URI** to point to the Bootstrap URL that is returned by running the ``` kubectl get galasaecosystem``` command.
 3.  Apply and close the preferences.   
 4.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
 5.  Select the four SimBank tests to run them in parallel and click *Finish*. 
