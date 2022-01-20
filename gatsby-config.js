@@ -1,4 +1,7 @@
 const path = require(`path`)
+const crypto = require(`crypto`)
+
+const digitalData = require("./src/utils/digital-data")
 
 const consts = {
   githubRepoName: "galasa.dev",
@@ -19,6 +22,14 @@ consts.githubRepoSlug = `${consts.githubOrgName}/${consts.githubRepoName}`
 const buildRepoSlug = process.env.PR_REPO_SLUG || process.env.BASE_REPO_SLUG || consts.githubRepoSlug
 consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
 consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "main"
+
+function getDigitaDataHash() {
+  if (process.env.GATSBY_GALASA_ENV !== "LOCAL") {
+    return `'sha256-${crypto.createHash('sha256').update(digitalData).digest('base64')}'`
+  } else {
+    return ''
+  }
+}
 
 const gatsbyRequiredRules = path.join(
   process.cwd(),
@@ -119,5 +130,16 @@ module.exports = {
         icon: `src/images/identifier.inline.svg`
       },
     },
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        directives: {
+          "style-src": "https://fonts.googleapis.com",
+          "script-src": `'self' https://1.www.s81c.com https://api.www.s81c.com https://tags.tiqcdn.com consent.truste.com ${getDigitaDataHash()}`,
+          "font-src": "'self' data: https://fonts.gstatic.com",
+          "connect-src": "'self' https://cloud.ibm.com https://login.ibm.com https://dbdm-events.mybluemix.net"
+        }
+      }
+    }
   ],
 }
