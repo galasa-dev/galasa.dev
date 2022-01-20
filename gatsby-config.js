@@ -134,13 +134,12 @@ module.exports = {
       resolve: `gatsby-plugin-csp`,
       options: {
         directives: {
-          "style-src": "https://fonts.googleapis.com",
-          "script-src": `'self' https://*.www.s81c.com https://*.ibm.com https://tags.tiqcdn.com consent.truste.com https://scripts.demandbase.com https://www.googletagmanager.com https://pixel.mathtag.com https://*.tealiumiq.com https://consent.trustarc.com https://cdn.trackjs.com https://dpm.demdex.net ${getDigitaDataHash()}`,
-          "style-src-attr": "'unsafe-inline'",
+          "style-src": "'unsafe-inline' https://fonts.googleapis.com",
+          "script-src": `'self' https://*.www.s81c.com https://*.ibm.com https://tags.tiqcdn.com consent.truste.com https://scripts.demandbase.com https://www.googletagmanager.com https://pixel.mathtag.com https://*.tealiumiq.com https://consent.trustarc.com https://cdn.trackjs.com https://dpm.demdex.net https://www.google-analytics.com ${getDigitaDataHash()}`,
           "font-src": "'self' data: https://fonts.gstatic.com",
-          "connect-src": "'self' https://*.ibm.com https://dbdm-events.mybluemix.net connect-src https://*.algolia.net https://*.algolianet.com",
-          "img-src": "'self' data: https://consent.trustarc.com",
-          "frame-src": "'self' https://consent.trustarc.com",
+          "connect-src": "'self' https://*.ibm.com https://dbdm-events.mybluemix.net https://*.algolia.net https://*.algolianet.com https://dpm.demdex.net https://*.tealiumiq.com https://api.company-target.com",
+          "img-src": "'self' data: https://consent.trustarc.com https://id.rlcdn.com",
+          "frame-src": "'self' https://consent.trustarc.com https://pixel.mathtag.com",
         }
       }
     }
