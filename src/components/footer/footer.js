@@ -7,7 +7,7 @@ import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
 import TwitterSVG from "../../images/twitter.inline.svg"
 import SlackSVG from "../../images/slack.inline.svg"
-import { footer, identifier, links, icon } from "./footer.module.scss"
+import { footer, identifier, links, icon, cookieConsent } from "./footer.module.scss"
 
 const Footer = () => {
   const {
@@ -38,6 +38,7 @@ const Footer = () => {
       <div className={links}>
         <a href="https://www.ibm.com/privacy/us/en/">Privacy policy</a>
         <a href="https://www.ibm.com/legal">Terms of use</a>
+        <span className={cookieConsent} id="teconsent"></span>
       </div>
       <div>An open source project by IBM. Built in Hursley, UK.</div>
       <div>
