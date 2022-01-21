@@ -7,7 +7,13 @@ import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
 import TwitterSVG from "../../images/twitter.inline.svg"
 import SlackSVG from "../../images/slack.inline.svg"
-import { footer, identifier, links, icon, cookieConsent } from "./footer.module.scss"
+import {
+  footer,
+  identifier,
+  links,
+  icon,
+  cookieConsent,
+} from "./footer.module.scss"
 
 const Footer = () => {
   const {
