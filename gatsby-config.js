@@ -139,7 +139,7 @@ module.exports = {
           "script-src": `'self' https://*.www.s81c.com https://*.ibm.com tags.tiqcdn.com consent.truste.com https://scripts.demandbase.com https://www.googletagmanager.com https://pixel.mathtag.com https://*.tealiumiq.com https://consent.trustarc.com https://cdn.trackjs.com https://dpm.demdex.net https://www.google-analytics.com ${getDigitaDataHash()}`,
           "font-src": "'self' data: https://fonts.gstatic.com https://*.www.s81c.com",
           "connect-src": "'self' https://*.ibm.com https://dbdm-events.mybluemix.net https://*.algolia.net https://*.algolianet.com https://dpm.demdex.net https://*.tealiumiq.com https://api.company-target.com https://www.google-analytics.com https://stats.g.doubleclick.net",
-          "img-src": "'self' data: https://consent.trustarc.com https://id.rlcdn.com https://www.google-analytics.com https://cm.everesttech.net https://pixel.mathtag.com https://dpm.demdex.net",
+          "img-src": "'self' data: https://consent.trustarc.com https://id.rlcdn.com https://www.google-analytics.com https://cm.everesttech.net https://pixel.mathtag.com https://dpm.demdex.net https://sync.crwdcntrl.net",
           "frame-src": "'self' https://*.trustarc.com https://pixel.mathtag.com https://ibm.demdex.net",
         }
       }
