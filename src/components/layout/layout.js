@@ -15,6 +15,7 @@ import {
   globalStyle,
   container,
 } from "./layout.module.scss"
+import lazyFontsScript from "./lazyFonts"
 
 const fontsUrl =
   "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap"
@@ -47,7 +48,7 @@ const Layout = ({ children, location: { pathname } }) => {
           href={fontsUrl}
           rel="stylesheet"
           media="print"
-          onload="this.onload=null;this.removeAttribute('media');"
+          onload={lazyFontsScript}
         />
         <noscript>{`
           <link rel="stylesheet" href="${fontsUrl}" />
