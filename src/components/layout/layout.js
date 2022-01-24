@@ -16,6 +16,9 @@ import {
   container,
 } from "./layout.module.scss"
 
+const fontsUrl =
+  "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap"
+
 const Layout = ({ children, location: { pathname } }) => {
   const frontPage = pathname === "/"
   const extraHeightHeader = !frontPage
@@ -36,17 +39,19 @@ const Layout = ({ children, location: { pathname } }) => {
     <>
       <Helmet>
         <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap"
-          rel="stylesheet"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=swap"
+          href={fontsUrl}
           rel="stylesheet"
+          media="print"
+          onload="this.onload=null;this.removeAttribute('media');"
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
-        />
+        <noscript>{`
+          <link rel="stylesheet" href="${fontsUrl}" />
+        `}</noscript>
         <html className={globalStyle} />
         <body />
       </Helmet>
