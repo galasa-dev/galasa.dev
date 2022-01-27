@@ -26,6 +26,6 @@ The following are properties used to configure the zOS Console oeconsol Manager.
 | Required:  | No |
 | Default value: | oeconsol |
 | Valid values: | $validValues |
-| Examples: | <code>zosconsole.oeconsole.command.path=oeconsol</code><br> <code>zosconsole.MFSYSA.oeconsol.command.path=/tools/oeconsol</code> |
+| Examples: | <code>zosconsole.oeconsole.command.path=oeconsol</code><br> <code>zosconsole.MFSYSA.oeconsol.command.path=/tools/oeconsol</code> where <code>/tools/oeconsol</code> is the locations of the oeconsol executable|
 
 </details>
