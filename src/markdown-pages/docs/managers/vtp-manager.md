@@ -53,21 +53,7 @@ The following properties are used to configure the VTP Manager.
 </details>
 
 <details>
-<summary>VTP CICS Transactions CPS Property</summary>
-
-| Property: | VTP CICS Transactions CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | vtp.cics.[instanceid].transactions |
-| Description: | A list of transactions to record in this CICS region |
-| Required:  | No |
-| Default value: | None |
-| Valid values: | trx1,trx2 |
-| Examples: | <code>vtp.cics.PRIMARY.transactions=TSQT,TSQD<br> </code> |
-
-</details>
-
-<details>
-<summary>VTP CICS Transactions CPS Property</summary>
+<summary>Enable VTP Recording CPS Property</summary>
 
 | Property: | Enable VTP Recording CPS Property |
 | --------------------------------------- | :------------------------------------- |
