@@ -7,7 +7,7 @@ title: "VTP Manager"
   
 ## Overview
   
-Create an automated test in Galasa and use the VTP Manager to record the interactions between the test and your CICS programs. Play back the recorded file by using IBM Z Virtual Test Platform (VTP). Playing back the recording in VTP means that you can test a change to your application code without running the test inside CICS. Run the recorded tests as part of your regression testing strategy before and after code changes to detect any anomalies. 
+Create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. Play back the recorded file by using IBM Z Virtual Test Platform (VTP). Playing back the recording in VTP means that you can test a change to your application code without running the test inside CICS. Run the recorded tests as part of your regression testing strategy before and after code changes to detect any anomalies. 
 
 The VTP Manager can configure VTP by using CICS transactions to start and stop recording on a CICS region. After all recordings are complete, the VTP recording is exported as a flat file to the specified location.  
   
