@@ -3,7 +3,7 @@ path: "/docs/ecosystem/installing"
 title: "Installing the Galasa Ecosystem on Docker"
 ---
 
-The following section explains how to install a Galasa ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/galasa-docker-operator" target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
+The following section explains how to install a Galasa ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/docker-operator " target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ If you opened any ports, check that the port numbers are correct in the *config.
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/galasa-docker-operator-amd64:0.17.0
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/docker-operator-amd64:0.17.0
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
