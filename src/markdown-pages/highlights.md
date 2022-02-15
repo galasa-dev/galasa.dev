@@ -14,6 +14,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.20.0 - Release Highlights
 
 - The Galasa VTP Manager is now in Release. You can create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. The recorded file can be played back by using IBM Z VTP.
+- Installing the Galasa Ecosystem by using the Kubernetes Operator is updated.
 - Various bug fixes and enhancements.
 - Various documentation updates, including z/OS Program Manager documentation.
 
