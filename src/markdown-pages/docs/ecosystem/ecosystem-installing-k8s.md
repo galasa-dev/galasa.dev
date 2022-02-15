@@ -35,6 +35,7 @@ Complete the following steps to install the Galasa Ecosystem in a Kubernetes clu
 kubectl apply -f https://raw.githubusercontent.com/galasa-dev/kubernetes-operator/main/releases/<GALASA_VERSION>/release.yaml
 ```
 You can download the _release.yaml_ sample to make any changes that are required to enable the yaml to work with your environment. 
+
 2. Check that the pod is started cleanly by running the ```kubectl get pod``` command. The following service is displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
