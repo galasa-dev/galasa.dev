@@ -1,4 +1,8 @@
 const path = require(`path`)
+const crypto = require(`crypto`)
+
+const digitalData = require("./src/utils/digital-data")
+const lazyFontsScript = require("./src/components/layout/lazyFonts")
 
 const consts = {
   githubRepoName: "galasa.dev",
@@ -19,6 +23,14 @@ consts.githubRepoSlug = `${consts.githubOrgName}/${consts.githubRepoName}`
 const buildRepoSlug = process.env.PR_REPO_SLUG || process.env.BASE_REPO_SLUG || consts.githubRepoSlug
 consts.buildRepoUrl = `https://github.com/${buildRepoSlug}`
 consts.buildBranch = process.env.PR_BRANCH_NAME || process.env.BRANCH_NAME || "main"
+
+function createHash(value) {
+  if (process.env.GATSBY_GALASA_ENV !== "LOCAL") {
+    return `'sha256-${crypto.createHash('sha256').update(value).digest('base64')}'`
+  } else {
+    return ''
+  }
+}
 
 const gatsbyRequiredRules = path.join(
   process.cwd(),
@@ -119,5 +131,19 @@ module.exports = {
         icon: `src/images/identifier.inline.svg`
       },
     },
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        mergeStyleHashes: false,
+        directives: {
+          "style-src": "'unsafe-inline' https://fonts.googleapis.com",
+          "script-src": `'self' 'unsafe-hashes' https://*.www.s81c.com https://*.ibm.com tags.tiqcdn.com consent.truste.com https://scripts.demandbase.com https://www.googletagmanager.com https://pixel.mathtag.com https://*.tealiumiq.com https://consent.trustarc.com https://cdn.trackjs.com https://dpm.demdex.net https://www.google-analytics.com ${createHash(digitalData)} ${createHash(lazyFontsScript)}`,
+          "font-src": "'self' data: https://fonts.gstatic.com https://*.www.s81c.com",
+          "connect-src": "'self' https://*.ibm.com https://dbdm-events.mybluemix.net https://*.algolia.net https://*.algolianet.com https://dpm.demdex.net https://*.tealiumiq.com https://api.company-target.com https://www.google-analytics.com https://stats.g.doubleclick.net",
+          "img-src": "'self' data: https://consent.trustarc.com https://id.rlcdn.com https://www.google-analytics.com https://cm.everesttech.net https://pixel.mathtag.com https://dpm.demdex.net https://sync.crwdcntrl.net",
+          "frame-src": "'self' https://*.trustarc.com https://pixel.mathtag.com https://ibm.demdex.net",
+        }
+      }
+    }
   ],
 }

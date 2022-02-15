@@ -58,3 +58,15 @@ $footer-height: 27rem;
     width: 30px;
   }
 }
+
+.cookieConsent {
+  display: flex !important; // Fight TrustArc's CSS
+
+  a {
+    text-transform: lowercase;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
