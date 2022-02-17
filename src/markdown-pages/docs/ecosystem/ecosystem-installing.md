@@ -49,11 +49,11 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 
 ```
 hostname: {hostname}
-galasaRegistry: docker.galasa.dev
-version: 0.17.0
+galasaRegistry: icr.io
+version: 0.20.0
 engineController:
-  controllerVersion: 0.17.0
-  engineVersion: 0.17.0
+  controllerVersion: 0.20.0
+  engineVersion: 0.20.0
 ```
 
 Change the ```{hostname}``` value to your hostname. Note the two spaces on the last two lines -  they are important in YAML.
@@ -63,7 +63,7 @@ If you opened any ports, check that the port numbers are correct in the *config.
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/docker-operator-amd64:0.17.0
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/docker-operator-amd64:0.20.0
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 

@@ -3,7 +3,7 @@ path: "/docs/getting-started/installing-offline"
 title: "Installing the Galasa plug-in offline"
 ---
 
-The Galasa zip file is available from the <a href="https://ibm.github.io/mainframe-downloads/downloads.html" target="_blank">IBM Mainframe Downloads</a> website and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (eclipse, maven and javadoc), an `isolated.tar` file and a `docs.jar` file. 
+The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (eclipse, maven and javadoc), an `isolated.tar` file and a `docs.jar` file. 
 
 The eclipse directory contains the Galasa plug-in, and the maven directory contains dependencies that are required for building Galasa tests. The javadoc directory contains the Javadoc API documentation for the Galasa Managers.
 
@@ -57,10 +57,11 @@ Note: The example uses port `8080` but you can use a different port.
 ```
 docker load -i isolated.tar
 ``` 
-The following confirmation message is received: _Loaded image: galasadev/galasa-distribution:0.19.0_
+The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:latest_.
+
 2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa galasadev/galasa-distribution:0.19.0
+docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:latest
 ```
 3. Go to `http:\\hostname:8080` to view the running container. 
 
