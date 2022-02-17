@@ -11,7 +11,14 @@ Create an automated integration test in Galasa and use the VTP Manager to transp
 
 The VTP Manager can configure ZVTP by using CICS transactions to start and stop recording on a CICS region. After all recordings are complete, the VTP recording is exported as a sequence of flat files to the specified HLQ.  
 
-Recordings are saved in the format _<HLQ_FROM_CPS>.RUNID.R<number>_, where _number_ is the number of the recorded test method. For example, _CTS.JBLOGGS.VTP.R1234.R1_.
+Recordings are saved in the following format: 
+```
+<HLQ_FROM_CPS>.RUNID.R<number>
+```
+where _number_ is the number of the recorded test method. For example:
+```
+CTS.JBLOGGS.VTP.R1234.R1
+```
 
 The RAS is updated with a file that details the recordings that were made. For example: 
 ```
