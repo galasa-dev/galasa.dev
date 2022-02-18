@@ -17,5 +17,5 @@ To install the Galasa plug-in using the zipped distribution, follow the instruct
 
 
 
-You can then start [exploring Galasa Simbank](/docs/getting-started/simbank); a component distributed with Galasa that you can start playing with to help you to learn about the Galasa basics. 
+You can then start [exploring Galasa Simbank](/docs/getting-started/simbank); a component distributed with Galasa that you can start playing with to help you to learn about the Galasa basics.. 
 
