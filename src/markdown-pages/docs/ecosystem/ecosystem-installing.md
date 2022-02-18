@@ -3,7 +3,8 @@ path: "/docs/ecosystem/installing"
 title: "Installing the Galasa Ecosystem on Docker"
 ---
 
-The following section explains how to install a Galasa ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/galasa-docker-operator" target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
+
+The following section explains how to install a Galasa ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/docker-operator " target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
 
 ## Prerequisites
 
@@ -32,13 +33,13 @@ The following servers are required for the Galasa ecosystem:
 | Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs    | NA |
 | Metrics server | Indicates the health of the ecosystem to a Prometheus server   | NA |
 
-The following servers are not required by the ecosystem but are automatically deployed by the Docker operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
+The following server is not required by the ecosystem but is automatically deployed by the Docker operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
 
 | Name      | Description | Port
 | ----------- | ----------- |----------- |
-| Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
 | SimPlatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
+To use SimPlatform, you need to have access to Maven Central. Chat to us on our <a href="https://galasa.slack.com" target="_blank"> Galasa Slack</a> workspace if you need help with this.
 
 ## Installing the Galasa ecosystem on the Docker engine
 
@@ -47,22 +48,24 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 1. Copy the following YAML to create a *config.yaml* file on your VM, making a note of the full path of the file:
 
 ```
-hostname: {hostname}
-galasaRegistry: docker.galasa.dev
-version: 0.17.0
+hostname: 192.168.1.87
+galasaRegistry: icr.io/galasadev
+version: 0.20.0
 engineController:
-  controllerVersion: 0.17.0
-  engineVersion: 0.17.0
+  controllerVersion: 0.20.0
+  engineVersion: 0.20.0
+simplatform:
+  version: 0.15.0
 ```
 
-Change the ```{hostname}``` value to your hostname. Note the two spaces on the last two lines -  they are important in YAML.
+Note the two spaces on the fifth, sixth and last lines -  they are important in YAML.
 
 If you opened any ports, check that the port numbers are correct in the *config.yaml* file. 
 
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/galasa-docker-operator-amd64:0.17.0
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/docker-operator-amd64:0.20.0
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
