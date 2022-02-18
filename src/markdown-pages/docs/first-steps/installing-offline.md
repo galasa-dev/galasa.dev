@@ -57,12 +57,14 @@ Note: The example uses port `8080` but you can use a different port.
 ```
 docker load -i isolated.tar
 ``` 
+
 The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:latest_.
 
 2. Run the container by using the following command: 
 ```
 docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:latest
 ```
+
 3. Go to `http:\\hostname:8080` to view the running container. 
 
 You are now ready to install the Galasa plug-in. 
