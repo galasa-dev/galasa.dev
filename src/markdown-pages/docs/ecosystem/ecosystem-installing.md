@@ -33,7 +33,7 @@ The following servers are required for the Galasa ecosystem:
 | Engine controller | Responsible for spinning up docker containers to execute individual Galasa automation runs    | NA |
 | Metrics server | Indicates the health of the ecosystem to a Prometheus server   | NA |
 
-The following servers are not required by the ecosystem but are automatically deployed by the Docker operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
+The following server is not required by the ecosystem but is automatically deployed by the Docker operator to improve understanding about how the ecosystem works and to run a *SimbankIVT* test to verify the installation of the ecosystem:
 
 | Name      | Description | Port
 | ----------- | ----------- |----------- |

@@ -48,12 +48,15 @@ The operator and custom resource definitions are now installed and ready to brin
 Bring up the ecosystem by using the <a href=https://github.com/galasa-dev/kubernetes-operator/examples/basic.yaml target="_blank">basic.yaml</a> sample that is provided with Galasa.
 
 1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
+
 2. Update any other default configurations that are required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number. Take a look at the <a href=https://github.com/galasa-dev/kubernetes-operator/examples/basic.yaml target="_blank"> ecosystem_with_overrides.yaml</a> sample for some examples of attributes that can be edited.
+
 3. Install the *basic.yaml* sample by running the following command:
 ```
 kubectl apply -f basic.yaml
 ```
-The installation takes a few minutes.<br>
+The installation takes a few minutes.
+
 4. Check the status by running the following command:
 ```
 kubectl get galasaecosystem
@@ -63,7 +66,8 @@ The following example shows the information that is returned:
 NAME 				READY		BOOTSTRAPURL							GRAFANAURL
 galasa-ecosystem 	true 			http://<HOSTNAME>:32319/bootstrap       http://<HOSTNAME>:31091/galasa-grafana
 ```
-Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.<br>
+Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
+
 5. Check that the pods are brought up successfully on the ecosystem namespace by running the ```kubectl get pods``` command. The following services are displayed with a status of *Running*:
 ```
 NAME                                                        READY   STATUS    
