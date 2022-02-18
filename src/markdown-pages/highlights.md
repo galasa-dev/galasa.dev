@@ -11,11 +11,24 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.19.0 - Release Highlights
+## 0.20.0 - Release Highlights
+
+- The Galasa VTP Manager is now in Release. You can create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. The recorded file can be played back by using IBM Z VTP.
+- Installing the Galasa Ecosystem by using the Kubernetes Operator is updated.
+- ```galasactl runs``` commands can now select tests based on the _@Tags_ annotation by using the ```--tag``` option.
+- Galasa Docker images are moving from DockerHub to _icr.io_. Images in DockerHub (release 0.19.0 and before) will be deleted when 0.21.0 is released.
+- The Core Manager now provides a _@ResourceString_ annotation and _IResourceString_  interface to generate random locked strings. Further details will be available on the website once the Manager documentation is refreshed.
+- Various bug fixes and enhancements.
+- Various documentation updates, including z/OS Program Manager documentation.
+
+
+<details>
+<summary><b>0.19.0 - Release Highlights</b></summary>
 
 - The Galasa MQ Manager is now in Alpha, providing the ability to connect a test to an existing IBM MQ queue manager, and enabling one or more messages to be written to and read from existing queues.
 - Various bug fixes and enhancements.
 - Various documentation updates, including MQ Manager documentation.
+</details>
 
 <details>
 <summary><b>0.18.0 - Release Highlights</b></summary>
