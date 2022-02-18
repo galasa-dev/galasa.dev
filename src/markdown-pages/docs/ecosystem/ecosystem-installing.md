@@ -37,9 +37,9 @@ The following servers are not required by the ecosystem but are automatically de
 
 | Name      | Description | Port
 | ----------- | ----------- |----------- |
-| Nexus| A Nexus server for deploying Maven artifacts to the ecosystem  | 8081 |
 | SimPlatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
+To use SimPlatform, you need to have access to Maven Central. Chat to us on our <a href="https://galasa.slack.com" target="_blank"> Galasa Slack</a> workspace if you need help with this.
 
 ## Installing the Galasa ecosystem on the Docker engine
 
@@ -48,15 +48,17 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 1. Copy the following YAML to create a *config.yaml* file on your VM, making a note of the full path of the file:
 
 ```
-hostname: {hostname}
-galasaRegistry: icr.io
+hostname: 192.168.1.87
+galasaRegistry: icr.io/galasadev
 version: 0.20.0
 engineController:
   controllerVersion: 0.20.0
   engineVersion: 0.20.0
+simplatform:
+  version: 0.15.0
 ```
 
-Change the ```{hostname}``` value to your hostname. Note the two spaces on the last two lines -  they are important in YAML.
+Note the two spaces on the fifth, sixth and last lines -  they are important in YAML.
 
 If you opened any ports, check that the port numbers are correct in the *config.yaml* file. 
 
