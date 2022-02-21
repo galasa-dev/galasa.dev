@@ -9,7 +9,7 @@ Galasa is different from other test tools; enabling deep integration testing acr
 The Galasa framework is built with a knowledge of z/OS and cloud native platforms, enabling end-to-end testing of applications that run on different platforms without stubbing or mocking. 
 
 ### Technology integration
-Galasa is fully extensible. Galasa Managers enable Galasa to interact with any test technology, such as JMeter, Selenium, JCL and 3270 screens and more. 
+Galasa is fully extensible. Galasa Managers enable Galasa to interact with any test technology, such as JMeter, Selenium, JCL, and 3270 screens and more. 
 
 ### Pipeline integration
 Galasa provides a REST endpoint that can be called from any CI/CD pipeline, for example, a Jenkins pipeline. Running Galasa as part of your pipeline enables fast, reliable testing at scale - Galasa can run thousands of tests in parallel. 
