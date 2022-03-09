@@ -13,7 +13,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.21.0 - Release Highlights
 
-- An initial basic version of the DB2 Manager is now available.  This Manager is not yet ready for Production use and will be documented soon. The initial [Javadoc] (https://javadoc.galasa.dev/dev/galasa/db2/package-summary.html) is available.
+- An initial basic version of the DB2 Manager is now available.  This Manager is not yet ready for Production use and will be documented soon. The initial [Javadoc](https://javadoc.galasa.dev/dev/galasa/db2/package-summary.html) is available.
 - An initial basic version of the Cloud Manager is now available. This Manager is not yet ready for Production use and will be documented soon.
 - Various build dependencies have been upgraded to remove publish security vulnerabilities.
 - All Galasa bundles are now upgraded to version 0.21.0 to remove historical security vulnerabilities.
