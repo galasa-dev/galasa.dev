@@ -5,10 +5,10 @@ title: "Docker Manager"
 
 **This Manager is at Release level**
 
-[_Overview_](#overview)
-[_Annotations_](#annotations)
-[_Code snippets_](#codesnippets)
-[_CPS properties_](#cpsproperties)
+[_Overview_](#overview)<br>
+[_Annotations_](#annotations)<br>
+[_Code snippets_](#codesnippets)<br>
+[_CPS properties_](#cpsproperties)<br>
 
 ## <a name="overview"></a>Overview
 The Docker Manager enables tests to run Docker Containers on a Docker Engine provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker Container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
@@ -21,21 +21,12 @@ The Docker Manager supports only AMD64 platforms. It is planned to expand the ca
 
 The following annotations are available with the Docker Manager:
 
-<b>Annotation</b>: @DockerContainer
-<b>Description</b>: The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration.
-<b>Syntax</b>: 
-
-The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more.
-
-| Annotation: | Description |
-| --------------------------------------- | :------------------------------------- |
-| @DockerContainer | The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration. [Read more...](#dockercontainerattributes) |
-
+<b>Annotation</b>: @DockerContainer<br>
+<b>Description</b>: The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration.<br>
+<b>Syntax</b>: <br>
 
 <a name="dockercontainerattributes"></a>The following attributes can be used with the @DockerContainer annotation:
 
-<details>
-<summary>Docker Container</summary>
 
 | Attribute: | Description |
 | --------------------------------------- | :------------------------------------- |
@@ -43,7 +34,9 @@ The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 
 | `image` |  The <code>image</code> attribute provides the Docker Image that is used to create the Docker Container.  The image name must not  include the Docker Registry as this is provided in the CPS.   If using a public official image from DockerHub,  then the  image name must be prefixed with <code>library/</code>, for example <code>library/httpd:latest</code>, the Docker Manager will not default to the library namespace like the Docker commands do. |
 | `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically. If the  test needs to perform some work before the container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the container. |
 | `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a container can be run on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag. |
-</details>
+
+<b>Notes:</b><br>
+The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more.
 
 <details>
 <summary>Docker Container Configuation</summary>
