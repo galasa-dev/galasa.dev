@@ -21,9 +21,11 @@ The Docker Manager supports only AMD64 platforms. It is planned to expand the ca
 
 The following annotations are available with the Docker Manager:
 
-<b>Annotation</b>: @DockerContainer<br>
-<b>Description</b>: The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration.<br>
-<b>Syntax</b>: <br>
+| Annotation name: | Description |
+| --------------------------------------- | :------------------------------------- |
+| @DockerContainer |  The <code>@DockerContainer</code> annotation requests the Docker Manager to allocate a slot and start a container  on the infrastructure Docker Engines. The test can request as many containers as required within  the limits set by the Docker Manager configuration. |
+| @DockerContainerConfig |  The @DockerContainerConfig</code> annotation provides an object to manually configure certain aspects of a containers run. Within the annotation, volumes can be requests, for both binding and provisioning. Look at the Docker volume annotation  description for more details. The IDockerContainerConfig object it self allows for non provisioing configurations to be set at test time and  ammended between container startups. The IDockerContainer object needs to use the startWithConfig() method to take use of the customised  startup config. [_Read more...](#DockerContainerConfigAttributes) |
+| @DockerVolume |  The code>@DockerVolume</code> annotation provides the capability to bind or provision docker volumes. The  volumes were desgined with three Docker volume use cases in mind:  1. Mounting configuration - in this usecase any volume to be mounted contains configuration data and must not be edited by the running      container, as this could affect parallelization of test running. Therefore, in the DockerVolume annotation, if a volume name is provided      (aka already exists), the mount will be read only.  2. Sharing volumes - when a volume is required for multiple containers to use to share data. This shoult not be a provided volume, so it      is expected that a volume name will not be passed to the DockerVolume annotation, and the docker engine will generate a name. This      volume will be tagged for later reference. Current limitation is that the config used to provision the volume must be used for all      containers wanting to mount the same volume. This results in the path having to be the same in all containers.  3. Persisting data - There may be a use case for a volume to exsist outside the life span of the test. For this I have encorparated a      boolean called persist on the DockerVolume annotation. This is not indefinate, but controlled by resource management. A good default      would probably be 24 hours, but can utimately be set by the user with a CPS property. |
 
 <a name="dockercontainerattributes"></a>The following attributes can be used with the @DockerContainer annotation:
 
@@ -35,20 +37,19 @@ The following annotations are available with the Docker Manager:
 | `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically. If the  test needs to perform some work before the container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the container. |
 | `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a container can be run on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag. |
 
+<b>Syntax:</b><br>
 <b>Notes:</b><br>
 The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more.
 
-<details>
-<summary>Docker Container Configuation</summary>
+<a name="DockerContainerConfigAttributes"></a>Docker Container Configuation
 
-| Annotation: | Docker Container Configuation |
+| Attribute: | Description |
 | --------------------------------------- | :------------------------------------- |
-| Name: | @DockerContainerConfig |
-| Description: | The code>@DockerContainerConfig</code> annotation provides an object to manually configure certain aspects of a containers run. Within the annotation, volumes can be requests, for both binding and provisioning. Look at the Docker volume annotation  description for more details. The IDockerContainerConfig object it self allows for non provisioing configurations to be set at test time and  ammended between container startups. The IDockerContainer object needs to use the startWithConfig() method to take use of the customised  startup config |
-| Attribute: `dockerVolumes` |  Multiple volumes can be mounted within a single configuration  @return |
+| `dockerVolumes` |  Multiple volumes can be mounted within a single configuration  @return |
 | Syntax: | <code>@DockerContainerConfig(      dockerVolumes =  { |
 
-</details>
+<b>Syntax:</> <code>@DockerContainerConfig( dockerVolumes = {</code>
+
 
 <details>
 <summary>Docker Volume</summary>
