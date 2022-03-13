@@ -1,5 +1,5 @@
 ---
-path: "/docs/managers/docker-manager"
+path: "/docs/managers/docker-manager2"
 title: "Docker Manager"
 ---
 
