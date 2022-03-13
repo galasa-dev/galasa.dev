@@ -17,6 +17,50 @@ This Manager enables tests to run Docker Containers on a Docker Engine that is p
 ## Limitations
 The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.<br><br> 
 
+## <a name="methods"></a>Methods
+
+The following methods are available with the Docker Manager:
+
+<details>
+<summary>Method1</summary>
+
+Method1 does xyz. Use Method1 with the following parameters if you want to do this task. 
+
+| Parameter: | Description |
+| --------------------------------------- | :------------------------------------- |
+| `parameter1` |  Description of parameter1 and how to use it |
+| `parameter2` |  Description of parameter2 and how to use it |
+| `parameter3` |  Description of parameter3 and how to use it |
+
+</details>
+
+<details>
+<summary>Method2</summary>
+
+Method1 does xyz. Use Method2 with the following parameters if you want to do this task. 
+
+| Parameter: | Description |
+| --------------------------------------- | :------------------------------------- |
+| `parameter1` |  Description of parameter1 and how to use it |
+| `parameter2` |  Description of parameter2 and how to use it |
+| `parameter3` |  Description of parameter3 and how to use it |
+
+</details>
+
+<details>
+<summary>Method3</summary>
+
+Method1 does xyz. Use Method3 with the following parameters if you want to do this task. 
+
+| Parameter: | Description |
+| --------------------------------------- | :------------------------------------- |
+| `parameter1` |  Description of parameter1 and how to use it |
+| `parameter2` |  Description of parameter2 and how to use it |
+| `parameter3` |  Description of parameter3 and how to use it |
+
+</details>
+
+
 ## <a name="annotations"></a>Annotations
 
 The following annotations are available with the Docker Manager:
@@ -33,9 +77,11 @@ The <code>@DockerContainer</code> annotation requests the Docker Manager to allo
 | `start` |  The <code>start</code> attribute indicates whether the Docker Container should be started automatically. If the  test needs to perform some work before the container is started, then <code>start=false</code> should be used, after which  <code>IDockerContainer.start()</code> can be called to start the container. |
 | `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a container can be run on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag. |
 
-_Syntax:_ <code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> 
+### Syntax: 
+<code>@DockerContainer(image="library/httpd:latest")<br> public IDockerContainer httpdContainer;<br> @DockerContainer(image="privateimage", start=false)<br> public IDockerContainer container1;<br> </code> 
 
-_Notes:_ The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> to find out more. 
+### Notes:
+The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 address and the exposed port numbers of the Docker Container.  The interface also enables the test to execute commands and retrieve the log and transfer files that are sent to  and from the container.<br><br> See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/DockerContainer.html" target="_blank">DockerContainer</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/docker/IDockerContainer.html" target="_blank">IDockerContainer</a> Javadoc to find out more. 
 
 </details>
 
@@ -48,7 +94,8 @@ The <code>@DockerContainerConfig</code> annotation provides an object to manuall
 | --------------------------------------- | :------------------------------------- |
 | `dockerVolumes` |  Multiple volumes can be mounted within a single configuration  |
 
-_Syntax:_<code>@DockerContainerConfig( dockerVolumes =  {<br></code>
+### Syntax
+<code>@DockerContainerConfig( dockerVolumes =  {<br></code>
 
 </details>
 
@@ -68,7 +115,8 @@ The <code>@DockerVolume</code> annotation provides the capability to bind or pro
 | `dockerEngineTag` |  The <code>dockerEngineTag</code> will be used in the future so that a volume can be allocated on a specific Docker Engine type. You would not normally need to provide a Docker Engine tag.   |
 | `readOnly` |  This field is used to protect this volume. If this volume is intended to be mounted to multiple containers, which you do not want  editing the contents, set this to be true.   |
 
-_Syntax:_ <code>@DockerContainerConfig( dockerVolumes =  {           // A read only mount, as a specific volume was requested.</code> 
+### Syntax:
+<code>@DockerContainerConfig( dockerVolumes =  {           // A read only mount, as a specific volume was requested.</code> 
 
 </details>
 
