@@ -3,7 +3,7 @@ path: "/docs/managers/docker-manager2"
 title: "Docker Manager"
 ---
 
-This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation for the Manager here</a>. <br>
+This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation for the Manager here</a>. The <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.docker.manager.ivt">Docker Manager IVT</a> is available in the Manager repository in GitHub.<br>
 
 [Overview](#overview)<br>
 [Methods](#methods)<br>
@@ -11,10 +11,33 @@ This Manager is at Release level. You can view the <a href="https://javadoc.gala
 [Code snippets](#codesnippets)<br>
 [CPS properties](#cpsproperties)<br>
 
-## <a name="overview"></a>Overview
-This Manager enables tests to run Docker Containers on a Docker Engine that is provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker Container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
+# <a name="overview"></a>Overview
 
-The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.<br><br> 
+[A high level overview of what the Manager does]
+
+This Manager enables tests to run Docker Containers on a Docker Engine that is provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. 
+
+## Using the Docker Manager 
+
+[Include here information about why you might want to use the Docker Manager, any other Managers that it will often work with to complete a common task]
+
+The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker Container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources.
+
+Containers that are provided by the Docker Manager can be used to either drive workload for the application under test, or to receive workload from the application. The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment.
+
+## Manager features
+
+[Short summary of any key Manager features]
+
+The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
+
+## Limitations
+
+The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured. 
+
+## Getting started with the Docker Manager
+
+[Would it make any sense to give someone an idea / link to getting started with the Manager eg any steps / thought processes that would be a good way of understanding how to incorporate the Manager into your test. I guess this might be too difficult given the number of scenarios but perhaps there are some steps that might be common across all scenarios?]
 
 ## <a name="methods"></a>Methods
 
