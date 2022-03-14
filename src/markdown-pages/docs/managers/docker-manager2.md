@@ -5,16 +5,15 @@ title: "Docker Manager"
 
 This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation for the Manager here</a>. <br>
 
-[_i. Overview_](#overview)<br>
-[_ii. Methods_](#methods)<br>
-[_iii. Annotations_](#annotations)<br>
-[_iv. Code snippets_](#codesnippets)<br>
-[_v. CPS properties_](#cpsproperties)<br>
+[Overview](#overview)<br>
+[Methods](#methods)<br>
+[Annotations](#annotations)<br>
+[Code snippets](#codesnippets)<br>
+[CPS properties](#cpsproperties)<br>
 
 ## <a name="overview"></a>Overview
 This Manager enables tests to run Docker Containers on a Docker Engine that is provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. <br><br> The Docker Manager can be used by other Managers as a base for their own services.  For example, the JMeter Manager can run a JMeter service inside a Docker Container.  Using the Docker Manager in this way means that the test or administration team  do not need to create dedicated JMeter resources. <br><br>  Containers that are provided by the Docker Manager can be used to either drive  workload for the application under test, or to receive workload from the application.  The Docker Manager can also be used to monitor the test or to provide a security context like  OpenLDAP. Docker Containers provide a powerful tool in helping test applications in an integrated environment. <br><br> The Docker Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test.
 
-## Limitations
 The Docker Manager supports only AMD64 platforms. It is planned to expand the capability to S390x. <br><br> The Docker Manager currently supports only a single Docker Engine.  It is planned to allow multiple Docker Engines to be configured.<br><br> 
 
 ## <a name="methods"></a>Methods
@@ -25,12 +24,15 @@ The following methods are available with the Docker Manager:
 <summary>Method1</summary>
 
 Method1 does xyz. Use Method1 with the following parameters if you want to do this task. 
+[If there is another method with the same name but different parameters, then say in what instance you would call one or the other.]
 
 | Parameter: | Description |
 | --------------------------------------- | :------------------------------------- |
 | `parameter1` |  Description of parameter1 and how to use it |
 | `parameter2` |  Description of parameter2 and how to use it |
 | `parameter3` |  Description of parameter3 and how to use it |
+
+For more information, see the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation</a>. <br>
 
 </details>
 
@@ -45,6 +47,8 @@ Method1 does xyz. Use Method2 with the following parameters if you want to do th
 | `parameter2` |  Description of parameter2 and how to use it |
 | `parameter3` |  Description of parameter3 and how to use it |
 
+For more information, see the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation</a>. <br>
+
 </details>
 
 <details>
@@ -57,6 +61,8 @@ Method1 does xyz. Use Method3 with the following parameters if you want to do th
 | `parameter1` |  Description of parameter1 and how to use it |
 | `parameter2` |  Description of parameter2 and how to use it |
 | `parameter3` |  Description of parameter3 and how to use it |
+
+For more information, see the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation</a>. <br>
 
 </details>
 
