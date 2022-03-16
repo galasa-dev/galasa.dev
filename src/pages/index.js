@@ -15,6 +15,10 @@ import Button from "../components/button"
 
 const keyFeatures = [
   {
+    title: "Testimonials",
+    body: <>"Insert quote for testimonal here." Insert name here.</>,
+  },
+  {
     title: "Consistent testing - for all technologies",
     body: (
       <>

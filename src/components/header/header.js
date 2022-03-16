@@ -50,7 +50,7 @@ const Header = ({ extraHeight }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const navContainerNode = useRef()
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     if (!navContainerNode.current.contains(e.target)) {
       // Click outside the navContainer
       setMenuOpen(false)

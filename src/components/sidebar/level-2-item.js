@@ -13,7 +13,7 @@ import {
   markerInNavPath,
 } from "./sidebar.module.scss"
 
-const Level2Item = (props) => {
+const Level2Item = props => {
   const item = props.item
 
   return (
