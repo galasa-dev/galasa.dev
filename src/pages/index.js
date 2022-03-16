@@ -16,7 +16,15 @@ import Button from "../components/button"
 const keyFeatures = [
   {
     title: "Testimonials",
-    body: <>Insert quote for testimonal here." Insert name here.</>,
+    body: (
+      <>
+        Insert testimonial here. Insert name here. locally from your IDE or in
+        automation without having to change a single line of code. Deep z/OS
+        integration means you can verify data by interrogating the CICS
+        application directly and gives you the ability to check other z/OS
+        resources, such as messages on queues, without using stubs or mocking.
+      </>
+    ),
   },
   {
     title: "Consistent testing - for all technologies",
