@@ -65,7 +65,7 @@ If you opened any ports, check that the port numbers are correct in the *config.
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml docker.galasa.dev/docker-operator-amd64:0.21.0
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v {path}/config.yaml:/config.yaml icr.io/galasadev/galasa-docker-operator-amd64:0.21.0
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
