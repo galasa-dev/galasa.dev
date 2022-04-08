@@ -13,7 +13,9 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.22.0 - Release Highlights
 
-- TBD
+- The z/OS 3270 Manager now supports 3 new methods ```setCursorPosition(row,col)```, ```retrieveText(row,col,length)```, and ```retrieveTextAtCursor(length)```.
+- The z/OS Batch Manager has a new method ```waitForJob(Second)```.
+- The z/OS File Manager now supports two new methods ```getMemberName()``` and ```clone(IZosVSAMDataset model)```.
 
 <details>
 <summary><b>0.21.0 - Release Highlights</b></summary>
