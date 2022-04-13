@@ -11,7 +11,14 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.21.0 - Release Highlights
+## 0.22.0 - Release Highlights
+
+- The z/OS 3270 Manager now supports 3 new methods ```setCursorPosition(row,col)```, ```retrieveText(row,col,length)```, and ```retrieveTextAtCursor(length)```.
+- The z/OS Batch Manager has a new method ```waitForJob(Second)```.
+- The z/OS File Manager now supports two new methods ```getMemberName()``` and ```clone(IZosVSAMDataset model)```.
+
+<details>
+<summary><b>0.21.0 - Release Highlights</b></summary>
 
 - An initial basic version of the DB2 Manager is now available.  This Manager is not yet ready for Production use and will be documented soon. 
 - An initial basic version of the Cloud Manager is now available. This Manager is not yet ready for Production use and will be documented soon.
@@ -21,6 +28,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - A minor defect in the CICS TS Manager is fixed, resolving the issue of terminals not starting properly.
 - The usage of Random is now replaced with SecureRandom.
 - Various documentation enhancements. 
+</details>
 
 <details>
 <summary><b>0.20.0 - Release Highlights</b></summary>
