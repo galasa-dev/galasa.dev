@@ -29,13 +29,15 @@ $br-lg: 1124px;
   }
 
   @media screen and (min-width: $br-lg) {
-    background-image: url("../images/hero-illustration.svg");
+    background-image: url("../images/illustrations-galasa-08.svg");
     background-repeat: no-repeat;
-    background-position: 120%;
+    background-position: right $margin-container-md center;
+    background-size: 45%;
   }
 
   @media screen and (min-width: $br-container-lg) {
-    background-position: 100%;
+    background-position: right calc((100vw - 1200px) / 2) center;
+    background-size: 600px;
   }
 
   @media screen and (min-width: $br-lg) {
