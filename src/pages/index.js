@@ -106,8 +106,8 @@ const IndexPage = () => (
           Deep integration testing for z/OS powered hybrid cloud applications
         </h1>
         <p className={heroDescription}>
-          Allowing you to test applications at scale regardless of platform -
-          including z/OS
+          Allowing you to test applications at scale regardless of platform —
+          including z/OS.
         </p>
         <br></br>
         <div className={heroButtons}>
@@ -116,7 +116,7 @@ const IndexPage = () => (
             flash={true}
             isPrimary={true}
           >
-            Get Started
+            Get started
           </Button>
           <Button target={"/about"} flash={true} isPrimary={true}>
             Learn more
