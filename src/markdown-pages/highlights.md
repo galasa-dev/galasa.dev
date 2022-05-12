@@ -11,7 +11,27 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.20.0 - Release Highlights
+## 0.22.0 - Release Highlights
+
+- The z/OS 3270 Manager now supports 3 new methods ```setCursorPosition(row,col)```, ```retrieveText(row,col,length)```, and ```retrieveTextAtCursor(length)```.
+- The z/OS Batch Manager has a new method ```waitForJob(Second)```.
+- The z/OS File Manager now supports two new methods ```getMemberName()``` and ```clone(IZosVSAMDataset model)```.
+
+<details>
+<summary><b>0.21.0 - Release Highlights</b></summary>
+
+- An initial basic version of the DB2 Manager is now available.  This Manager is not yet ready for Production use and will be documented soon. 
+- An initial basic version of the Cloud Manager is now available. This Manager is not yet ready for Production use and will be documented soon.
+- Various build dependencies have been upgraded to remove publish security vulnerabilities.
+- All Galasa bundles are now upgraded to version 0.21.0 to remove historical security vulnerabilities.
+- A minor defect in the 3270 Manager is fixed. This Manager now supports ```DONT TIMING_MARK```. 
+- A minor defect in the CICS TS Manager is fixed, resolving the issue of terminals not starting properly.
+- The usage of Random is now replaced with SecureRandom.
+- Various documentation enhancements. 
+</details>
+
+<details>
+<summary><b>0.20.0 - Release Highlights</b></summary>
 
 - The Galasa VTP Manager is now in Release. You can create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. The recorded file can be played back by using IBM Z VTP.
 - Installing the Galasa Ecosystem by using the Kubernetes Operator is updated.
@@ -20,7 +40,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - The Core Manager now provides a _@ResourceString_ annotation and _IResourceString_  interface to generate random locked strings. Further details will be available on the website once the Manager documentation is refreshed.
 - Various bug fixes and enhancements.
 - Various documentation updates, including z/OS Program Manager documentation.
-
+</details>
 
 <details>
 <summary><b>0.19.0 - Release Highlights</b></summary>
