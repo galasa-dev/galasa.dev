@@ -5,13 +5,26 @@ title: "Galasa Blogs"
 
 Stay up-to-date with all things Galasa with featured blog posts from fellow Galasians. 
 
-## Blog: Sample blog post template
-Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
+## Blog: Automation blog post template
+Find out about test automation.<br>
+
+**Author: Will Yates, May 19, 2022**<br>
+*Source: Galasa.dev*<br><br>
+<a href="../../blogs/automating/blog-automating" target="_blank">Read the blog</a>
+
+## Blog: Installing blog post template
+Find out how to install by using Helm charts.<br>
+
+**Author: James Davies, May 18, 2022**<br>
+*Source: Galasa.dev*<br><br>
+<a href="/installing/blog-installing" target="_blank">Read the blog</a>
+
+## Blog: Ecosystem blog post template
+Find out about using the Galasa Ecosystem.<br>
 
 **Author: Caroline McNamara, May 17, 2022**<br>
 *Source: Galasa.dev*<br><br>
-[Read the blog](/blog/blog-test-one)
-<a href="https://galasa.dev/blog/blog-test-one" target="_blank">Read the blog</a>
+<a href="/ecosystem/blog-ecosystem" target="_blank">Read the blog</a>
 
 
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
