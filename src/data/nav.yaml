@@ -94,9 +94,5 @@
       items:
         - title: Get involved
           path: /community/
-    - title: Blogs
-      root: /hub/
-      items:
-        - title: Galasa Blogs
-          path: /hub/          
+       
 
