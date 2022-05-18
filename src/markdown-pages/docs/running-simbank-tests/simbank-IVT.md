@@ -9,9 +9,9 @@ This basic test logs on to Galasa SimBank and examines an account.
 1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring SimBank</a>.
 1. Choose _Run > Run Configurations_ and look for and select _Galasa - Java_ in the left pane (not Galasa SimBank).
 1. Right-click _Galasa_, choose _New Configuration_ and give it a name.
-1. In the dialog, choose _Browse_ to locate your project - `dev.galasa.simbank.tests`, then press _Search_ to locate your test class, _SimBankIVT_.
+1. In the dialog, choose _Browse_ to locate your project - `dev.galasa.simbank.tests`, then press _OK_. Then press _Search_ to locate your test class, `SimBankIVT` and press _OK_.
 1. Press _Apply_ then _Run_.
-1. The _SimBankIVT_ tests run, and the Eclipse console displays their progress through to completion - you will see a console message like: <br/>
+1. The `SimBankIVT` test class runs, and the Eclipse console displays their progress through to completion - you will see a console message like: <br/>
    `INFO dev.galasa.boot.Launcher.launch - Boot complete`
    <br/>
    when the tests have finished. You will also see a _live terminal_ window in which the interactions with the 3270 terminal are captured - you can use the attached controls to step back and forth along the sequence of screens.
@@ -63,7 +63,7 @@ public void testNotNull() {
 
 Each line includes an assertion that states that an instance of a Manager should not be `null`. If one or more of these assertions is not true, then the test will fail, alerting you to the fact that one or more Managers has not been initialized correctly.
 
-Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. \*\*\*1\*\*\*. In a generated log, a completed password field might look like:
+Finally, the main test method itself - `checkBankIsAvailable()` - is defined, and calls `coreManager.registerConfidentialText` to register the application password to the confidential text filtering service. This service replaces occurrences of registered phrases from log output with a numbered shield - e.g. `*1**`. In a generated log, a completed password field might look like:
 
 ```
 Userid ===> IBMUSER  Password ===> *1**
@@ -78,10 +78,7 @@ Then, a sequence of method calls chained off `terminal.waitForKeyboard()` enable
 
 ```java
 @Test
-public void checkBankIsAvailable() throws TestBundleResourceException, URISyntaxException,
-            IOException, HttpClientException, ZosManagerException,
-            DatastreamException, TimeoutException, KeyboardLockedException,
-            NetworkException, FieldNotFoundException, TextNotFoundException {
+public void checkBankIsAvailable() throws Exception {
         //Logon through the session manager
         terminal.waitForKeyboard()
             .positionCursorToFieldContaining("Userid").tab().type("IBMUSER")
