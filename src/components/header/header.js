@@ -129,7 +129,7 @@ const Header = ({ extraHeight }) => {
                   onClick={() => setMenuOpen(false)}
                   className={navLink + " " + selector("hub", location)}
                 >
-                  Hub
+                  Blog
                 </Link>
                 <div className={footerRepeatedLinks}>
                   <a
