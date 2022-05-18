@@ -10,21 +10,21 @@ Find out about test automation.<br>
 
 **Author: Will Yates, May 19, 2022**<br>
 *Source: Galasa.dev*<br><br>
-<a href="../../blogs/automating/blog-automating" target="_blank">Read the blog</a>
+<a href="/hub/automating/blog-automating" target="_blank">Read the blog</a>
 
 ## Blog: Installing blog post template
 Find out how to install by using Helm charts.<br>
 
 **Author: James Davies, May 18, 2022**<br>
 *Source: Galasa.dev*<br><br>
-<a href="/installing/blog-installing" target="_blank">Read the blog</a>
+<a href="hub/installing/blog-installing" target="_blank">Read the blog</a>
 
-## Blog: Ecosystem blog post template
-Find out about using the Galasa Ecosystem.<br>
+## Blog: Galasa ecosystem template
+Find out about the ecosystem.<br>
 
 **Author: Caroline McNamara, May 17, 2022**<br>
 *Source: Galasa.dev*<br><br>
-<a href="/ecosystem/blog-ecosystem" target="_blank">Read the blog</a>
+<a href="/hub/ecosystem/blog-ecosystem" target="_blank">Read the blog</a>
 
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
 Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
