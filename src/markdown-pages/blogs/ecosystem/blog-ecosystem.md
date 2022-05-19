@@ -1,5 +1,5 @@
 --- 
-path: "/hub/blog/ecosystem-installing"
+path: "hub/ecosystem/blog-ecosystem"
 title: "Ecosystem sample blog"
 tags: galasa,ecosystem,installing,blog
 description: we are going to install and test an ecosystem

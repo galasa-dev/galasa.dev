@@ -24,7 +24,7 @@ Find out about the ecosystem.<br>
 
 **Author: Caroline McNamara, May 17, 2022**<br>
 *Source: Galasa.dev*<br><br>
-[Read the blog](/hub/blog/ecosystem-installing)
+[Read the blog](hub/ecosystem/blog-ecosystem)
 
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
 Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
