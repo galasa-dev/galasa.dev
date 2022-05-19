@@ -1,7 +1,11 @@
 --- 
-path: "/hub/ecosystem/blog-ecosystem"
+path: "/hub/blog/ecosystem-installing"
 title: "Ecosystem sample blog"
+tags: galasa,ecosystem,installing,blog
+description: we are going to install and test an ecosystem
 ---
+
+Use the following information to get up and running with a Galasa ecosystem
 
 # What is an Ecosystem?
 
