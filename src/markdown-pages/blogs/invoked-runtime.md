@@ -1,6 +1,6 @@
 # Running Galasa from a CLI - Invoked Runtimes
 
-The aim of this blog is to provide some context of how galasa tests can be run manually from the CLI, without an IDE or Ecosystem. This is can be used as a great opportunity to demonstrate running galasa tests in automation. However for full Testing as a service, with horizontal scaling and resource safe testing check out a Galasa ecosystem.
+The aim of this blog is to provide some context of how galasa tests can be run manually from the CLI, without an IDE or Ecosystem. This is can be used as a great opportunity to demonstrate running Galasa tests in automation. However for full Testing as a service, with horizontal scaling and resource safe testing check out a Galasa ecosystem.
 
 #### Blog Contents
 1. [Why use the Invoked Runtime](#why-use-the-invoked-runtime)
@@ -11,22 +11,22 @@ The aim of this blog is to provide some context of how galasa tests can be run m
 
 ## Why use the invoked runtime
 
-You may have been exploring the capabilities of Galasa using Simbank within an Eclipse IDE, and starting to think about the next steps of how to incorporate a Galasa test as part of your automation, or even just testing phases. The full solution lies within the Galasa ecosystem which provides a complete enterprise solution for Testing as a service, but to get started quickly for proof of concepts, the invoked runtimes can be used to run tests within automation and CI/CD pipelines.
+You may have been exploring the capabilities of Galasa using Simbank within an Eclipse IDE, and starting to think about the next steps of how to incorporate a Galasa test as part of your automation, or even just testing phases. The full solution lies within the Galasa ecosystem which provides a complete enterprise solution for Testing as a service.
 
 ![](./images/GalasaRuntimes.png)
 
-If the overhead of setting up an ecosystem doesn't match your timescales for a proof of concept or your usecase, you can use the invoked runtime as a stepping stone to move you into the right direction. So what does an invoked runtime offer?
+If the overhead of setting up an ecosystem doesn't match your timescales for a proof of concept or your usecase, you can use the invoked runtime as a stepping stone to move you into the right direction. This can be a done before setting up a Ecosystem, allowing you to get galasa tests running in CI/CD pipelines quickly. So what does an invoked runtime offer?
 - The ability to execute a test class outside of an IDE.
 - To run tests off a workstation and on a dedicated server.
 - First steps into automation and test artifact management.
 
 ## Concepts of running outside an IDE
 
-Galasa utilizes a special type of JVM to execute tests inside of, called an OSGi container. This is done so we can dynamically load java artifacts into the runtime as and when they are required, including different Galasa extensions, Galasa managers, and jars containing test materials and dependencies. Even so this runtime is essentially executed with a `java -jar ...` style command
+Galasa utilizes a OSGi framework running inside a standard JVM. This is done so we can dynamically load java artifacts into the runtime as and when they are required, including different Galasa extensions, Galasa managers, and jars containing test materials and dependencies. Even so this runtime is essentially executed with a `java -jar ...` style command
 
-The eclipse plugin provided from the Galasa project abstracts a lot of this work away from the user to make execution easier. When running a test (after it has been compiled) eclipse does:
+The eclipse plugin provided from the Galasa project abstracts a lot of this work away from the user to make execution easier. When running a test (after it has been compiled) eclipse:
 1. A obr (OSGi Bundle Repository) is quickly built containing all the java projects in your workspace
-1. Starts an OSGi runtime called Felix which loads all of the Galasa components and any requested compiled tests within the workspace. It locates the requested java bundles within any given OBR's from a local maven repository and maven central (or another repository passed in the galasa configurations).
+1. Starts an OSGi framework called Felix which loads all of the Galasa components and any requested compiled tests within the workspace. It locates the requested java bundles within any given OBR's from a local maven repository and maven central (or another repository passed in the galasa configurations).
 1. Executes the test with the output going to the Console in Eclipse, storing all output locally
 
 When requesting a test to be run, typically 2 OBR's are passed, the uber obr which lists all the galasa components, and a test obr which describes the tests we are looking to run and any dependencies. This second OBR is the workspace obr built at the start of a test run within Eclipse. The Galasa framework is not limited to 2 OBR's, as some more complex setups can contain custom managers which don't make sense to house in the same code base as tests, but this blog will keep things simple.
