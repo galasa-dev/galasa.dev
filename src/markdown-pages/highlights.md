@@ -11,11 +11,16 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.22.0 - Release Highlights
+## 0.23.0 - Release Highlights
+- New Helm charts are available for deploying a basic Galasa Ecosystem into a Kubernetes Namespace.   Documentation can be found at https://github.com/galasa-dev/helm/tree/released
+
+<details>
+<summary><b>0.22.0 - Release Highlights</b></summary>
 
 - The z/OS 3270 Manager now supports 3 new methods ```setCursorPosition(row,col)```, ```retrieveText(row,col,length)```, and ```retrieveTextAtCursor(length)```.
 - The z/OS Batch Manager has a new method ```waitForJob(Second)```.
 - The z/OS File Manager now supports two new methods ```getMemberName()``` and ```clone(IZosVSAMDataset model)```.
+</details>
 
 <details>
 <summary><b>0.21.0 - Release Highlights</b></summary>
