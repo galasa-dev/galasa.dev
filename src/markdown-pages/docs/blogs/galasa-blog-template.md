@@ -1,9 +1,8 @@
 ---
 path: "/hub/blog/category/sample-post"
 title: "Blog: Title of Blog Post"
-Author:  Will Yates
-Date: 23 May 2022
 ---
+Will Yates, 23 May 2022
 
 Short description of blog
 
