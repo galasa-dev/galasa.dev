@@ -262,6 +262,7 @@ If the Docker Registry requires credentials for authentication, then the id for 
 
 </details>
 
+
 # <a name="codesnippets"></a>Code snippets
 
 The following code snippets show how you can use the Docker Manager to set up a Docker Container and start using it to run commands and view results.  
