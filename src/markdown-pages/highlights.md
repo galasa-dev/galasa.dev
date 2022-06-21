@@ -11,8 +11,15 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.23.0 - Release Highlights
+## 0.24.0 - Release Highlights
+- Various enhancements to the DB2 Manager.
+- Various defect fixes. 
+- Various documentation enhancements. 
+
+<details>
+<summary><b>0.23.0 - Release Highlights</b></summary>
 - New Helm charts are available for deploying a basic Galasa Ecosystem into a Kubernetes Namespace.   Documentation can be found at https://github.com/galasa-dev/helm/tree/released
+</details>
 
 <details>
 <summary><b>0.22.0 - Release Highlights</b></summary>
