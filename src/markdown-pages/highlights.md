@@ -18,7 +18,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 <details>
 <summary><b>0.23.0 - Release Highlights</b></summary>
-- New Helm charts are available for deploying a basic Galasa Ecosystem into a Kubernetes Namespace.   Documentation can be found at https://github.com/galasa-dev/helm/tree/released
+
+- New Helm charts are available for deploying a basic Galasa Ecosystem into a Kubernetes Namespace. Documentation can be found in the <a href="https://github.com/galasa-dev/helm/tree/released" target="_blank"> helm repository</a> in GitHub.
 </details>
 
 <details>
