@@ -21,13 +21,13 @@ The following annotations are available with the zOS Program Manager
 | Description: | The <code>@ZosProgram</code> annotation requests the z/OS Program Manager to Compile and Bind a program on a z/OS image.  The test can request multiple z/OS Program instances |
 | Attribute: `name` |  The program name |
 | Attribute: `location` |  Path to the location of the program source in the Galasa test bundle. This can be either the full path including the file name or the directory containing the source with the name specified in the name attribute with the extension specified in the language attribute.  |
-| Attribute: `language` |  The programming language. See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosprogram/ZosProgram.Language.html" target="_blank" rel="noopener noreferrer">ZosProgram.Language</a>. <br><br>  |
+| Attribute: `language` |  The programming language. See <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/ZosProgram.Language.html" target="_blank" rel="noopener noreferrer">ZosProgram.Language</a>. <br><br>  |
 | Attribute: `cics` |  Is a CICS program and requires the CICS translator. |
 | Attribute: `loadlib` |  The load module data set name |
 | Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
 | Attribute: `compile` |  Compile this zOS program. |
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosProgram(imageTag="A")<br> public IZosProgram zosProgramA;<br></code> |
-| Notes: | The <code>IZosProgram</code> interface has a number of methods to manage the zOS Program. See <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosprogram/ZosProgram.html" target="_blank">ZosProgram</a> and <a href="https://javadoc-snapshot.galasa.dev/dev/galasa/zosprogram/IZosProgram.html" target="_blank">IZosProgram</a> to find out more. |
+| Notes: | The <code>IZosProgram</code> interface has a number of methods to manage the zOS Program. See <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/ZosProgram.html" target="_blank">ZosProgram</a> and <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/IZosProgram.html" target="_blank">IZosProgram</a> to find out more. |
 
 </details>
 
