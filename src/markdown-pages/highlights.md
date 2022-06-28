@@ -12,9 +12,12 @@ Post a question or share your experiences with other users in our <a href="https
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 ## 0.24.0 - Release Highlights
+
+
+- The minimum Java release now required for Galasa is version 11, rather than version 8. You will need to install a Java version 11 JDK or later to run Galasa tests.  
 - Various enhancements to the DB2 Manager.
 - Various defect fixes. 
-- Various documentation enhancements. 
+- Various documentation fixes and enhancements. 
 
 <details>
 <summary><b>0.23.0 - Release Highlights</b></summary>
