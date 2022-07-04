@@ -120,7 +120,7 @@ Read the commentary for an explanation of the key elements.
     		<dependency>
     			<groupId>dev.galasa</groupId>
     			<artifactId>galasa-bom</artifactId>
-    			<version>0.22.0</version>
+    			<version>0.24.0</version>
     			<type>pom</type>
     			<scope>import</scope>
     		</dependency>
@@ -209,7 +209,7 @@ Some comments:
 - `<modules>` details what sub-modules (sub-projects) are contained within this parent project. Usually, when the parent project is built, so are the sub-modules.
 - `<distributionManagement>` controls where Maven deploys the project when built. A variable is used so that the same project can be built and deployed to different test stream repositories.
 - The `<properties>` element specifies properties such as file encoding and Java version numbers. Its `<unpackBundle>` sub-element is required if you are including custom Managers within the project structure.
-- `<dependencyManagement>` establishes the versions of dependencies in all of the sub-modules. A BOM project is provided by the Galasa team that includes the versions of all of the released Managers. Set the version of Galasa you wish to run against - in this case 0.22.0 - and all the Manager versions are imported.
+- `<dependencyManagement>` establishes the versions of dependencies in all of the sub-modules. A BOM project is provided by the Galasa team that includes the versions of all of the released Managers. Set the version of Galasa you wish to run against - in this case 0.24.0 - and all the Manager versions are imported.
 - `<dependencies>` list all the Managers you wish to make available for your tests and custom Manager if present. You could include `<dependencies>` in each of the sub-modules, but it is easier to maintain the list here.
 - `<plugins>` identify the Maven plugins to be used during the build process. The `maven-bundle-plugin` builds OSGi bundles (the Manager and test projects), indicated by `<packaging>bundle</packaging>`. The `galasa-maven-plugin` is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project.
 
@@ -366,6 +366,6 @@ When viewed in the _Package Explorer_ your set of projects should resemble (your
 
 ![Project and sub-projects](./project-and-subproject.png)
 
-To build the project with Java version 1.8, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog, ensuring that the JVM is set to Java 8 JDK. Wait for the build process to complete.
+To build the project with Java version 1.8, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
 
 From _Run > Run Configurations_, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
