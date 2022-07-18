@@ -1,6 +1,6 @@
 ---
 path: "/docs/ecosystem/automating/overview"
-title: "Running a test in automation overview"
+title: "Running a test in automation"
 ---
 
 Galasa SimBank shows how you can run a Galasa test locally inside an IDE. Running a test inside an IDE enables test and application develop teams to run tests in a local workspace that interacts with real resources - ideal for minimising the risk of regressions from code changes.  
@@ -9,7 +9,7 @@ After writing a test to run locally on your machine, start to realise the power 
 
 To run a test in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks: 
   
-1. Convert a local test into an OSGi bundle-wrapped project 
+1. [Convert a local test into an OSGi bundle-wrapped project](running-automation.md) 
 2. Deploy the test artifacts to a Maven repository 
 3. Set up a new test stream 
 4. Run the test headlessly as part of a pipeline 
@@ -43,10 +43,3 @@ When the parent project is compiled, a test jar and OBR object are generated and
 
 Use the example in the [Running a test in automation](/docs/ecosystem/automating) documentation to guide you through the process of setting up a test that can be run in automation outside of an IDE. 
 
-
-questions on slack --- 
-
-To be able to bring in external dependancies into the project/manager, they need to be included within an OBR, so the osgi runtime knows to go and retrieve them before trying to execute. At the current moment (this was something raised and we are working on) when we look to run a test we build an workspace OBR that gets passed to the test at runtime. when we build the workspace OBR, your manager isnt included in the workspace OBR, as its nor currently there. One choice is to load the manager project into the same workspace as the test project so that the workspace OBR picks up your manager. Any dependeniceis you add need to be osgi bundles. both of those are not OSGi bundles, easy to convert them though have a look at the wrapping repo in the galasa-dev org.  Basically we created a new pom.xml file that has a dependency on the OS module.  we then use a plugin to create the new manifest for the bundle.  Build that pom and you should produce an OSGi compliant version of the code.
-
- 
- 

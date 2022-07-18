@@ -29,7 +29,7 @@ Points to note around naming conventions:
 
 The <artifactId> must be unique for each Maven project under a groupId. To prevent confusion, you should make it unique across groupIds. The groupId and artifactId can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like com.example.company.tests.parent.
 
-### Create a parent project
+## Create a parent project
 
 The following example is based on the naming convention ```com.example.company``` and uses the SimBankIVT test code. 
  
@@ -49,23 +49,11 @@ You have successfully created a parent project!
 
 ### Edit the pom.xml of the parent project
 
-
-If you open the pom.xml of the parent project, the content of the file looks similar to the following example: 
-
-```
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example.company</groupId>
-  <artifactId>com.example.company.mytests.parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-</project>
-
-```
-
 You now need to edit the pom.xml of the parent project and add in dependencies, any Managers that your test requires to run, and build information. Use the following example to help you to understand how to edit the pom.xml and read the commentary for an explanation of the key elements.
 
-```
+<details>
+<summary><code>com.example.tests.parent/pom.xml</code></summary>
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -88,7 +76,6 @@ You now need to edit the pom.xml of the parent project and add in dependencies, 
 	    </dependency>
       </dependencies>
 	</dependencyManagement>
-	
 	<dependencies>
 	  <dependency>
 		<groupId>dev.galasa</groupId>
@@ -123,7 +110,6 @@ You now need to edit the pom.xml of the parent project and add in dependencies, 
 		<artifactId>assertj-core</artifactId>
 	  </dependency>
 	</dependencies>
-	
 	<build>
 		<pluginManagement>
 		  <plugins>
@@ -175,8 +161,9 @@ Some comments:
 - In the _dependencies_ section, note that no Manager version numbers are specified. All Manager version numbers are taken from the _galasa-bom_ (bill of materials) that is specified. In this case, the _galasa-bom_ version is _0.24.0_.
 
 - <plugins> identify the Maven plugins to be used during the build process. The maven-bundle-plugin builds OSGi bundles (the Manager and test projects), indicated by <packaging>bundle</packaging>. The galasa-maven-plugin is used in two ways - to build a test catalog for each bundle project and to build the <packaging>galasa-obr</packaging> project. 
+</details>
 
-### Build the Maven bundles from the parent project
+## Build the Maven bundles from the parent project
 
 Complete the following steps to create Maven bundles to deploy to your repository:
 1. Save the changes that you made to the pom.xml of the parent project.
@@ -190,7 +177,7 @@ At this point, the parent project is empty so you need to add sub-projects as Ma
 - An OBR (OSGi Bundle Repository) sub-project, which Galasa uses to locate the test project and any interdependencies.
 
 
-### Add a test sub-project to the parent project
+## Add a test sub-project to the parent project
 
 Add a test sub-project by adding a Maven module to the parent project:
 
@@ -232,7 +219,7 @@ You can add a test to a test sub-project by adding a new package.
 1. Click _Finish_.
 1. Copy the test into your test class and save the changes.
 
-### Add an OBR sub-project to the parent project 
+## Add an OBR sub-project to the parent project 
 
 Add an OBR sub-project by adding a Maven module to the parent project:
 
