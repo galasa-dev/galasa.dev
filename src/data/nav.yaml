@@ -94,9 +94,5 @@
       items:
         - title: Get involved
           path: /community/
-    - title: Hub
-      root: /hub/
-      items:
-        - title: Galasa Hub
-          path: /hub/          
+       
 

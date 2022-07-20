@@ -13,9 +13,13 @@ import {
 } from "./index.module.scss"
 import Button from "../components/button"
 
+import OddIllustrationSVG from "../images/key-feature-odd.inline.svg"
+import EvenIllustrationSVG from "../images/key-feature-even.inline.svg"
+
 const keyFeatures = [
   {
     title: "Consistent testing - for all technologies",
+    illustration: EvenIllustrationSVG,
     body: (
       <>
         You can write Galasa tests as a JUnit-style Java class and run them
@@ -29,6 +33,7 @@ const keyFeatures = [
   },
   {
     title: "Focus on the test – not the integration problems",
+    illustration: OddIllustrationSVG,
     body: (
       <>
         Galasa’s framework enables deep integration tests to be run across
@@ -41,6 +46,7 @@ const keyFeatures = [
   },
   {
     title: "Get the test data you need - fast",
+    illustration: EvenIllustrationSVG,
     body: (
       <>
         Galasa can integrate with your test data strategy by helping you to
@@ -55,6 +61,7 @@ const keyFeatures = [
   },
   {
     title: "See the big picture – from one location",
+    illustration: OddIllustrationSVG,
     body: (
       <>
         Test results and artifacts are stored in a single location in a uniform
@@ -66,6 +73,7 @@ const keyFeatures = [
   },
   {
     title: "Test planning and recording – made easy",
+    illustration: EvenIllustrationSVG,
     body: (
       <>
         The ability to create a test catalog within Galasa means that you can
@@ -77,6 +85,7 @@ const keyFeatures = [
   },
   {
     title: "Keep on growing – Galasa grows with you",
+    illustration: OddIllustrationSVG,
     body: (
       <>
         Galasa is open source, so can be extended to support additional tooling
@@ -113,7 +122,7 @@ const IndexPage = () => (
             Learn more
           </Button>
           <Button target={"/releases"} flash={true} isPrimary={true}>
-            0.22.0 highlights
+            0.24.0 highlights
           </Button>
         </div>
       </div>
@@ -121,7 +130,11 @@ const IndexPage = () => (
     <div className={keyFeatureContainer}>
       {keyFeatures.map((item, i) => {
         return (
-          <KeyFeature title={item.title} index={i} key={i}>
+          <KeyFeature
+            title={item.title}
+            illustration={<item.illustration />}
+            key={i}
+          >
             {item.body}
           </KeyFeature>
         )
