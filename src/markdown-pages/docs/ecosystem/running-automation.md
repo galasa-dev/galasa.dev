@@ -266,6 +266,6 @@ The test jar and OBR are now built and installed in your local Maven repository 
 
 ### Next steps
 
-The next step is to deploy the artifacts that you have created to a remote Maven repository. See the [Deploying a test to a Maven repository](/docs/ecosystem/deploying-tests) documentation for information on how to do this. 
+The next step is to deploy the artifacts that you have created to a remote Maven repository. See the [Deploying a test to a Maven repository](/docs/ecosystem/deploying-tests) documentation for more information on how to do this. 
 
 
