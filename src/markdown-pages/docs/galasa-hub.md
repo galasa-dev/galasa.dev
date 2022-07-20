@@ -1,9 +1,9 @@
 ---
 path: "/hub"
-title: "Galasa Hub"
+title: "Galasa Blogs"
 ---
 
-Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians. 
+Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
 Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
