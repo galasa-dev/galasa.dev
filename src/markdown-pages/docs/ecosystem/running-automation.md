@@ -3,11 +3,11 @@ path: "/docs/ecosystem/automating"
 title: "Running a test in automation"
 ---
 
-Use the following information to help you to understand how to run a test in automation.
+Use the following example to help you to understand how to structure a test so that it runs in automation.
 
-The example shows how to create a parent project, add a test sub-project and OBR project as modules of that parent, and how to edit the associated pom.xml files so that the projects are structured correctly. 
+The following example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are structured correctly. 
 
-The structure of the parent project will look similar to this:  
+The structure of the parent project will look similar to the following example structure:  
 
 ``` 
 ────com.example.company.mytests.parent 
@@ -23,15 +23,15 @@ The structure of the parent project will look similar to this:
         │   pom.xml 
 ``` 
 
-The parent project contains a test bundle that contains a test class. The OBR module creates a OBR that describes the test bundle in the project. The parent pom.xml stores the build mechanisms for the project and every child project (module) inherits these. 
+As you can see, within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `SIMBANKIVT.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
 
 Points to note around naming conventions: 
 
-The _artifactId_ must be unique for each Maven project under a _groupId_. To prevent confusion, you should make it unique across _groupIds_. The _groupId_ and _artifactId_ can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like ```com.example.company.tests.parent```.
+The _artifactId_ must be unique for each Maven project under a _groupId_. To prevent confusion, you should make it unique across _groupIds_. The _groupId_ and _artifactId_ can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns that are similar to ```com.example.company.tests.parent```.
 
 ## Create a parent project
 
-The following example is based on the naming convention ```com.example.company``` and uses the SimBankIVT test code. 
+The following example is based on the naming convention ```com.example.company``` and uses the _SimBankIVT_ test code as the example test class. 
  
 
 Complete the following steps to create a parent project:
@@ -158,20 +158,20 @@ Some comments:
 
 - In the _dependencies_ section, note that no Manager version numbers are specified. All Manager version numbers are taken from the _galasa-bom_ (bill of materials) that is specified. In this case, the _galasa-bom_ version is _0.24.0_.
 
-- <plugins> identify the Maven plugins to be used during the build process. The maven-bundle-plugin builds OSGi bundles (the Manager and test projects), indicated by <packaging>bundle</packaging>. The galasa-maven-plugin is used in two ways - to build a test catalog for each bundle project and to build the <packaging>galasa-obr</packaging> project. 
+- _plugins_ identify the Maven plugins to be used during the build process. The _maven-bundle-plugin_ builds OSGi bundles (the Manager and test projects), indicated by the `<packaging>` value of _bundle_. The _galasa-maven-plugin_ is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project. 
 </details>
 
 ## Build the Maven bundles from the parent project
 
 Complete the following steps to create Maven bundles to deploy to your repository:
-1. Save the changes that you made to the pom.xml of the parent project.
+1. Save the changes that you made to the _pom.xml_ of the parent project.
 1. Right-click _com.example.company.mytests.parent_ and choose _Run As > Maven Install_.
 
 A _BUILD SUCCESS_ message is displayed in the _Console_ tab. 
 
 At this point, the parent project is empty so you need to add sub-projects as Maven modules so that the parent project contains:
 
-- A test sub-project, that contains one or more tests. In this example, the sample project will contain just one test project.
+- A test sub-project, containing one or more tests. In this example, the sample project will contain just one test project.
 - An OBR (OSGi Bundle Repository) sub-project, which Galasa uses to locate the test project and any interdependencies.
 
 
@@ -189,7 +189,7 @@ You have successfully added a test sub-project to your parent project!
 ### Edit the pom.xml of the test sub-project
 
 
-1. Add packaging information into the pom.xml after the artifactId information:
+1. Add packaging information into the _pom.xml_ after the _artifactId_ information:
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -204,9 +204,9 @@ You have successfully added a test sub-project to your parent project!
 ```
 1. Save your changes.
 
-With most of the dependencies and build definitions placed in the parent pom, the individual poms for the test bundle and OBR are relatively simple. In this example the pom simply defines the packaging type as _bundle_ and declares that it is a child module of the parent project. 
+With most of the dependencies and build definitions placed in the parent pom, the individual poms for the test bundle and OBR are relatively simple. In this example, the pom of the test module simply defines the packaging type as _bundle_ and declares that it is a child module of the parent project. 
 
-You now have a project that is ready to have a test added to it. In this example, we are adding the SimBank IVT test to the project but you can use your own test. 
+You now have a project that is ready to have a test added to it. In this example, we are adding the ```SimBankIVT``` test to the project, but you can use your own test. 
 
 ### Add a test to the test sub-project
 
@@ -230,8 +230,8 @@ Add an OBR sub-project by adding a Maven module to the parent project:
 
 ### Edit the pom.xml of the OBR sub-project
 
-1. Edit the pom.xml so that the packaging type is set to _galasa-obr_.
-1. Add a dependency on the test case so that the test case is built inside the OBR by creating a new section in the pom.xml that is similar to the following example: 
+1. Edit the _pom.xml_ of the OBR module so that the _packaging_ type is set to _galasa-obr_.
+1. Add a dependency on the test case so that the test case is built inside the OBR by creating a new section in the _pom.xml_ that is similar to the following example: 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>

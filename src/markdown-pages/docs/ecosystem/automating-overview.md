@@ -4,12 +4,12 @@ title: "Automating tests"
 ---
 Galasa SimBank shows how you can run a Galasa test locally inside an IDE. Running a test inside an IDE enables test and application development teams to run tests in a local workspace that interacts with real resources - ideal for minimising the risk of regressions from code changes.
 
-After writing a test to run locally on your machine, start to realise the power of Galasa by running that test in automation inside the [Galasa Ecosystem](ecosystem.md).
+After writing a test to run locally on your machine, start to realise the power of Galasa by running that test in automation inside the [Galasa Ecosystem](docs/ecosystem).
 
 To run a test in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 
-1. Structuring a test to [run in automation](running-automation.md)
-2. [Deploy the test artifacts to a Maven repository](deploy-to-maven.md)
+1. Structure a test to [run in automation](/docs/ecosystem/automating)
+2. [Deploy the test artifacts to a Maven repository](docs/ecosystem/deploying-tests)
 3. Set up a new test stream
 4. Run the test headlessly as part of a pipeline
 
