@@ -8,7 +8,6 @@ Use the following information to help you to understand how to run a test in aut
 The example shows how to create a parent project, add a test sub-project and OBR project as modules of that parent, and how to edit the associated pom.xml files so that the projects are structured correctly. 
 
 The structure of the parent project will look similar to this:  
-
 ``` 
 ────com.example.company.mytests.parent 
     │   pom.xml 
