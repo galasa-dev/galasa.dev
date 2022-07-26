@@ -8,6 +8,7 @@ Use the following information to help you to understand how to run a test in aut
 The example shows how to create a parent project, add a test sub-project and OBR project as modules of that parent, and how to edit the associated pom.xml files so that the projects are structured correctly. 
 
 The structure of the parent project will look similar to this:  
+
 ``` 
 ────com.example.company.mytests.parent 
     │   pom.xml 
@@ -26,7 +27,7 @@ The parent project contains a test bundle that contains a test class. The OBR mo
 
 Points to note around naming conventions: 
 
-The <artifactId> must be unique for each Maven project under a groupId. To prevent confusion, you should make it unique across groupIds. The groupId and artifactId can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like com.example.company.tests.parent.
+The _artifactId_ must be unique for each Maven project under a _groupId_. To prevent confusion, you should make it unique across _groupIds_. The _groupId_ and _artifactId_ can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like ```com.example.company.tests.parent```.
 
 ## Create a parent project
 
@@ -50,9 +51,7 @@ You have successfully created a parent project!
 
 You now need to edit the pom.xml of the parent project and add in dependencies, any Managers that your test requires to run, and build information. Use the following example to help you to understand how to edit the pom.xml and read the commentary for an explanation of the key elements.
 
-<details>
-<summary><code>com.example.tests.parent/pom.xml</code></summary>
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
