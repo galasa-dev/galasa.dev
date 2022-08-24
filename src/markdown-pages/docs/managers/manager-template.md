@@ -3,8 +3,8 @@ path: "/docs/managers/manager-name"
 title: "manager-name Manager"
 ---
 
-[Required]
-[Opening paragraph for the level the Manager is at (ie Alpha, Beta or Release level) and where to find the Javadoc and the IVT for that Manager. Use the following example, editing the level and the two urls so they are correct for your Manager. Use the tagging as shown and include the <br> tag for formatting.]
+[Required]<br>
+[Opening paragraph for the level the Manager is at (ie Alpha, Beta or Release level) and where to find the Javadoc and the IVT for that Manager. Use the following example, editing the level and the two urls so they are correct for your Manager. Use the tagging as shown and include the ```<br>``` tag for formatting.]
 
 Example:
 
@@ -15,8 +15,8 @@ This Manager is at Release level. You can view the <a href="https://javadoc.gala
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>
-[Provided annotations](#annotations)<br>
-[Code snippets](#codesnippets)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
 
 
 # <a name="overview"></a>Overview
@@ -28,10 +28,11 @@ Example:
 
 This Manager enables tests to run Docker Containers on a Docker Engine that is provided by the Galasa infrastructure, making it easy to write tests that consume container-based services. The test does not need to worry about where the Docker infrastructure is, its credentials, or its capacity as this is all handled by the Manager. 
 
-## <a name="usage"></a>Using the Docker Manager 
+## <a name="usage"></a>Using the Manager 
 
 [Required]
-[Include here information about why you might want to use the Docker Manager, any other Managers that it will often work with to complete a common task]
+
+[Include here information about why you might want to use the Manager and any other Managers that it can be used with to complete a task.]
 
 Example:
 
@@ -42,6 +43,7 @@ Containers that are provided by the Docker Manager can be used to either drive w
 ## <a name="features"></a>Manager features
 
 [Optional]
+
 [Short summary of any key Manager features]
 
 Example:
@@ -51,6 +53,7 @@ The Docker Manager supports Galasa Shared Environments.  Shared Environments pro
 ## <a name="limitations"></a>Limitations
 
 [Optional]
+
 [Short summary of any key Manager limitations]
 
 Example:
@@ -61,7 +64,7 @@ The Docker Manager supports only AMD64 platforms. It is planned to expand the ca
 
 [Required]
 
-[Give the user an idea on how to get started with the Manager eg any steps / thought processes that would be a good way of understanding how to incorporate the Manager into the test and start using it.
+[Explain how to get started with the Manager eg any steps / thought processes that would be a good way of understanding how to incorporate the Manager into the test and start using it.
 
 This section must include:
 - CPS Properties needed to configure the manager
@@ -70,7 +73,10 @@ This section must include:
 ## <a name="cpsproperties"></a>Configuration Properties
 
 [Required]
-[Put any CPS in a collapsible table by using the tagging and naming conventions shown in the following example. ]
+
+[Put any CPS in a collapsible table by using the tagging and naming conventions shown in the following example.]
+
+Example:
 
 The following are properties that are used to configure the Docker Manager.
  
@@ -94,12 +100,16 @@ Currently, the Docker Manager supports only a single Docker Engine although it i
 ## <a name="dependencies"></a>Including the Manager in a test
 
 [Required]
+
 [The Maven and Gradle dependency on how to include the Manager in a test.]
 
-## <a name="annotations"></a>Annotations provided by the Manager
+# <a name="annotations"></a>Annotation provided by the Manager
 
 [Required]
+
 [Put any annotations in a collapsible table by using the tagging shown in the following examples.]
+
+Example:
 
 The following annotations are available with the Docker Manager:
 
@@ -125,10 +135,13 @@ The <code>IDockerContainer</code> interface gives the test access to the IPv4/6 
 
 
 
-# <a name="codesnippets"></a>Code snippets
+# <a name="codesnippets"></a>Code snippets and examples
 
 [Required]
+
 [Put any code snippets in a collapsible sections by using the tagging shown in the following example.]
+
+Example:
 
 Use the following code snippets to help you complete common tasks.
 
