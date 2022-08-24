@@ -4,12 +4,13 @@ title: "GitHub Manager"
 ---
 
 
-This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/docker/package-summary.html">Javadoc documentation for the Manager here</a>. The <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-cloud-parent/dev.galasa.docker.manager.ivt">GitHub Manager IVT</a> is available in the Manager repository in GitHub.<br>
+This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/github/package-summary.html">Javadoc documentation for the Manager here</a>.<br>
 
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>
-[Code snippets](#codesnippets)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
 
 
 # <a name="overview"></a>Overview
@@ -27,7 +28,7 @@ To ensure that the failing exception is due to the known problem identified in t
 Once the GitHub issue is closed, remove the @GitHubIssue annotation from the test class or test method.
 
 
-### Features
+## a name="features"></a>Manager Features
 
 Use the @GitHubIssue annotation in conjunction with the _@ContinueOnTestFailure_ annotation to return a test result for all test methods within a test class.
 
@@ -133,9 +134,9 @@ Scenario 1 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @Test
 @GitHubIssue( issue = "1000")
 Test class SimBankIVT 
-Test method testNotNull(): _Passed_
-Test method checkBankIsAvailable(): _Failed With Defects_
-Test class result: _Passed With Defects_
+Test method testNotNull(): ![passed icon:](passed.svg)
+Test method checkBankIsAvailable(): ![failed with defects icon:](failed-with-defects.svg)
+Test class result: ![passed with defects icon:](passed-with-defects.svg)
 
 Next steps: All methods passed, other than those expected to fail - in this case the _checkBankIsAvailable_ method. No further investigation is required.
 
@@ -203,34 +204,6 @@ Next steps: The _testNotNull_ method returned a status of _Failed With Defects_.
 
 You must configure your CPS properties so that the GitHub Manager knows the GitHub instance in which to look for the specified issue. The GitHub Manager converts the GitHub instance URL that is provided in the CPS to the correct URL for the GitHub API, removing the need to manually supply a URL for the GitHub API. Alternatively, you can set the GitHub repository in the @GitHubIssue annotation. The value in the annotation takes precedence over the value in the CPS. 
 
-See the [CPS properties](#cps) section for more information. 
-
-You must also provide credentials for your GitHub Enterprise instances in the credentials store in order to authenticate the request to the GitHub API.
-
-
-### Annotations
-
-The following annotations are available with the GitHub Manager:
-
-<details>
-<summary>GitHub Issue</summary>
-
-| Name: | GitHub Issue |
-| --------------------------------------- | :------------------------------------- |
-| Name: | @GitHubIssue |
-| Description: | If present on a method or class, this annotation will tell the GitHub Manager to influence the result of the method or class based on the known problem in the GitHub issue. |
-| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1000", repo = "galasa-dev/projectmanagement", regex = "[a-zA-Z1-9]" )|
-| Attribute `issue`: | The number of the issue. Required.|
-| Attribute `githubId`: | Optional. Default value is "DEFAULT".|
-| Attribute `repo`: | Optional. If not present in the annotation, the CPS is checked. If a value is not present in the CPS, the Manager logs a warning message.|
-| Attribute `regex`: | Optional. Use to narrow down the failing exception.|
-
-The annotation can be used at the class or method level.
-
-Use of the _@ContinueOnTestFailure_ annotation alongside the _@GitHubIssue_ annotation can affect the test result. For examples, see the [Overrides](#overrides) section.
-
-</details>
-
 ## <a name="cps"></a>Configuration Properties
 
 The following are properties used to configure the GitHub Manager:
@@ -282,7 +255,35 @@ Note: You must provide credentials for your GitHub Enterprise instances in the c
 
 </details>
 
-# <a name="codesnippets"></a>Code snippets
+
+You must also provide credentials for your GitHub Enterprise instances in the credentials store in order to authenticate the request to the GitHub API.
+
+
+# <a name="annotations"></a>Annotation provided by the Manager
+
+The following annotation is provided by the GitHub Manager:
+
+<details>
+<summary>GitHub Issue</summary>
+
+| Name: | GitHub Issue |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @GitHubIssue |
+| Description: | If present on a method or class, this annotation will tell the GitHub Manager to influence the result of the method or class based on the known problem in the GitHub issue. |
+| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1000", repo = "galasa-dev/projectmanagement", regex = "[a-zA-Z1-9]" )|
+| Attribute `issue`: | The number of the issue. Required.|
+| Attribute `githubId`: | Optional. Default value is "DEFAULT".|
+| Attribute `repo`: | Optional. If not present in the annotation, the CPS is checked. If a value is not present in the CPS, the Manager logs a warning message.|
+| Attribute `regex`: | Optional. Use to narrow down the failing exception.|
+
+The annotation can be used at the class or method level.
+
+Use of the _@ContinueOnTestFailure_ annotation alongside the _@GitHubIssue_ annotation can affect the test result. For examples, see the [Overrides](#overrides) section.
+
+</details>
+
+
+# <a name="codesnippets"></a>Code snippets and examples
 
 <details><summary>Add the @GitHubIssue and @ContinueOnTestFailure annotations on a test class</summary>
 
