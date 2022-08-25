@@ -181,28 +181,13 @@ The following are properties used to configure the GitHub Manager:
 | Required:  | No |
 | Default value: | https://github.com |
 | Valid values: | A valid GitHub instance, for example <br> _https://github.com_, _https://github.ibm.com_ |
-| Examples: | <<code>githubissue.instance.DEFAULT.url=https://github.com</code><br>
-<code>githubissue.instance.IBM.url=https://github.ibm.com</code> |
+| Examples: | <<code>githubissue.instance.DEFAULT.url=https://github.com<br>
+githubissue.instance.IBM.url=https://github.ibm.com</code> |
 
 </details>
 
 <details>
-<summary>GitHub Instance URL CPS Property</summary>
-
-| Property: | GitHub Instance URL CPS Property |
-| ------------- | :------------------------------------- |
-| Name: | githubissue.instance.url |
-| Description: | The GitHub instance for the issue  |
-| Required:  | No |
-| Default value: | https://github.com |
-| Valid values: | A valid GitHub instance, for example <br> _https://github.com_, _https://github.ibm.com_ |
-| Examples: | <code>githubissue.instance.DEFAULT.url=https://github.com</code><br>
-<code>githubissue.instance.IBM.url=https://github.ibm.com</code><br> |
-
-</details>
-
-<details>
-<summary>GitHub instance credentials CPS Property</summary>
+<summary>GitHub Instance Credentials CPS Property</summary>
 
 | Property: | GitHub Instance Credentials CPS Property |
 | ------------- | :------------------------------------- |
@@ -211,14 +196,14 @@ The following are properties used to configure the GitHub Manager:
 | Required:  | No |
 | Default value: | _GITHUB_ |
 | Valid values: | _GITHUB_, _DEFAULT_, _IBM_ |
-| Examples: | <code>githubissue.instance.DEFAULT.credentials=GITHUB</code><br>
-<code>githubissue.instance.IBM.credentials=IBM</code> |
+| Examples: | <code>githubissue.instance.DEFAULT.credentials=GITHUB<br>
+githubissue.instance.IBM.credentials=IBM</code> |
 
 </details>
 
 
 <details>
-<summary>GitHub instance repository CPS Property</summary>
+<summary>GitHub Instance Repository CPS Property</summary>
 
 | Property: | GitHub Instance Repository CPS Property |
 || ------------- | :------------------------------------- |
@@ -227,7 +212,7 @@ The following are properties used to configure the GitHub Manager:
 | Required:  | No, can be provided in the annotation |
 | Default value: | N/A |
 | Valid values: | A valid repository, for example, _galasa-dev/projectmanagement_ |
-| Examples: |<code>githubissue.instance.DEFAULT.repository=galasa-dev/projectmanagement</code><br> |
+| Examples: |<code>githubissue.instance.DEFAULT.repository=galasa-dev/projectmanagement</code> |
 
 Note: You must provide credentials for your GitHub Enterprise instances in the credentials store, so that the request to the GitHub API is authenticated.
 
