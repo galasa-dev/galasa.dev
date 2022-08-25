@@ -45,13 +45,6 @@ Z/OS Batch Manager. The issue causes the test class _BatchAccountsOpenTest_ to f
 
 The following example adds the _@GitHubIssue_ annotation on the test method:
 
-
-```
-@Test
-@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
-public class BatchAccountsOpenTest
-```
-
 ```
 @Test
 @GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
@@ -60,12 +53,18 @@ public void batchOpenAccountsTest()
 
 The following example adds the _@GitHubIssue_ annotation on the test class:
 
+```
+@Test
+@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
+public class BatchAccountsOpenTest
+```
+
 Once the GitHub issue is closed, remove the _@GitHubIssue_ annotation from the test class or test method.
 
 
 ### Using Regex
 
-To ensure that the failing exception is due to the known problem identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. If the failing exception does not match the Regex, the test has failed for a different or unknown reason, not the reason that is specified in the GitHub issue. If no Regex is provided in the annotation, any string is accepted.
+To ensure that the failing exception is due to the known problem that is identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. If the failing exception does not match the Regex, the test has failed for a different or unknown reason, not the reason that is specified in the GitHub issue. If no Regex is provided in the annotation, any failing exception is accepted.
 
 
 ### <a name="overrides"></a>Setting overrides
