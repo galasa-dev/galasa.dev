@@ -186,35 +186,18 @@ The following are properties used to configure the GitHub Manager:
 </details>
  
 <details>
-<summary>GitHub Instance URL CPS Property</summary>
-
-| Property: | GitHub Instance URL CPS Property |
-| --------------------------------------- | :------------------------------------- |
-| Name: | githubissue.instance.url |
-| Description: | The GitHub instance for the issue |
-| Required:  | No |
-| Default value: | https://github.com |
-| Valid values: | A valid GitHub instance, for example <br> _https://github.com_, _https://github.ibm.com_ |
-| Examples: | <<code>githubissue.instance.DEFAULT.url=https://github.com<br>
-githubissue.instance.IBM.url=https://github.ibm.com</code> |
-
-</details>
-
-<details>
 <summary>GitHub Instance Credentials CPS Property</summary>
 
 | Property: | GitHub Instance Credentials CPS Property |
-| ------------- | :------------------------------------- |
+| --------------------------------------- | :------------------------------------- |
 | Name: | githubissue.instance.credentials |
 | Description: | The credentials ID to use for the GitHub instance  |
 | Required:  | No |
 | Default value: | _GITHUB_ |
-| Valid values: | _GITHUB_, _DEFAULT_, _IBM_ |
-| Examples: | <code>githubissue.instance.DEFAULT.credentials=GITHUB<br>
-githubissue.instance.IBM.credentials=IBM</code> |
+| Valid values: | _GITHUB_, _DEFAULT_, _IBM_  |
+| Examples: | <code>githubissue.instance.DEFAULT.credentials=GITHUB</code> |
 
 </details>
-
 
 <details>
 <summary>GitHub Instance Repository CPS Property</summary>
