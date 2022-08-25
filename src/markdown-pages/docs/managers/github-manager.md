@@ -23,7 +23,7 @@ Using this annotation on a test class or test method means that the expected fai
 
 ## Using the Manager
 
-The GitHub Manager is activated if there is a @GitHubIssue annotation on the test class or any of its test methods. The presence of the @GitHubIssue annotation means that there is a known problem which is expected to affect the result of the test. 
+The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
 
 If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
 
@@ -36,20 +36,15 @@ import dev.galasa.githubissue.GitHubIssue;
 public class BatchAccountsOpenTest {
 ```
 
-Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the @GitHub issue annotation for GitHub issue number _1000_ to a test method and to a test class.  
+Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class. 
+
+### Example
 
 GitHub issue _1000_ has a status of _open_ on GitHub in the _galasa-dev/projectmanagement_ repository. Issue _1000_ tracks a known problem with the behaviour of the 
 Z/OS Batch Manager. The issue causes the test class _BatchAccountsOpenTest_ to fail.
 
-The following example adds the @GitHubIssue annotation on the test method:
+The following example adds the _@GitHubIssue_ annotation on the test method:
 
-```
-@Test
-@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
-public void batchOpenAccountsTest()
-```
-
-The following example adds the @GitHubIssue annotation on the test class:
 
 ```
 @Test
@@ -57,23 +52,31 @@ The following example adds the @GitHubIssue annotation on the test class:
 public class BatchAccountsOpenTest
 ```
 
+```
+@Test
+@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
+public void batchOpenAccountsTest()
+```
+
+The following example adds the _@GitHubIssue_ annotation on the test class:
+
 Once the GitHub issue is closed, remove the _@GitHubIssue_ annotation from the test class or test method.
 
 
 ### Using Regex
 
-To ensure that the failing exception is due to the known problem identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. If the failing exception does not match the Regex, the test has failed for a different or unknown reason, not the reason that is specified in the GitHub issue. If no Regex is provided in the annotation, any failure is accepted.
+To ensure that the failing exception is due to the known problem identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. If the failing exception does not match the Regex, the test has failed for a different or unknown reason, not the reason that is specified in the GitHub issue. If no Regex is provided in the annotation, any string is accepted.
 
 
 ### <a name="overrides"></a>Setting overrides
 
 
-You can override the result of a test method or a test class by using the @GitHubIssue annotation in conjunction with the _@ContinueOnTestFailure_ annotation to return a test result for all test methods within a test class.
+You can override the result of a test method or a test class by using the _@GitHubIssue_ annotation in conjunction with the _@ContinueOnTestFailure_ annotation to return a test result for all test methods within a test class.
 
 
 <b>Overriding a test method result:</b>
 
-If a test method is annotated with _@GitHubIssue_, and the initial result of the method is _Failed_, the GitHub Manager uses the GitHub API to retrieve the current state of the GitHub issue from the annotation. If the issue is in _open_ status, the result of the test method is overridden from _Failed_ to _Failed With Defects_. If the issue is in _closed_ status, the result is not overridden, as that issue is supposedly fixed and is not expected to affect the test method anymore. In this scenario, further investigation into the cause of the failure is required.
+If a test method is annotated with _@GitHubIssue_, and the initial result of the method is _Failed_, the GitHub Manager uses the GitHub API to retrieve the current state of the GitHub issue from the annotation. If the issue is in _open_ status, the result of the test method is overridden from _Failed_ to _Failed With Defects_. If the issue is in _closed_ status, the result is not overridden, as that issue is supposedly fixed and is not expected to affect the test method anymore. In the latter scenario, further investigation into the cause of the failure is required.
 
 <b>Overriding a test class result:</b>
 
@@ -127,7 +130,7 @@ Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<
 Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
 
 Next steps:<br>
-The first method _testNotNull_ returned a result of _Failed With Defects_.  As the _ContinueOnTestFailure_ annotation is used, the test continued to run and the following method _checkBankIsAvailable_ returned a result of _Passed_. All methods that are expected to pass returned a result of _Passed_, so the overall result of the test is _Passed With Defects_. No further investigation required.
+The first method, _testNotNull_, returned a result of _Failed With Defects_.  As the _ContinueOnTestFailure_ annotation is used, the test continued to run and the following method _checkBankIsAvailable_ returned a result of _Passed_. All methods that are expected to pass returned a result of _Passed_, so the overall result of the test is _Passed With Defects_. No further investigation is required.
 
 ### Scenario 4: 
 
@@ -162,14 +165,29 @@ The _testNotNull_ method returned a status of _Failed With Defects_. As the _Con
 
 # <a name="configuring"></a>Configuring 
 
-You must configure your CPS properties so that the GitHub Manager knows the GitHub instance in which to look for the specified issue. The GitHub Manager converts the GitHub instance URL that is provided in the CPS to the correct URL for the GitHub API, removing the need to manually supply a URL for the GitHub API. Alternatively, you can set the GitHub repository in the @GitHubIssue annotation. The value in the annotation takes precedence over the value in the CPS. 
+You must configure your CPS properties so that the GitHub Manager knows the GitHub instance in which to look for the specified issue. The GitHub Manager converts the GitHub instance URL that is provided in the CPS to the correct URL for the GitHub API, removing the need to manually supply a URL for the GitHub API. Alternatively, you can set the GitHub repository in the _@GitHubIssue_ annotation. The value in the annotation takes precedence over the value in the CPS. 
 
 ## <a name="cps"></a>Configuration Properties
 
 The following are properties used to configure the GitHub Manager:
  
 <details>
-<summary>GitHub instance url CPS Property</summary>
+<summary>GitHub Instance URL CPS Property</summary>
+
+| Property: | GitHub Instance URL CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | githubissue.instance.url |
+| Description: | The GitHub instance for the issue |
+| Required:  | No |
+| Default value: | https://github.com |
+| Valid values: | A valid GitHub instance, for example <br> _https://github.com_, _https://github.ibm.com_ |
+| Examples: | <<code>githubissue.instance.DEFAULT.url=https://github.com</code><br>
+<code>githubissue.instance.IBM.url=https://github.ibm.com</code> |
+
+</details>
+
+<details>
+<summary>GitHub Instance URL CPS Property</summary>
 
 | Property: | GitHub Instance URL CPS Property |
 | ------------- | :------------------------------------- |
@@ -227,7 +245,7 @@ If you are using Maven, add the following dependencies into the _pom.xml_ in the
 </dependency>
 ```
 
-If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ section:
+If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ section, editing the version number to be the correct number for your configuration:
 
 ```
 compileOnly 'dev.galasa:dev.galasa.githubissue.manager:0.25.0'
