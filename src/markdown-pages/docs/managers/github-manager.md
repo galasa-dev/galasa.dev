@@ -170,6 +170,20 @@ You must configure your CPS properties so that the GitHub Manager knows the GitH
 ## <a name="cps"></a>Configuration Properties
 
 The following are properties used to configure the GitHub Manager:
+
+<details>
+<summary>Docker Engine CPS Property</summary>
+
+| Property: | Docker Engine CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | docker.engine.[engineId].hostname |
+| Description: | Provides location of the Docker Engine |
+| Required:  | Yes - the hostname of the Docker Engine must be provided |
+| Default value: | None |
+| Valid values: | A valid DNS name or IPv4/6 address |
+| Examples: | <code>docker.engine.[engineId].hostname=docker.example.company.org<br> docker.engine.[engineId].hostname=192.168.2.3 </code> |
+
+</details>
  
 <details>
 <summary>GitHub Instance URL CPS Property</summary>
