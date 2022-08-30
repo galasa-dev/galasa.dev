@@ -33,6 +33,7 @@ To use the GitHub Manager you must import the _@GitHubIssue_ annotation into the
 import dev.galasa.githubissue.GitHubIssue;
 ...
 @Test
+@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
 public class BatchAccountsOpenTest {
 ```
 
@@ -93,8 +94,8 @@ Scenario 1 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
-Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
-Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
+Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
+<b>Test class result:</b> _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
 
 Next steps:<br>
 All methods passed, other than those expected to fail - in this case the _checkBankIsAvailable_ method. No further investigation is required.
@@ -109,7 +110,7 @@ Scenario 2 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @ContinueOnTestFailure<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
-Test method checkBankIsAvailable()result: _Failed_ ![failed icon:](failed.svg)<br>
+Test method checkBankIsAvailable() result: _Failed_ ![failed icon:](failed.svg)<br><br>
 Test class result: _Failed_ ![failed icon:](failed.svg)<br>
 
 
@@ -125,7 +126,7 @@ Scenario 3 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @ContinueOnTestFailure<br>
 Test class SimBankIVT <br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
-Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<br>
+Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<br><br>
 Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
 
 Next steps:<br>
@@ -139,7 +140,7 @@ Scenario 4 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
-Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
+Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
 Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg) <br>
 
 
@@ -155,7 +156,7 @@ Scenario 5 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 @GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
-Test method checkBankIsAvailable() result: _Unknown_<br>
+Test method checkBankIsAvailable() result: _Unknown_<br><br>
 Test class result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 
 Next steps:<br> 
@@ -232,9 +233,6 @@ If you are using Gradle, add add the following dependencies into ```build.gradle
 compileOnly 'dev.galasa:dev.galasa.githubissue.manager:0.25.0'
 ```
 
-_Note:_ You must also provide credentials for your GitHub Enterprise instances in the credentials store in order to authenticate the request to the GitHub API.
-
-
 # <a name="annotations"></a>Annotations provided by the Manager
 
 The following annotation is provided by the GitHub Manager:
@@ -246,7 +244,7 @@ The following annotation is provided by the GitHub Manager:
 | --------------------------------------- | :------------------------------------- |
 | Name: | @GitHubIssue |
 | Description: | If present on a method or class, this annotation will tell the GitHub Manager to influence the result of the method or class based on the known problem in the GitHub issue. |
-| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1000", repo = "galasa-dev/projectmanagement", regex = "[a-zA-Z1-9]" )|
+| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1000", repo = "galasa-dev/projectmanagement")|
 | Attribute `issue`: | The number of the issue. Required.|
 | Attribute `githubId`: | Optional. Default value is "DEFAULT".|
 | Attribute `repo`: | Optional. If not present in the annotation, the CPS is checked. If a value is not present in the CPS, the Manager logs a warning message.|
@@ -261,9 +259,9 @@ Use of the _@ContinueOnTestFailure_ annotation alongside the _@GitHubIssue_ anno
 
 # <a name="codesnippets"></a>Code snippets and examples
 
-<details><summary>Add the _@GitHubIssue_ and _@ContinueOnTestFailure_ annotations on a test class</summary>
+<details><summary>Add the @GitHubIssue and @ContinueOnTestFailure annotation on a test class</summary>
 
-Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement repository_ on the SimBank _BatchAccountsOpenTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
+Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement_ repository on the SimBank _BatchAccountsOpenTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
 
 ```
 @Test
@@ -273,9 +271,9 @@ public class BatchAccountsOpenTest {
 ```
 </details>
 
-<details><summary>Add the @GitHubIssue annotations on a test method</summary>
+<details><summary>Add the @GitHubIssue annotation on a test method</summary>
 
-Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement repository_ on the _testNotNull_ method in the _BatchAccountsOpenTest_ test class:
+Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement_ repository on the _testNotNull_ method in the _BatchAccountsOpenTest_ test class:
 
 ```
 @Test
