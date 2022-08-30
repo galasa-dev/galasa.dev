@@ -95,7 +95,7 @@ Scenario 1 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
-<b>Test class result:</b> _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
+<b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
 
 Next steps:<br>
 All methods passed, other than those expected to fail - in this case the _checkBankIsAvailable_ method. No further investigation is required.
@@ -111,7 +111,7 @@ Scenario 2 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Failed_ ![failed icon:](failed.svg)<br><br>
-Test class result: _Failed_ ![failed icon:](failed.svg)<br>
+<b>Test class result: _Failed_</b> ![failed icon:](failed.svg)<br>
 
 
 Next steps:<br>
@@ -127,7 +127,7 @@ Scenario 3 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 Test class SimBankIVT <br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<br><br>
-Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg)<br>
+<b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
 
 Next steps:<br>
 The first method, _testNotNull_, returned a result of _Failed With Defects_.  As the _ContinueOnTestFailure_ annotation is used, the test continued to run and the following method _checkBankIsAvailable_ returned a result of _Passed_. All methods that are expected to pass returned a result of _Passed_, so the overall result of the test is _Passed With Defects_. No further investigation is required.
@@ -141,7 +141,7 @@ Scenario 4 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
-Test class result: _Passed with defects_ ![passed with defects icon:](passed-with-defects.svg) <br>
+<b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg) <br>
 
 
 
@@ -157,7 +157,7 @@ Scenario 5 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ wit
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Unknown_<br><br>
-Test class result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
+<b>Test class result: _Failed with defects_</b> ![failed with defects icon:](failed-with-defects.svg)<br>
 
 Next steps:<br> 
 The _testNotNull_ method returned a status of _Failed With Defects_. As the _ContinueOnTestFailure_ annotation is not used, the results of the following methods - in this example _checkBankIsAvailable_ are not known. The overall result returned is _Failed With Defects_. To check the result of all methods, add the _@ContinueOnTestFailure_ annotation for future test runs.
