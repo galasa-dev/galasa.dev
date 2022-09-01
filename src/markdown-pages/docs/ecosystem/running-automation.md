@@ -23,7 +23,7 @@ The structure of the parent project will look similar to the following example s
         │   pom.xml 
 ``` 
 
-As you can see, within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `SIMBANKIVT.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
+Within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `SIMBANKIVT.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
 
 Points to note around naming conventions: 
 
