@@ -4,16 +4,16 @@ title: "WebAppIntetgrationTest"
 ---
 
 
-To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntetgrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
+To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntetgrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
 
 This test performs a similar function to the `ProvisionedAccountCreditTest.java` but includes the use of the Selenium Manager. The Selenium Manager enables the test to run Selenium WebDrivers which drive the SimBank Web Application that is provided with Galasa SimBank. 
 
-The test generates a unique account number and provisions the account with a randomly generated opening balance by using a 3270 emulator that connects to the web application. The web application opens in Firefox and a batch job opens the account and fills in a form to credit the account. The 3270 emulator then connects to the web application, searches for the account number and retrieves the balance.  
+The `WebAppIntetgrationTest` generates a unique account number to use in the test and provisions the account with a randomly generated opening balance by using a 3270 emulator that connects to the web application which opens in Firefox. A batch job opens the account and fills in a form to credit the account with the opening balance. The 3270 emulator then connects to the web application, searches for the account number and retrieves the balance.  
 
 
 ## About the Selenium Manager
 
-To use the Selenium Manager you must have Firefox and Geckodriver (which you can download it from <a href="https://github.com/mozilla/geckodriver/releases" target="_blank">the GitHub</a>) installed. 
+To use the Selenium Manager you must have Firefox and Gecko driver installed. You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download Gecko driver from GitHub</a>. 
 
 You must also define the default and local driver properties in the CPS, as shown in the following example:
 
@@ -51,7 +51,7 @@ The Docker Engine Port CPS Property is the TCP Port of the Docker Engine. The Do
 
 For brevity, package declarations and imports are omitted in the following walkthrough.
 
-First, some Managers are declared, including a new Manager - `seleniumManager` and a related annotation and interface `resources`.
+First, some Managers are declared, including a new Manager - `seleniumManager` - and a related annotation and interface `resources`.
 
 ```java
 @SeleniumManager
@@ -67,7 +67,7 @@ String accountNumber = provisionAccount(openingBalance);
 logger.info("Account number selected: " + accountNumber);
 ```
 
-The method generates a new random account number to use in the test, using a 3270 SimBank terminal to interact with the SimBank web application to ensure that the generated account does not already exist:
+The `provisionAccount()` method generates a new random account number to use in the test, using a 3270 SimBank terminal to interact with the SimBank web application to ensure that the generated account does not already exist:
 
 ```java
 public String provisionAccount(BigDecimal openingBalance) throws Exception {
@@ -85,7 +85,7 @@ public String provisionAccount(BigDecimal openingBalance) throws Exception {
 		}
 ```
 
-The account is opened by using a z/OS Batch Job which also credits the account with randomly generated amount of credit. When the amount to be credited is set, a HashMap is prepared with the parameters for the subsequent web services call:
+The account is opened by using a z/OS Batch Job which also credits the account with randomly generated amount of credit. When the amount to be ccredited is set, a HashMap is prepared with the parameters for the subsequent web services call:
 
 ```java
 HashMap<String, Object> parameters = new HashMap<>();
@@ -93,7 +93,7 @@ parameters.put("CONTROL", "ACCOUNT_OPEN");
 parameters.put("DATAIN", accountNumber+",20-24-09,"+openingBalance);
 ```
 
-The following code enables Selenium WebDrivers to use a web browser to interact with and submit a form inside the provisioned web application:
+The following code enables Selenium WebDrivers to use a web browser to interact with and submit a form inside the provisioned weplication:
 
 ```java
 IWebPage page = completeWebFormAndSubmit(accountNumber, creditAmount.toString());
@@ -111,7 +111,7 @@ assertThat(balance).isEqualTo(openingBalance.add(creditAmount));
 logger.info("Test method complete");
 ```
 
-At the end of the test, the Selenium Manager automatically closes the WebDriver which removes the WebPage.
+At the end of the test, the Selenium Manager automatically closes the WebDriver which removesage.
 
 
 
