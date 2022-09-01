@@ -111,7 +111,7 @@ assertThat(balance).isEqualTo(openingBalance.add(creditAmount));
 logger.info("Test method complete");
 ```
 
-At the end of the test, the Selenium Manager automatically closes the WebDriver which removesage.
+At the end of the test, the Selenium Manager automatically closes the WebDriver which removes the web page.
 
 
 
