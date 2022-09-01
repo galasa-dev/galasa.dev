@@ -85,7 +85,7 @@ public String provisionAccount(BigDecimal openingBalance) throws Exception {
 		}
 ```
 
-The account is opened by using a z/OS Batch Job which also credits the account with randomly generated amount of credit. When the amount to be ccredited is set, a HashMap is prepared with the parameters for the subsequent web services call:
+The account is opened and credited by using a z/OS Batch Job. When the amount to be credited is set, a HashMap is prepared with the parameters for the subsequent web services call:
 
 ```java
 HashMap<String, Object> parameters = new HashMap<>();
