@@ -23,23 +23,21 @@ Using this annotation on a test class or test method means that the expected fai
 
 ## Using the Manager
 
-The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
-
-If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
-
-To use the GitHub Manager you must import the _@GitHubIssue_ annotation into the test, as shown in the following example, which is based on the _BatchAccountsOpenTest_ that is provided with Galasa SimBank: 
+To use the GitHub Manager you must import the _@GitHubIssue_ annotation into the test, as shown in the following example: 
 
 ```
 import dev.galasa.githubissue.GitHubIssue;
 ...
-@Test
-@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
-public class BatchAccountsOpenTest {
 ```
 
-Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class. 
+The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
 
-### Example
+If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
+
+
+### Examples
+
+Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class. 
 
 GitHub issue _1000_ has a status of _open_ on GitHub in the _galasa-dev/projectmanagement_ repository. Issue _1000_ tracks a known problem with the behaviour of the 
 Z/OS Batch Manager. The issue causes the test class _BatchAccountsOpenTest_ to fail.
@@ -49,7 +47,11 @@ The following example adds the _@GitHubIssue_ annotation on the test method:
 ```
 @Test
 @GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
-public void batchOpenAccountsTest()
+public void batchOpenAccountsTest() throws TestBundleResourceException, IOException, ZosBatchException {
+    	// Create a list of accounts to create
+    	List<String> accountList = new LinkedList<>();
+    	accountList.add("901000001,20-40-60,1000");
+...
 ```
 
 The following example adds the _@GitHubIssue_ annotation on the test class:
@@ -57,7 +59,8 @@ The following example adds the _@GitHubIssue_ annotation on the test class:
 ```
 @Test
 @GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
-public class BatchAccountsOpenTest
+public class BatchAccountsOpenTest {
+...
 ```
 
 Once the GitHub issue is closed, remove the _@GitHubIssue_ annotation from the test class or test method.
@@ -82,18 +85,18 @@ If a test method is annotated with _@GitHubIssue_, and the initial result of the
 
 At the end of a test class run, the results of each individual test method are combined to determine whether the result of the test class should be overridden. 
 
-Use the following scenarios and examples to understand the expected test class result and what to do next.
+Use the following scenarios and examples to understand the expected test class result and what to do next. In each scenario, the issue is in an _open_ state.
 
 
 ### Scenario 1: 
 
-Scenario 1 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ without the _@ContinueOnTestFailure_ annotation:
+Scenario 1 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAvailable_ without the _@ContinueOnTestFailure_ annotation:
 
 
 @Test<br>
-@GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
+@GitHubIssue( issue = "1000")<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
 
@@ -102,13 +105,13 @@ All methods passed, other than those expected to fail - in this case the _checkB
 
 ### Scenario 2: 
 
-Scenario 2 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ with the _@ContinueOnTestFailure_ annotation:
+Scenario 2 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
 
 
 @Test<br>
-@GitHubIssue( issue = "1000")<br>
 @ContinueOnTestFailure<br>
 Test class SimBankIVT<br>
+@GitHubIssue( issue = "1000")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Failed_ ![failed icon:](failed.svg)<br><br>
 <b>Test class result: _Failed_</b> ![failed icon:](failed.svg)<br>
@@ -119,12 +122,12 @@ Test method _testNotNull_ returned a result of _Failed With Defects_. Test metho
 
 ### Scenario 3: 
 
-Scenario 3 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ with the _@ContinueOnTestFailure_ annotation:
+Scenario 3 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
-@GitHubIssue( issue = "1000")<br>
 @ContinueOnTestFailure<br>
 Test class SimBankIVT <br>
+@GitHubIssue( issue = "1000")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
@@ -134,12 +137,12 @@ The first method, _testNotNull_, returned a result of _Failed With Defects_.  As
 
 ### Scenario 4: 
 
-Scenario 4 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ without the _@ContinueOnTestFailure_ annotation:
+Scenario 4 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAvailable_ without the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
-@GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
+@GitHubIssue( issue = "1000")<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg) <br>
 
@@ -150,11 +153,11 @@ The method _checkBankIsAvailable_ returned a result of _Failed With Defects_. As
 
 ### Scenario 5:
 
-Scenario 5 uses the _@GitHubIssue_ annotation on the test class _SimBankIVT_ without the _@ContinueOnTestFailure_ annotation:
+Scenario 5 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ without the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
-@GitHubIssue( issue = "1000")<br>
 Test class SimBankIVT<br>
+@GitHubIssue( issue = "1000")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Unknown_<br><br>
 <b>Test class result: _Failed with defects_</b> ![failed with defects icon:](failed-with-defects.svg)<br>
@@ -180,8 +183,8 @@ The following are properties used to configure the GitHub Manager:
 | Description: | The GitHub instance for the issue  |
 | Required:  | No |
 | Default value: | https://github.com |
-| Valid values: | A valid GitHub instance, for example, <br> _https://github.ibm.com_  |
-| Examples: | <code>githubissue.instance.DEFAULT.url=https://github.com<br> githubissue.instance.IBM.url=https://github.ibm.com </code> |
+| Valid values: | A valid GitHub instance, for example, <br> _https://github.acompany.com_  |
+| Examples: | <code>githubissue.instance.DEFAULT.url=https://github.com<br> githubissue.instance.ACOMPANY.url=https://github.acompany.com </code> |
 
 </details>
  
@@ -213,6 +216,19 @@ The following are properties used to configure the GitHub Manager:
 
 Note: You must provide credentials for your GitHub Enterprise instances in the credentials store, so that the request to the GitHub API is authenticated.
 
+For example, if you set the _GitHub Instance Credentials CPS Property_ to:
+
+```
+githubissue.instance.url=https://github.com
+```
+
+then you need to edit the _credentials.properties_ file in the _.galasa folder_ to set the username and password for the GitHub instance. For example: 
+
+```
+secure.credentials.GITHUB.username=COMPANYUSER
+secure.credentials.GITHUB.password=Password123
+```
+
 </details>
 
 ## <a name="dependencies"></a>Including the Manager in a test
@@ -223,14 +239,13 @@ If you are using Maven, add the following dependencies into the _pom.xml_ in the
 <dependency>
 <groupId>dev.galasa</groupId>
 <artifactId>dev.galasa.githubissue.manager</artifactId>
-<version>0.25.0</version>
 </dependency>
 ```
 
-If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ section, editing the version number to be the correct number for your configuration:
+If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ section:
 
 ```
-compileOnly 'dev.galasa:dev.galasa.githubissue.manager:0.25.0'
+compileOnly 'dev.galasa:dev.galasa.githubissue.manager'
 ```
 
 # <a name="annotations"></a>Annotations provided by the Manager
@@ -261,29 +276,28 @@ Use of the _@ContinueOnTestFailure_ annotation alongside the _@GitHubIssue_ anno
 
 <details><summary>Add the @GitHubIssue and @ContinueOnTestFailure annotation on a test class</summary>
 
-Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement_ repository on the SimBank _BatchAccountsOpenTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
+Use the following code to add GitHub issue _1034_ in the _galasa-dev/projectmanagement_ repository on the SimBank _ProvisionedAccountCreditTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
 
 ```
 @Test
-@GitHubIssue( issue = "1000", repo = "galasa-dev/projectmanagement" )
+@GitHubIssue( issue = "1034", repo = "galasa-dev/projectmanagement" )
 @ContinueOnTestFailure
-public class BatchAccountsOpenTest {
+public class ProvisionedAccountCreditTest {
+...
 ```
 </details>
 
 <details><summary>Add the @GitHubIssue annotation on a test method</summary>
 
-Use the following code to add GitHub issue _1000_ in the _galasa-dev/projectmanagement_ repository on the _testNotNull_ method in the _BatchAccountsOpenTest_ test class:
+Use the following code to add GitHub issue _1034_ in the _galasa-dev/projectmanagement_ repository on the _updateAccountWebServiceTest_ method in the _ProvisionedAccountCreditTest_ test class:
 
 ```
 @Test
-@GitHubIssue( issue = "1000", repo = "galasa-dev/projectmanagement" )
-public void testNotNull() {
-    // Check all objects loaded
-    assertThat(terminal).isNotNull();
-    assertThat(resources).isNotNull();
-    assertThat(client).isNotNull();
-}
+@GitHubIssue( issue = "1034", repo = "galasa-dev/projectmanagement" )
+public void updateAccountWebServiceTest() throws Exception {
+    // Obtain the initial balance
+    BigDecimal userBalance = account.getBalance();
+...
 ```
 </details>
 
