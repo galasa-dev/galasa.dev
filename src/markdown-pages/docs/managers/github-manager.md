@@ -34,10 +34,10 @@ The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the t
 
 If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
 
+Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class.
+
 
 ### Examples
-
-Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class. 
 
 GitHub issue _1000_ has a status of _open_ on GitHub in the _galasa-dev/projectmanagement_ repository. Issue _1000_ tracks a known problem with the behaviour of the 
 Z/OS Batch Manager. The issue causes the test class _BatchAccountsOpenTest_ to fail.
@@ -184,7 +184,7 @@ The following are properties used to configure the GitHub Manager:
 | Required:  | No |
 | Default value: | https://github.com |
 | Valid values: | A valid GitHub instance, for example, <br> _https://github.acompany.com_  |
-| Examples: | <code>githubissue.instance.DEFAULT.url=https://github.com<br> githubissue.instance.ACOMPANY.url=https://github.acompany.com </code> |
+| Examples: | <code>githubissue.instance.DEFAULT.url=https://github.com</code> |
 
 </details>
  
