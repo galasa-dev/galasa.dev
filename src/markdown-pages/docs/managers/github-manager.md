@@ -68,7 +68,15 @@ Once the GitHub issue is closed, remove the _@GitHubIssue_ annotation from the t
 
 ### Using Regex
 
-To ensure that the failing exception is due to the known problem that is identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. If the failing exception does not match the Regex, the test has failed for a different or unknown reason, not the reason that is specified in the GitHub issue. If no Regex is provided in the annotation, any failing exception is accepted.
+To ensure that the failing exception is due to the known problem that is identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. 
+
+For example, GitHub issue _100_ describes a problem in source code that results in a _HttpServerErrorException_ message being returned when a test is run. You can add the following annotation to your test to ensure that it is failing because of this exception, and not for a different reason:
+
+```
+@GitHubIssue(issue = "100", repo = "galasa-dev/projectmanagement", regex = "HttpServerErrorException")
+```
+
+If the failing exception does not match the Regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
 
 
 ### <a name="overrides"></a>Setting overrides
