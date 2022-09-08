@@ -6,12 +6,29 @@ title: "WebAppIntetgrationTest"
 
 To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntetgrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
 
+The test is a bit different to the other tests. The idea of the test is ... 
+
+As a result there's a bit more set up to do .. see the section for deets ..
+
 This test performs a similar function to the `ProvisionedAccountCreditTest.java` but includes the use of the Selenium Manager. The Selenium Manager enables the test to run Selenium WebDrivers which drive the SimBank Web Application that is provided with Galasa SimBank. 
 
 The `WebAppIntetgrationTest` generates a unique account number to use in the test and provisions the account with a randomly generated opening balance by using a 3270 emulator that connects to the web application which opens in Firefox. A batch job opens the account and fills in a form to credit the account with the opening balance. The 3270 emulator then connects to the web application, searches for the account number and retrieves the balance.  
 
+The idea of this test is to ... run locally but then understand the properties to run in an ecosystem. If running locally lock it down for security purposes by using the 127.0.0.1 localhost. Wouldn't set it up in Production like this. 
+The test is showing about application integration testing. The test is kept simple therefore. Shows proper integration testing. 
+The Selenium Manager can be set up in various ways .. use gecko driver or use docker engine?? Say a bit about that. 
+
+Create an image showing the interactions: 
+
+1. 3270 emulator creates a random account number and checks that it does not exist in the CICS region.
+2. If the account does not exist the account is created by the ZOS Batch Manager and is popped into the backend database.
+3. Docker then spins up a web page? 
+4. Selenium drives web browser to fill in a web form and this confirms the balance? 
 
 ## About the Selenium Manager
+
+Need gecko driver for scenario 1 - tell a bit about why you would choose this option. 
+It can be Firefox or Chrome or what have you but this example is showing Firefox. 
 
 To use the Selenium Manager you must have Firefox and Gecko driver installed. You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download Gecko driver from GitHub</a>. 
 
@@ -24,28 +41,35 @@ selenium.local.driver.FIREFOX.path=<path/to/geckodriver>
 
 The Selenium Manager has a dependency on the Docker Manager in order to run. Some set up is required for the Docker Manager in the CPS properties file. To configure the Docker Manager, set the following CPS properties:  
 
-```java
+```
 docker.dse.engine.PRIMARY=LOCAL
 docker.default.engines=LOCAL
 docker.engine.LOCAL.hostname=127.0.0.1
-docker.engine.port=2375
-docker.engine.max.slots=10
+docker.engine.local.port=2375
+docker.engine.local.max.slots=10
 docker.container.TAG.name=simbank-webapp
 ```
 
-Docker Engine DSE CPS Property allows an image to be tagged, and then selected from a test class where LOCAL is the ID for the engine. In this example, using the `imageTag="SIMBANK"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties.
+These properties allow local test runs to access the local Docker Engine when the TCP port of the local Docker Engine is enabled.
 
-```java
-@ZosImage(imageTag = "SIMBANK")
-public IZosImage image;
-@ZosBatch(imageTag = "SIMBANK")
-public IZosBatch zosBatch;
+
+After updating the CPS properties you need to run some commands on the terminal to open a TCP socket for accessing the Dokcer API:
+
+```
+docker pull alpine/socat
+docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
 
-The Docker Engines CPS Property allows local runs to access the local Docker Engine. You must add this property to the CPS and enable the TCP port of your local Docker Engine.
+Test that the container works by running the following command:
 
-The Docker Engine Port CPS Property is the TCP Port of the Docker Engine. The Docker Manager communicates with the Docker Engine via TCP. The Docker Engine needs to be configured to open the TCP port, which is usually 2375. If the port is not the default one, then this property needs to be provided in the CPS.
+```
+mvn install
+docker image build -t simbank-webapp .
+docker run -p 8080:8080 -d simbank-webapp
+``
 
+The last command is to make sure the container works - may need to change the dockerfile so the tomact version works with the machine's architecture 
+Had errors for compilation and runtime java versions so had to change tomcat version in Dockerfile as the properties were already set to the correct java version in the pom.xml files. – Had to change to a version that works for java 11 and all architectures so I chose “FROM tomcat:8.5.82-jre11-temurin”
 
 ## Walkthrough - WebAppIntegrationTest
 
@@ -97,7 +121,7 @@ The following code enables Selenium WebDrivers to use a web browser to interact 
 
 ```java
 IWebPage page = completeWebFormAndSubmit(accountNumber, creditAmount.toString());
-logger.info("Web from submitted");
+logger.info("Web form submitted");
 ```
 
 Checks are made to ensure that the web app response is as expected and that the data is updated throughout the application, including the backend database:
