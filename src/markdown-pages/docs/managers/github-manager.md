@@ -30,7 +30,7 @@ import dev.galasa.githubissue.GitHubIssue;
 ...
 ```
 
-You also need to add the Manager dependency into the pom.xml file if you are using Maven or into the build.gradle file if you are using Gradle. 
+You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
 
 If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
 
@@ -50,13 +50,13 @@ compileOnly 'dev.galasa:dev.galasa.githubissue.manager'
 ```
 
 
-Finally, use the annotation that is provided by the Manager in the test. sing the annotation calls the Manager at runtime. In this example, the provided annotation is _@GitHubIssue_. U
+Finally, use the annotation that is provided by the Manager in the test. The annotation calls the Manager at runtime. In this example, the provided annotation is _@GitHubIssue_. 
 
 
 
 ## Using the Manager
 
-The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
+The GitHub Manager is activated at runtime if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
 
 If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
 
@@ -99,7 +99,7 @@ To ensure that the failing exception is due to the known problem that is identif
 For example, GitHub issue _1179_ describes a problem in source code that results in a _HttpServerErrorException_ message being returned when a test is run. You can add the following annotation to your test to ensure that it is failing because of this exception, and not for a different reason:
 
 ```
-@GitHubIssue(issue = "1179", repo = "galasa-dev/projectmanagement", regex = "HttpServerErrorException")
+@GitHubIssue(issue = "1179", repo = "galasa-dev/projectmanagement",<br> regex = "HttpServerErrorException")
 ```
 
 If the failing exception does not match the regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
