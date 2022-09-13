@@ -21,32 +21,58 @@ If there is an open issue in a GitHub repository that tracks a known problem whi
 Using this annotation on a test class or test method means that the expected failure is clearly identifiable in the test report, making it easier to spot any unexpected test failures and saving time by avoiding the investigation of a known issue. 
 
 
-## Using the Manager
+## <a name="dependencies"></a>Including the Manager in a test
 
-To use the GitHub Manager you must import the _@GitHubIssue_ annotation into the test, as shown in the following example: 
+To use the GitHub Manager in a test you must import the _@GitHubIssue_ annotation into the test, as shown in the following example: 
 
 ```
 import dev.galasa.githubissue.GitHubIssue;
 ...
 ```
 
+You also need to add the Manager dependency into the pom.xml file if you are using Maven or into the build.gradle file if you are using Gradle. 
+
+If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
+
+```
+<dependency>
+<groupId>dev.galasa</groupId>
+<artifactId>dev.galasa.githubissue.manager</artifactId>
+</dependency>
+```
+
+If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
+
+```
+dependencies {
+compileOnly 'dev.galasa:dev.galasa.githubissue.manager'
+}
+```
+
+
+Finally, use the annotation that is provided by the Manager in the test. sing the annotation calls the Manager at runtime. In this example, the provided annotation is _@GitHubIssue_. U
+
+
+
+## Using the Manager
+
 The GitHub Manager is activated if there is a _@GitHubIssue_ annotation on the test class or any of its test methods. The presence of the _@GitHubIssue_ annotation means that there is a known problem which is expected to affect the result of the test. 
 
 If the issue is expected to affect one or more specific test methods, add the annotation on the test method. If the scope of the issue is larger and might affect the whole test class, add the annotation at the class level.
 
-Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1000_ to a test method and to a test class.
+Use the following examples, which are based on _BatchAccountsOpenTest_ to understand how to add the _@GitHubIssue_ annotation for GitHub issue number _1178_ to a test method and to a test class.
 
 
 ### Examples
 
-GitHub issue _1000_ has a status of _open_ on GitHub in the _galasa-dev/projectmanagement_ repository. Issue _1000_ tracks a known problem with the behaviour of the 
+GitHub issue _1178_ has a status of _open_ on GitHub in the _galasa-dev/projectmanagement_ repository. Issue _1178_ tracks a known problem with the behaviour of the 
 Z/OS Batch Manager. The issue causes the test class _BatchAccountsOpenTest_ to fail.
 
 The following example adds the _@GitHubIssue_ annotation on the test method:
 
 ```
 @Test
-@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
+@GitHubIssue(issue = "1178", repo = "galasa-dev/projectmanagement")
 public void batchOpenAccountsTest() throws TestBundleResourceException, IOException, ZosBatchException {
     	// Create a list of accounts to create
     	List<String> accountList = new LinkedList<>();
@@ -58,7 +84,7 @@ The following example adds the _@GitHubIssue_ annotation on the test class:
 
 ```
 @Test
-@GitHubIssue(issue = "1000", repo = "galasa-dev/projectmanagement")
+@GitHubIssue(issue = "1178", repo = "galasa-dev/projectmanagement")
 public class BatchAccountsOpenTest {
 ...
 ```
@@ -66,17 +92,17 @@ public class BatchAccountsOpenTest {
 Once the GitHub issue is closed, remove the _@GitHubIssue_ annotation from the test class or test method.
 
 
-### Using Regex
+### Using regex
 
-To ensure that the failing exception is due to the known problem that is identified in the GitHub issue, use Regex in the annotation to check that the recorded test failure matches the string that is specified in Regex. 
+To ensure that the failing exception is due to the known problem that is identified in the GitHub issue, use regex in the annotation to check that the recorded test failure matches the string that is specified in regex. 
 
-For example, GitHub issue _100_ describes a problem in source code that results in a _HttpServerErrorException_ message being returned when a test is run. You can add the following annotation to your test to ensure that it is failing because of this exception, and not for a different reason:
+For example, GitHub issue _1179_ describes a problem in source code that results in a _HttpServerErrorException_ message being returned when a test is run. You can add the following annotation to your test to ensure that it is failing because of this exception, and not for a different reason:
 
 ```
-@GitHubIssue(issue = "100", repo = "galasa-dev/projectmanagement", regex = "HttpServerErrorException")
+@GitHubIssue(issue = "1179", repo = "galasa-dev/projectmanagement", regex = "HttpServerErrorException")
 ```
 
-If the failing exception does not match the Regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
+If the failing exception does not match the regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
 
 
 ### <a name="overrides"></a>Setting overrides
@@ -104,7 +130,7 @@ Scenario 1 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAva
 @Test<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
-@GitHubIssue( issue = "1000")<br>
+@GitHubIssue( issue = "1178")<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
 
@@ -119,7 +145,7 @@ Scenario 2 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ w
 @Test<br>
 @ContinueOnTestFailure<br>
 Test class SimBankIVT<br>
-@GitHubIssue( issue = "1000")<br>
+@GitHubIssue( issue = "1178")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Failed_ ![failed icon:](failed.svg)<br><br>
 <b>Test class result: _Failed_</b> ![failed icon:](failed.svg)<br>
@@ -135,7 +161,7 @@ Scenario 3 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ w
 @Test<br>
 @ContinueOnTestFailure<br>
 Test class SimBankIVT <br>
-@GitHubIssue( issue = "1000")<br>
+@GitHubIssue( issue = "1178")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
@@ -150,7 +176,7 @@ Scenario 4 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAva
 @Test<br>
 Test class SimBankIVT<br>
 Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
-@GitHubIssue( issue = "1000")<br>
+@GitHubIssue( issue = "1178")<br>
 Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
 <b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg) <br>
 
@@ -165,7 +191,7 @@ Scenario 5 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ w
 
 @Test<br>
 Test class SimBankIVT<br>
-@GitHubIssue( issue = "1000")<br>
+@GitHubIssue( issue = "1178")<br>
 Test method testNotNull() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br>
 Test method checkBankIsAvailable() result: _Unknown_<br><br>
 <b>Test class result: _Failed with defects_</b> ![failed with defects icon:](failed-with-defects.svg)<br>
@@ -239,23 +265,6 @@ secure.credentials.GITHUB.password=Password123
 
 </details>
 
-## <a name="dependencies"></a>Including the Manager in a test
-
-If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section, editing the version number to be the correct number for your configuration:
-
-```
-<dependency>
-<groupId>dev.galasa</groupId>
-<artifactId>dev.galasa.githubissue.manager</artifactId>
-</dependency>
-```
-
-If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ section:
-
-```
-compileOnly 'dev.galasa:dev.galasa.githubissue.manager'
-```
-
 # <a name="annotations"></a>Annotations provided by the Manager
 
 The following annotation is provided by the GitHub Manager:
@@ -267,7 +276,7 @@ The following annotation is provided by the GitHub Manager:
 | --------------------------------------- | :------------------------------------- |
 | Name: | @GitHubIssue |
 | Description: | If present on a method or class, this annotation will tell the GitHub Manager to influence the result of the method or class based on the known problem in the GitHub issue. |
-| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1000", repo = "galasa-dev/projectmanagement")|
+| Syntax:  | @GitHubIssue( githubId = "DEFAULT", issue = "1178", repo = "galasa-dev/projectmanagement")|
 | Attribute `issue`: | The number of the issue. Required.|
 | Attribute `githubId`: | Optional. Default value is "DEFAULT".|
 | Attribute `repo`: | Optional. If not present in the annotation, the CPS is checked. If a value is not present in the CPS, the Manager logs a warning message.|
@@ -284,11 +293,11 @@ Use of the _@ContinueOnTestFailure_ annotation alongside the _@GitHubIssue_ anno
 
 <details><summary>Add the @GitHubIssue and @ContinueOnTestFailure annotation on a test class</summary>
 
-Use the following code to add GitHub issue _1034_ in the _galasa-dev/projectmanagement_ repository on the SimBank _ProvisionedAccountCreditTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
+Use the following code to add GitHub issue _1178_ in the _galasa-dev/projectmanagement_ repository on the SimBank _ProvisionedAccountCreditTest_ test class. Ensure all test methods in the test class are run by using the _@ContinueOnTestFailure_ annotation:
 
 ```
 @Test
-@GitHubIssue( issue = "1034", repo = "galasa-dev/projectmanagement" )
+@GitHubIssue( issue = "1178", repo = "galasa-dev/projectmanagement" )
 @ContinueOnTestFailure
 public class ProvisionedAccountCreditTest {
 ...
@@ -297,11 +306,11 @@ public class ProvisionedAccountCreditTest {
 
 <details><summary>Add the @GitHubIssue annotation on a test method</summary>
 
-Use the following code to add GitHub issue _1034_ in the _galasa-dev/projectmanagement_ repository on the _updateAccountWebServiceTest_ method in the _ProvisionedAccountCreditTest_ test class:
+Use the following code to add GitHub issue _1178_ in the _galasa-dev/projectmanagement_ repository on the _updateAccountWebServiceTest_ method in the _ProvisionedAccountCreditTest_ test class:
 
 ```
 @Test
-@GitHubIssue( issue = "1034", repo = "galasa-dev/projectmanagement" )
+@GitHubIssue( issue = "1178", repo = "galasa-dev/projectmanagement" )
 public void updateAccountWebServiceTest() throws Exception {
     // Obtain the initial balance
     BigDecimal userBalance = account.getBalance();
