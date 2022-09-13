@@ -99,7 +99,8 @@ To ensure that the failing exception is due to the known problem that is identif
 For example, GitHub issue _1179_ describes a problem in source code that results in a _HttpServerErrorException_ message being returned when a test is run. You can add the following annotation to your test to ensure that it is failing because of this exception, and not for a different reason:
 
 ```
-@GitHubIssue(issue = "1179", repo = "galasa-dev/projectmanagement",<br> regex = "HttpServerErrorException")
+@GitHubIssue(issue = "1179", repo = "galasa-dev/projectmanagement",
+regex = "HttpServerErrorException")
 ```
 
 If the failing exception does not match the regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
