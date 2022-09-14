@@ -3,34 +3,33 @@ path: "/docs/running-simbank-tests/web-app-integration-test"
 title: "WebAppIntetgrationTest"
 ---
 
-The WebAppIntegrationTest is somewhat different to the previously described Galasa SimBank tests. 
-The purpose of the test is to showcase how you can use Galasa to test a hybrid cloud application. 
+The `WebAppIntetgrationTest` is somewhat different to the previously described Galasa SimBank tests as it shows how you can use Galasa to test a hybrid cloud application that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntetgrationTest` to help understand how Galasa simplifies integration testing in such an environment.
 
-Using hybrid cloud, enterprises can host applications and data on the platforms that deliver the best combination of efficiency, security, and performance. However, a mix of platforms and technologies makes end-to-end integration testing complicated.
+The `WebAppIntetgrationTest` test demonstrates the end-to-end integration testing of an application that runs on different platforms (z/OS and Cloud) and uses different technologies (a 3270 emulator, JCL batch job and Selenium Web Driver).
 
-The WebAppIntegration test demonstrates the end-to-end integration testing of an application that runs on different platforms (z/OS and Cloud) and uses different technologies (a 3270 emulator, JCL batch job and Selenium Web Driver).
-
-Use the WebAppIntegrationTest to help understand how Galasa simplifies integration testing in such an environment.  The following diagram shows how you can use the WebAppIntegrationTest to test a hybrid cloud application: 
+The following diagram shows how you can use the WebAppIntegrationTest to test a hybrid cloud application: 
 
 ![Galasa in hybrid cloud](../../galasa-hybrid-cloud.svg)
 
 The diagram highlights the use of the following technology, and the interaction between the test and those technologies.
 
-1. The 3270 emulator creates a random account number and checks that it does not exist in the CICS region
-2. If the account does not exist the account is created by the Z/OS Batch Manager and is inserted into the backend database
-3. Docker then generates a web page
-4. Selenium drives the web browser to complete a web form and confirm the balance of the account
+ - The 3270 emulator creates a random account number and checks that it does not exist in the CICS region
+ - If the account does not exist the account is created by the Z/OS Batch Manager and is inserted into the backend database
+ - Docker then generates a web page
+ -  Selenium drives the web browser to complete a web form and confirm the balance of the account
 
 
 ## Running the WebAppIntegrationTest
 
-As the WebAppIntegrationTest is slightly different to the other tests, there's a bit more set up to do than for the other supplied SimBank tests. 
+As the `WebAppIntetgrationTest` is slightly different to the other tests, there's a bit more set up to do than for the other supplied SimBank tests. 
 
 The test is still run locally but is designed to help you to understand how to set the properties to enable the test to run in a Galasa Ecosystem. When running locally, you can use the localhost setting `127.0.0.1` for increased security. 
 
-## About the Selenium Manager
+The test uses the Selenium Manager, which in turn is dependent on the Docker Manager. Use the following sections to help you to understand how to configure your environment to work with the Selenium and Docker Manager. 
 
-The WebAppIntegrationTest uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a gecko driver or a docker engine. In this example, Firefox and a gecko driver are used. 
+### Using the Selenium Manager
+
+The `WebAppIntetgrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a gecko driver or a docker engine. In this example, Firefox and a gecko driver are used. 
 
 You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download Gecko driver from GitHub</a>. 
 
@@ -40,6 +39,8 @@ You must define the default and local driver properties in the CPS, as shown in 
 selenium.default.driver=FIREFOX
 selenium.local.driver.FIREFOX.path=<path/to/geckodriver>
 ```
+
+### Using the Docker Manager 
 
 The Selenium Manager has a dependency on the Docker Manager in order to run. Some set up is required for the Docker Manager in the CPS properties file. To configure the Docker Manager, set the following CPS properties:  
 
@@ -75,7 +76,7 @@ docker run -p 8080:8080 -d simbank-webapp
 If the container is not working correctly, for example, compilation and runtime errors are returned, check the version of tomcat in the Dockerfile. You might need to edit the tomcat version to a version that is compatible with Java 11, for example, ```FROM tomcat:8.5.82-jre11-temurin```.
 
 
-### About the test
+### About the WebAppIntetgrationTest
 
 To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntetgrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
 
