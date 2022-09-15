@@ -41,7 +41,7 @@ If you are using Maven, add the following dependencies into the _pom.xml_ in the
 </dependency>
 ```
 
-If you are using Gradle, add add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
+If you are using Gradle, add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
 
 ```
 dependencies {
@@ -103,7 +103,7 @@ For example, GitHub issue _1179_ describes a problem in source code that results
 regex = "HttpServerErrorException")
 ```
 
-If the failing exception does not match the regex, the test has failed for a different or unknown reason. If no Regex is provided in the annotation, any failing exception is accepted.
+If the failing exception does not match the regex, the test has failed for a different or unknown reason. If no regex is provided in the annotation, any failing exception is accepted.
 
 
 ### <a name="overrides"></a>Setting overrides
@@ -122,25 +122,9 @@ At the end of a test class run, the results of each individual test method are c
 
 Use the following scenarios and examples to understand the expected test class result and what to do next. In each scenario, the issue is in an _open_ state.
 
-
 ### Scenario 1: 
 
-Scenario 1 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAvailable_ without the _@ContinueOnTestFailure_ annotation:
-
-
-@Test<br>
-Test class SimBankIVT<br>
-Test method testNotNull() result: _Passed_ ![passed icon:](passed.svg)<br>
-@GitHubIssue( issue = "1178")<br>
-Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with defects icon:](failed-with-defects.svg)<br><br>
-<b>Test class result: _Passed with defects_</b> ![passed with defects icon:](passed-with-defects.svg)<br>
-
-Next steps:<br>
-All methods passed, other than those expected to fail - in this case the _checkBankIsAvailable_ method. No further investigation is required.
-
-### Scenario 2: 
-
-Scenario 2 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
+Scenario 1 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
 
 
 @Test<br>
@@ -155,9 +139,9 @@ Test method checkBankIsAvailable() result: _Failed_ ![failed icon:](failed.svg)<
 Next steps:<br>
 Test method _testNotNull_ returned a result of _Failed With Defects_. Test method _checkBankIsAvailable_ returned a result of _Failed_ for an unknown reason. Further investigation is required to understand why test method _checkBankIsAvailable_ failed.
 
-### Scenario 3: 
+### Scenario 2: 
 
-Scenario 3 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
+Scenario 2 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ with the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
 @ContinueOnTestFailure<br>
@@ -170,9 +154,9 @@ Test method checkBankIsAvailable() result: _Passed_ ![passed icon:](passed.svg)<
 Next steps:<br>
 The first method, _testNotNull_, returned a result of _Failed With Defects_.  As the _ContinueOnTestFailure_ annotation is used, the test continued to run and the following method _checkBankIsAvailable_ returned a result of _Passed_. All methods that are expected to pass returned a result of _Passed_, so the overall result of the test is _Passed With Defects_. No further investigation is required.
 
-### Scenario 4: 
+### Scenario 3: 
 
-Scenario 4 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAvailable_ without the _@ContinueOnTestFailure_ annotation:
+Scenario 3 uses the _@GitHubIssue_ annotation on the test method _checkBankIsAvailable_ without the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
 Test class SimBankIVT<br>
@@ -186,9 +170,9 @@ Test method checkBankIsAvailable() result: _Failed with defects_ ![failed with d
 Next steps:<br> 
 The method _checkBankIsAvailable_ returned a result of _Failed With Defects_. As the test did not use the _ContinueOnTestFailure_ annotation, the test would have ended prematurely. However, as the _checkBankIsAvailable_ method was the last test method, the results of all test methods in the class are known. All methods that are expected to pass returned a result of _Passed_, so the overall result of the test is _Passed With Defects_. No further investigation required.
 
-### Scenario 5:
+### Scenario 4:
 
-Scenario 5 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ without the _@ContinueOnTestFailure_ annotation:
+Scenario 4 uses the _@GitHubIssue_ annotation on the test method _testNotNull_ without the _@ContinueOnTestFailure_ annotation:
 
 @Test<br>
 Test class SimBankIVT<br>
