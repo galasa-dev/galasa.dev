@@ -48,8 +48,8 @@ The Selenium Manager has a dependency on the Docker Manager in order to run. Som
 docker.dse.engine.PRIMARY=LOCAL
 docker.default.engines=LOCAL
 docker.engine.LOCAL.hostname=127.0.0.1
-docker.engine.local.port=2375
-docker.engine.local.max.slots=10
+docker.engine.LOCAL.port=2375
+docker.engine.LOCAL.max.slots=10
 docker.container.TAG.name=simbank-webapp
 ```
 
@@ -150,13 +150,3 @@ logger.info("Test method complete");
 ```
 
 At the end of the test, the Selenium Manager automatically closes the WebDriver which removes the web page.
-
-
-
-
-
-
-
-
-
-
