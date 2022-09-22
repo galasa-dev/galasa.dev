@@ -5,11 +5,30 @@ title: "Testing across environments"
 
 Ideally, you want to avoid hard coding within your test. If you hard code target hostnames, port numbers and so on, you can't run the same test against different environments without changing the test code. 
 
-In Galasa, when an annotation refers to a resource, for example a z/OS image, you can use the *imageTag* attribute to avoid hard coding the endpoint of that z/OS image in your test code. The properties that are associated with the attribute are stored in the CPS file. 
-
 Galasa Managers use attributes and their associated properties to bind a test to an environment at runtime. Using attributes to enable late binding of the test material to the system under test allows the same test to run against multiple environments without changing the test itself. 
 
+## Using credentials properties
+
+It is likely that a test will need to pass credentials to the application being tested. For example, as HTTP credentials or as username and password values entered onto a 3270 screen. 
+
+Rather than hard code the credentials inside a test class, you can store the values in a credentials file when the test is run locally and in the credentials store (CREDs) file in the Galasa Ecosystem
+when the test is run remotely. The ability to get credentials from a file means that you do not need to hard code these values inside a test, enabling the test to be run in different environments without changing a single line of code.  
+
+You can extract credentials by using the [Core Manager](../managers/core-manager) `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from a file to use in your test.
+
+To understand how to extract credentials from a file, use the following example code: 
+
+```
+ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) coreManger.getCredentials("APP");
+credentials.getPassword();
+credentials.getUsername();
+```
+
+If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../running-simbank-tests/simbank-IVT) documentation.
+
 ## An example using SimBank
+
+In Galasa, when an annotation refers to a resource, for example a z/OS image, you can use the *imageTag* attribute to avoid hard coding the endpoint of that z/OS image in your test code. The properties that are associated with the attribute are stored in the CPS file. 
 
 Let’s look at an example in the SimBank ```BatchAccountsOpenTest.java``` test code where the *imageTag* attribute is used to avoid hard coding an endpoint for a z/OS image.
 
