@@ -19,12 +19,13 @@ You can extract credentials by using the [Core Manager](../../docs/managers/core
 To understand how to extract credentials from a file, use the following example code: 
 
 ```
-ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) coreManger.getCredentials("APP");
+ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) \
+coreManger.getCredentials("APP");
 credentials.getPassword();
 credentials.getUsername();
 ```
 
-If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../../running-simbank-tests/simbank-IVT) documentation.
+If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../../docs/running-simbank-tests/simbank-IVT) documentation.
 
 ## An example using SimBank
 
