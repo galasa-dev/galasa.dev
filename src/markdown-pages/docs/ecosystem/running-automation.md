@@ -3,9 +3,9 @@ path: "/docs/ecosystem/automating"
 title: "Running a test in automation"
 ---
 
-Use the following example to help you to understand how to structure a test so that it runs in automation.
+Use the following example to help you to understand how to package a test so that it runs in automation.
 
-The following example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are structured correctly. 
+The following example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
 
 The structure of the parent project will look similar to the following example structure:  
 
