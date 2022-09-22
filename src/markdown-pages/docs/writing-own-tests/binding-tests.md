@@ -14,7 +14,7 @@ It is likely that a test will need to pass credentials to the application being 
 Rather than hard code the credentials inside a test class, you can store the values in a credentials file when the test is run locally and in the credentials store (CREDs) file in the Galasa Ecosystem
 when the test is run remotely. The ability to get credentials from a file means that you do not need to hard code these values inside a test, enabling the test to be run in different environments without changing a single line of code.  
 
-You can extract credentials by using the [Core Manager](../managers/core-manager) `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from a file to use in your test.
+You can extract credentials by using the [Core Manager](../../docs/managers/core-manager) `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from a file to use in your test.
 
 To understand how to extract credentials from a file, use the following example code: 
 
@@ -24,7 +24,7 @@ credentials.getPassword();
 credentials.getUsername();
 ```
 
-If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../running-simbank-tests/simbank-IVT) documentation.
+If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../../running-simbank-tests/simbank-IVT) documentation.
 
 ## An example using SimBank
 
