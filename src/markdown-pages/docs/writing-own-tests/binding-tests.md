@@ -65,7 +65,7 @@ zos.image.zosImage1.telnet.tls=false
 2.	In the test code, declare a z/OS image called *zosImage1*:
 ```
 @ZosImage(imageTag="zosImage1")
-   public IZosImage image;
+public IZosImage image;
 ```
 The z/OS Manager reads the test code and creates the image object by using the properties associated with *zosImage1* in the CPS file. 
 
