@@ -45,10 +45,6 @@ compileOnly 'dev.galasa:dev.galasa.core.manager'
 }
 ```
 
-
-Finally, use the annotation that is provided by the Manager in the test. The annotation calls the Manager at runtime. In this example, the provided annotation is _@CoreManager_. 
-
-
 # <a name="configuring"></a>Configuring 
 
 The following are properties used to configure the Core Manager:
@@ -61,13 +57,28 @@ The following are properties used to configure the Core Manager:
 | Property: | Resource String Pattern CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | core.resource.string.[length].pattern |
-| Description: | Sets the patterns of resources strings for a length of string.  The patterns are from the Galasa ResourcePoolingService which uses a homegrown syntax.  |
+| Description: | Defines the pattern of characters within a string of a specified length.  The patterns are from the Galasa ResourcePoolingService which uses a homegrown syntax.   |
 | Required:  | No |
 | Default value: | {A-Z} for each byte for the specified length |
-| Valid values: | For each character can be a constant or a random choice from a literal, eg {A-Z results in a single character between A and Z inclusive. {0-9} or {a-zA-Z0-9} are options. DFH{A-Z}{0-1}{0-9}{0-9}{0-9}, results in DFHA1789 for example, the 4th character can only be 0 or 1. 
+| Valid values: | For each character the value can be a constant or a random choice from a literal, eg {A-Z results in a single character between A and Z inclusive. {0-9} or {a-zA-Z0-9} are options. DFH{A-Z}{0-1}{0-9}{0-9}{0-9}, results in DFHA1789 for example, the 4th character can only be 0 or 1. 
 | Examples: | <code>core.resource.string.8.length={A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}<br> </code> |
 
 </details>
+
+<details>
+<summary>Test Property CPS Property</summary>
+
+| Property: | Test Property CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | test.prefix.infix.infix.infix.suffix |
+| Description: |  Enables a test property value to be extracted from the CPS or Overrides file for use in a test. See [Code snippets and examples](#codesnippets) for more information. |
+| Required:  | No |
+| Default value: | NA|
+| Valid values: | Any valid string value | 
+| Examples: | <code>test.prefix.infix.suffix=value<br> </code> |
+
+</details>
+
 
 # <a name="annotations"></a>Annotations provided by the Manager
 
@@ -79,8 +90,36 @@ The following annotations are provided by the Core Manager:
 | Name: | Logger |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Logger |
-| Description: | Creates the log which is then automatically stored in the Result Archive Store (RAS) by the Galasa framework. |
-| Syntax:  | logger.info ("message");|
+| Description: | Gives the test access to the log which is then automatically stored in the Result Archive Store (RAS) by the Galasa framework. An object of type `log` can be annotated with this annotation. |
+| Attribute: `existingVolumeName` |  By default it is expected that Galasa should provision and control the volume. This field should only be used if beinding to an already exisitng volume.  @return |
+| Attribute: `mountPath` |  Where to mount the volume on the container.  @return |
+| Attribute: `volumeTag` |  When wanting to reference a mount that is going to be provisioned, this tage will be used.  @return |
+| Syntax:  | <code>@Logger \ <br> public Log logger;</code>|
+
+</details>
+
+
+<details>
+<summary>Resource String</summary>
+
+| Name: | ResourceString |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @ResourceString |
+| Description: | A unique (within the ecosystem) string of a set length. The Resource String Pattern CPS property `core.resource.string.[length].pattern` determines the pattern of the random string. Annotates a public `IResource` object type |
+| Attribute: `tag` |  Tag name |
+| Attribute: `length` |  Default value is 8. |
+| Syntax:  | <code> @ResourceString(tag = "tagname", length=8) \<br> public IResourceString   resourceString;</code>|
+
+</details>
+
+<details>
+<summary>Run Name</summary>
+
+| Name: | RunName |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @RunName |
+| Description: | The name of the test run. Can be used for making resource names unique to this run. The test run name is unique across all local and automated runs that are in the system at that point. |
+| Syntax:  | <code>@RunName \ <br> public String runName;</code>|
 
 </details>
 
@@ -90,8 +129,8 @@ The following annotations are provided by the Core Manager:
 | Name: | StoredArtifactRoot |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @StoredArtifactRoot |
-| Description: | Lets your test write specific output to the RAS. |
-| Syntax:  | artifactRoot.resolve(folder).resolve(file);|
+| Description: | Lets your test write specific output to the RAS. An object of type `path` can be annotated with this annotation. |
+| Syntax:  | <code>artifactRoot.resolve(folder).resolve(file);</code>|
 
 </details>
 
@@ -101,8 +140,12 @@ The following annotations are provided by the Core Manager:
 | Name: | TestProperty |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @TestProperty |
-| Description: |  |
-| Syntax:  | |
+| Description: | Enables a value to be extracted from the CPS or Overrides file for use in the test |
+| Attribute: `prefix` |  Set the prefix of the property that you want to extract  |
+| Attribute: `suffix` |  Set the suffix of the property that you want to extract |
+| Attribute: `infixes` | Set selection precedence on the property that you want to extract. See [Code snippets and examples](#codesnippets) for more information. Default is {}|
+| Attribute: `required` |  Default is `true` |
+| Syntax:  |<code>@TestProperty(prefix = "string", suffix = "string", infixes = "string", required = true)</code> |
 
 </details>
 
@@ -110,9 +153,9 @@ The following annotations are provided by the Core Manager:
 
 # <a name="codesnippets"></a>Code snippets and examples
 
-<details><summary>Extract credentials from a file</summary>
+<details><summary>Extract credentials from the Galasa credentials store</summary>
 
-You can extract credentials by using the `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from a file to use in your test.
+You can extract credentials by using the `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from the credentials store to use in your test.
 
 ```
 import dev.galasa.ICredentials;
@@ -121,10 +164,18 @@ import dev.galasa.ICredentialsUsernamePassword;
 @Test
 ...
 ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) \
-coreManger.getCredentials("APP");
+coreManger.getCredentials("SIMBANK");
 credentials.getPassword();
 credentials.getUsername();
 ```
+
+You can edit the credentials.properties file in your .galasa folder. The following example shows the contents of the credentials.properties file that is set up as part of Galasa SIMBANK tutorials:
+
+```
+secure.credentials.SIMBANK.username=IBMUSER
+secure.credentials.SIMBANK.password=SYS1
+```
+
 </details>
 
 <details><summary>Mask the value of an extracted password</summary>
@@ -138,9 +189,61 @@ coreManager.registerConfidentialText("SYS1", "IBMUSER password");
 
 <details><summary>Store an XML request in the test results archive</summary>
 
+Use the following example code to understand how to archive messages in a particular folder and file structure in the RAS:
+
 ```
-Path requestPath = artifactRoot.resolve(folder).resolve(file).;
+Path requestPath = artifactRoot.resolve(communications).resolve(messages).;
 Files.write(requestPath, content.getBytes(), new SetContentType(ResultArchiveStoreContentType.TEXT),
-    StandardOpenOption.CREATE);
+StandardOpenOption.CREATE);
+```
+
+Messages in the RAS are stored in the following structure:
+
+```
+communications
+|
+---messages 
+```
+
+If the folder or file do not exist, it is created by using the `resolve` method.
+
+</details>
+
+
+<details><summary>Using the Test Property annotation</summary>
+
+This example has the following CPS properties set in the CPS file: 
+
+test.projectA.first.choice.data=3
+test.projectA.choice.data=2
+
+where `projectA` is the prefix, `data` is the suffix, and `first` and `choice` are infixes.
+
+The following code is used in the test:
+
+```
+@TestProperty(prefix = "projectA", suffix = "data", infixes = {"first","choice"})
+public String property;
+```
+
+In this example, if the property _test.projectA.first.choice.data_ is found in the CPS, then this is extracted for use in the test. If _test.projectA.first.choice.data_ is not found, then property _test.projectA.choice.data_ is used instead.
+
+</details>
+
+<details><summary>Example - using the Resource String and Logger annotation</summary>
+
+The following example imports the @ResourceString annotation and sets the tag name to `myString` and the string length to `4`. The value of `myResourceString` is written to the log which is automatically stored in the Result Archive Store (RAS) by the Galasa framework. 
+
+```
+@ResourceString(tag="myString", length = 4)
+public IResourceString myResourceString;
+
+
+    @Test
+    public void checkBankIsAvailable() throws Exception{
+    	logger.info(property);
+    	
+    	logger.info(myResourceString.getString());
+    }
 ```
 </details>
