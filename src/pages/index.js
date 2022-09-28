@@ -90,7 +90,7 @@ const keyFeatures = [
       <>
         Galasa is open source, so can be extended to support additional tooling
         with no vendor lock-in and no initial cost. The framework supports
-        enterprise level through put, as the test workload can be scaled
+        enterprise level throughput, as the test workload can be scaled
         horizontally in its own cloud environment.
       </>
     ),
