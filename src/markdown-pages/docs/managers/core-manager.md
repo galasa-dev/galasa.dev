@@ -91,10 +91,7 @@ The following annotations are provided by the Core Manager:
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Logger |
 | Description: | Gives the test access to the log which is then automatically stored in the Result Archive Store (RAS) by the Galasa framework. An object of type `log` can be annotated with this annotation. |
-| Attribute: `existingVolumeName` |  By default it is expected that Galasa should provision and control the volume. This field should only be used if beinding to an already exisitng volume.  @return |
-| Attribute: `mountPath` |  Where to mount the volume on the container.  @return |
-| Attribute: `volumeTag` |  When wanting to reference a mount that is going to be provisioned, this tage will be used.  @return |
-| Syntax:  | <code>@Logger \ <br> public Log logger;</code>|
+| Syntax:  | <code>@Logger <br> public Log logger;</code>|
 
 </details>
 
@@ -108,7 +105,7 @@ The following annotations are provided by the Core Manager:
 | Description: | A unique (within the ecosystem) string of a set length. The Resource String Pattern CPS property `core.resource.string.[length].pattern` determines the pattern of the random string. Annotates a public `IResource` object type |
 | Attribute: `tag` |  Tag name |
 | Attribute: `length` |  Default value is 8. |
-| Syntax:  | <code> @ResourceString(tag = "tagname", length=8) \<br> public IResourceString   resourceString;</code>|
+| Syntax:  | <code> @ResourceString(tag = "tagname", length=8) <br> public IResourceString   resourceString;</code>|
 
 </details>
 
@@ -119,7 +116,7 @@ The following annotations are provided by the Core Manager:
 | --------------------------------------- | :------------------------------------- |
 | Name: | @RunName |
 | Description: | The name of the test run. Can be used for making resource names unique to this run. The test run name is unique across all local and automated runs that are in the system at that point. |
-| Syntax:  | <code>@RunName \ <br> public String runName;</code>|
+| Syntax:  | <code>@RunName <br> public String runName;</code>|
 
 </details>
 
@@ -129,7 +126,7 @@ The following annotations are provided by the Core Manager:
 | Name: | StoredArtifactRoot |
 | --------------------------------------- | :------------------------------------- |
 | Name: | @StoredArtifactRoot |
-| Description: | Lets your test write specific output to the RAS. An object of type `path` can be annotated with this annotation. |
+| Description: | Lets your test write specific output to the RAS. An object of type `Path` can be annotated with this annotation. |
 | Syntax:  | <code>artifactRoot.resolve(folder).resolve(file);</code>|
 
 </details>
@@ -214,8 +211,8 @@ If the folder or file do not exist, it is created by using the `resolve` method.
 
 This example has the following CPS properties set in the CPS file: 
 
-test.projectA.first.choice.data=3
-test.projectA.choice.data=2
+test.projectA.first.choice.data=3 <br>
+test.projectA.first.data=2
 
 where `projectA` is the prefix, `data` is the suffix, and `first` and `choice` are infixes.
 
@@ -226,7 +223,7 @@ The following code is used in the test:
 public String property;
 ```
 
-In this example, if the property _test.projectA.first.choice.data_ is found in the CPS, then this is extracted for use in the test. If _test.projectA.first.choice.data_ is not found, then property _test.projectA.choice.data_ is used instead.
+In this example, if the property _test.projectA.first.choice.data_ is found in the CPS, then this is extracted for use in the test. If _test.projectA.first.choice.data_ is not found, then property _test.projectA.first.data_ is used instead.
 
 </details>
 
@@ -238,12 +235,7 @@ The following example imports the @ResourceString annotation and sets the tag na
 @ResourceString(tag="myString", length = 4)
 public IResourceString myResourceString;
 
-
     @Test
-    public void checkBankIsAvailable() throws Exception{
-    	logger.info(property);
-    	
-    	logger.info(myResourceString.getString());
-    }
+    	logger.info(myResourceString.getString());    
 ```
 </details>
