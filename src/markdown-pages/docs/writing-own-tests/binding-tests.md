@@ -15,7 +15,7 @@ Rather than hard code the credentials inside a test class, you can store the val
 
 You can extract credentials by using the Core Manager `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from the credentials store to use in your test. See the [Core Manager](../../docs/managers/core-manager) documentation for more information and code snippet examples.
 
-If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the [Running the SimBank Installation Verification Test](../../docs/running-simbank-tests/simbank-IVT) documentation.
+If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the _Running the SimBank Installation Verification Test_ documentation.
 
 ## An example using SimBank
 
