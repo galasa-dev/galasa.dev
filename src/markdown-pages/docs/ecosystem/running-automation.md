@@ -3,11 +3,19 @@ path: "/docs/ecosystem/automating"
 title: "Running a test in automation"
 ---
 
-Use the following example to help you to understand how to package a test so that it runs in automation.
+Use the following information to help you to understand how to package a test so that it runs in automation.
 
-The following example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
+## Struturing your test package
 
-The structure of the parent project will look similar to the following example structure:  
+You can structure your test package in a variety of ways depending on how you use your OBR (OSGi Bundle Repository). 
+
+An OBR is a collection of all the packages that make up a test selection. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies. The structure might depend on a number of factors, for example, the level of experience of the team or the way in which you want to manage your test corpus. You can have an OBR per set of tests, or you can have an OBR for the whole test corpus, or you can set up an OBR per test or per test stream. The OBR is a very flexible piece of code, so use it in the way that bests suits the way that you are managing your test corpus. 
+
+The following example is going to incorporate the OBR as a module in the test parent. The example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
+
+The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
+
+The structure of the parent project in this example will look similar to the following example structure:  
 
 ``` 
 ────com.example.company.mytests.parent 
