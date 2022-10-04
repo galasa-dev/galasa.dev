@@ -1,11 +1,11 @@
 ---
 path: "/docs/running-simbank-tests/web-app-integration-test"
-title: "WebAppIntetgrationTest"
+title: "WebAppIntegrationTest"
 ---
 
-The `WebAppIntetgrationTest` is somewhat different to the previously described Galasa SimBank tests as it shows how you can use Galasa to test a hybrid cloud application that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntetgrationTest` to help understand how Galasa simplifies integration testing in such an environment.
+The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests as it shows how you can use Galasa to test a hybrid cloud application that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
 
-The `WebAppIntetgrationTest` test demonstrates the end-to-end integration testing of an application that runs on different platforms (z/OS and Cloud) and uses different technologies (a 3270 emulator, JCL batch job and Selenium Web Driver).
+The `WebAppIntegrationTest` test demonstrates the end-to-end integration testing of an application that runs on different platforms (z/OS and Cloud) and uses different technologies (a 3270 emulator, JCL batch job and Selenium Web Driver).
 
 The following diagram shows how you can use the WebAppIntegrationTest to test a hybrid cloud application: 
 
@@ -19,17 +19,19 @@ The diagram highlights the use of the following technology, and the interaction 
  -  Selenium drives the web browser to complete a web form and confirm the balance of the account
 
 
-## Running the WebAppIntegrationTest
+# Running the WebAppIntegrationTest
 
-As the `WebAppIntetgrationTest` is slightly different to the other tests, there's a bit more set up to do than for the other supplied SimBank tests. 
+As the `WebAppIntegrationTest` is slightly different to the other tests, there's a bit more set up to do than for the other supplied SimBank tests. 
 
-The test is still run locally but is designed to help you to understand how to set the properties to enable the test to run in a Galasa Ecosystem. When running locally, you can use the localhost setting `127.0.0.1` for increased security. 
+The test is still run locally but is designed to help you to understand how to set the properties to enable the test to run in a Galasa Ecosystem. You can use the localhost setting `127.0.0.1` to ensure that only the local machine is able to connect. 
+
+*Note:* If there is a deprecation warning against the ```dev.galasa.selenium.ISeleniumManager``` and ```dev.galasa.selenium.SeleniumManager``` imports, you can change the imports to ```dev.galasa.selenium.IWebDriver``` and ```dev.galasa.selenium.IWebDriver``` respectively. The test will run regardless of this change, but editing the imports in this way removes the deprecation warning messages. 
 
 The test uses the Selenium Manager, which in turn is dependent on the Docker Manager. Use the following sections to help you to understand how to configure your environment to work with the Selenium and Docker Manager. 
 
-### Using the Selenium Manager
+## Using the Selenium Manager
 
-The `WebAppIntetgrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a gecko driver or a docker engine. In this example, Firefox and a gecko driver are used. 
+The `WebAppIntegrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a gecko driver or a docker engine. In this example, Firefox and a gecko driver are used. 
 
 You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download Gecko driver from GitHub</a>. 
 
@@ -37,10 +39,10 @@ You must define the default and local driver properties in the CPS, as shown in 
 
 ```
 selenium.default.driver=FIREFOX
-selenium.local.driver.FIREFOX.path=<path/to/geckodriver>
+selenium.LOCAL.driver.FIREFOX.path=<path/to/geckodriver>
 ```
 
-### Using the Docker Manager 
+## Using the Docker Manager 
 
 The Selenium Manager has a dependency on the Docker Manager in order to run. Some set up is required for the Docker Manager in the CPS properties file. To configure the Docker Manager, set the following CPS properties:  
 
@@ -56,33 +58,43 @@ docker.container.TAG.name=simbank-webapp
 These properties allow local test runs to access the local Docker Engine when the TCP port of the local Docker Engine is enabled.
 
 
-After updating the CPS properties, run the following terminal commands to open a TCP socket for accessing the Dokcer API:
+### Open a TCP socket
+
+After updating the CPS properties, run the following terminal commands to open a TCP socket for accessing the Docker API:
 
 ```
 docker pull alpine/socat
 docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
 
-Test that the container is working correctly by running the following command:
+### Build the Docker image 
 
+To run the test, you first need to build a Docker image called `simbank-webapp`.
+1. Clone the Galasa `simplatform` repository on your machine. 
+1. Build the image by running the following command. For the command to work, the terminal must be running in the same directory as the one containing the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 ```
 mvn install
 docker image build -t simbank-webapp .
 docker run -p 8080:8080 -d simbank-webapp
 ```
+1. Test that the container is working correctly by running the following command:
+```
+docker run -p 8080:8080 -d simbank-webapp
+```
 
-### Troubleshooting
+## Troubleshooting
 
 If the container is not working correctly, for example, compilation and runtime errors are returned, check the version of tomcat in the Dockerfile. You might need to edit the tomcat version to a version that is compatible with Java 11, for example, ```FROM tomcat:8.5.82-jre11-temurin```.
 
 
-### About the WebAppIntetgrationTest
+## About the WebAppIntegrationTest
 
-To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntetgrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
+To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntegrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
 
 This test performs a similar function to the `ProvisionedAccountCreditTest.java` but includes the use of the Selenium Manager. The Selenium Manager enables the test to run Selenium WebDrivers which drive the SimBank Web Application that is provided with Galasa SimBank. 
 
-The `WebAppIntetgrationTest` generates a unique account number to use in the test and provisions the account with a randomly generated opening balance by using a 3270 emulator that connects to the web application which opens in Firefox. A batch job opens the account and fills in a form to credit the account with the opening balance. The 3270 emulator then connects to the web application, searches for the account number and retrieves the balance.  
+`WebAppIntegrationTest` generates a random account number is generated. The 3270 application is used to ensure that this account number does not exist. A batch job is run to create the account and 
+Selenium drives the web application to credit the account with some funds. The 3270 application is run again to validate that the funds were added to the account.
 
 
 ## Walkthrough - WebAppIntegrationTest
@@ -105,7 +117,7 @@ String accountNumber = provisionAccount(openingBalance);
 logger.info("Account number selected: " + accountNumber);
 ```
 
-The `provisionAccount()` method generates a new random account number to use in the test, using a 3270 SimBank terminal to interact with the SimBank web application to ensure that the generated account does not already exist:
+The `provisionAccount()` method generates a random account number to use in the test, using a 3270 SimBank terminal to ensure that the generated account does not exist:
 
 ```java
 public String provisionAccount(BigDecimal openingBalance) throws Exception {
@@ -131,7 +143,7 @@ parameters.put("CONTROL", "ACCOUNT_OPEN");
 parameters.put("DATAIN", accountNumber+",20-24-09,"+openingBalance);
 ```
 
-The following code enables Selenium WebDrivers to use a web browser to interact with and submit a form inside the provisioned weplication:
+The following code enables Selenium WebDrivers to use a web browser to interact with and submit a form inside the provisioned application:
 
 ```java
 IWebPage page = completeWebFormAndSubmit(accountNumber, creditAmount.toString());
