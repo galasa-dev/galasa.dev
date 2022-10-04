@@ -65,8 +65,7 @@ After updating the CPS properties for the Docker Manager, run the following term
 docker pull alpine/socat
 docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
-2. Build the Docker image 
-To run the test, you first need to build a Docker image called `simbank-webapp`.
+2. Build a Docker image called `simbank-webapp`
 	1. Clone the Galasa `simplatform` repository on your machine. 
 	1. Build the image by running the following command. For the command to work, the terminal must be running in the same directory as the one containing the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 	```
