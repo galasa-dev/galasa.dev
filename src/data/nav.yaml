@@ -47,6 +47,8 @@
               path: /docs/running-simbank-tests/provisioned-account-credit-tests
             - title: BatchAccountsOpenTest
               path: /docs/running-simbank-tests/batch-accounts-open-test
+            - title: WebAppIntegrationTest
+              path: /docs/running-simbank-tests/web-app-integration-test
             - title: Writing your own SimBank test
               path: /docs/running-simbank-tests/writing-a-simbank-test
             - title: Viewing test results
