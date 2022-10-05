@@ -3,7 +3,7 @@ path: "/docs/running-simbank-tests/web-app-integration-test"
 title: "WebAppIntegrationTest"
 ---
 
-The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests. It shows how you can use Galasa to test a [hybrid cloud application](../../about_Galasa) that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
+The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests. It shows how you can use Galasa to test a hybrid cloud application that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
 
 ## About the WebAppIntegrationTest
 
@@ -28,7 +28,7 @@ The test uses the Selenium Manager, which in turn is dependent on the Docker Man
 
 ### Using the Selenium Manager
 
-The `WebAppIntegrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a GeckoDriver or a Docker Engine. In this example, Firefox and a GeckoDriver are used. 
+To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a GeckoDriver or a Docker Engine. In this example, Firefox and a GeckoDriver are used. 
 
 You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download GeckoDriver from GitHub</a>. 
 
@@ -119,12 +119,27 @@ parameters.put("CONTROL", "ACCOUNT_OPEN");
 parameters.put("DATAIN", accountNumber+",20-24-09,"+openingBalance);
 ```
 
-The following code enables Selenium WebDrivers to use a web browser to interact with and submit a form inside the provisioned application:
+The following code enables Selenium to drive the SimBank Web Application to credit the account with some funds:
 
 ```java
-IWebPage page = completeWebFormAndSubmit(accountNumber, creditAmount.toString());
-logger.info("Web form submitted");
-```
+public IWebPage completeWebFormAndSubmit(String accountNumber, String creditAmount)
+		throws SimBankManagerException, WebDriverException {
+	String webpage = webApp.getHostName() + "/galasa-simplatform-webapp/simbank";
+	// Selenium Options to run the driver headlessly
+	IFirefoxOptions options = webDriver.getFirefoxOptions();
+
+
+	// Open the Simbank Web Application in a Firefox browser
+	IWebPage page = webDriver.allocateWebPage(webpage, options);
+	page.takeScreenShot();
+	assertThat(page.getTitle()).containsOnlyOnce("Simbank");
+		
+	// Fill in the Form and submit
+	page.sendKeysToElementById("accnr", accountNumber);
+	page.sendKeysToElementById("amount", creditAmount);
+	page.takeScreenShot();
+	page.clickElementById("submit");
+```	
 
 Checks are made to ensure that the web application response is as expected and that the data is updated throughout the application, including the backend database:
 
