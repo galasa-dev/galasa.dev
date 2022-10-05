@@ -22,7 +22,7 @@ The following diagram shows how a Galasa test that is created within Eclipse ena
 
 When you create your run and run configuration within Eclipse, a workspace OBR build is initiated. The OBR build creates an OSGI bundle repository that represents what is in the workspace, including any tests. The OBR and the compiled test JAR are passed to an OSGI environment in which the tests are run. All of this is contained within your IDE.<br><br>
 
-![Inside an IDE:](ide.jpg)<br><br>
+![Inside an IDE:](workstation.svg)<br><br>
 
 ### Running a test outside of an IDE
 Structuring tests so that they can be run outside of an IDE means that the tests can be accessed by authorized team members and can be run anywhere.
