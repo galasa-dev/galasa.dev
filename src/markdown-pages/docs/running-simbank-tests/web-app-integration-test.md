@@ -5,7 +5,7 @@ title: "WebAppIntegrationTest"
 
 The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests. It shows how you can use Galasa to test a [hybrid cloud application](../../about_Galasa.md) that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
 
-# About the WebAppIntegrationTest
+## About the WebAppIntegrationTest
 
 This test performs a similar function to the `ProvisionedAccountCreditTest.java` but includes the use of the Selenium Manager. The Selenium Manager enables the test to run Selenium WebDrivers which drive the SimBank Web Application that is provided with Galasa SimBank. 
 
@@ -13,7 +13,7 @@ The `WebAppIntegrationTest` performs the following functions:
 
 - Generates a random account number 
 - Uses a 3270 application to ensure that this account number does not exist in SimBank
-- If the account does not exist, the test invokes a batch job to create the account
+- If the account does not exist, invokes a batch job to create the account
 - Uses Selenium to drive the SimBank Web Application to credit the account with some funds
 - Runs the 3270 application again to validate that the expected funds were added to the account
 
@@ -70,8 +70,9 @@ docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.soc
 	1. Build the image by running the following command. For the command to work, the terminal must be running in the same directory as the one containing the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 	```
 	mvn install
-	docker image build -t simbank-webapp .
+	docker image build -t simbank-webapp 
 	```
+
 	1. Test that the container is working correctly by running the following command:
 	```
 	docker run -p 8080:8080 -d simbank-webapp
