@@ -67,13 +67,10 @@ docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.soc
 ```
 2. Build a Docker image called `simbank-webapp`
 	1. Clone the Galasa `simplatform` repository on your machine. 
-	1. Build the image by running the following command. For the command to work, the terminal must be running in the same directory as the one containing the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
+	1. Build the image and test that the container is working correctly by running the following commands. For the commands to work, the terminal must be running in the same directory as the one containing the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 	```
 	mvn install
 	docker image build -t simbank-webapp 
-	```
-	1. Test that the container is working correctly by running the following command:
-	```
 	docker run -p 8080:8080 -d simbank-webapp
 	```
 
