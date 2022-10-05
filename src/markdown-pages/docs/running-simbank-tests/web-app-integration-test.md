@@ -3,7 +3,7 @@ path: "/docs/running-simbank-tests/web-app-integration-test"
 title: "WebAppIntegrationTest"
 ---
 
-The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests. It shows how you can use Galasa to test a [hybrid cloud application](../../about_Galasa.md) that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
+The `WebAppIntegrationTest` is somewhat different to the previously described Galasa SimBank tests. It shows how you can use Galasa to test a [hybrid cloud application](../../about_Galasa) that uses a mix of platforms and technologies. A mix of technologies makes end-to-end integration testing complicated. Use the `WebAppIntegrationTest` to help understand how Galasa simplifies integration testing in such an environment.
 
 ## About the WebAppIntegrationTest
 
@@ -28,9 +28,9 @@ The test uses the Selenium Manager, which in turn is dependent on the Docker Man
 
 ### Using the Selenium Manager
 
-The `WebAppIntegrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a gecko driver or a docker engine. In this example, Firefox and a gecko driver are used. 
+The `WebAppIntegrationTest` uses the Selenium Manager. To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a GeckoDriver or a Docker Engine. In this example, Firefox and a GeckoDriver are used. 
 
-You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download Gecko driver from GitHub</a>. 
+You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download GeckoDriver from GitHub</a>. 
 
 You must define the default and local driver properties in the CPS, as shown in the following example:
 
@@ -72,13 +72,12 @@ docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.soc
 	mvn install
 	docker image build -t simbank-webapp 
 	```
-
 	1. Test that the container is working correctly by running the following command:
 	```
 	docker run -p 8080:8080 -d simbank-webapp
 	```
 
-## Troubleshooting
+### Troubleshooting
 
 If the container is not working correctly, for example, compilation and runtime errors are returned, check the version of tomcat in the Dockerfile. You might need to edit the tomcat version to a version that is compatible with Java 11, for example, ```FROM tomcat:8.5.82-jre11-temurin```.
 
@@ -90,7 +89,7 @@ To run the test, follow the same steps as for `SimBankIVT.java` but using the te
 
 For brevity, package declarations and imports are omitted in the following walkthrough.
 
-First, some Managers are declared and then the `provisionAccount()` method is specified: 
+First, some objects are declared and then the `provisionAccount()` method is specified: 
 
 ```java
 String accountNumber = provisionAccount(openingBalance);
