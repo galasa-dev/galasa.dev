@@ -28,7 +28,7 @@ The test uses the Selenium Manager, which in turn is dependent on the Docker Man
 
 ### Using the Selenium Manager
 
-To use the Selenium Manager you must have a web browser, for example, Chrome or Firefox installed as well as either a GeckoDriver or a Docker Engine. In this example, Firefox and a GeckoDriver are used. 
+To use the Selenium Manager you must have a web browser, for example,  Firefox or Chrome installed as well as a browser driver, for example, GeckoDriver or ChromeDriver. In this example, Firefox and GeckoDriver are used. 
 
 You can <a href="https://github.com/mozilla/geckodriver/releases" target="_blank"> download GeckoDriver from GitHub</a>. 
 
