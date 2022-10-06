@@ -31,7 +31,7 @@ You can structure tests to be run outside of an IDE by creating a parent project
 ![Outside an IDE:](outsidewstn.svg)<br><br>
 
 
-[Outside an IDE:](outsideide.svg)<br><br>
+![Outside an IDE:](outsideide.svg)<br><br>
 
 The parent project describes the test project, its dependencies and the OBR required to run the test. When the parent project is compiled, a test jar and OBR object are generated and these artifacts can be deployed on a Maven repository.
 
