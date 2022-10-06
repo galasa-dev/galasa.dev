@@ -48,11 +48,12 @@ The simplest thing that a test might want to do is retrieve the content of a fil
 InputStream is = resources.retrieveFile("input/hobbit.txt");
 String textContext = resources.streamAsString(is);
 ```
+In this case the file hobbit.txt would be in the location */src/main/resources/input/hobbit.txt*.
 
-From Galasa 0.8.0 you can stream a string content directly by using the following code:
+You can stream a string content directly by using the following code:
 
 ```
-String textContent = resources.retrieveFileAsString("/resources/textFiles/test1.txt");
+String textContent = resources.retrieveFileAsString("/textFiles/test1.txt");
 ```
 
 This uses the same methods as the previous example but is one less line of code you have to write.
