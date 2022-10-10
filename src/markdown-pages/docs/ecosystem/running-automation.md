@@ -3,39 +3,15 @@ path: "/docs/ecosystem/automating"
 title: "Running a test in automation"
 ---
 
-Use the following information to help you to understand how to package a test so that it runs in automation.
+Use the following information to help you to understand how to package a test so that it runs in automation. 
 
-## Struturing your test package
+To package a test to run in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 
-You can structure your test package in a variety of ways depending on how you use your OBR (OSGi Bundle Repository). 
+1. Create and configure a parent project
+2. Build Maven bundles from the parent project
+3. Add a test sub-project and tests to the parent project
+4. Add an OBR sub-project to the parent project
 
-An OBR is a collection of all the packages that make up a test selection. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies. The structure might depend on a number of factors, for example, the level of experience of the team or the way in which you want to manage your test corpus. You can have an OBR per set of tests, or you can have an OBR for the whole test corpus, or you can set up an OBR per test or per test stream. The OBR is a very flexible piece of code, so use it in the way that bests suits the way that you are managing your test corpus. 
-
-The following example is going to incorporate the OBR as a module in the test parent. The example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
-
-The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
-
-The structure of the parent project in this example will look similar to the following example structure:  
-
-``` 
-────com.example.company.mytests.parent 
-    │   pom.xml 
-    ├───com.example.company.mytests.group1 
-    │   │   pom.xml 
-    │   └───src 
-    │       └───main 
-    │           ├───java 
-    │           │   │  SIMBANKIVT.java 
-    │           └───resources 
-    └─── com.example.company.mytests.obr 
-        │   pom.xml 
-``` 
-
-Within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `SIMBANKIVT.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
-
-Points to note around naming conventions: 
-
-The _artifactId_ must be unique for each Maven project under a _groupId_. To prevent confusion, you should make it unique across _groupIds_. The _groupId_ and _artifactId_ can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns that are similar to ```com.example.company.tests.parent```.
 
 ## Create a parent project
 
@@ -169,7 +145,7 @@ Some comments:
 - _plugins_ identify the Maven plugins to be used during the build process. The _maven-bundle-plugin_ builds OSGi bundles (the Manager and test projects), indicated by the `<packaging>` value of _bundle_. The _galasa-maven-plugin_ is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project. 
 </details>
 
-## Build the Maven bundles from the parent project
+## Build Maven bundles from the parent project
 
 Complete the following steps to create Maven bundles to deploy to your repository:
 1. Save the changes that you made to the _pom.xml_ of the parent project.
