@@ -8,7 +8,7 @@ After writing a test to run locally on your machine, start to realise the power 
 
 To run a test in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 
-1. Package a test to [run in automation](/docs/ecosystem/automating)
+1. Structuring a test to run in automation. You can do this by setting up a Galasa project either [inside](/docs/ecosystem/automating) or [outside](docs/writing-own-tests/setting-up-galasa-project) of Eclipse.
 2. [Deploy the test artifacts to a Maven repository](/docs/ecosystem/deploying-tests)
 3. Set up a new test stream
 4. Initiate the test from either Eclipse or from the galasactl command line tool
@@ -31,14 +31,6 @@ You can structure tests to be run outside of an IDE by creating a parent project
 ![Outside an IDE:](outide.svg)<br><br>
 
 The parent project describes the test project, its dependencies and the OBR required to run the test. When the parent project is compiled, an OSGi Bundle and OBR object are generated and these artifacts can be deployed on a Maven repository.
-
-## Struturing your parent project
-
-You can structure your parent project in a number of ways, depending on how you want to manage your test corpus. The structure of the project project is shaped by the way in which you use your OBR. 
-
-An OBR is a collection of all the packages that make up a test selection. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies. You can have an OBR per set of tests, or you can have an OBR for the whole test corpus, or you can set up an OBR per test or per test stream.
-
-In our example, the OBR is set up as a module within the test parent. The example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
 
 ### Next steps
 Use the example in the [Running a test in automation](/docs/ecosystem/automating) documentation to guide you through the process of setting up a parent project and run a test in automation outside of an IDE.
