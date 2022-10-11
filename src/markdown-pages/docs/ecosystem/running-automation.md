@@ -15,6 +15,28 @@ To package a test to run in automation inside the Galasa Ecosystem, you need to 
 
 ## Create a parent project
 
+The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
+
+The structure of the parent project in this example will look similar to the following example structure:  
+
+``` 
+────com.example.company.mytests.parent 
+    │   pom.xml 
+    ├───com.example.company.mytests.group1 
+    │   │   pom.xml 
+    │   └───src 
+    │       └───main 
+    │           ├───java 
+    │           │   │  sampletest.java 
+    │           └───resources 
+    └─── com.example.company.mytests.obr 
+        │   pom.xml 
+``` 
+
+Within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `sampletest.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
+
+
+
 The following example is based on the naming convention ```com.example.company``` and uses the _SimBankIVT_ test code as the example test class. 
  
 
