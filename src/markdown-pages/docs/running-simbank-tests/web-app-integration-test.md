@@ -49,12 +49,11 @@ docker.default.engines=LOCAL
 docker.engine.LOCAL.hostname=127.0.0.1
 docker.engine.LOCAL.port=2375
 docker.engine.LOCAL.max.slots=10
-docker.container.TAG.name=simbank-webapp
 ```
 
 These properties allow local test runs to access the local Docker Engine when the TCP port of the local Docker Engine is enabled.
 
-Galasa interacts with Docker by using the Docker Engine API. In a typical infrastructure, you would mount the socket to the container. As we are running the test locally in this example, a temporary bridging mechanism is used to allow access to the socket via a container. This set up makes it easy to control the opening and closing of the socket to accept traffic. 
+Galasa interacts with Docker by using the Docker Engine API. In a typical infrastructure, you would expose the socket to TCP traffic. As we are running the test locally in this example, a temporary bridging mechanism is used to allow access to the socket via a container. This set up makes it easy to control the opening and closing of the socket to accept traffic. 
 
 After updating the CPS properties for the Docker Manager, run the following terminal commands to open a TCP socket for accessing the Docker Engine API:
 
