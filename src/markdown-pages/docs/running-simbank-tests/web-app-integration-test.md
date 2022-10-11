@@ -22,7 +22,7 @@ The `WebAppIntegrationTest` performs the following functions:
 
 As the `WebAppIntegrationTest` is slightly different to the other tests, there's a bit more set up to do than for the other supplied SimBank tests. 
 
-The test is still run locally but is designed to help you to understand how to set the properties that enable the test to run in a Galasa Ecosystem. When running the `WebAppIntegrationTest` you can use the localhost setting `127.0.0.1` to ensure that only the local machine is able to connect. 
+The test is still run locally but is designed to help you to understand how to set the properties that enable the test to run in a Galasa Ecosystem. When running the `WebAppIntegrationTest` locally, use the localhost setting `127.0.0.1` to ensure that only the local machine is able to connect. You could then run the test in automation by simply updating your CPS properties to the relevant resource definition. For example, to use a remote server as a Docker Engine, simply change the default engine from `LOCAL` to `REMOTE` and specify the appropriate connection details. No change is required to the test code, only to the CPS properties file.
 
 The test uses the Selenium Manager, which in turn is dependent on the Docker Manager. Use the following sections to help you to understand how to configure your environment to work with the Selenium Manager and Docker Manager. 
 
@@ -54,18 +54,23 @@ docker.container.TAG.name=simbank-webapp
 
 These properties allow local test runs to access the local Docker Engine when the TCP port of the local Docker Engine is enabled.
 
+Galasa interacts with Docker by using the Docker Engine API. In a typical infrastructure, you would mount the socket to the container. As we are running the test locally in this example, a temporary bridging mechanism is used to allow access to the socket via a container. This set up makes it easy to control the opening and closing of the socket to accept traffic. 
+
+After updating the CPS properties for the Docker Manager, run the following terminal commands to open a TCP socket for accessing the Docker Engine API:
+
+```
+docker pull alpine/socat
+docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+```
+
+Although this configuration might see a little strange when running locally, the idea is to make the example consistent with the configuration that would be undertaken if contacting a remote Docker server in a Galasa Ecosystem.
 
 ### Building a Docker image
 
 Complete the following steps to build a Docker image to use in the test. We plan to automate these manual steps in a future release. 
 
-1. Open a TCP socket
-After updating the CPS properties for the Docker Manager, run the following terminal commands to open a TCP socket for accessing the Docker API:
-```
-docker pull alpine/socat
-docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
-```
-2. Build a Docker image called `simbank-webapp`
+
+1. Build a Docker image called `simbank-webapp`
 	1. Clone the Galasa `simplatform` repository on your machine. 
 	1. Build the image and test that the container is working correctly by running the following commands. For the commands to work, the terminal must be running in the same directory as the one that contains the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 	```
