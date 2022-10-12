@@ -42,7 +42,7 @@ To run a test in automation, all test engines need access to the test material. 
     </distributionManagement>
     ```
 
-    Where the <id>example</id> refers to the server, and the <url>${example.*.repo}</url> refers to the properties that are setup in the profile.
+    Where _<id>example</id>_ refers to the server, and _<url>${example.*.repo}</url>_ refers to the properties that are setup in the profile.
 2. Set up a Maven run, either by using the command line or by using Eclpise.
     1. If you are using the command line, use the following example to help you set up a Maven run by using the command line: 
     ```
@@ -52,7 +52,7 @@ To run a test in automation, all test engines need access to the test material. 
     ![Maven deploy screen:](deploy-config.png)<br><br> 
 
     After running the command, a _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab .
-3. Check that the artifacts are available on the the local repository (http://127.0.0.1:8081/#browse/browse:maven).
+3. Check that the artifacts are available on the the local repository, http://127.0.0.1:8081/#browse/browse:maven.
 
 ![Nexus artifacts](maven-repos.png)
 
