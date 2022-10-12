@@ -4,11 +4,11 @@ title: "Automating tests"
 ---
 Galasa SimBank shows how you can run a Galasa test locally inside an IDE. Running a test inside an IDE enables test and application development teams to run tests in a local workspace that interacts with real resources - ideal for building a test quickly.
 
-After writing a test to run locally on your machine, start to realise the power of Galasa by running that test in automation inside the [Galasa Ecosystem](../ecosystem/ecosystem).
+After writing a test to run locally on your machine, start to realise the power of Galasa by running that test in automation inside the [Galasa Ecosystem](../ecosystem).
 
 To run a test in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 
-1. Structuring a test to run in automation. You can do this by setting up a Galasa project either [inside](running-automation) or [outside](../writing-own-tests/setting-up-galasa-project) of Eclipse.
+1. Structuring a test to run in automation. You can do this by setting up a Galasa project either [inside](running-automation) or [outside](docs/writing-own-tests/setting-up-galasa-project) of Eclipse.
 2. [Deploy the test artifacts to a Maven repository](deploying-to-maven)
 3. Set up a new test stream
 4. Initiate the test from either Eclipse or from the galasactl command line tool
@@ -34,5 +34,5 @@ The parent project describes the test project, its dependencies and the OBR requ
 
 ### Next steps
 Use the example in the [Setting up a Galasa project by using Eclipse](running-automation) documentation to guide you through the process of setting up a parent project and run a test in automation inside Eclipse.
-Use the example in the [Setting up a Galasa project](../writing-own-tests/setting-up-galasa-project) documentation to guide you through the process of setting up a parent project and run a test in automation outside an IDE.
+Use the example in the [Setting up a Galasa project](docs/writing-own-tests/setting-up-galasa-project) documentation to guide you through the process of setting up a parent project and run a test in automation outside an IDE.
 
