@@ -1,5 +1,5 @@
 ---
-path: "/docs/ecosystem/automating"
+path: "/docs/ecosystem/running-automation"
 title: "Setting up a Galasa project by using Eclipse"
 ---
 

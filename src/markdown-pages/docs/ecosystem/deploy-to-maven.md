@@ -1,5 +1,5 @@
 ---
-path: "/docs/ecosystem/deploying-tests"
+path: "/docs/ecosystem/deploy-to-maven"
 title: "Deploying a test to a Maven repository"
 ---
 
