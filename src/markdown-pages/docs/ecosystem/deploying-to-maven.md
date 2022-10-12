@@ -1,5 +1,5 @@
 --- 
-path: "/docs/ecosystem/deploying-tests"
+path: "/docs/ecosystem/automating/deploying-to-maven"
 title: "Deploying a test to a Maven repository"
 ---
 
@@ -53,7 +53,7 @@ Where _<id>example</id>_ refers to the server, and _<url>${example.*.repo}</url>
     ![Maven deploy screen:](deploy-config.png)<br><br> 
 
     After running the command, a _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab .
-3. Check that the artifacts are available on the the local repository, http://127.0.0.1:8081/#browse/browse:maven.
+3. Check that the artifacts are available on the the local repository.
 
 ### Next steps
 
