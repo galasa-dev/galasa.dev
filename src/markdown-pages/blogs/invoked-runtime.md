@@ -24,29 +24,29 @@ If the overhead of setting up an ecosystem doesn't match your timescales for a p
 
 Galasa utilizes a OSGi framework running inside a standard JVM. This is done so we can dynamically load java artifacts into the runtime as and when they are required, including different Galasa extensions, Galasa managers, and jars containing test materials and dependencies. Even so this runtime is essentially executed with a `java -jar ...` style command
 
-The eclipse plugin provided from the Galasa project abstracts a lot of this work away from the user to make execution easier. When running a test (after it has been compiled) eclipse:
-1. A obr (OSGi Bundle Repository) is quickly built containing all the java projects in your workspace
-1. Starts an OSGi framework called Felix which loads all of the Galasa components and any requested compiled tests within the workspace. It locates the requested java bundles within any given OBR's from a local maven repository and maven central (or another repository passed in the galasa configurations).
-1. Executes the test with the output going to the Console in Eclipse, storing all output locally
+The eclipse plugin provided from the Galasa project abstracts a lot of this work away from the user to make execution easier. When running a test (after it has been compiled) Eclipse will:
+1. Build an OBR (OSGi Bundle Repository) behind the scenes, containing all the java projects in your workspace
+1. Start an OSGi framework called Felix which loads all of the Galasa components and any requested compiled tests within the workspace. It locates the requested java bundles within any given OBRs from a local maven repository and maven central (or another repository passed in the galasa configurations).
+1. Execute the test with the output going to the Console in Eclipse, storing all output locally
 
-When requesting a test to be run, typically 2 OBR's are passed, the uber obr which lists all the galasa components, and a test obr which describes the tests we are looking to run and any dependencies. This second OBR is the workspace obr built at the start of a test run within Eclipse. The Galasa framework is not limited to 2 OBR's, as some more complex setups can contain custom managers which don't make sense to house in the same code base as tests, but this blog will keep things simple.
+When requesting a test to be run, typically 2 OBR's are passed, the over-arching OBR which lists all the galasa components, and a test OBR which describes the tests we are looking to run and any dependencies. This second OBR is the workspace obr built at the start of a test run within Eclipse. The Galasa framework is not limited to 2 OBR's, as some more complex setups can contain custom managers which don't make sense to house in the same code base as tests, but this blog will keep things simple.
 
-This usually means that once we are looking to start running Galasa tests outside of Eclipse (either within a Ecosystem or Invoked Runtime) we need to consider creating our own OBR build to describe what we are trying to run and its dependencies. Another concept to consider is where test material will be fetched from. Unlike in the eclipse environment we don't want to be compiling code each time we want execute a test. This means we want to to both build and deploy our test code into an artifact repository:
+This usually means that once we are looking to start running Galasa tests outside of Eclipse (either within a Ecosystem or Invoked Runtime) we need to consider creating our own OBR build to describe what we are trying to run and its dependencies. Another concept to consider is where test material will be fetched from. Unlike in the eclipse environment we don't want to compile code each time a test is executed. We should instead build and deploy our test code into an artifact repository:
 
 ![](./images/Deploy.png)
 
-Automating this into a pipeline often saves a lot of work going forward, especially if there is going to be a team of people contributing tests. Once we host out compile test bundles and OBR's inside an artifact repository like Artifactory or Nexus, we can retrieve them at runtime without any need to compile code:
+Automating this into a pipeline often saves a lot of work going forward, especially if there is going to be a team of people contributing tests. Once we host our compiled test bundles and OBR's inside an artifact repository like Artifactory or Nexus, we can retrieve them at runtime without any need to compile code:
 
 ![](./images/Pull.png)
 
 _\*Currently the pull from a test engine only supports pulling via anonymous access._
 
-However, this step is only required if you have different server/environment for your build pipeline and your Galasa invoked runtime. If you are compiling and running on the same server you can make use of the fact a `mvn install` will place all of the compiled maven artifacts in the local maven repository (`~/.m2/repository`) and skip the deploy. If you are planning to use a Galasa ecosystem however, this approach would not work, as each test case is run inside an isolated container and will require to pull the artifacts from a maven repository.
+However, this step is only required if you have different server/environment for your build pipeline and your Galasa invoked runtime. If you are compiling and running on the same server you can make use of the fact a `mvn install` will place all of the compiled maven artifacts in the local maven repository (`~/.m2/repository`) and skip the deploy. If you are planning to use a Galasa ecosystem however, this approach would not work, as each test case is run inside an isolated container and will need to pull the artifacts from a maven repository.
 
 
 
 ## How to setup a test project
-There is a lot of options when it comes to project structure to enable running galasa, so in this blog I will show the most standard setup for someone getting started. 
+There are many options when it comes to the project structure needed by a running galasa, so in this blog we will show the most standard setup for someone getting started. 
 
 The basic concept is that we need to have our compiled test material stored in an artifact repository (whether local or remote) which is then described within an OBR. Both the Jar containing the tests and the OBR are then passed to the galasa boot jar for execution.
 
@@ -68,8 +68,8 @@ Maven Project with child modules:
     |-> pom.xml (Parent Pom)
 ```
 Here we have a parent project that contains 4 test bundles, each of which could contain multiple test classes.
-We then have a obr module in my parent projects whose only job is to create a OBR that describes the test bundles in the project. 
-We can use the parent pom.xml to store all of our build mechanisms for the project and have every child project inherit them. For example the parent pom might look like this:
+We then have an `obr` module in the parent project whose only job is to create an OBR that describes the test bundles in the project. 
+We can use the parent `pom.xml` to store all of our build mechanisms for the project and have every child project inherit them. For example the parent pom might look like this:
 ```
 <project
     xmlns="http://maven.apache.org/POM/4.0.0"
@@ -217,7 +217,7 @@ With most of the dependencies and build definitions placed in the parent pom, th
 ```
 Which only defines its packaging type as `bundle` and that it is a child module of the parent project. 
 
-For the OBR to be generated that contains our test bundles we need to setup the obr module as so:
+For the OBR to be generated that contains our test bundles we need to setup the `obr` module like so:
 ```
 <project
     xmlns="http://maven.apache.org/POM/4.0.0"
@@ -254,11 +254,11 @@ For the OBR to be generated that contains our test bundles we need to setup the 
     </dependencies>
 </project>
 ```
-The important things to note are the packaging type is set to galasa-obr, and all of the the test bundles we wish to include into this OBR are also expressed as dependencies. This should also be true of any other test dependencies, otherwise at runtime there will be unsatisfied requirement errors.
+The important things to note are the packaging type is set to `galasa-obr`, and all of the the test bundles we wish to include into this OBR are also expressed as dependencies. This should also be true of any other test dependencies, otherwise at runtime there will be unsatisfied requirement errors.
 
-Please note that as of version 0.22.0 it is only possible to generate the OBR using maven. There are ongoing items for adding this capability to both the gradle plugin ([here](https://github.com/galasa-dev/projectmanagement/issues/1000)) as well as the galasactl ([here](https://github.com/galasa-dev/projectmanagement/issues/1001)). It is also possible to generate an OBR this way without the need to compile using maven. A standalone project without the parent will pull (from either local or remote) maven artifacts to create the OBR, so this could also be a solution for some users.
+Please note that as of version 0.22.0 it is only possible to generate the OBR using maven. There are ongoing work items for [adding this capability to the gradle plugin](https://github.com/galasa-dev/projectmanagement/issues/1000) and [adding it to the galasactl tool](https://github.com/galasa-dev/projectmanagement/issues/1001). It is also possible to generate an OBR this way without the need to compile using maven. A standalone project without the parent will pull (from either local or remote) maven artifacts to create the OBR, so this could also be a solution for some users.
 
-Once the project is configured correctly, a `mvn clean install` will both build the jars/obr and install them into your local maven repository (`~/.m2/repository`). Having the artifacts deployed their (or in a remote maven repository) makes it easier to manage versions and downloads of test material and OBR's when actually running a test.
+Once the project is configured correctly, a `mvn clean install` will both build the jars/obr and install them into your local maven repository (`~/.m2/repository`). Having the artifacts deployed there (or in a remote maven repository) makes it easier to manage versions and downloads of test material and OBR's when running a test.
 
 ## Running a test from the CLI
 Firstly we need to download the boot.jar, which can be located on maven central:
@@ -291,17 +291,17 @@ java -jar boot.jar \
 
 Running this jar with these arguments starts up the galasa framework and executes the test passed.
 
-Once a test is completed, you may still need to retrieve all of the output, whether this is the run log, or any of the stored artifacts saved during execution. In Eclipse it may not be clear, but all of the results are saved to a local directory in `~/.galasa/ras/*`, and this is the same location that any invoked run will save results.
+Once a test is completed, you may still need to retrieve all of the output, whether this is the run log, or any of the stored artifacts saved during execution. In Eclipse it may not be clear, but all the results are saved to a local directory in `~/.galasa/ras/*`, and this is the same location that any invoked run will save results.
 
 ## Next Steps
 
 With the understanding of how to run a galasa test from the CLI, it is possible to have any CI/CD executor perform this action too. 
 
-A step that I would encourage is to now look to automate the build and deploy of test artifacts and OBR's to a non local maven repository. Having a simple automated way to rebuild and redeploy test material helps organize and manager tests going forward. 
+A step that I would encourage is to now look to automate the build and deploy of test artifacts and OBR's to a non local maven repository. Having a simple automated way to rebuild and redeploy test material helps organize and manager tests going forward.
 
-Having test artifacts deployed is also a necessary step when looking to use a galasa ecosystem, as well as making integration onto a CI/CD simpler. There is no need to have any test code locally, just the access to the repo to pull at runtime.
+Having test artifacts deployed is also a necessary step when looking to use a Galasa ecosystem, as well as making integration onto a CI/CD simpler. There is no need to have any test code locally, just the access to the repo to pull artifacts from at runtime.
 
-There is some future work in discussion to look to include these steps into the galasactl command, making it even simpler to run from a local command line. If this is something you think you would benefit from, please come talk to us on our [github repo](https://github.com/galasa-dev/projectmanagement) or on our [slack](https://galasa.slack.com/)
+There is some future work in discussion to look to include these steps into the `galasactl` command, making it even simpler to run from a local command line. If this is something you think you would benefit from, please come talk to us on our [github repo](https://github.com/galasa-dev/projectmanagement) or on our [slack](https://galasa.slack.com/)
 
 ---
 Author: James Davies - IBM
