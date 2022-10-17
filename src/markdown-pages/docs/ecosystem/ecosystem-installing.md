@@ -67,7 +67,7 @@ If you opened any ports, check that the port numbers are correct in the *config.
 ```
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock 
 -v {path}/config.yaml:/config.yaml 
-icr.io/galasadev/galasa-docker-operator-amd64:latest
+icr.io/galasadev/galasa-docker-operator-amd64:0.24.0
 ```
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
