@@ -21,7 +21,7 @@ The RAS is updated with a file that details the recordings that were made. For e
 
 ## Prerequisites
 
-The VTP Manager must be installed in the target CICS region. 
+IBM Virtual Test Platform must be installed and configured in the target CICS region. 
   
 To use the VTP Manager, VTP recording must be enabled and the test class must contain @CicsRegion annotations. A high-level qualifier (HLQ) must be defined in the CPS in order to write the recording. 
   

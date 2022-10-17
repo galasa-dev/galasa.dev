@@ -15,13 +15,13 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 
 ### Java
 
-Galasa tests and Managers are written in Java - you will need to install a Java version 8 JDK or later to use it.
+Galasa tests and Managers are written in Java - you will need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later
 
 ### Eclipse
 
 If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add any missing plug-ins if and when you discover you need them.
 
-If you already have a version of Eclipse installed, it should be at the version codenamed Photon (released in June 2018) or later. _Note:_ The Java 17 JDK causes Galasa test runs to fail. We recommend using a Java 8, 11 or 16 JDK whilst we investigate this issue.
+We recommend Eclipse for Java Developers 2022-06. _Note:_ We are aware of problems when launching tests using Eclipse 2022-09.  We are working to fix this problem.
 
 ### (Optional) A 3270 terminal emulator
 
