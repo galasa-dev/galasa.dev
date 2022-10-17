@@ -58,15 +58,16 @@ simplatform:
   version: 0.15.0
 ```
 
-Note the two spaces on the fifth, sixth and last lines -  they are important in YAML.
+Note the two-spaced indentation on some of the lines -  they are important in YAML.
 
 If you opened any ports, check that the port numbers are correct in the *config.yaml* file. 
 
 2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
 
 ```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock 
--v {path}/config.yaml:/config.yaml 
+docker run -it -v \
+/var/run/docker.sock:/var/run/docker.sock \
+-v ${path}/config.yaml:/config.yaml \
 icr.io/galasadev/galasa-docker-operator-amd64:latest
 ```
 
