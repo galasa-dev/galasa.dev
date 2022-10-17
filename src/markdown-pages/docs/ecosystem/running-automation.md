@@ -7,13 +7,13 @@ Use the following information to help you to understand how to package a test so
 
 To package a test to run in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 
-1. Create and configure a parent project
+1. Set up a parent project
 2. Build Maven bundles from the parent project
 3. Add a test sub-project and tests to the parent project
 4. Add an OBR sub-project to the parent project
 
 
-## Structuring a parent project
+## Setting up a parent project
 
 You can structure your parent project in a number of ways, depending on how you want to manage your test corpus. The structure of the project project is shaped by the way in which you use your OBR. 
 
@@ -21,9 +21,9 @@ An OBR is a collection of all the packages that make up a test selection. Galasa
 
 In our example, the OBR is set up as a module within the test parent. The example shows how to create a parent project, add a test sub-project and OBR sub-project as modules of that parent, and how to edit the associated _pom.xml_ files so that the parent project and sub-projects (modules) are packaged correctly. 
 
-## Creating a parent project
+## About a parent project
 
-The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
+The parent project establishes all the dependencies for the sub-projects or modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
 
 The structure of the parent project in this example will look similar to the following example structure:  
 
@@ -48,7 +48,7 @@ Within the parent project is a test bundle, `com.example.company.mytests.group1`
 The following example is based on the naming convention ```com.example.company``` and uses the _SimBankIVT_ test code as the example test class. 
  
 
-Complete the following steps to create a parent project:
+Complete the following steps in Eclipse to create a parent project:
 
 1. Launch Eclipse and choose _File > New > Project_. A _New Project_ dialog appears.
 1. Expand the _Maven_ folder, select _Maven Project_ and click _Next_. A _New Maven Project_ dialog appears.
