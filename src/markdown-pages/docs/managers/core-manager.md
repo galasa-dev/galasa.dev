@@ -152,7 +152,7 @@ The following annotations are provided by the Core Manager:
 
 <details><summary>Extract credentials from the Galasa credentials store</summary>
 
-You can extract credentials by using the `getCredentials` method. The Core Manager uses the `getCredentials` method to retrieve a user id and password from the credentials store to use in your test.
+You can extract credentials by using the `getUsernamePassword` method. The Core Manager uses the `getUsernamePassword` method to retrieve a user id and password from the credentials store to use in your test.
 
 ```
 import dev.galasa.ICredentials;
@@ -161,7 +161,7 @@ import dev.galasa.ICredentialsUsernamePassword;
 @Test
 ...
 ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) \
-coreManger.getCredentials("SIMBANK");
+coreManger.getUsernamePassword("SIMBANK");
 credentials.getPassword();
 credentials.getUsername();
 ```
