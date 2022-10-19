@@ -1,9 +1,9 @@
 ---
 path: "/hub"
-title: "Galasa Hub"
+title: "Galasa Blogs"
 ---
 
-Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians. 
+Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
 ## Blog: What's new in IBM Distribution for Galasa 1.0.2
 Will Yates goes into some of the new features that made it into IBM Distribution for Galasa 1.0.2 and how these complement IBM Virtual Test Platform.<br>

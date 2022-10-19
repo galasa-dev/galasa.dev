@@ -10,13 +10,7 @@ import {
   illustration as illustrationStyle,
 } from "./key-feature.module.scss"
 
-import OddIllustrationSVG from "../../images/key-feature-odd.inline.svg"
-import EvenIllustrationSVG from "../../images/key-feature-even.inline.svg"
-
-const KeyFeature = ({ children, title, index }) => {
-  const illustration =
-    index % 2 === 0 ? <EvenIllustrationSVG /> : <OddIllustrationSVG />
-
+const KeyFeature = ({ children, title, illustration }) => {
   return (
     <div className={keyFeature}>
       <div className={info}>

@@ -11,7 +11,30 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.21.0 - Release Highlights
+## 0.24.0 - Release Highlights
+
+
+- The minimum Java release now required for Galasa is version 11, rather than version 8. You will need to install a Java version 11 JDK or later to run Galasa tests.  
+- Various enhancements to the DB2 Manager.
+- Various defect fixes. 
+- Various documentation fixes and enhancements. 
+
+<details>
+<summary><b>0.23.0 - Release Highlights</b></summary>
+
+- New Helm charts are available for deploying a basic Galasa Ecosystem into a Kubernetes Namespace. Documentation can be found in the <a href="https://github.com/galasa-dev/helm/tree/released" target="_blank"> helm repository</a> in GitHub.
+</details>
+
+<details>
+<summary><b>0.22.0 - Release Highlights</b></summary>
+
+- The z/OS 3270 Manager now supports 3 new methods ```setCursorPosition(row,col)```, ```retrieveText(row,col,length)```, and ```retrieveTextAtCursor(length)```.
+- The z/OS Batch Manager has a new method ```waitForJob(Second)```.
+- The z/OS File Manager now supports two new methods ```getMemberName()``` and ```clone(IZosVSAMDataset model)```.
+</details>
+
+<details>
+<summary><b>0.21.0 - Release Highlights</b></summary>
 
 - An initial basic version of the DB2 Manager is now available.  This Manager is not yet ready for Production use and will be documented soon. 
 - An initial basic version of the Cloud Manager is now available. This Manager is not yet ready for Production use and will be documented soon.
@@ -21,6 +44,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - A minor defect in the CICS TS Manager is fixed, resolving the issue of terminals not starting properly.
 - The usage of Random is now replaced with SecureRandom.
 - Various documentation enhancements. 
+</details>
 
 <details>
 <summary><b>0.20.0 - Release Highlights</b></summary>
