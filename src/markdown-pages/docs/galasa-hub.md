@@ -5,6 +5,13 @@ title: "Galasa Blogs"
 
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
+## Blog: What's new in IBM Distribution for Galasa 1.0.2
+Will Yates goes into some of the new features that made it into IBM Distribution for Galasa 1.0.2 and how these complement IBM Virtual Test Platform.<br>
+
+**Author: Will Yates, March 2022**<br>
+*Source: IBM Developer*<br><br>
+<a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/william-yates/2022/03/24/whats-new-in-ibm-distribution-for-galasa-102" target="_blank">
+ Read the blog</a>
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
 Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
 
