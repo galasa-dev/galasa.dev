@@ -160,8 +160,7 @@ import dev.galasa.ICredentialsUsernamePassword;
 ...
 @Test
 ...
-ICredentialsUsernamePassword credentials = (ICredentialsUsernamePassword) \
-coreManger.getUsernamePassword("SIMBANK");
+ICredentialsUsernamePassword credentials = coreManger.getUsernamePassword("SIMBANK");
 credentials.getPassword();
 credentials.getUsername();
 ```
