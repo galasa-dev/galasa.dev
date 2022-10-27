@@ -41,5 +41,5 @@ As well as consuming the services of Managers either delivered with Galasa or wr
 
 A [summary table describing Managers](/docs/managers) that are currently available or planned for future releases is available in the Managers topic.
 
-##The test runner
+## The test runner
 Under the direction of the core framework, the Galasa test runner is responsible for actually executing your tests.
