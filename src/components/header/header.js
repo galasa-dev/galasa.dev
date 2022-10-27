@@ -82,6 +82,7 @@ const Header = ({ extraHeight }) => {
               " " +
               (extraHeight ? extraMobileHeight : "")
             }
+            aria-label="Page header"
           >
             <h1 className={title}>
               <Identifier id="header-identifier" />
