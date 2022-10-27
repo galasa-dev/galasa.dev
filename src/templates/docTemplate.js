@@ -9,7 +9,7 @@ import {
   topicTitle,
   docPostContent,
 } from "./docTemplate.module.scss"
-import SEO from "../components/seo"
+import SiteHead from "../components/site-head"
 import GitHubSVG from "../images/github.inline.svg"
 
 export default function Template({
@@ -36,7 +36,6 @@ export default function Template({
 
   return (
     <>
-      <SEO title={frontmatter.title} />
       <div className={docWrapper}>
         <div className={docContent}>
           <h1 className={topicTitle}>{frontmatter.title}</h1>
@@ -51,6 +50,13 @@ export default function Template({
   )
 }
 
+export const Head = ({ data }) => {
+  const {
+    markdownRemark: { frontmatter },
+  } = data
+  return <SiteHead title={frontmatter.title} data={data} />
+}
+
 export const pageQuery = graphql`
   query ($path: String!) {
     site {
@@ -58,6 +64,11 @@ export const pageQuery = graphql`
         consts {
           buildRepoUrl
           buildBranch
+          algolia {
+            appId
+            apiKey
+            indexName
+          }
         }
       }
     }

@@ -1,8 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import KeyFeature from "../components/key-feature"
-import SEO from "../components/seo"
+import SiteHead from "../components/site-head"
 
 import {
   heroContainer,
@@ -22,7 +22,7 @@ import KeyFeature6SVG from "../images/key-features/illustrations-galasa-07.inlin
 
 const keyFeatures = [
   {
-    title: "Consistent testing - for all technologies",
+    title: "Consistent testing – for all technologies",
     illustration: KeyFeature1SVG,
     body: (
       <>
@@ -49,7 +49,7 @@ const keyFeatures = [
     ),
   },
   {
-    title: "Get the test data you need - fast",
+    title: "Get the test data you need – fast",
     illustration: KeyFeature3SVG,
     body: (
       <>
@@ -103,7 +103,6 @@ const keyFeatures = [
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" />
     <div className={heroContainer}>
       <div>
         <h1 className={heroTitle}>
@@ -146,5 +145,23 @@ const IndexPage = () => (
     </div>
   </>
 )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        consts {
+          algolia {
+            appId
+            apiKey
+            indexName
+          }
+        }
+      }
+    }
+  }
+`
+
+export const Head = ({ data }) => <SiteHead title="Home" data={data} />
 
 export default IndexPage
