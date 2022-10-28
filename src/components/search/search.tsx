@@ -3,7 +3,6 @@
 import React, { useRef, useState, useCallback, useMemo, forwardRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { useDocSearchKeyboardEvents } from "@docsearch/react"
-import { Helmet } from "react-helmet"
 import { Link, useStaticQuery, graphql, navigate } from "gatsby"
 
 import SearchIcon from "../../images/search.inline.svg"
@@ -143,10 +142,6 @@ function DocSearch(props) {
 
   return (
     <>
-      <Helmet>
-        <link rel="preconnect" href={`https://${props.appId.toLowerCase()}-dsn.algolia.net`} crossOrigin="anonymous" />
-      </Helmet>
-
       <DocSearchButton
         onTouchStart={importDocSearchModalIfNeeded}
         onFocus={importDocSearchModalIfNeeded}
@@ -203,6 +198,12 @@ function Search() {
   }
 
   return <DocSearch {...docSearchOpts} />
+}
+
+export const SearchHead = ({ data: {site: {siteMetadata: { consts: {algolia}}}} }) => {
+  return (
+    <link rel="preconnect" href={`https://${algolia.appId.toLowerCase()}-dsn.algolia.net`} crossOrigin="anonymous" />
+  );
 }
 
 export default Search;

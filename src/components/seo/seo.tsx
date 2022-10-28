@@ -1,17 +1,16 @@
 /* Copyright contributors to the Galasa project */
-
-import React from "react"
-import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
+import React from "react"
 
-interface PropTypes {
-  description: string,
-  lang: string,
-  meta: HTMLMetaElement[]
-  title: string,
+
+interface Props {
+  description?: string,
+  title?: string,
+  children?: React.ReactElement[]
 }
 
-const SEO = ({ description = "", lang = "en", meta = [], title }: PropTypes) => {
+const SEO = ({ description = "", title, children }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,44 +29,24 @@ const SEO = ({ description = "", lang = "en", meta = [], title }: PropTypes) => 
     site.siteMetadata.title.charAt(0).toUpperCase() +
     site.siteMetadata.title.slice(1)
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${siteTitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    <>
+      <title>{title} | {siteTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      {children}
+    </>
   )
+}
+
+SEO.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.node)
 }
 
 export default SEO

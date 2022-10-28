@@ -1,6 +1,8 @@
 const React = require("react")
 
+const { globalStyle } = require("./src/components/layout/layout.module.scss")
 const digitalData = require("./src/utils/digital-data")
+
 
 if (process.env.GATSBY_GALASA_ENV !== "LOCAL") {
   console.log("Non-local build - adding tracking.")
@@ -16,4 +18,8 @@ if (process.env.GATSBY_GALASA_ENV !== "LOCAL") {
   }
 } else {
   console.log("Local build - no tracking.")
+}
+
+exports.onRenderBody = ({ setHtmlAttributes }) => {
+  setHtmlAttributes({ className: globalStyle })
 }
