@@ -8,13 +8,14 @@ import SEO from "../seo"
 
 interface Props {
     title: string,
+    description: string,
     data: any,
 }
 
-const SiteHead = ({title, data}: Props) => {
+const SiteHead = ({title, description, data}: Props) => {
     return (
         <>
-            <SEO title={title} />
+            <SEO title={title} description={description} />
             <SearchHead data={data} />
         </>
     )
@@ -22,6 +23,7 @@ const SiteHead = ({title, data}: Props) => {
 
 SiteHead.propTypes = {
     title: PropTypes.string,
+    description: PropTypes.string,
     data: PropTypes.any,
   }
 
