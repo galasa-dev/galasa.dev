@@ -7,6 +7,9 @@
   "dependencies": {
     "@babel/runtime": "^7.20.0",
     "@docsearch/react": "^3.3.0",
+    "@fontsource/ibm-plex-mono": "^4.5.12",
+    "@fontsource/open-sans": "^4.5.13",
+    "@fontsource/work-sans": "^4.5.12",
     "gatsby": "^4.24.5",
     "gatsby-plugin-catch-links": "^4.24.0",
     "gatsby-plugin-csp": "^1.1.3",
