@@ -2,7 +2,6 @@
 import PropTypes from "prop-types"
 import React from "react"
 import { SearchHead } from "../search"
-import { FontsHead } from "../fonts"
 
 import SEO from "../seo"
 
@@ -17,7 +16,6 @@ const SiteHead = ({title, data}: Props) => {
         <>
             <SEO title={title} />
             <SearchHead data={data} />
-            <FontsHead />
         </>
     )
 }
