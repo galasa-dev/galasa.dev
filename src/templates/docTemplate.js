@@ -52,9 +52,11 @@ export default function Template({
 
 export const Head = ({ data }) => {
   const {
-    markdownRemark: { frontmatter },
+    markdownRemark: { excerpt, frontmatter },
   } = data
-  return <SiteHead title={frontmatter.title} data={data} />
+  return (
+    <SiteHead title={frontmatter.title} description={excerpt} data={data} />
+  )
 }
 
 export const pageQuery = graphql`
@@ -74,6 +76,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      excerpt
       frontmatter {
         path
         title
