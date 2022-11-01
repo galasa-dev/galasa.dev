@@ -1,5 +1,6 @@
 name: build
 on: [push, pull_request]
+
 jobs:
 
   prettier:
@@ -8,12 +9,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - run: npm ci
 
@@ -26,12 +27,12 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
       
       - uses: nelonoel/branch-name@v1.0.1
       
@@ -50,7 +51,7 @@ jobs:
         run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ http://localhost:9000
 
       - name: Upload raw site
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: output-dotdev-raw-site
           path: public
@@ -73,12 +74,12 @@ jobs:
       max-parallel: 1
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: repo
 
       - name: Download raw site
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: output-dotdev-raw-site
           path: site
@@ -122,12 +123,12 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
       
       - uses: nelonoel/branch-name@v1.0.1
       
@@ -147,7 +148,7 @@ jobs:
         run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ http://localhost:9000
 
       - name: Upload raw site
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: output-local-raw-site
           path: public
@@ -156,7 +157,7 @@ jobs:
         run: ./.github/scripts/war.sh
 
       - name: Upload WAR
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: output-local-war
           path: galasa.dev-site.war
@@ -168,15 +169,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Download WAR
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: output-local-war
       
       - name: Set up JDK 8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '8'
           distribution: 'adopt'
@@ -194,7 +195,7 @@ jobs:
           ORG_GRADLE_PROJECT_galasaNexusPassword: ${{ secrets.NEXUS_PASSWORD }}
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: output-local-jar
           path: package-jar/build/libs/galasa.dev-runnable.jar

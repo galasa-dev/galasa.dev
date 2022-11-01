@@ -1,0 +1,15 @@
+<svg data-name="Layer 1" viewBox="0 0 672 672" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="m167.807 239.1 114.66 34.255" data-name="Line 139"/>
+  <rect width="49.421" height="49.421" x="38.935" y="440.092" fill="#eea209" stroke="#fff" stroke-miterlimit="10" stroke-width="3" rx="16"/>
+  <rect width="49.421" height="49.421" x="38.935" y="500.496" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4" rx="16"/>
+  <rect width="49.421" height="49.421" x="38.935" y="560.899" fill="#dd5040" stroke="#fff" stroke-miterlimit="10" stroke-width="3" rx="16"/>
+  <path fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="M91.1 359.1a57.657 57.657 0 0 1 57.658-57.657h521.665"/>
+  <circle cx="258.837" cy="85.443" r="24.71" fill="#dd5040"/>
+  <circle cx="255.837" cy="89.342" r="24.71" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
+  <path fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3" d="M216.235 259.056 196.379 294.8a4.473 4.473 0 0 0 3.91 6.644H240a4.472 4.472 0 0 0 3.909-6.644l-19.855-35.74a4.472 4.472 0 0 0-7.819-.004Z"/>
+  <path fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="M170.724 396.163h208.665m16.474 0h38.438m32.948 0h38.438m-334.963 93.35h208.665l49.421 49.421m241.613-49.421H522.161l-49.421 49.421m-21.965-170.227v214.157M44.127 544.732l38-38m-43.192 21.22 27.051-27.051m-5.087 49.016 27.456-27.456"/>
+  <circle cx="395.837" cy="271.443" r="24.71" fill="#eea209"/>
+  <circle cx="392.837" cy="275.342" r="24.71" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
+  <circle cx="207.837" cy="458.123" r="24.71" fill="#dd5040"/>
+  <circle cx="204.837" cy="462.022" r="24.71" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
+</svg>
