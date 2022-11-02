@@ -3,7 +3,7 @@ path: "/docs/ecosystem/automating/running-automation"
 title: "Setting up a Galasa project by using Eclipse"
 ---
 
-Use the following information to help you to understand how to package a test so that it runs in automation. 
+Use the following information to help you to understand how to package a test by using Eclipse so that it runs in automation. 
 
 To package a test to run in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
 

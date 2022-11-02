@@ -58,8 +58,14 @@
         - title: Writing your own independent Galasa tests
           path: /docs/writing-own-tests
           items:
+            - title: Overview
+              path: /docs/ecosystem/automating/overview
             - title: Setting up a Galasa project
               path: /docs/writing-own-tests/setting-up-galasa-project
+            - title: Setting up a Galasa project without Eclipse
+              path: /docs/writing-own-tests/setting-up-galasa-project
+            - title: Setting up a Galasa project by using Eclipse
+              path: /docs/ecosystem/automating/running-automation
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
             - title: Testing across environments
