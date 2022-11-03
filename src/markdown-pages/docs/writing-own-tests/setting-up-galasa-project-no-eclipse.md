@@ -1,5 +1,5 @@
 ---
-path: "/docs/writing-own-tests/setting-up-galasa-project"
+path: "/docs/writing-own-tests/setting-up-galasa-project-outside"
 title: "Setting up a Galasa project outside of Eclipse"
 ---
 

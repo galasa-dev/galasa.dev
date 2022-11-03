@@ -63,7 +63,7 @@
             - title: Setting up a Galasa project
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Setting up a Galasa project outside of Eclipse
-              path: /docs/writing-own-tests/setting-up-galasa-project
+              path: /docs/writing-own-tests/setting-up-galasa-project-outside
             - title: Setting up a Galasa project by using Eclipse
               path: /docs/ecosystem/automating/running-automation
             - title: Writing test classes
