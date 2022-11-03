@@ -1,6 +1,6 @@
 ---
 path: "/docs/writing-own-tests/setting-up-galasa-project"
-title: "Setting up a Galasa project"
+title: "Setting up a Galasa project outside of Eclipse"
 ---
 
 In this section, you will learn how to set up a project directory to accommodate your own independent tests. The directory can then be imported into Eclipse. 
