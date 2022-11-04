@@ -34,20 +34,6 @@ pre[class*="language-"] {
   background-color: #f3f3e5;
 }
 
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection {
-  background: #073642;
-}
-
-pre[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-code[class*="language-"] ::selection {
-  background: #073642;
-}
-
 :not(pre) > code[class*="language-"] {
   padding: 0 0.2em;
   border-radius: 0.3em;
