@@ -66,12 +66,14 @@
               path: /docs/writing-own-tests/setting-up-galasa-project-outside
             - title: Setting up a Galasa project by using Eclipse
               path: /docs/ecosystem/automating/running-automation
+            - title: Deploying to a Maven repository
+              path: /docs/ecosystem/automating/deploying-to-maven
+            - title: Test streams
+              path: /docs/writing-own-tests/test-streams
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
             - title: Testing across environments
               path: /docs/writing-own-tests/binding-tests
-            - title: Test streams
-              path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
         - title: The Galasa Ecosystem

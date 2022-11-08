@@ -1,9 +1,10 @@
 --- 
 path: "/docs/ecosystem/automating/deploying-to-maven"
-title: "Deploying a test to a Maven repository"
+title: "Deploying to a Maven repository"
 ---
 
 To run a test in automation, all test engines need access to the test material. This is achieved by offering the test material as Maven artifacts. These artifacts are stored in a Maven repository. If you are using the Docker Operator to bring up an ecosystem, a Nexus repository is automatically instantiated, and can be used to store the artifacts. However, you can use any Maven repositories to which you have access. The following example uses a local Nexus repository that can be brought up on a workstation.
+
 
 Define to Maven where the artifacts are to be deployed by completing the following steps:
 1. Create or add to the ```settings.xml`` that is used by Maven.
@@ -57,4 +58,4 @@ Where _<id>example</id>_ refers to the server, and _<url>${example.*.repo}</url>
 
 ### Next steps
 
-The next step is to set up a test stream. See the [Setting up a test stream](/docs/ecosystem/setting-up-test-stream) documentation for more information on how to do this. 
+The next step is to set up a test stream. See the [Setting up a test stream](/docs/writing-own-tests/test-streams) documentation for more information on how to do this. 
