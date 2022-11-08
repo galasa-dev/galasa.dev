@@ -59,7 +59,9 @@ After updating the CPS properties for the Docker Manager, run the following term
 
 ```
 docker pull alpine/socat
-docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+docker run -d -p 127.0.0.1:2376:2375 \
+-v /var/run/docker.sock:/var/run/docker.sock alpine/socat \
+tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
 
 Although this configuration might see a little strange when running locally, the idea is to make the example consistent with the configuration that would be undertaken if contacting a remote Docker server in a Galasa Ecosystem.
@@ -80,7 +82,11 @@ Complete the following steps to build a Docker image to use in the test. We plan
 
 ### Troubleshooting
 
-If the container is not working correctly, for example, compilation and runtime errors are returned, check the version of tomcat in the Dockerfile. You might need to edit the tomcat version to a version that is compatible with Java 11, for example, ```FROM tomcat:8.5.82-jre11-temurin```.
+If the container is not working correctly, for example, compilation and runtime errors are returned, check the version of tomcat in the Dockerfile. You might need to edit the tomcat version to a version that is compatible with Java 11, for example, 
+
+```
+FROM tomcat:8.5.82-jre11-temurin
+```
 
 
 
