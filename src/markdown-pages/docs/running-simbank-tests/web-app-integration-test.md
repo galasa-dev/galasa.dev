@@ -154,9 +154,11 @@ public IWebPage completeWebFormAndSubmit(String accountNumber, String creditAmou
 Checks are made to ensure that the web application response is as expected and that the data is updated throughout the application, including the backend database:
 
 ```java
-assertThat(page.waitForElementById("good").getText()).contains("You have successfully completed the transaction");
+assertThat(page.waitForElementById("good").getText()).contains("You have 
+successfully completed the transaction");
 page.quit();
-logger.info("Response from servlet OK. Now validating the data has been updated in the database");
+logger.info("Response from servlet OK. Now validating the data has been 
+updated in the database");
 BigDecimal balance = retrieveAccountBalance(accountNumber).setScale(2);
 assertThat(balance).isEqualTo(openingBalance.add(creditAmount));
 logger.info("Test method complete");
