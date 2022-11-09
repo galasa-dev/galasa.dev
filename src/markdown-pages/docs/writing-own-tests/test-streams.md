@@ -3,7 +3,7 @@ path: "/docs/writing-own-tests/test-streams"
 title: "Test streams"
 ---
 
-Galasa's ecosystem organises tests into _streams_. Test streams give you more options when it comes to organising your test projects, how often they are built and where they are deployed.
+Galasa's ecosystem organizes tests into _streams_. Test streams give you more options when it comes to organising your test projects, how often they are built and where they are deployed.
 
 You can have as few or as many test streams as you wish.
 
@@ -26,13 +26,14 @@ Build time and frequency usually dictates how streams are structured. If you are
 
 If you are using the Docker Operator, you can view an example test stream from within Eclipse by selecting the _Galasa > Submit tests to automation_ option from the Eclipse menu.
 
-This view shows the available test streams and packages. If you are using the Docker Operator you can see the SimBank example. From here, you can select a test to run headlessly in the Galasa Ecosystem.
+This view shows the available test streams and packages. If you are using the Docker Operator you can see the SimBank example. From here, you can select a test from the menu to run headlessly in the Galasa Ecosystem.
 
 To add a test to the menu, complete the following steps:
 
-1. Deploy the test catalog ```testcatalog.json``` that was generated in the build by editing the  ```settings.xml``` file. Add a stream name ```galasa.test.stream``` and the location of the cosystem bootstrap properties ```galasa.bootstrap```.
-```
-<profiles>
+1. Deploy the test catalog ```testcatalog.json``` that was generated in the build by editing the  ```settings.xml``` file.
+    1. Add a stream name ```galasa.test.stream``` and the location of the ecosystem bootstrap properties ```galasa.bootstrap```:
+    ```
+    <profiles>
     <profile>
         <id>example</id>
         <properties>
@@ -48,13 +49,15 @@ To add a test to the menu, complete the following steps:
                 <releases>
                     <enabled>true</enabled>
                     <updatePolicy>always</updatePolicy>
-```
-2. Edit the deploy job by adding a new goal to the run configuration. From the Eclipse main menu choose _Run > Run Configurations_ and add a new goal ```devgalasa:galasa-maven-plugin:deploytestcat```. This goal adds the generated test catalog to the API server.
+    ```
+2. Edit the deploy job by adding a new goal to the run configuration. 
+    1. From the Eclipse main menu choose _Run > Run Configurations_ and add a new goal ```devgalasa:galasa-maven-plugin:deploytestcat```. This goal adds the generated test catalog to the API server.
 3. Run the deploy again. The new catalog is available at ```http://<XXX>:8080/testcatalog```, where ```<XXX>``` is your hostname. In this example, the catalog is available at ```http://127.0.0.1:8080/testcatalog```.
    
 Alternatively, view the contents of the test catalog by going to ```http://<XXX>:8080/testcatalog/<streamName>```. In this example, the URL is ```http://127.0.0.1:8080/testcatalog/example```.
 
 You now have a live catalog of tests!
+
 4. Add the following properties to the CPS so that Galasa knows where to find the test catalog and test material:
 
 - A comma-seperated list of all the different test streams - ```framework.test.streams``` 
@@ -76,6 +79,7 @@ Alternatively, to avoid installing new software, use Docker commands to interact
 ```docker exec -it galasa_cps /bin/sh```
 
 This command starts a session with the container that is hosting the CPS, which has etcdctl installed and configured.
+
 5. Add properties to the CPS by using the  ```etcdctl put <key> <value>``` command. This command defines the test stream and the location of all the test artifacts to Galasa. You can run the command in a shell script if you are running the command frequently.
 ```
 etcdctl put framework.test.streams SIMBANK,EXAMPLE
@@ -84,8 +88,9 @@ etcdctl put framework.test.stream.EXAMPLE.obr mvn:dev.galasa/dev.galasa.examples
 etcdctl put framework.test.stream.EXAMPLE.location http://<XXX>:8080/testcatalog/example
 etcdctl put framework.test.stream.EXAMPLE.description "Example Test Stream"
 ```
-Note that ```framework.test.streams``` is a comma seperated list. If etcdctl ```get framework.test.streams``` returns a stream already, in this example ```SIMBANK``` is returned, then this stream must be added in addition to the new stream.
-6. Define the properties that are required for the test run, as shown in the CPS and CREDS files in step one of this sample. The following set of properties are required to run the sample test in our example. Again, these commands must be run inside the session inside the CPS container.
+Note that ```framework.test.streams``` is a comma seperated list. If ```etcdctl get framework.test.streams``` returns a stream - in this example ```SIMBANK``` is returned - then this stream must be added in addition to the new stream.
+
+6. Define the properties that are required for the test run, as shown in the CPS and CREDS files in step one of this sample. In this example, the following set of properties are required to run the sample test. The commands to set these properties must be run inside the session inside the CPS container.
 ```
 etcdctl put zos.cluster.DEFAULT.images MYTESTIMAGE
 etcdctl put zos.image.MYTESTIMAGE.ipv4.hostname <XXX>

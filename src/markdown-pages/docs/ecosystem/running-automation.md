@@ -3,14 +3,9 @@ path: "/docs/ecosystem/automating/running-automation"
 title: "Setting up a Galasa project by using Eclipse"
 ---
 
-Use the following information to help you to understand how to package a test by using Eclipse so that it runs in automation. 
+Use the following information to help you to understand how to package a test to run in automation by using Eclipse. 
 
 To package a test to run in automation inside the Galasa Ecosystem, you need to complete the following high-level tasks:
-
-[Overview](#overview)<br>
-[Configuring](#configuring)<br>
-[Provided annotation](#annotations)<br>
-[Code snippets and examples](#codesnippets)<br>
 
 
 # <a name="overview"></a>Overview
@@ -22,6 +17,8 @@ To package a test to run in automation inside the Galasa Ecosystem, you need to 
 
 
 ## <a name="parentproject"></a>Setting up a parent project
+
+The parent project establishes all the dependencies for the sub-projects or modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
 
 You can structure your parent project in a number of ways, depending on how you want to manage your test corpus. The structure of the project project is shaped by the way in which you use your OBR. 
 
@@ -49,8 +46,9 @@ The structure of the parent project in this example will look similar to the fol
         │   pom.xml 
 ``` 
 
-Within the parent project is a test bundle, `com.example.company.mytests.group1` that contains a test class, `sampletest.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) will inherit these build mechanisms. 
+Within the parent project is a test bundle called `com.example.company.mytests.group1` that contains a test class called `sampletest.java`. The parent project also contains an OBR module which creates a OBR that describes the test bundle within the parent project. 
 
+The parent _pom.xml_ stores the build mechanisms for the parent project and any child projects (modules) inherit these build mechanisms. 
 
 
 The following example is based on the naming convention ```com.example.company``` and uses the _SimBankIVT_ test code as the example test class. 
@@ -69,7 +67,7 @@ Complete the following steps in Eclipse to create a parent project:
 
 You have successfully created a parent project!
 
-### Editing the pom.xml of the parent project
+### Edit the pom.xml of the parent project
 
 You now need to edit the pom.xml of the parent project and add in dependencies, any Managers that your test requires to run, and build information. Use the following example to help you to understand how to edit the pom.xml and read the commentary for an explanation of the key elements.
 
@@ -180,10 +178,10 @@ Some comments:
 
 - In the _dependencies_ section, note that no Manager version numbers are specified. All Manager version numbers are taken from the _galasa-bom_ (bill of materials) that is specified. In this case, the _galasa-bom_ version is _0.24.0_.
 
-- _plugins_ identify the Maven plugins to be used during the build process. The _maven-bundle-plugin_ builds OSGi bundles (the Manager and test projects), indicated by the `<packaging>` value of _bundle_. The _galasa-maven-plugin_ is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project. 
+- _plugins_ identify the Maven plugins to be used during the build process. The _maven-bundle-plugin_ builds OSGi bundles (the Manager and test projects), indicated by the `<packaging>` value of _bundle_. The _galasa-maven-plugin_ is used in two ways - to build a test catalog for each bundle project and to build the `galasa-obr` project. 
 </details>
 
-## <a name="buildmavenbundles"></a>Building Maven bundles from the parent project
+## <a name="buildmavenbundles"></a>Build Maven bundles from the parent project
 
 Complete the following steps to create Maven bundles to deploy to your repository:
 1. Save the changes that you made to the _pom.xml_ of the parent project.
@@ -191,27 +189,28 @@ Complete the following steps to create Maven bundles to deploy to your repositor
 
 A _BUILD SUCCESS_ message is displayed in the _Console_ tab. 
 
-At this point, the parent project is empty so you need to add sub-projects as Maven modules so that the parent project contains:
+At this point, the parent project is empty, so you need to add sub-projects as Maven modules so that the parent project contains:
 
-- A test sub-project, containing one or more tests. In this example, the sample project will contain just one test project.
-- An OBR (OSGi Bundle Repository) sub-project, which Galasa uses to locate the test project and any interdependencies.
+- A test module, containing one or more tests. In this example, the sample project will contain just one test project.
+- An OBR (OSGi Bundle Repository) module, which Galasa uses to locate the test project and any interdependencies.
 
 
-## <a name="addtestmodule"></a>Adding a test sub-project to the parent project
+## <a name="addtestmodule"></a>Add a test module to the parent project
 
-Add a test sub-project by adding a Maven module to the parent project:
+Add a test module by completing the following steps:
 
 1. Right-click the parent project _com.example.company.mytests.parent_ and choose _New > Project > Maven Module_.
 1. Click _Next_.
 1. Check the _Create a simple project (skip archetype selection)_ box and add the module name. In this example the module name is _com.example.company.mytests.group1_.
 1. Click _Finish_.
 
-You have successfully added a test sub-project to your parent project!
+You have successfully added a test module to your parent project!
 
-### Editing the pom.xml of the test sub-project
+### Edit the pom.xml of the test module
 
+In this example, the _pom.xml_ of the test module defines the packaging type as _bundle_ and declares it as a child module of the parent project.
 
-1. Add packaging information into the _pom.xml_ after the _artifactId_ information:
+1. Add packaging information into the _pom.xml_ after the _artifactId_ information and save your changes:
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -223,25 +222,23 @@ You have successfully added a test sub-project to your parent project!
   <artifactId>com.example.company.mytests.group1</artifactId>
   <packaging>bundle</packaging>
 </project>
-```
-1. Save your changes.
-
-With most of the dependencies and build definitions placed in the parent pom, the individual poms for the test bundle and OBR are relatively simple. In this example, the pom of the test module simply defines the packaging type as _bundle_ and declares that it is a child module of the parent project. 
+``` 
 
 You now have a project that is ready to have a test added to it. In this example, we are adding the ```SimBankIVT``` test to the project, but you can use your own test. 
 
-### Adding a test to the test sub-project
+### Add a test to the test module
 
-You can add a test to a test sub-project by adding a new package. 
+You can add a test to a test module by adding a new package:
+
 1. Right-click on the _src/main/java_ folder under ```com.example.company.mytests.group1```.
 1. Choose _New > Package_ and click _Finish_. An empty package is created into which you can add a test class. 
 1. Right-click the empty package that you just created and choose _New > Class_. Enter a name for the test. In this example the test name is ```SimBankIVT```. 
 1. Click _Finish_.
 1. Copy the test into your test class and save the changes.
 
-## <a name="addOBRmodule"></a>Adding an OBR sub-project to the parent project 
+## <a name="addOBRmodule"></a>Add an OBR module to the parent project 
 
-Add an OBR sub-project by adding a Maven module to the parent project:
+Add an OBR module to the parent project by completing the following steps:
 
 1. Right-click the parent project _com.example.company.mytests.parent_ and choose _New > Project > Maven Module_.
 1. Click _Next_.
@@ -250,7 +247,9 @@ Add an OBR sub-project by adding a Maven module to the parent project:
 1. Click _Finish_.
 
 
-### Editing the pom.xml of the OBR sub-project
+### Edit the pom.xml of the OBR module
+
+The packaging type must be set to _galasa-obr_, and the test bundle must be expressed as a dependency. This is also true of any other test dependencies, otherwise at runtime there will be unsatisfied requirement errors.
 
 1. Edit the _pom.xml_ of the OBR module so that the _packaging_ type is set to _galasa-obr_.
 1. Add a dependency on the test case so that the test case is built inside the OBR by creating a new section in the _pom.xml_ that is similar to the following example: 
@@ -276,13 +275,10 @@ Add an OBR sub-project by adding a Maven module to the parent project:
   </dependencies>
 </project
 ```
-The important things to note are that the packaging type is set to _galasa-obr_, and that the test bundle is expressed as a dependency. This should also be true of any other test dependencies, otherwise at runtime there will be unsatisfied requirement errors.
 1. Check that the ```groupId``` and ```artifactId``` values are correct for your configuration and that ```scope``` is set to ```compile```. Save your changes.
-1. Right-click the parent project and choose _Run As > Maven Install_.
+1. Right-click the parent project and choose _Run As > Maven Install_. A _BUILD SUCCESS_ message is displayed in the _Console_ tab. 
 
-A _BUILD SUCCESS_ message is displayed in the _Console_ tab. 
-
-The test jar and OBR are now built and installed in your local Maven repository (`~/.m2/repository`). 
+The test jar file and OBR are now built and installed in your local Maven repository (`~/.m2/repository`). 
 
 ### Next steps
 

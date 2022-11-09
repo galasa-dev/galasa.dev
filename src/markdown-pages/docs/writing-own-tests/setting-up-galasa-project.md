@@ -3,7 +3,7 @@ path: "/docs/writing-own-tests/setting-up-galasa-project"
 title: "Setting up a Galasa project"
 ---
 
-In this section, you will learn how to set up an Eclipse project structure to accommodate your own independent tests. In time, we plan to develop a Maven archetype (a kind of template project) that will reduce this manual burden. But that is for a future release.
+In this section, you will learn how to set up an Eclipse project structure to accommodate your own independent tests. 
 
 ## A bit about Maven
 
@@ -31,5 +31,9 @@ We are going to build a hierarchy of projects, where the parent project contains
 
 The parent project establishes all the dependencies for the sub-projects/modules. It builds all the modules in the order of the dependencies - it builds the Manager module before the test projects that use it.
 
-For simplicity, it is assumed that you will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming example, the version of all projects is set to `0.1.0-SNAPSHOT`. The `SNAPSHOT` element forces Galasa to run with the absolute latest copy of your built test project.
+You can structure your parent project in a number of ways, depending on how you want to manage your test corpus. The structure of the project project is shaped by the way in which you use your OBR. 
+
+An OBR is a collection of all the packages that make up a test selection. Galasa uses the OBR to locate your test project(s) and reason about their interdependencies. You can have an OBR per set of tests, or you can have an OBR for the whole test corpus, or you can set up an OBR per test or per test stream.
+
+For simplicity, the documented examples assume that you will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming examples, the version of all projects is set to `0.1.0-SNAPSHOT`. The `SNAPSHOT` element forces Galasa to run with the absolute latest copy of your built test project.
 
