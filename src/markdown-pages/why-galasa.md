@@ -3,7 +3,7 @@ path: "/about/different"
 title: "Why Galasa is different"
 ---
 
-What makes Galasa different to other testing tools?
+What makes Galasa different from other testing tools?
 
 If you've ever struggled to implement automated testing across a complex technology stack, you might recognize some of the issues that we identified during our design process. Expand the following headings to see how Galasa solves these challenges.
 
