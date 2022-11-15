@@ -47,7 +47,7 @@ The Selenium Manager has a dependency on the Docker Manager in order to run. Som
 docker.dse.engine.PRIMARY=LOCAL
 docker.default.engines=LOCAL
 docker.engine.LOCAL.hostname=127.0.0.1
-docker.engine.LOCAL.port=2375
+docker.engine.LOCAL.port=2376
 docker.engine.LOCAL.max.slots=10
 ```
 
