@@ -8,7 +8,14 @@ You can find the links to the Javadoc API documentation for all the Galasa Manag
 You can view the <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent" target="_blank"> installation verification tests (IVTs)</a> for the Managers in GitHub.<br>
 
 ## Managers provided with the current Galasa distribution
-![release](../../images/key1.svg)
+
+### Key
+
+Each Manager is tagged with one of the follow readiness indicators:
+- ![alpha](../../images/alpha.svg) This Manager is being actively developed. It is subject to change and has not been extensively tested.<br/>
+- ![beta](../../images/beta.svg) This Manager is almost ready. It has been tested and the TPI is stable, but there may be minor changes to come.<br/>
+- ![release](../../images/release.svg) This Manager is feature complete, has passed all tests and is deemed release grade.
+
 
 
 <details>
