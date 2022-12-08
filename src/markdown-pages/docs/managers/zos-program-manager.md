@@ -15,7 +15,9 @@ This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa
 # <a name="overview"></a>Overview
 This Manager allows Galasa tests to compile and link z/OS programs.<br><br>  The <code>@ZosProgram</code> annotation defines the program to the Galasa test. Program attributes, for example, program name, programming language and source location are specified by using the annotation  elements. <br><br> The source for the program is stored as a resource, along with the test. The z/OS Program Manager processes  each <code>@ZosProgram</code> annotation before any of the test methods are executed. 
 
-The Manager retrieves the source from the test bundle, builds and submits the relevant compile and link JCL based on  the programs attributes and CPS properties. The batch job is saved with the test run archive. The  program can be executed in the test by retrieving the library containing the load module by using  the <code>getLoadLibrary()</code> method. <br><br>  The Simbank tutorial <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a> contains an example of running a simulated z/OS program called SIMBANK by using the <code>EXEC PGM=SIMBANK</code> command. <br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/index.html?overview-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>. <br><br>
+The Manager retrieves the source from the test bundle, builds and submits the relevant compile and link JCL based on  the programs attributes and CPS properties. The batch job is saved with the test run archive. The  program can be executed in the test by retrieving the library containing the load module by using  the <code>getLoadLibrary()</code> method.  
+
+You can view the <a href="https://javadoc.galasa.dev/index.html?overview-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>. <br><br>
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
@@ -130,13 +132,13 @@ The following annotations are available with the z/OS Program Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @ZosProgram |
 | Description: | The <code>@ZosProgram</code> annotation requests the z/OS Program Manager to Compile and Bind a program on a z/OS image.  The test can request multiple z/OS Program instances |
-| Attribute: `name` |  The program name |
-| Attribute: `location` |  Path to the location of the program source in the Galasa test bundle. This can be either the full path including the file name or the directory containing the source with the name specified in the name attribute with the extension specified in the language attribute.  |
-| Attribute: `language` |  The programming language. See <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/ZosProgram.Language.html" target="_blank" rel="noopener noreferrer">ZosProgram.Language</a>. <br><br>  |
-| Attribute: `cics` |  Is a CICS program and requires the CICS translator. |
-| Attribute: `loadlib` |  The load module data set name |
-| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
-| Attribute: `compile` |  Compile this zOS program. |
+| Attribute: `name` |  The program name. Required. |
+| Attribute: `location` |  Path to the location of the program source in the Galasa test bundle. This can be either the full path including the file name or the directory containing the source with the name specified in the name attribute with the extension specified in the language attribute. Optional. The default value is "resources". |
+| Attribute: `language` |  The programming language. Required. See <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/ZosProgram.Language.html" target="_blank" rel="noopener noreferrer">ZosProgram.Language</a>. <br><br>  |
+| Attribute: `cics` |  Is a CICS program and requires the CICS translator. Optional. The default value is false.|
+| Attribute: `loadlib` |  The load module data set name. Optional. The default value is "".|
+| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. Optional. The default value is "primary".|
+| Attribute: `compile` |  Compile this zOS program. Optional. The default value is true.|
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @ZosProgram(imageTag="A")<br> public IZosProgram zosProgramA;<br></code> |
 | Notes: | The <code>IZosProgram</code> interface has a number of methods to manage the z/OS Program. See <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/ZosProgram.html" target="_blank">ZosProgram</a> and <a href="https://javadoc.galasa.dev/dev/galasa/zosprogram/IZosProgram.html" target="_blank">IZosProgram</a> to find out more. |
 

@@ -3,7 +3,7 @@ path: "/docs/managers/zos3270terminal-manager"
 title: "Zos3270Terminal Manager"
 ---
 
-This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/index.html?overview-summary.html">Javadoc documentation for the Manager here</a>.<br>
+This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.dev/index.html?overview-summary.html">Javadoc documentation for the Manager here</a>.<br>
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>
@@ -141,7 +141,8 @@ The following annotations are available with the Zos3270Terminal Manager
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Zos3270Terminal |
 | Description: | The <code>@Zos3270Terminal</code> annotation requests the z/OS 3270 Terminal Manager to provide a 3270 terminal associated with a z/OS image. |
-| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
+| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. Optional. The default value is "primary".|
+| Attribute: `autoConnect` |  Allows a user to choose if the terminal automatically connects in the provision start stage. Optional. The default value is true.|
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @Zos3270Terminal(imageTag="A")<br> public ITerminal zosTerminalA;<br></code> |
 | Notes: | The <code>ITerminal</code> interface has a number of methods to issue commands to the 3270 client. See <a href="https://javadoc.galasa.dev/dev/galasa/zos3270/ITerminal.html" target="_blank">ITerminal</a> to find out more. |
 
