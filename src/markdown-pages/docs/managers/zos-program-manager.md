@@ -144,7 +144,6 @@ The following annotations are available with the z/OS Program Manager
 
 </details>
 
-https://javadoc.galasa.dev/index.html?overview-summary.html
 
 # <a name="codesnippets"></a>Code snippets and examples
 
