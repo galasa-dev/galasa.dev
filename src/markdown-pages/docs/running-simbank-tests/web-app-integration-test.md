@@ -36,7 +36,7 @@ You must define the default and local driver properties in the CPS, as shown in 
 
 ```
 selenium.default.driver=FIREFOX
-selenium.LOCAL.driver.FIREFOX.path=<path/to/geckodriver>
+selenium.local.driver.FIREFOX.path=<path/to/geckodriver>
 ```
 
 ### Using the Docker Manager 
@@ -59,24 +59,26 @@ After updating the CPS properties for the Docker Manager, run the following term
 
 ```
 docker pull alpine/socat
-docker run -d -p 127.0.0.1:2376:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+docker run -d -p 127.0.0.1:2375:2375 -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
 ```
 
 Although this configuration might see a little strange when running locally, the idea is to make the example consistent with the configuration that would be undertaken if contacting a remote Docker server in a Galasa Ecosystem.
 
 ### Building a Docker image
 
-Complete the following steps to build a Docker image to use in the test. We plan to automate these manual steps in a future release. 
+Complete the following steps to build a Docker image called `simbank-webapp` to use in the test. We plan to automate these manual steps in a future release. 
 
-
-1. Build a Docker image called `simbank-webapp`
-	1. Clone the Galasa `simplatform` repository on your machine. 
-	1. Build the image and test that the container is working correctly by running the following commands. For the commands to work, the terminal must be running in the same directory as the one that contains the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
+1. Clone the Galasa `simplatform` repository on your machine by running the following command in the directory on your local machine in which you want to clone the repository files: 
+	```
+	git clone https://github.com/galasa-dev/simplatform.git
+	```
+2. Build the image and test that the container is working correctly by running the following commands. For the commands to work, the terminal must be running in the same directory as the one that contains the Dockerfile. The Dockerfile is located in the [galasa-simplatform-webapp directory](https://github.com/galasa-dev/simplatform/tree/main/galasa-simplatform-application/galasa-simplatform-webapp) in the Galasa `simplatform` repository.
 	```
 	mvn install
 	docker image build -t simbank-webapp .
 	docker run -p 8080:8080 -d simbank-webapp
 	```
+3. Access the Galasa SimBank web application from ```http://localhost:8080/galasa-simplatform-webapp/simbank```
 
 ### Troubleshooting
 
