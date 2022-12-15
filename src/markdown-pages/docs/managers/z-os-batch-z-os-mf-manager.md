@@ -179,21 +179,6 @@ The following are properties used to configure the z/OS MF Batch  Manager:
 
 # <a name="codesnippets"></a>Code snippets and examples
 
-<details><summary>Request a z/OS Console instance</summary>
-
-The following snippet shows the code that is required to request a z/OS Console instance in a Galasa test:
-
-```
-@ZosImage(imageTag="A")
-public IZosImage zosImageA;
-
-@ZosBatch(imageTag="A")
-public IZosConsole zosConsole;
-```
-
-The code creates a z/OS Console instance associated with the z/OS Image allocated in the *zosImageA* field.
-</details>
-
 <details><summary>Request a z/OS Batch instance</summary>
 
 The following snippet shows the code that is required to request a z/OS Batch instance in a Galasa test:
