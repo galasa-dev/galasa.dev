@@ -15,6 +15,34 @@ This Manager provides Galasa tests with access to a zOS/MF server. Use the z/OS 
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
+To use the z/OS Manager in a test you must import the _@ZosImage_ and _@Zosmf_ annotations into the test, as shown in the following example: 
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+@Zosmf(imageTag="A")
+public IZosmf zosmfA;
+```
+
+You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
+
+If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
+
+```
+<dependency>
+    <groupId>dev.galasa</groupId>
+    <artifactId>dev.galasa.zosmf.manager</artifactId>
+</dependency>
+```
+
+If you are using Gradle, add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
+
+```
+dependencies {
+    compileOnly 'dev.galasa:dev.galasa.zosmf.manager'
+}
+```
+
 # <a name="configuring"></a>Configuring 
 The following are properties used to configure the z/OS Manager.
 

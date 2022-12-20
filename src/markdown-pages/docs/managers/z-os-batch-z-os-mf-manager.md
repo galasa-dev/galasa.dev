@@ -15,14 +15,23 @@ This Manager is an internal implementation of the z/OS Batch Manager using z/OS 
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
+To use the z/OS Batch z/OS MF Manager in a test you must import the _@ZosImage_ and _@ZosBatch_ annotations into the test, as shown in the following example: 
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+@ZosBatch(imageTag="A")
+public IZosBatch zosBatchA;
+```
+
 You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
 
 If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
 
 ```
 <dependency>
-<groupId>dev.galasa</groupId>
-<artifactId>dev.galasa.zosbatch.zosmf.manager</artifactId>
+    <groupId>dev.galasa</groupId>
+    <artifactId>dev.galasa.zosbatch.zosmf.manager</artifactId>
 </dependency>
 ```
 
@@ -30,7 +39,7 @@ If you are using Gradle, add the following dependencies into ```build.gradle``` 
 
 ```
 dependencies {
-compileOnly 'dev.galasa:dev.galasa.zosbatch.zosmf.manager'
+    compileOnly 'dev.galasa:dev.galasa.zosbatch.zosmf.manager'
 }
 ```
 

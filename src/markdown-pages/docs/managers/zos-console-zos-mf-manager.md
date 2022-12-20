@@ -15,6 +15,35 @@ This Manager is the internal implementation of the z/OS Console Manager using zO
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
+To use the z/OS Console z/OS MF Manager in a test you must import the _@ZosImage_ and _@ZosConsole_ annotations into the test, as shown in the following example: 
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+@ZosConsole(imageTag="A")
+public IZosConsole zosConsoleA;
+```
+
+
+You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
+
+If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
+
+```
+<dependency>
+    <groupId>dev.galasa</groupId>
+    <artifactId>dev.galasa.zosconsole.zosmf.manager</artifactId>
+</dependency>
+```
+
+If you are using Gradle, add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
+
+```
+dependencies {
+    compileOnly 'dev.galasa:dev.galasa.zosconsole.zosmf.manager'
+}
+```
+
 # <a name="configuring"></a>Configuring 
 The following are properties used to configure the z/OS Console MF Manager.
 

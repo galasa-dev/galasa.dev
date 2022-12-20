@@ -15,6 +15,13 @@ This Manager provides tests and Managers with access to and configuration inform
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
+To use the z/OS Manager in a test you must import the _@ZosImage_ annotation into the test, as shown in the following example: 
+
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+```
+
 You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
 
 If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
