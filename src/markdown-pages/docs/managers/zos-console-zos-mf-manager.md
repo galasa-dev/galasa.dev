@@ -3,7 +3,7 @@ path: "/docs/managers/zos-console-zos-mf-manager"
 title: "z/OS Console z/OS MF Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>

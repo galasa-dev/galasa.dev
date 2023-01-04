@@ -3,7 +3,7 @@ path: "/docs/managers/zos-mf-manager"
 title: "zOS MF Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>
