@@ -15,11 +15,9 @@ This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.
 
 The zos3270Terminal Manager enables 3270 terminal interactions with back-end application programs and subsystems. The Manager also supports colour and highlight validation. For example, you can use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. 
 
-Live terminal updates are displayed in Eclipse and terminal images are logged to enable swift diagnosis of failures. Use the <code>reportExtendedScreen</code> method to capture the colours in the log. The <code>ConfidentialText</code> method that is provided by the Core Manager enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
+Live terminal updates are displayed in Eclipse and terminal images are logged to enable swift diagnosis of failures. Use the <code>reportExtendedScreen</code> method to capture the colours in the log. The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
 
 Examples of using these methods are available in the [Code snippets and examples](#codesnippets) section.
-
-You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos3270/package-summary.html">Javadoc documentation for this Manager here</a>. <br><br>
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
@@ -65,7 +63,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 <details>
 <summary>Apply Confidential Text Filtering to screen records CPS Property</summary>
 
-| Property: | Apply Confidential Text Filtering to screen records CPS Property |
+| Property: | ConfidentialTextFiltering CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.apply.ctf |
 | Description: | Logs and screen recordings are passed through the Confidential Text Filtering services, to hide text like passwords  |
@@ -79,7 +77,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 <details>
 <summary>Extra bundles required to implement the CICS TS Manager CPS Property</summary>
 
-| Property: | Extra bundles required to implement the CICS TS Manager CPS Property |
+| Property: | ExtraBundles CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | cicsts.extra.bundles |
 | Description: | The symbolic names of any bundles that need to be loaded with the CICS TS Manager  |
@@ -91,9 +89,9 @@ The following properties are used to configure the Zos3270Terminal Manager:
 </details>
 
 <details>
-<summary>URL to send live terminal updates for displaying in Eclipse</summary>
+<summary>Send live terminal updates to URL for displaying in Eclipse</summary>
 
-| Property: | URL to send live terminal updates for displaying in Eclipse CPS Property |
+| Property: | LiveTerminalUrl CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.live.terminal.images |
 | Description: | Eclipse sets this property in the overrides so the terminal images are available to view in the Eclipse UI |
@@ -105,9 +103,9 @@ The following properties are used to configure the Zos3270Terminal Manager:
 </details>
 
 <details>
-<summary>Log terminal images to the console or runlog</summary>
+<summary>Log terminal images to the console or run log</summary>
 
-| Property: | Log terminal images to the console or runlog CPS Property |
+| Property: | LogConsoleTerminals CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.console.terminal.images=xxxxxxxx |
 | Description: | Enables terminal images to be logged to the console or runlog |
@@ -121,7 +119,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 <details>
 <summary>Add custom 3270 device types with which to connect</summary>
 
-| Property: | 3270 device types with which to connect CPS Property |
+| Property: | 3270DeviceTypes CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.image.xxxxxx.device.types |
 | Description: | Allows for custom terminal device types |
@@ -190,17 +188,12 @@ terminal.positionCursorToFieldContaining("CUSTOMER NUMBER").cursorRight();
 assertThat(terminal.retrieveColourAtCursor()).isEqualTo(Colour.TURQUOISE);
 terminal.reportExtendedScreen(true, true, false, false, false, false, false);
 ```
-
-where the _reportExtendedScreen_ parameters are: 
-```
-reportExtendedScreen(boolean printCursor, boolean printColour, boolean printHighlight, boolean printIntensity, boolean printProtected, boolean printNumeric, boolean printModified)
-```
 </details>
 
 
-<details><summary>Check that value in a specified screen position is in the expected colour and send the colour output to the log</summary>
+<details><summary>Check that value in a specified screen position is in the expected colour</summary>
 
-The following example checks that the text in a specified screen position is the colour blue and print all output to the logs: 
+The following example checks that the text in a specified screen position is the colour blue: 
 
 ```
 assertThat(terminal.retrieveColourAtPosition(5, 3)).isEqualTo(Colour.BLUE);
@@ -212,4 +205,23 @@ reportExtendedScreen(boolean printCursor, boolean printColour, boolean printHigh
 ```
 </details>
 
+<details><summary>Check that value of a field is in the expected colour</summary>
 
+The following example checks that the value in the customer number field is the colour turquoise and print out only the cursor and colours: 
+
+```
+assertThat(terminal.retrieveColourAtPosition(5, 3)).isEqualTo(Colour.BLUE);
+terminal.reportExtendedScreen(true, true, true, true, true, true, true);
+```
+where the _reportExtendedScreen_ parameters are: 
+| Name: | Description |
+| --------------------------------------- | :------------------------------------- |
+| printCursor |  print the cursor values|
+| printColour | print the coloured values |
+| printHighlight | print the highlighted values |
+| printIntensity | print the underlined values|
+| printProtected | print the protected values |
+| printNumeric | print the numeric values |
+| printModified | print the modified values |
+
+</details>
