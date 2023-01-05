@@ -11,18 +11,32 @@ title: "z/OS Manager"
 [Code snippets and examples](#codesnippets)<br>
 
 # <a name="overview"></a>Overview
-This Manager provides tests and Managers with access to and configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. <br><br> Additionally, the z/OS Manager provides tests with interfaces to the following z/OS functions which are implemented by other Managers: <br><br> - <code>z/OS Batch</code> which enables tests and Managers to submit, monitor and retrieve the output of z/OS batch jobs. See <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a> for a walkthrough of a test that employs this Manager.<br><br> - <code>z/OS Console</code> which allows tests and Managers to issue and retrieve the responses from z/OS console commands.<br><br> - <code>z/OS File</code> which provides tests and Managers with the ability to manage and transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE, KSDS, ESDS or RRDS and zOS UNIX files.<br><br> - <code>z/OS TSO Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS TSO commands. <br><br> - <code>z/OS UNIX Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS UNIX commands.<br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
+This Manager provides tests and Managers with access to and configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. <br><br> Additionally, the z/OS Manager provides tests with interfaces to the following z/OS functions which are implemented by other Managers: <br><br> - <code>z/OS Batch</code> which enables tests and Managers to submit, monitor and retrieve the output of z/OS batch jobs. See <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a> for a walkthrough of a test that employs this Manager.<br><br> - <code>z/OS Console</code> which allows tests and Managers to issue and retrieve the responses from z/OS console commands.
+<br><br> - <code>z/OS File</code> which provides tests and Managers with the ability to manage and transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE, KSDS, ESDS or RRDS and zOS UNIX files.
+<br><br> - <code>z/OS TSO Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS TSO commands. 
+<br><br> - <code>z/OS UNIX Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS UNIX commands.
+<br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
-To use the z/OS Manager in a test you must import the _@ZosImage_ annotation into the test, as shown in the following example: 
+The z/OS Manager is not instantiated directly. To use the z/OS Manager in a test you must import the _@ZosImage_ annotation into the test, as shown in the following examples: 
 
 ```
-@ZosImage(imageTag="A")
-public IZosImage zosImageA;
+@ZosImage
+public IZosImage imagePrimary;
 ```
 
-You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
+```    
+@ZosIpHost
+public IIpHost hostPrimary;
+```
+
+```
+@ZosIpPort
+public IIpPort portPrimary;
+```
+
+You also need to add the Manager dependency into the _pom.xml_ file if you are using Maven, or into the _build.gradle_ file if you are using Gradle. 
 
 If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
 
@@ -71,7 +85,6 @@ The following are properties used to configure the z/OS Manager.
 | Default value: | None |
 | Valid values: | $validValues |
 | Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
-
 </details>
  
 <details>
@@ -169,7 +182,6 @@ The following are properties used to configure the z/OS Manager.
 | Default value: | None |
 | Valid values: | $validValues |
 | Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
-
 </details>
  
 <details>
@@ -225,7 +237,6 @@ The following are properties used to configure the z/OS Manager.
 | Default value: | /u/runuser/Galasa |
 | Valid values: | $validValues |
 | Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
-
 </details>
  
 <details>
@@ -268,9 +279,11 @@ The following are properties used to configure the z/OS Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
 
+
 </details>
  
 <details>
+
 <summary>z/OS Batch default input class</summary>
 
 | Property: | z/OS Batch default input class |
@@ -491,8 +504,6 @@ The following annotations are available with the z/OS Manager
 
 </details>
 
-
-
 # <a name="codesnippets"></a>Code snippets and examples
 
 Use the following code snippets to help you get started with the z/OS Manager.
@@ -598,7 +609,7 @@ String delayedResponse = consoleCommand.requestResponse();
 
 ```
 </details>
- 
+
 <details><summary>Request a z/OS Batch instance</summary>
 
 The following snippet shows the code that is required to request a z/OS Batch instance in a Galasa test:
