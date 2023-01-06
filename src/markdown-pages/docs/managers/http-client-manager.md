@@ -75,16 +75,20 @@ public IHttpClient client;
 File f = new File("/tmp/dev.galasa_0.7.0.jar");
 
 client.setURI(new URI("https://p2.galasa.dev"));
-CloseableHttpResponse response = client.getFile("/plugins/dev.galasa_0.7.0.jar");
-InputStream in = response.getEntity().getContent();
-OutputStream out = new FileOutputStream(f);
-int count;
-byte data[] = new byte[2048];
-while((count = in.read(data)) != -1) {
-   out.write(data, 0, count);
+// Note: The response closes when we leave the code block.
+try( CloseableHttpResponse response = client.getFile("/plugins/dev.galasa_0.7.0.jar")) {
+  // Note: The input stream auto-closes when we leave the code block.
+  try (InputStream in = response.getEntity().getContent()) {
+    // Note: The output stream auto-closes when we leave the code block.
+    try (OutputStream out = new FileOutputStream(f)) { 
+      int count;
+      byte data[] = new byte[2048];
+      while((count = in.read(data)) != -1) {
+          out.write(data, 0, count);
+      }
+    }
+  }
 }
-out.flush();
-out.close();
 ```
 
 The snippet begins by declaring `client` as before and `f`, an instance of `File`. The client's URI is set and its `getFile` method called to return `response` - an instance of `CloseableHttpResponse`.

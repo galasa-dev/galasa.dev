@@ -3,6 +3,7 @@ path: "/docs/managers/zos3270terminal-manager"
 title: "Zos3270Terminal Manager"
 ---
 
+
 This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos3270/package-summary.html">Javadoc documentation for the Manager here</a>.<br>
 
 
@@ -26,10 +27,12 @@ Live terminal updates are displayed in Eclipse and terminal images are logged to
 
 To use the Zos3270Terminal Manager in a test you must import the _@Zos3270Terminal_ annotation into the test, as shown in the following example: 
 
+
 ```
 @Zos3270Terminal(imageTag = "PRIMARY")
 public ITerminal terminal;
 ```
+
 
 To use the colour and highlight features in a test, import the following components into the test:
 
@@ -59,6 +62,7 @@ compileOnly 'dev.galasa:dev.galasa.zos3270.manager'
 
 # <a name="configuring"></a>Configuring 
 
+
 The following properties are used to configure the Zos3270Terminal Manager:
 
 ## <a name="cps"></a>Configuration Properties
@@ -74,8 +78,8 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Default value: | true |
 | Valid values: | true, false |
 | Examples: | <code>zos3270.apply.ctf=true<br></code> |
-
 </details>
+
 
 <details>
 <summary>Extra bundles required to implement the CICS TS Manager CPS Property</summary>
@@ -111,6 +115,7 @@ place the terminal images ready for live viewing in the Eclipse UI|
 </details>
 
 <details>
+
 <summary>Are the log terminal images logged to the console or run log</summary>
 
 | Property: | LogConsoleTerminals CPS Property |
@@ -141,7 +146,9 @@ place the terminal images ready for live viewing in the Eclipse UI|
 
 # <a name="annotations"></a>Annotations provided by the Manager
 
+
 The following annotations are provided by the Zos3270Terminal Manager:
+
 
 <details>
 <summary>z/OS 3270 Terminal</summary>
@@ -150,7 +157,8 @@ The following annotations are provided by the Zos3270Terminal Manager:
 | --------------------------------------- | :------------------------------------- |
 | Name: | @Zos3270Terminal |
 | Description: | The <code>@Zos3270Terminal</code> annotation requests the z/OS 3270 Terminal Manager to provide a 3270 terminal associated with a z/OS image. |
-| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. |
+| Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the z/OS image. Optional. The default value is "primary".|
+| Attribute: `autoConnect` |  Allows a user to choose if the terminal automatically connects in the provision start stage. Optional. The default value is true.|
 | Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @Zos3270Terminal(imageTag="A")<br> public ITerminal zosTerminalA;<br></code> |
 | Notes: | The <code>ITerminal</code> interface has a number of methods to issue commands to the 3270 client. See <a href="https://javadoc.galasa.dev/dev/galasa/zos3270/ITerminal.html" target="_blank">ITerminal</a> to find out more. |
 
