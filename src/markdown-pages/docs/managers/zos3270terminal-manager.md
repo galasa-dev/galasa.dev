@@ -68,8 +68,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 
 ## <a name="cps"></a>Configuration Properties
 
-<details>
-<summary>Apply Confidential Text Filtering to screen records CPS Property</summary>
+<details><summary>Apply Confidential Text Filtering to screen records CPS Property</summary>
 
 | Property: | ConfidentialTextFiltering CPS Property |
 | --------------------------------------- | :------------------------------------- |
@@ -79,6 +78,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Default value: | true |
 | Valid values: | true, false |
 | Examples: | <code>zos3270.apply.ctf=true<br></code> |
+
 </details>
 
 
@@ -99,8 +99,7 @@ dev.galasa.cicsts.cemt.manager |
 
 </details>
 
-<details>
-<summary>Select the http server to view live updates</summary>
+<details><summary>Select the http server to view live updates</summary>
 
 | Property: | LiveTerminalUrl CPS Property |
 | --------------------------------------- | :------------------------------------- |
@@ -116,7 +115,6 @@ place the terminal images ready for live viewing in the Eclipse UI|
 </details>
 
 <details>
-
 <summary>Are the log terminal images logged to the console or run log</summary>
 
 | Property: | LogConsoleTerminals CPS Property |
@@ -174,6 +172,7 @@ The following example checks that the logon screen is displayed and that the key
 ```
 terminal.waitForKeyboard().waitForTextInField("SIMPLATFORM LOGON SCREEN");
 ```
+
 </details>
 
 <details><summary>Log on to the system</summary>
@@ -184,6 +183,7 @@ The following example positions the cursor on the correct field and logs on to t
 terminal.positionCursorToFieldContaining("Userid").tab().type("TESTER1")
         .positionCursorToFieldContaining("Password").tab().type("SYS1").enter();
 ```
+
 </details>
 
 <details><summary>Select an application</summary>
@@ -194,6 +194,7 @@ The following example checks that the expected text "SIMBANK MAIN MENU" is displ
 terminal.waitForKeyboard().waitForTextInField("SIMBANK MAIN MENU")positionCursorToFieldContaining("===>")
         .tab().type("BANKTEST").enter();
 ```
+
 </details>
 
 <details><summary>Check that value of a field is displayed in the expected colour</summary>
@@ -204,6 +205,7 @@ The following example checks that the value in the customer number field is the 
 terminal.positionCursorToFieldContaining("CUSTOMER NUMBER").cursorRight();
 assertThat(terminal.retrieveColourAtCursor()).isEqualTo(Colour.TURQUOISE);
 ```
+
 </details>
 
 
