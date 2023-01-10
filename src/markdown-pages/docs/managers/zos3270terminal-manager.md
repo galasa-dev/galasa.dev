@@ -191,7 +191,7 @@ terminal.positionCursorToFieldContaining("Userid").tab().type("TESTER1")
 The following example checks that the expected text "SIMBANK MAIN MENU" is displayed, positions the cursor to the correct field, and selects the "BANKTEST" application : 
 
 ```
-terminal.waitForKeyboard().waitForTextInField("SIMBANK MAIN MENU")positionCursorToFieldContaining("===>")
+terminal.waitForKeyboard().waitForTextInField("SIMBANK MAIN MENU").positionCursorToFieldContaining("===>")
         .tab().type("BANKTEST").enter();
 ```
 
@@ -219,3 +219,14 @@ assertThat(terminal.retrieveColourAtPosition(5, 3)).isEqualTo(Colour.BLUE);
 
 </details>
 
+<details><summary>Customise logging</summary>
+
+The following example sends all field attributes to the log: 
+
+```
+terminal.reportExtendedScreen(true, true, true, true, true, true, true);
+```
+
+where the attributes are printCursor, printColour, printHighlight, printIntensity, printProtected, printNumeric, and printModified.
+
+</details>
