@@ -16,11 +16,12 @@ This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.
 
 The zos3270Terminal Manager enables 3270 terminal interactions with back-end application programs and subsystems. 
 
-Colour and highlight validation is supported. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. Use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. 
+Colour and highlight validation is supported. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. Use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. Use the <code>terminal.reportExtendedScreen</code> method to send colour output to the log.
 
 Examples of using these methods are available in the [Code snippets and examples](#codesnippets) section.
 
 Live terminal updates are displayed in Eclipse and terminal images are logged to enable swift diagnosis of failures. The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
+
 
 
 ## <a name="dependencies"></a>Including the Manager in a test
