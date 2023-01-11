@@ -12,8 +12,9 @@ To use the Galasa CLI commands you must reference the Galasa bootstrap file or U
 You can [access the code](https://github.com/galasa-dev/cli) and [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. The following versions of the Galasa CLI tool are available to download for different operating systems:
 
 | Operating system  |  Download  |
-| :---- | :-------- |
+| :---- | :-------- | 
 | MacOSX  | galasactl-darwin-amd64 |
+| MacOSX  | galasactl-darwin-arm64 |
 | Linux amd64 | galasactl-linux-amd64 | 
 | zLinux  | galasactl-linux-s390x | 
 | Windows | galasactl-windows-amd64.exe | 
