@@ -90,32 +90,32 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Name: | cicsts.extra.bundles |
 | Description: | The symbolic names of any bundles that need to be loaded with the CICS TS Manager  |
 | Required:  | No |
-| Default value: |  dev.galasa.cicsts.ceci.manager, dev.galasa.cicsts.ceda.manager, dev.galasa.cicsts.cemt.manager |
-| Valid values: | bundle-symbolic names in a comma separated list |
+| Default value: |  dev.galasa.cicsts.ceci.manager, dev.galasa.cicsts.ceda.manager, dev.galasa.cicsts.cemt.manager  |
+| Valid values: | Bundle-symbolic names in a comma separated list  |
 | Examples: | <code>cicsts.extra.bundles=org.example.cicsts.provisioning<br></code> |
 
 </details>
 
-<details><summary>Select the http server to view live updates</summary>
+<details><summary>Select the HTTP server to view live updates</summary>
 
 | Property: | LiveTerminalUrl CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.live.terminal.images |
 | Description: |  Set the URL to send live terminal updates for displaying in Eclipse. Eclipse sets this property in the overrides to indicate that the z/OS 3270 is to place the terminal images ready for live viewing in the Eclipse UI|
 | Required:  | No |
-| Default value: |  There is no default, an empty value means no live recording is done |
+| Default value: |  There is no default, an empty value means that no live recording is done |
 | Valid values: | A valid URL |
 | Examples: | <code>zos3270.console.terminal.images=example.url<br></code> |
 
 </details>
 
 <details>
-<summary>Are the log terminal images logged to the console or run log</summary>
+<summary>Send terminal images to the console or run log</summary>
 
 | Property: | LogConsoleTerminals CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.console.terminal.images|
-| Description: | Enables terminal images to be logged to the console or runlog |
+| Description: | Enables terminal images to be logged to the console or run log |
 | Required:  | No |
 | Default value: |  true |
 | Valid values: | true, false |
@@ -124,7 +124,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 </details>
 
 <details>
-<summary>Add custom 3270 device types with which to connect</summary>
+<summary>Add custom 3270 device types</summary>
 
 | Property: | 3270DeviceTypes CPS Property |
 | --------------------------------------- | :------------------------------------- |
