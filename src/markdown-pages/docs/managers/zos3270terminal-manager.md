@@ -68,7 +68,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 
 ## <a name="cps"></a>Configuration Properties
 
-<details><summary>Apply Confidential Text Filtering to screen records CPS Property</summary>
+<details><summary>Apply Confidential Text Filtering to screen records</summary>
 
 | Property: | ConfidentialTextFiltering CPS Property |
 | --------------------------------------- | :------------------------------------- |
@@ -83,7 +83,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 
 
 <details>
-<summary>Extra bundles required to implement the CICS TS Manager CPS Property</summary>
+<summary>Extra bundles required to implement the CICS TS Manager</summary>
 
 | Property: | ExtraBundles CPS Property |
 | --------------------------------------- | :------------------------------------- |
