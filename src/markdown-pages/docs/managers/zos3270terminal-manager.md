@@ -88,12 +88,9 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Property: | ExtraBundles CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | cicsts.extra.bundles |
-| Description: | The symbolic names of any bundles that need to be loaded 
-with the CICS TS Manager  |
+| Description: | The symbolic names of any bundles that need to be loaded with the CICS TS Manager  |
 | Required:  | No |
-| Default value: |  dev.galasa.cicsts.ceci.manager,
-dev.galasa.cicsts.ceda.manager,
-dev.galasa.cicsts.cemt.manager |
+| Default value: |  dev.galasa.cicsts.ceci.manager, dev.galasa.cicsts.ceda.manager, dev.galasa.cicsts.cemt.manager |
 | Valid values: | bundle-symbolic names in a comma separated list |
 | Examples: | <code>cicsts.extra.bundles=org.example.cicsts.provisioning<br></code> |
 
@@ -104,9 +101,7 @@ dev.galasa.cicsts.cemt.manager |
 | Property: | LiveTerminalUrl CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.live.terminal.images |
-| Description: |  Set the URL to send live terminal updates for displaying in Eclipse.
-Eclipse sets this property in the overrides to indicate that the z/OS 3270 is to
-place the terminal images ready for live viewing in the Eclipse UI|
+| Description: |  Set the URL to send live terminal updates for displaying in Eclipse. Eclipse sets this property in the overrides to indicate that the z/OS 3270 is to place the terminal images ready for live viewing in the Eclipse UI|
 | Required:  | No |
 | Default value: |  There is no default, an empty value means no live recording is done |
 | Valid values: | A valid URL |
