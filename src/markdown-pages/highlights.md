@@ -19,13 +19,13 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 -	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking
 -	Upgrades to some dependencies?
 -	New features added to the galasactl command-line tool:	
-o	Send log information to a specified file by using the –log <filename> option
-o	Send log information to the console by using the –log - option
-o	Hide log information by omitting the –log option
-o	If logging is turned on, errors now appear on stderr and in the log
-o	Errors are now numbered, for example, GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'
-o	galasactl is now supported on MaxOSX on arm64 architecture machines.
-  Syntax documentation is fully generated and linked to from the [README](https://github.com/galasa-dev/cli) in the CLI repository
+  - Send log information to a specified file by using the –log <filename> option
+  - Send log information to the console by using the –log - option
+  - Hide log information by omitting the –log option
+  - If logging is turned on, errors now appear on stderr and in the log
+  -	Errors are now numbered, for example, GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'
+  -	galasactl is now supported on MaxOSX on arm64 architecture machines.
+  Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a> in the CLI repository
 -	Artifact Manager is updated to remove the need to create a second resources folder 
 
 
