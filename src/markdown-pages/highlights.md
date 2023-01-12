@@ -15,18 +15,13 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
--	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API
--	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking
--	Upgrades to some dependencies?
--	New features added to the galasactl command-line tool:	
-  - Send log information to a specified file by using the –log <filename> option
-  - Send log information to the console by using the –log - option
-  - Hide log information by omitting the –log option
-  - If logging is turned on, errors now appear on stderr and in the log
-  -	Errors are now numbered, for example, GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'
-  -	galasactl is now supported on MaxOSX on arm64 architecture machines.
-  Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a> in the CLI repository
--	Artifact Manager is updated to remove the need to create a second resources folder 
+-	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API.
+-	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking.
+-	New features added to the galasactl command-line tool around logging. You can turn logging off or send log information to a specified file or to the console. If logging is turned on, errors now appear on stderr and in the log. Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a> in the CLI repository.
+-	Errors are numbered, for example, `GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'`
+-	galasactl is now supported on MaxOSX on arm64 architecture machines.
+-	Artifact Manager is updated to remove the need to create a second resources folder. 
+-	Upgrades have been made to some dependencies.
 
 
 <details>
