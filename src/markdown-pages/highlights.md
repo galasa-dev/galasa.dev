@@ -17,14 +17,14 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
 -	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API.
 -	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking.
--	New features have been added to the galasactl command-line tool: 
-        * A `--log <filename>` option has been added to direct log information to a file.
-        * The `--log -` option directs log information to the console.
-        * Omitting the `--log` option suppresses the log information.
-        * Every error is numbered. For example: `GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'`
-        * Errors appear on stderr and in the log (if logging is turned on)
-        * Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a>  in the cli repository.
-        *	galasactl is now supported on MaxOSX on arm64 architecture machines.
+-	New features have been added to the galasactl command-line tool: <br>
+        * A `--log <filename>` option has been added to direct log information to a file.<br>
+        * The `--log -` option directs log information to the console.<br>
+        * Omitting the `--log` option suppresses the log information.<br>
+        * Every error is numbered. For example: `GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'`<br>
+        * Errors appear on stderr and in the log (if logging is turned on)<br>
+        * Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a>  in the cli repository.<br>
+        *	galasactl is now supported on MaxOSX on arm64 architecture machines.<br>
 -	Artifact Manager is updated to remove the need to create a second resources folder. 
 -	Upgrades have been made to some dependencies.
 
