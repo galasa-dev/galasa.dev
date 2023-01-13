@@ -17,7 +17,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
 -	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API.
 -	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking.
--	New features have been added to the galasactl command-line tool: <br>
+-	New features have been added to the galasactl command-line tool: <br><br>
         * A `--log <filename>` option has been added to direct log information to a file.<br>
         * The `--log -` option directs log information to the console.<br>
         * Omitting the `--log` option suppresses the log information.<br>
