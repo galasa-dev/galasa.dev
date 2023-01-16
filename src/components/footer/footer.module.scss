@@ -5,8 +5,10 @@
 $footer-height: 27rem;
 
 .footer {
+  $footer-background-color: #010610;
+
   text-align: center;
-  background-color: #010610;
+  background-color: $footer-background-color;
   color: #fff;
   border-top-left-radius: 50px;
   position: relative;
@@ -20,15 +22,7 @@ $footer-height: 27rem;
 
   @include full-width-container;
 
-  &::before {
-    content: " ";
-    position: absolute;
-    top: -50px;
-    height: 50px;
-    width: 50px;
-    right: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50"><mask id="m"><rect width="100%" height="100%" fill="%23fff"/><circle r="50" cx="0" cy="0" fill="%23000"/></mask><rect width="100%" height="100%" fill="%23010610" mask="url(%23m)"/></svg>');
-  }
+  @include cornerCurlRight($footer-background-color);
 }
 
 .identifier {
