@@ -30,11 +30,13 @@ galasactl runs submit
                         --poll 5
                         --progress 1
                         --throttle 5
+                        --log -
 ```
 where: 
 - `poll` specifies the frequency in seconds that the CLI polls the Ecosystem for test run status. 
 - `progress` specifies the frequency in minutes that the CLI reports the overall progress of the test runs. A value of  `-1` or less disables progress reports.
 - `throttle` specifies the number of test runs that can be submitted in parallel. A value of `0` or less  prevents throttling.
+- `log` specifies that the progress log should be directed somewhere, and the `-` means that it should be sent to the console (stderr) so it is visible.
 
 ### Submitting tests without a portfolio
 
@@ -46,6 +48,7 @@ The following command runs the `SimBankIVT` and `BasicAccountCreditTest` tests f
 galasactl runs submit
                         --class dev.galasa.simbank.tests/SimBankIVT
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest
+                        --log -
 ```
 
 ### Setting overrides for all tests during a run
@@ -59,5 +62,6 @@ galasactl runs submit
                         --portfolio test.yaml
                         --override zos.default.lpar=MV2C
                         --override zos.default.cluster=PLEX2
+                        --log -
 ```
 
