@@ -89,7 +89,7 @@ jobs:
 
       - name: Authenticate with IBM Cloud CLI
         run: |
-          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -g default
+          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -g ${{ vars.RESOURCE_GROUP }}
           ibmcloud cr region-set global
           ibmcloud cr login
 
@@ -127,7 +127,7 @@ jobs:
 
       - name: Authenticate with IBM Cloud CLI
         run: |
-          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -r "${{ matrix.region.name }}" -g default
+          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -r "${{ matrix.region.name }}" -g ${{ vars.RESOURCE_GROUP }}
           ibmcloud ce project select --name galasa-${{ matrix.region.name }}
 
       - name: Update Code Engine application
