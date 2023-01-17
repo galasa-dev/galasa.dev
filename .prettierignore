@@ -6,7 +6,6 @@ public
 .graphqlconfig
 .nvmrc
 .prettierignore
-Staticfile
 *.ai
 *.png
 *.sh
