@@ -89,7 +89,7 @@ jobs:
 
       - name: Authenticate with IBM Cloud CLI
         run: |
-          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -g ${{ vars.RESOURCE_GROUP }}
+          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" --no-region -g ${{ vars.RESOURCE_GROUP }}
           ibmcloud cr region-set global
           ibmcloud cr login
 
