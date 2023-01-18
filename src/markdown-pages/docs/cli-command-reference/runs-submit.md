@@ -23,7 +23,7 @@ galasactl runs runs --help
 
 ### Submitting tests from a portfolio
 
-The following example assumes that you have created a `test.yaml` portfolio by using the [runs prepare](../ecosystem-cli-runs-prepare) command. The command submits tests from the `test.yaml` portfolio, and specifies the following settings: 
+The following example assumes that you have created a `test.yaml` portfolio by using the [runs prepare](./ecosystem-cli-runs-prepare) command. The command submits tests from the `test.yaml` portfolio, and specifies the following settings: 
 ```
 galasactl runs submit
                         --portfolio test.yaml

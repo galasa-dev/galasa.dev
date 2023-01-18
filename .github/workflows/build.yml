@@ -17,9 +17,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
 
       - run: ./.github/scripts/prettier-check.sh
 
@@ -35,11 +35,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       
       - uses: nelonoel/branch-name@v1.0.1
       
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
 
       - run: npm run build
         env:
@@ -166,11 +166,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       
       - uses: nelonoel/branch-name@v1.0.1
       
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
 
       - run: npm run build
         env:
