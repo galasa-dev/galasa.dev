@@ -116,7 +116,6 @@ jobs:
           - name: us-south
           - name: eu-gb
           - name: au-syd
-      max-parallel: 1
     steps:
       - name: Install IBM Cloud CLI
         run: |
