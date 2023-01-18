@@ -53,8 +53,6 @@
               path: /docs/running-simbank-tests/writing-a-simbank-test
             - title: Viewing test results
               path: /docs/running-simbank-tests/viewing-test-results
-        - title: Managers
-          path: /docs/managers/
         - title: Writing your own independent Galasa tests
           path: /docs/writing-own-tests
           items:
@@ -79,6 +77,29 @@
               path: /docs/ecosystem/installing/k8s
         - title: Upgrading
           path: /docs/upgrading  
+        - title: Managers
+          path: /docs/managers/
+          items:
+            - title: CICS TS Managers
+              path: /docs/manager-groups/cics-ts-manager-group
+            - title: Cloud Managers
+              path: /docs/manager-groups/cloud-manager-group
+            - title: Communications Managers
+              path: /docs/manager-groups/communications-manager-group
+            - title: Core Managers
+              path: /docs/manager-groups/core-manager-group
+            - title: Logging Managers
+              path: /docs/manager-groups/logging-manager-group
+            - title: Ecosystem Managers
+              path: /docs/manager-groups/ecosystem-manager-group
+            - title: Test Tool Managers
+              path: /docs/manager-groups/test-tool-manager-group
+            - title: Unix Managers
+              path: /docs/manager-groups/unix-manager-group
+            - title: Workflow Managers
+              path: /docs/manager-groups/workflow-manager-group
+            - title: z/OS Managers
+              path: /docs/manager-groups/zos-manager-group
         - title: Using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
           items:

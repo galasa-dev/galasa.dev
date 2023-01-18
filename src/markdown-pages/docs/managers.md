@@ -16,8 +16,6 @@ Each Manager is tagged with one of the follow readiness indicators:
 - ![beta](../../images/beta.svg) This Manager is almost ready. It has been tested and the TPI is stable, but there may be minor changes to come.<br/>
 - ![release](../../images/release.svg) This Manager is feature complete, has passed all tests and is deemed release grade.
 
-
-
 <details>
 <summary><b>CICS TS Managers</b></summary>
 
@@ -132,7 +130,6 @@ Each Manager is tagged with one of the follow readiness indicators:
 | **[z/OS UNIX Command SSH Manager](/docs/managers/zos-unix-command-ssh-manager)**<br> ![alpha](../../images/alpha.svg) | Provides the default implementation of the z/OS UNIX Command Manager using SSH. Can only be used via the z/OS UNIX Command Manager interface.    
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 </details>
-
 
 ## Future Managers
 
