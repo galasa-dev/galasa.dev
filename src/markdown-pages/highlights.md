@@ -1,5 +1,5 @@
 ---
-path: "/releases/"
+path: "/releases"
 title: "Highlights"
 ---
 
