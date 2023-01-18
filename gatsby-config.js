@@ -144,4 +144,5 @@ module.exports = {
       }
     }
   ],
+  trailingSlash: "never",
 }
