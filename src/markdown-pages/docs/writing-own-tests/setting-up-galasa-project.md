@@ -3,9 +3,9 @@ path: "/docs/writing-own-tests/setting-up-galasa-project"
 title: "Setting up a Galasa project"
 ---
 
-You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the Galasa command line interface (Galasa CLI) that is provided with Galasa. 
+You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
 
-You can pass parameters to the Galasa CLI, enabling you to choose your own names and naming conventions. Artifacts are created on disk and can later be built, tested and deployed to a Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
+You can pass parameters to the Galasa CLI `project create` command, enabling you to choose your own names and naming conventions. Artifacts are created on disk and can later be built, tested and deployed to a Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
 
 ## A bit about Maven
 
@@ -36,7 +36,9 @@ For simplicity, it is assumed that you will only have one version of a test in p
 
 ## Building a project hierarchy
 
-In the following example we are going to use the command-line tool to build a hierarchy of projects, where the parent project _dev.galasa.example.banking_ contains two test sub-projects or modules called _dev.galasa.example.banking.payee_ and _dev.galasa.example.banking.account_, and a mandatory OBR sub-project called _dev.galasa.example.banking.obr_.
+In the following example we are going to use the Galasa CLI to build a hierarchy of projects, where the parent project _dev.galasa.example.banking_ contains the following modules: 
+- Two test sub-projects or modules called _dev.galasa.example.banking.payee_ and _dev.galasa.example.banking.account_ 
+- A mandatory OBR sub-project called _dev.galasa.example.banking.obr_.
 
 This setup is designed as an example of how to create a project structure that might ultimately be deployed to a Maven repository, so that your Galasa automation system can find everything it needs to run.
 
@@ -51,14 +53,14 @@ galasactl project create \
 ```
 
 where <br>
-- ```--package``` is the name of a java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Maven coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
-- ```--features``` is a comma-separated list of one or more features of the application that you are going to test. This parameter is optional, defaulting to ‘test’. The entries in this list influence the names of some folders, OSGi bundles, Maven coordinates and Java class names of the generated example tests. In the example provided, the banking application under test might have a `payee` section and an `account` section which need testing. Creating subcomponents of your test suite to test these features or components of the application creates a naming structure in which your tests can be organised. These names must be lower-case letters and numbers (`a-z`, `0-9`), with no `.` (period) or special characters. No part of the name can clash with a Java language reserved word. <br>
-- ```--force``` is an optional flag. If the flag is missing, then any file that the tool tries to create which already exists causes a failure, and the original file is preserved. If this flag is used, then such files are silently over-written. Use this option carefully to avoid some of your files being over-written, resulting in the loss of some of your data.
+- ```--package``` is the name of a Java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Maven coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
+- ```--features``` is a comma-separated list of one or more features of the application that you are going to test. This parameter is optional, defaulting to `test`. The entries in this list influence the names of some folders, OSGi bundles, Maven coordinates and Java class names of the generated example tests. In the example provided, the banking application under test might have a `payee` section and an `account` section which need testing. Creating subcomponents of your test suite to test these features or components of the application creates a naming structure in which your tests can be organised. These names must be lower-case letters and numbers (`a-z`, `0-9`), with no `.` (period) or special characters. No part of the name can clash with a Java language reserved word. <br>
+- ```--force``` is an optional flag. If the flag is missing, then any file that the Galasa CLI tool tries to create which already exists causes a failure, and the original file is preserved. If this flag is used, then such files are silently over-written. Use this option carefully to avoid some of your files being over-written, resulting in the loss of some of your data.
 
 
 ## Understanding the generated artifacts
 
-Running the Galasa CLI `project create` command creates a number of files in the following standard folder structure:
+Running the example Galasa CLI `project create` command creates a number of files in the following standard folder structure:
 
 ```
 ────dev.galasa.example.banking
@@ -113,20 +115,20 @@ Of course, the four _pom.xml_ files all have different contents!
 
 The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. The <a href="https://github.com/galasa-dev/cli/blob/main/pkg/cmd/templates/projectCreate/parent-project/pom.xml" target="_blank">pom.xml</a> in the parent project is used to build all the other generated files.
 
-Within the parent project structure there are three generated OSGi bundle sub-projects:
+Within the example parent project structure there are three generated OSGi bundle sub-projects:
 
-- The payee bundle project, _dev.galasa.example.banking.payee_, containing two Galasa tests - _TestPayee.java_ and _TestPayeeExtended.java_ - both of which relate to testing the `payee` feature.
+- The payee bundle project, _dev.galasa.example.banking.payee_, which contains two Galasa tests - _TestPayee.java_ and _TestPayeeExtended.java_ - both of which relate to testing the `payee` feature.
 
-- The account test bundle project, _dev.galasa.example.banking.account_, containing two Galasa tests - _TestAccount.java_ and _TestAccountExtended.java_ - both of which relate to testing the `account` feature.
+- The account test bundle project, _dev.galasa.example.banking.account_, which contains two Galasa tests - _TestAccount.java_ and _TestAccountExtended.java_ - both of which relate to testing the `account` feature.
 
-- An OSGi Bundle Repository (OBR)[https://felix.apache.org/documentation/subprojects/apache-felix-osgi-bundle-repository.html] which holds metadata listing the tests that are available in the Galasa test projects.
+- An OSGi Bundle Repository <a href="https://felix.apache.org/documentation/subprojects/apache-felix-osgi-bundle-repository.html" target="_blank">(OBR)</a> which holds metadata listing the tests that are available in the Galasa test projects.
 
 
 ## About the test projects
 
-Within each of the Galasa test projects `payee` and `account` you can see the following files and folders:
+Within each of the Galasa test projects  - `payee` and `account` - you can see the following files and folders:
 
-- pom.xml (for use by the Maven build tool)
+- A pom.xml file (for use by the Maven build tool)
 
 - A `src` tree holding source code
 
@@ -156,19 +158,17 @@ You can find the templates that generate these Java files in the <a href="https:
 
 Complete the following steps to build the example projects:
 
-1. On the command line, navigate into the top level parent folder. In our example the command is:
- ```
- cd dev.galasa.example.banking
- ```
+1. On the command line, navigate into the top level parent folder. In our example the command is ```cd dev.galasa.example.banking```
 1. Invoke Maven to build the OSGi bundles by running the ```mvn clean install``` command.
 
-The built artifacts are typically placed in the ```~/.m2/repository``` folder.
+The built artifacts are typically placed in the _~/.m2/repository_ folder.
 
 Note: The tool currently does not generate build files for use with Gradle. 
 
 
 ## Additional notes on the key elements of pom.xml files
 
+The following sections provide a little more information about some of the elements that are found within the various pom.xml files.
 
 ### The parent pom.xml file elements
 
