@@ -22,7 +22,7 @@ You can [access the code](https://github.com/galasa-dev/cli) and [download the C
 
 ## The CLI commands
 
-The following section provides a summary of current commands, along with a brief description. Click the links for more detailed information and examples on how to use these commands.
+The following section provides a summary of current commands, along with a brief description. Click the links for more detailed information and examples on how to use these commands. A full reference of the syntax is available in the [galasa-dev cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md).
 
 <details>
 <summary>Runs commands</summary>
