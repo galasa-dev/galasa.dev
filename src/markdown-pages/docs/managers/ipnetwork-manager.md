@@ -1,6 +1,6 @@
 ---
 path: "/docs/managers/ipnetwork-manager"
-title: "IPNetwork Manager"
+title: "IP Network Manager"
 ---
 
 **Alpha**
