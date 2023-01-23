@@ -64,7 +64,7 @@ jobs:
     name: Publish image to repository
     runs-on: ubuntu-latest
     needs: [ build-dotdev, prettier ]
-    if: github.ref == 'refs/heads/main'
+    if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -109,13 +109,10 @@ jobs:
     name: Deploy to galasa.dev
     runs-on: ubuntu-latest
     needs: [ publish-dotdev ]
-    if: github.ref == 'refs/heads/main'
+    if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
     strategy:
-      matrix:
-        region:
-          - name: us-south
-          - name: eu-gb
-          - name: au-syd
+      matrix: 
+        region: ${{ (github.ref == 'refs/heads/main') && [us-south,eu-gb,au-syd] || [eu-gb]  }}
     steps:
       - name: Install IBM Cloud CLI
         run: |
@@ -132,7 +129,7 @@ jobs:
       - name: Update Code Engine application
         run: |
           ibmcloud ce application update \
-          --name galasa-${{ matrix.region.name }}-site \
+          --name galasa-${{ matrix.region.name }}-${{ (github.ref == 'refs/heads/main') && 'site' || 'next'  }} \
           --image $IMAGE_NAME
 
   # Immediately trigger a DocSearch crawl
@@ -140,6 +137,7 @@ jobs:
     name: Submit Algolia DocSearch crawler
     runs-on: ubuntu-latest
     needs: deploy-dotdev
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Algolia crawler creation and crawl
         uses: algolia/algoliasearch-crawler-github-actions@v1.0.10
