@@ -11,13 +11,33 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.24.0 - Release Highlights
+## 0.25.0 - Release Highlights
+
+
+-	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
+-	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API.
+-	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking.
+-	New features have been added to the galasactl command-line tool: <br><br>
+        * A `--log <filename>` option has been added to direct log information to a file.<br>
+        * The `--log -` option directs log information to the console.<br>
+        * Omitting the `--log` option suppresses the log information.<br>
+        * Every error is numbered. For example: `GAL1028E: Failed to unmarshal test catalog from REST reply for property 'xxx'`<br>
+        * Errors appear on stderr and in the log (if logging is turned on)<br>
+        * Syntax documentation is fully generated and linked to from the <a href="https://github.com/galasa-dev/cli" target="_blank"> README</a>  in the cli repository.<br>
+        *	galasactl is now supported on MaxOSX on arm64 architecture machines.<br>
+-	Artifact Manager is updated to remove the need to create a second resources folder. 
+-	Upgrades have been made to some dependencies.
+
+
+<details>
+<summary><b>0.24.0 - Release Highlights</b></summary>
 
 
 - The minimum Java release now required for Galasa is version 11, rather than version 8. You will need to install a Java version 11 JDK or later to run Galasa tests.  
 - Various enhancements to the DB2 Manager.
 - Various defect fixes. 
 - Various documentation fixes and enhancements. 
+</details>
 
 <details>
 <summary><b>0.23.0 - Release Highlights</b></summary>
