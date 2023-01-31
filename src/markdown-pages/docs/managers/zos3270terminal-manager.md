@@ -16,9 +16,9 @@ This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.
 
 The zos3270Terminal Manager enables 3270 terminal interactions with back-end application programs and subsystems. 
 
-Colour and highlight validation is supported. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. Use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. Use the <code>terminal.reportExtendedScreen</code> method to send colour output to the log.
+Colour and highlight validation is supported. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. Use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. Use the <code>terminal.reportExtendedScreen</code> method to send colour output to the log. Support is also provided for screen sizing which are specified on the `@Zos3270Terminal` annotation..
 
-Examples of using these methods are available in the [Code snippets and examples](#codesnippets) section.
+Examples of using colour support and screen sizing are available in the [Code snippets and examples](#codesnippets) section.
 
 Live terminal updates are displayed in Eclipse and terminal images are logged to enable swift diagnosis of failures. The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
 
@@ -210,6 +210,17 @@ The following example checks that the text in a specified screen position is the
 
 ```
 assertThat(terminal.retrieveColourAtPosition(5, 3)).isEqualTo(Colour.BLUE);
+```
+
+</details>
+
+<details><summary>Customise screen size</summary>
+
+You can define your terminal size in your test code by setting the primary rows and columns:
+
+```
+@Zos3270Terminal(primaryColumns = 80, primaryRows = 24)
+        public ITerminal t2;
 ```
 
 </details>
