@@ -195,11 +195,35 @@ The following sections provide a little more information about some of the eleme
 ### The parent pom.xml file elements
 
 - The `<project>` and `<modelVersion>` elements are standard prologues to a `pom.xml` file.
+
+The following extract from the generated parent pom.xml shows some of the key elements that are described:
+
+```
+<groupId>dev.galasa.example.banking</groupId>
+<artifactId>dev.galasa.example.banking</artifactId>
+<version>0.0.1-SNAPSHOT</version>	
+<packaging>pom</packaging>
+```
+
 - The `<groupId>` is used to group related Maven projects in a Maven repository. It is recommended (but not enforced) that all projects in a [test stream](../writing-own-tests/test-streams) share the same `groupId`.
 - The `<artifactId>` must be unique for each Maven project under a `groupId`. To prevent confusion, you could make it unique across `groupId`s. The `groupId` and `artifactId` can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like `dev.galasa.example.banking`.
 - The `<version>` in this project is set to `0.1.0-SNAPSHOT`. 
 - `<packaging>` indicates what type of Maven project this is - in this case, a `pom` project.
+
+The following extract from the parent pom.xml shows the module elements that are contained within the generated parent pom.xml:
+
+```
+<modules>
+	<module>dev.galasa.example.banking.payee</module>
+	<module>dev.galasa.example.banking.account</module>
+	<module>dev.galasa.example.banking.obr</module>
+</modules>
+```	
+
 - `<modules>` details what sub-modules (sub-projects) are contained within this parent project. Usually, when the parent project is built, so are the sub-modules.
+
+Other elements that are contained within the generated parent pom.xml are listed in the following section: 
+
 - `<distributionManagement>` controls where Maven deploys the project when built. A variable is used so that the same project can be built and deployed to different test stream repositories.
 - The `<properties>` element specifies properties such as file encoding and Java version numbers. 
 - `<dependencyManagement>` establishes the versions of dependencies in all of the sub-modules. A BOM project is provided by the Galasa team that includes the versions of all of the released Managers. Set the version of Galasa you wish to run against, for example 0.20.0, and all the Manager versions are imported.
@@ -208,10 +232,10 @@ The following sections provide a little more information about some of the eleme
 
 ### The test project pom.xml file elements
 
-- The <parent> element signifies that all the properties and dependencies found in the parent pom.xml file are to be used for this project - avoiding duplication and allowing changes to ripple through all sub-projects.
-- The <packaging> element is set to `bundle` so an OSGi bundle is built instead of a simple JAR.
+- The `<parent>` element signifies that all the properties and dependencies found in the parent pom.xml file are to be used for this project - avoiding duplication and allowing changes to ripple through all sub-projects.
+- The `<packaging>` element is set to `bundle` so an OSGi bundle is built instead of a simple JAR.
 
 
 ### The test pom.xml file elements
 
-- The <packaging> element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
+- The `<packaging>` element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
