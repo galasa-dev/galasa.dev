@@ -104,15 +104,30 @@ jobs:
             --path site \
             --publish
 
+  # Prepare matrix for deployment
+  generate-matrix:
+    name: Generate Deployment instance matrix 
+    runs-on: ubuntu-latest
+    needs: [ publish-dotdev ]
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Create Production matrix
+        if: github.ref == 'refs/heads/main'
+        run: echo "matrix={\"region\":\"us-south-site\",\"region\":\"eu-gb-site\",\"region\":\"au-syd-site\"}"
+
+      - name: Create Next release matrix
+        if: github.ref == 'refs/heads/next'
+        run: echo "matrix={\"region\":\"eu-gb-next\"}"
+
   # Deploy the site to galasa.dev
   deploy-dotdev:
     name: Deploy to galasa.dev
     runs-on: ubuntu-latest
-    needs: [ publish-dotdev ]
+    needs: [ publish-dotdev , generate-matrix]
     if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
     strategy:
-      matrix: 
-        region: ${{ (github.ref == 'refs/heads/main') && [us-south,eu-gb,au-syd] || [eu-gb]  }}
+      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix)}}
     steps:
       - name: Install IBM Cloud CLI
         run: |
@@ -129,7 +144,7 @@ jobs:
       - name: Update Code Engine application
         run: |
           ibmcloud ce application update \
-          --name galasa-${{ matrix.region.name }}-${{ (github.ref == 'refs/heads/main') && 'site' || 'next'  }} \
+          --name galasa-${{ matrix.region.name }} \
           --image $IMAGE_NAME
 
   # Immediately trigger a DocSearch crawl
