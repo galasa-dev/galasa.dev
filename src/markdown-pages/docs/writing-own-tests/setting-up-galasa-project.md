@@ -152,7 +152,6 @@ The top level folder, which is called `dev.galasa.example.banking` in this examp
 Within the example parent project structure there are three generated OSGi bundle sub-projects:
 
 - The payee bundle project, _dev.galasa.example.banking.payee_, which contains two Galasa tests - _TestPayee.java_ and _TestPayeeExtended.java_ - both of which relate to testing the `payee` feature.
-
 - The account test bundle project, _dev.galasa.example.banking.account_, which contains two Galasa tests - _TestAccount.java_ and _TestAccountExtended.java_ - both of which relate to testing the `account` feature.
 
 - An OSGi Bundle Repository <a href="https://felix.apache.org/documentation/subprojects/apache-felix-osgi-bundle-repository.html" target="_blank">(OBR)</a> which holds metadata listing the tests that are available in the Galasa test projects.
