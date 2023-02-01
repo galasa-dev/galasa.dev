@@ -114,11 +114,11 @@ jobs:
     steps:
       - name: Create Production matrix
         if: github.ref == 'refs/heads/main'
-        run: echo "matrix={\"region\":\"us-south-site\",\"region\":\"eu-gb-site\",\"region\":\"au-syd-site\"}"
+        run: echo "matrix={\"region\":\"us-south-site\",\"region\":\"eu-gb-site\",\"region\":\"au-syd-site\"}" >> $GITHUB_OUTPUT
 
       - name: Create Next release matrix
         if: github.ref == 'refs/heads/next'
-        run: echo "matrix={\"region\":\"eu-gb-next\"}"
+        run: echo "matrix={\"region\":\"eu-gb-next\"}" >> $GITHUB_OUTPUT
 
   # Deploy the site to galasa.dev
   deploy-dotdev:
