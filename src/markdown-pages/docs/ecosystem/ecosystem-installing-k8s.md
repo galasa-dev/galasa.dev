@@ -3,91 +3,90 @@ path: "/docs/ecosystem/installing/k8s"
 title: "Installing the Ecosystem on Kubernetes"
 ---
 
-The following section explains how to install a Galasa ecosystem by using the <a href="https://github.com/galasa-dev/kubernetes-operator" target="_blank"> Kubernetes Operator</a>. To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
+The following sections explain how to install a Galasa ecosystem on a Kubernetes cluster by using Helm and validate that the Ecosytem installed successfully.
 
-If you want to run scalable, highly available testing for enterprise level workloads, use the Kubernetes Operator to install your Galasa Ecosystem in a cloud environment. Running Galasa in a scalable cloud environment, rather than on a Docker engine, means that you are not limited by the size of the virtual machine.
+If you want to run scalable, highly available testing for enterprise level workloads, use Helm to install your Galasa Ecosystem in a Kubernetes cluster. Running Galasa in a Kubernetes cluster, rather than in a local JVM, means that you can run many tests in parallel on a resilient and scalable platform, where cleanup of test resources can be managed, and test results can be centralised and gathered easily.
 
-If you are looking to create a local proof of concept, you might want to first install a Galasa Ecosystem on a Docker engine by using the Docker Operator.
+If you want to create a local proof of concept, you might want to first run your Galasa tests within a JVM on the local machine.
+
+To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
+
+The <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> contains the YAML that is required to define the custom resource definition object, service account, role, and role binding that the operator needs to perform work.
+
 
 ## Prerequisites
 
+- You must have administrator authority for Kubernetes. 
 - The Kubernetes command-line tool **kubectl** must be installed on the machine that is used to deploy the operator and must be configured to point at your Kubernetes cluster. 
 - You must have a Kubernetes cluster at version 1.16 or higher. You can check the version number by running the ```kubectl version``` command.  
+- <a href=https://helm.sh target="_blank"> Helm</a> must be installed to use the charts. See the <a href=https://helm.sh/docs/ target="_blank"> Helm documentation</a> to get started.
 
-## About the Kubernetes Operator 
+_Note:_ The Galasa Ecosystem chart currently supports only x86-64 systems. It cannot be installed on ARM64-based systems.
 
-Like the Docker Operator, the Kubernetes Operator installs the Galasa Ecosystem, but in addition, it also maintains the state of the ecosystem and the services it brings up. 
+## Role-based access control
 
-The Kubernetes Operator is made up of two components: the ```CustomResourceDefinition``` (CRD) and the operator deployment. The CRD allows a Galasa ecosystem to be defined in your Kubernetes cluster and the operator is responsible for instantiating and maintaining the defined ecosystem. 
+Kubernetes uses role-based access control (RBAC) authorization mechanisms. Users are assigned to organizational units called namespaces. You can assign multiple namespaces to a team. Users of a team are members of the team's namespaces.
 
-The Kubernetes Operator requires a high privilege level, so for security reasons, the  operator is scoped to a namespace rather than cluster wide. Create your own namespace for your operator to run in and for the ecosystem to be hosted. Creating your own namespace avoids cross-contamination and improves security. 
+To enable users to interact with Helm charts, you must assign those users to the `galasa-admin` role. Users must have access to the cluster in order to be assigned to the `galasa-admin` role. This role allows assigned users to run the Helm install, upgrade, and delete commands to interact with the Helm chart. 
+
+If RBAC is active on your Kubernetes cluster,  you can assign the `galasa-admin` role to a user by replacing the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L39 target="_blank"> placeholder username</a> in the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml target="_blank"> rbac-admin.yaml</a> file with the appropriate username. If multiple users require admin privileges, multiple groups, users, or ServiceAccounts can be assigned the `galasa-admin` role by extending the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L36 target="_blank"> subjects</a> list. See <a href=https://kubernetes.io/docs/reference/access-authn-authz/rbac/ target="_blank"> Using RBAC Authorization</a> for more information).
+
+For chart versions 0.24.0 and later, the RBAC file <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml)</a> is applied automatically when installing the ecosystem chart. It creates a Galasa service account if one does not already exist so the API, Engine Controller, Metrics, and Resource Monitor can coordinate, while allowing the Engine Controller to create and manage engine pods.
+
+For chart versions 0.23.0 and earlier, you must apply the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml)</a> file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
+```
+kubectl apply -f rbac.yaml
+``` 
 
 ## Installing the Galasa Ecosystem in a Kubernetes cluster 
 
-You can install the operator by using the <a href=https://github.com/galasa-dev/kubernetes-operator/tree/main/releases target="_blank">release.yaml </a> that is provided in the *galasa-kubernetes-operator* repository in GitHub. This repository contains the YAML that is required to define the custom resource definition object, service account, role, and role binding that the operator needs to perform work.
+Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster: 
 
-Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster. 
+1.	Add the Galasa repository by running the following command: 
+``` 
+helm repo add galasa https://galasa-dev.github.io/helm
+```
+If the repository exists, run ```helm repo update``` to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.
+_Note:_ The Galasa Ecosystem Helm chart will deploy three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, update the `storageClass` value in your <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file with the name of a valid StorageClass on your cluster.
+1.	Edit the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file: 
+    1.	Set the `galasaVersion` value to a version of Galasa that you want to run. See [Release Highlights](../../highlights) for released versions). 
+    1.	Set the `externalHostname `value to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa `NodePort` services.
+1.  Run the following command to install the Galasa Ecosystem chart:
+    ```
+	helm install <release-name> galasa/ecosystem –wait
+    ```
+The ```--wait``` flag ensures that the chart installation completes before marking it as "Deployed". During the installation, the API pod waits for the etcd and RAS pods to initialise while the engine-controller, metrics, and resource-monitor pods wait for the API pod to initialise.
+1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The following services are displayed with a status of *Running*:
+```
+NAME                                      READY   STATUS     RESTARTS      AGE
+test-api-7945f959dd-v8tbs                 1/1     Running    0             65s
+test-engine-controller-56fb476f45-msj4x   1/1     Running    0             65s
+test-etcd-0                               1/1     Running    0             65s
+test-metrics-5fd9f687b6-rwcww             1/1     Running    0             65s
+test-ras-0                                1/1     Running    0             65s
+test-resource-monitor-778c647995-x75z9    1/1     Running    0             65s
+```
 
-## Installing the Operator
-
-1. Installing the operator by using ```release.yaml``` brings up the operator and defines all serviceAccounts, Roles and Role bindings inside a new namespace that is called `Galasa`. Run the following command after changing ```<GALASA_VERSION>``` to be the version that you want to install: 
-```
-kubectl apply -f https://raw.githubusercontent.com/galasa-dev/kubernetes-operator/main/releases/<GALASA_VERSION>/release.yaml
-```
-You can download the _release.yaml_ sample to make any changes that are required to enable the yaml to work with your environment. 
-
-2. Check that the pod is started cleanly by running the ```kubectl get pod``` command. The following service is displayed with a status of *Running*:
-```
-NAME                                                        READY   STATUS    
-galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
-```
-The operator and custom resource definitions are now installed and ready to bring up a Galasa Ecosystem. 
-
-## Bringing up the Galasa Ecosystem
-
-Bring up the ecosystem by using the <a href=https://github.com/galasa-dev/kubernetes-operator/tree/main/examples target="_blank">basic.yaml</a> sample that is provided with Galasa.
-
-
-1. Set the ```externalhostname``` value in the sample to the IP address or hostname of your Kubernetes cluster. The Kubernetes Operator needs this information to configure the Galasa Ecosystem to self-register services. 
-
-2. Update any other default configurations that are required for the sample to work with your cluster and ensure that the Galasa version number in the sample is the latest version number. Take a look at the <a href=https://github.com/galasa-dev/kubernetes-operator/tree/main/examples target="_blank"> ecosystem_with_overrides.yaml</a> sample for some examples of attributes that can be edited.
-
-3. Install the *basic.yaml* sample by running the following command:
-```
-kubectl apply -f basic.yaml
-```
-The installation takes a few minutes.
-
-4. Check the status by running the following command:
-```
-kubectl get galasaecosystem
-```
-The following example shows the information that is returned: 
-```
-NAME 				READY		BOOTSTRAPURL							GRAFANAURL
-galasa-ecosystem 	true 			http://<HOSTNAME>:32319/bootstrap       http://<HOSTNAME>:31091/galasa-grafana
-```
-Note that the command returns the Bootstrap endpoint, which you can paste into your Eclipse Galasa plugin to run SimBank tests for verifying the installation. The Grafana endpoint is also returned, and can be used to view ecosystem performance information.
-
-5. Check that the pods are brought up successfully on the ecosystem namespace by running the ```kubectl get pods``` command. The following services are displayed with a status of *Running*:
-```
-NAME                                                        READY   STATUS    
-galasa-ecosystem-apiserver-6d848f4689-5w7sw                 1/1     Running   
-galasa-ecosystem-cps-0                                      1/1     Running   
-galasa-ecosystem-engine-controller-6fbb6bfc46-z6659         1/1     Running   
-galasa-ecosystem-grafana-5dd447dd8f-tsz7h                   1/1     Running   
-galasa-ecosystem-metrics-bb865dff-f7xdj                     1/1     Running   
-galasa-ecosystem-prometheus-c85cdbb97-s8rhc                 1/1     Running   
-galasa-ecosystem-ras-0                                      1/1     Running   
-galasa-ecosystem-resource-monitor-b7669c6b7-bq4x7           1/1     Running
-galasa-ecosystem-kubernetes-operator-6cb9d79fb5-7zn6f       1/1     Running   
-```
 
 ## Verifying the installation
 
-You can verify the installation by connecting to an Eclipse session, reconfiguring Galasa to point to the Galasa Ecosystem, and running the SimBank tests that are provided with Galasa. 
+After the Helm install command completes with a successful deployment message, run the following command to check that the Ecosystem can be accessed externally to Kubernetes so that a simple test engine can be run:
+```
+helm test <release-name>
+```
+When the `helm test` command ends and displays a success message, the Ecosystem is set up correctly and ready to be used.
 
-To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to an ecosystem.  
+To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework to connect to an ecosystem.  
+
+To find the URL of the Ecosystem bootstrap, run the following command:
+```
+kubectl get svc
+```
+Look for the `api-external` service and the `NodePort` that is associated with the `8080` port. For example, the following snippet shows 30960 to be associated with port 8080:
+```
+test-api-external  NodePort  10.107.160.208  <none>  9010:31359/TCP,9011:31422/TCP,8080:30960/TCP  18s
+```
+Combine that information with the external hostname that you provided to form the bootstrap URL. If the external hostname you provided was `example.com`, the bootstrap URL is `http://example.com:30960/boostrap`. 
 
 In Eclipse, you can edit the bootstrap and run the SimBank tests by completing the following steps:
 
@@ -98,6 +97,16 @@ In Eclipse, you can edit the bootstrap and run the SimBank tests by completing t
 5.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
 6.  Select the four SimBank tests to run them in parallel and click *Finish*. 
 7.  Click the *Galasa* icon on the Eclipse toolbar to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
+
+Alternatively, you can enter the bootstrap URL in the ```--bootstrap``` option of a [Galasa CLI](../cli-command-reference) command.
+
+## Upgrading the Galasa Ecosystem
+
+To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.25.0, run the following command:
+```
+helm upgrade --reuse-values --set galasaVersion=0.25.0 --wait
+```
+where `galasaVersion` is set to the version that you want to use.
 
 ### Troubleshooting
 
