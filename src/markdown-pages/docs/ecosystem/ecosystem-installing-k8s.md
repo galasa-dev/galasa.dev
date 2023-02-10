@@ -5,9 +5,7 @@ title: "Installing the Ecosystem on Kubernetes"
 
 The following sections explain how to install a Galasa Ecosystem on a Kubernetes cluster by using Helm and to validate that the ecosystem is installed correctly.
 
-If you want to run scalable, highly available testing for enterprise level workloads, use Helm to install your Galasa Ecosystem in a Kubernetes cluster. Running Galasa in a Kubernetes cluster, rather than in a local JVM, means that you can run many tests in parallel on a resilient and scalable platform, where the clean-up of test resources can be managed, and test results can be centralised and gathered easily.
-
-If you want to create a local proof of concept, you might want to first run your Galasa tests within a JVM on your local machine.
+If you want to run scalable, highly available testing for enterprise level workloads, use Helm to install your Galasa Ecosystem in a Kubernetes cluster. Running Galasa in a Kubernetes cluster, rather than in a local JVM, means that you can run many tests in parallel on a resilient and scalable platform, where the clean-up of test resources can be managed, and test results can be centralised and gathered easily. If you want to create a local proof of concept, you might want to first run your Galasa tests within a JVM on your local machine.
 
 To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
 
@@ -28,7 +26,7 @@ If role-based access control (RBAC) is active on your Kubernetes cluster, a user
 
 You can assign the `galasa-admin` role to a user by replacing the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L39 target="_blank"> placeholder username</a> in the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml target="_blank"> rbac-admin.yaml</a> file with the appropriate username. If multiple users require admin privileges, you can assign the `galasa-admin` role to multiple groups, users, or ServiceAccounts by extending the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L36 target="_blank"> subjects</a> list. See the <a href=https://kubernetes.io/docs/reference/access-authn-authz/rbac/ target="_blank"> Using RBAC Authorization</a> documentation for more information.
 
-You also need to create a Galasa service account in the repository's ecosystem directory. The Galasa service account allows the API, Engine Controller, Metrics, and Resource mMnitor to co-ordinate between themselves, and also allows the Engine Controller to create and manage engine pods. You can create the service account by applying the RBAC file <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> (rbac.yaml)</a>rbac.yaml file. 
+You also need to create a Galasa service account in the repository's ecosystem directory. The Galasa service account allows the API, Engine Controller, Metrics, and Resource mMnitor to co-ordinate between themselves, and also allows the Engine Controller to create and manage engine pods. You can create the service account by applying the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml</a> file. 
 
 For chart versions `0.23.0` and earlier, you must apply the RBAC file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
 ```
