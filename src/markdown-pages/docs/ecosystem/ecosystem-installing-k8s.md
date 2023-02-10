@@ -37,26 +37,26 @@ kubectl apply -f https://raw.githubusercontent.com/galasa-dev/helm/ecosystem-0.2
 
 For chart versions later than `0.23.0`, the RBAC file is applied automatically when installing the ecosystem chart.  
 
-## Installing the Galasa Ecosystem in a Kubernetes cluster 
+## Installing the Galasa Ecosystem 
 
-Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster: 
+Complete the following steps to install the Galasa Ecosystem in a Kubernetes cluster by using Helm: 
 
 1.	Add the Galasa repository by running the following command: 
     ``` 
     helm repo add galasa https://galasa-dev.github.io/helm
     ```
     If the repository exists, run the ```helm repo update``` command to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.<br>
-    _Note:_ The Galasa Ecosystem Helm chart will deploy three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  ```values.yaml``` file and update the `storageClass` value in the file with the name of a valid StorageClass on your cluster.
-1. Download the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank" 
-> values.yaml</a> file and edit the values of the following properties: 
-    1.	Set the `galasaVersion` value to a version of Galasa that you want to run. 
-    1.	Set the `externalHostname` value to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa `NodePort` services.
+    _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  `values.yaml` file and update the `storageClass` value in the file with the name of a valid StorageClass on your cluster.
+1. Download the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file and edit the values of the following properties: 
+    - Set `galasaVersion` to a version of Galasa that you want to run. 
+    - Set `externalHostname` to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa `NodePort` services.
 1.  Run the following command to install the Galasa Ecosystem chart:
     ```
 	helm install -f /path/to/values.yaml <release-name> galasa/ecosystem --wait
     ```
     where:
-    `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and `<release-name>` is the name that you gave the ecosystem.
+    `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and<br>
+    `<release-name>` is the name that you gave the ecosystem.<br>
     The ```--wait``` flag ensures that the chart installation completes before marking it as "Deployed". During the installation, the API pod waits for the etcd and RAS pods to initialise while the engine-controller, metrics, and resource-monitor pods wait for the API pod to initialise.
 1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results look similar to the following example:
     ```
