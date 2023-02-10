@@ -32,7 +32,8 @@ You also need to create a Galasa service account in the repository's ecosystem d
 
 For chart versions `0.23.0` and earlier, you must apply the RBAC file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
 ```
-kubectl apply -f https://raw.githubusercontent.com/galasa-dev/helm/ecosystem-0.23.0/charts/ecosystem/rbac.yaml
+kubectl apply -f \
+https://raw.githubusercontent.com/galasa-dev/helm/ecosystem-0.23.0/charts/ecosystem/rbac.yaml
 ``` 
 
 For chart versions later than `0.23.0`, the RBAC file is applied automatically when installing the ecosystem chart.  
@@ -54,10 +55,10 @@ Complete the following steps to install the Galasa Ecosystem in a Kubernetes clu
     ```
 	helm install -f /path/to/values.yaml <release-name> galasa/ecosystem --wait
     ```
-    where:
+    where:<br>
     `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and<br>
-    `<release-name>` is the name that you gave the ecosystem.<br>
-    The ```--wait``` flag ensures that the chart installation completes before marking it as "Deployed". During the installation, the API pod waits for the etcd and RAS pods to initialise while the engine-controller, metrics, and resource-monitor pods wait for the API pod to initialise.
+    `<release-name>` is the name that you gave the ecosystem.<br><br>
+    The ```--wait``` flag ensures that the chart installation completes before marking it as `Deployed`. During the installation, the API pod waits for the etcd and RAS pods to initialise while the Engine-Controller, Metrics, and Resource-Monitor pods wait for the API pod to initialise.
 1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results look similar to the following example:
     ```
     NAME                                      READY   STATUS     RESTARTS      AGE
