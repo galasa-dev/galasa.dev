@@ -3,7 +3,7 @@ path: "/docs/ecosystem/installing/k8s"
 title: "Installing the Ecosystem on Kubernetes"
 ---
 
-The following sections explain how to install a Galasa Ecosystem on a Kubernetes cluster by using Helm and to validate that the ecosystem installed successfully.
+The following sections explain how to install a Galasa Ecosystem on a Kubernetes cluster by using Helm and to validate that the ecosystem is installed correctly.
 
 If you want to run scalable, highly available testing for enterprise level workloads, use Helm to install your Galasa Ecosystem in a Kubernetes cluster. Running Galasa in a Kubernetes cluster, rather than in a local JVM, means that you can run many tests in parallel on a resilient and scalable platform, where the clean-up of test resources can be managed, and test results can be centralised and gathered easily.
 
@@ -11,32 +11,31 @@ If you want to create a local proof of concept, you might want to first run your
 
 To find out more about Kubernetes, see the <a href=https://kubernetes.io/docs/home/ target="_blank"> Kubernetes Documentation</a>.
 
-The <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> contains the YAML that is referenced in the following sections.
+The <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> contains the Galasa Ecosystem Helm chart that is referenced in the following sections.
 
 
 ## Prerequisites
 
-- You must have administrator authority for Kubernetes. 
 - The Kubernetes command-line tool **kubectl** must be installed on the machine that is used to run the commands and must be configured to point at your Kubernetes cluster. 
 - You must have a Kubernetes cluster at version 1.16 or higher. You can check the version number by running the ```kubectl version``` command.  
-- <a href=https://helm.sh target="_blank"> Helm</a> must be installed to use the charts. See the <a href=https://helm.sh/docs/ target="_blank"> Helm documentation</a> to get started.
+- <a href=https://helm.sh target="_blank"> Helm</a> must be installed to use the chart. See the <a href=https://helm.sh/docs/ target="_blank"> Helm documentation</a> for installation instructions.
 
 _Note:_ The Galasa Ecosystem chart currently supports only x86-64 systems. It cannot be installed on ARM64-based systems.
 
 ## Role-based access control
 
-Kubernetes uses role-based access control (RBAC) authorization mechanisms. Users are assigned to organizational units called namespaces. You can assign multiple namespaces to a team. Users of a team are members of the team's namespaces.
+If role-based access control (RBAC) is active on your Kubernetes cluster, a user with the `galasa-admin` role (or a role with equivalent permissions) is needed to run Helm commands on the cluster. This role allows assigned users to run the Helm install, upgrade, and delete commands to interact with the Helm chart. 
 
-To enable users to interact with Helm charts, you must assign those users to the `galasa-admin` role. Users must have access to the cluster in order to be assigned to the `galasa-admin` role. This role allows assigned users to run the Helm install, upgrade, and delete commands to interact with the Helm chart. 
+You can assign the `galasa-admin` role to a user by replacing the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L39 target="_blank"> placeholder username</a> in the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml target="_blank"> rbac-admin.yaml</a> file with the appropriate username. If multiple users require admin privileges, you can assign the `galasa-admin` role to multiple groups, users, or ServiceAccounts by extending the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L36 target="_blank"> subjects</a> list. See the <a href=https://kubernetes.io/docs/reference/access-authn-authz/rbac/ target="_blank"> Using RBAC Authorization</a> documentation for more information.
 
-If RBAC is active on your Kubernetes cluster,  you can assign the `galasa-admin` role to a user by replacing the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L39 target="_blank"> placeholder username</a> in the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml target="_blank"> rbac-admin.yaml</a> file with the appropriate username. If multiple users require admin privileges, you can asssign the `galasa-admin` role to multiple groups, users, or ServiceAccounts by extending the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L36 target="_blank"> subjects</a> list. See the <a href=https://kubernetes.io/docs/reference/access-authn-authz/rbac/ target="_blank"> Using RBAC Authorization</a> documentation for more information.
+You also need to create a Galasa service account in the repository's ecosystem directory. The Galasa service account allows the API, Engine Controller, Metrics, and Resource mMnitor to co-ordinate between themselves, and also allows the Engine Controller to create and manage engine pods. You can create the service account by applying the RBAC file <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> (rbac.yaml)</a>rbac.yaml file. 
 
-For chart versions `0.24.0` and later, the RBAC file <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> (rbac.yaml)</a> is applied automatically when installing the ecosystem chart. It creates a Galasa service account if one does not already exist, so the API, Engine Controller, Metrics, and Resource Monitor can coordinate, whilst allowing the Engine Controller to create and manage engine pods.
-
-For chart versions `0.23.0` and earlier, you must apply the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml</a> file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
+For chart versions `0.23.0` and earlier, you must apply the RBAC file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
 ```
-kubectl apply -f rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/galasa-dev/helm/ecosystem-0.23.0/charts/ecosystem/rbac.yaml
 ``` 
+
+For chart versions later than `0.23.0`, the RBAC file is applied automatically when installing the ecosystem chart.  
 
 ## Installing the Galasa Ecosystem in a Kubernetes cluster 
 
@@ -47,16 +46,19 @@ Complete the following steps to install the Galasa Ecosystem in a Kubernetes clu
     helm repo add galasa https://galasa-dev.github.io/helm
     ```
     If the repository exists, run the ```helm repo update``` command to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.<br>
-    _Note:_ The Galasa Ecosystem Helm chart will deploy three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, update the `storageClass` value in your <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file with the name of a valid StorageClass on your cluster.
-1. Edit the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file: 
+    _Note:_ The Galasa Ecosystem Helm chart will deploy three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  ```values.yaml``` file and update the `storageClass` value in the file with the name of a valid StorageClass on your cluster.
+1. Download the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank" 
+> values.yaml</a> file and edit the values of the following properties: 
     1.	Set the `galasaVersion` value to a version of Galasa that you want to run. 
     1.	Set the `externalHostname` value to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa `NodePort` services.
 1.  Run the following command to install the Galasa Ecosystem chart:
     ```
-	helm install <release-name> galasa/ecosystem –wait
+	helm install -f /path/to/values.yaml <release-name> galasa/ecosystem --wait
     ```
+    where:
+    `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and `<release-name>` is the name that you gave the ecosystem.
     The ```--wait``` flag ensures that the chart installation completes before marking it as "Deployed". During the installation, the API pod waits for the etcd and RAS pods to initialise while the engine-controller, metrics, and resource-monitor pods wait for the API pod to initialise.
-1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The following services        displayed with a status of *Running*:
+1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results look similar to the following example:
     ```
     NAME                                      READY   STATUS     RESTARTS      AGE
     test-api-7945f959dd-v8tbs                 1/1     Running    0             65s
@@ -74,7 +76,7 @@ After the Helm install command completes with a successful deployment message, r
 ```
 helm test <release-name>
 ```
-When the `helm test` command ends and displays a success message, the Ecosystem is set up correctly and ready to be used.
+When the `helm test` command ends and displays a success message, the Ecosystem is set up correctly and is ready to be used.
 
 ## Running Galasa tests
 
@@ -89,17 +91,9 @@ test-api-external  NodePort  10.107.160.208  <none>  \
 ```
 Combine the information with the external hostname that you provided to form the bootstrap URL. For example, if the external hostname you provided was `example.com`, the bootstrap URL is `http://example.com:30960/boostrap`. 
 
-In Eclipse, you can edit the bootstrap and run the SimBank tests by completing the following steps:
+In Eclipse, you can edit the bootstrap by selecting *Eclipse > Preferences > Galasa* from the Eclipse menu. Alternatively, you can enter the bootstrap URL in the ```--bootstrap``` option of a `galasctl` command.
 
-1.  Select *Eclipse > Preferences > Galasa* 
-2.  Update **Bootstrap URI** to point to the Bootstrap URL that is returned by running the ```kubectl get galasaecosystem``` command.
-3.  Apply and close the preferences.   
-4.  Initialise the framework by selecting _Galasa > Initialise Galasa Framework_ from the Eclipse main menu. 
-5.  Select *Galasa > Submit tests to automation* option from the Eclipse menu. 
-6.  Select the SimBank tests to run them in parallel and click *Finish*. 
-7.  Click the *Galasa* icon on the Eclipse toolbar to view the status of test runs *U1*, *U2*, *U3*, and *U4*. Valid values for the runs are *acknowledged*, *queued*, *allocated*, *running*, and *finished*. The tests run in parallel rather than consecutively.
-
-Alternatively, you can enter the bootstrap URL in the ```--bootstrap``` option of a `galasctl` command.
+You can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on writing tests, see the <a href=https://galasa.dev/docs/writing-own-tests> Writing your own independent Galasa tests</a> documentation.
 
 ## Upgrading the Galasa Ecosystem
 
