@@ -147,7 +147,7 @@ Complete the following steps to import an example test project into Eclipse:
 
 ## More about the parent project
 
-The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. The <a href="https://github.com/galasa-dev/cli/blob/main/pkg/cmd/templates/projectCreate/parent-project/pom.xml" target="_blank">pom.xml</a> in the parent project is used to build all the other generated files.
+The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. The `pom.xml` in the parent project is used to build all the other generated files.
 
 Within the example parent project structure there are three generated OSGi bundle sub-projects:
 
@@ -184,7 +184,7 @@ The _TestAccountExtended.java_ and the _TestPayeeExtended.java_ source files sho
 
 - How a file that is created by the test run can be captured together with other test results for later viewing.
 
-You can find the templates that generate these Java files in the <a href="https://github.com/galasa-dev/cli/tree/main/pkg/cmd/templates/projectCreate/parent-project/test-project/src/main/java" target="_blank">Galasa cli repository</a>.
+You can find the templates that generate these Java files in the <a href="https://github.com/galasa-dev/cli" target="_blank">Galasa cli repository</a>.
 
 
 
