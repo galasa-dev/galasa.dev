@@ -71,8 +71,6 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
-            - title: Installing the Ecosystem on Docker
-              path: /docs/ecosystem/installing
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
         - title: Upgrading

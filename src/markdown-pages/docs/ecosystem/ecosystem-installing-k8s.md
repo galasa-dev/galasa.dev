@@ -26,15 +26,15 @@ If role-based access control (RBAC) is active on your Kubernetes cluster, a user
 
 You can assign the `galasa-admin` role to a user by replacing the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L39 target="_blank"> placeholder username</a> in the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml target="_blank"> rbac-admin.yaml</a> file with the appropriate username. If multiple users require admin privileges, you can assign the `galasa-admin` role to multiple groups, users, or ServiceAccounts by extending the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/rbac-admin.yaml#L36 target="_blank"> subjects</a> list. See the <a href=https://kubernetes.io/docs/reference/access-authn-authz/rbac/ target="_blank"> Using RBAC Authorization</a> documentation for more information.
 
-You also need to create a Galasa service account in the repository's ecosystem directory. The Galasa service account allows the API, Engine Controller, Metrics, and Resource mMnitor to co-ordinate between themselves, and also allows the Engine Controller to create and manage engine pods. You can create the service account by applying the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml</a> file. 
+You also need to create a Galasa service account. The Galasa service account allows the API, Engine Controller, Metrics, and Resource Monitor to co-ordinate between themselves, and also allows the Engine Controller to create and manage engine pods. You can create the service account by applying the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/templates/rbac.yaml target="_blank"> rbac.yaml</a> file. 
 
-For chart versions `0.23.0` and earlier, you must apply the RBAC file manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
+For chart versions `0.23.0` and earlier, you must create the Galasa service account manually by running the following command in the repository's <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory:
 ```
 kubectl apply -f \
 https://raw.githubusercontent.com/galasa-dev/helm/ecosystem-0.23.0/charts/ecosystem/rbac.yaml
 ``` 
 
-For chart versions later than `0.23.0`, the RBAC file is applied automatically when installing the ecosystem chart.  
+For chart versions later than `0.23.0`, the Galasa service account is automatically created when installing the ecosystem chart.  
 
 ## Installing the Galasa Ecosystem 
 
@@ -55,9 +55,9 @@ Complete the following steps to install the Galasa Ecosystem in a Kubernetes clu
     ```
     where:<br>
     `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and<br>
-    `<release-name>` is the name that you gave the ecosystem.<br><br>
+    `<release-name>` is the name that you want to give the ecosystem.<br><br>
     The ```--wait``` flag ensures that the chart installation completes before marking it as `Deployed`. During the installation, the API pod waits for the etcd and RAS pods to initialise while the Engine-Controller, Metrics, and Resource-Monitor pods wait for the API pod to initialise.
-1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results look similar to the following example:
+1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results should look similar to the following example:
     ```
     NAME                                      READY   STATUS     RESTARTS      AGE
     test-api-7945f959dd-v8tbs                 1/1     Running    0             65s
