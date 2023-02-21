@@ -135,6 +135,31 @@ jobs:
           --name galasa-${{ matrix.region.name }}-site \
           --image $IMAGE_NAME
 
+ # Deploy to vnext
+  deploy-vnext:
+    name: Deploy to vnext.galasa.dev
+    runs-on: ubuntu-latest
+    needs: [ publish-dotdev ]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Install IBM Cloud CLI
+        run: |
+          curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+          ibmcloud --version
+          ibmcloud config --check-version=false
+          ibmcloud plugin install -f code-engine
+
+      - name: Authenticate with IBM Cloud CLI
+        run: |
+          ibmcloud login --apikey "${{ secrets.IBM_CLOUD_API_KEY }}" -r "eu-gb" -g ${{ vars.RESOURCE_GROUP }}
+          ibmcloud ce project select --name galasa-eu-gb
+
+      - name: Update Code Engine application
+        run: |
+          ibmcloud ce application update \
+          --name galasa-eu-gb-next \
+          --image $IMAGE_NAME
+
   # Immediately trigger a DocSearch crawl
   crawl-docsearch:
     name: Submit Algolia DocSearch crawler
