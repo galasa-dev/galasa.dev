@@ -11,7 +11,7 @@ Don't forget that whenever you create a test, or modify an existing one, you nee
 ## Create a new Galasa test class
 
 1. Start Eclipse with the example projects open and [launch SimBank](/docs/getting-started/simbank). 
-1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*:
+1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*. Note that in the example a new package is created that is called `dev.galasa.simbanks.tests`.
 ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
 You can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
@@ -257,6 +257,7 @@ import dev.galasa.zos.ZosImage;
 import dev.galasa.zos3270.FieldNotFoundException;
 import dev.galasa.zos3270.ITerminal;
 import dev.galasa.zos3270.KeyboardLockedException;
+import dev.galasa.zos3270.TerminalInterruptedException;
 import dev.galasa.zos3270.TextNotFoundException;
 import dev.galasa.zos3270.TimeoutException;
 import dev.galasa.zos3270.Zos3270Terminal;
