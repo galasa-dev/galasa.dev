@@ -64,7 +64,7 @@ jobs:
     name: Publish image to repository
     runs-on: ubuntu-latest
     needs: [ build-dotdev, prettier ]
-    if: github.ref == 'refs/heads/main'
+    if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -140,7 +140,7 @@ jobs:
     name: Deploy to vnext.galasa.dev
     runs-on: ubuntu-latest
     needs: [ publish-dotdev ]
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/next'
     steps:
       - name: Install IBM Cloud CLI
         run: |
