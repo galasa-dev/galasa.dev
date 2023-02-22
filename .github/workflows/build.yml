@@ -1,5 +1,5 @@
 name: build
-on: [push, pull_request]
+on: [push, pull_request, merge_group]
 
 env:
   IMAGE_NAME: ${{ vars.REGISTRY_HOSTNAME }}/${{ vars.ICR_NAMESPACE }}/galasa.dev:${{ github.sha }}
@@ -64,7 +64,7 @@ jobs:
     name: Publish image to repository
     runs-on: ubuntu-latest
     needs: [ build-dotdev, prettier ]
-    if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -104,30 +104,18 @@ jobs:
             --path site \
             --publish
 
-  # Prepare matrix for deployment
-  generate-matrix:
-    name: Generate Deployment instance matrix 
-    runs-on: ubuntu-latest
-    needs: [ publish-dotdev ]
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - name: Create Production matrix
-        if: github.ref == 'refs/heads/main'
-        run: echo "matrix={\"region\":\"us-south-site\",\"region\":\"eu-gb-site\",\"region\":\"au-syd-site\"}" >> $GITHUB_OUTPUT
-
-      - name: Create Next release matrix
-        if: github.ref == 'refs/heads/next'
-        run: echo "matrix={\"region\":\"eu-gb-next\"}" >> $GITHUB_OUTPUT
-
   # Deploy the site to galasa.dev
   deploy-dotdev:
     name: Deploy to galasa.dev
     runs-on: ubuntu-latest
-    needs: [ publish-dotdev , generate-matrix]
-    if: (github.ref == 'refs/heads/main') || (github.ref == 'refs/heads/next')
+    needs: [ publish-dotdev ]
+    if: github.ref == 'refs/heads/main'
     strategy:
-      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix)}}
+      matrix:
+        region:
+          - name: us-south
+          - name: eu-gb
+          - name: au-syd
     steps:
       - name: Install IBM Cloud CLI
         run: |
@@ -144,7 +132,7 @@ jobs:
       - name: Update Code Engine application
         run: |
           ibmcloud ce application update \
-          --name galasa-${{ matrix.region.name }} \
+          --name galasa-${{ matrix.region.name }}-site \
           --image $IMAGE_NAME
 
   # Immediately trigger a DocSearch crawl
@@ -152,7 +140,6 @@ jobs:
     name: Submit Algolia DocSearch crawler
     runs-on: ubuntu-latest
     needs: deploy-dotdev
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Algolia crawler creation and crawl
         uses: algolia/algoliasearch-crawler-github-actions@v1.0.10
