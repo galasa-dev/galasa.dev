@@ -102,9 +102,11 @@ When the test runs, Galasa dynamically selects either *IMAGEA* or *IMAGEB* from 
 
 For example, in the CPS file *IMAGEA* has a maximum number of slots set to ```1```. If that slot is in use, Galasa binds the test to *IMAGEB* at run time, if *IMAGEB* is available. Images can be added to *CLUSTER2* by updating the CPS file, without the need to recompile the test. 
 
-In this way, Galasa manages the inbound workload of tests and splits them across LPARS. Only when a test is told where it can run is it bound to that environment. 
+In this way, Galasa manages the inbound workload of tests and splits them across LPARS. Each LPAR has a certain number of slots that are allocated to it. When the slots are used, no more tests can be allocated to that LPAR. If the LPAR is part of a cluster, then Galasa switches to another LPAR. Only when a test is told where it can run is it bound to that environment.
 
 
 ## Troubleshooting
 
 If you see an error message in the run log indicating that a property is not found, check that the property is spelled correctly in your test and if so, check that the property is defined in the CPS properties file. 
+
+If you are running test cases locally that target an LPAR that is offline, you might get an "Insufficient capacity for images..." error or similar. To resolve this problem, delete any failed test runs, clear the content of the DSS file in `~/.galasa/` and run the tests again.
