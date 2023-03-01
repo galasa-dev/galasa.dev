@@ -1,6 +1,6 @@
 ---
 path: "/docs/cli-command-reference/cli-command-reference"
-title: "Using the Galasa CLI"
+title: "Getting started using the Galasa CLI"
 ---
 
 Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using to run your pipeline. 
