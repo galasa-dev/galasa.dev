@@ -8,7 +8,8 @@ The `runs submit local` command submits tests to run within the local JVM, rathe
 Running tests locally should only be used during test development to verify that the test is behaving as expected. 
 Local runs do not benefit from the features that are provided when running tests within a Galasa Ecosystem. For example, resources are not cleaned-up in the event of a failure and scaling capabilities are limited by workstation resources. 
 
-You can view the full list of options that are available with the `runs submit local` command in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md"target="_blank">Galasa cli repository</a>.
+You can view the full list of options that are available with the `runs submit local` command in the 
+<a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
 
 
 ## Working with the `runs submit local` command
