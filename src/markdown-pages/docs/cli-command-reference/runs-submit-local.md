@@ -5,8 +5,10 @@ title: "The runs submit local command"
 
 The `runs submit local` command submits tests to run within the local JVM, rather than dynamically deploying the tests to a remotely deployed Galasa ecosystem. 
 
-Runnning tests locally should only be used during test development to verify that the test is behaving as expected. 
+Running tests locally should only be used during test development to verify that the test is behaving as expected. 
 Local runs do not benefit from the features that are provided when running tests within a Galasa Ecosystem. For example, resources are not cleaned-up in the event of a failure and scaling capabilities are limited by workstation resources. 
+
+You can view the full list of options that are available with the `runs submit local` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md).
 
 ## Working with the `runs submit local` command
 
@@ -30,7 +32,7 @@ where:
 
 ## Stopping a running test
 
-Use `Ctrl-C` to interrupt the `galasactl` tool. The tools stops immediately, ending all test activity. Note that this might leave the system under test with resources that are not cleaned-up.
+Use `Ctrl-C` to stop the `galasactl` tool, ending all test activity. Note that this might leave the system under test with resources that are not cleaned-up.
 
 
 
