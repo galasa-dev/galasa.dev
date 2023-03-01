@@ -5,9 +5,10 @@ title: "Writing test classes"
 
 Having created your project structure and built the parent and sub-projects, you are ready to start writing your own test classes.
 
-If you have imported, say, a Maven project into Eclipse, then autocompletion locates any resources referenced by its dependencies, making your job a lot easier. However, when using autocompletion, ensure that the class or resource that you select (or name) does not have a package name that includes the word `internal`, as this resource is not available to the test at runtime - you will receive a `Class not found` message.
 
 ## The anatomy of a Galasa test class
+
+Some classes have `internal` as part of their package name. Such classes are not intended to be used in test code, and if you try doing so then at run-time you are likely to experience `Class not found` errors. This might be especially pertinent if an IDE, for example Eclipse, shows such classes in auto-complete drop-downs.
 
 All Galasa tests must have a `@Test` annotation (`dev.galasa.Test`) defined and in place for it to be recognised by Galasa. Doing this allows the Galasa Maven plugin to differentiate between test and utility classes within a project. Only classes that use `@Test` are included in the test catalog.
 
