@@ -3,16 +3,17 @@ path: "/docs/cli-command-reference/cli-runs-submit-local"
 title: "The runs submit local command"
 ---
 
-The `runs submit local` command submits tests to run within the local JVM, rather than dynamically deploying the tests to a remotely deployed Galasa ecosystem. 
+The `runs submit local` command submits tests to run within the local JVM, rather than dynamically deploying the tests to a remotely deployed Galasa Ecosystem. 
 
 Running tests locally should only be used during test development to verify that the test is behaving as expected. 
 Local runs do not benefit from the features that are provided when running tests within a Galasa Ecosystem. For example, resources are not cleaned-up in the event of a failure and scaling capabilities are limited by workstation resources. 
 
-You can view the full list of options that are available with the `runs submit local` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md).
+You can view the full list of options that are available with the `runs submit local` command in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md"target="_blank">Galasa cli repository</a>.
+
 
 ## Working with the `runs submit local` command
 
-To use the `runs submit local` command, the `$JAVA_HOME` variable must be set to reference the JVM in which you want the test to run, as the local java run-time environment is used to launch the test locally. The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version.
+To use the `runs submit local` command, the `$JAVA_HOME` variable must be set to reference the JVM in which you want the test to run. This is because the local java run-time environment is used to launch the test locally. The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version.
 
 Use the following command to run a test in the local JVM:
 
