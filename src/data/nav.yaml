@@ -111,9 +111,9 @@
           path: /docs/reference/
           items:
             - title: Javadoc
-              path: /docs/reference/javadoc
+              path: /docs/reference/javadocs
             - title: CLI commands
-              path: /docs/reference/cli-commands
+              path: /docs/reference/cli-command
     - title: Support
       root: /support/
       items:
