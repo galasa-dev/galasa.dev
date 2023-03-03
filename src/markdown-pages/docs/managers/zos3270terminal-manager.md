@@ -20,7 +20,7 @@ Colour and highlight validation is supported. Use the <code>retrieveHighlightAtC
 
 Examples of using colour support and screen sizing are available in the [Code snippets and examples](#codesnippets) section.
 
-Live terminal updates are displayed in Eclipse and terminal images are logged to enable swift diagnosis of failures. The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
+In Eclipse, live terminal updates are displayed and terminal images are logged to the run log to enable swift diagnosis of failures. PNG representations of the terminal screens are also saved to the Result Archive Store (RAS). The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
 
 
 
