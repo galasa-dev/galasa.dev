@@ -28,8 +28,16 @@ The following versions of the Galasa CLI tool are available to download for diff
 
 Use the following commands to get more information about the command and command options, including default values.
 
+On Mac and Unix:
+
 ```
 galasactl -h, --help 
+```
+
+On Windows:
+
+```
+galasactl.exe -h, --help 
 ```
 
 ## Syntax
