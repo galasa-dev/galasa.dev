@@ -47,19 +47,19 @@ The following syntax examples assume a banking application is being tested. The 
 On Unix or MacOS:
 ```
 galasactl project create \
---package dev.galasa.example.banking \
---features payee,account \
---force \
---log -
-```
+        --package dev.galasa.example.banking \
+      	--features payee,account \
+   		--force \
+		--log -
+```ß
 
 On Windows:
 ```
-galasactl project create ^
---package dev.galasa.example.banking ^
---features payee,account ^
---force ^
---log - 
+galasactl.exe project create `
+		--package dev.galasa.example.banking `
+		--features payee,account `
+		--force `
+		--log - 
 ```
 
 where <br>

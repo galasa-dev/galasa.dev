@@ -7,15 +7,22 @@ To start using Galasa tools, or running Galasa tests, you need to set up some ba
 
 The following section shows you how to use initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM.
 
-You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
+You can view the full list of options (flags) that are available with the `local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
 ## Initialising the Galasa home folder
 
-To initialise your Galasa home folder in your home directory along with the properties files, use the following command:
+To initialise your Galasa home folder in your home directory along with the properties files on Mac or Unix, use the following command:
 
 ```
 galasactl local init [flags]
 ```
+
+If you are using Windows, use the following command:
+
+```
+galasactl.exe local init [flags]
+```
+
 
 This one-time command is run once per user and helps you to quickly create the folder and files that you need. If you already have a Galasa home folder set up, the folder and files are not created. 
 
@@ -51,7 +58,7 @@ The following table explains a bit more about the purpose of the properties file
 Use the following options to get more information about the command and command options, including default values.
 
 ```
-galasactl -h, --help  
+-h, --help  
 ```
 
 Use the following options to send logging information to a file. Any folder that is referrenced must exist. Existing files are overwritten. Specify `-` to log to `stderr`. The default is no logging.
