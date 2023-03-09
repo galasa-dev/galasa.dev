@@ -108,9 +108,9 @@ Read the commentary for an explanation of the key elements.
     <properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    	<java.version>1.8</java.version>
-    	<maven.compiler.source>1.8</maven.compiler.source>
-    	<maven.compiler.target>1.8</maven.compiler.target>
+    	<java.version>11</java.version>
+    	<maven.compiler.source>11</maven.compiler.source>
+    	<maven.compiler.target>11</maven.compiler.target>
     	<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
     	<unpackBundle>true</unpackBundle>
     </properties>
@@ -366,6 +366,6 @@ When viewed in the _Package Explorer_ your set of projects should resemble (your
 
 ![Project and sub-projects](./project-and-subproject.png)
 
-To build the project with Java version 1.8, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
+To build the project with Java version 11, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
 
 From _Run > Run Configurations_, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
