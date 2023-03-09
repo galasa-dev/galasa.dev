@@ -69,7 +69,7 @@ Specifying overrides is useful if you want to run a set of tests against a parti
 
 The following example creates a portfolio called `test.yaml` that contains tests from the `BestSoFar` test stream where the test package is `dev.galasa.simbank.tests`.
 
-All the tests in the `test.yaml` portfolio will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` command is run, regardless of the LPAR and cluster that is specified in the CPS properties file.
+All the tests in the `test.yaml` portfolio will run on the z/OS LPAR `MYLPAR` in the `MYPLEX` cluster when the `galasactl runs submit --portfolio test.yaml` command is run, regardless of the LPAR and cluster that is specified in the CPS properties file.
 
 On Mac or Unix:
 
@@ -78,8 +78,8 @@ galasactl runs prepare \
                         --portfolio test.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests \
-                        --override zos.default.lpar=MV2C \
-                        --override zos.default.cluster=PLEX2
+                        --override zos.default.lpar=MYLPAR \
+                        --override zos.default.cluster=MYPLEX
 ```
 
 On Windows:
@@ -89,8 +89,8 @@ galasactl runs prepare `
                         --portfolio test.yaml `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests `
-                        --override zos.default.lpar=MV2C `
-                        --override zos.default.cluster=PLEX2
+                        --override zos.default.lpar=MYLPAR `
+                        --override zos.default.cluster=MYPLEX
 ```
 
 ### Building a portfolio over multiple selections and overrides
@@ -99,7 +99,7 @@ You can select tests by using "package" OR "bundle" OR "test". If a test is sele
 
 In the following example, the first command creates a portfolio called `test.yaml` that contains tests from the `BestSoFar` test stream where the test package name is `dev.galasa.simbank.tests`. The second command adds more tests to the `test.yaml` portfolio from the `BestSoFar` test stream where the test package name is `dev.galasa.simbank.tests.two`. 
 
-All the tests in the `test.yaml` portfolio from the `dev.galasa.simbank.tests` package will run on the z/OS LPAR `MV2C` in the `PLEX2` cluster. The tests from the `dev.galasa.simbank.tests.two` package will run on the z/OS LPAR `MV2D` in the `PLEX2` cluster when the `galasactl runs submit --portfolio test.yaml` or `galasactl.exe runs submit --portfolio test.yaml` command is run.
+All the tests in the `test.yaml` portfolio from the `dev.galasa.simbank.tests` package will run on the z/OS LPAR `MYLPAR` in the `MYPLEX` cluster. The tests from the `dev.galasa.simbank.tests.two` package will run on the z/OS LPAR `MYLPAR2` in the `MYPLEX` cluster when the `galasactl runs submit --portfolio test.yaml` or `galasactl.exe runs submit --portfolio test.yaml` command is run.
 
 On Mac or Unix:
 
@@ -108,15 +108,15 @@ galasactl runs prepare \
                         --portfolio test.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests \
-                        --override zos.default.lpar=MV2C \
-                        --override zos.default.cluster=PLEX2 \
+                        --override zos.default.lpar=MYLPAR \
+                        --override zos.default.cluster=MYPLEX \
 galasactl runs prepare \
                         --portfolio test.yaml \
                         --append \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests.two \
-                        --override zos.default.lpar=MV2D \
-                        --override zos.default.cluster=PLEX2
+                        --override zos.default.lpar=MYLPAR2 \
+                        --override zos.default.cluster=MYPLEX
 ```
 
 On Windows:
@@ -126,15 +126,15 @@ galasactl.exe runs prepare `
                         --portfolio test.yaml `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests `
-                        --override zos.default.lpar=MV2C `
-                        --override zos.default.cluster=PLEX2 `
+                        --override zos.default.lpar=MYLPAR `
+                        --override zos.default.cluster=MYPLEX `
 galasactl.exe runs prepare `
                         --portfolio test.yaml `
                         --append `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests.two `
-                        --override zos.default.lpar=MV2D `
-                        --override zos.default.cluster=PLEX2
+                        --override zos.default.lpar=MYLPAR2 `
+                        --override zos.default.cluster=MYPLEX
 ```
 
 You can now run the tests in your portfolio by using the `runs submit` command.

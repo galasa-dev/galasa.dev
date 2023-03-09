@@ -56,7 +56,7 @@ The following are properties used to configure the zOS MF Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Comma separated zOS/MF server IDs |
-| Examples: | <code>zosmf.image.MV2C.servers=MFSYSA,MFSYSB</code><br> |
+| Examples: | <code>zosmf.image.MYLPAR.servers=MFSYSA,MFSYSB</code><br> |
 
 </details>
  

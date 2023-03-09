@@ -13,19 +13,19 @@ The following section provides a subset of examples of how you can use the `runs
 
 ### Getting help
 
-Use the following commands to get more information about the command and command options on Mac or Unix, including default values.
+Use the following command to get more information about the command and command options on Mac or Unix, including default values.
 
 ```
 galasactl --help
 ```
 
-If you are using Windows, use the following commands:
+If you are using Windows, use the following command:
 
 ```
 galasactl.exe --help 
 ```
 
-### Submitting tests from a portfolio
+### Submitting tests to an ecosystem from a portfolio
 
 The following example assumes that you have created a `test.yaml` portfolio by using the [runs prepare](./ecosystem-cli-runs-prepare) command. The command submits tests from the `test.yaml` portfolio, and specifies the following settings: 
 ```
@@ -79,13 +79,13 @@ galasactl.exe runs submit `
 
 Specifying overrides is useful if you want to run a set of tests against a particular configuration without changing the test code. For example, you might have multiple versions of software that you need to test. How can you do that without changing the test code? The answer is to use override properties. If you are running tests locally, you can set overrides properties by editing your `Overrides Properties` file. If you are running tests in an ecosystem, you can use the `--override` parameter in the Galasa CLI. Note that overrides in the portfolio take precedence over the overrides on the `runs submit` command. This is so that you can set general overrides on the submit, but have specific class overrides in the portfolio. 
 
-The following command runs all the tests in the `test.yaml` portfolio are on the z/OS LPAR `MV2C` in the `PLEX2` cluster on Mac or Unix.
+The following command runs all the tests in the `test.yaml` portfolio are on the z/OS LPAR `MYLPAR` in the `MYPLEX` cluster on Mac or Unix.
 
 ```
 galasactl runs submit \
                         --portfolio test.yaml \
-                        --override zos.default.lpar=MV2C \
-                        --override zos.default.cluster=PLEX2 \
+                        --override zos.default.lpar=MYLPAR \
+                        --override zos.default.cluster=MYPLEX \
                         --log -
 ```
 
@@ -94,7 +94,7 @@ If you are using Windows, use the following command:
 ```
 galasactl.exe runs submit `
                         --portfolio test.yaml `
-                        --override zos.default.lpar=MV2C `
-                        --override zos.default.cluster=PLEX2 `
+                        --override zos.default.lpar=MYLPAR `
+                        --override zos.default.cluster=MYPLEX `
                         --log -
 ```

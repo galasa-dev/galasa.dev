@@ -56,7 +56,7 @@ The following are properties used to configure the RSE API Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Comma separated RSE API server IDs |
-| Examples: | <code>rseapi.image.MV2C.servers=RSESYSA,RSESYSB</code><br> |
+| Examples: | <code>rseapi.image.MYLPAR.servers=RSESYSA,RSESYSB</code><br> |
 
 </details>
  
