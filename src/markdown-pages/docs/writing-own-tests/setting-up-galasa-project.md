@@ -241,4 +241,141 @@ Other elements that are contained within the generated parent pom.xml are listed
 
 ### The test pom.xml file elements
 
+<<<<<<< HEAD
 - The `<packaging>` element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
+=======
+If you have followed through on any of the provided SimBank tests, you will have no problem understanding what's going on in this example!
+
+</details>
+
+<details>
+<summary>
+<code>com.example.tests.parent/com.example.tests.atests/pom.xml</code>
+</summary>
+
+```XML
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example.tests</groupId>
+        <artifactId>com.example.tests.parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>com.example.tests.atests</artifactId>
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.example.tests</groupId>
+            <artifactId>com.example.tests.manager</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+- Pointing to the `<parent>` means that its dependencies and properties are reused in this project.
+- `<packaging>` is an OSGi bundle.
+- As a dependency cannot be included in the parent for a custom Manager, if present, it needs to be included here. Maven will ensure that the Manager is built before the test projects.
+
+</details>
+
+<details>
+<summary>
+<code>com.example.tests.parent/com.example.tests.manager/pom.xml</code>
+</summary>
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.example.tests</groupId>
+		<artifactId>com.example.tests.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>com.example.tests.manager</artifactId>
+	<packaging>bundle</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>dev.galasa</groupId>
+			<artifactId>dev.galasa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>dev.galasa</groupId>
+			<artifactId>dev.galasa.framework</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+		</dependency>
+	</dependencies>
+</project>
+```
+
+- The `<parent>` element signifies that all the properties and dependencies found in the parent `pom.xml` file are to be used for this project - avoiding duplication and allowing changes to ripple through all sub-projects.
+- `<groupId>` and `<version>` have not been provided - they will ripple down from the parent.
+- `<packaging>` is `bundle` so an OSGi bundle is built instead of a simple JAR.
+- Extra `<dependencies>` are included that are not relevant to the test projects. These are the `framework` and OSGi annotations, which are needed if/when developing Managers.
+
+</details>
+
+<details>
+<summary>
+<code>com.example.tests.parent/com.example.tests.obr/pom.xml</code>
+</summary>
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.example.tests</groupId>
+        <artifactId>com.example.tests.parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>com.example.tests.obr</artifactId>
+    <packaging>galasa-obr</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.example.tests</groupId>
+            <artifactId>com.example.tests.manager</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example.tests</groupId>
+            <artifactId>com.example.tests.atests</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+- `<packaging>` is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
+- Any custom Manager and test projects need to be included so that an OBR and test catalog is built after examination of the contents of these projects.
+
+</details>
+
+## Importing the prepared directory into Eclipse
+
+Launch Eclipse and choose _File > Import..._
+
+In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
+
+Navigate to your root project directory - _com.example.tests.parent_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
+
+When viewed in the _Package Explorer_ your set of projects should resemble (your project won't yet have those _target_ folders - they indicate that the project has been built at least once):
+
+![Project and sub-projects](./project-and-subproject.png)
+
+To build the project with Java version 11, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
+
+From _Run > Run Configurations_, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
+>>>>>>> main
