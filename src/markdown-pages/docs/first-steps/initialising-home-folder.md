@@ -46,8 +46,8 @@ The following table explains a bit more about the purpose of the properties file
 | overrides.properties | Specifying overrides is useful if you want to run a set of tests against a particular configuration without changing the test code. For example, you might have multiple versions of software that you need to test. How can you do that without changing the test code? The answer is to use override properties. If you are running tests locally, you can set overrides properties by editing your Overrides Properties file.  | 
 
 ## Initialising the settings.xml file
-
-The `settings.xml` is used to define a local repository location, alternate remote repository servers, and authentication information for private repositories, allowing you to specify local and remote repositories that can be used by Maven during test runs. It is also used to store settings, for example credentials, that you do not want to specify in source code.  
+ 
+The `settings.xml` file enables you to set configurations for Maven to use during test runs. For example, you can set local and remote repository locations, credentials for private repositories, and Maven profile settings. 
 
 If you have Maven installed, and have run a Maven command, an `/.m2` folder, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` folder, and populates the file with basic configuration settings.
 
