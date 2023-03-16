@@ -27,7 +27,16 @@
       items:
         - title: Introduction and architecture
           path: /docs/
-        - title: Getting started
+        - title: Getting started using the Galasa CLI
+          path: /docs/cli-command-reference/cli-command-reference
+          items:
+            - title: Initialising your local environment
+              path: /docs/initialising-home-folder 
+            - title: Creating a project
+              path: /docs/writing-own-tests/setting-up-galasa-project
+            - title: Running a test locally
+              path: /docs/cli-command-reference/cli-runs-submit-local
+        - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
             - title: Installing the Galasa plug-in 
@@ -98,13 +107,13 @@
               path: /docs/manager-groups/workflow-manager-group
             - title: z/OS Managers
               path: /docs/manager-groups/zos-manager-group
-        - title: Using the Galasa CLI
-          path: /docs/cli-command-reference/cli-command-reference
+        - title: Reference
+          path: /docs/reference/
           items:
-            - title: runs prepare 
-              path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
-            - title: runs submit 
-              path: /docs/cli-command-reference/ecosystem-cli-runs-submit
+            - title: Javadoc
+              path: /docs/reference/javadoc
+            - title: CLI commands
+              path: /docs/reference/cli-commands
     - title: Support
       root: /support/
       items:
