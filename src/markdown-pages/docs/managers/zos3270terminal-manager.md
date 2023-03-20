@@ -18,9 +18,13 @@ The zos3270Terminal Manager enables 3270 terminal interactions with back-end app
 
 Colour and highlight validation is supported. Use the <code>retrieveHighlightAtCursor</code> method to check that a field is highlighted as expected. Use the <code>retrieveColourAtCursor</code> method to check that the text colour in a specified field is as expected. You can check for the following colours: blue, red, pink, green, turquoise, yellow, neutral, and default. Use the <code>terminal.reportExtendedScreen</code> method to send colour output to the log. Support is also provided for diffent screen sizes. Screen sizes can be specified on the `@Zos3270Terminal` annotation.
 
+The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
+
 Examples of using colour support and screen sizing are available in the [Code snippets and examples](#codesnippets) section.
 
-When running a Galasa test with Eclipse or the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens are also saved to the Result Archive Store (RAS). In Eclipse, live terminal updates are displayed to enable swift diagnosis of failures. The <code>ConfidentialTextFiltering</code> service enables confidential information such as passwords to be replaced with a numbered shield in these generated logs. 
+When running a Galasa test with Eclipse or the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens are also saved to the Result Archive Store (RAS). In Eclipse, live terminal updates are displayed to enable swift diagnosis of failures. 
+
+*Note:* The feature for saving PNG representations of the terminal screens to the RAS is available in the current release as experimental code only.
 
 
 
@@ -40,6 +44,12 @@ To use the colour and highlight features in a test, import the following compone
 ```
 import dev.galasa.zos3270.spi.Colour;
 import dev.galasa.zos3270.spi.Highlight;
+```
+
+To use the (experimental) feature for saving PNG representations of terminal screens to the RAS in a test, import the following component into the test:
+
+```
+import dev.galasa.zos3270.internal.properties.TerminalOutput;
 ```
 
 You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
@@ -134,6 +144,20 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Default value: | IBM-DYNAMIC, IBM-3278-2 |
 | Valid values: | Valid 3270 device types in a comma separated list |
 | Examples: | <code>zos3270.image.custom.device.types=IBM-DYNAMIC,IBM-3278-2<br></code> |
+
+</details>
+
+<details>
+<summary>Select 3270 terminal outputs</summary>
+
+| Property: | 3270TerminalOutput CPS Property |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos3270.terminal.output |
+| Description: | Experimental: Saves PNG screen representations of terminal screens to the RAS |
+| Required:  | No |
+| Default value: |  JSON  |
+| Valid values: | JSON, PNG  |
+| Examples: | <code>zos3270.terminal.output=json,png<br></code> |
 
 </details>
 
