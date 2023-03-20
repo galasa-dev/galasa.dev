@@ -15,11 +15,21 @@ To use the `runs submit local` command, the `$JAVA_HOME` variable must be set to
 
 The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version.
 
-Use the following command to run a test in the local JVM:
+Use the following command to run a test in the local JVM.
+
+On Mac or Unix:
 
 ```
 galasactl runs submit local --log - \
           --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr \
+          --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
+```
+
+On Windows (Powershell):
+
+```
+galasactl runs submit local --log - ^
+          --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr ^
           --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
 ```
 

@@ -23,6 +23,8 @@ Remember to specify `galasactl.exe` on your PATH variable if you are using Windo
 
 The following example command selects tests from a test stream called `BestSoFar` for inclusion in a portfolio called `test.yaml`. All tests in the `dev.galasa.simbank.tests`  package within the `BestSoFar` test stream are added to the `test.yaml` portfolio. Packages are selected if the name contains a specified string or matches the regex if --regex is specified.  
 
+On Mac or Unix:
+
 ```
 galasactl runs prepare \
                         --portfolio test.yaml \
@@ -30,7 +32,14 @@ galasactl runs prepare \
                         --package dev.galasa.simbank.tests
 ```
 
+On Windows (Powershell):
 
+```
+galasactl runs prepare ^
+                        --portfolio test.yaml ^
+                        --stream BestSoFar ^
+                        --package dev.galasa.simbank.tests
+```
 
 ### Selecting tests without a test stream
 
@@ -38,10 +47,21 @@ You can use test class names to build a portfolio when a test stream or test cat
 
 The following example command selects specified tests (`SimBankIVT` and `BasicAccountCreditTest`) from the `dev.galasa.simbank.tests` test package and adds these tests to the `test.yaml` portfolio. 
 
+On Mac or Unix:
+
 ```
 galasactl runs prepare \
                         --portfolio test.yaml \
                         --class dev.galasa.simbank.tests/SimBankIVT \
+                        --class dev.galasa.simbank.tests/BasicAccountCreditTest
+```
+
+On Windows (Powershell):
+
+```
+galasactl runs prepare ^
+                        --portfolio test.yaml ^
+                        --class dev.galasa.simbank.tests/SimBankIVT ^
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest
 ```
 
@@ -54,12 +74,25 @@ The following example creates a portfolio called `test.yaml` that contains tests
 
 All the tests in the `test.yaml` portfolio will run on the z/OS LPAR `MYLPAR` in the `MYPLEX` cluster when the `galasactl runs submit --portfolio test.yaml` command is run, regardless of the LPAR and cluster that is specified in the CPS properties file.
 
+On Mac or Unix:
+
 ```
 galasactl runs prepare \
                         --portfolio test.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests \
                         --override zos.default.lpar=MYLPAR \
+                        --override zos.default.cluster=MYPLEX
+```
+
+On Windows (Powershell):
+
+```
+galasactl runs prepare ^
+                        --portfolio test.yaml ^
+                        --stream BestSoFar ^
+                        --package dev.galasa.simbank.tests ^
+                        --override zos.default.lpar=MYLPAR ^
                         --override zos.default.cluster=MYPLEX
 ```
 
@@ -72,6 +105,7 @@ In the following example, the first command creates a portfolio called `test.yam
 
 All the tests in the `test.yaml` portfolio from the `dev.galasa.simbank.tests` package will run on the z/OS LPAR `MYLPAR` in the `MYPLEX` cluster. The tests from the `dev.galasa.simbank.tests.two` package will run on the z/OS LPAR `MYLPAR2` in the `MYPLEX` cluster when the `galasactl runs submit --portfolio test.yaml` command is run.
 
+On Mac or Unix:
 
 ```
 galasactl runs prepare \
@@ -89,5 +123,21 @@ galasactl runs prepare \
                         --override zos.default.cluster=MYPLEX
 ```
 
+On Windows (Powershell)
+```
+galasactl runs prepare ^
+                        --portfolio test.yaml ^
+                        --stream BestSoFar ^
+                        --package dev.galasa.simbank.tests ^
+                        --override zos.default.lpar=MYLPAR ^
+                        --override zos.default.cluster=MYPLEX ^
+galasactl runs prepare ^
+                        --portfolio test.yaml ^
+                        --append ^
+                        --stream BestSoFar ^
+                        --package dev.galasa.simbank.tests.two ^
+                        --override zos.default.lpar=MYLPAR2 ^
+                        --override zos.default.cluster=MYPLEX
+```
 
 You can now run the tests in your portfolio by using the `runs submit` command.

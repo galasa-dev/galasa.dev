@@ -42,7 +42,9 @@ In the following example we are going to use the Galasa CLI to build a hierarchy
 
 This setup is designed as an example of how to create a project structure that might ultimately be deployed to a Maven repository, so that your Galasa automation system can find everything it needs to run.
 
-The following syntax examples assume a banking application is being tested. The banking application contains functionality that deals with `payee` and `account` object types, both of which can be manipulated:
+The following syntax examples assume a banking application is being tested. The banking application contains functionality that deals with `payee` and `account` object types, both of which can be manipulated.
+
+On Mac or Unix:
 
 ```
 galasactl project create \
@@ -52,6 +54,20 @@ galasactl project create \
 		--obr \
 		--log -
 ```
+
+
+On Windows (Powershell):
+
+```
+galasactl project create ^
+        --package dev.galasa.example.banking ^
+      	--features payee,account ^
+   		--force ^
+		--obr ^
+		--log -
+```
+
+Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
 
 where <br>
 - ```--package``` is the name of a Java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Maven coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
