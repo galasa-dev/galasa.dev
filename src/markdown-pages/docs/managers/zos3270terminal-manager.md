@@ -22,7 +22,7 @@ The <code>ConfidentialTextFiltering</code> service enables confidential informat
 
 Examples of using colour support and screen sizing are available in the [Code snippets and examples](#codesnippets) section.
 
-When running a Galasa test with Eclipse or the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens are also saved to the Result Archive Store (RAS). In Eclipse, live terminal updates are displayed to enable swift diagnosis of failures. 
+When running a Galasa test with Eclipse or the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens can also be saved to the Result Archive Store (RAS) as the outputs are now controlled by the `zos3270.terminal.output` CPS property. In Eclipse, live terminal updates are displayed to enable swift diagnosis of failures. 
 
 *Note:* The feature for saving PNG representations of the terminal screens to the RAS is available in the current release as experimental code only.
 
@@ -44,12 +44,6 @@ To use the colour and highlight features in a test, import the following compone
 ```
 import dev.galasa.zos3270.spi.Colour;
 import dev.galasa.zos3270.spi.Highlight;
-```
-
-To use the (experimental) feature for saving PNG representations of terminal screens to the RAS in a test, import the following component into the test:
-
-```
-import dev.galasa.zos3270.internal.properties.TerminalOutput;
 ```
 
 You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
@@ -153,7 +147,7 @@ The following properties are used to configure the Zos3270Terminal Manager:
 | Property: | 3270TerminalOutput CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos3270.terminal.output |
-| Description: | Experimental: Saves PNG screen representations of terminal screens to the RAS |
+| Description: | Experimental: Selects the representations of 3270 terminal screens to be saved to the RAS |
 | Required:  | No |
 | Default value: |  JSON  |
 | Valid values: | JSON, PNG  |
