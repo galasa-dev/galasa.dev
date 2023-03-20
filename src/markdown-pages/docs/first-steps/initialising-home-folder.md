@@ -5,22 +5,16 @@ title: "Initialising your local environment by using the CLI"
 
 To start using Galasa tools, or running Galasa tests, you need to set up some basic file structures and files in your home folder. These files include a default bootstrap file, and some local properties files. For more information about these files and what they are used for, see the [About the properties files](#about) section. 
 
-The following section shows you how to initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM.
+The following section shows you how to initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM. If you are using Windows, you must specify `galasactl.exe` on your PATH variable to use the command.
 
 You can view the full list of options (flags) that are available with the `local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
 ## Initialising the Galasa home folder
 
-To initialise your Galasa home folder in your home directory along with the properties files on Mac or Unix, use the following command:
+To initialise your Galasa home folder in your home directory along with the properties files, use the following command:
 
 ```
 galasactl local init [flags]
-```
-
-If you are using Windows, use the following command:
-
-```
-galasactl.exe local init [flags]
 ```
 
 
@@ -63,11 +57,13 @@ If you have Maven installed, and have run a Maven command, an `/.m2` folder, con
 Use the following options to get more information about the command and command options, including default values.
 
 ```
--h, --help  
+galasactl -h, --help  
 ```
 
 Use the following options to send logging information to a file. Any folder that is referrenced must exist. Existing files are overwritten. Specify `-` to log to `stderr`. The default is no logging.
 
 ```
--l, --log string   
+galasactl -l, --log string   
 ```  
+
+Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.

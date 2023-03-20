@@ -44,7 +44,6 @@ This setup is designed as an example of how to create a project structure that m
 
 The following syntax examples assume a banking application is being tested. The banking application contains functionality that deals with `payee` and `account` object types, both of which can be manipulated:
 
-On Unix or MacOS:
 ```
 galasactl project create \
         --package dev.galasa.example.banking \
@@ -52,16 +51,6 @@ galasactl project create \
    		--force \
 		--obr \
 		--log -
-```
-
-On Windows:
-```
-galasactl.exe project create `
-		--package dev.galasa.example.banking `
-		--features payee,account `
-		--force `
-		--obr `
-		--log - 
 ```
 
 where <br>

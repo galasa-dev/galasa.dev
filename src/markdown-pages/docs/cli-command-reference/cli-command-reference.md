@@ -5,7 +5,7 @@ title: "Getting started using the Galasa CLI"
 
 Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using. 
 
-Galasa CLI commands start with `galasactl` on Unix or Mac, and `galasactl.exe` on Windows. You can view the full list of Galasa CLI commands in the [Galasa cli repository](https://github.com/galasa-dev/cli/tree/main/docs/generated).
+Galasa CLI commands start with `galasactl`. If you are using Windows, you must specify `galasactl.exe` on your PATH variable to use the command. You can view the full list of Galasa CLI commands in the [Galasa cli repository](https://github.com/galasa-dev/cli/tree/main/docs/generated).
 
 ## Getting started 
 
@@ -26,19 +26,14 @@ The following versions of the Galasa CLI tool are available to download for diff
 
 ## Getting help
 
-Use the following commands to get more information about the command and command options, including default values.
+Use the following command to get more information about the command and command options, including default values.
 
-On Mac and Unix:
 
 ```
 galasactl -h, --help 
 ```
 
-On Windows:
-
-```
-galasactl.exe -h, --help 
-```
+Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
 
 ## Syntax
 
@@ -50,7 +45,7 @@ You can view a list of error messages that can be output by the galasactl tool i
 
 ## Known limitations
 
-Go programs can sometimes struggle to resolve DNS names, especially when a working over a virtual private network (VPN). In such situations, you might notice that a bootstrap file cannot be found with galasactl, or galasactl.exe, but can be found by a desktop browser, or curl command. In such situations you can manually add the host detail to the `/etc/hosts` file, to avoid DNS being involved in the resolution mechanism.
+Go programs can sometimes struggle to resolve DNS names, especially when a working over a virtual private network (VPN). In such situations, you might notice that a bootstrap file cannot be found with galasactl, but can be found by a desktop browser, or curl command. In such situations you can manually add the host detail to the `/etc/hosts` file, to avoid DNS being involved in the resolution mechanism.
 
 
 
