@@ -19,7 +19,7 @@ Use the following command to get more information about the command and command 
 galasactl --help
 ```
 
-Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
+Ensure that `galasactl.exe` is on your PATH if you are using Windows.
 
 ### Submitting tests to an ecosystem from a portfolio
 

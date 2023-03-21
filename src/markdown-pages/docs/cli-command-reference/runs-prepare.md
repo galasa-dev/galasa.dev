@@ -17,7 +17,7 @@ Use the following command to get more information about a command and command op
 galasactl --help
 ```
 
-Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
+Ensure that `galasactl.exe` is on your PATH if you are using Windows.
 
 ### Selecting tests from a test steam
 

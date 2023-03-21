@@ -5,7 +5,7 @@ title: "Getting started using the Galasa CLI"
 
 Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using. 
 
-Galasa CLI commands start with `galasactl`. If you are using Windows, you must specify `galasactl.exe` on your PATH variable to use the command. You can view the full list of Galasa CLI commands in the [Galasa cli repository](https://github.com/galasa-dev/cli/tree/main/docs/generated).
+Galasa CLI commands start with `galasactl`. If you are using Windows, make sure that `galasactl.exe` is on your PATH. You can view the full list of Galasa CLI commands in the [Galasa cli repository](https://github.com/galasa-dev/cli/tree/main/docs/generated).
 
 ## Getting started 
 
@@ -33,7 +33,7 @@ Use the following command to get more information about the command and command 
 galasactl -h, --help 
 ```
 
-Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
+Ensure that `galasactl.exe` is on your PATH if you are using Windows.
 
 ## Syntax
 

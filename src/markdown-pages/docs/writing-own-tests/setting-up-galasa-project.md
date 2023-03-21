@@ -67,8 +67,6 @@ galasactl project create ^
 		--log -
 ```
 
-Remember to specify `galasactl.exe` on your PATH variable if you are using Windows.
-
 where <br>
 - ```--package``` is the name of a Java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Maven coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
 - ```--features``` is a comma-separated list of one or more features of the application that you want to test. This parameter is optional, defaulting to `test`. The entries in this list influence the names of some folders, OSGi bundles, Maven coordinates and Java class names of the generated example tests. In the example provided, the banking application under test has a `payee` section and an `account` section which need testing. Creating subcomponents of your test suite to test these features or components of the application creates a naming structure in which your tests can be organised. These names must be lower-case letters and numbers (`a-z`, `0-9`), with no `.` (period) or special characters. No part of the name can clash with a Java language reserved word. <br>
