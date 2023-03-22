@@ -244,9 +244,6 @@ Other elements that are contained within the generated parent pom.xml are listed
 
 ### The test pom.xml file elements
 
-<<<<<<< HEAD
-- The `<packaging>` element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
-=======
 If you have followed through on any of the provided SimBank tests, you will have no problem understanding what's going on in this example!
 
 </details>
@@ -381,4 +378,3 @@ When viewed in the _Package Explorer_ your set of projects should resemble (your
 To build the project with Java version 11, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
 
 From _Run > Run Configurations_, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
->>>>>>> main
