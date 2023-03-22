@@ -242,18 +242,6 @@ Other elements that are contained within the generated parent pom.xml are listed
 - The `<packaging>` element is set to `bundle` so an OSGi bundle is built instead of a simple JAR.
 
 
-## Importing the prepared directory into Eclipse
+## The test pom.xml file elements
 
-Launch Eclipse and choose _File > Import..._
-
-In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
-
-Navigate to your root project directory - _com.example.tests.parent_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
-
-When viewed in the _Package Explorer_ your set of projects should resemble (your project won't yet have those _target_ folders - they indicate that the project has been built at least once):
-
-![Project and sub-projects](./project-and-subproject.png)
-
-To build the project with Java version 11, choose _Run > Run Configurations_ from the main menu. Create a Maven build from the _Main_ tab of the _Create, manage, and run configurations_ dialog and wait for the build process to complete.
-
-From _Run > Run Configurations_, click _Galasa_ (not Galasa SimBank) and configure a new run configuration (call it MostBasicTest). Specify `com.example.tests.atests` for the project, and `MostBasicTest` for the test class. Press _Apply_ and then _Run_. The new run configuration executes and a familiar set of Galasa messages appears in the Eclipse console as the test runs to successful completion.
+ - The `<packaging>` element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
