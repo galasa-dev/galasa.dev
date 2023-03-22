@@ -85,8 +85,6 @@ mvn clean install
 
 The built artifacts are typically placed in the `~/.m2/repository` in your home directory.
 
-Note: The tool currently does not generate build files for use with Gradle.
-
 
 ## Understanding the generated artifacts
 
