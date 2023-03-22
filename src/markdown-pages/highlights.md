@@ -11,13 +11,29 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.25.0 - Release Highlights
+
+## 0.26.0 - Release Highlights
+
+-  Initialise your development environment by using the  galasactl local init command
+-  Launch a test within a local JVM by using the galasactl runs submit local command
+-  Create an example project by using the galasactl project create command, which now supports --maven and --gradle flags to control which build system the caller wants to use.
+-  3270 images are generated in the RAS results store (experimental code for this release)
+-  SnakeYAML is upgraded to v1.33. This is a Java library for parsing yaml files.
+-  Documentation updates on using the CLI to:
+      -	initialise your local environment
+      - create a project
+      - run a test locally
+-	 Various doc updates and enhancements to existing content
+
+
+<details>
+<summary><b>0.25.0 - Release Highlights</b></summary>
 
 
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
 -	Various defect fixes, including fixing broken LTS connections in Java 11, updates to 3270 modifiable fields, and updates to the REST API.
 -	VTP Manager enhancements, including additional logging for problem diagnosis and increased keyboard wait times to minimise the risk of keyboard locking.
--	New features have been added to the galasactl command-line tool: <br><br>
+-	New features have been added to the command-line tool: <br><br>
         * A `--log <filename>` option has been added to direct log information to a file.<br>
         * The `--log -` option directs log information to the console.<br>
         * Omitting the `--log` option suppresses the log information.<br>
@@ -27,6 +43,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
         *	galasactl is now supported on MaxOSX on arm64 architecture machines.<br>
 -	Artifact Manager is updated to remove the need to create a second resources folder. 
 -	Upgrades have been made to some dependencies.
+</details>
 
 
 <details>
@@ -71,7 +88,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - The Galasa VTP Manager is now in Release. You can create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. The recorded file can be played back by using IBM Z VTP.
 - Installing the Galasa Ecosystem by using the Kubernetes Operator is updated.
-- ```galasactl runs``` commands can now select tests based on the _@Tags_ annotation by using the ```--tag``` option.
+- Use the ```galasactl runs``` command to select tests based on the _@Tags_ annotation by using the ```--tag``` option.
 - Galasa Docker images are moving from DockerHub to _icr.io_. Images in DockerHub (release 0.19.0 and before) will be deleted when 0.21.0 is released.
 - The Core Manager now provides a _@ResourceString_ annotation and _IResourceString_  interface to generate random locked strings. Further details will be available on the website once the Manager documentation is refreshed.
 - Various bug fixes and enhancements.
