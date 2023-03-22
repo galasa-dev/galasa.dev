@@ -11,7 +11,23 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.25.0 - Release Highlights
+
+## 0.26.0 - Release Highlights
+
+-  Initialise your development environment by using the  galasactl local init command
+-  Launch a test within a local JVM by using the galasactl runs submit local command
+-  Create an example project by using the galasactl project create command, which now supports --maven and --gradle flags to control which build system the caller wants to use.
+-  3270 images are generated in the RAS results store (experimental code for this release)
+-  SnakeYAML is upgraded to v1.33. This is a Java library for parsing yaml files.
+-  Documentation updates on using the CLI to:
+      -	initialise your local environment
+      - create a project
+      - run a test locally
+-	 Various doc updates and enhancements to existing content
+
+
+<details>
+<summary><b>0.25.0 - Release Highlights</b></summary>
 
 
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
@@ -27,6 +43,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
         *	galasactl is now supported on MaxOSX on arm64 architecture machines.<br>
 -	Artifact Manager is updated to remove the need to create a second resources folder. 
 -	Upgrades have been made to some dependencies.
+</details>
 
 
 <details>
