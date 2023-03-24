@@ -1,6 +1,6 @@
 ---
 path: "/docs/cli-command-reference/ecosystem-cli-runs-prepare"
-title: "The runs prepare command"
+title: "Selecting tests to run in the Ecosystem"
 ---
 
 The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple test streams. 
