@@ -7,8 +7,7 @@ Use the Galasa command line interface (Galasa CLI) to help you complete tasks, f
 
 ## Installing the CLI tool
 
-You can [access the code](https://github.com/galasa-dev/cli) and [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. To build the cli tools locally, use the `./build-locally.sh --help` script for instructions.
-
+You can [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. 
 
 The following versions of the Galasa CLI tool are available to download for different operating systems:
 
@@ -20,12 +19,11 @@ The following versions of the Galasa CLI tool are available to download for diff
 | zLinux  | galasactl-linux-s390x | 
 | Windows | galasactl-windows-amd64.exe | 
 
+After downloading the binary, re-name it to `galasactl` (for Mac or Unix) or `galasactl.exe` (for Windows) and put it on your PATH.
 
 ## Getting started 
 
-Galasa CLI commands start with `galasactl`. If you are using Windows, make sure that `galasactl.exe` is on your PATH. 
-
-Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
+Galasa CLI commands start with `galasactl`. Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
 
 You can view the Galasa CLI command syntax, including parameter descriptions, in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md).
 

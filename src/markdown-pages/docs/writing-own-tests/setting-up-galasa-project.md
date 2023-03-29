@@ -34,9 +34,7 @@ The `build.gradle` files declare any dependencies that the test code has, and sp
 
 ## Before you start
 
-First, check that you can run one or more of the tests in an example project. Don't rush this - it is recommended that you familiarise yourself with all of the Galasa examples before creating your own project. But as a minimum, if you can run <a href="/docs/running-simbank-tests/simbank-IVT" target="_blank">The SimBank IVT</a> test, you are all set.
-
-Check that an `.m2` folder exists in your user home directory. Built artifacts are placed in the `~/.m2/repository`. On Windows, the user home directory resembles: C:\Users\<username>, on MacOS it will be /Users/<username> and on Linux /home/<username>. Note that any file or folder beginning with a . is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
+Check that an `.m2` folder exists in your user home directory. Built artifacts are placed in the `~/.m2/repository`. On Windows, the user home directory resembles: C:\Users\<username>, on MacOS it will be /Users/<username> and on Linux /home/<username>. Note that any file or folder beginning with a `.` (period) is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
 
 ## A little plan
 
@@ -97,11 +95,19 @@ where <br>
 
 ## Building the example project 
 
-Run the following command to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory) and invoke both Maven and Gradle to build the OSGi bundles:
+Run the following command to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory):
 
 ```
 cd dev.galasa.example.banking
+```
+
+If you are building the project using Maven, use the following command:
+```
 mvn clean install
+```
+
+To build the project with Gradle, use the following command:
+```
 gradle build publishToMavenLocal
 ```
 
