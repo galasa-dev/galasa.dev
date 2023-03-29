@@ -67,12 +67,12 @@ galasactl project create \
 On Windows (Powershell):
 
 ```
-galasactl project create ^
-        --gradle ^
-        --package dev.galasa.example.banking ^
-      	--features payee,account ^
-   		--force ^
-		--obr ^
+galasactl project create `
+        --gradle `
+        --package dev.galasa.example.banking `
+      	--features payee,account `
+   		--force `
+		--obr `
 		--log -
 ```
 
