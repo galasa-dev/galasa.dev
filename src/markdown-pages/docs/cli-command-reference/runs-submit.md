@@ -1,6 +1,6 @@
 ---
 path: "/docs/cli-command-reference/ecosystem-cli-runs-submit"
-title: "The runs submit command"
+title: "Running tests in the Ecosystem"
 ---
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a test package. 
