@@ -5,12 +5,14 @@ title: "Creating a Galasa project"
 
 You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
 
-You can pass parameters to the `galasactl project create` command, enabling you to build your project using either Maven or Gradle, and allowing you to choose your own artifact names and naming conventions. Maven and Gradle are both build tools, which read metadata from files which guide how the code within a module should be built. Maven and Gradle use different formats for these build files. Artifacts are created on disk and can later be built, tested and deployed to a Maven repository and used in the Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
+You can pass parameters to the `galasactl project create` command, enabling you to build your project using either Maven or Gradle, and allowing you to choose your own artifact names and naming conventions. 
+
+Maven and Gradle are both build tools, which read metadata from files which guide how the code within a module should be built. Maven and Gradle use different formats for these build files. Artifacts are created on disk and can later be built, tested and deployed to a Maven repository and used in the Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
 
 
 The `galasactl project create` command uses the `--maven` and `--gradle` parameters to allow you to decide which type of build system to use when creating the example project. By default, the `galasactl project create` command generates a project which includes a Maven build mechanism. You can also pass the `--maven` flag explicitly to tell the tool to generate Maven build artifacts (pom.xml files). 
 
-The following example creates a project containing both Maven and Gradle build infrastructure files, specify the `--maven` and `--gradle` flags in the command.  
+The example provided in this topic creates a project containing both Maven and Gradle build infrastructure files by specifying the `--maven` and `--gradle` parameters in the command.  
 
 
 ## A bit about Maven
@@ -25,9 +27,9 @@ The most visible practical evidence that a project is a Maven project is its per
 
 <a href="https://docs.gradle.org" target="_blank">Gradle</a> is an Open Source build automation tool, initially created in 2008. If you want to use Gradle to build Galasa projects, you must install it. If you have already installed Gradle as part of some other software project, no action is needed.
 
-The Gradle project structure looks somewhat different to the Maven structure because Gradle projects use `build.gradle`, `bnd.bnd` and `settings.gradle` files rather than `pom.xml` files. You can view the template structure in the  <a href="https://github.com/galasa-dev/cli/tree/main/pkg/embedded/templates/projectCreate/parent-project" target="_blank">Galasa cli Github repository</a>. 
+The Gradle project structure looks somewhat different to the Maven structure because Gradle projects use `build.gradle`, `bnd.bnd` and `settings.gradle` files rather than `pom.xml` files. 
 
-Gradle `build.gradle` files declare any dependencies that the test code has and specifies the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look to find the dependencies and plug-ins that are required to build the project. 
+The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
 
 ## Before you start
@@ -95,7 +97,7 @@ where <br>
 
 ## Building the example project 
 
-Run the following command to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory) invoke both Maven and Gradle to build the OSGi bundles:
+Run the following command to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory) and invoke both Maven and Gradle to build the OSGi bundles:
 
 ```
 cd dev.galasa.example.banking
@@ -157,13 +159,21 @@ Running the example Galasa CLI `project create` command creates a number of file
 
 ## Importing the example test project into Eclipse
 
-If you want to edit source code using an IDE, you might want to import the projects into your IDE workspace. The following steps show you how to import an example test project into Eclipse:
+If you want to edit source code using an IDE, you might want to import the projects into your IDE workspace. 
+
+The following steps show you how to import an example test project built using Maven into Eclipse:
 
 1. Launch Eclipse and choose _File > Import..._
 1. In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
 1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
 1. View your set of projects in _Package Explorer_.
 
+Complete the following steps to import an example test project built using Gradle into Eclipse:
+
+1. Launch Eclipse and choose _File > Import..._
+1. In the _Select_ dialog, expand _Gradle_, choose _Existing Gradle Projects_ and click _Next_.
+1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
+1. View your set of projects in _Package Explorer_.
 
 ## More about the parent project
 
@@ -182,6 +192,10 @@ Within the example parent project structure there are three generated OSGi bundl
 Within each of the Galasa test projects  - `payee` and `account` - you can see the following files and folders:
 
 - A pom.xml file (for use by the Maven build tool)
+
+- A build.gradle file (for use by the Gradle build tool)
+
+- A bnd.bnd file (for use by the Gradle build tool)
 
 - A `src` tree holding source code
 

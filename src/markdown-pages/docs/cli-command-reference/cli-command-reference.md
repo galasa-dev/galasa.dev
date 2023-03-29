@@ -27,7 +27,8 @@ Galasa CLI commands start with `galasactl`. If you are using Windows, make sure 
 
 Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
 
-You can view the full list of Galasa CLI commands in the [Galasa cli repository](https://github.com/galasa-dev/cli/tree/main/docs/generated).
+You can view the Galasa CLI command syntax, including parameter descriptions, in the [Galasa cli repository](hhttps://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md).
+
 
 ## Known limitations
 
@@ -47,10 +48,6 @@ Use the following options to send logging information to a file. Any folder that
 ```
 galasactl --log <logFilePath>  
 ```  
-
-## Syntax
-
-You can find the galasactl syntax, including parameter descriptions, in the [galasactl documentation](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md) in the cli repository in GitHub. 
 
 ## Errors
 
