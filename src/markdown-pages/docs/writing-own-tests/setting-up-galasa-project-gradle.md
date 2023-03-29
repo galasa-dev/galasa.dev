@@ -1,6 +1,6 @@
 ---
 path: "/docs/writing-own-tests/setting-up-galasa-project"
-title: "Creating a Galasa project using Maven"
+title: "Creating a Galasa project using Gradle"
 ---
 
 You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
@@ -9,18 +9,18 @@ You can pass parameters to the `galasactl project create` command, enabling you 
 
 You can build Galasa projects using either Maven or Gradle. Maven and Gradle are both build tools, which read metadata from files which guide how the code within a module should be built. Maven and Gradle use different formats for these build files. 
 
-The `galasactl project create` command has two flags, `--maven` and `--gradle`, to allow you to decide which type of build system to use when creating the example project. By default, the `galasactl project create` command generates a project which includes a Maven build mechanism. You can also pass the `--maven` flag explicitly to tell the tool to generate Maven build artifacts (pom.xml files). To create a project containing both Maven and Gradle build infrastructure files, specify the `--maven` and `--gradle` flags in the command.
+The `galasactl project create` command has two flags, `--maven` and `--gradle`, to allow you to decide which type of build system to use when creating the example project. The default is `--maven` if neither are specified. To create a project containing both Maven and Gradle build infrastructure files, specify the `--maven` and `--gradle` flags in the command.
 
-The following example creates a project which uses a Gradle build mechanism by passing the `--maven` flag to the `galasactl project create` command. This flag tells the tool to add generated artifacts which direct a Maven build.
+The following example creates a project which uses a Gradle build mechanism by passing the `--gradle` flag to the `galasactl project create` command. This flag tells the tool to add generated artifacts which direct a Gradle build.
 
 
-## A bit about Maven
+## A bit about Gradle
 
-<a href="http://maven.apache.org" target="_blank">Maven</a> is an Open Source build automation tool, initially created in 2003 and part of the Apache Software Foundation. You do not explicitly need to install it, the Galasa plugin downloads and installs it silently during its own installation and configuration. If you have already installed Maven as part of some other software project, no action is needed.
+<a href="https://docs.gradle.org" target="_blank">Gradle</a> is an Open Source build automation tool, initially created in 2008. If you want to use Gradle to build Galasa projects, you must install it. If you have already installed Gradle as part of some other software project, no action is needed.
 
-Maven is _opinionated_, which means that you need to comply with its expectations about how a project and its directories should be organised. When you create a Maven project, you should use the generated structure.
+The Gradle project structure looks somewhat different to the Maven structure because Gradle projects use `build.gradle` and `settings.gradle` files rather than `pom.xml` files. You can view the template structure in the  <a href="https://github.com/galasa-dev/cli/tree/main/pkg/embedded/templates/projectCreate/parent-project" target="_blank">Galasa cli Github repository</a>. 
 
-The most visible practical evidence that a project is a Maven project is its pervasive use of `pom.xml` (Project Object Model) files. These XML files contain the magic that allows Maven to manage your project dependencies and build orchestration. 
+Gradle test projects also contain `bnd.bnd` files which define the OSGi Bundles for the test projects and any Managers in the project. 
 
 ## Before you start
 
@@ -55,6 +55,7 @@ On Mac or Unix:
 
 ```
 galasactl project create \
+        --gradle \
         --package dev.galasa.example.banking \
       	--features payee,account \
    		--force \
@@ -67,6 +68,7 @@ On Windows (Powershell):
 
 ```
 galasactl project create ^
+        --gradle ^
         --package dev.galasa.example.banking ^
       	--features payee,account ^
    		--force ^
@@ -75,19 +77,19 @@ galasactl project create ^
 ```
 
 where <br>
-- ```--package``` is the name of a Java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Maven coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
-- ```--features``` is a comma-separated list of one or more features of the application that you want to test. This parameter is optional, defaulting to `test`. The entries in this list influence the names of some folders, OSGi bundles, Maven coordinates and Java class names of the generated example tests. In the example provided, the banking application under test has a `payee` section and an `account` section which need testing. Creating subcomponents of your test suite to test these features or components of the application creates a naming structure in which your tests can be organised. These names must be lower-case letters and numbers (`a-z`, `0-9`), with no `.` (period) or special characters. No part of the name can clash with a Java language reserved word. <br>
+- ```--package``` is the name of a Java package. This parameter is mandatory. Use the provided example to help you to understand how you might create unique names for your Java test packages. Sections can reflect your company, organisation, the application under test, or any other name-spacing of your choice. The value chosen influences the names of the folders, OSGi bundles, Gradle coordinates, and the eventual Java package name in which example tests are created. The name must be all lower-case letters and numbers (`a-z`, `0-9`), with `.` (period) character separators. No part of the name can clash with a Java language reserved word. <br>
+- ```--features``` is a comma-separated list of one or more features of the application that you want to test. This parameter is optional, defaulting to `test`. The entries in this list influence the names of some folders, OSGi bundles, Gradle coordinates and Java class names of the generated example tests. In the example provided, the banking application under test has a `payee` section and an `account` section which need testing. Creating subcomponents of your test suite to test these features or components of the application creates a naming structure in which your tests can be organised. These names must be lower-case letters and numbers (`a-z`, `0-9`), with no `.` (period) or special characters. No part of the name can clash with a Java language reserved word. <br>
 - ```--force``` is an optional flag. If the flag is missing, then any file that the Galasa CLI tool tries to create which already exists causes a failure, and the original file is preserved. If this flag is used, then such files are silently over-written. Use this option carefully to avoid some of your files being over-written, resulting in the loss of some of your data.
 - ```--obr``` Creates an OBR project. For tests to run in the ecosystem they require compiled artifacts to be hosted in a Maven repository. The artifacts must be bundled as an OSGI bundle. Creating an OBR project makes it easier to move from running a test locally to running that test in an ecosystem.
 - ```--log -``` sends the trace and logging output that is generated by the tool to the console.
 
-## Building the example project using Maven
+## Building the example project using Gradle
 
-Run the following commands to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory) invoke Maven to build the OSGi bundles:
+Run the following commands to navigate to the parent folder (in this example the _dev.galasa.example.banking_ directory) invoke Gradle to build the OSGi bundles:
 
 ```
 cd dev.galasa.example.banking
-mvn clean install
+gradle build publishToMavenLocal
 ```
 
 The built artifacts are typically placed in the `~/.m2/repository` in your home directory.
@@ -100,7 +102,8 @@ Running the example Galasa CLI `project create` command creates a number of file
 ```
 ────dev.galasa.example.banking
     ├───dev.galasa.example.banking.account
-    │   └─── pom.xml
+    │   └─── build.gradle
+    │   └─── bnd.bnd
     │   └───src
     │       └───main
     │           ├───java
@@ -116,9 +119,10 @@ Running the example Galasa CLI `project create` command creates a number of file
 	│				└───textfiles
 	│					└───sampleText.txt	
 	│───dev.galasa.example.banking.obr
-    │   └─── pom.xml
+    │   └─── build.gradle
     ├───dev.galasa.example.banking.payee
-    │	└─── pom.xml
+    │	└─── build.gradle
+    │   └─── bnd.bnd
     │   └───src
     │       └───main
     │           ├───java
@@ -131,34 +135,38 @@ Running the example Galasa CLI `project create` command creates a number of file
     │           └───resources
 	│				└───textfiles
 	│					└───sampleText.txt
-    └─── pom.xml
+    └─── settings.gradle
 ```
 
 
-The names of the root folders are not part of Maven's opinionated stance (they were just chosen for this exercise - but there is a conventional pattern to follow), however, the names of the lower level folders (`src`, `main`, `java` and so on) most certainly are.
+The names of the root folders are just chosen for this exercise, but there is a conventional pattern to follow, however, the names of the lower level folders (`src`, `main`, `java` and so on) are mandatory.
 
-As well as a hierarchy of directories, there are four `pom.xml` files placed at specific locations:
+As well as a hierarchy of directories, there are three `build.gradle` files placed at specific locations:
 
-- _dev.galasa.example.banking_
 - _dev.galasa.example.banking.account_
 - _dev.galasa.example.banking.obr_
 - _dev.galasa.example.banking.payee_
 
-Of course, the four _pom.xml_ files all have different contents!
+Of course, the `build.gradle` files all have different contents. There are also two `bnd.bnd` files at the following locations:
+
+- _dev.galasa.example.banking.account_
+- _dev.galasa.example.banking.payee_
+
+and one settings.gradle file at - _dev.galasa.example.banking_
 
 ## Importing the example test project into your IDE
 
 Complete the following steps to import an example test project into Eclipse:
 
 1. Launch Eclipse and choose _File > Import..._
-1. In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
+1. In the _Select_ dialog, expand _Gradle_, choose _Existing Gradle Projects_ and click _Next_.
 1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
 1. View your set of projects in _Package Explorer_.
 
 
 ## More about the parent project
 
-The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. The `pom.xml` in the parent project is used to build all the other generated files.
+The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. The `settings.gradle` in the parent project is used to build all the other generated files.
 
 Within the example parent project structure there are three generated OSGi bundle sub-projects:
 
@@ -172,7 +180,7 @@ Within the example parent project structure there are three generated OSGi bundl
 
 Within each of the Galasa test projects  - `payee` and `account` - you can see the following files and folders:
 
-- A pom.xml file (for use by the Maven build tool)
+- A `build.gradle` file and `bnd.bnd` file (for use by the Gradle build tool)
 
 - A `src` tree holding source code
 
@@ -198,14 +206,11 @@ The _TestAccountExtended.java_ and the _TestPayeeExtended.java_ source files sho
 You can find the templates that generate these Java files in the <a href="https://github.com/galasa-dev/cli" target="_blank">Galasa cli repository</a>.
 
 
-
 ## Additional notes on the key elements of pom.xml files
 
 The following sections provide a little more information about some of the elements that are found within the various pom.xml files.
 
-### The parent pom.xml file elements
-
-- The `<project>` and `<modelVersion>` elements are standard prologues to a `pom.xml` file.
+### The parent build.gradle file elements
 
 The following extract from the generated parent pom.xml shows some of the key elements that are described:
 
@@ -241,9 +246,9 @@ Other elements that are contained within the generated parent pom.xml are listed
 - `<dependencies>` list all the Managers you wish to make available for your tests and custom Manager if present. You could include `<dependencies>` in each of the sub-modules, but it is easier to maintain the list here.
 - `<plugins>` identify the Maven plugins to be used during the build process. The `maven-bundle-plugin` builds OSGi bundles (the Manager and test projects), indicated by `<packaging>bundle</packaging>`. The `galasa-maven-plugin` is used in two ways - to build a test catalog for each bundle project and to build the `<packaging>galasa-obr</packaging>` project.
 
-### The test project pom.xml file elements
+### The test project build.gradle file elements
 
-- The `<parent>` element signifies that all the properties and dependencies found in the parent pom.xml file are to be used for this project - avoiding duplication and allowing changes to ripple through all sub-projects.
+- The `group` element signifies that all the properties and dependencies found in the parent build.gradle file are to be used for this project - avoiding duplication and allowing changes to ripple through all sub-projects.
 - The `<packaging>` element is set to `bundle` so an OSGi bundle is built instead of a simple JAR.
 
 

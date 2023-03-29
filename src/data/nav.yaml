@@ -32,8 +32,10 @@
           items:
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
-            - title: Creating a project
+            - title: Creating a project using Maven
               path: /docs/writing-own-tests/setting-up-galasa-project
+            - title: Creating a project using Gradle
+              path: /docs/writing-own-tests/setting-up-galasa-project-gradle  
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
         - title: Getting started using Eclipse
