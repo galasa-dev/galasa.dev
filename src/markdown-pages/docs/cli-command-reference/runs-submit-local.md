@@ -22,22 +22,22 @@ On Mac or Unix:
 
 ```
 galasactl runs submit local --log - \
-          --obr mvn:dev.galasa.example.banking/ \
-          dev.galasa.example.banking.obr/ \
-          0.0.1-SNAPSHOT/obr \
-          --class dev.galasa.example.banking.account/ \
-          dev.galasa.example.banking.account.TestAccount
+          --obr mvn:dev.galasa.example.banking/\
+dev.galasa.example.banking.obr/\
+0.0.1-SNAPSHOT/obr\
+          --class dev.galasa.example.banking.account/\
+dev.galasa.example.banking.account.TestAccount
 ```
 
 On Windows (Powershell):
 
 ```
 galasactl runs submit local --log - `
-          --obr mvn:dev.galasa.example.banking/ `
-          dev.galasa.example.banking.obr/ `
-          0.0.1-SNAPSHOT/obr `
-          --class dev.galasa.example.banking.account/ `
-          dev.galasa.example.banking.account.TestAccount
+          --obr mvn:dev.galasa.example.banking/`
+dev.galasa.example.banking.obr/`
+0.0.1-SNAPSHOT/obr`
+          --class dev.galasa.example.banking.account/`
+dev.galasa.example.banking.account.TestAccount
 ```
 
 where:
