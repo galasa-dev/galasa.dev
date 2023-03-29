@@ -1,6 +1,6 @@
 ---
 path: "/docs/writing-own-tests/setting-up-galasa-project"
-title: "Creating a Galasa project using Maven"
+title: "Creating a Galasa project"
 ---
 
 You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
@@ -8,7 +8,7 @@ You can quickly and easily create a project structure to accommodate your own in
 You can pass parameters to the `galasactl project create` command, enabling you to build your project using either Maven or Gradle, and allowing you to choose your own artifact names and naming conventions. Maven and Gradle are both build tools, which read metadata from files which guide how the code within a module should be built. Maven and Gradle use different formats for these build files. Artifacts are created on disk and can later be built, tested and deployed to a Maven repository and used in the Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
 
 
-The `galasactl project create` command uses the `--maven` and `--gradle` flags to allow you to decide which type of build system to use when creating the example project. By default, the `galasactl project create` command generates a project which includes a Maven build mechanism. You can also pass the `--maven` flag explicitly to tell the tool to generate Maven build artifacts (pom.xml files). To 
+The `galasactl project create` command uses the `--maven` and `--gradle` parameters to allow you to decide which type of build system to use when creating the example project. By default, the `galasactl project create` command generates a project which includes a Maven build mechanism. You can also pass the `--maven` flag explicitly to tell the tool to generate Maven build artifacts (pom.xml files). 
 
 The following example creates a project containing both Maven and Gradle build infrastructure files, specify the `--maven` and `--gradle` flags in the command.  
 
