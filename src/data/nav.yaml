@@ -116,6 +116,8 @@
               path: /docs/reference/javadoc
             - title: CLI commands
               path: /docs/reference/cli-commands
+            - title: Ecosystem REST API
+              path: /docs/reference/rest-api-docs
     - title: Support
       root: /support/
       items:
