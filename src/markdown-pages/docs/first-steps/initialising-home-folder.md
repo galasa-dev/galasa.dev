@@ -14,7 +14,7 @@ You can view the full list of options (flags) that are available with the `local
 To initialise your Galasa home folder in your home directory along with the properties files, use the following command:
 
 ```
-galasactl local init [flags]
+galasactl local init
 ```
 
 
@@ -52,18 +52,5 @@ The `settings.xml` file enables you to set configurations for Maven to use durin
 
 If you have Maven installed, and have run a Maven command, an `/.m2` folder, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` folder, and populates the file with basic configuration settings.
 
-## Getting help
 
-Use the following options to get more information about the command and command options, including default values.
 
-```
-galasactl -h, --help  
-```
-
-Use the following options to send logging information to a file. Any folder that is referrenced must exist. Existing files are overwritten. Specify `-` to log to `stderr`. The default is no logging.
-
-```
-galasactl -l, --log string   
-```  
-
-Ensure that `galasactl.exe` is on your PATH if you are using Windows.
