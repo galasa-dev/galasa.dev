@@ -12,6 +12,16 @@ Post a question or share your experiences with other users in our <a href="https
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
+## 0.27.0 - Release Highlights
+- REST api enhancements: 
+      - allow queries of test run details using the run name.
+      - documentation added to the https://rest.galasa.dev/ web site.
+
+- Command-line tool `galasactl` supports:
+      - the GALASA_HOME environment variable, which you can set to avoid using the `{HOME}/.galasa` folder.
+      - support of `--development` flag for `galasactl project create` and `galasactl local init` to enable generated code to use bleeding-edge versions of Galasa libraries, in addition to the ones published on maven central.
+      - automated tests run on every build.
+
 ## 0.26.0 - Release Highlights
 
 -  Initialise your development environment by using the  galasactl local init command
