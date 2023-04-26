@@ -31,7 +31,7 @@ Galasa tests and Managers are written in Java - you will need to install a Java 
 
 If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add plug-ins if and when you discover you need them.
 
-We recommend Eclipse for Java Developers 2022-06. _Note:_ We are aware of problems when launching tests using Eclipse 2022-09 or later.  We are working to fix this problem.
+If you are using Eclipse for Java Developers 2022-06, use Galasa versions 0.26.0 or 0.25.0. If you are using Eclipse for Java Developers 2022-09, or 2023-03, use Galasa version 0.27.0.
 
 ### Gradle 
 
