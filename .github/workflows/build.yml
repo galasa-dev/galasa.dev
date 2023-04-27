@@ -51,7 +51,7 @@ jobs:
         run: npm run serve &
 
       - name: Check for broken links
-        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Mozilla/5.0 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ http://localhost:9000
+        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ http://localhost:9000
 
       - name: Upload raw site
         uses: actions/upload-artifact@v3
