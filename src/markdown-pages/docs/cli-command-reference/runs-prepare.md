@@ -1,23 +1,14 @@
 ---
 path: "/docs/cli-command-reference/ecosystem-cli-runs-prepare"
-title: "The runs prepare command"
+title: "Selecting tests to run in the Ecosystem"
 ---
 
-The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple test streams. 
+The `runs prepare` command builds a portfolio of tests which can then be run by using the `runs submit` command. You can build a portfolio of tests from single or multiple [test streams](https://galasa.dev/docs/writing-own-tests/test-streams). 
 
 ## Working with the `runs prepare` command
 
 The following section provides a subset of examples that use the `runs prepare` command to complete various tasks, for example, getting help, selecting tests, and setting overrides. The examples build on the Galasa SimBank tests, which you can run non-locally if you have an ecosystem that is running SimPlatform.
 
-### Getting help
-
-Use the following command to get more information about a command and command options, including default values.
-
-```
-galasactl --help
-```
-
-Ensure that `galasactl.exe` is on your PATH if you are using Windows.
 
 ### Selecting tests from a test steam
 
@@ -35,9 +26,9 @@ galasactl runs prepare \
 On Windows (Powershell):
 
 ```
-galasactl runs prepare ^
-                        --portfolio test.yaml ^
-                        --stream BestSoFar ^
+galasactl runs prepare `
+                        --portfolio test.yaml `
+                        --stream BestSoFar `
                         --package dev.galasa.simbank.tests
 ```
 
@@ -59,9 +50,9 @@ galasactl runs prepare \
 On Windows (Powershell):
 
 ```
-galasactl runs prepare ^
-                        --portfolio test.yaml ^
-                        --class dev.galasa.simbank.tests/SimBankIVT ^
+galasactl runs prepare `
+                        --portfolio test.yaml `
+                        --class dev.galasa.simbank.tests/SimBankIVT `
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest
 ```
 
@@ -88,11 +79,11 @@ galasactl runs prepare \
 On Windows (Powershell):
 
 ```
-galasactl runs prepare ^
-                        --portfolio test.yaml ^
-                        --stream BestSoFar ^
-                        --package dev.galasa.simbank.tests ^
-                        --override zos.default.lpar=MYLPAR ^
+galasactl runs prepare `
+                        --portfolio test.yaml `
+                        --stream BestSoFar `
+                        --package dev.galasa.simbank.tests `
+                        --override zos.default.lpar=MYLPAR `
                         --override zos.default.cluster=MYPLEX
 ```
 
@@ -125,18 +116,18 @@ galasactl runs prepare \
 
 On Windows (Powershell)
 ```
-galasactl runs prepare ^
-                        --portfolio test.yaml ^
-                        --stream BestSoFar ^
-                        --package dev.galasa.simbank.tests ^
-                        --override zos.default.lpar=MYLPAR ^
-                        --override zos.default.cluster=MYPLEX ^
-galasactl runs prepare ^
-                        --portfolio test.yaml ^
-                        --append ^
-                        --stream BestSoFar ^
-                        --package dev.galasa.simbank.tests.two ^
-                        --override zos.default.lpar=MYLPAR2 ^
+galasactl runs prepare `
+                        --portfolio test.yaml `
+                        --stream BestSoFar `
+                        --package dev.galasa.simbank.tests `
+                        --override zos.default.lpar=MYLPAR `
+                        --override zos.default.cluster=MYPLEX `
+galasactl runs prepare `
+                        --portfolio test.yaml `
+                        --append `
+                        --stream BestSoFar `
+                        --package dev.galasa.simbank.tests.two `
+                        --override zos.default.lpar=MYLPAR2 `
                         --override zos.default.cluster=MYPLEX
 ```
 

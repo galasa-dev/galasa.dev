@@ -11,9 +11,10 @@ Local runs do not benefit from the features that are provided when running tests
 
 ## Working with the `runs submit local` command
 
-To use the `runs submit local` command, the `$JAVA_HOME` variable must be set to reference the JVM in which you want the test to run. This is because the local java run-time environment is used to launch the test locally. To check that `JAVA_HOME` is set correctly, the tool checks that `$JAVA_HOME/bin/java` exists in Unix or Mac, and `%JAVA_HOME%\bin\java.exe` exists on Windows.
+To use the `runs submit local` command, the `JAVA_HOME` environment variable must be set to reference the JVM in which you want the test to run. This is because the local java run-time environment is used to launch the test locally. To check that `JAVA_HOME` is set correctly, the tool checks that `$JAVA_HOME/bin/java` exists in Unix or Mac, and `%JAVA_HOME%\bin\java.exe` exists on Windows.
 
-The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version.
+The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version. We currently support Java version 11 to version 16 JDK. _Note:_ We do not currently support Java 17 or later.
+
 
 Use the following command to run a test in the local JVM.
 
@@ -21,16 +22,16 @@ On Mac or Unix:
 
 ```
 galasactl runs submit local --log - \
-          --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr \
-          --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
+--obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr \
+--class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
 ```
 
 On Windows (Powershell):
 
 ```
-galasactl runs submit local --log - ^
-          --obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr ^
-          --class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
+galasactl runs submit local --log - `
+--obr mvn:dev.galasa.example.banking/dev.galasa.example.banking.obr/0.0.1-SNAPSHOT/obr `
+--class dev.galasa.example.banking.account/dev.galasa.example.banking.account.TestAccount
 ```
 
 where:

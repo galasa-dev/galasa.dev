@@ -1,6 +1,6 @@
 ---
 path: "/docs/cli-command-reference/ecosystem-cli-runs-submit"
-title: "The runs submit command"
+title: "Running tests in the Ecosystem"
 ---
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem.  Tests can be input either from a portfolio or directly from a test package. 
@@ -11,15 +11,6 @@ For information about creating a portfolio by using the Galasa CLI, see the docu
 
 The following section provides a subset of examples of how you can use the `runs submit` command to complete various tasks, for example, getting help, submitting tests, and setting overrides. The examples build on the Galasa SimBank tests, which you can run non-locally if you have an ecosystem that is running SimPlatform.
 
-### Getting help
-
-Use the following command to get more information about the command and command options, including default values.
-
-```
-galasactl --help
-```
-
-Ensure that `galasactl.exe` is on your PATH if you are using Windows.
 
 ### Submitting tests to an ecosystem from a portfolio
 
@@ -39,11 +30,11 @@ galasactl runs submit \
 On Windows (Powershell):
 
 ```
-galasactl runs submit ^
-                        --portfolio test.yaml ^ 
-                        --poll 5 ^
-                        --progress 1 ^
-                        --throttle 5 ^
+galasactl runs submit `
+                        --portfolio test.yaml ` 
+                        --poll 5 `
+                        --progress 1 `
+                        --throttle 5 `
                         --log -
 ```
 
@@ -73,9 +64,9 @@ galasactl runs submit \
 On Windows (Powershell):
 
 ```
-galasactl runs submit ^
-                        --class dev.galasa.simbank.tests/SimBankIVT ^
-                        --class dev.galasa.simbank.tests/BasicAccountCreditTest ^
+galasactl runs submit `
+                        --class dev.galasa.simbank.tests/SimBankIVT `
+                        --class dev.galasa.simbank.tests/BasicAccountCreditTest `
                         --log -
 ```
 
@@ -99,9 +90,9 @@ galasactl runs submit \
 On Windows (Powershell):
 
 ```
-galasactl runs submit ^
-                        --portfolio test.yaml ^
-                        --override zos.default.lpar=MYLPAR ^
-                        --override zos.default.cluster=MYPLEX ^
+galasactl runs submit `
+                        --portfolio test.yaml `
+                        --override zos.default.lpar=MYLPAR `
+                        --override zos.default.cluster=MYPLEX `
                         --log -
 ```
