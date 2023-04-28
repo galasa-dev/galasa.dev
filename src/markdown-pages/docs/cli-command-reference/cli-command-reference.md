@@ -9,7 +9,7 @@ Galasa CLI commands start with `galasactl`. If you are using Windows, make sure 
 
 ## Getting started 
 
-To use the Galasa CLI commands you must reference the Galasa bootstrap file or URL. You can do this either by setting the `--bootstrap` flag or the `GALASA_BOOTSTRAP`environment variable.
+To use the Galasa CLI commands you must reference the Galasa bootstrap file or URL. You can do this either by setting the `--bootstrap` flag or the `GALASA_BOOTSTRAP` environment variable.
 
 You can [access the code](https://github.com/galasa-dev/cli) and [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. To build the cli tools locally, use the `./build-locally.sh --help` script for instructions.
 

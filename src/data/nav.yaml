@@ -80,6 +80,8 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Viewing test run status 
+              path: /docs/cli-command-reference/cli-runs-get
         - title: Upgrading
           path: /docs/upgrading  
         - title: Managers
