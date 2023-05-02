@@ -12,7 +12,7 @@ galasactl runs get --runname <NameOfTestRun> --bootstrap <BootstrapURL>
 
 where:
 - `--runname` is the name of the test run 
-- `--bootstrap` is the bootstrap URL of the Galasa ecosystem in which the test ran
+- `--bootstrap` is the URL of the ecosystem's bootstrap properties
 
 
 Results are returned on the terminal in the following example format:
