@@ -15,7 +15,7 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 
 ### Java
 
-Galasa tests and Managers are written in Java - you will need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later
+Galasa tests and Managers are written in Java - you will need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later.
 
 ### Eclipse
 
