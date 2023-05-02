@@ -4,14 +4,14 @@ title: "Viewing test run status"
 ---
 
 
-You can query the status of a test run using the test run name by running the following command:
+Use the test run name to query test run details by using the following command:
 
 ```
 galasactl runs get --runname <NameOfTestRun> --bootstrap <BootstrapURL>
 ``` 
 
 where:
-- `--runname` is the name of the test run that you want to query and 
+- `--runname` is the name of the test run 
 - `--bootstrap` is the bootstrap URL of the Galasa ecosystem in which the test ran
 
 
