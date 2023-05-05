@@ -20,6 +20,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - Command-line tool `galasactl` now supports:<br><br>
        * the `GALASA_HOME` environment variable, which you can set to avoid using the `{HOME}/.galasa` folder <br><br>
+       * querying of test run status using the run name <br><br>
        * the `--development` flag for `galasactl project create` and `galasactl local init` to enable generated code to use pre-released code versions of Galasa libraries, in addition to the ones published on Maven central <br><br>
        * automated tests run on every build <br>
 
