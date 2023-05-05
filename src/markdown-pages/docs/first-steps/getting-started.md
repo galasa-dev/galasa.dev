@@ -1,6 +1,6 @@
 ---
 path: "/docs/getting-started"
-title: "Getting started"
+title: "Getting started using Eclipse"
 ---
 This section takes you through the options available for installing the Galasa Eclipse plug-in and a quick tour of its capabilities on a local machine.
 
