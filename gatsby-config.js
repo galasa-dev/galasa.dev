@@ -6,7 +6,7 @@ const digitalData = require("./src/utils/digital-data")
 const consts = {
   githubRepoName: "galasa.dev",
   githubOrgName: "galasa-dev",
-  twitterUrl: "https://twitter.com/galasa_dev",
+  twitterUrl: "",
   slackUrl: "https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA",
   algolia: {
     appId: "0CBS2VLS6S",
