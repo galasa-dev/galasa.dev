@@ -3,10 +3,13 @@ path: "/docs/writing-own-tests/running-test-modes"
 title: "Running a Galasa test"
 ---
 
-There are three modes in which you can run a Galasa test. You can run a test locally, with everything running on the local machine. You can run a test locally but using a shared configuration that is hosted by the Galasa ecosystem. Or, you can run a test remotely by submitting the test to run in the Galasa ecosystem. 
+There are three modes in which you can run a Galasa test:<br><br>
+-  locally, with everything running on the local machine<br>
+-  locally but using a shared configuration that is hosted by the Galasa ecosystem<br>
+-  remotely, by submitting the test to run in the Galasa ecosystem<br> 
 
 
-The mode in which you choose to run a test depends on what you are trying to achieve with the test run. Use the following information to understand the concepts behind running Galasa tests in each of these modes, and when running a test in that mode is most appropriate. Further information on the advantages and disadvantages of these modes can be found in the <a href=https://galasa.dev/docs/ecosystem> The Galasa Ecosystem</a> documentation. 
+The mode in which you choose to run a test depends on what you are trying to achieve. Use the following information to understand which mode is most appropriate for a given scenario. 
 
 
 ## Running a test locally

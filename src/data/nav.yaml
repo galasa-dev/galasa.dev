@@ -67,6 +67,8 @@
           items:
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
+            - title: Running tests
+              path: /docs/writing-own-tests/running-test-modes
             - title: Testing across environments
               path: /docs/writing-own-tests/binding-tests
             - title: Test streams
