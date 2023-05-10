@@ -19,10 +19,10 @@ When you run a test locally, without using shared configuration, everything runs
 
 ![running in local mode:](running-local.svg)
 
-You can run a test in this mode by using the following command:
+You can run a test in this mode by using the following <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md" target="_blank"> Galasa CLI</a> command:
 
 ```
-galasactl runs submit --local … <more options are needed>
+galasactl runs submit local
 ```
 
 or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
@@ -32,12 +32,12 @@ or by using the Eclipse plugin, in which case the test is hosted within the Ecli
 
 When you run a test locally, but using shared configuration, the Galasa bootstrap file refers to the Galasa Ecosystem that you want to use. The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote ecosystem to read configuration data. This is the key difference between running a test locally without using shared configuration. The test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
 
-![running in local mode with shared configuration:](running-hybrid.svg)
+![running in local mode with shared configuration:](run-hybrid.png)
 
 You can run a test in this mode by setting up your bootstrap to refer to the ecosystem that you want to use and running the following command:
 
 ```
-galasactl runs submit --local 
+galasactl runs submit local 
 ```
 
 or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
@@ -62,11 +62,11 @@ Running a test locally is useful when you are doing the following types of task:
 
 ## Running a test remotely in a Galasa Ecosystem
 
-When you run a test remotely, the Galasa bootstrap file refers to the Galasa Ecosystem that you want to use, and the test is run on the specified remote ecosystem.  The configuration for the test is also held within that ecosystem, and Galasa starts up on the container in which the test code is running. The test results and artifacts are stored in a database within the ecosystem and authorised users on client machines are able to view the test results. 
+When you run a test remotely, the Galasa bootstrap is set to the URL of the Galasa Ecosystem in which you want to run your test. The configuration of the test is also held within that ecosystem, and Galasa starts up a container in which the test code will run. The test results and artifacts are stored in a database within the specified ecosystem, and authorised users on client machines can view the test results. 
 
 The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote ecosystem to read configuration data. This is the key difference between running a test locally without using shared configuration. The test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
 
-![running remotely:](running-remote.svg)
+![running remotely:](run-remote.svg)
 
 You can run a test in this mode by setting up your bootstrap file to refer to the ecosystem that you want to use and running the following command to schedule a test to run in the ecosystem:
 

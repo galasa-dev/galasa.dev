@@ -9,7 +9,7 @@ The SimBank tests showcase how the Galasa framework can run inside a locally hos
 
 However, there are limitations to taking a local-only approach:
 
-- Configuration settings, test results and test artifacts are stored locally, so cannot be shared across teams
+- Configuration settings, test results and test artifacts are stored locally, so cannot be easily shared across teams using Galasa tools
 - Tests cannot be run headlessly, so the workstation must be kept active
 - Scaling capabilities are limited by workstation resources
 - Monitoring and Management features are not available, for example, test streams and the test catalog and dashboarding capabilities
