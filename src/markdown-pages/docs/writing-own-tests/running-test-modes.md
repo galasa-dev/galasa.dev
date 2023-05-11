@@ -57,7 +57,7 @@ galasactl runs submit
 When you run a test locally, but using shared configuration, the Galasa bootstrap is set to the URL of the Galasa Ecosystem where the shared configuration is stored. The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote ecosystem to read configuration data, but not the credentials properties as these are drawn from a local file. This is the key difference between running a test in this "hybrid" mode versus running a test locally without using shared configuration. In hybrid mode, the test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
 
 
-![running in local mode with shared configuration:](run-hybrid.png)
+![running in local mode with shared configuration:](hybridrunmode.svg)
 
 You can run a test in this mode by setting up your bootstrap to refer to the ecosystem in which the shared configuration is stored, and running the following command:
 
