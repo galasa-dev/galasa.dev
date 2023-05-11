@@ -5,9 +5,9 @@ title: "Running a Galasa test"
 
 [Overview](#overview)<br>
 [Running a test locally](#locally)<br>
-[Running a test remotely](#remotely)<br>
+[Running a test in the Ecosystem](#remotely)<br>
 [Running a test locally but using shared configuration](#hybrid)<br>
-[When to run a test remotely](#whenremote)<br>
+[When to run a test in the Ecosystem](#whenremote)<br>
 [When to run a test locally](#whenlocal)<br>
 
 
@@ -30,27 +30,17 @@ When you run a test locally, without using shared configuration, everything runs
 
 ![running in local mode:](running-local.svg)
 
-You can run a test in this mode by using the following <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md" target="_blank"> Galasa CLI</a> command:
-
-```
-galasactl runs submit local
-```
-
-or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
+You can run a test in this mode by using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command, or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
 
 
-## <a name="remotely"></a>Running a test remotely in a Galasa Ecosystem
+## <a name="remotely"></a>Running a test in the Galasa Ecosystem
 
 To submit your test to an Ecosystem for remote execution, the Galasa bootstrap is set to the URL of the Galasa Ecosystem in which you want to run your test. The configuration of the test is also held within that ecosystem, and Galasa starts up in a container in which the test code will run. The test results and artifacts are stored in a database within the specified ecosystem, and users on client machines can view the test results. 
 
 
 ![running remotely:](run-remote.svg)
 
-You can run a test in this mode by setting up your bootstrap file to refer to the ecosystem that you want to use and running the following command to schedule a test to run in the ecosystem:
-
-```
-galasactl runs submit
-```
+You can run a test in this mode by setting up your bootstrap file to refer to the ecosystem that you want to use and running the `runs submit` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit.md" target="_blank"> Galasa CLI</a> command.
 
 ## <a name="hybrid"></a>Running a test locally but using shared configuration
 
@@ -59,15 +49,9 @@ When you run a test locally, but using shared configuration, the Galasa bootstra
 
 ![running in local mode with shared configuration:](hybridrunmode.svg)
 
-You can run a test in this mode by setting up your bootstrap to refer to the ecosystem in which the shared configuration is stored, and running the following command:
+You can run a test in this mode by setting up your bootstrap to refer to the ecosystem in which the shared configuration is stored, and using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. Alternatively, you can use the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
 
-```
-galasactl runs submit local 
-```
-
-or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
-
-### <a name="whenremote"></a>When to run a test remotely
+### <a name="whenremote"></a>When to run a test in the Galasa Ecosystem
 
 Running a test remotely is useful in the following scenarios:
 
@@ -94,12 +78,6 @@ Running a test locally is useful when you are doing the following types of task:
 - Developing tests, and running those tests against a non-production environment.
 
 - Running ad-hoc tests against a development or non-production target system.
-
-- Running many tests in series against a target system which can withstand the load that is placed on it.
-
-- Running tests against a target system which is dynamically provisioned, used exclusively by the tests, and de-provisioned afterwards.
-
-- Running tests within a JVM that will not be interrupted, or halted mid-flow, causing a build-up of allocated resources in the system under test.
 
 - When there is time to find and share test run logs and artifacts with bug investigators, whenever a test fails and finds a bug.
 
