@@ -43,7 +43,6 @@ or by using the Eclipse plugin, in which case the test is hosted within the Ecli
 
 To submit your test to an Ecosystem for remote execution, the Galasa bootstrap is set to the URL of the Galasa Ecosystem in which you want to run your test. The configuration of the test is also held within that ecosystem, and Galasa starts up in a container in which the test code will run. The test results and artifacts are stored in a database within the specified ecosystem, and users on client machines can view the test results. 
 
-The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote ecosystem to read configuration data. This is the key difference between running a test locally without using shared configuration. The test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
 
 ![running remotely:](run-remote.svg)
 
@@ -56,6 +55,7 @@ galasactl runs submit
 ## <a name="hybrid"></a>Running a test locally but using shared configuration
 
 When you run a test locally, but using shared configuration, the Galasa bootstrap is set to the URL of the Galasa Ecosystem where the shared configuration is stored. The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote ecosystem to read configuration data, but not the credentials properties as these are drawn from a local file. This is the key difference between running a test in this "hybrid" mode versus running a test locally without using shared configuration. In hybrid mode, the test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
+
 
 ![running in local mode with shared configuration:](run-hybrid.png)
 
