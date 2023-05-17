@@ -4,14 +4,25 @@ title: "Viewing test run status"
 ---
 
 You can specify a number of parameters on the `galasactl runs get` command to query test runs on specific
-details, and to display the output of those queries in different formats. The following table provides a high-level summary of a subset of available options. You can view the full command syntax, including parameter descriptions, in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_get.md" target="_blank">Galasa cli repository</a>.
+details, and to display the output of those queries in different formats. The following tables provide a high-level summary of a subset of available options. You can view the full command syntax, including parameter descriptions, in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_get.md" target="_blank">Galasa cli repository</a>.
+
+
+Table 1: options that you can set on the `galasactl runs get` command to query test run data on specific details:
 
 | Name |  Description  |
 | :---- | :-------- | 
 | `--name`  | Use the `--name` parameter to query details about completed test runs or tests that are running by using the name of the test run.  |
-| `--format` | Use the `--format` parameter view test status in a _summary_,  _details_, or _raw_ format. The default format is _summary_. The _summary_ format is useful if you just need to know the high-level status and result of a test. The _details_ format is useful when you need to see all the details of a test run. The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available, without having to query the data via the published REST interface. | 
 | `--requestor`| Use the `--requestor` parameter to view tests results of test runs that were submitted to the ecosystem by a specified person. |
 | `--age`| Use the `--age` parameter to specify a time period in which the tests ran. The _age_ parameter is specified in the format _FROM:TO_. Units of time can be specified in units of weeks _w_, days _d_, or hours _h_. The _TO_ part of the value is optional, with a default set to 0 which indicates the current time. The _FROM_ part of the value specifies how far back in time the query is applied. The _TO_ value must therefore always be a larger value than the _FROM_ value. If the `--name` parameter is specified, the `--age` parameter is not used. |
+
+
+Table 2: options that you can set on the `galasactl runs get` command to display test run results in different formats:
+
+| Name |  Description  |
+| :---- | :-------- | 
+| `--format summary` | The default format is _summary_. The _summary_ format is useful if you just need to know the high-level status and result of a test.  | 
+| `--format details` | The _details_ format is useful when you need to see all the details of a test run, including method information.  | 
+| `--format raw` | The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available, without having to query the data via the published REST interface. | 
 
 
 ## View tests results in summary format
@@ -56,7 +67,7 @@ galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
 where:
 - `--name` is the name of the test run 
 - `--bootstrap` is the URL of the ecosystem's bootstrap properties
-- `--format` is the format in which you want the results to display.
+- `--format` is the format in which you want the results to display
 
 
 Results are returned on the terminal in the following example format:
@@ -99,7 +110,7 @@ galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
 where:
 - `--name` is the name of the test run 
 - `--bootstrap` is the URL of the ecosystem's bootstrap properties
-- `--format` is the format in which you want the results to display.
+- `--format` is the format in which you want the results to display
 
 Results are returned on the terminal in the following example format:
 
