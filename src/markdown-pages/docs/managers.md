@@ -138,7 +138,6 @@ Each Manager is tagged with one of the follow readiness indicators:
 | **AIX Manager**                       | Provisions AIX server configuration properties, and helps drive provisioning by other Managers such as the OpenStack Manager.        |
 | **Artifactory Manager**               | Provides the ability to retrieve artifacts from Artifactory servers.                                                                 |
 | **CICS z/OS PT Provisioning Manager** | Provisions CICS TS servers for the CICS TS Manager.                                                                                  |
-| **GitHub Manager**                    | Enables tests to retrieve artifacts from GitHub and enables test results to be influenced by the status of issues.                   |
 | **GitLab Manager**                    | Enables tests to retrieve artifacts from GitLab and enables test results to be influenced by the status of issues.                   |
 | **IMS DB Manager**                    | Provisions and configures IMS DB subsystems.                                                                                         |
 | **IMS TM Manager**                    | Provisions and configures IMS TM subsystems.                                                                                         |

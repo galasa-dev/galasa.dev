@@ -10,7 +10,7 @@
     "@fontsource/ibm-plex-mono": "^4.5.13",
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/work-sans": "^4.5.14",
-    "gatsby": "^5.4.2",
+    "gatsby": "^5.9.0",
     "gatsby-plugin-catch-links": "^5.4.0",
     "gatsby-plugin-csp": "^1.1.4",
     "gatsby-plugin-layout": "^4.4.0",
@@ -67,7 +67,7 @@
   "engines": {
     "node": "18.x"
   },
-  "overrides": { 
+  "overrides": {
     "lmdb": "2.6.0"
   }
 }
