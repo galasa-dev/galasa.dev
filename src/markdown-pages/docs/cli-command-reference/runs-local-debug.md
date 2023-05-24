@@ -11,6 +11,9 @@ If you need to override the value of the port that is set in the bootstrap, you 
 
 To launch multiple testcases in debug mode, add an explicit `--debugPort` option on the `galasactl runs submit local` command, so that each port is only used by one test/debugger pair at a time.
 
+You can view the full list of options that are available with the `runs submit local` command in the 
+<a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
+
 
 ## Connection modes
 
