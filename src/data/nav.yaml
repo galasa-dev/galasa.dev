@@ -86,6 +86,8 @@
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-submit
+            - title: Viewing test run status 
+              path: /docs/cli-command-reference/cli-runs-get
         - title: Upgrading
           path: /docs/upgrading  
         - title: Managers

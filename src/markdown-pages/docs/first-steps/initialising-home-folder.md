@@ -33,6 +33,16 @@ ${HOME}/.galasa
 
 You can validate the set up by locating your user home directory and confirming that it contains a `.galasa` folder. On Windows, the user home directory resembles: ```C:\Users\<username>```, on MacOS it will be ```/Users/<username>``` and on Linux ```/home/<username>```. Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your file browser user interface to show hidden files.
 
+## <a name="overidehomefolder"></a>Overriding the Galasa home folder
+
+The `${HOME}/.galasa` folder is a writable folder and is used by default to store test results and artifacts which are created when tests are run using local JVMs.
+
+This value can be overridden using the `GALASA_HOME` environment variable. Setting this variable means that you can control where files are created, where Galasa retrieves settings from, and where local test run results and artifacts are stored. This is useful if you need isolation between multiple Galasa local test environments, if you want to share your configuration and test run results with others, or if your `${HOME}/.galasa` folder is low on disk space.
+
+You can override the value of the `GALASA_HOME` environment variable on a call-by-call basis by using the `--galasahome` command-line flag.
+
+If you change the `GALASA_HOME` variable to a non-existent or non-initialised folder path, you can create the folder and re-initialise the folder path by running the `galasactl local init` command.
+
 
 ## <a name="about"></a>About the properties files
 
