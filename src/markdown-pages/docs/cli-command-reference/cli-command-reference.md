@@ -25,7 +25,7 @@ After downloading the binary, re-name it to `galasactl` (for Mac or Unix) or `ga
 
 Galasa CLI commands start with `galasactl`. Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
 
-You can view the Galasa CLI command syntax, including parameter descriptions, in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md).
+You can view the Galasa CLI command syntax, including parameter descriptions, in the <a href=https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md target="_blank"> cli repository</a> in GitHub.
 
 
 ## Known limitations
@@ -49,7 +49,9 @@ galasactl --log <logFilePath>
 
 ## Errors
 
-You can view a list of error messages that can be output by the galasactl tool in the [galasactl error documentation](https://github.com/galasa-dev/cli/blob/main/docs/generated/errors-list.md) in the cli repository in GitHub. 
+You can view a list of error messages that can be output by the galasactl tool in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/errors-list.md" target="_blank"> Galasa cli repository</a> in GitHub.
+
+
 
 
 
