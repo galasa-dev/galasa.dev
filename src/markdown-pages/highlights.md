@@ -11,7 +11,37 @@ Post a question or share your experiences with other users in our <a href="https
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.25.0 - Release Highlights
+
+## 0.27.0 - Release Highlights
+
+- REST API enhancements:<br><br>
+       * allow queries of test run details using the run name<br><br>
+       * documentation added to the https://rest.galasa.dev/ website<br><br>
+
+- Command-line tool `galasactl` now supports:<br><br>
+       * the `GALASA_HOME` environment variable, which you can set to avoid using the `{HOME}/.galasa` folder <br><br>
+       * querying of test run status using the run name <br><br>
+       * the `--development` flag for `galasactl project create` and `galasactl local init` to enable generated code to use pre-released code versions of Galasa libraries, in addition to the ones published on Maven central <br><br>
+       * automated tests run on every build <br>
+
+<details>
+<summary><b>0.26.0 - Release Highlights</b></summary>
+
+-  Initialise your development environment by using the  galasactl local init command
+-  Launch a test within a local JVM by using the galasactl runs submit local command
+-  Create an example project by using the galasactl project create command, which now supports --maven and --gradle flags to control which build system the caller wants to use.
+-  3270 images are generated in the RAS results store (experimental code for this release)
+-  SnakeYAML is upgraded to v1.33. This is a Java library for parsing yaml files.
+-  Documentation updates on using the CLI to:
+      -	initialise your local environment
+      - create a project
+      - run a test locally
+-	 Various doc updates and enhancements to existing content
+</details>
+
+
+<details>
+<summary><b>0.25.0 - Release Highlights</b></summary>
 
 
 -	Colour support for 3270 application streams. Tests can now validate that an application is using the correct colours and highlighting for specified field(s) and screen position.
@@ -27,13 +57,14 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
         *	galasactl is now supported on MaxOSX on arm64 architecture machines.<br>
 -	Artifact Manager is updated to remove the need to create a second resources folder. 
 -	Upgrades have been made to some dependencies.
+</details>
 
 
 <details>
 <summary><b>0.24.0 - Release Highlights</b></summary>
 
 
-- The minimum Java release now required for Galasa is version 11, rather than version 8. You will need to install a Java version 11 JDK or later to run Galasa tests.  
+- The minimum Java release now required for Galasa is version 11, rather than version 8. You will need to install a Java version 11 JDK or later to run Galasa tests. _Note:_ We do not currently support Java 17 or later. 
 - Various enhancements to the DB2 Manager.
 - Various defect fixes. 
 - Various documentation fixes and enhancements. 
@@ -71,7 +102,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - The Galasa VTP Manager is now in Release. You can create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. The recorded file can be played back by using IBM Z VTP.
 - Installing the Galasa Ecosystem by using the Kubernetes Operator is updated.
-- ```galasactl runs``` and ```galasactl.exe runs``` commands can now select tests based on the _@Tags_ annotation by using the ```--tag``` option.
+- Use the ```galasactl runs``` command to select tests based on the _@Tags_ annotation by using the ```--tag``` option.
 - Galasa Docker images are moving from DockerHub to _icr.io_. Images in DockerHub (release 0.19.0 and before) will be deleted when 0.21.0 is released.
 - The Core Manager now provides a _@ResourceString_ annotation and _IResourceString_  interface to generate random locked strings. Further details will be available on the website once the Manager documentation is refreshed.
 - Various bug fixes and enhancements.

@@ -36,6 +36,8 @@
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
+            - title: Debugging a test locally
+              path: /docs/cli-command-reference/cli-runs-local-debug
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
@@ -67,6 +69,8 @@
           items:
             - title: Writing test classes
               path: /docs/writing-own-tests/writing-test-classes
+            - title: Running tests
+              path: /docs/writing-own-tests/running-test-modes
             - title: Testing across environments
               path: /docs/writing-own-tests/binding-tests
             - title: Test streams
@@ -80,6 +84,12 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Selecting tests to run in the Ecosystem
+              path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
+            - title: Running tests in the Ecosystem
+              path: /docs/cli-command-reference/ecosystem-cli-runs-submit
+            - title: Viewing test run status 
+              path: /docs/cli-command-reference/cli-runs-get
         - title: Upgrading
           path: /docs/upgrading  
         - title: Managers
@@ -112,6 +122,8 @@
               path: /docs/reference/javadoc
             - title: CLI commands
               path: /docs/reference/cli-commands
+            - title: Ecosystem REST API
+              path: /docs/reference/rest-api-docs
     - title: Support
       root: /support/
       items:
