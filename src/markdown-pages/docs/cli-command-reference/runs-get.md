@@ -42,9 +42,9 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-galasactl runs get --name U456
-name  status    result  test-name
-U456  Finished  Passed  MyTestName
+$galasactl runs get --name U456 --format summary
+submitted-time      name status   result             test-name
+2023-05-04 10:55:29 U456 Finished MyLongResultString MyTestName
 ```
 
 ## View tests results in details format
@@ -54,7 +54,7 @@ The following example command returns test status in a details format:
 On Mac or Unix:
 
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+$galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
 --format details 
 ``` 
 
@@ -74,17 +74,17 @@ Results are returned on the terminal in the following example format:
 
 ```
 galasactl runs get --name U456 --format details
-name         :  U456
-status       :  Finished
-result       :  Passed
-queued-time  :  2023-05-04 10:55:29
-start-time   :  2023-05-05 06:00:14
-end-time     :  2023-05-05 06:00:15
-duration(ms) :  1000
-test-name    :  dev.galasa.Zos3270LocalJava11Ubuntu
-requestor    :  galasa
-bundle       :  dev.galasa
-run-log      :  https://127.0.0.1/ras/run/cbd-123/runlog
+name            :  U456
+status          :  Finished
+result          :  Passed
+submitted-time  :  2023-05-04 10:55:29
+start-time      :  2023-05-05 06:00:14
+end-time        :  2023-05-05 06:00:15
+duration(ms)    :  1000
+test-name       :  dev.galasa.Zos3270LocalJava11Ubuntu
+requestor       :  galasa
+bundle          :  dev.galasa
+run-log         :  https://127.0.0.1/ras/run/cbd-123/runlog
 
 method          type status   result start-time          end-time            duration(ms)
 testCoreIvtTest test finished passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
@@ -115,6 +115,8 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
+$galasactl runs get --name U456 --format raw
+U456|Finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
 ```
 
 ## Query test results by a specific requestor over a given time period
