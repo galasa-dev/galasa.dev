@@ -17,13 +17,15 @@ You can extract credentials by using the Core Manager `getCredentials` method. T
 
 If you want to mask the password, for example to prevent it from being displayed in recorded screens, you can use the Core Manager `registerConfidentialText` method. There is an example of this method in the _Running the SimBank Installation Verification Test_ documentation.
 
+
 ## An example using SimBank
 
 In Galasa, when an annotation refers to a resource, for example a z/OS image, you can use the *imageTag* attribute to avoid hard coding the endpoint of that z/OS image in your test code. The properties that are associated with the attribute are stored in the CPS file. 
 
 Let’s look at an example in the SimBank ```BatchAccountsOpenTest.java``` test code where the *imageTag* attribute is used to avoid hard coding an endpoint for a z/OS image.
 
-The test declares that a z/OS image is required for the test to run and that this image is called *SIMBANK* by using the following test code: 
+The test declares that a z/OS image is required for the test to run and that this image is called *SIMBANK* by using the following test code:
+
 ```
 @ZosImage(imageTag="SIMBANK")
     public IZosImage image;
@@ -62,6 +64,7 @@ The z/OS Manager reads the test code and creates the image object by using the p
 ## Clustering
 
 What if you want to run your test against an image in a cluster? By editing the CPS properties file, you can define clusters containing images against which your test can run . Once defined, Galasa can dynamically select an image from that cluster at run time.
+
 
 For example, you might want to define a cluster called *CLUSTER2* which contains two z/OS images called *IMAGEA* and *IMAGEB*. You can do this by udpating the CPS file to define *CLUSTER2* and the images that you want it to contain, along with the properties of those images, as per the following example:
 
