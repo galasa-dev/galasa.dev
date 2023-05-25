@@ -36,6 +36,8 @@
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
+            - title: Debugging a test locally
+              path: /docs/cli-command-reference/cli-runs-local-debug
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
