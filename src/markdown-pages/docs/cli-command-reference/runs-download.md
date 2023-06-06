@@ -3,7 +3,7 @@ path: "/docs/cli-command-reference/ecosystem-cli-runs-download"
 title: "Downloading test run artifacts"
 ---
 
-You can download test artifacts, results and run logs for a test run from the RAS and store them in a directory by using the `runs download` command. Use this output to gather information about a test, help debug and diagnose test failure, and make comparisons between test run results.
+You can download test artifacts, results and run logs for a test run from the RAS and store them in a directory by using the `runs download` command. Use this output to gather information about a test, help debug and diagnose test failure, share test run output, and make comparisons between test run results.
 
 You can view the full list of options that are available with the `runs download` command in the 
 <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_download.md#galasactl-runs-download" target="_blank">Galasa cli repository</a>.
