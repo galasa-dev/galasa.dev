@@ -35,9 +35,9 @@ Use the following sections to view some example command options and generated ou
 
 ### View tests results in summary format
 
-This is the default format. Use this format to get a quick, high-level update on the status of a test run. Returned information includes details about time the test was submitted, run name, status, result, and test name. This format is especially useful if a query returns a large number of results. 
+This is the default format. Use this format to get a quick, high-level update on the status of a test run or runs. Returned information includes details about time the test was submitted, run name, status, result, and test name. This format is especially useful if a query returns a large number of results. 
 
-The following example command returns test status in a summary format:
+The following example command returns test status in a summary format for tests that ran between two weeks ago and one week ago:
 
 ```
 galasactl runs get --bootstrap http://example.com:30960/boostrap --age 2w:1w
@@ -67,7 +67,7 @@ Total:6 Passed:6
 
 ### View tests results in details format
 
-Use this format to drill down to get more details on a particular test run. The returned information includes details about the requestor and bundle, and provides a link to the run log which can be viewed in a browser which is very useful for helping diagnose why a test failed. A table of methods is also displayed, including details about the status and result of each test method. 
+Use this format to drill down to get more details on a particular test run. The returned information includes details about the requestor and bundle. A link to the run log which can be viewed in a browser, is helpful in diagnosing why a test failed. A table of methods is also displayed, including details about the status and result of each test method. 
 
 The following example command returns test status in a details format:
 
