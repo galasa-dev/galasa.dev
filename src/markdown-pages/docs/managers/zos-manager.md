@@ -200,6 +200,20 @@ The following properties are used to configure the z/OS Manager.
 | Examples: | <code>zos.image.[tag].max.slots=2</code><br> |
 
 </details>
+
+<details>
+<summary>Code page for z/OS Image</summary>
+
+| Property: | Code page for zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[tag].codepage |
+| Description: | The EBCDIC code page used on a z/OS Image for the specified tag |
+| Required:  | No |
+| Default value: | 037 |
+| Valid values: | A valid java.nio.charset EBCDIC character encoding |
+| Examples: | <code>zos.image.[tag].codepage=1047</code><br> |
+
+</details>
  
 <details>
 <summary>The SYSNAME for z/OS Image</summary>
