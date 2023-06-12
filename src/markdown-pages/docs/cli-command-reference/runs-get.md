@@ -16,7 +16,6 @@ Use the tables provided to view the options for filtering test results, and for 
 | Name |  Description  |
 | :---- | :-------- | 
 | `--name`  | Use the `--name` option to query the status of a particular test run.  |
-| `--requestor`| Use the `--requestor` option to view results of test runs that were submitted to the ecosystem by a specified person or system. |
 | `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, or hours _h_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. If the `--name` option is specified, the `--age` parameter is not used. |
 
 
@@ -67,7 +66,7 @@ Total:6 Passed:6
 
 ### View tests results in details format
 
-Use this format to drill down to get more details on a particular test run. The returned information includes details about the requestor and bundle. A link to the run log which can be viewed in a browser, is helpful in diagnosing why a test failed. A table of methods is also displayed, including details about the status and result of each test method. 
+Use this format to drill down to get more details on a particular test run. The returned information includes details about the bundle and a link to the run log URL, which can be viewed in a browser. Viewing the run log in this way makes it easier to diagnose why a test failed. A table of methods is also displayed, including details about the status and result of each test method. 
 
 The following example command returns test status in a details format:
 
@@ -102,7 +101,6 @@ start-time     : 2023-05-05 06:00:14
 end-time       : 2023-05-05 06:00:15
 duration(ms)   : 1000
 test-name      : dev.galasa.Zos3270LocalJava11Ubuntu
-requestor      : galasa
 bundle         : dev.galasa
 run-log        : https://127.0.0.1/ras/run/cbd-123/runlog
 
