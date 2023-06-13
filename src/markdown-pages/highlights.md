@@ -12,7 +12,16 @@ Post a question or share your experiences with other users in our <a href="https
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.27.0 - Release Highlights
+## 0.28.0 - Release Highlights
+
+- Updates to the `runs get` command, including the ability to filter test run results on a specified time period, and to display the returned results in a detailed or raw format
+- Ability to download test run artifacts by using the `runs download` command
+- Ability to debug a test locally by using the `runs submit local` command
+- Various documentation updates and enhancements
+
+
+<details>
+<summary><b>0.27.0 - Release Highlights</b></summary>
 
 - REST API enhancements:<br><br>
        * allow queries of test run details using the run name<br><br>
@@ -23,6 +32,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
        * querying of test run status using the run name <br><br>
        * the `--development` flag for `galasactl project create` and `galasactl local init` to enable generated code to use pre-released code versions of Galasa libraries, in addition to the ones published on Maven central <br><br>
        * automated tests run on every build <br>
+</details>       
 
 <details>
 <summary><b>0.26.0 - Release Highlights</b></summary>
