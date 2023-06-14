@@ -75,6 +75,7 @@ zos.image.IMAGEA.telnet.tls=false
 zos.image.IMAGEA.credentials=WINMVS2A
 zos.image.IMAGEA.max.slots=1
 zos.image.IMAGEA.clusterid=CLUSTER2
+zos.tag.IMAGEA.clusterid=CLUSTER2
 
 zos.image.IMAGEB.ipv4.hostname=winmvs2b.example.com
 zos.image.IMAGEB.telnet.port=23
@@ -82,6 +83,7 @@ zos.image.IMAGEB.telnet.tls=false
 zos.image.IMAGEB.credentials=WINMVS2A
 zos.image.IMAGEB.max.slots=1
 zos.image.IMAGEB.clusterid=CLUSTER2
+zos.tag.IMAGEB.clusterid=CLUSTER2
 ```
 
 The images are linked back to the *CLUSTER2* cluster by using  the following code: 

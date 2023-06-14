@@ -31,6 +31,16 @@ The Gradle project structure looks somewhat different to the Maven structure bec
 
 The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
+The following table shows the current compatibility between Gradle and Galasa versions: 
+
+
+| Gradle release |  Compatible Galasa version  |
+| :---- | :-------- | 
+| 6.8.x  | All |
+| 6.9.x  | All |
+| 7.x.x | All | 
+
+
 
 ## Before you start
 
