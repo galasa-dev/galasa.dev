@@ -35,7 +35,7 @@ You can check the current compatibility between Eclipse and Galasa versions in t
 
 ### Gradle 
 
-You will need to install Gradle version 6.8.2 which is used to build the Galasa software. 
+You will need to install Gradle, which is used to build the Galasa software. You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Creating a Galasa project](/docs/writing-own-tests/setting-up-galasa-project) documentation. 
 
 ### Docker (Required if using the Docker image)
 
