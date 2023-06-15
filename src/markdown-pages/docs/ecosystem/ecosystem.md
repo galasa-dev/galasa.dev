@@ -3,19 +3,19 @@ path: "/docs/ecosystem"
 title: "The Galasa Ecosystem"
 ---
 
-To realise the full power of Galasa, you need to run your tests inside a Galasa ecosystem. The ecosystem enables you to run automated testing away from your workstation. 
+To realise the full power of Galasa, you need to run your tests inside a Galasa ecosystem. The ecosystem enables you to run automated testing away from your workstation, outside of a local JVM. 
 
-The SimBank tests showcase how the Galasa framework can run inside a locally hosted JVM. Local runs use their own Galasa property files to act as configurational services, making it easy to instantiate and run tests. 
+The SimBank tests showcase how the Galasa framework can run inside a locally hosted JVM. Local runs use their own Galasa property files to act as configurational services, making it easy to instantiate and run tests.
 
 However, there are limitations to taking a local-only approach:
 
-- Configuration settings, test results and test artifacts are stored locally, so cannot be shared across teams
-- Tests cannot be run headlessly, so the workstation must be kept active 
+- Configuration settings, test results and test artifacts are stored locally, so cannot be easily shared across teams using Galasa tools
+- Tests cannot be run headlessly, so the workstation must be kept active
 - Scaling capabilities are limited by workstation resources
-- Monitoring and Management features are not available, for example, test streams and the test catalog and dashboarding capabilities   
+- Monitoring and Management features are not available, for example, test streams and the test catalog and dashboarding capabilities
 
 
-### Benefits of using the Galasa ecosystem
+## Running tests in the Galasa Ecosystem
 
 The Galasa ecosystem is a cloud native application which exposes a sequence of microservices that are used to manage the set of running tests. Running tests inside the ecosystem provides a number of benefits:
 

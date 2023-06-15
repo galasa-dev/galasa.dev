@@ -14,8 +14,8 @@ The following table shows the current compatibility between Eclipse and Galasa v
 
 | Eclipse level |  Compatible Galasa version  |
 | :---- | :-------- | 
-| 2023-03  | 0.27.0 |
-| 2022-09 | 0.27.0| 
+| 2023-03  | 0.27.0 and later |
+| 2022-09 | 0.27.0 and later | 
 | 2022-06 | 0.26.0, 0.25.0 |
 
 
