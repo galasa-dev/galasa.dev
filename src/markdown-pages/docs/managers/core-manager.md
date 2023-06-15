@@ -14,7 +14,10 @@ This Manager is at Release level. You can view the <a href="https://javadoc.gala
 
 # <a name="overview"></a>Overview
 
-The Core Manager provides tests with access to some of the core features within the Galasa Framework. The Core Manager is always initialised and included in a test run and contributes the <code>Logger</code>, <code>StoredArtifactRoot</code>, <code>ResourceString</code>, <code>RunName</code> and <code>TestProperty</code> annotations. <br><br> The <code>Logger</code> annotation is provided by the Core Manager to create the log which is then automatically stored in the Result Archive Store (RAS) by the Galasa framework.  <br><br> The <code>StoredArtifactRoot</code> annotation lets your test write specific output to the RAS. Whilst the Galasa framework automatically sends test output to be stored in the RAS, this annotation enables you to write code to send output specific to your application to be stored.  <br><br> The Core Manager uses methods including <code>getCredentials</code>, <code>getUsernamePassword</code>, <code>getRunName</code> and <code>ConfidentialText</code> credentials. <code>getCredentials</code> lets you retrieve a user id and password from a file to use in your test as well as other forms of credentials such as tokens, whilst <code>getUsernamePassword</code> lets you retrieve a user id and password only from a file to use in your test and <code>ConfidentialText</code> ensures that the password value is masked. The ability to get credentials from a file means that you do not need to hard code these values in your test and that the test can be run in different environments without the need to change a single line of code.  <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/core/manager/package-summary.html">Javadoc documentation for this Manager here</a>. <br><br>
+The Core Manager provides tests with access to some of the core features within the Galasa Framework. The Core Manager is always initialised and included in a test run and contributes the <code>Logger</code>, <code>StoredArtifactRoot</code>, <code>ResourceString</code>, <code>RunName</code> and <code>TestProperty</code> annotations. <br><br> The <code>Logger</code> annotation is provided by the Core Manager to create the log which is then automatically stored in the Result Archive Store (RAS) by the Galasa framework.  <br><br> The <code>StoredArtifactRoot</code> annotation lets your test write specific output to the RAS.  Whilst the Galasa framework automatically sends test output to be stored in the RAS, this annotation enables you to write code to send output specific to your application to be stored. You can use this output for review or to enable compares to be done when tests fail. <br><br> The Core Manager uses methods including <code>getCredentials</code>, <code>getUsernamePassword</code>, <code>getRunName</code> and <code>ConfidentialText</code> credentials. <code>getCredentials</code> lets you retrieve a user id and password from a file to use in your test as well as other forms of credentials such as tokens, whilst <code>getUsernamePassword</code> lets you retrieve a user id and password only from a file to use in your test and <code>ConfidentialText</code> ensures that the password value is masked. The ability to get credentials from a file means that you do not need to hard code these values in your test and that the test can be run in different environments without the need to change a single line of code. <br><br>. 
+
+
+You can view the <a href="https://javadoc.galasa.dev/dev/galasa/core/manager/package-summary.html">Javadoc documentation for this Manager here</a>. <br><br>
 
 
 ## <a name="dependencies"></a>Including the Manager in a test
@@ -205,6 +208,23 @@ If the folder or file do not exist, it is created by using the `resolve` method.
 
 </details>
 
+<details><summary>Specify a folder in the RAS in which to store test result output</summary>
+
+If you want to produce output to allow compares to be done when tests fail, you can elect a folder in which to store the output by using the _@StoredArtifactRoot _ annotation on an _IPath_ object. 
+
+Use the following example to understand the code that needs to be added to the test class:
+
+```
+@StoredArtifactRoot
+    public Path rasRoot;
+Path jobOutput = \
+rasRoot.resolve("zosBatchJobs").resolve("checkOutputIsStoredInRAS");
+Files.write(jobOutput, content.getBytes(), StandardOpenOption.CREATE);
+```
+
+The `resolve` method finds the directory (or creates one if needed) and a file is then created in the RAS by using the PATH API.
+
+</details>
 
 <details><summary>Using the Test Property annotation</summary>
 
