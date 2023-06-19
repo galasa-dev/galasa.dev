@@ -9,6 +9,39 @@ The following section shows you how to initialise your Galasa home folder by usi
 
 You can view the full list of options (flags) that are available with the `local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
+
+## Setting the Galasa bootstrap 
+
+Most Galasa CLI commands need a reference to the Galasa bootstrap file or url. You can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the e`--bootstrap` option takes precedence.
+
+You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example:
+
+On Mac or Unix:
+
+```
+export <environment-variable-name>=<value>
+```
+
+On Windows: 
+
+```
+set <environment-variable-name>=<value>
+```
+
+To set `GALASA_BOOTSTRAP` to `http://my-test-url`, use the command:
+
+On Mac or Unix:
+
+``` 
+export GALASA_BOOTSTRAP=http://my-test-url
+```
+
+On Windows: 
+
+``` 
+export GALASA_BOOTSTRAP=http://my-test-url
+```
+
 ## Initialising the Galasa home folder
 
 To initialise your Galasa home folder in your home directory along with the properties files, use the following command:
@@ -39,7 +72,7 @@ The `${HOME}/.galasa` folder is a writable folder and is used by default to stor
 
 This value can be overridden using the `GALASA_HOME` environment variable. Setting this variable means that you can control where files are created, where Galasa retrieves settings from, and where local test run results and artifacts are stored. This is useful if you need isolation between multiple Galasa local test environments, if you want to share your configuration and test run results with others, or if your `${HOME}/.galasa` folder is low on disk space.
 
-You can override the value of the `GALASA_HOME` environment variable on a call-by-call basis by using the `--galasahome` command-line flag.
+You can override the value of the `GALASA_HOME` environment variable on a call-by-call basis by using the `--galasahome` command-line option.
 
 If you change the `GALASA_HOME` variable to a non-existent or non-initialised folder path, you can create the folder and re-initialise the folder path by running the `galasactl local init` command.
 
