@@ -12,9 +12,9 @@ You can view the full list of options (flags) that are available with the `local
 
 ## Setting the Galasa bootstrap 
 
-Most Galasa CLI commands need a reference to the Galasa bootstrap file or url. You can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the e`--bootstrap` option takes precedence.
+Most Galasa CLI commands need a reference to the Galasa bootstrap file or URL. You can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the `--bootstrap` option takes precedence.
 
-You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example:
+You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command, as shown in the following examples: 
 
 On Mac or Unix:
 
@@ -28,18 +28,22 @@ On Windows:
 set <environment-variable-name>=<value>
 ```
 
-To set `GALASA_BOOTSTRAP` to `http://my-test-url`, use the command:
+where: <br>
+- _environment-variable-name_ is the name of the environment variable that you want to set, for example, `GALASA_BOOTSTRAP` or `GALASA_HOME` <br>
+- _value_ is the value that you want to assign to the environment variable <br>
+
+For example, to set `GALASA_BOOTSTRAP` to `http://my-bootstrap-url`, use the following command:
 
 On Mac or Unix:
 
 ``` 
-export GALASA_BOOTSTRAP=http://my-test-url
+export GALASA_BOOTSTRAP=http://my-bootstrap-url
 ```
 
 On Windows: 
 
 ``` 
-export GALASA_BOOTSTRAP=http://my-test-url
+set GALASA_BOOTSTRAP=http://my-bootstrap-url
 ```
 
 ## Initialising the Galasa home folder
