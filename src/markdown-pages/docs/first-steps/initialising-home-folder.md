@@ -14,25 +14,7 @@ You can view the full list of options (flags) that are available with the `local
 
 Most Galasa CLI commands need a reference to the Galasa bootstrap file or URL. You can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the `--bootstrap` option takes precedence.
 
-You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command, as shown in the following examples: 
-
-On Mac or Unix:
-
-```
-export <environment-variable-name>=<value>
-```
-
-On Windows: 
-
-```
-set <environment-variable-name>=<value>
-```
-
-where: <br>
-- _environment-variable-name_ is the name of the environment variable that you want to set, for example, `GALASA_BOOTSTRAP` or `GALASA_HOME` <br>
-- _value_ is the value that you want to assign to the environment variable <br>
-
-For example, to set `GALASA_BOOTSTRAP` to `http://my-bootstrap-url`, use the following command:
+You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://my-bootstrap-url`, use the following command:
 
 On Mac or Unix:
 
@@ -75,6 +57,20 @@ You can validate the set up by locating your user home directory and confirming 
 The `${HOME}/.galasa` folder is a writable folder and is used by default to store test results and artifacts which are created when tests are run using local JVMs.
 
 This value can be overridden using the `GALASA_HOME` environment variable. Setting this variable means that you can control where files are created, where Galasa retrieves settings from, and where local test run results and artifacts are stored. This is useful if you need isolation between multiple Galasa local test environments, if you want to share your configuration and test run results with others, or if your `${HOME}/.galasa` folder is low on disk space.
+
+For example, to set the `GALASA_HOME` environment variable to a folder called _mygalasatests_ in a directory called _temp_, use the following command:
+
+On Mac or Unix:
+
+``` 
+export GALASA_HOME=/temp/mygalasatests
+```
+
+On Windows: 
+
+``` 
+set GALASA_HOME=C:\temp\mygalasatests
+```
 
 You can override the value of the `GALASA_HOME` environment variable on a call-by-call basis by using the `--galasahome` command-line option.
 
