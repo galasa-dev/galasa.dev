@@ -12,13 +12,18 @@ Post a question or share your experiences with other users in our <a href="https
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.28.0 - Release Highlights
+## 0.29.0 - Release Highlights
+
+- Upgrade of 'bouncy castle' crypto libraries to remove a security vulnerability.
+
+<details>
+<summary><b>0.28.0 - Release Highlights</b></summary>
 
 - Updates to the `runs get` command, including the ability to filter test run results on a specified time period, and to display the returned results in a detailed or raw format
 - Ability to download test run artifacts by using the `runs download` command
 - Ability to debug a test locally by using the `runs submit local` command
 - Various documentation updates and enhancements
-
+</details>  
 
 <details>
 <summary><b>0.27.0 - Release Highlights</b></summary>
