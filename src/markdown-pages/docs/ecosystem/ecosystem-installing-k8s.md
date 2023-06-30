@@ -54,8 +54,8 @@ Complete the following steps to install the Galasa Ecosystem in a Kubernetes clu
 	helm install -f /path/to/values.yaml <release-name> galasa/ecosystem --wait
     ```
     where:<br>
-    `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and<br>
-    `<release-name>` is the name that you want to give the ecosystem.<br><br>
+    - `/path/to/values.yaml` is the path to where the `values.yaml` file is downloaded and<br>
+    - `<release-name>` is the name that you want to give the ecosystem.<br><br>
     The ```--wait``` flag ensures that the chart installation completes before marking it as `Deployed`. During the installation, the API pod waits for the etcd and RAS pods to initialise while the Engine-Controller, Metrics, and Resource-Monitor pods wait for the API pod to initialise.
 1.	View the status of the deployed pods by running `kubectl get pods` in another terminal. The returned results should look similar to the following example:
     ```
@@ -96,11 +96,25 @@ You can then deploy your Galasa tests to a Maven repository and set up a test st
 
 ## Upgrading the Galasa Ecosystem
 
-To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.28.0, run the following command:
+To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.29.0, run the following command:
+
+On Mac or Unix:
+
 ```
-helm upgrade --reuse-values --set galasaVersion=0.28.0 --wait
+helm upgrade <release-name> galasa/ecosystem --reuse-values \
+--set galasaVersion=0.29.0 --wait
 ```
-where `galasaVersion` is set to the version that you want to use.
+
+On Windows (Powershell):
+
+```
+helm upgrade <release-name> galasa/ecosystem --reuse-values `
+--set galasaVersion=0.29.0 --wait
+```
+
+where:<br>
+- `galasaVersion` is set to the version that you want to use and<br>
+- `<release-name>` is the name that you gave the ecosystem during installation
 
 ### Troubleshooting
 
