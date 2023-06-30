@@ -16,6 +16,7 @@ Use the tables provided to view the options for filtering test results, and for 
 | Name |  Description  |
 | :---- | :-------- | 
 | `--name`  | Use the `--name` option to query the status of a particular test run.  |
+| `--requestor`| Use the `--requestor` option to view results of test runs that were submitted to the ecosystem by a specified user. The default is the current user name that is specified in the access token.|
 | `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, or hours _h_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. If the `--name` option is specified, the `--age` parameter is not used. |
 
 
@@ -36,22 +37,34 @@ Use the following sections to view some example command options and generated ou
 
 This is the default format. Use this format to get a quick, high-level update on the status of a test run or runs. Returned information includes details about time the test was submitted, run name, status, result, and test name. This format is especially useful if a query returns a large number of results. 
 
-The following example command returns test status in a summary format for tests that ran between two weeks ago and one week ago:
+The following example command returns test status in a summary format for tests that were requested by the user name _bobsmith_, and that ran between two weeks ago and one week ago:
 
-```
-galasactl runs get --bootstrap http://example.com:30960/boostrap --age 2w:1w
-``` 
+On Mac or Unix:
 
-where:
+ ```
+ galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+ --requestor bobsmith --age 2w:1w
+ ``` 
 
-- `--bootstrap` is the URL of the ecosystem's bootstrap properties
-- `--age` is the period of time in which the tests ran
+On Windows (Powershell):
+
+ ```
+ galasactl runs get --bootstrap http://example.com:30960/boostrap ` 
+ --requestor bobsmith --age 2w:1w
+ ``` 
+
+ where:
+
+ - `--bootstrap` is the URL of the ecosystem's bootstrap properties
+ - `--requestor` is the name of the user who requested the test run
+ - `--age` is the period of time in which the tests ran
 
 
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --bootstrap http://example.com:30960/boostrap --age 2w:1w --format summary
+$galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+--requestor bobsmith --age 2w:1w --format summary
 
 submitted-time      name status   result test-name
 2023-05-04 10:55:29 U456 Finished Passed MyTestName1
@@ -101,6 +114,7 @@ start-time     : 2023-05-05 06:00:14
 end-time       : 2023-05-05 06:00:15
 duration(ms)   : 1000
 test-name      : dev.galasa.Zos3270LocalJava11Ubuntu
+requestor      : bobsmith 
 bundle         : dev.galasa
 run-log        : https://127.0.0.1/ras/run/cbd-123/runlog
 

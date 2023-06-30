@@ -50,10 +50,10 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 ```
 hostname: 192.168.1.87
 galasaRegistry: icr.io/galasadev
-version: 0.28.0
+version: 0.29.0
 engineController:
-  controllerVersion: 0.28.0
-  engineVersion: 0.28.0
+  controllerVersion: 0.29.0
+  engineVersion: 0.29.0
 simplatform:
   version: 0.15.0
 ```
