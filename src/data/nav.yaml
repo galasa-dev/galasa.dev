@@ -88,7 +88,7 @@
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-submit
-            - title: Viewing test run status 
+            - title: Viewing test run results 
               path: /docs/cli-command-reference/cli-runs-get
             - title: Downloading test artifacts 
               path: /docs/cli-command-reference/ecosystem-cli-runs-download
