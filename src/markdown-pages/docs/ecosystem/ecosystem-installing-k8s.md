@@ -98,6 +98,7 @@ You can then deploy your Galasa tests to a Maven repository and set up a test st
 
 To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.29.0, run the following command:
 
+
 On Mac or Unix:
 
 ```
