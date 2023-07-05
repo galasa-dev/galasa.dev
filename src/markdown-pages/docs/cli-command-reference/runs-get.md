@@ -18,7 +18,7 @@ Use the tables provided to view the options for filtering test results, and for 
 | `--name`  | Use the `--name` option to query the status of a particular test run.  |
 | `--requestor`| Use the `--requestor` option to view results of test runs that were submitted to the ecosystem by a specified user. The default is the current user name that is specified in the access token.|
 | `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, or hours _h_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. If the `--name` option is specified, the `--age` parameter is not used. |
-| `--result`  | Use the [`--result` option](#result) to filter test run results based on test run status. You can select more than one status by using a comma-separated list. |
+| `--result`  | Use the [`--result` option](#result) to return test runs based on test run results. You can select more than one result by using a comma-separated list. |
 
 <b>Table 2:</b> The following table shows the options that you can set on the `galasactl runs get` command to display test run results in different formats:
 
@@ -34,15 +34,14 @@ Use the tables provided to view the options for filtering test results, and for 
 
 You might want to filter the test results that are returned based on status. For example, you might choose to return only failed tests, so that you can quickly check if you need to investigate an issue. 
 
-The _galasactl runs get_ command now supports the `--result` option, so that test runs which completed with a specified status are returned. Runs which completed with a status that is not specified are not displayed.
+The _galasactl runs get_ command now supports the `--result` option, so that test runs which completed with a specified result are returned. Runs which completed with a result that is not specified are not displayed.
 
 The `--result`  option accepts a comma-separated list of values. The following values are supported:
 
 _Passed_ <br>
 _Failed_<br>
 _EnvFailed_<br>
-_PassedWithDefects_<br>
-_FailedWithDefects_<br>
+_Ignored_<br>   
 _Unknown_<br>
 
 The parameters are accepted regardless of whether they are entered in upper or lower-case.
@@ -173,4 +172,24 @@ $galasactl runs get --name U456 --format raw
 U456|Finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
 ```
 
+### Return tests with specified results in summary format
 
+Use the following command to return test information for test runs that ran the previous day and have a result of _Failed_ or _EnvFail_.
+
+```
+galasactl runs get --age 1d --result failed,envfail
+```
+
+Results are returned on the terminal in the following example format:
+
+```
+galasactl runs get --age 1d --result failed,envfail
+
+submitted-time      name status   result  test-name
+2023-05-05 10:55:29 U456 Finished Failed  MyTestName1
+2023-05-05 10:55:39 U856 Finished Failed  MyTestName2
+2023-05-05 10:55:49 U859 Finished EnvFail MyTestName3
+2023-05-05 10:55:53 U956 Finished Failed  MyTestName4
+
+Total:4 Failed:3 EnvFail:1
+```
