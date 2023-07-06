@@ -156,7 +156,7 @@ galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
 
 On Windows (Powershell):
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
 --format raw
 ``` 
 
@@ -176,9 +176,18 @@ U456|Finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|202
 
 Use the following command to return test information for test runs that ran the previous day and have a result of _Failed_ or _EnvFail_.
 
+On Mac or Unix:
+
 ```
-galasactl runs get --age 1d --result failed,envfail
+galasactl runs get --age 1d --result failed,envfail \
+--bootstrap http://example.com:30960/boostrap
+``` 
+
+On Windows (Powershell):
 ```
+galasactl runs get --age 1d --result failed,envfail `
+--bootstrap http://example.com:30960/boostrap
+``` 
 
 Results are returned on the terminal in the following example format:
 
