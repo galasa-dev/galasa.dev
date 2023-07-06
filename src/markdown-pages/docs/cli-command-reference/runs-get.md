@@ -32,7 +32,7 @@ Use the tables provided to view the options for filtering test results, and for 
 
 ## <a name="result"></a>More about the `--result` option
 
-You might want to filter the test results that are returned based on status. For example, you might choose to return only failed tests, so that you can quickly check if you need to investigate an issue. 
+You might want to filter the test results that are returned based on run result. For example, you might choose to return only failed tests, so that you can quickly check if you need to investigate an issue. 
 
 The _galasactl runs get_ command now supports the `--result` option, so that test runs which completed with a specified result are returned. Runs which completed with a result that is not specified are not displayed.
 
