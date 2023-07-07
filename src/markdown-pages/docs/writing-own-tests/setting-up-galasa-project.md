@@ -118,7 +118,7 @@ mvn clean install
 
 To build the project with Gradle, use the following command:
 ```
-gradle build publishToMavenLocal
+gradle clean build publishToMavenLocal
 ```
 
 The built artifacts are typically placed in the `~/.m2/repository` in your home directory.
