@@ -84,12 +84,12 @@ $galasactl runs get --bootstrap http://example.com:30960/boostrap \
 --requestor bobsmith --age 2w:1w --format summary
 
 submitted-time      name status   result test-name
-2023-05-04 10:55:29 U456 Finished Passed MyTestName1
-2023-05-05 10:45:29 U856 Finished Passed MyTestName2
-2023-05-06 11:55:29 U859 Finished Passed MyTestName3
-2023-05-07 10:55:23 U956 Finished Passed MyTestName4
-2023-05-07 10:56:29 U976 Finished Passed MyTestName5
-2023-05-07 10:57:20 U996 Finished Passed MyTestName6
+2023-05-04 10:55:29 U456 finished Passed MyTestName1
+2023-05-05 10:45:29 U856 finished Passed MyTestName2
+2023-05-06 11:55:29 U859 finished Passed MyTestName3
+2023-05-07 10:55:23 U956 finished Passed MyTestName4
+2023-05-07 10:56:29 U976 finished Passed MyTestName5
+2023-05-07 10:57:20 U996 finished Passed MyTestName6
 
 Total:6 Passed:6 
 ```
@@ -122,9 +122,9 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format details
+$galasactl runs get --name U456 --format details http://example.com:30960/boostrap
 name           : U456
-status         : Finished
+status         : finished
 result         : Passed
 submitted-time : 2023-05-04 10:55:29
 start-time     : 2023-05-05 06:00:14
@@ -136,7 +136,7 @@ bundle         : dev.galasa
 run-log        : https://127.0.0.1/ras/run/cbd-123/runlog
 
 method          type status   result start-time          end-time            duration(ms)
-testCoreIvtTest test Finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
+testCoreIvtTest test finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
 
 Total:1 Passed:1  
 ```
@@ -168,8 +168,8 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format raw
-U456|Finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
+$galasactl runs get --name U456 --format raw 
+U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
 ```
 
 ### Return tests with specified results in summary format
@@ -192,13 +192,13 @@ galasactl runs get --age 1d --result failed,envfail `
 Results are returned on the terminal in the following example format:
 
 ```
-galasactl runs get --age 1d --result failed,envfail
+galasactl runs get --age 1d --result failed,envfail http://example.com:30960/boostrap
 
-submitted-time      name status   result  test-name
-2023-05-05 10:55:29 U456 Finished Failed  MyTestName1
-2023-05-05 10:55:39 U856 Finished Failed  MyTestName2
-2023-05-05 10:55:49 U859 Finished EnvFail MyTestName3
-2023-05-05 10:55:53 U956 Finished Failed  MyTestName4
+submitted-time      name status result  test-name
+2023-05-05 10:55:29 U456 ending Failed  MyTestName1
+2023-05-05 10:55:39 U856 ending Failed  MyTestName2
+2023-05-05 10:55:49 U859 ending EnvFail MyTestName3
+2023-05-05 10:55:53 U956 ending Failed  MyTestName4
 
 Total:4 Failed:3 EnvFail:1
 ```
