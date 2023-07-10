@@ -174,7 +174,7 @@ U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|202
 
 ### Return tests with specified results in summary format
 
-Use the following command to return test information for test runs that ran the previous day and have a result of _Failed_ or _EnvFail_.
+Use the following example command to return test information for test runs that ran the previous day and have a result of _Failed_ or _EnvFail_.
 
 On Mac or Unix:
 
