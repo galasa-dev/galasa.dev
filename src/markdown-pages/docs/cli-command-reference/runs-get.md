@@ -122,7 +122,7 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format details http://example.com:30960/boostrap
+$galasactl runs get --name U456 --format details --bootstrap http://example.com:30960/boostrap
 name           : U456
 status         : finished
 result         : Passed
@@ -174,7 +174,7 @@ U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|202
 
 ### Return tests with specified results in summary format
 
-Use the following example command to return test information for test runs that ran the previous day and have a result of _Failed_ or _EnvFail_.
+Use the following example command to return test information for test runs that ran the previous day and have a result of either _Failed_ or _EnvFail_.
 
 On Mac or Unix:
 
@@ -192,7 +192,7 @@ galasactl runs get --age 1d --result failed,envfail `
 Results are returned on the terminal in the following example format:
 
 ```
-galasactl runs get --age 1d --result failed,envfail http://example.com:30960/boostrap
+galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/boostrap
 
 submitted-time      name status result  test-name
 2023-05-05 10:55:29 U456 ending Failed  MyTestName1
