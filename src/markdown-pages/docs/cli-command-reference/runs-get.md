@@ -1,6 +1,6 @@
 ---
 path: "/docs/cli-command-reference/cli-runs-get"
-title: "Viewing test run status"
+title: "Viewing test run results"
 ---
 
 You can specify a number of options on the `galasactl runs get` command to query test run results on particular details, and to display the output of those queries in different formats. 
@@ -16,8 +16,9 @@ Use the tables provided to view the options for filtering test results, and for 
 | Name |  Description  |
 | :---- | :-------- | 
 | `--name`  | Use the `--name` option to query the status of a particular test run.  |
+| `--requestor`| Use the `--requestor` option to view results of test runs that were submitted to the ecosystem by a specified user. The default is the current user name that is specified in the access token.|
 | `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, or hours _h_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. If the `--name` option is specified, the `--age` parameter is not used. |
-
+| `--result`  | Use the [`--result` option](#result) to return test runs based on test run results. You can select more than one result by using a comma-separated list. |
 
 <b>Table 2:</b> The following table shows the options that you can set on the `galasactl runs get` command to display test run results in different formats:
 
@@ -28,6 +29,23 @@ Use the tables provided to view the options for filtering test results, and for 
 | `--format raw` | The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
 
 
+
+## <a name="result"></a>More about the `--result` option
+
+You might want to filter the test results that are returned based on run result. For example, you might choose to return only failed tests, so that you can quickly check if you need to investigate an issue. 
+
+The _galasactl runs get_ command now supports the `--result` option, so that test runs which completed with a specified result are returned. Runs which completed with a result that is not specified are not displayed.
+
+The `--result`  option accepts a comma-separated list of values. The following values are supported:
+
+_Passed_ <br>
+_Failed_<br>
+_EnvFailed_<br>
+_Ignored_<br>   
+_Unknown_<br>
+
+The parameters are accepted regardless of whether they are entered in upper or lower-case.
+
 ## Examples
 
 Use the following sections to view some example command options and generated output. Note that the `--format summary` and `--format details` options return a total count of results returned, along with a breakdown of the number that are returned with a particular result, for example, _Passed_, _Failed_, _PassedWithDefects_. 
@@ -36,30 +54,42 @@ Use the following sections to view some example command options and generated ou
 
 This is the default format. Use this format to get a quick, high-level update on the status of a test run or runs. Returned information includes details about time the test was submitted, run name, status, result, and test name. This format is especially useful if a query returns a large number of results. 
 
-The following example command returns test status in a summary format for tests that ran between two weeks ago and one week ago:
+The following example command returns test status in a summary format for tests that were requested by the user name _bobsmith_, and that ran between two weeks ago and one week ago:
 
-```
-galasactl runs get --bootstrap http://example.com:30960/boostrap --age 2w:1w
-``` 
+On Mac or Unix:
 
-where:
+ ```
+ galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+ --requestor bobsmith --age 2w:1w
+ ``` 
 
-- `--bootstrap` is the URL of the ecosystem's bootstrap properties
-- `--age` is the period of time in which the tests ran
+On Windows (Powershell):
+
+ ```
+ galasactl runs get --bootstrap http://example.com:30960/boostrap ` 
+ --requestor bobsmith --age 2w:1w
+ ``` 
+
+ where:
+
+ - `--bootstrap` is the URL of the ecosystem's bootstrap properties
+ - `--requestor` is the name of the user who requested the test run
+ - `--age` is the period of time in which the tests ran
 
 
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --bootstrap http://example.com:30960/boostrap --age 2w:1w --format summary
+$galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+--requestor bobsmith --age 2w:1w --format summary
 
 submitted-time      name status   result test-name
-2023-05-04 10:55:29 U456 Finished Passed MyTestName1
-2023-05-05 10:45:29 U856 Finished Passed MyTestName2
-2023-05-06 11:55:29 U859 Finished Passed MyTestName3
-2023-05-07 10:55:23 U956 Finished Passed MyTestName4
-2023-05-07 10:56:29 U976 Finished Passed MyTestName5
-2023-05-07 10:57:20 U996 Finished Passed MyTestName6
+2023-05-04 10:55:29 U456 finished Passed MyTestName1
+2023-05-05 10:45:29 U856 finished Passed MyTestName2
+2023-05-06 11:55:29 U859 finished Passed MyTestName3
+2023-05-07 10:55:23 U956 finished Passed MyTestName4
+2023-05-07 10:56:29 U976 finished Passed MyTestName5
+2023-05-07 10:57:20 U996 finished Passed MyTestName6
 
 Total:6 Passed:6 
 ```
@@ -92,20 +122,21 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format details
+$galasactl runs get --name U456 --format details --bootstrap http://example.com:30960/boostrap
 name           : U456
-status         : Finished
+status         : finished
 result         : Passed
 submitted-time : 2023-05-04 10:55:29
 start-time     : 2023-05-05 06:00:14
 end-time       : 2023-05-05 06:00:15
 duration(ms)   : 1000
 test-name      : dev.galasa.Zos3270LocalJava11Ubuntu
+requestor      : bobsmith 
 bundle         : dev.galasa
 run-log        : https://127.0.0.1/ras/run/cbd-123/runlog
 
 method          type status   result start-time          end-time            duration(ms)
-testCoreIvtTest test Finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
+testCoreIvtTest test finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
 
 Total:1 Passed:1  
 ```
@@ -125,7 +156,7 @@ galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
 
 On Windows (Powershell):
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
 --format raw
 ``` 
 
@@ -137,8 +168,37 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format raw
-U456|Finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
+$galasactl runs get --name U456 --format raw 
+U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
 ```
 
+### Return tests with specified results in summary format
 
+Use the following example command to return test information for test runs that ran the previous day and have a result of either _Failed_ or _EnvFail_.
+
+On Mac or Unix:
+
+```
+galasactl runs get --age 1d --result failed,envfail \
+--bootstrap http://example.com:30960/boostrap
+``` 
+
+On Windows (Powershell):
+```
+galasactl runs get --age 1d --result failed,envfail `
+--bootstrap http://example.com:30960/boostrap
+``` 
+
+Results are returned on the terminal in the following example format:
+
+```
+galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/boostrap
+
+submitted-time      name status result  test-name
+2023-05-05 10:55:29 U456 ending Failed  MyTestName1
+2023-05-05 10:55:39 U856 ending Failed  MyTestName2
+2023-05-05 10:55:49 U859 ending EnvFail MyTestName3
+2023-05-05 10:55:53 U956 ending Failed  MyTestName4
+
+Total:4 Failed:3 EnvFail:1
+```
