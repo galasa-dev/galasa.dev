@@ -1,3 +1,8 @@
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 const path = require("path")
 
 exports.createPages = ({ actions, graphql }) => {
