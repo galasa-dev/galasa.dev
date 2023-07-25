@@ -1,5 +1,8 @@
-/* Copyright contributors to the Galasa project */
-
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 import React, { useRef, useState, useCallback, useMemo, forwardRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { useDocSearchKeyboardEvents } from "@docsearch/react"

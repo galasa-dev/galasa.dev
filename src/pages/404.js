@@ -1,3 +1,8 @@
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 import React from "react"
 
 import { block, heading, subheading, text } from "./404.module.scss"
