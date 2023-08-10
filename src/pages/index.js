@@ -114,11 +114,7 @@ const IndexPage = () => (
         </p>
         <br></br>
         <div className={heroButtons}>
-          <Button
-            target={"/docs/getting-started"}
-            flash={true}
-            isPrimary={true}
-          >
+          <Button target={"/docs"} flash={true} isPrimary={true}>
             Get started
           </Button>
           <Button target={"/about"} flash={true} isPrimary={true}>

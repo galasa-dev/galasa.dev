@@ -19,9 +19,19 @@ The following versions of the Galasa CLI tool are available to download for diff
 | zLinux  | galasactl-linux-s390x | 
 | Windows | galasactl-windows-amd64.exe | 
 
-After downloading the binary, re-name it to `galasactl` (for Mac or Unix) or `galasactl.exe` (for Windows) and put it on your PATH.
+If you are using a Mac operating system, you can check which download you need by opening the Apple menu and choosing `About this Mac`. Click `More Info`, then scroll down and click the `System Report` button.
+Check the `Processor Name` on the Hardware Overview panel. If your Mac has a M1 or M2 chip, a Processor Name is not listed; instead, a Model Number and Chip is displayed. If you are using a Mac with an M1 or M2 chip, choose the `galasactl-darwin-arm64` download. If you are using an Intel processor, choose the `galasactl-darwin-amd64` download. Alternatively, you can type the command `uname -m` into your terminal. If a value `arm64` is returned, download `galasactl-darwin-arm64`. If a value `x86_64` is returned, download `galasactl-darwin-amd64`.
+
 
 ## Getting started 
+
+After downloading the binary, re-name it to `galasactl` (for Mac or Unix) or `galasactl.exe` (for Windows). If you get an error that is similar to the following example: `"galasactl" cannot be opened because it is from an unidentified developer`, click `OK`, go to `Privacy & Security` in your System Settings, and click `Open Anyway`. Alternatively, control-click the downloaded icon, choose `Open` from the pop-up menu and then click `Open`.
+
+It is useful to put the Galasa CLI tool that you downloaded on your PATH, so that you can call the tool from the command line without having to provide the path to where it is located. You can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. To make the Galasa CLI tool available anywhere, either add that binary into a directory that is in your PATH, or add a new directory that contains the tool to your PATH.
+
+If you are using a Mac or Unix, remember to run the `chmod +x galasactl` command in the directory containing the `galasactl` binary that you downloaded in order to set execute permission to enable you to run the Galasa CLI tool.
+
+## About Galasa CLI commands
 
 Galasa CLI commands start with `galasactl`. Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
 
