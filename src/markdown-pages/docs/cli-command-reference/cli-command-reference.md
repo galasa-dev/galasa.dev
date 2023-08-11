@@ -25,7 +25,7 @@ Check the `Processor Name` on the Hardware Overview panel. If your Mac has a M1 
 
 ## Getting started 
 
-After downloading the binary, re-name it to `galasactl`. If you are using a Mac and get an error that is similar to the following example: `"galasactl" cannot be opened because it is from an unidentified developer`, click `OK`, go to `Privacy & Security` in your System Settings, and click `Open Anyway`. Alternatively, control-click the downloaded icon, choose `Open` from the pop-up menu and then click `Open`. If you are using Windows, you need to open `cmd.exe` and type `start galasactl.exe`.
+After downloading the binary, re-name it to `galasactl`. If you are using a Mac and get an error that is similar to the following example: `"galasactl" cannot be opened because it is from an unidentified developer`, click `OK`, go to `Privacy & Security` in your System Settings, and click `Open Anyway`. Alternatively, control-click the downloaded icon, choose `Open` from the pop-up menu and then click `Open`. If you are using Windows, you need to open `cmd.exe` and type `start galasactl.exe` in the same directory in which you downloaded the tool.
 
 It is useful to put the Galasa CLI tool that you downloaded on your PATH, so that you can call the tool from the command line without having to provide the path to where it is located. If you are using a Mac, you can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. If you are using Windows, type the command `C:\> echo %PATH%`. To make the Galasa CLI tool available anywhere, either add that binary into a directory that is in your PATH, or add a new directory that contains the tool to your PATH.
 
