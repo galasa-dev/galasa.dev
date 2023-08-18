@@ -58,6 +58,7 @@ On Mac or Unix:
 galasactl runs submit \
                         --class dev.galasa.simbank.tests/SimBankIVT \
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest \
+                        --stream galasasimbank \
                         --log -
 ```
 
@@ -67,6 +68,7 @@ On Windows (Powershell):
 galasactl runs submit `
                         --class dev.galasa.simbank.tests/SimBankIVT `
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest `
+                        --stream galasasimbank `
                         --log -
 ```
 

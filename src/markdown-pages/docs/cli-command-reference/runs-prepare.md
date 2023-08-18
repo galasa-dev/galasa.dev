@@ -32,30 +32,6 @@ galasactl runs prepare `
                         --package dev.galasa.simbank.tests
 ```
 
-### Selecting tests without a test stream
-
-You can use test class names to build a portfolio when a test stream or test catalog is not available. 
-
-The following example command selects specified tests (`SimBankIVT` and `BasicAccountCreditTest`) from the `dev.galasa.simbank.tests` test package and adds these tests to the `test.yaml` portfolio. 
-
-On Mac or Unix:
-
-```
-galasactl runs prepare \
-                        --portfolio test.yaml \
-                        --class dev.galasa.simbank.tests/SimBankIVT \
-                        --class dev.galasa.simbank.tests/BasicAccountCreditTest
-```
-
-On Windows (Powershell):
-
-```
-galasactl runs prepare `
-                        --portfolio test.yaml `
-                        --class dev.galasa.simbank.tests/SimBankIVT `
-                        --class dev.galasa.simbank.tests/BasicAccountCreditTest
-```
-
 
 ### Setting test-specific overrides
 
