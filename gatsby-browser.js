@@ -1,3 +1,8 @@
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 
 import "@fontsource/ibm-plex-mono/400.css"
