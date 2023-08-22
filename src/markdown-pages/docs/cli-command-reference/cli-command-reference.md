@@ -19,17 +19,35 @@ The following versions of the Galasa CLI tool are available to download for diff
 | zLinux  | galasactl-linux-s390x | 
 | Windows | galasactl-windows-amd64.exe | 
 
-If you are using a Mac operating system, you can check which download you need by opening the Apple menu and choosing `About this Mac`. Click `More Info`, then scroll down and click the `System Report` button.
-Check the `Processor Name` on the Hardware Overview panel. If your Mac has a M1 or M2 chip, a Processor Name is not listed; instead, a Model Number and Chip is displayed. If you are using a Mac with an M1 or M2 chip, choose the `galasactl-darwin-arm64` download. If you are using an Intel processor, choose the `galasactl-darwin-amd64` download. Alternatively, you can type the command `uname -m` into your terminal. If a value `arm64` is returned, download `galasactl-darwin-arm64`. If a value `x86_64` is returned, download `galasactl-darwin-amd64`.
+*Note:* If you are using a Mac operating system, you can check which download you need by typing the command `uname -m` into your terminal. If a value `arm64` is returned, download `galasactl-darwin-arm64`. If a value `x86_64` or `amd64` is returned, download `galasactl-darwin-amd64`.
 
 
 ## Getting started 
 
-After downloading the binary, re-name it to `galasactl`. If you are using a Mac and get an error that is similar to the following example: `"galasactl" cannot be opened because it is from an unidentified developer`, click `OK`, go to `Privacy & Security` in your System Settings, and click `Open Anyway`. Alternatively, control-click the downloaded icon, choose `Open` from the pop-up menu and then click `Open`. If you are using Windows, you need to open `cmd.exe` and type `start galasactl.exe` in the same directory in which you downloaded the tool.
+Complete the following steps to start running the Galasa CLI tool:
 
-It is useful to put the Galasa CLI tool that you downloaded on your PATH, so that you can call the tool from the command line without having to provide the path to where it is located. If you are using a Mac, you can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. If you are using Windows, type the command `C:\> echo %PATH%`. To make the Galasa CLI tool available anywhere, either add that binary into a directory that is in your PATH, or add a new directory that contains the tool to your PATH.
+On Mac or Unix:
 
-If you are using a Mac or Unix, remember to run the `chmod +x galasactl` command in the directory containing the `galasactl` binary that you downloaded in order to set execute permission to enable you to run the Galasa CLI tool.
+1. Download the binary and re-name it to `galasactl`.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
+4. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`.
+
+You are now able to run Galasa CLI commands from the command line. 
+
+
+On Windows (Powershell)
+
+1. Download the binary and re-name it to `galasactl`.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
+
+You are now able to run Galasa CLI commands from the command line. 
+
+
+*Note:* It is useful to put `galasactl` in your PATH to enable the Galasa CLI tool to be called from any directory. If you are using a Mac, you can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. If you are using Windows, type the command `C:\> echo %PATH%`. You can then either add the binary into a directory that is already in your PATH, or add a new directory containing the tool to your PATH.
+
+
 
 ## About Galasa CLI commands
 
