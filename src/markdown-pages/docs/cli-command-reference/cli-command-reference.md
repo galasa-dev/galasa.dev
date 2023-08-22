@@ -31,7 +31,7 @@ On Mac or Unix:
 1. Download the binary and re-name it to `galasactl`.
 2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
 3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
-4. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. Enter your user name and password in the pop-up security panel to log in. 
+4. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
 
 You are now able to run Galasa CLI commands from the command line. 
 
