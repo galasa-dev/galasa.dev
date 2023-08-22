@@ -61,6 +61,7 @@ galasactl runs submit \
                         --bootstrap http://example.com:30960/boostrap \
                         --class dev.galasa.simbank.tests/SimBankIVT \
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest \
+                        --stream BestSoFar \
                         --log -
 ```
 
@@ -71,6 +72,7 @@ galasactl runs submit `
                         --bootstrap http://example.com:30960/boostrap `
                         --class dev.galasa.simbank.tests/SimBankIVT `
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest `
+                        --stream BestSoFar `
                         --log -
 ```
 
