@@ -19,9 +19,37 @@ The following versions of the Galasa CLI tool are available to download for diff
 | zLinux  | galasactl-linux-s390x | 
 | Windows | galasactl-windows-amd64.exe | 
 
-After downloading the binary, re-name it to `galasactl` (for Mac or Unix) or `galasactl.exe` (for Windows) and put it on your PATH.
+*Note:* If you are using a Mac operating system, you can check which download you need by typing the command `uname -m` into your terminal. If a value `arm64` is returned, download `galasactl-darwin-arm64`. If a value `x86_64` or `amd64` is returned, download `galasactl-darwin-amd64`.
+
 
 ## Getting started 
+
+Complete the following steps to start running the Galasa CLI tool:
+
+On Mac or Unix:
+
+1. Download the binary and re-name it to `galasactl`.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
+4. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
+
+You are now able to run Galasa CLI commands from the command line. 
+
+
+On Windows (Powershell)
+
+1. Download the binary and re-name it to `galasactl`.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
+
+You are now able to run Galasa CLI commands from the command line. 
+
+
+*Note:* It is useful to put `galasactl` in your PATH to enable the Galasa CLI tool to be called from any directory. If you are using a Mac, you can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. If you are using Windows, type the command `C:\> echo %PATH%`. You can then either add the binary into a directory that is already in your PATH, or add a new directory containing the tool to your PATH.
+
+
+
+## About Galasa CLI commands
 
 Galasa CLI commands start with `galasactl`. Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
 
