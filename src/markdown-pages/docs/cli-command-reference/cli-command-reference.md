@@ -13,13 +13,12 @@ The following versions of the Galasa CLI tool are available to download for diff
 
 | Operating system  |  Download  |
 | :---- | :-------- | 
-| MacOSX  | galasactl-darwin-amd64 |
+| MacOSX  | galasactl-darwin-x86_64 |
 | MacOSX  | galasactl-darwin-arm64 |
-| Linux amd64 | galasactl-linux-amd64 | 
+| Linux 64-bit x86 | galasactl-linux-x86_64 | 
+| Linux arm64 | galasactl-linux-arm64 | 
 | zLinux  | galasactl-linux-s390x | 
-| Windows | galasactl-windows-amd64.exe | 
-
-*Note:* If you are using a Mac operating system, you can check which download you need by typing the command `uname -m` into your terminal. If a value `arm64` is returned, download `galasactl-darwin-arm64`. If a value `x86_64` or `amd64` is returned, download `galasactl-darwin-amd64`.
+| Windows | galasactl-windows-x86_64.exe | 
 
 
 ## Getting started 
@@ -28,10 +27,11 @@ Complete the following steps to start running the Galasa CLI tool:
 
 On Mac or Unix:
 
-1. Download the binary and re-name it to `galasactl`.
-2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
-3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
-4. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
+1. Find out the architecture of your machine by typing the command `uname -m` into your terminal. 
+2. Download the appropriate binary for your machine architecture and re-name it to `galasactl`.
+3. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
+5. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
 
 You are now able to run Galasa CLI commands from the command line. 
 
