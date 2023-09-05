@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Identifier from "../identifier/identifier"
 import GitHubSVG from "../../images/github.inline.svg"
-import TwitterSVG from "../../images/twitter.inline.svg"
 import SlackSVG from "../../images/slack.inline.svg"
 import {
   footer,
@@ -19,7 +18,7 @@ const Footer = () => {
   const {
     site: {
       siteMetadata: {
-        consts: { githubOrgUrl, twitterUrl, slackUrl },
+        consts: { githubOrgUrl, slackUrl },
       },
     },
   } = useStaticQuery(graphql`
@@ -55,14 +54,6 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           <GitHubSVG />
-        </a>
-        <a
-          className={icon}
-          href={twitterUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <TwitterSVG />
         </a>
         <a
           className={icon}

@@ -32,7 +32,7 @@ $navLink-margin-top: 40px;
     }
   }
 
-  @media screen and (max-width: $br-small - 1) {
+  @media screen and (max-width: ($br-small - 1px)) {
     &.openMenu {
       z-index: 3;
       height: 100vh;
