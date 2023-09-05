@@ -1,5 +1,8 @@
-/* Copyright contributors to the Galasa project */
-
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 import React, { useState, useEffect } from "react"
 import { Location, globalHistory } from "@reach/router"
 import { useStaticQuery, graphql, Link } from "gatsby"

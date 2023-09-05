@@ -17,8 +17,9 @@ Use the tables provided to view the options for filtering test results, and for 
 | :---- | :-------- | 
 | `--name`  | Use the `--name` option to query the status of a particular test run.  |
 | `--requestor`| Use the `--requestor` option to view results of test runs that were submitted to the ecosystem by a specified user. The default is the current user name that is specified in the access token.|
-| `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, or hours _h_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. If the `--name` option is specified, the `--age` parameter is not used. |
-| `--result`  | Use the [`--result` option](#result) to return test runs based on test run results. You can select more than one result by using a comma-separated list. |
+| `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, hours _h_, or minutes _m_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. The returned times are in UTC (Coordinated Universal Time). If the `--name` option is specified, the `--age` parameter is not used. |
+| `--result`  | Use the [`--result` option](#result) to return test runs based on test run results. You can select more than one result by using a comma-separated list. The `--result` flag cannot be used in conjunction with the `--active` flag. The two flags are mutually exclusive. |
+| `--active`  | Use the `--active` option to query tests that have not finished, so that you can quickly see which tests are currently running. The `--active` flag cannot be used in conjunction with the `--result` flag. The two flags are mutually exclusive.|
 
 <b>Table 2:</b> The following table shows the options that you can set on the `galasactl runs get` command to display test run results in different formats:
 
@@ -83,7 +84,7 @@ Results are returned on the terminal in the following example format:
 $galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
 --requestor bobsmith --age 2w:1w --format summary
 
-submitted-time      name status   result test-name
+submitted-time(UTC) name status   result test-name
 2023-05-04 10:55:29 U456 finished Passed MyTestName1
 2023-05-05 10:45:29 U856 finished Passed MyTestName2
 2023-05-06 11:55:29 U859 finished Passed MyTestName3
@@ -123,19 +124,19 @@ Results are returned on the terminal in the following example format:
 
 ```
 $galasactl runs get --name U456 --format details --bootstrap http://example.com:30960/boostrap
-name           : U456
-status         : finished
-result         : Passed
-submitted-time : 2023-05-04 10:55:29
-start-time     : 2023-05-05 06:00:14
-end-time       : 2023-05-05 06:00:15
-duration(ms)   : 1000
-test-name      : dev.galasa.Zos3270LocalJava11Ubuntu
-requestor      : bobsmith 
-bundle         : dev.galasa
-run-log        : https://127.0.0.1/ras/run/cbd-123/runlog
+name                : U456
+status              : finished
+result              : Passed
+submitted-time(UTC) : 2023-05-04 10:55:29
+start-time(UTC)     : 2023-05-05 06:00:14
+end-time(UTC)       : 2023-05-05 06:00:15
+duration(ms)        : 1000
+test-name           : dev.galasa.Zos3270LocalJava11Ubuntu
+requestor           : bobsmith 
+bundle              : dev.galasa
+run-log             : https://127.0.0.1/ras/run/cbd-123/runlog
 
-method          type status   result start-time          end-time            duration(ms)
+method          type status   result start-time(UTC)     end-time(UTC)       duration(ms)
 testCoreIvtTest test finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 1000
 
 Total:1 Passed:1  
@@ -194,7 +195,7 @@ Results are returned on the terminal in the following example format:
 ```
 galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/boostrap
 
-submitted-time      name status result  test-name
+submitted-time(UTC) name status result  test-name
 2023-05-05 10:55:29 U456 ending Failed  MyTestName1
 2023-05-05 10:55:39 U856 ending Failed  MyTestName2
 2023-05-05 10:55:49 U859 ending EnvFail MyTestName3
