@@ -39,7 +39,7 @@ You are now able to run Galasa CLI commands from the command line.
 On Windows (Powershell)
 
 1. Download the binary and re-name it to `galasactl`.
-2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, ```export PATH=${PATH}:/my/folder/containing/galasactl```.
 3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
 
 You are now able to run Galasa CLI commands from the command line. 
