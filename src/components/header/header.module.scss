@@ -1,5 +1,8 @@
-/* Copyright contributors to the Galasa project */
-
+/*
+ * Copyright contributors to the Galasa project
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 @import "../../styles/styles";
 
 $navLink-margin-top: 40px;
@@ -32,7 +35,7 @@ $navLink-margin-top: 40px;
     }
   }
 
-  @media screen and (max-width: $br-small - 1) {
+  @media screen and (max-width: ($br-small - 1px)) {
     &.openMenu {
       z-index: 3;
       height: 100vh;

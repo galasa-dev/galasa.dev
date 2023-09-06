@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+# Copyright contributors to the Galasa project
+#
+# SPDX-License-Identifier: EPL-2.0
+#
+
 output=$(npm run format:check:ci 2>/dev/null);
 rc=$?
 if [ $rc != 0 ]; then
