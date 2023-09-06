@@ -249,11 +249,6 @@ jobs:
         run: ./gradlew --info  libertyPackage
         working-directory: package-jar
 
-      - name: Publish with Gradle
-        if: ${{ github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/next' }}
-        run: ./gradlew --info publishToMavenLocal
-        working-directory: package-jar
-        
       - name: Upload JAR
         uses: actions/upload-artifact@v3
         with:
