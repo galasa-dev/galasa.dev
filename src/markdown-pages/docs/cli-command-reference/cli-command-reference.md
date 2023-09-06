@@ -29,7 +29,7 @@ On Mac or Unix:
 
 1. Find out the architecture of your machine by typing the command `uname -m` into your terminal. 
 2. Download the appropriate binary for your machine architecture and re-name it to `galasactl`.
-3. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored.
+3. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, ```export PATH=${PATH}:/my/folder/containing/galasactl```.
 4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
 5. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
 
@@ -39,7 +39,7 @@ You are now able to run Galasa CLI commands from the command line.
 On Windows (Powershell)
 
 1. Download the binary and re-name it to `galasactl`.
-2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, ```export PATH=${PATH}:/my/folder/containing/galasactl```.
+2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. 
 3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
 
 You are now able to run Galasa CLI commands from the command line. 
