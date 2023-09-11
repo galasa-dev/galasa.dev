@@ -3,7 +3,7 @@ path: "/about"
 title: "About Galasa"
 ---
 
-Galasa, <a href="https://openmainframeproject.org" target="_blank">
+Galasa, <a href="https://openmainframeproject.org/projects/galasa/" target="_blank">
 an Open Mainframe Project</a>, is different from other test tools; enabling deep integration testing across platforms and technologies within a DevOps pipeline, Galasa supports repeatable, reliable, agile testing at scale across your enterprise.
 
 ### Platform integration

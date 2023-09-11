@@ -15,12 +15,12 @@ Summary of release.<br>
  Read the press release</a>
 
 
-## Blog: Wills blog title
-Summary of blog.<br>
+## Blog: Galasa bringing automated test commodity to open source
+No enterprise application exists as an island anymore. Find out how Galasa has modernized the test processes that validate the quality of applications, with end-to end integration testing that integrates with other open-source tooling.<br>
 
-**Author: Will Yates, September 2023**<br>
-*Source: IBM Developer*<br><br>
-<a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/william-yates/2022/03/24/whats-new-in-ibm-distribution-for-galasa-102" target="_blank">
+**Author: Will Yates, Galasa Lead and STSM CICS Hybrid Cloud at IBM, September 11 2023**<br>
+*Source: Open Mainframe Project*<br><br>
+<a href="https://openmainframeproject.org/blog/galasa-bringing-automated-test-commodity-to-open-source/" target="_blank">
  Read the blog</a>
 
 
