@@ -5,6 +5,25 @@ title: "Galasa Blogs"
 
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
+
+## Press release: Open Mainframe Project Welcomes Galasa into its Ecosystem
+The Open Mainframe Project, an open-source initiative that enables collaboration across the mainframe community to develop shared tool sets and resources, today welcomed Galasa, a project that offers developers the ability to test applications at scale regardless of platform, into its ecosystem.<br>
+
+**Author: Maemalynn Meanor, September 11 2023**<br>
+*Source: Open Mainframe Project*<br><br>
+<a href="https://openmainframeproject.org/announcements/omp-welcomes-galasa-into-its-ecosystem/" target="_blank">
+ Read the Press release </a>
+
+
+## Blog: Galasa bringing automated test commodity to open source
+No enterprise application exists as an island anymore. Find out how Galasa has modernized the test processes that validate the quality of applications with end-to end integration testing that integrates with other open-source tooling.<br>
+
+**Author: Will Yates, September 11 2023**<br>
+*Source: Open Mainframe Project*<br><br>
+<a href="https://openmainframeproject.org/blog/galasa-bringing-automated-test-commodity-to-open-source/" target="_blank">
+ Read the blog</a>
+
+
 ## Blog: What's new in IBM Distribution for Galasa 1.0.2
 Will Yates goes into some of the new features that made it into IBM Distribution for Galasa 1.0.2 and how these complement IBM Virtual Test Platform.<br>
 
@@ -12,6 +31,8 @@ Will Yates goes into some of the new features that made it into IBM Distribution
 *Source: IBM Developer*<br><br>
 <a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/william-yates/2022/03/24/whats-new-in-ibm-distribution-for-galasa-102" target="_blank">
  Read the blog</a>
+
+
 ## Blog: Goodbye Manual z/OS Scenarios…Hello Galasa! 
 Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are using Galasa to help them automate their manual scenarios and discover their future plans for Galasa.<br>
 

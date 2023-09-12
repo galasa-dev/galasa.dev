@@ -3,7 +3,8 @@ path: "/about"
 title: "About Galasa"
 ---
 
-Galasa is different from other test tools; enabling deep integration testing across platforms and technologies within a DevOps pipeline, Galasa supports repeatable, reliable, agile testing at scale across your enterprise.
+Galasa, <a href="https://openmainframeproject.org/projects/galasa/" target="_blank">
+an Open Mainframe Project</a>, is different from other test tools; enabling deep integration testing across platforms and technologies within a DevOps pipeline, Galasa supports repeatable, reliable, agile testing at scale across your enterprise.
 
 ### Platform integration
 The Galasa framework is built with a knowledge of z/OS and cloud native platforms, enabling end-to-end testing of applications that run on different platforms without stubbing or mocking. 
