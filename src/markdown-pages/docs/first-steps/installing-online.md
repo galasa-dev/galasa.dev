@@ -3,29 +3,18 @@ path: "/docs/getting-started/installing-online"
 title: "Installing the Galasa plug-in"
 ---
 
-Galasa installations can vary in complexity depending on the context in which it is used. Invariably though, all first-time installations begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
+If you are installing Galasa by using Eclipse, begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. Check the current compatibility between Eclipse and Galasa versions in the table provided in the [Prerequisites](prerequisites) documentation.  
+
+The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 
 <!-- Later, you are likely to want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it. -->
 
-This section describes the most common initial installation scenario - using Eclipse to install the Galasa plug-in - together with SimPlatform/SimBank - on your local machine and preparing it to run an initial set of provided tests against a simulated mainframe application.
+This section describes using Eclipse to install the Galasa plug-in - together with SimPlatform/SimBank - on your local machine and preparing it to run an initial set of provided tests against a simulated mainframe application.
 
 ## Prerequisites
 
-Depending on how you use Galasa, there are several software prerequisites, some or all of which you may have already installed.
+Depending on how you plan to use Galasa, there are several software prerequisites, some or all of which you may have already installed. For a full list of prerequisites, see the [Prerequisites](prerequisites) documentation.
 
-### Java
-
-Galasa tests and Managers are written in Java - you will need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later.
-
-### Eclipse
-
-If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add any missing plug-ins if and when you discover you need them.
-
-You can check the current compatibility between Eclipse and Galasa versions in the table provided in the [Getting started using Eclipse](/docs/getting-started) documentation. 
-
-### (Optional) A 3270 terminal emulator
-
-Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
 
 ## Installing the Galasa plug-in
 

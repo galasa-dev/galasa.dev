@@ -28,14 +28,20 @@
     - title: Docs
       root: /docs/
       items:
-        - title: Introduction and architecture
+        - title: Galasa Architecture
+          path: /docs/architecture
+        - title: Downloading and Installing 
           path: /docs/
+        - title: Prerequisites
+          path: /docs/prerequisites
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
           items:
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
-            - title: Creating a project
+            - title: Exploring Galasa SimBank
+              path: /docs/cli-command-reference/simbank-cli 
+            - title: Creating a project using the CLI
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
@@ -50,6 +56,8 @@
               path: /docs/getting-started/installing-offline
             - title: Exploring Galasa SimBank
               path: /docs/getting-started/simbank
+            - title: Creating a project using Eclipse
+              path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
         - title: Running the supplied SimBank tests
           path: /docs/running-simbank-tests
           items:

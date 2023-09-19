@@ -1,7 +1,18 @@
 ---
 path: "/docs/writing-own-tests/setting-up-galasa-project"
-title: "Creating a Galasa project"
+title: "Creating a Galasa project using the command line"
 ---
+
+Galasa SimBank comes with a selection of prepared Galasa tests:
+
+- A basic Installation Verification Test (IVT) which logs on to SimBank  - `SimBankIVT.java`.
+- A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
+- A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
+- A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
+
+All of these example tests become available when you set up a Galasa example project.
+
+## Creating a project by using the Galasa CLI 
 
 You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
 
@@ -17,29 +28,17 @@ The example provided in this topic creates a project containing both Maven and G
 
 ## A bit about Maven
 
-<a href="http://maven.apache.org" target="_blank">Maven</a> is an Open Source build automation tool, initially created in 2003 and part of the Apache Software Foundation. You do not explicitly need to install it, the Galasa plugin downloads and installs it silently during its own installation and configuration. If you have already installed Maven as part of some other software project, no action is needed.
-
 Maven is _opinionated_, which means that you need to comply with its expectations about how a project and its directories should be organised. When you create a Maven project, you should use the generated structure.
 
 The most visible practical evidence that a project is a Maven project is its pervasive use of `pom.xml` (Project Object Model) files. These XML files contain the magic that allows Maven to manage your project dependencies and build orchestration. 
 
 ## A bit about Gradle
 
-<a href="https://docs.gradle.org" target="_blank">Gradle</a> is an Open Source build automation tool, initially created in 2008. If you want to use Gradle to build Galasa projects, you must install it. If you have already installed Gradle as part of some other software project, no action is needed.
-
 The Gradle project structure looks somewhat different to the Maven structure because Gradle projects use `build.gradle`, `bnd.bnd` and `settings.gradle` files rather than `pom.xml` files. 
 
 The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
-The following table shows the current compatibility between Gradle and Galasa versions: 
-
-
-| Gradle release |  Compatible Galasa version  |
-| :---- | :-------- | 
-| 6.8.x  | All |
-| 6.9.x  | All |
-| 7.x.x | All | 
-
+You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Prerequisites](docs/prerequisites) documentation. 
 
 
 ## Before you start

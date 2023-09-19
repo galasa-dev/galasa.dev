@@ -5,21 +5,6 @@ title: "Getting started using the Galasa CLI"
 
 Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using. 
 
-## Installing the CLI tool
-
-You can [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. 
-
-The following versions of the Galasa CLI tool are available to download for different operating systems:
-
-| Operating system  |  Download  |
-| :---- | :-------- | 
-| MacOSX  | galasactl-darwin-x86_64 |
-| MacOSX  | galasactl-darwin-arm64 |
-| Linux 64-bit x86 | galasactl-linux-x86_64 | 
-| Linux arm64 | galasactl-linux-arm64 | 
-| zLinux  | galasactl-linux-s390x | 
-| Windows | galasactl-windows-x86_64.exe | 
-
 
 ## Getting started 
 
@@ -27,8 +12,8 @@ Complete the following steps to start running the Galasa CLI tool:
 
 On Mac or Unix:
 
-1. Find out the architecture of your machine by typing the command `uname -m` into your terminal. 
-2. Download the appropriate binary for your machine architecture and re-name it to `galasactl`.
+1. Find out the architecture of your machine by typing the command `uname -m` into your terminal.
+2. Download the appropriate binary of the [Galasa CLI tool](https://github.com/galasa-dev/cli/releases) for your machine architecture from the _cli_ repository in GitHub and re-name it to `galasactl`.
 3. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, ```export PATH=${PATH}:/my/folder/containing/galasactl```.
 4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
 5. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
