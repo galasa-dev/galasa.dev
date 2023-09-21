@@ -3,16 +3,9 @@ path: "/docs/writing-own-tests/setting-up-galasa-project"
 title: "Creating a Galasa project using the command line"
 ---
 
-Galasa SimBank comes with a selection of prepared Galasa tests:
+Read on to discover more about the structure of a Galasa project, learn how to create and build your own example project, and understand the purpose of the artifacts that are generated. 
 
-- A basic Installation Verification Test (IVT) which logs on to SimBank  - `SimBankIVT.java`.
-- A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
-- A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
-- A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
-
-All of these example tests become available when you set up a Galasa example project.
-
-## Creating a project by using the Galasa CLI 
+## Getting started
 
 You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
 
@@ -38,14 +31,11 @@ The Gradle project structure looks somewhat different to the Maven structure bec
 
 The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
-You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Prerequisites](docs/prerequisites) documentation. 
+You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Downloading and installing the Galasa CLI](/docs/cli-command-reference/installing-cli-tool) documentation. 
 
 
-## Before you start
 
-Check that an `.m2` folder exists in your user home directory. Built artifacts are placed in the `~/.m2/repository`. On Windows, the user home directory resembles: C:\Users\<username>, on MacOS it will be /Users/<username> and on Linux /home/<username>. Note that any file or folder beginning with a `.` (period) is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
-
-## A little plan
+## Project Structure
 
 A full (parent) Galasa project includes several sub-projects, which can also be known as _modules_, some of which are mandatory and some optional. A parent project can contain the following sub-projects:
 
@@ -58,7 +48,7 @@ The parent project establishes all the dependencies for the sub-projects or modu
 For simplicity, it is assumed that you will only have one version of a test in production at any one time. However, by establishing different versions of your tests, you can have test streams with different versions of the same test project. For the purposes of the forthcoming example, the version of all projects is set to `0.1.0-SNAPSHOT`. 
 
 
-## Creating an example test project
+## Creating an example project
 
 In the following example we are going to use the Galasa CLI to build a hierarchy of projects, where the parent project _dev.galasa.example.banking_ contains the following modules: 
 - Two test sub-projects or modules called _dev.galasa.example.banking.payee_ and _dev.galasa.example.banking.account_ 
@@ -175,24 +165,6 @@ Running the example Galasa CLI `project create` command with the `--maven` flag 
 ```
 
 
-## Importing the example test project into Eclipse
-
-If you want to edit source code using an IDE, you might want to import the projects into your IDE workspace. 
-
-The following steps show you how to import an example test project built using Maven into Eclipse:
-
-1. Launch Eclipse and choose _File > Import..._
-1. In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
-1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
-1. View your set of projects in _Package Explorer_.
-
-Complete the following steps to import an example test project built using Gradle into Eclipse:
-
-1. Launch Eclipse and choose _File > Import..._
-1. In the _Select_ dialog, expand _Gradle_, choose _Existing Gradle Projects_ and click _Next_.
-1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
-1. View your set of projects in _Package Explorer_.
-
 ## More about the parent project
 
 The top level folder, which is called `dev.galasa.example.banking` in this example, is the parent project. The parent project is a convenient container in which to hold all of the generated files. In Maven the `pom.xml` in the parent project is used to build all the other generated files. In Gradle, the `settings.gradle` file is used.
@@ -288,3 +260,23 @@ Other elements that are contained within the generated parent pom.xml are listed
 ## The test pom.xml file elements
 
  - The `<packaging>` element is set to `galasa-obr` which causes the Galasa Maven plugin to build this project.
+
+
+ ## Importing the example test project into Eclipse
+
+If you want to edit source code using an IDE, you might want to import the projects into your IDE workspace. 
+
+The following steps show you how to import an example test project built using Maven into Eclipse:
+
+1. Launch Eclipse and choose _File > Import..._
+1. In the _Select_ dialog, expand _Maven_, choose _Existing Maven Projects_ and click _Next_.
+1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
+1. View your set of projects in _Package Explorer_.
+
+Complete the following steps to import an example test project built using Gradle into Eclipse:
+
+1. Launch Eclipse and choose _File > Import..._
+1. In the _Select_ dialog, expand _Gradle_, choose _Existing Gradle Projects_ and click _Next_.
+1. Navigate to your root project directory - _dev.galasa.example.banking_ in this case - and follow the remaining prompts to complete the import. If you see a warning or error dialog, opt to resolve the error later.
+1. View your set of projects in _Package Explorer_.
+

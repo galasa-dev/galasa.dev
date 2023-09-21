@@ -3,59 +3,56 @@ path: "/docs/prerequisites"
 title: "Galasa Prerequisites"
 ---
 
-This section takes you through the software prerequisites required before installing Galasa. The prerequisites vary, depending on the version of Galasa that you download and the option you use to install it. 
+This section takes you through the software prerequisites required before installing Galasa. The prerequisites vary, depending on the whether you are installing Galasa for using in the command-line, or for using in Eclipse. If you are installing Galasa for using in Eclipse, the prerequisites also vary depending on whether you are downloading Galasa directly from the external update site, or are using the zipped distribution.
 
-For information about the download and install options available, see the [Introduction](../../about_Galasa.md) documentation.
+For information about installing options, see the [Installing options](../../about_Galasa.md) documentation.
 
-### Java JDK
+<br>
 
-Required. Galasa tests and Managers are written in Java - you will need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later.
+### Installing Galasa for using in the command-line
 
-### Maven 
-
-Maven is required if you want to use Maven rather than Gradle to build Galasa projects. Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests.
-
-<a href="http://maven.apache.org" target="_blank">Maven</a> is an Open Source build automation tool, initially created in 2003 and part of the Apache Software Foundation. If you are using Eclipse, you do not explicitly need to install it because the Galasa plugin downloads and installs it silently during its own installation and configuration. If you have already installed Maven as part of some other software project, no action is needed.
-
-### Galasa command line tool (Galasa CLI)
-
-Required if you want to use the Galasa CLI to interact with Galasa. You can [download the CLI tool](https://github.com/galasa-dev/cli/releases) from the _cli_ repository in GitHub. 
-
-The following versions of the Galasa CLI tool are available to download for different operating systems and machine architectures:
-
-| Operating system  |  Download  |
+| Software |  Description  |
 | :---- | :-------- | 
-| MacOSX  | galasactl-darwin-x86_64 |
-| MacOSX  | galasactl-darwin-arm64 |
-| Linux 64-bit x86 | galasactl-linux-x86_64 | 
-| Linux arm64 | galasactl-linux-arm64 | 
-| zLinux  | galasactl-linux-s390x | 
-| Windows | galasactl-windows-x86_64.exe | 
-
-*Note:* You can find out the architecture of your machine by typing the command `uname -m` into your Mac or Linux terminal.
-
-### Eclipse 
-
-If you are planning to install and use Galasa with Eclipse, you need to have an Eclipse installation on your machine. If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add plug-ins if and when you discover you need them.
-
-The following table shows the current compatibility between Eclipse and Galasa versions: 
+| Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
+| Maven or [Gradle](#gradle)  | You must install either Maven or Gradle in order to build Galasa projects. Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. |
+| Galasa CLI tool | Required. The tool enables interactions with Galasa via the command line. See [Getting started using the Galasa CLI](/docs/cli-command-reference/cli-command-reference) for more information about installing the tool. | 
+| 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
 
 
-| Eclipse level |  Compatible Galasa version  |
+Once you have installed the relevant software, you are ready to install Galasa. To install Galasa for using the command line, follow the instructions in [Getting started using the Galasa CLI](/docs/cli-command-reference/cli-command-reference). 
+
+<br>
+
+### Installing Galasa for using in Eclipse
+
+| Software |  Description  |
 | :---- | :-------- | 
-| 2023-03  | 0.27.0 and later |
-| 2022-09 | 0.27.0 and later | 
-| 2022-06 | 0.26.0, 0.25.0 |
+| Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
+| Eclipse | Required. Provides the ability to interact with and use Galasa. See the [Getting started using Eclipse](/docs/getting-started) documentation for more information about installation requirements.  | 
+| Maven or [Gradle](#gradle)   | You must install either Maven or Gradle in order to build Galasa projects. Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. You do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration.|
+| 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
 
-<b>Note:</b> We currently support Java version 11 to version 16 JDK. We do not currently support Java 17 or later. If your Eclipse version comes with Java 17 or later, ensure that the JRE environment refers to a Java 11 runtime in your Eclipse launch configuration. 
+Once you have installed the relevant software, you are ready to install Galasa. To install the Galasa for using in Eclipse, follow the instructions in [Installing the Galasa plug-in](/docs/getting-started/installing-online). 
 
-You can tell Eclipse about an installed runtime by going to _Settings_>_Java_>_Installed JREs_ from the Eclipse menu, and adding the Java 11 runtime to the list of installed JREs. You can set this runtime as default so that Eclipse launches tests with a Java 11 runtime. 
+<br>
 
-### Gradle
+### Installing Galasa for using in Eclipse (zipped distribution) 
 
-Gradle is required if you are installing the zipped distribution of Galasa, or if you want to use Gradle rather than Maven to build Galasa projects (hierarchical file structures that provide the ability to store and run Galasa tests).
+| Software |  Description  |
+| :---- | :-------- | 
+| Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
+| [Gradle](#gradle)  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. |
+| Eclipse | Required. Provides the ability to interact with and use Galasa. See [Getting started using Eclipse](/docs/getting-started) documentation for more information about installation requirements.  | 
+| Docker  | Required if using the Docker image. If you want to deploy the Docker image that is provided in the zip file, you will need to have Docker installed.  |
+| Maven  | Optional (as Gradle is required). You can use Maven rather than Gradle to build Galasa projects. You do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration. |
+| 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
 
-<a href="https://docs.gradle.org" target="_blank">Gradle</a> is an Open Source build automation tool, initially created in 2008. If you have already installed Gradle as part of some other software project, no action is needed.
+Once you have installed the relevant software, you are ready to install Galasa. To install the zipped distribution of Galasa, follow the instructions in [Installing the Galasa plug-in offline](/docs/getting-started/installing-offline). 
+
+
+### <a name="gradle"></a>Gradle
+
+<a href="https://docs.gradle.org" target="_blank">Gradle</a> is required if you are installing the zipped distribution of Galasa, or if you want to use Gradle rather than Maven to build Galasa projects (hierarchical file structures that provide the ability to store and run Galasa tests).
 
 The following table shows the current compatibility between Gradle and Galasa versions: 
 
@@ -67,28 +64,8 @@ The following table shows the current compatibility between Gradle and Galasa ve
 | 7.x.x | All | 
 
 
-### Docker (Required if using the Docker image)
-
-If you want to deploy the Docker image that is provided in the zip file, you will need to have Docker installed. 
-
-### A 3270 terminal emulator (Optional) 
-
-Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.
-
-
-Once you have installed the relevant software, you are ready to install Galasa.
-
-
-## Installing 
-
-To install the Galasa plug-in using the command line, follow the instructions in [Getting started using the Galasa CLI](/docs/cli-command-reference/cli-command-reference). 
-
-To install the Galasa plug-in from the external update site, follow the instructions in [Installing the Galasa plug-in](/docs/getting-started/installing-online). 
-
-To install the Galasa plug-in using the zipped distribution, follow the instructions in [Installing the Galasa plug-in offline](/docs/getting-started/installing-offline). 
-
 
 ## Next steps 
 
-You can then start exploring Galasa Simbank; a component distributed with Galasa that you can start playing with to help you to learn about the Galasa basics. 
+Start exploring Galasa Simbank; a component distributed with Galasa that you can start playing with to help you to learn about the Galasa basics. 
 

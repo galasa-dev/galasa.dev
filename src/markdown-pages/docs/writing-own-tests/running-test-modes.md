@@ -16,8 +16,8 @@ title: "Running a Galasa test"
 
 There are three modes in which you can run a Galasa test:<br><br>
 -  locally, with everything running on the local machine<br>
--  locally but using a shared configuration that is hosted by the Galasa ecosystem<br>
--  remotely, by submitting the test to run in the Galasa ecosystem<br> 
+-  locally but using a shared configuration that is hosted by the Galasa Ecosystem<br>
+-  remotely, by submitting the test to run in the Galasa Ecosystem<br> 
 
 
 The mode in which you choose to run a test depends on what you are trying to achieve. Use the following information to understand which mode is most appropriate for a given scenario. 
@@ -64,7 +64,7 @@ To reliably run many tests in parallel, deploy your tests to the Galasa Ecosyste
 
 - <b>Test results and reports need gathering from a single point. For example, when test results need reporting or exporting to another report-generating system, or when bug investigation can proceed by independent inspection test results and artifacts.</b>
 
-A problem faced in large-scale use of the local JVM method of test invocation is how to gather test results from disparate machines or environments, so that the test results can be combined and form test reports for system health monitoring. This is something that running tests within a Galasa ecosystem handles well, as the results of each test are stored centrally. Test results can be shared with others, enabling independent inspection and debugging of run artifacts. 
+A problem faced in large-scale use of the local JVM method of test invocation is how to gather test results from disparate machines or environments, so that the test results can be combined and form test reports for system health monitoring. This is something that running tests within a Galasa Ecosystem handles well, as the results of each test are stored centrally. Test results can be shared with others, enabling independent inspection and debugging of run artifacts. 
 
 - <b>When the clean-up of resources in the system under test is an important requirement</b>
 

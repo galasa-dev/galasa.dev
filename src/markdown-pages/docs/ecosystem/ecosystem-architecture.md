@@ -3,16 +3,16 @@ path: "/docs/ecosystem/architecture"
 title: "Ecosystem Architecture"
 ---
 
-The following diagram provides a high-level representation of the Galasa ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.svg)
+The following diagram provides a high-level representation of the Galasa Ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.svg)
 
 <br>The ecosystem is made up of a collection of microservices for orchestrating runtimes, monitoring tests and resources, and providing clean-up of those resources if required. The ecosystem provides a centralized store for run configurations, a single location for storing all test results and test artifacts, and utilizes a REST endpoint that can be called from any IDE or pipeline. 
 
 
 ### Key components:
 
-The following diagram highlights a some of the key components that make up the Galasa ecosystem and examples of external resources with which Galasa can interact: ![Galasa ecosystem:](galasa-ecosystem-architecture.svg)
+The following diagram highlights a some of the key components that make up the Galasa Ecosystem and examples of external resources with which Galasa can interact: ![Galasa ecosystem:](galasa-ecosystem-architecture.svg)
 
-<br>Expand the following sections to find out more about the key components of the Galasa ecosystem:
+<br>Expand the following sections to find out more about the key components of the Galasa Ecosystem:
 
 <details>
 <summary>Galasa Stores</summary>
@@ -38,8 +38,8 @@ The following diagram highlights a some of the key components that make up the G
 | **Engine controller**                       | The engine controller enables tests to run at scale within the ecosystem. This service is responsible for instantiating individual test engines by creating Docker containers or Kubernetes pods to manage and execute individual Galasa automation test runs. The engine controller allocates a test engine to a test submission if the required resources for the test are available. Otherwise, the test is put into a waiting state to be run at an appropriate time.        |
 | **Resource Management**                       | The resource management service monitors running tests and resources that have been marked as in use. If a test case becomes stale or is ended manually, this service performs clean up actions to ensure that the resources are entered back into the pool for another test to use. This service can perform large pieces of work, including the de-provisioning of an environment.   |
 | **Metrics Server**                       | The metrics server indicates the health of the ecosystem, for example, providing metrics on the number of successful test runs.        |
-| **API Server**                       |  The API server acts as a central point from which to control the Galasa ecosystem and is used by Galasa as an endpoint with which IDEs and pipelines interact for submitting tests and retrieving results. The API server hosts the bootstrap server.       |
-| **Bootstrap Server**                       | The bootstrap server is part of the API server. The bootstrap is an endpoint that is provided by the API server to store the initial configuration required to instantiate a Galasa framework. When setting up the Galasa ecosystem, the Eclipse IDE must be updated to point to the bootstrap that is configured to use the ecosystem.      |
+| **API Server**                       |  The API server acts as a central point from which to control the Galasa Ecosystem and is used by Galasa as an endpoint with which IDEs and pipelines interact for submitting tests and retrieving results. The API server hosts the bootstrap server.       |
+| **Bootstrap Server**                       | The bootstrap server is part of the API server. The bootstrap is an endpoint that is provided by the API server to store the initial configuration required to instantiate a Galasa framework. When setting up the Galasa Ecosystem, the Eclipse IDE must be updated to point to the bootstrap that is configured to use the ecosystem.      |
 | **Web UI**                       | The WebUI is currently under construction and planned for a future release. Use the WebUI to see a dashboard overview of the current and historical health of the Galasa framework. The UI can also run, schedule or reschedule tests, be used to analyse output from failed test runs, and manage the configuration needed to customise the framework and  tests for maximum throughput, resilience and flexibility.        |
 | **LDAP authentication server (Optional)**                       | This server is planned for a future release to provide the ability to authenticate through an LDAP server.       |
 

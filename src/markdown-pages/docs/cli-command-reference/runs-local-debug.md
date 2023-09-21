@@ -3,15 +3,19 @@ path: "/docs/cli-command-reference/cli-runs-local-debug"
 title: "Debugging a test locally"
 ---
 
-You can run a test locally in debug mode by using the galasactl `runs submit local` command with the `--debug` option specified. To run in debug mode, the Galasa test connects with a Java debugger on a specified port and the IDE being used is configured to connect to the same port. The test can then be launched in the Java debugger. 
+The following section describes how to connect your Galasa test with a Java debugger on a specified port, and then configure your IDE (IDE options covered in this topic are Microsoft VSCode,IntelliJ, and Eclipse) to connect to that same port so that you can run your test locally in debug mode.
 
-The default value of the port is `2970`, but you can override this value adding an optional property, `galasactl.jvm.local.launch.debug.port`, into the `bootstrap.properties` file. For example, `galasactl.jvm.local.launch.debug.port=2971`. This property is ignored if the `--debug` option is not supplied to the `runs submit local` command.
+## Using the debug option
+
+You can run a test locally in debug mode by using the galasactl `galasactl runs submit local` command with the `--debug` option specified. To run in debug mode, the Galasa test connects with a Java debugger on a specified port and the IDE being used is configured to connect to the same port. The test can then be launched in the Java debugger. 
+
+The default value of the port is `2970`, but you can override this value adding an optional property, `galasactl.jvm.local.launch.debug.port`, into the `bootstrap.properties` file. For example, `galasactl.jvm.local.launch.debug.port=2971`. This property is ignored if the `--debug` option is not supplied to the `galasactl runs submit local` command.
 
 If you need to override the value of the port that is set in the bootstrap, you can do so by using the `--debugPort` option on the `runs submit local` command. The port value itself must be an unsigned integer.
 
 To launch multiple testcases in debug mode, add an explicit `--debugPort` option on the `galasactl runs submit local` command, so that each port is only used by one test/debugger pair at a time.
 
-You can view the full list of options that are available with the `runs submit local` command in the 
+You can view the full list of options that are available with the `galasactl runs submit local` command in the 
 <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
 
 
@@ -23,7 +27,7 @@ In `listen` mode, the JVM that launches the testcase opens a debug port and paus
 
 You can override the default value of `listen` by adding the optional property `galasactl.jvm.local.launch.debug.mode` into the `bootstrap.properties` file. For example, `galasactl.jvm.local.launch.debug.mode=attach`.
 
-If you need to override the mode that is set in the bootstrap, you can do so by using the `--debugMode` option on the `runs submit local` command. 
+If you need to override the mode that is set in the bootstrap, you can do so by using the `--debugMode` option on the `galasactl runs submit local` command. 
 
 
 
@@ -67,7 +71,7 @@ Complete the following steps to run a local test in debug mode using VSCode:
 }
 ```
 3. Check that the port number specified, so that when you configure the IDE the port used by the IDE matches the port number that is used by the testcase. In this example, `port` is set to `2970`, which is the default value.<br>
-4. Check the value of the `request` field. The request field with a value of `attach` can be paired with the default of `listen` that is used by the `runs submit local --debug` command. Each tool must be configured with the opposite value, so one listens to the port, and the other attaches to it.
+4. Check the value of the `request` field. The request field with a value of `attach` can be paired with the default of `listen` that is used by the `galasactl runs submit local --debug` command. Each tool must be configured with the opposite value, so one listens to the port, and the other attaches to it.
 5. Make a note of the `name` that is specified so that you select this configuration to launch the test in the Java debugger. 
 
 

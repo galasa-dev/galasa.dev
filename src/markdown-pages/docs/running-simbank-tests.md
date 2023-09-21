@@ -10,9 +10,7 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using the Galasa CLI and by using Eclipse. 
-
-## Running the SimBank IVT test class using the Galasa CLI
+The following sections explain how to run the `SimBankIVT` test class by using Eclipse. 
 
 
 ## Running the SimBank IVT test class using Eclipse

@@ -3,14 +3,7 @@ path: "/docs/running-simbank-tests/setting-up-galasa-project-eclipse"
 title: "Creating a Galasa project using Eclipse"
 ---
 
-Galasa SimBank comes with a selection of prepared Galasa tests:
-
-- A basic Installation Verification Test (IVT) which logs on to SimBank  - `SimBankIVT.java`.
-- A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
-- A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
-- A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
-
-All of these example tests become available when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
+Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](/docs/running-simbank-tests) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
 
 If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](c) section.
 

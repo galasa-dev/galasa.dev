@@ -3,35 +3,8 @@ path: "/docs/cli-command-reference/cli-command-reference"
 title: "Getting started using the Galasa CLI"
 ---
 
-Use the Galasa command line interface (Galasa CLI) to help you complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using. 
 
-
-## Getting started 
-
-Complete the following steps to start running the Galasa CLI tool:
-
-On Mac or Unix:
-
-1. Find out the architecture of your machine by typing the command `uname -m` into your terminal.
-2. Download the appropriate binary of the [Galasa CLI tool](https://github.com/galasa-dev/cli/releases) for your machine architecture from the _cli_ repository in GitHub and re-name it to `galasactl`.
-3. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, ```export PATH=${PATH}:/my/folder/containing/galasactl```.
-4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
-5. Set permission to open the CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
-
-You are now able to run Galasa CLI commands from the command line. 
-
-
-On Windows (Powershell)
-
-1. Download the binary and re-name it to `galasactl`.
-2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. 
-3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
-
-You are now able to run Galasa CLI commands from the command line. 
-
-
-*Note:* It is useful to put `galasactl` in your PATH to enable the Galasa CLI tool to be called from any directory. If you are using a Mac, you can find `PATH`, and the directories stored within it, by entering the command `echo $PATH | tr ":" "\n"` in your terminal. If you are using Windows, type the command `C:\> echo %PATH%`. You can then either add the binary into a directory that is already in your PATH, or add a new directory containing the tool to your PATH.
-
+If you are installing Galasa for using in the command-line, you can use the Galasa command line interface tool (Galasa CLI) to interact with Galasa to complete tasks, for example, submitting and monitoring Galasa test runs. You can use the same set of Galasa CLI commands to run a given task, regardless of the technology that you are using. 
 
 
 ## About Galasa CLI commands
@@ -48,7 +21,7 @@ Go programs can sometimes struggle to resolve DNS names, especially when a worki
 
 ## Getting help
 
-Use the following command to get more information about the command and command options, including default values.
+Once you have installed the Galasa CLI, you can use the following command to get more information about the command and command options, including default values.
 
 ```
 galasactl --help
@@ -66,8 +39,7 @@ You can view a list of error messages that can be output by the galasactl tool i
 
 
 
+## Next steps
 
-
-
-
+To install Galasa for using in the command line, follow the instructions in [Downloading and installing the Galasa CLI](/docs/cli-command-reference/installing-cli-tool).
 

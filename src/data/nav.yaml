@@ -30,17 +30,15 @@
       items:
         - title: Galasa Architecture
           path: /docs/architecture
-        - title: Downloading and Installing 
+        - title: Installing options
           path: /docs/
-        - title: Prerequisites
-          path: /docs/prerequisites
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
-          items:
+          items: 
+            - title: Downloading and installing the Galasa CLI
+              path: /docs/cli-command-reference/installing-cli-tool
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
-            - title: Exploring Galasa SimBank
-              path: /docs/cli-command-reference/simbank-cli 
             - title: Creating a project using the CLI
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally

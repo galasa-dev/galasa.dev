@@ -1,22 +1,23 @@
 ---
 path: "/docs"
-title: "Downloading and installing"
+title: "Installing options"
 ---
 
-There are a few options available for downloading and installing Galasa. Prerequisites vary, depending on the options that are chosen. 
+There are a few options available when installing Galasa. Prerequisites vary, depending on the option that is chosen. 
 
+You can install Galasa for using in the command-line, for using Eclipse, or for sharing with your department (using the Galasa zipped distribution). 
 
-## Download and Install options
+There are benefits of installing Galasa for using in the command-line. Much of the configuration set-up that is required is done for you automatically by scripts, so less manual intervention is needed. You can then import the configuration into an IDE of your choice, rather than having to use Eclipse.
 
-You can download Galasa as a binary of the Galasa CLI tool from the GitHub `cli` repository, or as an Eclipse plug-in, which can be downloaded either directly from an external update site, or as a zip file (zipped distribution).  
+If you are using only Eclipse for your IDE, do not have restricted internet access and want to use open-source Galasa you might choose to install the Galasa Eclipse plug-in directly from the external update site for using in Eclipse. 
 
-The Galasa binary that is stored in the `cli` repository is installed by using the Galasa command line (Galasa CLI). The benefit of using the command-line to install Galasa is that much of the configuration set-up that is required is done for you automatically by scripts, so there is less manual intervention needed. You can then import the configuration into an IDE of your choice. 
-
-If you are using only Eclipse for your IDE, you might choose to download the Galasa Eclipse plug-in directly from the external update site or as a zipped distribution. Users without restricted internet access who want to use open-source Galasa, can install the Galasa Eclipse plug-in directly. The zipped distribution of Galasa allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. 
+If you do not have access to Maven Central, Eclipse Marketplace, and Docker Hub from your company network, you can use the Galasa zipped distribution. 
 
 
 ## Next steps
 
-Once you have decided on your download and install options, take a look at the [Prerequisites](../markdown-pages/docs/prerequisites) documentation to find out what software you need to install.
+If you are installing Galasa for using in the command-line, following the instructions in [Getting started using the CLI](/docs/cli-command-reference/cli-command-reference) documentation.
 
-You can then choose to view either the [Getting started using the CLI](/docs/cli-command-reference/cli-command-reference) documentation or the [Getting started using Eclipse](/docs/getting-started) documentation. 
+If you are installing Galasa for using in the Eclipse, or if you are installing the zipped distribution of Galasa, follow the instructions in the [Getting started using Eclipse](/docs/getting-started) documentation. 
+
+To find out about the architecture of Galasa and some of its key components, take a look at the [Galasa architecture](/docs/architecture) documentation. 
