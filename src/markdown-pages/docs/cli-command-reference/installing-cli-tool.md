@@ -1,9 +1,9 @@
 ---
 path: "/docs/cli-command-reference/installing-cli-tool"
-title: "Downloading and installing the Galasa CLI"
+title: "Installing the Galasa CLI"
 ---
 
-This section provides details about prerequisite software requirements and information about how to download and install the Galasa CLI on your local machine. 
+This section provides details about prerequisite software requirements and information about how to download and install the Galasa command line interface tool (Galasa CLI) on your local machine. 
 
 ## Prerequisites
 
@@ -40,11 +40,11 @@ On Mac or Unix:
 
 1. Find out the architecture of your machine by typing the command `uname -m` into your terminal.
 2. Download the appropriate binary of the Galasa CLI for your machine architecture from the [Galasa cli repository](https://github.com/galasa-dev/cli/releases) in GitHub and re-name it to `galasactl`.
-3. Add Galasa CLI to your PATH to enable you to run CLI commands from anywhere on your file system without having to specify the absolute path. To set the path permanently, you need add the Galasa CLI path to your shell's initialization file. For example, if you downloaded the galasactl executable to a folder called `~/tools` in your home directory, you need to add `~/tools` to the list of directories that your shell searches through when you enter a command. You can do this by adding the line ```export PATH=$PATH:$HOME/tools``` to your shell’s initialization file (for example `~/.bashrc` or `~/.zshrc`). You should now be able to run the Galasa CLI too from any directory in your file system.
+3. Add Galasa CLI to your PATH to enable you to run CLI commands from anywhere on your file system without having to specify the absolute path. To set the path permanently, you need add the Galasa CLI path to your shell's initialization file. For example, if you downloaded the galasactl executable to a folder called `~/tools` in your home directory, you need to add `~/tools` to the list of directories that your shell searches through when you enter a command. You can do this by adding the line ```export PATH=$PATH:$HOME/tools``` to your shell’s initialization file (for example `~/.bashrc` or `~/.zshrc`). 
 4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
 5. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
 
-You are now able to run Galasa CLI commands from the command line. 
+You can now run the Galasa CLI too from any directory in your file system without having to specify the absolute path.
 
 
 On Windows (Powershell)
@@ -53,7 +53,7 @@ On Windows (Powershell)
 2. Add `galasactl` to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. 
 3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
 
-You are now able to run Galasa CLI commands from the command line. 
+You can now run the Galasa CLI too from any directory in your file system without having to specify the absolute path.
 
 
 ## Next steps

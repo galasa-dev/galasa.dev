@@ -1,9 +1,9 @@
 ---
 path: "/docs/running-simbank-tests/setting-up-galasa-project-eclipse"
-title: "Creating a Galasa project using Eclipse"
+title: "Creating a project using Eclipse"
 ---
 
-Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](../running-simbank-tests.md) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
+Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](../running-simbank-tests) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
 
 If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
 
@@ -26,7 +26,7 @@ The Gradle project structure looks somewhat different to the Maven structure bec
 
 The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
-You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Prerequisites](prerequisites) documentation. 
+All Galasa versions are compatible with Gradle releases 6.8.x and later. 
 
 
 ## Before you start

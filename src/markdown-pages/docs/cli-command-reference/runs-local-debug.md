@@ -3,7 +3,7 @@ path: "/docs/cli-command-reference/cli-runs-local-debug"
 title: "Debugging a test locally"
 ---
 
-The following section describes how to connect your Galasa test with a Java debugger on a specified port, and then configure your IDE (IDE options covered in this topic are Microsoft VSCode,IntelliJ, and Eclipse) to connect to that same port so that you can run your test locally in debug mode.
+The following section describes how to connect your Galasa test with a Java debugger on a specified port, and then configure your IDE (IDE options covered in this topic are Microsoft VSCode, IntelliJ, and Eclipse) to connect to that same port so that you can run your test locally in debug mode.
 
 ## Using the debug option
 

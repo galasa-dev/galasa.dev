@@ -35,7 +35,7 @@
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
           items: 
-            - title: Downloading and installing the Galasa CLI
+            - title: Installing the Galasa CLI
               path: /docs/cli-command-reference/installing-cli-tool
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 

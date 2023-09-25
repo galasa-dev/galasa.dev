@@ -5,7 +5,7 @@ title: "Initialising your local environment"
 
 To start using Galasa tools, or running Galasa tests, you need to set up some basic file structures and files in your home folder. These files include a default bootstrap file, and some local properties files. For more information about these files and what they are used for, see the [About the properties files](#about) section. 
 
-The following section shows you how to initialise your Galasa home folder by using the Galasa command line interface (Galasa CLI) tool that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM. 
+The following section shows you how to initialise your Galasa home folder by using the Galasa command line interface tool (Galasa CLI) that is provided with Galasa. Once your home folder is initialised, you can start running Galasa tests on your local JVM. 
 
 You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 

@@ -14,7 +14,7 @@ The `docs.jar` file enables you to run the Galasa website locally on your machin
 
 ## Getting started
 
-If you are installing Galasa by using Eclipse, begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. Check the current compatibility between Eclipse and Galasa versions in the table provided in the [Prerequisites](/docs/prerequisites) documentation. 
+If you are installing Galasa by using Eclipse, begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. Check the current compatibility between Eclipse and Galasa versions in the table provided in the [Getting started using Eclipse](/docs/getting-started) documentation. 
 
 The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 

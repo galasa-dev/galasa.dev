@@ -45,19 +45,19 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* (or IP address 127.0.0.1 if the *localhost* alias has not been set up) via the Telnet protocol. No SSL configuration is required.
 1. Connect to the listening Telnet service with your 3270 emulator and review the logon screen:
 
-    ![SimBank logon screen](simbank-logon.png)
+    ![SimBank logon screen](../first-steps/simbank-logon.png)
 
 1. Ensure that the cursor is in the `Userid` field - if it is not, use the TAB key to position it:
 
-    ![TAB to the userid field](simbank-userid.png) 
+    ![TAB to the userid field](../first-steps/simbank-userid.png) 
 
 1. Enter the userid `IBMUSER`
 
-    ![Enter your userid](./simbank-ibmuser.png) 
+    ![Enter your userid](../first-steps/simbank-ibmuser.png) 
 
 1. Press TAB to move the cursor into the `Password` field, type the password `SYS1` and press your terminal emulator's ENTER key to logon and transfer to the SimBank main menu:
 
-    ![Banktest home screen](./simbank-banktest.png) 
+    ![Banktest home screen](../first-steps/simbank-banktest.png) 
 
 > *Note:* Depending on your terminal emulator, its ENTER key may not be mapped to the physical ENTER key on your computer. For example,
 > on PCOMM, by default, the ENTER key is mapped to the host machine's right CTRL key. If you are unsure about this, review

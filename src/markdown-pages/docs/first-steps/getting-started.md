@@ -3,7 +3,7 @@ path: "/docs/getting-started"
 title: "Getting started using Eclipse"
 ---
 
-Before development of the Galasa command line tool (galasactl), Eclipse was the main focus for getting started with using Galasa and exploring Simbank and it continues to provide an alternative UI experience to the equivalent command line option.
+Before development of the Galasa command line tool (Galasa CLI), Eclipse was the main focus for getting started with using Galasa and exploring Simbank and it continues to provide an alternative UI experience to the equivalent command line option.
 
 
 If you are planning to install and use Galasa with Eclipse, you need to have an Eclipse installation on your machine. If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add plug-ins if and when you discover you need them.

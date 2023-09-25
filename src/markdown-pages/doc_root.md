@@ -16,7 +16,7 @@ If you do not have access to Maven Central, Eclipse Marketplace, and Docker Hub 
 
 ## Next steps
 
-If you are installing Galasa for using in the command-line, following the instructions in [Getting started using the CLI](/docs/cli-command-reference/cli-command-reference) documentation.
+If you are installing Galasa for using in the command-line, follow the instructions in the [Getting started using the CLI](/docs/cli-command-reference/cli-command-reference) documentation.
 
 If you are installing Galasa for using in the Eclipse, or if you are installing the zipped distribution of Galasa, follow the instructions in the [Getting started using Eclipse](/docs/getting-started) documentation. 
 

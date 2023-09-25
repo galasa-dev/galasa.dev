@@ -15,8 +15,8 @@ The following sections explain how to run the `SimBankIVT` test class by using E
 
 ## Running the SimBank IVT test class using Eclipse
 
-1. Create your initial example projects as described in <a href="/docs/running-simbank-tests" target="_blank">Running the supplied SimBank tests</a> - a once-only activity.
-1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring SimBank</a>.
+1. Create your initial example projects as described in <a href="/docs/running-simbank-tests/setting-up-galasa-project-eclipse" target="_blank">Creating a project using Eclipse</a> - a once-only activity.
+1. Ensure that Eclipse is running, your example projects are open and that you have launched SimBank as described in <a href="/docs/getting-started/simbank" target="_blank">Exploring Galasa SimBank</a>.
 1. Choose _Run > Run Configurations_ and look for and select _Galasa - Java_ in the left pane (not Galasa SimBank).
 1. Right-click _Galasa_, choose _New Configuration_ and give it a name.
 1. In the dialog, choose _Browse_ to locate your project - `dev.galasa.simbank.tests`, then press _OK_. Then press _Search_ to locate your test class, `SimBankIVT` and press _OK_.
