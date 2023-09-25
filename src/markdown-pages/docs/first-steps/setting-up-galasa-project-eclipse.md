@@ -3,11 +3,11 @@ path: "/docs/running-simbank-tests/setting-up-galasa-project-eclipse"
 title: "Creating a Galasa project using Eclipse"
 ---
 
-Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](/docs/running-simbank-tests) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
+Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](../running-simbank-tests.md) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
 
-If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](c) section.
+If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
 
-If you are using the Galasa plug-in from the external update site and are using Gradle, follow the instructions in the [_Creating an example Galasa project using Gradle_](#headonlinegradle) section. 
+If you are using the Galasa plug-in from the external update site and are using Gradle, follow the instructions in the [_Creating an example Galasa project using Gradle_](#createprojectgradle) section. 
 
 If you are using the Galasa zipped distribution you must use Gradle to build your project, so follow the instructions in the [_Creating an example Galasa project using Gradle (zipped distribution)_](#headgradle) section. 
 
@@ -26,7 +26,7 @@ The Gradle project structure looks somewhat different to the Maven structure bec
 
 The `build.gradle` files declare any dependencies that the test code has, and specify the Maven co-ordinates to use when publishing to a Maven repository.  The `bnd.bnd` files define the OSGi Bundles for the test projects and any Managers in the project and the `settings.gradle` file tells Gradle where to look for the dependencies and plug-ins that are required to build the project. 
 
-You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Prerequisites](docs/prerequisites) documentation. 
+You can check the current compatibility between Gradle and Galasa versions in the table provided in the [Prerequisites](prerequisites) documentation. 
 
 
 ## Before you start
@@ -61,11 +61,11 @@ For simplicity, it is assumed that you will only have one version of a test in p
 4. Right-click on `dev.galasa.simbank.manager` and choose _Run As > Maven install_ - wait a few moments for the Maven build and then right-click on `dev.galasa.simbank.tests` and do the same. Note that the order in which you do this is significant - first `dev.galasa.simbank.manager` and then `dev.galasa.simbank.tests`. This is because the SimBank tests have a dependency on the SimBank Manager.
 5. Expand `dev.galasa.simbank.tests` and then expand `src/main/java`. 
 6. Explore the `dev.galasa.simbanks.tests` package. You'll see the group of tests provided with SimBank:
-    ![SimBank tests](./provided-tests.png)
+    ![SimBank tests](../provided-tests.png)
 
-Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](/docs/running-simbank-tests/simbank-IVT) is the best place to start.
+Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](../running-simbank-tests/simbank-IVT) is the best place to start.
 
-## <a name="headonlinegradle"></a>Creating an example Galasa project using Gradle
+## <a name="createprojectgradle"></a>Creating an example Galasa project using Gradle
 
 1. Ensure that Eclipse is running.
 2. Depending on your operating system, choose either _Window > Preferences_ or _Eclipse > Preferences_, check that you are using the correct version of Gradle.
@@ -81,14 +81,14 @@ Explore these tests by selecting from the left-hand menu - if you are new to Gal
 6. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
 7. Depending on version of Eclipse that you are using, either right-click *Gradle Project* or *Gradle Task* and choose *New Configuration*. 
 8. Provide a meaningful name and set up your Gradle Task to run a clean build. 
-    ![SimBank tests](./clean-build.png)
+    ![SimBank tests](../clean-build.png)
 9. In _Working Directory_, click *Workspace*, select `dev.galasa.simbank.parent` and click `OK`.
 10. Click _Apply_ then _Run_. A _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab.
 11. Expand `dev.galasa.simbank.tests` and then expand `src/main/java`.
 12. Explore the `dev.galasa.simbank.tests` package. You'll see the group of tests provided with SimBank:
-    ![SimBank tests](./gradle-tests.png)
+    ![SimBank tests](../gradle-tests.png)
 
-Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](/docs/running-simbank-tests/simbank-IVT) is the best place to start.
+Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](../running-simbank-tests/simbank-IVT) is the best place to start.
 
 
 ## <a name="headgradle"></a>Creating an example Galasa project using Gradle (zipped distribution)
@@ -205,9 +205,9 @@ Explore these tests by selecting from the left-hand menu - if you are new to Gal
 16. Click _Apply_ then _Run_. A _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab.
 17. Expand `dev.galasa.simbank.tests` and then expand `src/main/java`.
 18. Explore the `dev.galasa.simbank.tests` package. You'll see the group of tests provided with SimBank:
-    ![SimBank tests](./gradle-tests.png)
+    ![SimBank tests](../gradle-tests.png)
 
-Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](/docs/running-simbank-tests/simbank-IVT) is the best place to start.
+Explore these tests by selecting from the left-hand menu - if you are new to Galasa, [The SimBank IVT](../running-simbank-tests/simbank-IVT) is the best place to start.
 
 
 ## More about the parent project
