@@ -48,7 +48,7 @@ const Footer = () => {
         <a href="https://www.ibm.com/legal">Terms of use</a>
         <span className={cookieConsent} id="teconsent"></span>
       </div>
-      <div>An open source project by IBM. Built in Hursley, UK.</div>
+      <div>© Open Mainframe Project. Built in Hursley, UK.</div>
       <div>
         <a
           className={icon}
