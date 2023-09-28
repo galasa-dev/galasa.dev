@@ -45,7 +45,7 @@ galasactl local init
 ```
 
 
-This one-time command is run once Galasa home directory and helps you to quickly create the folder and files that you need. If you already have a Galasa home folder set up, the folder and files are not created. 
+This one-time command is run once per Galasa home directory and helps you to quickly create the folder and files that you need. If you already have a Galasa home folder set up, the folder and files are not created. 
 
 The command creates the following file structure, with default contents in each of the properties files:
 
