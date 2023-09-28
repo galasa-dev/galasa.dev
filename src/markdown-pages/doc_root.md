@@ -5,7 +5,7 @@ title: "Installing options"
 
 There are a few options available when installing Galasa. Prerequisites vary, depending on the option that is chosen. 
 
-You can install Galasa for using in the command-line, for using Eclipse, or for sharing with your department (using the Galasa zipped distribution). 
+You can install Galasa for using in the command-line, for using in Eclipse, or for sharing with your department (using the Galasa zipped distribution). 
 
 There are benefits of installing Galasa for using in the command-line. Much of the configuration set-up that is required is done for you automatically by scripts, so less manual intervention is needed. You can then import the configuration into an IDE of your choice, rather than having to use Eclipse.
 
