@@ -59,5 +59,5 @@ Tests written for Galasa can be run locally on your computer for manual debuggin
 <b>Environment-agnostic capabilities:</b>
 
 -  Tests can be run against multiple environments as code progresses through release stages.
--  The Galasa test engine allows tests to run locally for easier development and debugging, as well as in the Galasa ecosystem for production testing at scale.
+-  The Galasa test engine allows tests to run locally for easier development and debugging, as well as in the Galasa Ecosystem for production testing at scale.
 </details>

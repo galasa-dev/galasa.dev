@@ -292,7 +292,7 @@ These settings assume a zOS/MF server on MV2D and the port overridden from `443`
 
 - <b>z/OS Batch Manager (beta)</b> - enabling tests and Managers to submit, monitor and retrieve z/OS batch jobs.
 - <b>CICS CECI Manager (alpha)</b> - providing CECI 3270 interaction - initially supporting containers and link programs.
-- <b>Ecosystem Manager (alpha)</b> - enabling deployment of an entire Galasa ecosystem to Kubernetes to enable integration testing against Galasa.
+- <b>Ecosystem Manager (alpha)</b> - enabling deployment of an entire Galasa Ecosystem to Kubernetes to enable integration testing against Galasa.
 - <b>Docker Manager (release) </b> - enabling containers to run on infrastructure Docker engines - either for testing directly or for assisting the testing process.
 - <b>Documentation update</b> - how to start writing your own Simbank tests.
 - <b>Documentation update</b> - new SimBank z/OS Batch Manager tutorial available.
