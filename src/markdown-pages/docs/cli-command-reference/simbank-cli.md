@@ -1,18 +1,21 @@
 ---
-path: "/docs/getting-started/simbank"
-title: "Exploring Galasa SimBank using Eclipse"
+path: "/docs/cli-command-reference/simbank-cli"
+title: "Exploring Galasa SimBank using the CLI"
 ---
 Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a sample banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
 By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn Galasa's basic principles of operation before you need to learn how to connect Galasa to your own mainframe application-under-test.
 
 ## Launching SimBank
-If you have previously started SimBank, then choose *Run > Run Configurations* from the main menu and select and run the configuration that you created for SimBank. If not, complete the following steps:
+SimBank applications and a set of sample SimBank tests are located in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. 
+To start exploring the Galasa Simbank application and to run the sample SimBank tests by using the Galasa CLI, you need to complete the following steps:
 
-1. Start Eclipse. 
-1. From the main menu, choose *Run > Run Configurations*.
-1. In the *Create, manage and run configurations* dialog, right-click *Galasa SimBank* in the left pane and choose *New Configuration*.
-1. Type your preferred name for the run configuration in the *Name:* field (a relevant name such as *SimBank* is fine), press *Apply* and then *Run*. Once created, your run configuration is available for future runs.
+1. Clone the Galasa `simplatform` repository on your machine by running the following command in the directory on your local machine in which you want to clone the repository files:
+    ```
+    git clone https://github.com/galasa-dev/simplatform.git
+    ```
+1. Run the `./build-locally.sh` script to build the code.
+1. Run the `./run-locally.sh --server` script to start the simbank server inside a local JVM.
 In a few seconds, the Eclipse *Console* window responds with a series of initialization messages, which on Windows looks like:
 ```
 2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
@@ -34,9 +37,9 @@ In a few seconds, the Eclipse *Console* window responds with a series of initial
 2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Simplatform started
 ```
 
-     If you are a Mac or Linux user, the messages will be almost identical.
+If you are a Mac or Linux user, the messages will be almost identical.
 
-5. The SimBank process has been launched, and is listening on port *2023* for Telnet connections, on port *2080* for web services connections and on port *2027* for Derby SQL connections. Neither web services or Derby connections are explored further in this section.
+4. The SimBank process has been launched, and is listening on port *2023* for Telnet connections, on port *2080* for web services connections and on port *2027* for Derby SQL connections. Neither web services or Derby connections are explored further in this section.
 
 ## Manually exploring the SimBank application
 When you launch SimBank, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
@@ -57,7 +60,7 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
 1. Press TAB to move the cursor into the `Password` field, type the password `SYS1` and press your terminal emulator's ENTER key to logon and transfer to the SimBank main menu:
 
-    ![Banktest home screen](simbank-banktest.png) 
+    ![Banktest home screen](../first-steps/simbank-banktest.png) 
 
 > *Note:* Depending on your terminal emulator, its ENTER key may not be mapped to the physical ENTER key on your computer. For example,
 > on PCOMM, by default, the ENTER key is mapped to the host machine's right CTRL key. If you are unsure about this, review
@@ -65,12 +68,12 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
 6. Press PF1:
 
-    ![CICS home screen](simbank-cics.png) 
+    ![CICS home screen](../first-steps/simbank-cics.png) 
 
 1. Press your terminal emulator's CLEAR SCREEN key.
 1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the SimBank main menu:
 
-    ![Main banking menu](simbank-mainmenu.png) 
+    ![Main banking menu](../first-steps/simbank-mainmenu.png) 
 
 As you have been progressing through this process, Eclipse has been logging selected events to its console:
 
@@ -88,7 +91,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
     The account details are populated and it is apparent that account number 123456789 is 56.72 in credit.
 
-    ![Account balance](simbank-balance.png)
+    ![Account balance](../first-steps/simbank-balance.png)
 
 1. Press PF3 to return to the account menu screen.
 
@@ -98,7 +101,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Transfer to Account Number` field and enter `987654321`.
 1. Press TAB until the cursor is in the `Transfer Amount` field and enter `1`
 
-    ![Inter-account transfer](simbank-transfer.png)
+    ![Inter-account transfer](../first-steps/simbank-transfer.png)
 
 1. Press ENTER - a `Transfer Successful` message appears. A log message is also written to the Eclipse *Console* window:
 
@@ -110,4 +113,4 @@ Press PF3 and once again browse the 123456789 account as described previously to
 
 Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
-Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose _Running the supplied SimBank tests_ in the side-menu.
+Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose [Running the supplied SimBank tests](../running-simbank-tests) in the side-menu.
