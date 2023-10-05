@@ -1,9 +1,9 @@
 ---
 path: "/docs/running-simbank-tests/simbank-IVT"
-title: "Running the SimBank Installation Verification Test"
+title: "The SimBank Installation Verification Test"
 ---
 
-This basic test logs on to Galasa SimBank and examines an account. Don't forget that you need to launch Galasa SimBank before running the test.  
+This basic test logs on to Galasa SimBank and examines an account. 
 
 ## Exploring the `SimBankIVT` test class
 
@@ -77,7 +77,7 @@ public void checkBankIsAvailable() throws Exception {
 
 These methods are available via the imported `Zos3270Terminal` Manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
 
-Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
+Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMPLATFORM MAIN MENU and BANKTEST.
 
 ```java
 //Assert that the session manager has a bank session available

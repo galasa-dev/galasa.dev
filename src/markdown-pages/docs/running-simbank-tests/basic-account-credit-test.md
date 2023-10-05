@@ -4,7 +4,7 @@ title: "BasicAccountCreditTest"
 ---
 This test updates a Galasa SimBank account using web services and examines the changes via some 3270 screens, illustrating how to use web services to interface with the SimBank application, and how to create and use Java methods that you do not wish to be recognized as test methods.
 
-To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. Don't forget that you need to launch Galasa SimBank before running the test.
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `BasicAccountCreditTest` instead of `SimBankIVT`. 
 
 The spine of this test resembles that of `SimBankIVT.java`, with a nearly-identical collection of imports and invoked Managers within the main test class - `BasicAccountCreditTest` in this case.
 

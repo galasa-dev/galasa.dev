@@ -45,6 +45,10 @@
               path: /docs/cli-command-reference/cli-runs-submit-local
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
+            - title: Running the SimBank tests using the CLI
+              path: /docs/running-simbank-tests-cli
+            - title: Viewing test results locally
+              path: /docs/cli-command-reference/viewing-test-results-cli
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
@@ -56,8 +60,12 @@
               path: /docs/getting-started/simbank
             - title: Creating a project using Eclipse
               path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
-        - title: Running the supplied SimBank tests
-          path: /docs/running-simbank-tests
+            - title: Running the SimBank tests using Eclipse
+              path: /docs/running-simbank-tests-eclipse
+            - title: Viewing test results locally
+              path: /docs/running-simbank-tests/viewing-test-results
+        - title: Exploring the supplied SimBank tests
+          path: /docs/exploring-simbank-tests
           items:
             - title: The SimBank IVT
               path: /docs/running-simbank-tests/simbank-IVT
@@ -71,8 +79,6 @@
               path: /docs/running-simbank-tests/web-app-integration-test
             - title: Writing your own SimBank test
               path: /docs/running-simbank-tests/writing-a-simbank-test
-            - title: Viewing test results
-              path: /docs/running-simbank-tests/viewing-test-results
         - title: Writing your own independent Galasa tests
           path: /docs/writing-own-tests
           items:
