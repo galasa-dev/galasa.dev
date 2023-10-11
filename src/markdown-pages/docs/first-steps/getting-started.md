@@ -2,16 +2,11 @@
 path: "/docs/getting-started"
 title: "Getting started using Eclipse"
 ---
-This section takes you through the options available for installing the Galasa Eclipse plug-in and a quick tour of its capabilities on a local machine.
 
-## Installing options
-You can install Galasa either from a downloadable zip file (zipped distribution) or directly from an external update site. 
+Before development of the Galasa command line tool (Galasa CLI), Eclipse was the main focus for getting started with using Galasa and exploring Simbank and it continues to provide an alternative UI experience to the equivalent command line option.
 
-The zipped distribution allows users who do not have access to Maven Central, Eclipse Marketplace and Docker Hub from their company network to use Galasa. Users without restricted internet access who want to use open-source Galasa, can install the Galasa Eclipse plug-in directly from the external update site.
 
-As IP addresses and ports of test machines are stored within the cps.properties file on a users system, we recommend that hard drive encryption is turned on in the operating system where possible.
-
-## Compatibilities
+If you are planning to install and use Galasa with Eclipse, you need to have an Eclipse installation on your machine. If you do not already have an Eclipse installation, you can <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">download</a> a version of Eclipse appropriate for your machine. Choose a package that supports your required level of Java development - _Eclipse IDE for Java Developers_ or _Eclipse IDE for Java EE Developers_. If you are unsure, then the _Eclipse IDE for Java Developers_ should be fine, and you can always add plug-ins if and when you discover you need them.
 
 The following table shows the current compatibility between Eclipse and Galasa versions: 
 
@@ -26,7 +21,10 @@ The following table shows the current compatibility between Eclipse and Galasa v
 
 You can tell Eclipse about an installed runtime by going to _Settings_>_Java_>_Installed JREs_ from the Eclipse menu, and adding the Java 11 runtime to the list of installed JREs. You can set this runtime as default so that Eclipse launches tests with a Java 11 runtime. 
 
-## Installing 
+
+## Downloading and Installing 
+
+You can download Galasa either from a downloadable zip file (zipped distribution) or directly from an external update site. For more information about these options, see the [Installing options](../../docs) documentation. 
 
 To install the Galasa plug-in from the external update site, follow the instructions in [Installing the Galasa plug-in](/docs/getting-started/installing-online). 
 

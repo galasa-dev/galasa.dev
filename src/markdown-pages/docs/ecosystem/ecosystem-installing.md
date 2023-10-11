@@ -4,11 +4,11 @@ title: "Installing the Galasa Ecosystem on Docker"
 ---
 
 
-The following section explains how to install a Galasa ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/docker-operator " target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
+The following section explains how to install a Galasa Ecosystem on a Docker engine by using the <a href="https://github.com/galasa-dev/docker-operator " target="_blank"> Docker operator</a>. Currently the Docker operator only supports the amd64 platform. A s390x (zLinux) implementation is planned for a future release.
 
 ## Prerequisites
 
-To bring up the Galasa ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
+To bring up the Galasa Ecosystem by using the Docker operator, you need access to a Linux virtual machine (VM) with Docker engine installed on it. 
 
 The VM requires 4 VCPUs, 80GB of storage and a recommended minimum of 8GB of memory. The size of the VM provided is directly related to the number of tests that can be run in parallel. It is possible to bring up the ecosystem with 4GB of memory, but this will support a maximum of two tests running in parallel. Docker has a default value of 4GB of memory set, so you need to change this value which you can do by using Docker Desktop. 
 
@@ -21,7 +21,7 @@ The Docker operator automatically brings up the following servers on the VM. For
 
 *Note:* If the VM has a firewall running, you might need to open the ports that are listed in the following tables.  
 
-The following servers are required for the Galasa ecosystem:  
+The following servers are required for the Galasa Ecosystem:  
 
 
 | Name      | Description | Port
@@ -41,7 +41,7 @@ The following server is not required by the ecosystem but is automatically deplo
 
 To use SimPlatform, you need to have access to Maven Central. Chat to us on our <a href="https://galasa.slack.com" target="_blank"> Galasa Slack</a> workspace if you need help with this.
 
-## Installing the Galasa ecosystem on the Docker engine
+## Installing the Galasa Ecosystem on the Docker engine
 
 The ecosystem needs to know the hostname or IP address of the VM on which the Docker engine is running. Due to the way Docker works, you cannot use ```localhost``` or  ```127.0.0.1``` - you must use the actual VM hostname or IP address. This information is provided in a *config.yaml* file. 
 
@@ -62,7 +62,7 @@ Note the two-spaced indentation on some of the lines -  they are important in YA
 
 If you opened any ports, check that the port numbers are correct in the *config.yaml* file. 
 
-2. Deploy the Galasa ecosystem by running the following Docker command on the VM:
+2. Deploy the Galasa Ecosystem by running the following Docker command on the VM:
 
 ```
 docker run -it -v \
@@ -73,15 +73,15 @@ icr.io/galasadev/galasa-docker-operator-amd64:latest
 
 where ```{path}``` is the full pathname to the directory containing your *config.yaml* file.
 
-This command brings up the [microservices](/docs/ecosystem/architecture) that are required to run a Galasa ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
+This command brings up the [microservices](/docs/ecosystem/architecture) that are required to run a Galasa Ecosystem. When the command completes, nine docker containers should be running. The command might take a little time to complete. 
 
 3. View the active containers by running the ```docker ps``` command.
 
-The Galasa ecosystem is now successfully installed on the VM.
+The Galasa Ecosystem is now successfully installed on the VM.
 
-### Connecting to the Galasa ecosystem
+### Connecting to the Galasa Ecosystem
 
-The bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to the ecosystem. From your IDE, edit the bootstrap to reconfigure Galasa to point to the Galasa ecosystem that you created. 
+The bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to the ecosystem. From your IDE, edit the bootstrap to reconfigure Galasa to point to the Galasa Ecosystem that you created. 
 
 In Eclipse, you can edit the bootstrap by completing the following steps:
 

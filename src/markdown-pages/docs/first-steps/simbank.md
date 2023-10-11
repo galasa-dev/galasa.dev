@@ -1,6 +1,6 @@
 ---
 path: "/docs/getting-started/simbank"
-title: "Exploring Galasa SimBank"
+title: "Exploring Galasa SimBank using Eclipse"
 ---
 Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform, which exists to provide options for future growth. As delivered, SimBank implements a sample banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
@@ -45,19 +45,19 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 1. With Eclipse and the *Galasa SimBank* component still running, configure your 3270 terminal emulator to access port *2023* of *localhost* (or IP address 127.0.0.1 if the *localhost* alias has not been set up) via the Telnet protocol. No SSL configuration is required.
 1. Connect to the listening Telnet service with your 3270 emulator and review the logon screen:
 
-    ![SimBank logon screen](./simbank-logon.png)
+    ![SimBank logon screen](../first-steps/simbank-logon.png)
 
 1. Ensure that the cursor is in the `Userid` field - if it is not, use the TAB key to position it:
 
-    ![TAB to the userid field](./simbank-userid.png) 
+    ![TAB to the userid field](../first-steps/simbank-userid.png) 
 
 1. Enter the userid `IBMUSER`
 
-    ![Enter your userid](./simbank-ibmuser.png) 
+    ![Enter your userid](../first-steps/simbank-ibmuser.png) 
 
 1. Press TAB to move the cursor into the `Password` field, type the password `SYS1` and press your terminal emulator's ENTER key to logon and transfer to the SimBank main menu:
 
-    ![Banktest home screen](./simbank-banktest.png) 
+    ![Banktest home screen](../first-steps/simbank-banktest.png) 
 
 > *Note:* Depending on your terminal emulator, its ENTER key may not be mapped to the physical ENTER key on your computer. For example,
 > on PCOMM, by default, the ENTER key is mapped to the host machine's right CTRL key. If you are unsure about this, review
@@ -65,12 +65,12 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
 6. Press PF1:
 
-    ![CICS home screen](./simbank-cics.png) 
+    ![CICS home screen](../first-steps/simbank-cics.png) 
 
 1. Press your terminal emulator's CLEAR SCREEN key.
 1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the SimBank main menu:
 
-    ![Main banking menu](./simbank-mainmenu.png) 
+    ![Main banking menu](../first-steps/simbank-mainmenu.png) 
 
 As you have been progressing through this process, Eclipse has been logging selected events to its console:
 
@@ -88,7 +88,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
     The account details are populated and it is apparent that account number 123456789 is 56.72 in credit.
 
-    ![Account balance](./simbank-balance.png)
+    ![Account balance](../first-steps/simbank-balance.png)
 
 1. Press PF3 to return to the account menu screen.
 
@@ -98,7 +98,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Transfer to Account Number` field and enter `987654321`.
 1. Press TAB until the cursor is in the `Transfer Amount` field and enter `1`
 
-    ![Inter-account transfer](./simbank-transfer.png)
+    ![Inter-account transfer](../first-steps/simbank-transfer.png)
 
 1. Press ENTER - a `Transfer Successful` message appears. A log message is also written to the Eclipse *Console* window:
 
