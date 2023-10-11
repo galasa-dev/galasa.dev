@@ -3,10 +3,14 @@ path: "/docs/ecosystem/cps"
 title: "Managing automated test runs"
 ---
 
+[Retrieving properties](#retrieving)<br>
+[Setting properties](#setting)<br>
+[Deleting properties](#deleting)<br>
 
-The ability to set properties held in the configuration properties store (CPS) directly into an Ecosystem by using the Galasa CLI makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. 
+The ability to retrieve, set, and delete properties held in the configuration properties store (CPS) directly into an Ecosystem by using the Galasa CLI makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. 
 
 System administrators can use the CLI to set Ecosystem-wide configuration properties during Ecosystem installation.
+
 
 ## About the configuration properties store 
 
@@ -19,12 +23,11 @@ The CPS is hosted in the etcd server, a key-value pair store which also hosts th
 
 When a test is ready to run in the Ecosystem, you can use the CLI to ensure that the appropriate properties and credentials are installed in the Ecosystem for the test to query and use. There is no need to directly access the etcd server, or the REST service, which would have previously been necessary to achieve the same result. Instead, use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to help you to dynamically manage CPS properties that are stored in the etcd server. 
 
-Most properties that are commonly used in Galasa are held in the `framework` namespace and the many of the provided examples use the `framework` namespace. The properties that are typically stored in the `framework` namespace are [test stream](../writing-own-tests/test-streams) properties that are used to help run groups of tests in automation in the Ecosystem. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
+Most properties that are commonly used in Galasa are held in the `framework` namespace and many of the provided examples use the `framework` namespace. The properties that are typically stored in the `framework` namespace are [test stream](../writing-own-tests/test-streams) properties that are used to help run groups of tests in automation in the Ecosystem. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
 The example commands assume that `GALASA_BOOTSTRAP` environment variable is set, so the `--bootstrap` flag is not required in the command. 
 
-
-## Retrieving properties from a namespace 
+## <a name="retrieving"></a>Retrieving properties from a namespace 
 
 Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property),  or by using prefixes, suffixes, and infixes to return a subset of properties that match the provided criteria. 
 
@@ -105,7 +108,7 @@ Total: 4
 ```
 
 
-### Setting properties in a namespace
+## <a name="setting"></a>Setting properties in a namespace
 
 You can update a property and its value in a namespace by using the `galasactl properties set` command. If the property does not exist in that namespace, the command creates the property. You must provide the namespace, the name of the property, and the value of the property in the command in the following example format:
 
@@ -117,7 +120,7 @@ For a complete list of supported parameters see the <a href="https://github.com/
 
 ### Examples of setting properties in a namespace
 
-The [WebAppIntegrationTest](../running-simbank-tests/web-app-integration-test) documentation is designed to help you to understand how to set the properties that enable the test to run in a Galasa Ecosystem.
+The [WebAppIntegrationTest](../running-simbank-tests/web-app-integration-test) documentation is designed to help you to understand how to set the properties that enable a local test to run in a Galasa Ecosystem.
 
 For example, the following CPS properties are set for the Docker Manager when running the `WebAppIntegrationTest` locally:
 
@@ -156,7 +159,7 @@ framework.test.stream.EXAMPLE.description "Example Test Stream"
 Tests for the `EXAMPLE` test stream are deployed to the Maven repository that is set for `framework.test.stream.EXAMPLE.repo` and are listed in the test catalog location that is provided in `framework.test.stream.EXAMPLE.location`.
 
 
-### Deleting properties from a namespace
+## <a name="deleting"></a>Deleting properties from a namespace
 
 You can delete a property and its associated value in a namespace by using the `galasactl properties delete` command. You must provide the namespace and the name of the property that you want to delete.  For example:
 
