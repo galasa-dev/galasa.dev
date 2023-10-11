@@ -3,7 +3,7 @@ path: "/docs/getting-started/installing-offline"
 title: "Installing the Galasa plug-in offline"
 ---
 
-The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (eclipse, maven and javadoc), an `isolated.tar` file and a `docs.jar` file. 
+The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains four directories (galasactl, eclipse, maven, and javadoc), an `isolated.tar` file and a `docs.jar` file. 
 
 The `eclipse` directory contains the Galasa plug-in, and the `maven` directory contains dependencies that are required for building Galasa tests. The `javadoc``
  directory contains the Javadoc API documentation for the Galasa Managers.
