@@ -5,8 +5,7 @@ title: "Installing the Galasa plug-in offline"
 
 The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains four directories (galasactl, eclipse, maven, and javadoc), an `isolated.tar` file and a `docs.jar` file. 
 
-The `eclipse` directory contains the Galasa plug-in, and the `maven` directory contains dependencies that are required for building Galasa tests. The `javadoc``
- directory contains the Javadoc API documentation for the Galasa Managers.
+The `galasactl` directory contains the binaries that are required to run the Galasa command line interface tool (Galasa CLI). The `eclipse` directory contains the Galasa plug-in, and the `maven` directory contains dependencies that are required for building Galasa tests. The `javadoc` directory contains the Javadoc API documentation for the Galasa Managers.
 
 The `isolated.tar` file is an optional Docker image that hosts all the artifacts. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
