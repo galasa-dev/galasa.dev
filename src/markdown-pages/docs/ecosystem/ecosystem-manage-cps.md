@@ -7,16 +7,16 @@ title: "Managing automated test runs"
 [Setting properties](#setting)<br>
 [Deleting properties](#deleting)<br>
 
-The ability to retrieve, set, and delete properties held in the configuration properties store (CPS) directly into an Ecosystem by using the Galasa CLI makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. 
+The ability to retrieve, set, and delete properties held in the Configuration Properties Store (CPS) directly into an Ecosystem by using the Galasa CLI makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. 
 
-System administrators can use the CLI to set Ecosystem-wide configuration properties during Ecosystem installation.
+System administrators can use the CLI to set Ecosystem-wide configuration properties after Ecosystem installation.
 
 
-## About the configuration properties store 
+## About the Configuration Properties Store 
 
 Properties in the CPS are dot separated values with lower and upper-case segments that define, for example, endpoint, port, and repository properties. These properties instruct the way in which a Galasa test runs.  It is the CPS and the configurational properties that enable tests to run against multiple environments, without changing the code inside the test. 
 
-The CPS is hosted in the etcd server, a key-value pair store which also hosts the Dynamic Status Store (DSS) and the Credentials Store (CREDs), maintaining a single source of truth about the status of the ecosystem. For more information see the [Ecosystem Architecture](/docs/ecosystem/architecture) documentation.
+The CPS is hosted in the Ecosystem's etcd server, a key-value pair store which also hosts the Dynamic Status Store (DSS) and the Credentials Store (CREDs), maintaining a single source of truth about the status of the ecosystem. For more information see the [Ecosystem Architecture](/docs/ecosystem/architecture) documentation.
 
 
 ## Managing CPS properties
@@ -29,7 +29,7 @@ The example commands assume that `GALASA_BOOTSTRAP` environment variable is set,
 
 ## <a name="retrieving"></a>Retrieving properties from a namespace 
 
-Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property),  or by using prefixes, suffixes, and infixes to return a subset of properties that match the provided criteria. 
+Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using prefixes, suffixes, and infixes to return a subset of properties that match the provided criteria. 
 
 
 ### Retrieve all properties from a namespace
@@ -49,7 +49,8 @@ To retrieve a specific property from the `framework` namespace, specify the prop
 
 ### Retrieve a subset of properties in a namespace
 
-To filter the properties that are returned, without specifying the property name, use the `–prefix`, `–suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `framework` namespace, that start with `test`, end with `stream`, and contain `batch` and `production` use the following command: 
+To filter the properties that are returned, without specifying the property name, use the `–prefix`, `–suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `docker` namespace that start with `docker`, end with `hostname`, and contain `engine` use the following command: 
+
 
 On Mac and Unix:
 
@@ -62,7 +63,7 @@ On Windows (Powershell):
 
 ```
 galasactl properties get `
---namespace framework --prefix test --suffix stream --infix batch,production
+--namespace framework --prefix docker --suffix hostname --infix engine
 ```
 
 
@@ -78,9 +79,9 @@ For a complete list of supported parameters see the <a href="https://github.com/
 Properties are returned in summary format. For example:
 
 ```
-namespace name                value
-framework test.batch1.stream  value1
-framework test.batch2.stream  value2
+namespace name                           value
+docker    docker.engine.LOCAL.hostname   127.0.0.1
+docker    docker.engine.REMOTE.hostname  103.67.89.6
 
 Total: 2
 ```
@@ -98,11 +99,11 @@ Total: 1
 Returned properties are first sorted according to the number of segments in the property name (denoted by the period character (.)), and then in alphabetical order. For example:
 
 ```
-namespace name                value
-framework test.a.b.c.stream   account1
-framework test.b.c.d.stream   account2
-framework test.a.b.stream     myteststream
-framework test.stream         bestsofar
+namespace name                          value
+framework framework.test.stream.a.b     account1
+framework framework.test.stream.b.c     account2
+framework framework.test.stream.a       myteststream
+framework framework.test.stream         bestsofar
 
 Total: 4
 ```
@@ -149,8 +150,8 @@ galasactl properties set --namespace docker --name docker.engine.REMOTE.max.slot
 You can also use `galasactl properties set` command to set a repository, OBR, and test catalog property for a test stream. For example, you can set up a test stream called `EXAMPLE` in the `framework` namespace with the following properties:   
 
 ```
-framework.test.streams SIMBANK,EXAMPLE
-framework.test.stream.EXAMPLE.repo http://<your-maven-repo-hostname>/repository/maven
+framework.test.streams EXAMPLE
+framework.test.stream.EXAMPLE.repo http://hostname/your/maven/repository
 framework.test.stream.EXAMPLE.obr mvn:dev.galasa/dev.galasa.examples.obr/0.0.1-SNAPSHOT/obr
 framework.test.stream.EXAMPLE.location http://<your-ecosystem-hostname>/testcatalog/example
 framework.test.stream.EXAMPLE.description "Example Test Stream"

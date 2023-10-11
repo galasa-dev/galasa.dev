@@ -15,12 +15,12 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 ## 0.30.0 - Release Highlights
 
 - You can now read, update, and delete CPS properties by using the CLI, removing the need to directly access the etcd server or use the REST service. The `galasactl properties set` command makes it easy to set parameters and credentials in the Ecosystem for tests to read and use at runtime. Use the `galasactl properties get` command to read CPS properties and the `galasactl properties delete` to remove CPS properties from a namespace in the Ecosystem.
-- The following REST API calls will be deprecated in the next release (0.31.0) as these are replaced by the new CLI commands delivered in this release:<br><br>
+- The following REST API calls will be deprecated in the next release (0.31.0) and these are replaced by the new CLI commands delivered in this release:<br><br>
         /cps/namespace/{namespace}/property/{property}<br>
         /cps/namespace/{namespace}/prefix/{prefix}/suffix/{suffix}<br>
         /cps/namespace/{namespace}<br>
         /cps/namespace<br>
-- The `--requestor` parameter is removed from the `galasactl runs sumbmit local` and `galasactl runs sumbmit` commands. The `--requestor` parameter is always set to the current user id, removing the ability to artifically set who is running the test. 
+- The `--requestor` parameter is removed from the `galasactl runs submit local` and `galasactl runs submit` commands. The `--requestor` parameter is always set to the current user id, removing the ability to artifically set who is running the test. 
 - Various documentation updates and enhancements.
 
 
