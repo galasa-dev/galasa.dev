@@ -56,14 +56,14 @@ On Mac and Unix:
 
 ```
 galasactl properties get \
---namespace framework --prefix test --suffix stream --infix batch,production
+--namespace framework --prefix docker.engine --suffix hostname --infix REMOTE
 ```
 
 On Windows (Powershell):
 
 ```
 galasactl properties get `
---namespace framework --prefix docker --suffix hostname --infix engine
+--namespace framework --prefix docker.engine --suffix hostname --infix REMOTE
 ```
 
 
