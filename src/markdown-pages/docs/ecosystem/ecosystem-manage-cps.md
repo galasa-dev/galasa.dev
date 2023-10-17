@@ -16,14 +16,14 @@ System administrators can use the CLI to set Ecosystem-wide configuration proper
 
 Properties in the CPS are dot separated values with lower and upper-case segments that define, for example, endpoint, port, and repository properties. These properties instruct the way in which a Galasa test runs.  It is the CPS and the configurational properties that enable tests to run against multiple environments, without changing the code inside the test. 
 
-The CPS is hosted in the Ecosystem's etcd server, a key-value pair store which also hosts the Dynamic Status Store (DSS) and the Credentials Store (CREDs), maintaining a single source of truth about the status of the ecosystem. For more information see the [Ecosystem Architecture](/docs/ecosystem/architecture) documentation.
+The CPS is hosted in the Ecosystem's etcd server, a key-value pair store which also hosts the Dynamic Status Store (DSS) and the Credentials Store (CREDs), maintaining a single source of truth about the status of the Ecosystem. For more information see the [Ecosystem Architecture](/docs/ecosystem/architecture) documentation.
 
 
 ## Managing CPS properties
 
-When a test is ready to run in the Ecosystem, you can use the CLI to ensure that the appropriate properties and credentials are installed in the Ecosystem for the test to query and use. There is no need to directly access the etcd server, or the REST service, which would have previously been necessary to achieve the same result. Instead, use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to help you to dynamically manage CPS properties that are stored in the etcd server. 
+When a test is ready to run in the Ecosystem, you can use the CLI to ensure that the appropriate properties and credentials are installed in the Ecosystem for the test to query and use. There is no need to directly access the etcd server, or the REST service, which would otherwise be necessary to achieve the same result. Instead, use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to help you to dynamically manage CPS properties that are stored in the etcd server. 
 
-Most properties that are commonly used in Galasa are held in the `framework` namespace and many of the provided examples use the `framework` namespace. The properties that are typically stored in the `framework` namespace are [test stream](../writing-own-tests/test-streams) properties that are used to help run groups of tests in automation in the Ecosystem. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
+Many properties that are commonly used in Galasa are held in the `framework` namespace. The properties that are typically stored in the `framework` namespace are [test stream](../writing-own-tests/test-streams) properties that are used to help run groups of tests in automation in the Ecosystem. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
 The example commands assume that `GALASA_BOOTSTRAP` environment variable is set, so the `--bootstrap` flag is not required in the command. 
 
@@ -146,18 +146,6 @@ galasactl properties set --namespace docker --name docker.engine.REMOTE.hostname
 galasactl properties set --namespace docker --name docker.engine.REMOTE.port --value 2987
 galasactl properties set --namespace docker --name docker.engine.REMOTE.max.slots --value 20
 ```
-
-You can also use `galasactl properties set` command to set a repository, OBR, and test catalog property for a test stream. For example, you can set up a test stream called `EXAMPLE` in the `framework` namespace with the following properties:   
-
-```
-framework.test.streams EXAMPLE
-framework.test.stream.EXAMPLE.repo http://hostname/your/maven/repository
-framework.test.stream.EXAMPLE.obr mvn:dev.galasa/dev.galasa.examples.obr/0.0.1-SNAPSHOT/obr
-framework.test.stream.EXAMPLE.location http://<your-ecosystem-hostname>/testcatalog/example
-framework.test.stream.EXAMPLE.description "Example Test Stream"
-```
-
-Tests for the `EXAMPLE` test stream are deployed to the Maven repository that is set for `framework.test.stream.EXAMPLE.repo` and are listed in the test catalog location that is provided in `framework.test.stream.EXAMPLE.location`.
 
 
 ## <a name="deleting"></a>Deleting properties from a namespace
