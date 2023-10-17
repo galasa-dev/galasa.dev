@@ -49,21 +49,21 @@ To retrieve a specific property from the `framework` namespace, specify the prop
 
 ### Retrieve a subset of properties in a namespace
 
-To filter the properties that are returned, without specifying the property name, use the `–prefix`, `–suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `docker` namespace that start with `docker`, end with `hostname`, and contain `engine` use the following command: 
+To filter the properties that are returned, without specifying the property name, use the `–prefix`, `–suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `docker` namespace that start with `docker.engine`, end with `hostname`, and contain `LOCAL` or `REMOTE` use the following command: 
 
 
 On Mac and Unix:
 
 ```
 galasactl properties get \
---namespace framework --prefix docker.engine --suffix hostname --infix REMOTE
+--namespace framework --prefix docker.engine --suffix hostname --infix LOCAL,REMOTE
 ```
 
 On Windows (Powershell):
 
 ```
 galasactl properties get `
---namespace framework --prefix docker.engine --suffix hostname --infix REMOTE
+--namespace framework --prefix docker.engine --suffix hostname --infix LOCAL,REMOTE
 ```
 
 
@@ -164,7 +164,7 @@ Tests for the `EXAMPLE` test stream are deployed to the Maven repository that is
 
 You can delete a property and its associated value in a namespace by using the `galasactl properties delete` command. You must provide the namespace and the name of the property that you want to delete.  For example:
 
-```galasactl properties set --namespace framework --name propertyName```
+```galasactl properties delete --namespace framework --name propertyName```
 
 A success message is displayed when the property is deleted.
 
