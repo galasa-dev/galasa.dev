@@ -28,14 +28,18 @@
     - title: Docs
       root: /docs/
       items:
-        - title: Introduction and architecture
+        - title: Galasa Architecture
+          path: /docs/architecture
+        - title: Installing options
           path: /docs/
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
-          items:
+          items: 
+            - title: Installing the Galasa CLI
+              path: /docs/cli-command-reference/installing-cli-tool
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
-            - title: Creating a project
+            - title: Creating a project using the CLI
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
@@ -50,6 +54,8 @@
               path: /docs/getting-started/installing-offline
             - title: Exploring Galasa SimBank
               path: /docs/getting-started/simbank
+            - title: Creating a project using Eclipse
+              path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
         - title: Running the supplied SimBank tests
           path: /docs/running-simbank-tests
           items:
@@ -87,6 +93,8 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Managing automated test runs
+              path: /docs/ecosystem/cps
             - title: Selecting tests to run in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem
