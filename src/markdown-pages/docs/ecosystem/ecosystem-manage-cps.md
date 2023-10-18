@@ -21,7 +21,7 @@ The CPS is hosted in the Ecosystem's etcd server, a key-value pair store which a
 
 ## Managing CPS properties
 
-When a test is ready to run in the Ecosystem, you can use the CLI to ensure that the appropriate properties and credentials are installed in the Ecosystem for the test to query and use. There is no need to directly access the etcd server, or the REST service, which would otherwise be necessary to achieve the same result. Instead, use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to help you to dynamically manage CPS properties that are stored in the etcd server. 
+When a local test is ready to run in the Ecosystem, you can use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to help you to dynamically manage CPS properties that are stored in the etcd server. The CLI commands make it easy to ensure that the appropriate properties and credentials are installed in the Ecosystem for the test to query and use. 
 
 Many properties that are commonly used in Galasa are held in the `framework` namespace. The properties that are typically stored in the `framework` namespace are [test stream](../writing-own-tests/test-streams) properties that are used to help run groups of tests in automation in the Ecosystem. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
