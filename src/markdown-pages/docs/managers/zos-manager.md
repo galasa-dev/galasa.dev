@@ -3,25 +3,23 @@ path: "/docs/managers/zos-manager"
 title: "z/OS Manager"
 ---
 
-This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.dev/index.html?overview-summary.html">Javadoc documentation for the Manager here</a>.<br>
+**BETA**
 
 [Overview](#overview)<br>
 [Configuring](#configuring)<br>
 [Provided annotation](#annotations)<br>
 [Code snippets and examples](#codesnippets)<br>
 
-
 # <a name="overview"></a>Overview
 This Manager provides tests and Managers with access to and configuration information about z/OS images and Sysplexes. It offers services such as APF, DUMP, SMF and Log access. <br><br> Additionally, the z/OS Manager provides tests with interfaces to the following z/OS functions which are implemented by other Managers: <br><br> - <code>z/OS Batch</code> which enables tests and Managers to submit, monitor and retrieve the output of z/OS batch jobs. See <a href="/docs/running-simbank-tests/batch-accounts-open-test">BatchAccountsOpenTest</a> for a walkthrough of a test that employs this Manager.<br><br> - <code>z/OS Console</code> which allows tests and Managers to issue and retrieve the responses from z/OS console commands.
-<br><br> - <code>z/OS File</code> which provides tests and Managers with the ability to manage and transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE, KSDS, ESDS or RRDS and z/OS UNIX files.
+<br><br> - <code>z/OS File</code> which provides tests and Managers with the ability to manage and transfer files to and from z/OS. Supported file types include Sequential, PDS, PDSE, KSDS, ESDS or RRDS and zOS UNIX files.
 <br><br> - <code>z/OS TSO Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS TSO commands. 
-<br><br> - <code>z/OS UNIX Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS UNIX commands.<br><br> 
-
-<br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
+<br><br> - <code>z/OS UNIX Command</code> which enables tests and Managers to issue and retrieve the responses from z/OS UNIX commands.
+<br><br> <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/zos/package-summary.html">Javadoc documentation for the Manager here</a>. <br><br>
 
 ## <a name="dependencies"></a>Including the Manager in a test
 
-The z/OS Manager is not instantiated directly. To use the z/OS Manager in a test, import one or more of the following annotations into the test, as shown in the following examples: 
+The z/OS Manager is not instantiated directly. To use the z/OS Manager in a test you must import the _@ZosImage_ annotation into the test, as shown in the following examples: 
 
 ```
 @ZosImage
@@ -58,13 +56,14 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 ```
 
 # <a name="configuring"></a>Configuring 
+The following are properties used to configure the z/OS Manager.
 
-The following properties are used to configure the z/OS Manager.
+## <a name="cps"></a>Configuration Properties
  
 <details>
 <summary>Extra bundle required to implement the z/OS Batch Manager</summary>
 
-| Property: | Extra bundle required to implement the zOS Batch Manager |
+| Property: | Extra bundle required to implement the z/OS Batch Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.batch.manager |
 | Description: | The name of the Bundle that implements the z/OS Batch Manager |
@@ -86,13 +85,12 @@ The following properties are used to configure the z/OS Manager.
 | Default value: | None |
 | Valid values: | $validValues |
 | Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
-
 </details>
  
 <details>
 <summary>The images for a z/OS Cluster</summary>
 
-| Property: | The images for a zOS Cluster |
+| Property: | The images for a z/OS Cluster |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.cluster.[clusterId].images |
 | Description: | The z/OS Images for the specified cluster |
@@ -106,7 +104,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Extra bundle required to implement the z/OS Console Manager</summary>
 
-| Property: | Extra bundle required to implement the zOS Console Manager |
+| Property: | Extra bundle required to implement the z/OS Console Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.console.manager |
 | Description: | The name of the Bundle that implements the z/OS Console Manager |
@@ -120,7 +118,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Developer Supplied Environment z/OS Image Cluster ID</summary>
 
-| Property: | Developer Supplied Environment zOS Image Cluster ID |
+| Property: | Developer Supplied Environment z/OS Image Cluster ID |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.dse.tag.[tag].clusterid |
 | Description: | The Cluster ID for the specified tag |
@@ -134,7 +132,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Developer Supplied Environment z/OS Image</summary>
 
-| Property: | Developer Supplied Environment zOS Image |
+| Property: | Developer Supplied Environment z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.dse.tag.[tag].imageid |
 | Description: | The image ID of the Developer Supplied Environment for the specified tag |
@@ -148,7 +146,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Extra bundle required to implement the z/OS File Manager</summary>
 
-| Property: | Extra bundle required to implement the zOS File Manager |
+| Property: | Extra bundle required to implement the z/OS File Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.file.manager |
 | Description: | The name of the Bundle that implements the z/OS File Manager |
@@ -162,7 +160,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>IP Host ID of the z/OS Image</summary>
 
-| Property: | IP Host ID of the zOS Image |
+| Property: | IP Host ID of the z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[tag].iphostid |
 | Description: | The IP Host ID of the z/OS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the z/OS Image ID is returned |
@@ -176,7 +174,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>The z/OS Image</summary>
 
-| Property: | The zOS Image |
+| Property: | The z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.dse.tag.[tag].imageid |
 | Description: | The image ID for the specified tag |
@@ -184,13 +182,12 @@ The following properties are used to configure the z/OS Manager.
 | Default value: | None |
 | Valid values: | $validValues |
 | Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
-
 </details>
  
 <details>
 <summary>Maximum slots for z/OS Image</summary>
 
-| Property: | Maximum slots for zOS Image |
+| Property: | Maximum slots for z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[tag].max.slots |
 | Description: | The maximum slots available on a z/OS Image for the specified tag |
@@ -218,7 +215,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>The SYSNAME for z/OS Image</summary>
 
-| Property: | The SYSNAME for zOS Image |
+| Property: | The SYSNAME for z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[imageid].sysname |
 | Description: | The SYSNAME for the z/OS image |
@@ -232,7 +229,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>The run data set HLQ for the z/OS Image</summary>
 
-| Property: | The run data set HLQ for the zOS Image |
+| Property: | The run data set HLQ for the z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.run.[image].dataset.hlq |
 | Description: | The data set HLQ(s) for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].dataset.hlq exists, then that is returned |
@@ -246,7 +243,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>The run data UNIX path prefix for the z/OS Image</summary>
 
-| Property: | The run data UNIX path prefix for the zOS Image |
+| Property: | The run data UNIX path prefix for the z/OS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.run.[image].unix.path.prefix |
 | Description: | The UNIX path prefix for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].unix.path.prefix exists, then that is returned |
@@ -254,13 +251,12 @@ The following properties are used to configure the z/OS Manager.
 | Default value: | /u/runuser/Galasa |
 | Valid values: | $validValues |
 | Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
-
 </details>
  
 <details>
 <summary>Extra bundle required to implement the z/OS TSO Command Manager</summary>
 
-| Property: | Extra bundle required to implement the zOS TSO Command Manager |
+| Property: | Extra bundle required to implement the z/OS TSO Command Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.tsocommand.manager |
 | Description: | The name of the Bundle that implements the z/OS TSO Command Manager |
@@ -274,7 +270,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Extra bundle required to implement the z/OS UNIX Command Manager</summary>
 
-| Property: | Extra bundle required to implement the zOS UNIX Command Manager |
+| Property: | Extra bundle required to implement the z/OS UNIX Command Manager |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.bundle.extra.unixcomand.manager |
 | Description: | The name of the Bundle that implements the z/OS UNIX Command Manager |
@@ -288,7 +284,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch restrict processing to the server on the specified image</summary>
 
-| Property: | zOS Batch restrict processing to the server on the specified image |
+| Property: | z/OS Batch restrict processing to the server on the specified image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].restrict.to.image |
 | Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the z/OS Batch job |
@@ -297,12 +293,14 @@ The following properties are used to configure the z/OS Manager.
 | Valid values: | true or false |
 | Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
 
+
 </details>
  
 <details>
+
 <summary>z/OS Batch default input class</summary>
 
-| Property: | zOS Batch default input class |
+| Property: | z/OS Batch default input class |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].input.class |
 | Description: | The default input class to set on the job card for submitted jobs |
@@ -316,7 +314,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch job execution wait timeout</summary>
 
-| Property: | zOS Batch job execution wait timeout |
+| Property: | z/OS Batch job execution wait timeout |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].timeout |
 | Description: | The value in seconds to wait for the z/OS Batch job execution to complete when submitted via zOSMF |
@@ -330,7 +328,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch jobname prefix</summary>
 
-| Property: | zOS Batch jobname prefix |
+| Property: | z/OS Batch jobname prefix |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.jobname.[imageid].prefix |
 | Description: | The z/OS Batch jobname prefix when submitted via zOSMF |
@@ -344,7 +342,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch default MSGCLASS</summary>
 
-| Property: | zOS Batch default MSGCLASS |
+| Property: | z/OS Batch default MSGCLASS |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].message.class |
 | Description: | The default message class to set on the job card for submitted jobs |
@@ -358,7 +356,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch default message level</summary>
 
-| Property: | zOS Batch default message level |
+| Property: | z/OS Batch default message level |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.default.[imageid].message.level |
 | Description: | The default message level to set on the job card for submitted jobs |
@@ -372,7 +370,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch job truncate JCL</summary>
 
-| Property: | zOS Batch job truncate JCL |
+| Property: | z/OS Batch job truncate JCL |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].truncate.jcl.records |
 | Description: | The z/OSMF submit job will fail if supplied with JCL records greater than 80 characters. Setting this property to true will truncate any records to 80 characters and issue a warning message. |
@@ -386,7 +384,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS Batch job use SYSAFF</summary>
 
-| Property: | zOS Batch job use SYSAFF |
+| Property: | z/OS Batch job use SYSAFF |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosbatch.batchjob.[imageid].use.sysaff |
 | Description: | Use the run the z/OS Batch job on the specified image by specifying {@code /*JOBPARM SYSAFF=[imageid]} |
@@ -400,7 +398,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>Restrict z/OS console processing to the zOSMF server on the specified image</summary>
 
-| Property: | Restrict zOS console processing to the zOSMF server on the specified image |
+| Property: | Restrict z/OS console processing to the zOSMF server on the specified image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosconsole.console.[imageid].restrict.to.image |
 | Description: | Use only the zOSMF server running on the image associated with the z/OS Console |
@@ -414,7 +412,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS File the maximum number of items from a UNIX directory list</summary>
 
-| Property: | zOS File the maximum number of items from a UNIX directory list |
+| Property: | z/OS File the maximum number of items from a UNIX directory list |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosfile.unix.[imageid].directory.list.max.items |
 | Description: | The maximum number of items the server (e.g. zOSMF, RSE API, etc) returns when listing the content of a UNIX directory |
@@ -428,7 +426,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS File restrict processing to the server on the specified image</summary>
 
-| Property: | zOS File restrict processing to the server on the specified image |
+| Property: | z/OS File restrict processing to the server on the specified image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosfile.file.[imageid].restrict.to.image |
 | Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the z/OS data set or file |
@@ -442,7 +440,7 @@ The following properties are used to configure the z/OS Manager.
 <details>
 <summary>z/OS File UNIX permission bits to be used in creating the file or directory</summary>
 
-| Property: | zOS File UNIX permission bits to be used in creating the file or directory |
+| Property: | z/OS File UNIX permission bits to be used in creating the file or directory |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zosfile.[imageid].unix.file.permission |
 | Description: | The UNIX file or directory permission bits to be used in creating the file or directory |
@@ -452,7 +450,6 @@ The following properties are used to configure the z/OS Manager.
 | Examples: | <code>zosfile.unix.file.permission=rwxrwx---</code><br> <code>zosfile.SYSA.unix.file.permission=rwxrwxrrx</code> |
 
 </details>
-
 
 # <a name="annotations"></a>Annotations provided by the Manager
 
@@ -520,8 +517,6 @@ The following annotations are available with the z/OS Manager
 | Notes: | The <code>IZosUNIXCommand</code> interface provides the methods {@link IZosUNIXCommand#issueCommand(String)} and {@link IZosUNIXCommand#issueCommand(String, long)} to issue a command to z/OS UNIX and returns a <a href="https://javadoc.galasa.dev/dev/galasa/zosunixcommand/String.html" target="_blank">String</a> response.<br><br> See <a href="https://javadoc.galasa.dev/dev/galasa/zosunixcommand/IZosUNIXCommand.html" target="_blank">IZosUNIXCommand</a> to find out more. |
 
 </details>
-
-
 
 # <a name="codesnippets"></a>Code snippets and examples
 
@@ -617,7 +612,7 @@ String immediateResponse = consoleCommand.getResponse();
 </details>
 
 
-<details><summary>Issue a z/OS Console command and retrieve the delayed response</summary>
+<details><summary>Issue a zOS Console command and retrieve the delayed response</summary>
 
 Issue a z/OS Console command and retrieve the delayed console command response:
 
@@ -628,7 +623,7 @@ String delayedResponse = consoleCommand.requestResponse();
 
 ```
 </details>
- 
+
 <details><summary>Request a z/OS Batch instance</summary>
 
 The following snippet shows the code that is required to request a z/OS Batch instance in a Galasa test:
@@ -975,4 +970,3 @@ file     : /tmp/Galasa/newFile
 ```
 
 </details>
-

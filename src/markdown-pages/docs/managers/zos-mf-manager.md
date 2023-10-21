@@ -3,34 +3,50 @@ path: "/docs/managers/zos-mf-manager"
 title: "zOS MF Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+**BETA**
 
-## Overview
+[Overview](#overview)<br>
+[Configuring](#configuring)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
+
+# <a name="overview"></a>Overview
 This Manager provides Galasa tests with access to a zOS/MF server. Use the z/OS MF Manager to simplify areas of z/OS system management. The z/OS MF Manager can be called from a test or from other Managers. For example, the z/OS Manager calls the z/OS MF Manager to implement z/OS file, console and batch functions via the relevant interface.
 
+## <a name="dependencies"></a>Including the Manager in a test
 
-## Annotations
+To use the z/OS Manager in a test you must import the _@ZosImage_ and _@Zosmf_ annotations into the test, as shown in the following example: 
 
-The following annotations are available with the zOS MF Manager
-<details>
-<summary>z/OS MF</summary>
+```
+@ZosImage(imageTag="A")
+public IZosImage zosImageA;
+@Zosmf(imageTag="A")
+public IZosmf zosmfA;
+```
 
-| Annotation: | z/OS MF |
-| --------------------------------------- | :------------------------------------- |
-| Name: | @Zosmf |
-| Description: | The <code>@Zosmf</code> annotation requests the z/OSMF Manager to provide a z/OSMF instance associated with a z/OS image.  The test can request multiple z/OSMF instances, with the default being associated with the <b>primary</b> zOS image. |
-| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
-| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @Zosmf(imageTag="A")<br> public IZosmf zosmfA;<br></code> |
-| Notes: | The <code>IZosmf</code> interface has a number of methods to issue requests to the zOSMF REST API. See <a href="https://javadoc.galasa.dev/dev/galasa/zosmf/Zosmf.html" target="_blank">Zosmf</a> and <a href="https://javadoc.galasa.dev/dev/galasa/zosmf/IZosmf.html" target="_blank">IZosmf</a> to find out more. |
+You also need to add the Manager dependency into the pom.xml file if you are using Maven, or into the build.gradle file if you are using Gradle. 
 
-</details>
+If you are using Maven, add the following dependencies into the _pom.xml_ in the _dependencies_ section:
 
+```
+<dependency>
+    <groupId>dev.galasa</groupId>
+    <artifactId>dev.galasa.zosmf.manager</artifactId>
+</dependency>
+```
 
+If you are using Gradle, add the following dependencies into ```build.gradle``` in the _dependencies_ closure:
 
+```
+dependencies {
+    compileOnly 'dev.galasa:dev.galasa.zosmf.manager'
+}
+```
 
-## Configuration Properties
+# <a name="configuring"></a>Configuring 
+The following are properties used to configure the z/OS Manager.
 
-The following are properties used to configure the zOS MF Manager.
+## <a name="cps"></a>Configuration Properties
  
 <details>
 <summary>zOSMF Server port is https</summary>
@@ -129,3 +145,14 @@ The following are properties used to configure the zOS MF Manager.
 | Examples: | <code>zosmf.sysplex.default.servers=MFSYSA,MFSYSB</code><br> <code>zosmf.sysplex.PLEXA.default.servers=MFSYSA,MFSYSB</code> |
 
 </details>
+
+# <a name="annotations"></a>Annotations provided by the Manager
+
+| Annotation: | z/OS MF |
+| --------------------------------------- | :------------------------------------- |
+| Name: | @Zosmf |
+| Description: | The <code>@Zosmf</code> annotation requests the z/OSMF Manager to provide a z/OSMF instance associated with a z/OS image.  The test can request multiple z/OSMF instances, with the default being associated with the <b>primary</b> zOS image. |
+| Attribute: `imageTag` |  The tag of the zOS Image this variable is to be populated with |
+| Syntax: | @ZosImage(imageTag="A")<br> public IZosImage zosImageA;<br> @Zosmf(imageTag="A")<br> public IZosmf zosmfA;<br></code> |
+| Notes: | The <code>IZosmf</code> interface has a number of methods to issue requests to the zOSMF REST API. See <a href="https://javadoc.galasa.dev/dev/galasa/zosmf/Zosmf.html" target="_blank">Zosmf</a> and <a href="https://javadoc.galasa.dev/dev/galasa/zosmf/IZosmf.html" target="_blank">IZosmf</a> to find out more. |
+
