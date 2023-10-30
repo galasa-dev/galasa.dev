@@ -21,7 +21,7 @@ After cloning the repository and launching SimBank, complete the following steps
 1. In a new terminal, navigate to your `simplatform` directory and run the following command to install and build your project:
 
 ```
-mvn install
+galasactl local init
 ```
 
 2. In the same `simplatform` directory, run the following command to run the SimBankIVT test:
