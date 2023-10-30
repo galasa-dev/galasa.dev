@@ -12,6 +12,8 @@ Integration testing can be complicated. Tests often require configuration parame
 
 To address these challenges, Galasa uses a Configuration Property Store (CPS) as part of the core Galasa framework. The CPS holds all the configuration values, so that the Galasa framework, Ecosystem, Managers, and individual tests can use the CPS to retrieve configuration information.
 
+A video -  <a href="https://www.youtube.com/watch?v=d_mufWVa31U" target="_blank">The Galasa Configuration Property Store </a> - is available in the Galasa YouTube channel. Watch the video to find out more about the features of the Galasa CPS, and to see a demonstration on how to manipulate CPS property values by using the Galasa command line tool.
+
 ## Simplifying test configuration with the CPS
 
 When running Galasa tests locally, using the command line tool or Eclipse, the CPS is stored in the flat file - `{GALASA_HOME}/cps.properties`. 
