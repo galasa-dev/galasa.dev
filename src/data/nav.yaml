@@ -93,7 +93,7 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
-            - title: Managing automated test runs
+            - title: Managing integrated test runs
               path: /docs/ecosystem/cps
             - title: Selecting tests to run in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
