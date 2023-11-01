@@ -20,14 +20,12 @@ When running Galasa tests locally, using the command line tool or Eclipse, the C
 
 When running tests in the Galasa Ecosystem, where tests are run on a Kubernetes cluster, a REST service hosts the storage of the CPS properties in a central location. A centralised CPS means that configuration information can be supplied to all automated tests running in a Galasa Ecosystem, allowing multiple tests to run using the same shared configuration information. 
 
-You can set, retrieve and delete properties that are held in the CPS by using the `galasasctl properties` command in the Galasa CLI. The ability to manage these properties directly makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. System administrators can use the CLI to set Ecosystem-wide configuration properties after Ecosystem installation.
+You can set, retrieve and delete properties that are held in the CPS by using the `galasasctl properties` commands. The ability to manage these properties directly makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. System administrators can use the CLI to set Ecosystem-wide configuration properties after Ecosystem installation.
 
 
 ## About the Configuration Properties Store 
 
-The CPS is hosted in the Ecosystem's etcd server, a key-value pair store which also hosts the Dynamic Status Store (DSS) and the Credentials Store (CREDs), maintaining a single source of truth about the status of the Ecosystem. For more information see the [Ecosystem Architecture](/docs/ecosystem/architecture) documentation.
-
-Properties in the CPS are dot separated values with lower and upper-case segments that define, for example, endpoint, port, and repository properties. These properties instruct the way in which a Galasa test runs.  It is the CPS and the configurational properties that enable tests to run against multiple environments, without changing the code inside the test. 
+The CPS is a key-value pair store. Properties in the CPS are dot-separated values with lower and upper-case segments that define, for example, endpoint, port, and repository properties. These properties control how a Galasa test runs.  It is the CPS and the configuration properties that enable tests to run against multiple environments, without changing the code inside the test. 
 
 Naming conventions are used to maintain order in the properties which are stored in the CPS. If a property in the CPS consists of a prefix, suffix, and a variable infix, then the prefix and suffix are lower-case, and the infix part of the property name is upper-case, to indicate that it is variable in nature. This convention allows the CPS to group names together and for easy searching and lookup by tests, Managers and users alike. Properties can be searched by using the prefix, suffix and a list of possible infixes.
 
@@ -58,7 +56,7 @@ To retrieve a specific property from the `framework` namespace, specify the prop
 ```galasactl properties get --namespace framework --name credentials.store```
  
 
-*Note:* The `-–name` flag cannot be used in conjunction with the `–suffix`, `--prefix`, or `-–infix` flags.
+*Note:* The `-–name` flag cannot be used in conjunction with the `-–prefix`, `--suffix`, or `-–infix` flags.
 
 ### Retrieve a subset of properties in a namespace
 
@@ -99,17 +97,8 @@ docker    engine.REMOTE.hostname  103.67.89.6
 Total: 2
 ```
 
-If the property value that is returned is longer than 50 characters, the first fifty characters are displayed, followed by three ellipses (`...`). For example:
 
-```
-namespace name              value
-framework credentials.store etcd:http://this-value-is-60-characters-long-xxxxx... 
-
-Total: 1
-```
-
-
-Returned properties are sorted in alphabetical order. 
+Returned properties are first sorted according to the number of segments in the property name (denoted by the period character (.)), and then in alphabetical order.
 
 
 ## <a name="setting"></a>Setting properties in a namespace

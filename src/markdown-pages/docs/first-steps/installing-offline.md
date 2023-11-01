@@ -28,7 +28,7 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 | Software |  Description  |
 | :---- | :-------- | 
 | Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
-| Gradle  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle releases 6.8.x and later.|
+| Gradle  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle releases 6.9.x.|
 | Eclipse | Required. Provides the ability to interact with and use Galasa. See [Getting started using Eclipse](/docs/getting-started) documentation for more information about installation requirements.  | 
 | Docker  | Required if using the Docker image. If you want to deploy the Docker image that is provided in the zip file, you will need to have Docker installed.  |
 | Maven  | Optional (as Gradle is required). You can use Maven rather than Gradle to build Galasa projects. You do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration. |
