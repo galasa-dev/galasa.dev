@@ -7,7 +7,13 @@ title: "Highlights"
 
 Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [getting started](/docs/getting-started) on this site. 
 
-Post a question or share your experiences with other users in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> OMP Galasa Slack Community</a> workspace. <a href="https://openmainframeproject.slack.com/signup#/domain-signup" target="_blank"> Register to join</a> first if you're not yet a member.
+Post a question or share your experiences with other users in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace. <a href="https://openmainframeproject.slack.com/signup#/domain-signup" target="_blank"> Register to join</a> first if you're not yet a member.
+
+We have the following channels:
+
+#galasa-dev - For developers of Galasa code or Galasa extensions 
+#galasa-users - For users comments, and for making announcements
+#galasa-tsc - For technical steering committee discussions on longer term over-arching issues relating to Galasa
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
