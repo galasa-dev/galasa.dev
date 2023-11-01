@@ -7,7 +7,7 @@ const consts = {
   githubRepoName: "galasa.dev",
   githubOrgName: "galasa-dev",
   twitterUrl: "",
-  slackUrl: "https://join.slack.com/t/galasa/shared_invite/zt-ele2ic8x-VepEO1o13t4Jtb3ZuM4RUA",
+  slackUrl: "https://openmainframeproject.slack.com/signup#/domain-signup",
   algolia: {
     appId: "0CBS2VLS6S",
     apiKey: "46b619eff7e9e3900835e17fc7aa880b",
