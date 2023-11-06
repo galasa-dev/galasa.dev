@@ -37,6 +37,8 @@
           items: 
             - title: Installing the Galasa CLI
               path: /docs/cli-command-reference/installing-cli-tool
+            - title: Galasa CLI commands
+              path: /docs/cli-command-reference/cli-command-reference-about
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
             - title: Creating a project using the CLI
@@ -88,8 +90,6 @@
               path: /docs/writing-own-tests/running-test-modes
             - title: Testing across environments
               path: /docs/writing-own-tests/binding-tests
-            - title: Test streams
-              path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
         - title: The Galasa Ecosystem
@@ -99,6 +99,8 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Test streams
+              path: /docs/writing-own-tests/test-streams
             - title: Selecting tests to run in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem

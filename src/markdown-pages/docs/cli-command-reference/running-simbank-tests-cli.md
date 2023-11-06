@@ -3,14 +3,14 @@ path: "/docs/running-simbank-tests-cli"
 title: "Running the SimBank tests using the CLI"
 ---
 
-Galasa SimBank comes with a selection of prepared Galasa tests:
+You can explore Galasa further with Galasa Simbank. Galasa Simbank is a simulated bank application that showcases Galasa's functionality within an application. Galasa SimBank comes with a selection of prepared Galasa tests:
 
 - A basic Installation Verification Test (IVT) which logs on to SimBank  - `SimBankIVT.java`.
 - A test that updates an account using web services and examines the changes with 3270 screens - `BasicAccountCreditTest.java`.
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and set the JAVA_HOME environment variable, as described in the _Installing the Galasa CLI_ documentation.
+The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and set the JAVA_HOME environment variable, as described in the _Installing the Galasa CLI_ documentation. 
 
 ## Running the SimBank IVT test class by using the CLI
 

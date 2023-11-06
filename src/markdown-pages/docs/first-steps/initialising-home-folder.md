@@ -9,6 +9,11 @@ The following section shows you how to initialise your Galasa home directory by 
 
 You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
+## Initialising the Maven settings.xml file
+
+If you have Maven installed, and have run a Maven command, an `/.m2` directory, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` directory, and populates the file with basic configuration settings. If an `/.m2` directory does not exist, the `galasactl local init` command creates it, as well as the `settings.xml` file.
+
+The `settings.xml` file enables you to set configurations for Maven to use during test runs. For example, you can set local and remote repository locations, credentials for private repositories, and Maven profile settings. 
 
 
 ## Setting the Galasa home folder
@@ -97,11 +102,6 @@ set GALASA_BOOTSTRAP=http://galasa-bootstrap.url.com/bootstrap
 where:
 `http://galasa-bootstrap.url.com` is the URL of your Ecosystem's bootstrap properties
 
-## Initialising the Maven settings.xml file
-
-If you have Maven installed, and have run a Maven command, an `/.m2` directory, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` directory, and populates the file with basic configuration settings. If an `/.m2` directory does not exist, the `galasactl local init` command creates it, as well as the `settings.xml` file.
-
-The `settings.xml` file enables you to set configurations for Maven to use during test runs. For example, you can set local and remote repository locations, credentials for private repositories, and Maven profile settings. 
 
 
 ## Next steps
