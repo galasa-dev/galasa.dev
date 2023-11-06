@@ -92,6 +92,11 @@ publishing {
             url = 'https://nexus.galasa.dev/repository/docs/'
             credentials(PasswordCredentials)
         }
+        maven {
+            name = 'githubPackages'
+            url = 'https://maven.pkg.github.com/galasa-dev/galasa.dev'
+            credentials(PasswordCredentials)
+        }
         mavenLocal()
     }
 }

@@ -256,6 +256,14 @@ jobs:
         env:
           ORG_GRADLE_PROJECT_galasaNexusUsername: ${{ secrets.NEXUS_USERNAME }}
           ORG_GRADLE_PROJECT_galasaNexusPassword: ${{ secrets.NEXUS_PASSWORD }}
+      
+      - name: Publish with Gradle to GitHub Packages
+        if: ${{ github.ref == 'refs/heads/iss1596-remove-nexus' }}
+        run: ./gradlew --info publish
+        working-directory: package-jar
+        env:
+          ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
+          ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Upload JAR
         uses: actions/upload-artifact@v3
