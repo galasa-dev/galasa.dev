@@ -95,7 +95,11 @@ publishing {
         maven {
             name = 'githubPackages'
             url = 'https://maven.pkg.github.com/galasa-dev/galasa.dev'
-            credentials(PasswordCredentials)
+            // credentials(PasswordCredentials)
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
         mavenLocal()
     }

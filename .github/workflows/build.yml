@@ -262,8 +262,9 @@ jobs:
         run: ./gradlew --info publish
         working-directory: package-jar
         env:
-          ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
-          ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }} 
+          # ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
+          # ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload JAR
         uses: actions/upload-artifact@v3
