@@ -38,26 +38,19 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 
 ## Installing Java 
 
-Install a Java version 11 JDK or later. We do not currently support Java 17 or later. The following example uses <a href="https://sdkman.io" target="_blank"> SDKman</a> to install Java version 11 on a MacOS.
-1. Install SDKman by using the command: 
-`curl -s "https://get.sdkman.io" | bash`   
-2. Run the following command on the current command-line session:
+Install a Java version 11 JDK or later. We do not currently support Java 17 or later. The following example uses Homebrew to install Java version 11 on a MacOS.
+
+1. Install Java version 11 JDK using HomeBrew by running the following command in your terminal:
 ```
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk version
+brew install openjdk@11
 ```
-3. List the available Java releases by running the command:
-`sdk list java`
-4. Install the Semeru Java 11 release:
-`sdk install java 11.0.16.1-sem`
-5. Add the following information to your shell’s initialization file:
+2. Set the JAVA_HOME environment variable to reference the JVM in which you want the test to run. To avoid setting this on every terminal, add the following information to your shell’s initialization file:
 ```
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk version
-export SDKMAN_JAVA_VERSION="11.0.16.1-sem"
-sdk default java ${SDKMAN_JAVA_VERSION}
-sdk use java ${SDKMAN_JAVA_VERSION}
+export JAVA_HOME=/path/to/your/jdk/Contents/Home
 ```
+where `/path/to/your/jdk` is you JDK path. 
+You can find your JDK path by running the `which java` command in your terminal. 
+
 
 ## Installing Gradle
 

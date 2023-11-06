@@ -80,20 +80,22 @@ The bootstrap is a simple properties file that contains the information that Gal
 
 If you are planning to only run tests locally, with everything running on the local machine, you do not need to set the Galasa bootstrap. Otherwise, you can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the `--bootstrap` option takes precedence.
 
-You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://galasa-bootstrap.example.org`, use the following command:
+You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://galasa-bootstrap.url.com`, use the following command:
 
 On Mac or Unix:
 
 ``` 
-export GALASA_BOOTSTRAP=http://galasa-bootstrap.example.org
+export GALASA_BOOTSTRAP=http://galasa-bootstrap.url.com/bootstrap
 ```
 
 On Windows: 
 
 ``` 
-set GALASA_BOOTSTRAP=http://galasa-bootstrap.example.org
+set GALASA_BOOTSTRAP=http://galasa-bootstrap.url.com/bootstrap
 ```
 
+where:
+`http://galasa-bootstrap.url.com` is the URL of your Ecosystem's bootstrap properties
 
 ## Initialising the Maven settings.xml file
 
