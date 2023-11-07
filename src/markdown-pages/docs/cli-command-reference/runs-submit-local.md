@@ -11,7 +11,7 @@ Local runs do not benefit from the features that are provided when running tests
 
 ## Working with the `runs submit local` command
 
-To use the `galasactl runs submit local` command, the `JAVA_HOME` environment variable must be set to reference the JVM in which you want the test to run. This is because the local java run-time environment is used to launch the test locally. To check that `JAVA_HOME` is set correctly, the tool checks that `$JAVA_HOME/bin/java` exists in Unix or Mac, and `%JAVA_HOME%\bin\java.exe` exists on Windows.
+To use the `galasactl runs submit local` command, the `JAVA_HOME` environment variable must be set to reference the JVM in which you want the test to run. This is because the local java run-time environment is used to launch the test locally. To check that `JAVA_HOME` is set correctly, the tool checks that `$JAVA_HOME/bin/java` exists in Unix or Mac, and `%JAVA_HOME%\bin\java.exe` exists on Windows. For more inforation on setting the JAVA_HOME environment variable, see the _Installing the Galasa CLI_ documentation.
 
 The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version. We currently support Java version 11 to version 16 JDK. _Note:_ We do not currently support Java 17 or later.
 
@@ -42,6 +42,13 @@ where:
 
 You can view the full list of options that are available with the `galasactl runs submit local` command in the 
 <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
+
+
+## Overriding the path to the local Maven repository
+
+In order to run, tests require compiled artifacts to be hosted in a Maven repository. The artifacts must be bundled as an OSGI bundle. When you build a Galasa project locally, using the `galasactl project create command` the built artifacts are typically placed in the `~/.m2/` repository in your home directory; the default location of the local Maven repository.  
+
+If you want to use a non-standard location for your local Maven repository, rather than the default location, you can specify the path to your non-standard local Maven repository folder when launching a testcase by setting the  `--localMaven` flag on the `galasactl runs local` command. The `--localMaven` parameter tells the CLI tool where Galasa bundles can be loaded from on your local file system. The parameter value must be given in a URL form, for example, `file:///Users/myuserid/.m2/repository` or `file://C:/Users/myuserid/.m2/repository`.
 
 
 ## Stopping a running test
