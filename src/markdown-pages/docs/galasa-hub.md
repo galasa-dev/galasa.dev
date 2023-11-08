@@ -5,6 +5,13 @@ title: "Galasa Blogs"
 
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
+## Video: The Galasa Configuration Property Store
+Integration testing can be complicated. Tests often require configuration parameters to bind to a specific test environment. Galasa Managers require configuration so that systems under test can be contacted. This information needs to stored in a single, central repository that is shareable to the Galasa framework, Ecosystem, Managers and tests. Find out how Galasa solves these challenges by its use of the Configuration Property Store (CPS). Watch the video to understand the features of the Galasa CPS, and see a demonstration on manipulating the values in a CPS by using the Galasa command line (Galasa CLI). Use the information to help you to simplify your test configuration, set Ecosystem-wide configuration properties, and set parameters and credentials on the Ecosystem for tests to read and use at runtime.<br>
+
+**Author: Mike Cobbett, Savaas Kyriacou, October 25 2023**<br>
+*Source: YouTube*<br><br>
+<a href="https://www.youtube.com/watch?v=d_mufWVa31U" target="_blank">
+ Watch the video </a>
 
 ## Press release: Open Mainframe Project Welcomes Galasa into its Ecosystem
 The Open Mainframe Project, an open-source initiative that enables collaboration across the mainframe community to develop shared tool sets and resources, today welcomed Galasa, a project that offers developers the ability to test applications at scale regardless of platform, into its ecosystem.<br>
@@ -55,7 +62,7 @@ Galasa's open source automation framework enables mainframe developers to automa
 
 **Author: Matthew Cousens, & Will Yates, April 9, 2021**<br>
 *Source: IBM Developer*<br><br>
-<a href="https://developer.ibm.com/videos/mainframe-a-la-mode-galasa-integration-testing-for-ibm-z-and-beyond/" target="_blank">
+<a href="https://www.crowdcast.io/e/galasa" target="_blank">
  Watch the video</a>
   
 ## Redpaper: Integration testing for Hybrid Cloud Applications using Galasa

@@ -31,23 +31,6 @@ Naming conventions are used to maintain order in the properties which are stored
 
 Namespaces are used to group properties together within the CPS. Namespaces help to restrict the values that can be drawn from the CPS. For example, test cases draw values only from the `test` namespace. The Galasa framework draws values from the `framework` namespace, for example, the location of the Credentials Store and the Dynamic Status Store. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
-## Retrieving CPS namespaces
-
-You can get a list of available namespaces by using the `galasactl properties namespaces get` command. This command returns the namespaces into which you can inject properties. Use the information to help you to complete the `--namespace` parameter value in the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands that are described in the following sections.
-
-Namespaces are returned in summary format. For example:
-
-```
-name       type
-docker     normal
-framework  normal
-secure     secure
-
-Total: 3
-```
-
-Values are masked in `secure` namespace types. All other namespaces are classed as `normal` type. Returned properties are sorted in alphabetical order.
-
 
 ## Managing CPS properties
 
@@ -59,7 +42,6 @@ The example commands that are provided in the following sections assume that the
 
 Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. 
 
-Results can be returned in `summary`, `raw`, or `.yaml` format, by setting the `--format` flag in the `galasactl properties get` command. The default value is `--format summary`. The _summary_ format is useful if you just need to know the CPS property name and value at a high level. Set the flag to `--format raw` if you want results returned in 'raw' pipe-delimited output. The _raw_ format output is useful if you want to parse returned results using scripts. If you want to use the CLI to extract a yaml file that describes the properties resources, so that you can later apply them from a yaml file with different values, set the flag to `--format yaml`.
 
 
 ### Retrieve all properties from a namespace
@@ -105,48 +87,16 @@ For a complete list of supported parameters see the <a href="https://github.com/
 
 ### Returned properties
 
-Properties are returned in summary, raw, or yaml format, depending on the value given to the `--format` flag on the `galasactl properties get` command. Returned properties are first sorted according to the number of segments in the property name (denoted by the period character (.)), and then in alphabetical order.
 
-The following example shows the format of results that are returned in summary format. This is the default format, so you do not need to explicitly set the `--format` flag in the command. 
+Properties are returned in summary format. For example:
 
 ```
-galasactl properties get --namespace docker 
 namespace name                    value
 docker    engine.LOCAL.hostname   127.0.0.1
 docker    engine.REMOTE.hostname  103.67.89.6
 
 Total: 2
 ```
-
-The following example shows the format of results that are returned in `raw` format:
-
-```
-galasactl properties get --namespace docker --format raw
-docker|engine.LOCAL.hostname|127.0.0.1
-docker|engine.REMOTE.hostname|103.67.89.6
-```
-
-The following example shows the format of results that are returned in `yaml` format:
-
-```
-galasactl properties get --namespace docker --format yaml
-apiVersion: galasa-dev/v1alpha1
-kind: GalasaProperty
-metadata:
-  namespace: docker
-  name: engine.LOCAL.hostname
-data:
-  value: 127.0.0.1
---- << 3 dashes.
-apiVersion: galasa-dev/v1alpha1
-kind: GalasaProperty
-metadata:
-  namespace: docker
-  name: engine.REMOTE.hostname
-data:
-  value: 103.67.89.6
-```
-
 
 
 ## <a name="setting"></a>Setting properties in a namespace
