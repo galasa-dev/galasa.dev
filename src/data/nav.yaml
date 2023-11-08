@@ -45,6 +45,8 @@
               path: /docs/cli-command-reference/cli-runs-submit-local
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
+            - title: Exploring Galasa SimBank using the CLI
+              path: /docs/cli-command-reference/simbank-cli
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
@@ -52,7 +54,7 @@
               path: /docs/getting-started/installing-online
             - title: Installing the Galasa plug-in offline
               path: /docs/getting-started/installing-offline
-            - title: Exploring Galasa SimBank
+            - title: Exploring Galasa SimBank using Eclipse
               path: /docs/getting-started/simbank
             - title: Creating a project using Eclipse
               path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse

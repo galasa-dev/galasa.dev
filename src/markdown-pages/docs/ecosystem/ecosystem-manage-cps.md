@@ -62,6 +62,7 @@ Use the `galasactl properties get` command to read CPS properties and values fro
 Results can be returned in `summary`, `raw`, or `.yaml` format, by setting the `--format` flag in the `galasactl properties get` command. The default value is `--format summary`. The _summary_ format is useful if you just need to know the CPS property name and value at a high level. Set the flag to `--format raw` if you want results returned in 'raw' pipe-delimited output. The _raw_ format output is useful if you want to parse returned results using scripts. If you want to use the CLI to extract a yaml file that describes the properties resources, so that you can later apply them from a yaml file with different values, set the flag to `--format yaml`.
 
 
+
 ### Retrieve all properties from a namespace
 
 To retrieve all properties that are stored in the `framework` namespace, use the following command:<br><br>
@@ -146,7 +147,6 @@ metadata:
 data:
   value: 103.67.89.6
 ```
-
 
 
 ## <a name="setting"></a>Setting properties in a namespace
