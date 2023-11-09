@@ -9,6 +9,11 @@ The following section shows you how to initialise your Galasa home directory by 
 
 You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
+## Initialising the Maven settings.xml file
+
+If you have Maven installed, and have run a Maven command, an `/.m2` directory, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` directory, and populates the file with basic configuration settings. If an `/.m2` directory does not exist, the `galasactl local init` command creates it, as well as the `settings.xml` file.
+
+The `settings.xml` file enables you to set configurations for Maven to use during test runs. For example, you can set local and remote repository locations, credentials for private repositories, and Maven profile settings. 
 
 
 ## Setting the Galasa home folder
@@ -80,26 +85,23 @@ The bootstrap is a simple properties file that contains the information that Gal
 
 If you are planning to only run tests locally, with everything running on the local machine, you do not need to set the Galasa bootstrap. Otherwise, you can set the bootstrap either by using the `--bootstrap` option on the CLI command or by setting the `GALASA_BOOTSTRAP` environment variable. If both are provided, the `--bootstrap` option takes precedence.
 
-You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://galasa-bootstrap.example.org`, use the following command:
+You can set environment variables on a terminal by using the `export` (if you are on Mac or Linux) or `set` (if you are on Windows) command. For example, to set `GALASA_BOOTSTRAP` to `http://galasa-bootstrap.url.com`, use the following command:
 
 On Mac or Unix:
 
 ``` 
-export GALASA_BOOTSTRAP=http://galasa-bootstrap.example.org
+export GALASA_BOOTSTRAP=http://galasa-bootstrap.url.com/bootstrap
 ```
 
 On Windows: 
 
 ``` 
-set GALASA_BOOTSTRAP=http://galasa-bootstrap.example.org
+set GALASA_BOOTSTRAP=http://galasa-bootstrap.url.com/bootstrap
 ```
 
+where:
+`http://galasa-bootstrap.url.com` is the URL of your Ecosystem's bootstrap properties
 
-## Initialising the Maven settings.xml file
-
-If you have Maven installed, and have run a Maven command, an `/.m2` directory, containing a folder called `repositories`, should exist in your home directory. Running the `galasa local init` command then automatically creates a `settings.xml` file in this `/.m2` directory, and populates the file with basic configuration settings. If an `/.m2` directory does not exist, the `galasactl local init` command creates it, as well as the `settings.xml` file.
-
-The `settings.xml` file enables you to set configurations for Maven to use during test runs. For example, you can set local and remote repository locations, credentials for private repositories, and Maven profile settings. 
 
 
 ## Next steps

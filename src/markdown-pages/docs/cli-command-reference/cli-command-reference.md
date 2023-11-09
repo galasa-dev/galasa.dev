@@ -19,6 +19,7 @@ Read on to understand more about the prerequisites that you need to install so t
 
 
 
+
 ## Next steps
 
 To install Galasa for using in the command line, follow the instructions in the [Installing the Galasa CLI](/docs/cli-command-reference/installing-cli-tool) documentation.

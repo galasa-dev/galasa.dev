@@ -23,6 +23,31 @@ Depending on how you plan to use Galasa, there are several software prerequisite
 | 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
 
 
+## Installing Java 
+
+Install a Java version 11 JDK or later. We do not currently support Java 17 or later. The following example uses Homebrew to install Java version 11 on a MacOS.
+
+1. Install Java version 11 JDK using HomeBrew by running the following command in your terminal:
+```
+brew install openjdk@11
+```
+2. Set the JAVA_HOME environment variable to reference the JVM in which you want the test to run. To avoid setting this on every terminal, add the following information to your shell’s initialization file:
+```
+export JAVA_HOME=/path/to/your/jdk/Contents/Home
+```
+where `/path/to/your/jdk` is you JDK path. 
+You can find your JDK path by running the `which java` command in your terminal. 
+
+## Installing Gradle
+
+1. Install <a href="https://gradle.org/install/" target="_blank"> Gradle</a> version 6.x. *Note:* Gradle version 7.x is not currently supported.
+2. Put Gradle on your PATH by adding the following information to your shell’s initialization file:
+```
+export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
+gradle --version | grep "Gradle" | cut -f2 -d' '
+```
+
+
 ## Installing the Galasa plug-in
 
 1. Launch Eclipse. If present, close any initial welcome screen.
@@ -58,7 +83,7 @@ dss.properties
    Setup complete
    ```
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
-1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file is used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    zos.dse.tag.SIMBANK.imageid=SIMBANK
@@ -78,7 +103,7 @@ dss.properties
    zosmf.server.SIMBANK.port=2040
    zosmf.server.SIMBANK.https=false
    ```
-1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `credentials.properties` in your `.galasa` folder. Credentials that are held in this file are used by Galasa tests, for example to pass credentials to the application being tested. Storing values in this file avoids the need to hard-code credentials inside a test class, enabling the test to run in different environments without changing any test code. The following example properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    secure.credentials.SIMBANK.username=IBMUSER

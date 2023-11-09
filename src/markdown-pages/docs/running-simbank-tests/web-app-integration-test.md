@@ -68,7 +68,7 @@ Although this configuration might see a little strange when running locally, the
 
 Complete the following steps to build a Docker image called `simbank-webapp` to use in the test. We plan to automate these manual steps in a future release. 
 
-1. Clone the Galasa `simplatform` repository on your machine by running the following command in the directory on your local machine in which you want to clone the repository files: 
+1. If you have not done so already, clone the Galasa `simplatform` repository on your machine by running the following command in the directory on your local machine in which you want to clone the repository files: 
 	```
 	git clone https://github.com/galasa-dev/simplatform.git
 	```
@@ -88,7 +88,7 @@ If the container is not working correctly, for example, compilation and runtime 
 
 ## Walkthrough - WebAppIntegrationTest
 
-To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntegrationTest` instead of `SimBankIVT`. Don't forget that you need to launch [Galasa SimBank](/docs/getting-started/simbank) before running the test.
+To run the test, follow the same steps as for `SimBankIVT.java` but using the test class name `WebAppIntegrationTest` instead of `SimBankIVT`. 
 
 For brevity, package declarations and imports are omitted in the following walkthrough.
 
