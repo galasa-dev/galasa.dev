@@ -12,6 +12,39 @@ You can explore Galasa further with Galasa Simbank. Galasa Simbank is a simulate
 
 The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and set the JAVA_HOME environment variable, as described in the _Installing the Galasa CLI_ documentation. 
 
+## Updating the overrides and credentials property files
+
+
+In order to run the Galasa SimBanks tests you need to add some configuration information in the `overrides.properties` and `credentials.properties` files that were created when you initialised your Galasa home folder by running the ```galasactl local init``` command. Complete the following steps to edit the files:
+  
+
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file is used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
+
+   ```properties
+   zos.dse.tag.SIMBANK.imageid=SIMBANK
+   zos.dse.tag.SIMBANK.clusterid=SIMBANK
+
+   simbank.dse.instance.name=SIMBANK
+   simbank.instance.SIMBANK.zos.image=SIMBANK
+
+   zos.image.SIMBANK.ipv4.hostname=127.0.0.1
+   zos.image.SIMBANK.telnet.port=2023
+   zos.image.SIMBANK.webnet.port=2080
+   zos.image.SIMBANK.telnet.tls=false
+   zos.image.SIMBANK.credentials=SIMBANK
+
+   zosmf.image.SIMBANK.servers=SIMBANK
+   zosmf.server.SIMBANK.image=SIMBANK
+   zosmf.server.SIMBANK.port=2040
+   zosmf.server.SIMBANK.https=false
+   ```
+1. Edit a file called `credentials.properties` in your `.galasa` folder. Credentials that are held in this file are used by Galasa tests, for example to pass credentials to the application being tested. Storing values in this file avoids the need to hard-code credentials inside a test class, enabling the test to run in different environments without changing any test code. The following example properties enable the provided Galasa SimBank tests to run on your machine:
+
+   ```properties
+   secure.credentials.SIMBANK.username=IBMUSER
+   secure.credentials.SIMBANK.password=SYS1
+   ```
+
 ## Running the SimBank IVT test class by using the CLI
 
 The SimBank tests are held in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. To start running the tests you need to clone the repository, if you have not already done so. To find out how to clone the cli repository, follow the instruction in the `Launching SimBank` section in the [Exploring Galasa SimBank using the CLI]() documentation.

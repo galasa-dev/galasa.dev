@@ -83,7 +83,7 @@ dss.properties
    Setup complete
    ```
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
-1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file is used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    zos.dse.tag.SIMBANK.imageid=SIMBANK
@@ -103,7 +103,7 @@ dss.properties
    zosmf.server.SIMBANK.port=2040
    zosmf.server.SIMBANK.https=false
    ```
-1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `credentials.properties` in your `.galasa` folder. Credentials that are held in this file are used by Galasa tests, for example to pass credentials to the application being tested. Storing values in this file avoids the need to hard-code credentials inside a test class, enabling the test to run in different environments without changing any test code. The following example properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    secure.credentials.SIMBANK.username=IBMUSER

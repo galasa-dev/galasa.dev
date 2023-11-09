@@ -81,28 +81,48 @@ brew update
 brew install maven
 ```
 2. Add the follwing information to your `~/.m2/settings.xml` file:
+```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <pluginGroups>
-    <pluginGroup>dev.galasa</pluginGroup>
-  </pluginGroups>
-  <profiles>
-    <profile>
-      <id>galasa</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>galasa.repo</id>
-          <url>https://nexus.galasa.dev/repository/master</url>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>    
-  </profiles>
-
+    <pluginGroups>
+        <pluginGroup>dev.galasa</pluginGroup>
+    </pluginGroups>
+     
+    <profiles>
+        <profile>
+            <id>galasa</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
+                </repository>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <repository>
+                    <id>galasa.repo</id>
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </repository>
+                -->
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
+                </pluginRepository>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <pluginRepository>
+                    <id>galasa.repo</id>    
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </pluginRepository>
+                -->
+             </pluginRepositories>
+         </profile>
+     </profiles>
 </settings>
+```
 This information tells Maven where to find some custom Maven plug-in tools that are used by the build.
 
 
