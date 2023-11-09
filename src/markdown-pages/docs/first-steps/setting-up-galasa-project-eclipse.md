@@ -3,7 +3,7 @@ path: "/docs/running-simbank-tests/setting-up-galasa-project-eclipse"
 title: "Creating a project using Eclipse"
 ---
 
-Galasa SimBank comes with a selection of [supplied Galasa SimBank tests](running-simbank-tests-eclipse) which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
+Galasa SimBank comes with a selection of supplied Galasa SimBank tests which become available to run when you set up a Galasa example project within Eclipse. You can set up a project by using either [Maven](#maven) or [Gradle](#gradle), unless you are using the zipped distribution of Galasa, in which case you must use Gradle.
 
 If you are using the Galasa plug-in from the external update site and are using Maven, follow the instructions in the [_Creating an example Galasa project using Maven_](#headmaven) section.
 
