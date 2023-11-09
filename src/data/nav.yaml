@@ -47,6 +47,8 @@
               path: /docs/cli-command-reference/cli-runs-submit-local
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
+            - title: Exploring Galasa SimBank using the CLI
+              path: /docs/cli-command-reference/simbank-cli
             - title: Running the SimBank tests using the CLI
               path: /docs/running-simbank-tests-cli
             - title: Viewing test results locally
@@ -58,7 +60,7 @@
               path: /docs/getting-started/installing-online
             - title: Installing the Galasa plug-in offline
               path: /docs/getting-started/installing-offline
-            - title: Exploring Galasa SimBank
+            - title: Exploring Galasa SimBank using Eclipse
               path: /docs/getting-started/simbank
             - title: Creating a project using Eclipse
               path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
@@ -101,6 +103,8 @@
               path: /docs/ecosystem/installing/k8s
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
+            - title: Managing integrated test runs
+              path: /docs/ecosystem/cps
             - title: Selecting tests to run in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem

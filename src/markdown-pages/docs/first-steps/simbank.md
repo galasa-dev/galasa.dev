@@ -57,7 +57,7 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
 1. Press TAB to move the cursor into the `Password` field, type the password `SYS1` and press your terminal emulator's ENTER key to logon and transfer to the SimBank main menu:
 
-    ![Banktest home screen](../first-steps/simbank-banktest.png) 
+    ![Banktest home screen](simbank-banktest.png) 
 
 > *Note:* Depending on your terminal emulator, its ENTER key may not be mapped to the physical ENTER key on your computer. For example,
 > on PCOMM, by default, the ENTER key is mapped to the host machine's right CTRL key. If you are unsure about this, review
@@ -65,12 +65,12 @@ When you launch SimBank, its banking application listens on port 2023 for incomi
 
 6. Press PF1:
 
-    ![CICS home screen](../first-steps/simbank-cics.png) 
+    ![CICS home screen](simbank-cics.png) 
 
 1. Press your terminal emulator's CLEAR SCREEN key.
 1. Enter the transaction name `BANK` and press your terminal emulator's ENTER key once more to get to the SimBank main menu:
 
-    ![Main banking menu](../first-steps/simbank-mainmenu.png) 
+    ![Main banking menu](simbank-mainmenu.png) 
 
 As you have been progressing through this process, Eclipse has been logging selected events to its console:
 
@@ -88,7 +88,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Account Number` field, enter `123456789` and press ENTER. 
     The account details are populated and it is apparent that account number 123456789 is 56.72 in credit.
 
-    ![Account balance](../first-steps/simbank-balance.png)
+    ![Account balance](simbank-balance.png)
 
 1. Press PF3 to return to the account menu screen.
 
@@ -98,7 +98,7 @@ This is an example of log output that can be useful when running tests.
 1. Press TAB until the cursor is in the `Transfer to Account Number` field and enter `987654321`.
 1. Press TAB until the cursor is in the `Transfer Amount` field and enter `1`
 
-    ![Inter-account transfer](../first-steps/simbank-transfer.png)
+    ![Inter-account transfer](simbank-transfer.png)
 
 1. Press ENTER - a `Transfer Successful` message appears. A log message is also written to the Eclipse *Console* window:
 

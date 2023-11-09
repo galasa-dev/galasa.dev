@@ -3,16 +3,8 @@ path: "/docs/cli-command-reference/installing-cli-tool"
 title: "Installing the Galasa CLI"
 ---
 
-This section provides details about prerequisite software requirements and information about how to download and install the Galasa command line interface tool (Galasa CLI) on your local machine. 
 
-
-## Prerequisites
-
-| Software |  Description  |
-| :---- | :-------- | 
-| Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
-| Maven or Gradle  | You must install either Maven or Gradle in order to build Galasa projects. Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle 6.x releases. |
-| 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
+This section provides details about how to download and install the Galasa command line interface tool (Galasa CLI) on your local machine and tells you a little bit about getting started with the Galasa CLI commands. 
 
 
 ## Downloading the Galasa CLI
@@ -21,14 +13,14 @@ To install Galasa for using in the command-line you first need to download the b
 
 The following versions of the Galasa CLI are available to download for different operating systems and machine architectures:
 
-| Operating system  |  Download  |
-| :---- | :-------- | 
-| MacOSX  | galasactl-darwin-x86_64 |
-| MacOSX  | galasactl-darwin-arm64 |
-| Linux 64-bit x86 | galasactl-linux-x86_64 | 
-| Linux arm64 | galasactl-linux-arm64 | 
-| zLinux  | galasactl-linux-s390x | 
-| Windows | galasactl-windows-x86_64.exe | 
+| Operating system  |  Architecture  | Download  |
+| :---- | :---- | :-------- | 
+| MacOSX | x86_64 | galasactl-darwin-x86_64 |
+| MacOSX | arm64 | galasactl-darwin-arm64 |
+| Linux | x86_64 | galasactl-linux-x86_64 | 
+| Linux arm64 | arm64 | galasactl-linux-arm64 | 
+| zLinux  | s390x| galasactl-linux-s390x | 
+| Windows | x86_64| galasactl-windows-x86_64.exe | 
 
 
 ## Installing the Galasa CLI
@@ -41,7 +33,7 @@ On Mac or Unix:
 2. Download the appropriate binary of the Galasa CLI for your machine architecture from the [Galasa cli repository](https://github.com/galasa-dev/cli/releases) in GitHub and re-name it to `galasactl`.
 3. Add Galasa CLI to your PATH to enable you to run CLI commands from anywhere on your file system without having to specify the absolute path. To set the path permanently, you need add the Galasa CLI path to your shell's initialization file. For example, if you downloaded the galasactl executable to a folder called `~/tools` in your home directory, you need to add `~/tools` to the list of directories that your shell searches through when you enter a command. You can do this by adding the line ```export PATH=$PATH:$HOME/tools``` to your shell’s initialization file (for example `~/.bashrc` or `~/.zshrc`). 
 4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
-5. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `spctl --add galasactl` command in the directory containing `galasactl`. You are prompted by a security panel asking you to log in to show that you are issuing the command.
+5. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `sudo spctl --add galasactl` command in the directory containing `galasactl`. 
 
 You can now run the Galasa CLI too from any directory in your file system without having to specify the absolute path.
 
@@ -134,6 +126,38 @@ This information tells Maven where to find some custom Maven plug-in tools that 
 export PATH="/opt/homebrew/opt/gradle@6/bin:$PATH"
 gradle --version | grep "Gradle" | cut -f2 -d' '
 ```
+
+## About Galasa CLI commands
+
+Galasa CLI commands start with `galasactl`. Example commands are provided for running on Mac or Unix, and Windows Powershell. The Windows Powershell uses the backtick (`) for line continuation characters. If you are using Windows command-shell, the line continuation character is the caret (^). 
+
+You can view the Galasa CLI command syntax, including parameter descriptions, in the <a href=https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl.md target="_blank"> cli repository</a> in GitHub.
+
+
+## Known limitations
+
+Go programs can sometimes struggle to resolve DNS names, especially when a working over a virtual private network (VPN). In such situations, you might notice that a bootstrap file cannot be found with galasactl, but can be found by a desktop browser, or curl command. In such situations you can manually add the host detail to the `/etc/hosts` file, to avoid DNS being involved in the resolution mechanism.
+
+
+## Getting help
+
+Once you have installed the Galasa CLI, you can use the following command to get more information about the command and command options, including default values.
+
+```
+galasactl --help
+```
+
+Use the `--log` option to send logging information to a file. Any folder that is referenced must exist. Existing files are overwritten. Specify `-` to log to `stderr`. The default is no logging.
+
+```
+galasactl --log <logFilePath>  
+```  
+
+## Errors
+
+You can view a list of error messages that can be generated by the galasactl tool in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/errors-list.md" target="_blank"> Galasa cli repository</a> in GitHub.
+
+
 
 ## Next steps
 

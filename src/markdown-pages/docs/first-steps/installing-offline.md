@@ -3,10 +3,9 @@ path: "/docs/getting-started/installing-offline"
 title: "Installing the Galasa plug-in offline"
 ---
 
-The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains three directories (eclipse, maven and javadoc), an `isolated.tar` file and a `docs.jar` file. 
+The Galasa _isolated.zip_ file is available from the <a href="https://resources.galasa.dev" target="_blank">https://resources.galasa.dev/</a> site and can be downloaded and extracted to a directory of your choice. The zip file contains four directories (galasactl, eclipse, maven, and javadoc), an `isolated.tar` file and a `docs.jar` file. 
 
-The `eclipse` directory contains the Galasa plug-in, and the `maven` directory contains dependencies that are required for building Galasa tests. The `javadoc``
- directory contains the Javadoc API documentation for the Galasa Managers.
+The `galasactl` directory contains the binaries that are required to run the Galasa command line interface tool (Galasa CLI). The `eclipse` directory contains the Galasa plug-in, and the `maven` directory contains dependencies that are required for building Galasa tests. The `javadoc` directory contains the Javadoc API documentation for the Galasa Managers.
 
 The `isolated.tar` file is an optional Docker image that hosts all the artifacts. You might want to use the Docker image if you want to host Galasa on an internal server that can be accessed by other users. If you want to host Galasa on your local machine only, you do not need to use the Docker image. 
 
@@ -29,7 +28,7 @@ Depending on how you use Galasa, there are several software prerequisites, some 
 | Software |  Description  |
 | :---- | :-------- | 
 | Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
-| Gradle  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle releases 6.8.x and later. If you are using Eclipse, you do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration. |
+| Gradle  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle releases 6.9.x.|
 | Eclipse | Required. Provides the ability to interact with and use Galasa. See [Getting started using Eclipse](/docs/getting-started) documentation for more information about installation requirements.  | 
 | Docker  | Required if using the Docker image. If you want to deploy the Docker image that is provided in the zip file, you will need to have Docker installed.  |
 | Maven  | Optional (as Gradle is required). You can use Maven rather than Gradle to build Galasa projects. You do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration. |

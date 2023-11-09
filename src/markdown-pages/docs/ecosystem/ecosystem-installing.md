@@ -39,7 +39,7 @@ The following server is not required by the ecosystem but is automatically deplo
 | ----------- | ----------- |----------- |
 | SimPlatform| Provides an instance of SimBank so that IVTs and demonstration pipelines can be run    |2023, 2027, 2080, 2040 |
 
-To use SimPlatform, you need to have access to Maven Central. Chat to us on our <a href="https://galasa.slack.com" target="_blank"> Galasa Slack</a> workspace if you need help with this.
+To use SimPlatform, you need to have access to Maven Central. Chat to us on our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace if you need help with this.
 
 ## Installing the Galasa Ecosystem on the Docker engine
 
@@ -50,10 +50,10 @@ The ecosystem needs to know the hostname or IP address of the VM on which the Do
 ```
 hostname: 192.168.1.87
 galasaRegistry: icr.io/galasadev
-version: 0.29.0
+version: 0.30.0
 engineController:
-  controllerVersion: 0.29.0
-  engineVersion: 0.29.0
+  controllerVersion: 0.30.0
+  engineVersion: 0.30.0
 simplatform:
   version: 0.15.0
 ```
