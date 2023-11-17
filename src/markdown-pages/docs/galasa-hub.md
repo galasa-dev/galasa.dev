@@ -11,7 +11,7 @@ Learn about the software requirements you need to get started with the Galasa co
 
 **Author: Mike Cobbett, November 17 2023**<br>
 *Source: YouTube*<br><br>
-<a href="hhttps://www.youtube.com/watch?v=lwYOwJZ4Q8Q" target="_blank">
+<a href="https://www.youtube.com/watch?v=lwYOwJZ4Q8Q" target="_blank">
  Watch the video </a>
 
 ## Video: The Galasa Configuration Property Store
