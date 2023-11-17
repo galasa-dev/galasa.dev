@@ -4,7 +4,7 @@ title: "Exploring Galasa SimBank using the CLI"
 ---
 Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform. As delivered, SimBank implements a sample banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
-By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to learn Galasa's basic principles of operation before you need to learn how to connect Galasa to your own mainframe application-under-test.
+By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to understand Galasa's basic principles of operation before you learn how to connect Galasa to your own mainframe application-under-test.
 
 ## Launching SimBank
 SimBank applications and a set of sample SimBank tests are located in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. 
@@ -114,5 +114,5 @@ Press PF3 and once again browse the 123456789 account as described previously to
 Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
 
-Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose `Running the supplied SimBank tests`.
+Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose [Running the supplied SimBank tests](../../docs/running-simbank-tests-cli).
 

@@ -29,3 +29,6 @@ You can then view the terminal interactions from your test runs in the `images` 
 1. Open the _images_ folder by selecting _ras > results > artifacts > zos3270 > images_
 1. Expand the _images_ folder to view test artifacts stored from the run, for example, terminal screens, and recorded web requests and responses.
 
+## Next steps
+
+Take a look at the [Exploring Galasa SimBank using the CLI](simbank-cli) documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn Galasa's basic principles of operation before you start connecting Galasa to your own mainframe application-under-test.

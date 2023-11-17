@@ -35,10 +35,12 @@
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
           items: 
+            - title: CLI prerequisites
+              path: /docs/cli-command-reference/cli-prereqs
             - title: Installing the Galasa CLI
               path: /docs/cli-command-reference/installing-cli-tool
             - title: Galasa CLI commands
-              path: /docs/cli-command-reference/cli-command-reference-about
+              path: /docs/cli-command-reference/cli-command-reference-about  
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
             - title: Creating a project using the CLI
@@ -47,15 +49,17 @@
               path: /docs/cli-command-reference/cli-runs-submit-local
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
+            - title: Viewing test results locally
+              path: /docs/cli-command-reference/viewing-test-results-cli
             - title: Exploring Galasa SimBank using the CLI
               path: /docs/cli-command-reference/simbank-cli
             - title: Running the SimBank tests using the CLI
               path: /docs/running-simbank-tests-cli
-            - title: Viewing test results locally
-              path: /docs/cli-command-reference/viewing-test-results-cli
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
+            - title: Eclipse prerequisites
+              path: /docs/getting-started/eclipse-prereqs
             - title: Installing the Galasa plug-in 
               path: /docs/getting-started/installing-online
             - title: Installing the Galasa plug-in offline
