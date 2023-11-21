@@ -119,3 +119,10 @@ galasactl runs submit local --debug
 5. Set the _connection type_ field to be the opposite of what your testcase JVM is configured to use. By default, galasactl assumes a `listen` mode, so in that case the connection type field should be set to `attach`.
 6. Save the debug configuration.
 7. Launch the debug configuration. The debugger connects to the JVM running your Galasa testcase and starts a debugging session from the initial start point of the breakpoint that you set.
+
+
+## Next steps
+
+Read the [Viewing test results locally](viewing-test-results-cli) documentation to learn how to view the output of your test runs in your local environment. 
+
+Take a look at the [Exploring Galasa SimBank using the CLI](simbank-cli) documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn Galasa's basic principles of operation before you start connecting Galasa to your own mainframe application-under-test.

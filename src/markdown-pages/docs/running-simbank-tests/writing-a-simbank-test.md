@@ -2,19 +2,19 @@
 path: "/docs/running-simbank-tests/writing-a-simbank-test"
 title: "Writing your own SimBank test"
 ---
-Now you have run through the tests provided as part of Galasa SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Why not attempt to follow the instructions without looking at the code? You can use the provided test examples as a reference and for inspiration. Eclipse will help when you need to resolve imports and exceptions.
+Now you have run through the tests provided as part of Galasa SimBank, you can have a go at writing your own test. This requires you to use a 3270 terminal emulator to connect with SimBank and perform a menu-driven transfer between two accounts. Why not attempt to follow the instructions without looking at the code? You can use the provided test examples as a reference and for inspiration. 
 
 To write and run simple Galasa tests, you need a modest knowledge of Java. Even if your application under test is written in a completely different language, you need to understand enough Java to be able to create all of your required tests. The <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent" target="_blank"> Manager installation verification tests (IVTs)</a> that are stored in GitHub provide useful reference material and can be used to aid understanding of how to  structure a test.
 
-Don't forget that whenever you create a test, or modify an existing one, you need to right-click the containing *project* (for example, `dev.galasa.simbank.tests`) containing the new or modified test and choose *Run As > Maven install*. This ensures that the correct version of the test is submitted to the test runner.
+Don't forget that whenever you create a test, or modify an existing one, you need to run a clean install in Maven to ensure that the correct version of the test is submitted to the test runner.
 
 ## Create a new Galasa test class
 
-1. Start Eclipse with the example projects open and [launch SimBank](/docs/getting-started/simbank). 
-1. Create a new test class by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*. Note that in the example a new package is created that is called `dev.galasa.simbanks.tests`.
-![New Java Class](./create-new-class.png)
+
+1. Launch SimBank, either using [Eclipse](/docs/getting-started/simbank) or the [CLI](../cli-command-reference/simbank-cli). 
+1. Create a new test class. If you are using the CLI, manually create the test class file, for example in VS Code. If you are using Eclipse you can do this by selecting *File > New > Class* (or if this option is not present, select *File > New > Other*, and choose *Class* in the dialog). Complete the next dialog as follows and then click *Finish*. Note that in the example a new package is created that is called `dev.galasa.simbanks.tests`. ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
-You can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
+If you are using Eclipse you can click on the error indication for `@Test` and then double-click on `Import '@Test' (dev.galasa)` to create the correct import:
 ![Fix @Test import](./fix-import.png)
 You can use a similar technique later on when you need to resolve exceptions in the `throws` clause of the `transferCredit()` method.
 
@@ -63,10 +63,10 @@ import dev.galasa.zos3270.Zos3270Terminal;
 
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -95,7 +95,7 @@ public class BasicTransferTest {
 
 </details>
 
-You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). See [The SimBankIVT test class](/docs/running-simbank-tests/simbank-IVT).
+You can run the *Not Null* test by creating a new run configuration as in the other examples (don't forget to ensure that SimBank is running first). 
 
 ## Create the main test method and open the main bank menu
 6. Inside your test class, create a public method called `transferCredit()`. Annotate it with `@Test`.
@@ -146,10 +146,10 @@ public void transferCredit() throws TimeoutException, KeyboardLockedException, N
 ```java
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -266,10 +266,10 @@ import dev.galasa.zos3270.spi.NetworkException;
 
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -376,9 +376,7 @@ public class BasicTransferTest {
 ```
 </details>
 
-If you haven't yet done so, you can run the final test by first ensuring that SimBank is already running and then creating and running a new run configuration as you did with the other examples. 
-
-You can view the expected and actual values by double-clicking on the relevant run in the *Galasa Results* tab (if it is not visible, choose *Window > Show View > Other*, expand *Galasa* and choose *Galasa Results*). If, instead, you see a `Framework not initialised` message, choose *Galasa > Initialise Galasa Framework* from the main menu first.
+If you haven't yet done so, you can run the final test by first ensuring that SimBank is already running and then creating and running a new run configuration as you did with the other examples. You can also view the expected and actual values.
 </details>
 
 Now create your *own* test to run against SimBank, or copy and modify one of the tests provided, to get more experience in writing Galasa tests. You could also try rewriting *this* test to use a provisioning Manager (e.g. IAccount) just as the `ProvisionedAccoutCreditTests.java` example improved the design of `BasicAccountCreditTests.java`.
