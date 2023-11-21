@@ -55,6 +55,52 @@ Running the `galasactl local init` command also creates an `/.m2` directory, con
 
 You can validate the set up by locating your user home directory and confirming that it contains a `.galasa` and a `.m2` folder. On Windows, the user home directory resembles: ```C:\Users\<username>```, on MacOS it will be ```/Users/<username>``` and on Linux ```/home/<username>```. Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your file browser user interface to show hidden files.
 
+
+*Note:* If an `.~/.m2/settings.xml` file already exists, the `galasactl local init` command does not update it. View the file contents and check that it has the required `maven.central` and `plugin` repositories configured. The file should contain the following content:
+
+```
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <pluginGroups>
+        <pluginGroup>dev.galasa</pluginGroup>
+    </pluginGroups>
+     
+    <profiles>
+        <profile>
+            <id>galasa</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
+                </repository>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <repository>
+                    <id>galasa.repo</id>
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </repository>
+                -->
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven.central</id>
+                    <url>https://repo.maven.apache.org/maven2/</url>
+                </pluginRepository>
+                <!-- To use the bleeding edge version of galasa, use the development obr
+                <pluginRepository>
+                    <id>galasa.repo</id>    
+                    <url>https://development.galasa.dev/main/maven-repo/obr</url> 
+                </pluginRepository>
+                -->
+             </pluginRepositories>
+         </profile>
+     </profiles>
+</settings>
+```
+
 You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
 
 ## <a name="about"></a>About the properties files
