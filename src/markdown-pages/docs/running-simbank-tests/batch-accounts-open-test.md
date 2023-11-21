@@ -31,10 +31,10 @@ For brevity, package declarations and imports are omitted in the following walkt
 First, some Managers are declared, including a new Manager - `ZosBatch` and a related annotation and interface `ZosBatchJobname`.
 
 ```java
-@ZosBatch(imageTag = "simbank")
+@ZosBatch(imageTag = "SIMBANK"")
 public IZosBatch zosBatch;
 
-@ZosBatchJobname(imageTag = "simbank")
+@ZosBatchJobname(imageTag = "SIMBANK")
 public IZosBatchJobname zosBatchJobname;
 ```
 Next, the `batchOpenAccountsTest()` method is specified. It starts off by assembling a `List<String>` of account Strings - each such String contains an account number, a sort code and an initial credit, separated by commas:
@@ -184,13 +184,13 @@ import dev.galasa.zosbatch.ZosBatchJobname;
 @Test
 public class BatchAccountsOpenTest {
 
-	@ZosImage(imageTag = "simbank")
+	@ZosImage(imageTag = "SIMBANK")
 	public IZosImage image;
 
-	@ZosBatch(imageTag = "simbank")
+	@ZosBatch(imageTag = "SIMBANK")
 	public IZosBatch zosBatch;
 
-	@ZosBatchJobname(imageTag = "simbank")
+	@ZosBatchJobname(imageTag = "SIMBANK")
 	public IZosBatchJobname zosBatchJobname;
 
 	@ArtifactManager

@@ -10,7 +10,8 @@ You can explore Galasa further with Galasa Simbank. Galasa Simbank is a simulate
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and set the JAVA_HOME environment variable, as described in the _Installing the Galasa CLI_ documentation. 
+The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and have set the JAVA_HOME environment variable, as described in the [CLI prerequisites](/docs/cli-command-reference/cli-prereqs) documentation. 
+
 
 ## Updating the overrides and credentials property files
 
@@ -18,7 +19,7 @@ The following sections explain how to run the `SimBankIVT` test class by using t
 In order to run the Galasa SimBanks tests you need to add some configuration information in the `overrides.properties` and `credentials.properties` files that were created when you initialised your Galasa home folder by running the ```galasactl local init``` command. Complete the following steps to edit the files:
   
 
-1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file is used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file are used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    zos.dse.tag.SIMBANK.imageid=SIMBANK
@@ -47,15 +48,17 @@ In order to run the Galasa SimBanks tests you need to add some configuration inf
 
 ## Running the SimBank IVT test class by using the CLI
 
-The SimBank tests are held in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. To start running the tests you need to clone the repository, if you have not already done so. To find out how to clone the cli repository, follow the instruction in the `Launching SimBank` section in the [Exploring Galasa SimBank using the CLI]() documentation.
+The SimBank tests are held in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. To start running the tests you need to clone the repository, if you have not already done so. To find out how to clone the cli repository, follow the instruction in the `Launching SimBank` section in the [Exploring Galasa SimBank using the CLI](exploring-simbank-tests)   documentation.
 
 After cloning the repository, complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.25.0` and Galasa uber OBR version `0.30.0`.
 
-You can find the version of the `dev.galasa.simbank.obr` that you are using by looking in the `pom.xml` file in the `dev.galasa.simbank.obr` folder. The `dev.galasa.uber.obr` is the OBR that contains all the bundles that are needed for Galasa to work (including the Managers, any required dependencies, the framework, etc). The version of the `dev.galasa.uber.obr` depends on which version of Galasa you have installed.
+You can find the version of the `dev.galasa.simbank.obr` that you are using by looking in the `pom.xml` file in the `dev.galasa.simbank.obr` folder. The `dev.galasa.uber.obr` is the OBR that contains all the bundles that are needed for Galasa to work including Managers, any required dependencies, the framework, etc. The version of the `dev.galasa.uber.obr` depends on which version of Galasa you have installed.
+
+Remember to initialise your local environment by running the `galasactl local init` command. Note that the the following section describes how to run the `./build-locally.sh` and  `./run-locally.sh --server` scripts only in a Mac or Unix environment.
 
 
 1. Open a terminal, navigate to your `simplatform` directory and run the `./build-locally.sh` script to build the code in both the simbank-tests and the simplaform-application directories.
-2. In another terminal run the `./run-locally.sh --server` script to start the simbank server inside a inside a local JVM. In a few seconds, the Eclipse Console window responds with a series of initialization messages, which on Windows looks like:
+2. In another terminal run the `./run-locally.sh --server` script to start the simbank server inside a inside a local JVM. In a few seconds, the terminal responds with a series of initialization messages, which on Windows looks like:
 ```
 2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
 2019-10-21 14:24:35 INFO dev.galasa.simplatform.db.Database setDerbyHome Setting Derby home to C:\Users\<username>\AppData\Local\Temp\galasaSimplatform1440125512154994774
