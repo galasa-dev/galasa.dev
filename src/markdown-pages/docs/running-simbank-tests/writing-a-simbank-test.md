@@ -63,10 +63,10 @@ import dev.galasa.zos3270.Zos3270Terminal;
 
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -146,10 +146,10 @@ public void transferCredit() throws TimeoutException, KeyboardLockedException, N
 ```java
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -266,10 +266,10 @@ import dev.galasa.zos3270.spi.NetworkException;
 
 @Test
 public class BasicTransferTest {
-	@ZosImage(imageTag="simbank")
+	@ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager

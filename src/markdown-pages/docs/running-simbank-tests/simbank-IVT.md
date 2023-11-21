@@ -11,16 +11,16 @@ Even without any prior knowledge of Galasa, if you know a little Java, you will 
 
 The class is first annotated with `@Test` - informing the framework that a method or (as in this case) a class is a test.
 
-Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on. Using the `imageTag="simbank"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties.
+Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on. Using the `imageTag="SIMBANK"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties. In this example, the associated configuration properties are the ones that are set in the `overrides.properties` file, as described in the [Running the SimBank tests using the CLI](../cli-command-reference/running-simbank-tests-cli) documentation.
 
 ```java
 @Test
 public class SimBankIVT{
 
-    @ZosImage(imageTag="simbank")
+    @ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
