@@ -13,26 +13,11 @@ The `docs.jar` file enables you to run the Galasa website locally on your machin
 
 ## Getting started
 
-If you are installing Galasa by using Eclipse, begin with the Eclipse IDE (you can download it from <a href="https://www.eclipse.org/downloads/packages/installer" target="_blank">the Eclipse website</a>) and the download and integration of the Galasa plug-in. Check the current compatibility between Eclipse and Galasa versions in the table provided in the [Getting started using Eclipse](/docs/getting-started) documentation. 
-
 The Galasa plug-in is accompanied by Galasa SimBank - a demonstration application - which sits on top of a very small middleware layer called SimPlatform (you may see its name in some console messages, but you will otherwise not need to interact with SimPlatform).
 
 <!-- Later, you are likely to want to enhance your test capabilities and exploit Galasa's ability to integrate with automated CI/CD pipelines and a Kubernetes or equivalent container orchestration environment. Other similar but more complex scenarios are also possible, and may be required if your situation demands it. -->
 
 This section describes using Eclipse to install the Galasa plug-in - together with SimPlatform/SimBank - on your local machine and preparing it to run an initial set of provided tests against a simulated mainframe application.
-
-## Prerequisites
-
-Depending on how you use Galasa, there are several software prerequisites, some or all of which you may have already installed. 
-
-| Software |  Description  |
-| :---- | :-------- | 
-| Java JDK  | Required. Galasa tests and Managers are written in Java - you need to install a Java version 11 JDK or later to use it. _Note:_ We do not currently support Java 17 or later. |
-| Gradle  | Required to install the zipped distribution. You can also build Galasa projects using Gradle (or you can use Maven to build projects if you prefer). Galasa projects are hierarchical file structures that provide the ability to store and run Galasa tests. All Galasa versions are compatible with Gradle releases 6.9.x.|
-| Eclipse | Required. Provides the ability to interact with and use Galasa. See [Getting started using Eclipse](/docs/getting-started) documentation for more information about installation requirements.  | 
-| Docker  | Required if using the Docker image. If you want to deploy the Docker image that is provided in the zip file, you will need to have Docker installed.  |
-| Maven  | Optional (as Gradle is required). You can use Maven rather than Gradle to build Galasa projects. You do not explicitly need to install Maven because the Galasa plugin downloads and installs it silently during its own installation and configuration. |
-| 3270 emulator | Optional. Although you do not need a 3270 emulator to run a Galasa test (even if it tests a 3270 application) you can use one to explore Galasa Simbank, a simulated version of an application that helps you get acquainted with Galasa before connecting to a real mainframe to run your own tests. There are many such emulators available but IBM's Personal Communications (PCOMM) is frequently used, as is IBM's Host on Demand software, which includes support for Windows, Linux and MacOS.| 
 
 
 ## Unpacking the zip file
@@ -99,7 +84,7 @@ dss.properties
    Setup complete
    ```
 1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
-1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file are used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
    ```properties
    zos.dse.tag.SIMBANK.imageid=SIMBANK
    zos.dse.tag.SIMBANK.clusterid=SIMBANK
@@ -118,7 +103,7 @@ dss.properties
    zosmf.server.SIMBANK.port=2040
    zosmf.server.SIMBANK.https=false
    ```
-1. Edit a file called `credentials.properties` in your `.galasa` folder so that it contains:
+1. Edit a file called `credentials.properties` in your `.galasa` folder. Credentials that are held in this file are used by Galasa tests, for example to pass credentials to the application being tested. Storing values in this file avoids the need to hard-code credentials inside a test class, enabling the test to run in different environments without changing any test code. The following example properties enable the provided Galasa SimBank tests to run on your machine:
 
    ```properties
    secure.credentials.SIMBANK.username=IBMUSER

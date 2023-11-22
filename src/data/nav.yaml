@@ -35,8 +35,12 @@
         - title: Getting started using the Galasa CLI
           path: /docs/cli-command-reference/cli-command-reference
           items: 
+            - title: CLI prerequisites
+              path: /docs/cli-command-reference/cli-prereqs
             - title: Installing the Galasa CLI
               path: /docs/cli-command-reference/installing-cli-tool
+            - title: Galasa CLI commands
+              path: /docs/cli-command-reference/cli-command-reference-about  
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
             - title: Creating a project using the CLI
@@ -45,19 +49,31 @@
               path: /docs/cli-command-reference/cli-runs-submit-local
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
+            - title: Viewing test results locally
+              path: /docs/cli-command-reference/viewing-test-results-cli
+            - title: Exploring Galasa SimBank using the CLI
+              path: /docs/cli-command-reference/simbank-cli
+            - title: Running the SimBank tests using the CLI
+              path: /docs/running-simbank-tests-cli
         - title: Getting started using Eclipse
           path: /docs/getting-started/
           items:
+            - title: Eclipse prerequisites
+              path: /docs/getting-started/eclipse-prereqs
             - title: Installing the Galasa plug-in 
               path: /docs/getting-started/installing-online
             - title: Installing the Galasa plug-in offline
               path: /docs/getting-started/installing-offline
-            - title: Exploring Galasa SimBank
+            - title: Exploring Galasa SimBank using Eclipse
               path: /docs/getting-started/simbank
             - title: Creating a project using Eclipse
               path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
-        - title: Running the supplied SimBank tests
-          path: /docs/running-simbank-tests
+            - title: Running the SimBank tests using Eclipse
+              path: /docs/running-simbank-tests-eclipse
+            - title: Viewing test results locally
+              path: /docs/running-simbank-tests/viewing-test-results
+        - title: Exploring the supplied SimBank tests
+          path: /docs/exploring-simbank-tests
           items:
             - title: The SimBank IVT
               path: /docs/running-simbank-tests/simbank-IVT
@@ -71,8 +87,6 @@
               path: /docs/running-simbank-tests/web-app-integration-test
             - title: Writing your own SimBank test
               path: /docs/running-simbank-tests/writing-a-simbank-test
-            - title: Viewing test results
-              path: /docs/running-simbank-tests/viewing-test-results
         - title: Writing your own independent Galasa tests
           path: /docs/writing-own-tests
           items:
@@ -82,8 +96,6 @@
               path: /docs/writing-own-tests/running-test-modes
             - title: Testing across environments
               path: /docs/writing-own-tests/binding-tests
-            - title: Test streams
-              path: /docs/writing-own-tests/test-streams
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
         - title: The Galasa Ecosystem
@@ -93,6 +105,8 @@
               path: /docs/ecosystem/architecture
             - title: Installing the Ecosystem on Kubernetes
               path: /docs/ecosystem/installing/k8s
+            - title: Test streams
+              path: /docs/writing-own-tests/test-streams
             - title: Managing integrated test runs
               path: /docs/ecosystem/cps
             - title: Selecting tests to run in the Ecosystem

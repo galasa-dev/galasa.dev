@@ -1,9 +1,9 @@
 ---
 path: "/docs/running-simbank-tests/simbank-IVT"
-title: "Running the SimBank Installation Verification Test"
+title: "The SimBank Installation Verification Test"
 ---
 
-This basic test logs on to Galasa SimBank and examines an account. Don't forget that you need to launch Galasa SimBank before running the test.  
+This basic test logs on to Galasa SimBank and examines an account. 
 
 ## Exploring the `SimBankIVT` test class
 
@@ -11,16 +11,16 @@ Even without any prior knowledge of Galasa, if you know a little Java, you will 
 
 The class is first annotated with `@Test` - informing the framework that a method or (as in this case) a class is a test.
 
-Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on. Using the `imageTag="simbank"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties.
+Next at the beginning of the test class proper, several Galasa Managers are declared via annotations, together with their corresponding public interfaces - `@ZosImage`, `@Zos3270Terminal` and so on. Using the `imageTag="SIMBANK"` argument with `@ZosImage` allows you to associate an instance of a Manager with a set of configuration properties. In this example, the associated configuration properties are the ones that are set in the `overrides.properties` file, as described in the [Running the SimBank tests using the CLI](../../docs/running-simbank-tests-cli) documentation.
 
 ```java
 @Test
 public class SimBankIVT{
 
-    @ZosImage(imageTag="simbank")
+    @ZosImage(imageTag="SIMBANK")
     public IZosImage image;
 
-    @Zos3270Terminal(imageTag="simbank")
+    @Zos3270Terminal(imageTag="SIMBANK")
     public ITerminal terminal;
 
     @ArtifactManager
@@ -77,7 +77,7 @@ public void checkBankIsAvailable() throws Exception {
 
 These methods are available via the imported `Zos3270Terminal` Manager, which was written by a specialist and made available by the Galasa framework to anyone who needs to write a test that uses such an abstraction. It supports a fluent style, allowing its methods to be chained in a natural and easily-understandable fashion.
 
-Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMBANK MAIN MENU and BANKTEST.
+Two `assertThat()` assertions then confirm that the test has arrived on its intended screen, verified by the presence of a single occurrence of each of the strings SIMPLATFORM MAIN MENU and BANKTEST.
 
 ```java
 //Assert that the session manager has a bank session available

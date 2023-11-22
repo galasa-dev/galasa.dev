@@ -3,13 +3,16 @@ path: "/docs/writing-own-tests/setting-up-galasa-project"
 title: "Creating a Galasa project using the command line"
 ---
 
-Read on to discover more about the structure of a Galasa project, learn how to create and build your own example project, and understand the purpose of the artifacts that are generated. 
+
+You can quickly and easily create a project structure to accommodate your own independent Galasa tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
+
+Use the following information to discover more about the structure of a Galasa project, learn how to create and build your own example project, and understand the purpose of the artifacts that are generated. 
+
+Once you have created and built your Galasa tests, you can run the tests in your local environment. Find out more in the [Running a test locally](../cli-command-reference/cli-runs-submit-local) topic. 
 
 ## Getting started
 
-You can quickly and easily create a project structure to accommodate your own independent tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
-
-You can pass parameters to the `galasactl project create` command, enabling you to build your project using either Maven or Gradle, and allowing you to choose your own artifact names and naming conventions. 
+An easy way to get started with creating and building Galasa tests is by using the `galasactl project create` command. Passing parameters to the command, enable you to build your project using either Maven or Gradle, and allow you to choose your own artifact names and naming conventions for your tests. 
 
 Maven and Gradle are both build tools, which read metadata from files which guide how the code within a module should be built. Maven and Gradle use different formats for these build files. Artifacts are created on disk and can later be built, tested and deployed to a Maven repository and used in the Galasa Ecosystem. Generated artifacts can be embellished and refactored to form the basis of future Galasa tests.
 

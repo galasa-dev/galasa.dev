@@ -1,6 +1,6 @@
 ---
-path: "/docs/running-simbank-tests"
-title: "Running the supplied SimBank tests"
+path: "/docs/running-simbank-tests-eclipse"
+title: "Running the SimBank tests using Eclipse"
 ---
 
 Galasa SimBank comes with a selection of prepared Galasa tests:
@@ -10,7 +10,7 @@ Galasa SimBank comes with a selection of prepared Galasa tests:
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using Eclipse. 
+The following section explains how to run the `SimBankIVT` test class by using Eclipse. 
 
 
 ## Running the SimBank IVT test class using Eclipse
@@ -30,4 +30,4 @@ The following sections explain how to run the `SimBankIVT` test class by using E
 
 ## Next steps
 
-Explore the SimBankIVT test and the other SimBank tests in the following sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.
+Explore the SimBankIVT test and the other SimBank tests in the [Exploring the supplied SimBank tests](exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.

@@ -43,6 +43,7 @@ The example commands that are provided in the following sections assume that the
 Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. 
 
 
+
 ### Retrieve all properties from a namespace
 
 To retrieve all properties that are stored in the `framework` namespace, use the following command:<br><br>
@@ -96,9 +97,6 @@ docker    engine.REMOTE.hostname  103.67.89.6
 
 Total: 2
 ```
-
-
-Returned properties are first sorted according to the number of segments in the property name (denoted by the period character (.)), and then in alphabetical order.
 
 
 ## <a name="setting"></a>Setting properties in a namespace

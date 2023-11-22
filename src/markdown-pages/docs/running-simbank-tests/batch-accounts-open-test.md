@@ -4,7 +4,7 @@ title: "BatchAccountsOpenTest"
 ---
 This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the Galasa SimBank system via a z/OS batch job.
 
-When you installed the Galasa Eclipse plug-in, some of the configuration information you set in the `overrides.properties` file was specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
+When you installed Galasa, some of the configuration information set in the `overrides.properties` file is specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
 
 ```properties
 zos.dse.tag.SIMBANK.imageid=SIMBANK
@@ -31,10 +31,10 @@ For brevity, package declarations and imports are omitted in the following walkt
 First, some Managers are declared, including a new Manager - `ZosBatch` and a related annotation and interface `ZosBatchJobname`.
 
 ```java
-@ZosBatch(imageTag = "simbank")
+@ZosBatch(imageTag = "SIMBANK"")
 public IZosBatch zosBatch;
 
-@ZosBatchJobname(imageTag = "simbank")
+@ZosBatchJobname(imageTag = "SIMBANK")
 public IZosBatchJobname zosBatchJobname;
 ```
 Next, the `batchOpenAccountsTest()` method is specified. It starts off by assembling a `List<String>` of account Strings - each such String contains an account number, a sort code and an initial credit, separated by commas:
@@ -116,13 +116,13 @@ if (rc != 0) {
 }
 logger.info("Batch job complete RETCODE=" + batchJob.getRetcode());
 ```
-You can run this example just like the others - don't forget to launch SimBank first, and create a new run configuration.
+You can run this example just like the others - don't forget to launch SimBank first.
 
 By using the concepts introduced in this example, you can write your own z/OS Batch Manager tests.
 
 The z/OS Batch Manager stores the job output in the test results main archive store.
 
-## Reviewing the stored artifacts
+## Reviewing the stored artifacts in Eclipse
 When `BatchAccountsOpenTest` has finished running, you can expand the relevant entry in the *Galasa Results* tab - if it is not initially visible, choose *Galasa > Initialise Galasa Framework* and then *Window > Show View > Other* and finally, *Galasa Results*. 
 
 For example, your *Galasa Results* tab might resemble:
@@ -184,13 +184,13 @@ import dev.galasa.zosbatch.ZosBatchJobname;
 @Test
 public class BatchAccountsOpenTest {
 
-	@ZosImage(imageTag = "simbank")
+	@ZosImage(imageTag = "SIMBANK")
 	public IZosImage image;
 
-	@ZosBatch(imageTag = "simbank")
+	@ZosBatch(imageTag = "SIMBANK")
 	public IZosBatch zosBatch;
 
-	@ZosBatchJobname(imageTag = "simbank")
+	@ZosBatchJobname(imageTag = "SIMBANK")
 	public IZosBatchJobname zosBatchJobname;
 
 	@ArtifactManager
