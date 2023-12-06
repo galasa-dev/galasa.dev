@@ -32,6 +32,23 @@ Naming conventions are used to maintain order in the properties which are stored
 Namespaces are used to group properties together within the CPS. Namespaces help to restrict the values that can be drawn from the CPS. For example, test cases draw values only from the `test` namespace. The Galasa framework draws values from the `framework` namespace, for example, the location of the Credentials Store and the Dynamic Status Store. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
 
+ ## Retrieving CPS namespaces
+
+You can get a list of available namespaces by using the `galasactl properties namespaces get` command. This command returns the namespaces into which you can inject properties. Use the information to help you to complete the `--namespace` parameter value in the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands that are described in the following sections.
+
+Namespaces are returned in summary format. For example:
+
+```
+name       type
+docker     normal
+framework  normal
+secure     secure
+Total: 3
+```
+
+Returned properties are sorted in alphabetical order. Values are masked in `secure` namespace types, so secure namespace types do not display property values. All other namespaces are classed as `normal` type and these types of namespaces do display property values. 
+
+
 ## Managing CPS properties
 
 Use the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to dynamically manage CPS properties. These Galasa CLI commands make it easy to ensure that the appropriate properties and credentials are installed in the Ecosystem for automated tests to query and use. 
