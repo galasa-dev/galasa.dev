@@ -3,6 +3,7 @@ path: "/docs/ecosystem/ecosystem-manage-cps"
 title: "Managing integrated test runs"
 ---
 
+[Retrieving namespaces](#retrievingnamespaces)<br>
 [Retrieving properties](#retrieving)<br>
 [Setting properties](#setting)<br>
 [Deleting properties](#deleting)<br>
@@ -31,6 +32,31 @@ Naming conventions are used to maintain order in the properties which are stored
 
 Namespaces are used to group properties together within the CPS. Namespaces help to restrict the values that can be drawn from the CPS. For example, test cases draw values only from the `test` namespace. The Galasa framework draws values from the `framework` namespace, for example, the location of the Credentials Store and the Dynamic Status Store. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
+## <a name="retrievingnamespaces"></a>Retrieving namespaces from an Ecosystem
+
+Use the `galasactl properties namespaces get` command to retrieve a list of all namespaces that are in an Ecosystem. 
+You can use the appropriate namespace in the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands to view, create, update, or delete properties within that namespace. Namespaces are returned in either summary format, by setting the `--format summary` flag, or in raw format, by setting the `--format raw` flag on the `galasactl properties namespaces get` command. 
+
+<b>Table 1:</b> The following table shows the options that you can set on the `galasactl properties namespaces get` command to retrieve namespaces in different formats:
+
+| Name |  Description  |
+| :---- | :-------- | 
+| `--format summary` | The default format is _summary_. Summary format is useful if you need a quick, high-level view. If you omit the `--format` flag in the command, results are returned in summary format. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties namespaces get` command.   | 
+| `--format raw` |  The output from `galasactl properties namespaces get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
+
+
+
+Use the following command to retrieve all namespaces in an Ecosystem `summary` format:
+
+```
+galasactl properties namespaces get
+```
+
+Use the following command to retrieve all namespaces in an Ecosystem `raw` format:
+
+```
+galasactl properties namespaces get --format raw
+```
 
 ## Managing CPS properties
 
@@ -42,7 +68,13 @@ The example commands that are provided in the following sections assume that the
 
 Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. 
 
-Results are returned in summary format by default. Summary format is useful if you need a quick, high-level view. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties get` command. If you omit the `--format` flag in the command, results are returned in summary format. If you want to use galasactl to extract a yaml file which describes a property's values, you can set the `--format yaml` flag in the command. This is useful if you want to update a number properties with different values by using a single command. See the [Configuring the Ecosystem using resource files](../ecosystem/ecosystem-manage-cps-yaml) topic for information on how to apply updates by using a yaml resource file.
+<b>Table 2:</b> The following table shows the options that you can set on the `galasactl properties get` command to retrieve property results in different formats:
+
+| Name |  Description  |
+| :---- | :-------- | 
+| `--format summary` | The default format is _summary_. Summary format is useful if you need a quick, high-level view. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties get` command. If you omit the `--format` flag in the command, results are returned in summary format.  | 
+| `--format yaml` |  If you want to use galasactl to extract a yaml file which describes a property's values, you can set the `--format yaml` flag in the command. This is useful if you want to update a number properties with different values by using a single command. See the [Configuring the Ecosystem using resource files](../ecosystem/ecosystem-manage-cps-yaml) topic for information on how to apply updates by using a yaml resource file.  | 
+| `--format raw` |  The output from `galasactl properties get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
 
 
 ### Retrieve all properties from a namespace
@@ -102,7 +134,7 @@ For a complete list of supported parameters see the <a href="https://github.com/
 
 ### Returned properties
 
-Properties are returned in either `summary` or `yaml` format. 
+Properties are returned in either `summary`, `yaml`, or `raw` format. 
 
 The default format of returned properties is summary format. For example:
 
