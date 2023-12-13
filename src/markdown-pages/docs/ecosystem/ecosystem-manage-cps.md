@@ -1,5 +1,5 @@
 ---
-path: "/docs/ecosystem/cps"
+path: "/docs/ecosystem/ecosystem-manage-cps"
 title: "Managing integrated test runs"
 ---
 
@@ -42,40 +42,55 @@ The example commands that are provided in the following sections assume that the
 
 Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. 
 
+Results are returned in summary format by default. Summary format is useful if you need a quick, high-level view. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties get` command. If you omit the `--format` flag in the command, results are returned in summary format. If you want to use galasactl to extract a yaml file which describes a property's values, you can set the `--format yaml` flag in the command. This is useful if you want to update a number properties with different values by using a single command. See the [Configuring the Ecosystem using resource files](../ecosystem/ecosystem-manage-cps-yaml) topic for information on how to apply updates by using a yaml resource file.
 
 
 ### Retrieve all properties from a namespace
 
-To retrieve all properties that are stored in the `framework` namespace, use the following command:<br><br>
+To retrieve all properties that are stored in the `framework` namespace in summary format, use the following command:<br><br>
 `galasactl properties get --namespace framework`
 
 
 ### Retrieve a single property from a namespace
 
-To retrieve a specific property from the `framework` namespace, specify the property name in the command by using the `-–name` flag. For example, to retrive the credentials store property use the following command:
+To retrieve a specific property from the `framework` namespace, specify the property name in the command by using the `-–name` flag. The following example retrives the `resultarchive.store` property from the framework `namespace` in summary format.
 
-```galasactl properties get --namespace framework --name credentials.store```
+On Mac or Unix:
+
+```
+galasactl properties get --namespace framework \
+--name resultarchive.store \
+```
+
+On Windows (Powershell):
+
+```
+galasactl properties get --namespace framework `
+--name resultarchive.store `
+```
  
 
 *Note:* The `-–name` flag cannot be used in conjunction with the `-–prefix`, `--suffix`, or `-–infix` flags.
 
 ### Retrieve a subset of properties in a namespace
 
-To filter the properties that are returned, without specifying the property name, use the `–-prefix`, `–-suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `docker` namespace that start with `engine`, end with `hostname`, and contain `LOCAL` or `REMOTE` use the following command: 
+To filter the properties that are returned, without specifying the property name, use the `–-prefix`, `–-suffix`, and ``--infix`` flags. You can specify more than one `--infix` value by using a comma separated list. For example, to return properties in the `docker` namespace that start with `engine`, end with `hostname`, and contain `LOCAL` or `REMOTE` use the following command, which returns the results in a yaml file by specifying the `--format yaml` flag in the command: 
 
 
 On Mac and Unix:
 
 ```
 galasactl properties get \
---namespace docker --prefix engine --suffix hostname --infix LOCAL,REMOTE
+--namespace docker --prefix engine --suffix hostname --infix LOCAL,REMOTE \
+--format yaml
 ```
 
 On Windows (Powershell):
 
 ```
 galasactl properties get `
---namespace docker --prefix engine --suffix hostname --infix LOCAL,REMOTE
+--namespace docker --prefix engine --suffix hostname --infix LOCAL,REMOTE `
+--format yaml
 ```
 
 
@@ -87,8 +102,9 @@ For a complete list of supported parameters see the <a href="https://github.com/
 
 ### Returned properties
 
+Properties are returned in either `summary` or `yaml` format. 
 
-Properties are returned in summary format. For example:
+The default format of returned properties is summary format. For example:
 
 ```
 namespace name                    value
@@ -96,6 +112,27 @@ docker    engine.LOCAL.hostname   127.0.0.1
 docker    engine.REMOTE.hostname  103.67.89.6
 
 Total: 2
+```
+
+
+The following example shows the format of properties that are returned in a yaml file. As more than one property is returned, the properties are separated in the file by three dashes, `---`, as shown in the following example:
+
+```
+apiVersion: galasa-dev/v1alpha1
+kind: GalasaProperty
+metadata:
+  name: engine.LOCAL.hostname
+  namespace: docker
+data:
+  value: 127.0.0.1
+---
+apiVersion: galasa-dev/v1alpha1
+kind: GalasaProperty
+metadata:
+  name: engine.REMOTE.hostname
+  namespace: docker
+data:
+  value: 103.67.89.6
 ```
 
 

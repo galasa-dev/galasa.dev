@@ -30,7 +30,6 @@ Use the tables provided to view the options for filtering test results, and for 
 | `--format raw` | The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
 
 
-
 ## <a name="result"></a>More about the `--result` option
 
 You might want to filter the test results that are returned based on run result. For example, you might choose to return only failed tests, so that you can quickly check if you need to investigate an issue. 
@@ -141,6 +140,38 @@ testCoreIvtTest test finished Passed 2023-05-05 06:03:38 2023-05-05 06:03:39 100
 
 Total:1 Passed:1  
 ```
+
+### View tests results in raw format
+
+Use this format if you want to parse test results using scripts. The raw format returns values separated by pipes, without formatting or header information.
+
+The following example command returns test status in a raw format:
+
+On Mac or Unix:
+
+```
+galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+--format raw
+``` 
+
+On Windows (Powershell):
+```
+galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
+--format raw
+``` 
+
+where:
+- `--name` is the name of the test run 
+- `--bootstrap` is the URL of the ecosystem's bootstrap properties
+- `--format` is the format in which you want the results to display
+
+Results are returned on the terminal in the following example format:
+
+```
+$galasactl runs get --name U456 --format raw 
+U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
+```
+
 
 ### View tests results in raw format
 
