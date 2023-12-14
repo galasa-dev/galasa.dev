@@ -173,37 +173,6 @@ U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|202
 ```
 
 
-### View tests results in raw format
-
-Use this format if you want to parse test results using scripts. The raw format returns values separated by pipes, without formatting or header information.
-
-The following example command returns test status in a raw format:
-
-On Mac or Unix:
-
-```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
---format raw
-``` 
-
-On Windows (Powershell):
-```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
---format raw
-``` 
-
-where:
-- `--name` is the name of the test run 
-- `--bootstrap` is the URL of the ecosystem's bootstrap properties
-- `--format` is the format in which you want the results to display
-
-Results are returned on the terminal in the following example format:
-
-```
-$galasactl runs get --name U456 --format raw 
-U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
-```
-
 ### Return tests with specified results in summary format
 
 Use the following example command to return test information for test runs that ran the previous day and have a result of either _Failed_ or _EnvFail_.
