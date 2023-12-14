@@ -108,7 +108,7 @@
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
             - title: Managing integrated test runs
-              path: /docs/ecosystem/cps
+              path: /docs/ecosystem/ecosystem-manage-cps
             - title: Selecting tests to run in the Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in the Ecosystem
