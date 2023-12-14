@@ -3,6 +3,7 @@ path: "/docs/ecosystem/cps"
 title: "Managing integrated test runs"
 ---
 
+[Retrieving namespaces](#retrievingnamespaces)<br>
 [Retrieving properties](#retrieving)<br>
 [Setting properties](#setting)<br>
 [Deleting properties](#deleting)<br>
@@ -29,14 +30,21 @@ The CPS is a key-value pair store. Properties in the CPS are dot-separated value
 
 Naming conventions are used to maintain order in the properties which are stored in the CPS. If a property in the CPS consists of a prefix, suffix, and a variable infix, then the prefix and suffix are lower-case, and the infix part of the property name is upper-case, to indicate that it is variable in nature. This convention allows the CPS to group names together and for easy searching and lookup by tests, Managers and users alike. Properties can be searched by using the prefix, suffix and a list of possible infixes.
 
-Namespaces are used to group properties together within the CPS. Namespaces help to restrict the values that can be drawn from the CPS. For example, test cases draw values only from the `test` namespace. The Galasa framework draws values from the `framework` namespace, for example, the location of the Credentials Store and the Dynamic Status Store. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
+Namespaces are used to group properties together within the CPS. Namespaces are either defined as `normal` or `secure` types. Returned values that are associated with properties in a `secure` namespace type are redacted, so property values are not displayed in returned results. All other namespaces are classed as `normal` type and these types of namespaces do display property values. 
+
+Namespaces help to restrict the values that can be drawn from the CPS. For example, test cases draw values only from the `test` namespace. The Galasa framework draws values from the `framework` namespace, for example, the location of the Credentials Store and the Dynamic Status Store. Managers also provide their own configuration properties, for example, the configuration properties of the Docker Manager are held in the `docker` namespace. The `--namespace` flag is mandatory for all `galasasctl properties` commands. 
 
 
- ## Retrieving CPS namespaces
+ ## <a name="retrievingnamespaces"></a>Retrieving namespaces
 
 You can get a list of available namespaces by using the `galasactl properties namespaces get` command. This command returns the namespaces into which you can inject properties. Use the information to help you to complete the `--namespace` parameter value in the `galasasctl properties get`, `galasasctl properties set`, and `galasasctl properties delete` commands that are described in the following sections.
 
-Namespaces are returned in summary format. For example:
+Namespaces are returned in either `summary` or `raw` format. The default format is `summary`. You can set the summary format explicitly on the `galasactl properties namespaces get` command by specifying the `--format summary` flag. If the `--format` flag is not specified, results are returned in `summary` format. You can specify results to be returned in `raw` format by setting the `--format raw` flag on the `galasactl properties namespaces get` command.
+
+Use the following command to retrieve all namespaces in an Ecosystem in summary format:
+`galasactl properties namespaces get` 
+
+The following example shows namespaces returned in summary format:
 
 ```
 name       type
@@ -46,8 +54,16 @@ secure     secure
 Total: 3
 ```
 
-Returned properties are sorted in alphabetical order. Values are masked in `secure` namespace types, so secure namespace types do not display property values. All other namespaces are classed as `normal` type and these types of namespaces do display property values. 
+Use the following command to retrieve all namespaces in an Ecosystem in raw format:
+`galasactl properties namespaces get --format raw` 
 
+The following example shows namespaces returned in the `raw` format of `namespace|type|`:
+
+```
+docker|normal|framework|normal|secure|secure|
+```
+
+Returned properties are sorted in alphabetical order based on the name of the namespace. 
 
 ## Managing CPS properties
 
@@ -57,7 +73,7 @@ The example commands that are provided in the following sections assume that the
 
 ## <a name="retrieving"></a>Retrieving properties from a namespace 
 
-Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. 
+Use the `galasactl properties get` command to read CPS properties and values from a specified namespace in the Galasa Ecosystem to verify that the properties exist and are set correctly. You can filter the properties that are returned by using the property name (to return a single property), or by using the prefix, suffix, and infix flags to return a subset of properties that match the provided criteria. Property values that are returned from `secure` namespace types are redacted, so property values are not displayed. Namespaces that are classed as `normal` type do display property values.
 
 
 
@@ -105,7 +121,11 @@ For a complete list of supported parameters see the <a href="https://github.com/
 ### Returned properties
 
 
-Properties are returned in summary format. For example:
+Properties are returned in `summary` or `raw` format. 
+
+
+The following example shows the properties returned in `summary` format:
+
 
 ```
 namespace name                    value
@@ -113,6 +133,24 @@ docker    engine.LOCAL.hostname   127.0.0.1
 docker    engine.REMOTE.hostname  103.67.89.6
 
 Total: 2
+```
+
+
+The following example shows namespaces returned in `raw` format `namespace|name|value`:
+
+```
+docker|engine.LOCAL.hostname|127.0.0.1|docker|engine.REMOTE.hostname|103.67.89.6|
+
+```
+
+The following example shows a property in a `secure` namespace type returned in `summary` format. The returned property value is masked:
+
+
+```
+namespace name               value
+secure    property.example   ********
+
+Total: 1
 ```
 
 
