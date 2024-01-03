@@ -45,7 +45,7 @@ You can use the appropriate namespace in the `galasasctl properties get`, `galas
 | Name |  Description  |
 | :---- | :-------- | 
 | `--format summary` | The default format is _summary_. Summary format is useful if you need a quick, high-level view. If you omit the `--format` flag in the command, results are returned in summary format. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties namespaces get` command.   | 
-| `--format raw` |  The output from `galasactl properties namespaces get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
+| `--format raw` |  The output from `galasactl properties namespaces get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. Returned values are separated by pipes, without formatting or header information.| 
 
 
 

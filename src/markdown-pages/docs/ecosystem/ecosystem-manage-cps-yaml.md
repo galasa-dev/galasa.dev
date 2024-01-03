@@ -30,7 +30,7 @@ data:
 You can update the values in this yaml file and then create, update, or apply those updates by using the galasactl command line tool, as described in the following section. 
 
 
-If you want to create a new yaml file, you must use the following example format:
+Alternatively, if you want to create a new yaml file, you can do so but you must use the following example format:
 
 
 ```
@@ -72,23 +72,41 @@ You can use the galasactl command line tool to sumbit a yaml file to create new 
 Use the following command to create a new property or properties in a specified namespace by using a yaml file called `myFile.yaml`:
 
 ```
-galasactl resource create -f myFile.yaml
+galasactl resources create -f myFile.yaml
 ```
 
 Use the following command to update an existing property or properties by using a yaml file called `myFile.yaml`:
 
 ```
-galasactl resource update -f myFile.yaml
+galasactl resources update -f myFile.yaml
 ```
 
-Use the following command to create a new property or properties and update an existing property or properties by using a yaml file called `myFile.yaml`:
+Use the following command to create a new property if the property does not exist and update an existing property if the property does exist by using a yaml file called `myFile.yaml`:
 
 ```
-galasactl resource apply -f myFile.yaml
+galasactl resources apply -f myFile.yaml
 ```
 
 An error message is returned if the action is not able to complete successfully. For example, if a property could not be created in a particular namespace because the property already exists in that namespace.
  
+
+### Deleting properties using a yaml resource file
+
+When maintaining an Ecosystem, you might have a yaml file containing Galasa property resource definitions and want to delete a corresponding set of properties stored on the server in an Ecosystem. You can do this by using the following command: 
+
+```
+galasactl resources delete -f {filename}
+```
+
+where:
+
+`{filename}` is the name of the yaml file that contains the list of properties that you want to delete.
+
+For example, you might have a list of resources that you want to delete in a file called `resources_to_delete.yaml`. You can delete those resources by running the following command:
+
+```
+galasactl resources delete -f resources_to_delete.yaml
+```
 
 
 For a complete list of supported parameters see the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_resources.md" target="_blank"> galasactl resources</a> documentation in the Galasa cli repository.

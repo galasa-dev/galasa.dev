@@ -42,7 +42,7 @@ This code sets an HTTP Client's target URI.
 @HttpClient
 public IHttpClient client;
 
-client.setURI("http://www.google.com");
+client.setURI(new URI("http://www.google.com"));
 ```
 
 You would typically use this call prior to, say, an outbound HTTP call
