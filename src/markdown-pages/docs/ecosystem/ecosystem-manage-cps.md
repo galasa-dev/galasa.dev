@@ -98,7 +98,7 @@ Property values that are returned from secure namespace types are redacted, so p
 | :---- | :-------- | 
 | `--format summary` | The default format is _summary_. Summary format is useful if you need a quick, high-level view. You can set the summary format explicitly by setting the `--format summary` flag in the `galasactl properties get` command. If you omit the `--format` flag in the command, results are returned in summary format.  | 
 | `--format yaml` |  If you want to use galasactl to extract a yaml file which describes a property's values, you can set the `--format yaml` flag in the command. This is useful if you want to update a number properties with different values by using a single command.  | 
-| `--format raw` |  The output from `galasactl properties get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
+| `--format raw` |  The output from `galasactl properties get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. Returned values are separated by pipes, without formatting or header information.| 
 
 
 ### Retrieve all properties from a namespace

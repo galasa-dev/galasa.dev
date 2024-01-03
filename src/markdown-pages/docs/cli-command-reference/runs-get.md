@@ -27,7 +27,7 @@ Use the tables provided to view the options for filtering test results, and for 
 | :---- | :-------- | 
 | `--format summary` | The default format is _summary_. The _summary_ format is useful if you just need to know the high-level status and result of a test.  | 
 | `--format details` | The _details_ format is useful when you need to see all the details of a test run, including method information.  | 
-| `--format raw` | The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. | 
+| `--format raw` | The _raw_ format output is useful if you are writing scripts to report on multiple test runs programmatically. The output from `galasactl runs get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. Returned values are separated by pipes, without formatting or header information. | 
 
 
 ## <a name="result"></a>More about the `--result` option
