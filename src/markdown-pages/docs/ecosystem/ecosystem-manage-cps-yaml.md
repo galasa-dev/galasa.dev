@@ -65,7 +65,7 @@ You can save the file with a `.yaml` or `.yml` file extension.
 
 
 
-### Submitting the yaml file
+### Creating and updating properties using a yaml resource file
 
 You can use the galasactl command line tool to sumbit a yaml file to create new properties, or to update existing ones.
 
