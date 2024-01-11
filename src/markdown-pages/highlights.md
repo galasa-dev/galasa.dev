@@ -26,7 +26,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
   • You can create, update, apply, and delete one or more properties to an Ecosystem by specifying a checked-in resource file on the  `galasactl resources` command, making it easy to set Ecosystem configuration with a single command.
   
 
-  • The `galasactl properties get` command supports extraction of properties resources in yaml format when the `–format yaml` flag is set on the command so you can later apply those properties with different values by using a checked-in resource file specified on the  `galasactl resources` command.
+  • The `galasactl properties get` command supports extraction of properties resources in yaml format when the `–format yaml` flag is set on the command so you can later apply those properties with different values by using a checked-in resource file specified on the `galasactl resources` command.
 
   • The `galasactl namespaces get` command now returns results of available namespaces in raw format when the `–format raw` flag is set on the command. 
 
