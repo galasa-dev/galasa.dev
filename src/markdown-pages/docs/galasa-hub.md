@@ -6,6 +6,15 @@ title: "Galasa Blogs"
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
 
+## Blog: Galasa: My First 6 Months as a TSC Chair
+Read the blog post by Louisa Seers to find out about her experiences and thoughts during her first six months as Galasa IBM Product Manager and Chair of the Galasa Technical Steering Committee (TSC), and the Galasa journey to adoption by the Open Mainframe Project (OMP).<br>
+
+**Author: Louisa Seers, December 18 2023**<br>
+*Source: Open Mainframe Project*<br><br>
+<a href="https://openmainframeproject.org/blog/galasa-my-first-6-months" target="_blank">
+ Read the blog</a>
+
+
 ## Video: The Galasa command line tool
 Learn about the software requirements you need to get started with the Galasa command line tool (galasactl)and find out how to download and install it on your local machine. Watch a demo that takes you through the process of creating, building and running Galasa tests, and viewing the output of those test runs. <br>
 
