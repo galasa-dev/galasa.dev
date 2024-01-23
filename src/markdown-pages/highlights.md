@@ -61,8 +61,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 <summary><b>0.28.0 - Release Highlights</b></summary>
 
 - Updates to the `runs get` command, including the ability to filter test run results on a specified time period, and to display the returned results in a detailed or raw format
-- Ability to download test run artifacts by using the `runs download` command
-- Ability to debug a test locally by using the `runs submit local` command
+- Ability to download test run artifacts using the `runs download` command
+- Ability to debug a test locally using the `runs submit local` command
 - Various documentation updates and enhancements
 </details>  
 
