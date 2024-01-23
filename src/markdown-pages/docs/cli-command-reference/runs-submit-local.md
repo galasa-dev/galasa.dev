@@ -43,6 +43,13 @@ where:
 You can view the full list of options that are available with the `galasactl runs submit local` command in the 
 <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
 
+## Overriding the path to the default local Maven repository
+
+In order to run, tests require compiled artifacts to be hosted in a Maven repository. The artifacts must be bundled as an OSGI bundle. When you build a Galasa project locally, the built artifacts are placed by default in the `~/.m2/` repository in your home directory; the default location of the local Maven repository.  
+
+If you want to use a non-standard location for your local Maven repository when running a test locally, rather than the default `~/.m2/` repository, you can specify the path to your non-standard local Maven repository folder when launching a test by setting the  `--localMaven` flag on the `galasactl runs submit local` command. The `--localMaven` parameter tells the CLI tool where Galasa bundles can be loaded from on your local file system. The parameter value must be given in a URL form, for example, `file:///Users/myuserid/mylocalrepository` or `file://C:/Users/myuserid/mylocalrepository`.
+
+*Note:* the repository that is referenced by the `--localMaven` flag must contain the test, Manager, and Galasa framework OBRs (OSGi Bundle Repositories) that the test needs in order to run. Galasa uses OBRs to locate tests in the specified Maven repository, along with all of the Managers that the test requires.
 
 ## Stopping a running test
 
