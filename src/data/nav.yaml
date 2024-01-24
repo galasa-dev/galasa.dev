@@ -144,6 +144,8 @@
               path: /docs/manager-groups/workflow-manager-group
             - title: z/OS Managers
               path: /docs/manager-groups/zos-manager-group
+        - title: FAQs
+          path: /docs/troubleshooting-galasa
         - title: Reference
           path: /docs/reference/
           items:
