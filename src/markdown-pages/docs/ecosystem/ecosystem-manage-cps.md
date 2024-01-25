@@ -59,9 +59,9 @@ The following example shows namespaces returned in summary format:
 
 ```
 name       type
-docker     normal
-framework  normal
-secure     secure
+docker     NORMAL
+framework  NORMAL
+secure     SECURE
 Total: 3
 ```
 
@@ -71,10 +71,12 @@ Use the following command to retrieve all namespaces in an Ecosystem `raw` forma
 galasactl properties namespaces get --format raw
 ```
 
-The following example shows namespaces returned in the `raw` format of `namespace|type|`:
+The following example shows namespaces returned in the `raw` format of `namespace|type|`, with pipe delimiters:
 
 ```
-docker|normal|framework|normal|secure|secure|
+docker|NORMAL
+framework|NORMAL
+secure|SECURE
 ```
 
 Returned properties are sorted in alphabetical order based on the name of the namespace. 
