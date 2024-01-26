@@ -17,8 +17,29 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.31.0 - Release Highlights
 
-## 0.30.0 - Release Highlights
+- CLI updates: 
+
+  • You can explicitly specify the path to your local Maven repository folder when launching a test case by setting the `--localMaven` flag in the `galasactl runs local` command. This means that you can use a non-standard location for your local Maven repository if you want to, rather than having to use the default location of `{user.home}/.m2`.
+
+  • You can create, update, apply, and delete one or more properties to an Ecosystem by specifying a checked-in resource file on the  `galasactl resources` command, making it easy to set Ecosystem configuration with a single command.
+  
+
+  • The `galasactl properties get` command supports extraction of properties resources in yaml format when the `–format yaml` flag is set on the command so you can later apply those properties with different values by using a checked-in resource file specified on the `galasactl resources` command.
+
+  • The `galasactl namespaces get` command now returns results of available namespaces in raw format when the `–format raw` flag is set on the command. 
+
+- When using the Galasa command line tool against a server, an error message is generated when the client and server versions are incompatible. 
+
+- Various documentation enhancements
+
+- A new blog post by Louisa Seers, encapsulating her experiences during her first six months as Chair of the Galasa Technical Steering Committee (TSC) and the Galasa journey to adoption by the Open Mainframe Project (OMP), is now available on the <a href="https://openmainframeproject.org/blog/galasa-my-first-6-months/" target="_blank"> Open Mainframe Project</a> website.
+
+
+
+<details>
+<summary><b>0.30.0 - Release Highlights</b></summary>
 
 - You can now read, update, and delete CPS properties by using the CLI, removing the need to directly access the etcd server or use the REST service. The `galasactl properties set` command makes it easy to set parameters and credentials in the Ecosystem for tests to read and use at runtime. Use the `galasactl properties get` command to read CPS properties and the `galasactl properties delete` to remove CPS properties from a namespace in the Ecosystem.
 - The following REST API endpoints will be deprecated in the next release (0.31.0) as these are replaced by new endpoints delivered in this release:<br><br>
@@ -28,7 +49,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
         /cps/namespace<br>
 - The `--requestor` parameter is removed from the `galasactl runs submit local` and `galasactl runs submit` commands. The `--requestor` parameter is always set to the current user id, removing the ability to artifically set who is running the test. 
 - Various documentation updates and enhancements.
-
+</details>  
 
 <details>
 <summary><b>0.29.0 - Release Highlights</b></summary>
@@ -40,8 +61,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 <summary><b>0.28.0 - Release Highlights</b></summary>
 
 - Updates to the `runs get` command, including the ability to filter test run results on a specified time period, and to display the returned results in a detailed or raw format
-- Ability to download test run artifacts by using the `runs download` command
-- Ability to debug a test locally by using the `runs submit local` command
+- Ability to download test run artifacts using the `runs download` command
+- Ability to debug a test locally using the `runs submit local` command
 - Various documentation updates and enhancements
 </details>  
 
