@@ -85,14 +85,12 @@ On Mac or Unix:
 ```
 galasactl runs submit local --log - \
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr \
---obr mvn:dev.galasa/dev.galasa.uber.obr/0.31.0/obr \
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT 
 ```
 On Windows (Powershell):
 ```
 galasactl runs submit local --log - `
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr `
---obr mvn:dev.galasa/dev.galasa.uber.obr/0.31.0/obr `
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT
 ```
 where:
@@ -110,7 +108,6 @@ On Mac or Unix:
 ```
 galasactl runs submit local --log - \
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr \
---obr mvn:dev.galasa/dev.galasa.uber.obr/0.31.0/obr \
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest 
 ```
 
@@ -119,7 +116,6 @@ On Windows (Powershell):
 ```
 galasactl runs submit local --log - `
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr `
---obr mvn:dev.galasa/dev.galasa.uber.obr/0.31.0/obr `
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest
 ```
 
