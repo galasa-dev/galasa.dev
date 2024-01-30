@@ -1,5 +1,5 @@
 ---
-path: "/docs/troubleshooting-galasa"
+path: "/docs/faqs-galasa"
 title: "Frequently asked questions"
 ---
 

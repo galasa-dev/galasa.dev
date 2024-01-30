@@ -145,7 +145,7 @@
             - title: z/OS Managers
               path: /docs/manager-groups/zos-manager-group
         - title: FAQs
-          path: /docs/troubleshooting-galasa
+          path: /docs/faqs-galasa/
         - title: Reference
           path: /docs/reference/
           items:
