@@ -5,7 +5,7 @@ title: "Ecosystem Architecture"
 
 The following diagram provides a high-level representation of the Galasa Ecosystem architecture:<br><br> ![Galasa ecosystem architecture:](ecosystem-overview.svg)
 
-<br>The ecosystem is made up of a collection of microservices for orchestrating runtimes, monitoring tests and resources, and providing clean-up of those resources if required. The ecosystem provides a centralized store for run configurations, a single location for storing all test results and test artifacts, and utilizes a REST endpoint that can be called from any IDE or pipeline. 
+<br>The Ecosystem is made up of a collection of microservices for orchestrating runtimes, monitoring tests and resources, and providing clean-up of those resources if required. The Ecosystem provides a centralized store for run configurations, a single location for storing all test results and test artifacts, and utilizes a REST endpoint that can be called from any IDE or pipeline. 
 
 
 ### Key components:

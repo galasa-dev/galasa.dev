@@ -103,7 +103,7 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
-            - title: Installing the Ecosystem on Kubernetes
+            - title: Installing the Ecosystem using Helm
               path: /docs/ecosystem/installing/k8s
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
