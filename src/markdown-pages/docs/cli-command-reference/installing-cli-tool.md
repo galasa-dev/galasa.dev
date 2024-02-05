@@ -33,7 +33,7 @@ On Mac or Unix:
 2. Download the appropriate binary of the Galasa CLI for your machine architecture from the [Galasa cli repository](https://github.com/galasa-dev/cli/releases) in GitHub and re-name it to `galasactl`.
 3. Add Galasa CLI to your PATH to enable you to run CLI commands from anywhere on your file system without having to specify the absolute path. To set the path permanently, you need add the Galasa CLI path to your shell's initialization file. For example, if you downloaded the galasactl executable to a folder called `~/tools` in your home directory, you need to add `~/tools` to the list of directories that your shell searches through when you enter a command. You can do this by adding the line ```export PATH=$PATH:$HOME/tools``` to your shell’s initialization file (for example `~/.bashrc` or `~/.zshrc`). 
 4. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.
-5. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quaranteen galasactl` command in the directory containing `galasactl`. 
+5. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine galasactl` command in the directory containing `galasactl`. 
 
 You can now run the Galasa CLI too from any directory in your file system without having to specify the absolute path.
 
