@@ -55,7 +55,7 @@ Complete the following steps to install a Galasa Ecosystem by using Helm:
     - If the repository exists, run the ```helm repo update``` command to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.<br>
     _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml#L43 target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required.
 1. Download the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
-    - Set `galasaVersion` to the version of Galasa that you want to run. (See the [Releases](../../highlights) documentation for released versions). To ensure that each pod in the Ecosystem is running at the same level, do not use `latest` as the Galasa version.
+    - Set `galasaVersion` to the version of Galasa that you want to run. (See the [Releases](/releases) documentation for released versions). To ensure that each pod in the Ecosystem is running at the same level, do not use `latest` as the Galasa version.
     - Set `externalHostname` to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa NodePort services. If you are deploying to minikube, the cluster's IP address can be retrieved by running `minikube ip`.
 
 After updating the `galasaVersion` and `externalHostname` values, complete the following instructions to set up Ingress for your Ecosystem. 
@@ -77,7 +77,7 @@ After updating the values under the `ingress` section of your `values.yaml` file
 
 **Note: The ecosystem chart's use of Dex is still under development and is subject to change.**
 
-In a future release, [Dex](https://dexidp.io) will be used to authenticate users attempting to interact with a Galasa Ecosystem.
+In a future release, <a href=https://dexidp.io target="_blank"> Dex</a> will be used to authenticate users attempting to interact with a Galasa Ecosystem.  
 
 To configure Dex in your Ecosystem, complete the following steps to update your `values.yaml` file:
 
@@ -118,9 +118,9 @@ To configure Dex in your Ecosystem, complete the following steps to update your 
           secretEnv: WEBUI_CLIENT_SECRET
     ```
 
-4. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on [ID tokens](https://dexidp.io/docs/id-tokens) for information and available expiry settings.
+4. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on <a href=https://dexidp.io/docs/tokens target="_blank"> ID tokens</a> for information and available expiry settings. 
 
-You can now configure Dex to authenticate via a connector to authenticate with an upstream identity provider, for example, GitHub, Microsoft, or an LDAP server. For a full list of supported connectors, refer to the [Dex documentation](https://dexidp.io/docs/connectors). The following instructions explain how to configure Dex to authenticate through GitHub.
+You can now configure Dex to authenticate via a connector to authenticate with an upstream identity provider, for example, GitHub, Microsoft, or an LDAP server. For a full list of supported connectors, refer to the <a href=https://dexidp.io/docs/connectors target="_blank"> Dex documentation</a>. The following instructions explain how to configure Dex to authenticate through GitHub.
 
 
 ### Configuring authentication
@@ -187,7 +187,7 @@ Complete the following steps to configure Dex to authenticate through GitHub:
 
 By default, the Galasa Ecosystem Helm chart creates a Kubernetes Secret containing configuration details for Dex. If you want to apply your own Dex configuration as a Secret, your Dex configuration must be provided in a `config.yaml` key within the Secret, and the value of the `config.yaml` key must be a valid Dex configuration.
 
-For more information on configuring Dex, see the [Dex documentation](https://dexidp.io/docs).
+For more information on configuring Dex, see the  <a href=https://dexidp.io/docs target="_blank"> Dex documentation</a>.
 
 ## Installing the chart
 
@@ -283,7 +283,7 @@ where:<br>
 
 ### Development
 
-To install the latest development version of the Galasa Ecosystem Helm chart, clone the <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> and update the following values in your [values.yaml](charts/ecosystem/values.yaml) file:
+To install the latest development version of the Galasa Ecosystem Helm chart, clone the <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> and update the following values in your `values.yaml`file:
 
 1. Set the `galasaVersion` value to `main`
 2. Set the `galasaRegistry` value to `harbor.galasa.dev/galasadev`
