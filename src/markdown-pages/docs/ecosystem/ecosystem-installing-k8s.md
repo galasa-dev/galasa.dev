@@ -75,7 +75,7 @@ After updating the values under the `ingress` section of your `values.yaml` file
 
 ### Configuring Dex
 
-**Note: The ecosystem chart's use of Dex is still under development and is subject to change.**
+**Note: The Ecosystem chart's use of Dex is still under development and is subject to change.**
 
 In a future release, <a href=https://dexidp.io target="_blank"> Dex</a> will be used to authenticate users attempting to interact with a Galasa Ecosystem.  
 
@@ -280,26 +280,6 @@ where:<br>
 - `galasaVersion` is set to the version that you want to use and<br>
 - `<release-name>` is the name that you gave to the Ecosystem during installation
 
-
-### Development
-
-To install the latest development version of the Galasa Ecosystem Helm chart, clone the <a href=https://github.com/galasa-dev/helm target="_blank"> Galasa Helm repository</a> and update the following values in your `values.yaml`file:
-
-1. Set the `galasaVersion` value to `main`
-2. Set the `galasaRegistry` value to `harbor.galasa.dev/galasadev`
-3. Set the `externalHostname` value to the DNS hostname or IP address of the Kubernetes node that will be used to access the Galasa NodePort services.
-
-If you are deploying to minikube, the cluster's IP address can be retrieved by running `minikube ip`.
-
-Follow the installation instructions in the [Configuring Ingress](#configuring-ingress) section to update the rest of your `values.yaml` file, including values to configure Ingress and Dex.
-
-After updating your `values.yaml` file, run the following command, providing the path to the <a href=https://github.com/galasa-dev/helm/tree/main/charts/ecosystem target="_blank"> ecosystem</a> directory in the helm repository, for example, `~/helm/charts/ecosystem`.
-
-```console
-helm install <release-name> /path/to/helm/charts/ecosystem --wait
-```
-
-When the `helm install` command completes with a successful deployment message, follow the installation instructions that are provided in the [Verifying the installation](#verifying-your-galasa-ecosystem-installation) section to test the deployed Ecosystem using `helm test` and determine the bootstrap URL.
 
 ### Troubleshooting
 
