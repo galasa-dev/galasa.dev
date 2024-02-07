@@ -40,7 +40,17 @@ The following example cancels a test run called _C1234_ by using the following c
 galasactl runs cancel --name C1234
 ```
 
-All information that is held in the DSS about the test run is removed. 
+All information that is held in the DSS about the test run is removed. A message is returned in the log to say that the test run was lost and results are returned on the terminal in the following example format: 
+
+```
+2024/02/07 13:34:28 Run C1234 was lost - inttests/dev.galasa.inttests/dev.galasa.inttests.core.local.CoreLocalJava11Ubuntu
+submitted-time(UTC) name requestor status result test-name
+
+Total:1 Lost:1
+2024/02/07 13:34:28 GAL1017E: Not all runs passed. 1 failed.
+GAL1017E: Not all runs passed. 1 failed.
+2024/02/07 13:34:28 Exit code is 2
+```
 
 
 
