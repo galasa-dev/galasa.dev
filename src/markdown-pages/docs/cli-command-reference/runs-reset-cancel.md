@@ -1,12 +1,12 @@
 ---
 path: "/docs/cli-command-reference/runs-reset-cancel"
-title: "Retrying and deleting tests"
+title: "Retrying and cancelling tests"
 ---
 
 
-Sometimes tests can become stuck in a loop and fail to finish running, for example, due to a lack of available resources, an environmental problem, or a timeout. You can retry a test to run again by using the `runs reset` command. If the test continues to fail to finish running, you can use the `runs cancel` command to delete the test. 
+Sometimes tests can become stuck in a loop and fail to finish running, for example, due to a lack of available resources, an environmental problem, or a timeout. You can retry a test to run again by using the `runs reset` command. If the test continues to fail to finish running, you can use the `runs cancel` command to cancel the test. 
 
-Retrying a test sets the status of the test run in the DSS to `queued` status. Deleting a test deletes all entries in the DSS for that test run. For this reason it is preferable to retry a test rather than delete a test. All information that is stored in the RAS about the test is kept and is not deleted when either the `runs reset` or `runs cancel` command is run.
+Retrying a test sets the status of the test run in the DSS to `queued` status. Cancelling a test removes all entries in the DSS for that test run. For this reason it is preferable to retry a test rather than cancel a test. All information that is stored in the RAS about the test is kept and is not removed when either the `runs reset` or `runs cancel` command is run.
 
 
 You can view the full list of options that are available with the `runs reset` and `runs cancel` commands in the 
@@ -34,13 +34,13 @@ In this example, the test _C1234_ tried to run twice unsuccessfully and complete
 
 ## Working with the `runs cancel` command
 
-The following example deletes a test run called _C1234_ by using the following command: 
+The following example cancels a test run called _C1234_ by using the following command: 
 
 ```
 galasactl runs cancel --name C1234
 ```
 
-All information that is held in the DSS about the test run is deleted. 
+All information that is held in the DSS about the test run is removed. 
 
 
 
