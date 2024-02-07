@@ -1,0 +1,46 @@
+---
+path: "/docs/cli-command-reference/runs-reset-cancel"
+title: "Retrying and deleting tests"
+---
+
+
+Sometimes tests can become stuck in a loop and fail to finish running, for example, due to a lack of available resources, an environmental problem, or a timeout. You can retry a test to run again by using the `runs reset` command. If the test continues to fail to finish running, you can use the `runs cancel` command to delete the test. 
+
+Retrying a test sets the status of the test run in the DSS to `queued` status. Deleting a test deletes all entries in the DSS for that test run. For this reason it is preferable to retry a test rather than delete a test. All information that is stored in the RAS about the test is kept and is not deleted when either the `runs reset` or `runs cancel` command is run.
+
+
+You can view the full list of options that are available with the `runs reset` and `runs cancel` commands in the 
+<a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs.md" target="_blank">Galasa cli repository</a>.
+
+## Working with the `runs reset` command
+
+The following example retrys a test run called _C1234_ by using the following command: 
+
+```
+galasactl runs reset --name C1234
+```
+
+### Output for test retries
+
+When using the [galasactl runs download](ecosystem-cli-runs-download) command to view test results, if a test has run more than once, a number is added to the folder name to indicate the number of the retry, as shown in the following example:
+
+```
+C1234-1-2023-05-25_18:30:26
+C1234-2-2023-05-25_18:30:26
+C1234-3
+```
+
+In this example, the test _C1234_ tried to run twice unsuccessfully and completed on the third try. The numbers _1_ and _2_ in the folder names of the first two test run attempts indicate the retry order. The inclusion of the timestamp in folder name of the first two tries indicates that the test did not finish running. The third time the test finished running, so no timestamp is included as part of the name of the folder. 
+
+## Working with the `runs cancel` command
+
+The following example deletes a test run called _C1234_ by using the following command: 
+
+```
+galasactl runs cancel --name C1234
+```
+
+All information that is held in the DSS about the test run is deleted. 
+
+
+
