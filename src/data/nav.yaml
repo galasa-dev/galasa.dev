@@ -103,17 +103,17 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
-            - title: Installing the Ecosystem on Kubernetes
+            - title: Installing an Ecosystem using Helm
               path: /docs/ecosystem/installing/k8s
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
             - title: Managing integrated test runs
               path: /docs/ecosystem/ecosystem-manage-cps
-            - title: Configuring the Ecosystem using resource files
+            - title: Configuring an Ecosystem using resource files
               path: /docs/ecosystem/cps-yaml  
-            - title: Selecting tests to run in the Ecosystem
+            - title: Selecting tests to run in an Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
-            - title: Running tests in the Ecosystem
+            - title: Running tests in an Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-submit
             - title: Viewing test run results 
               path: /docs/cli-command-reference/cli-runs-get
