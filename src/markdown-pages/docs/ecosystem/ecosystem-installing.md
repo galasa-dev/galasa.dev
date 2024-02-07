@@ -1,6 +1,6 @@
 ---
 path: "/docs/ecosystem/installing"
-title: "Installing the Galasa Ecosystem on Docker"
+title: "Installing a Galasa Ecosystem on Docker"
 ---
 
 
