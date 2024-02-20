@@ -104,9 +104,9 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Name: | galasaecosystem.docker.registry |
 | Description: | The registry that contains the Docker images |
 | Required:  | No |
-| Default value: | docker.galasa.dev |
+| Default value: | docker.io |
 | Valid values: | a valid hostname |
-| Examples: | <code>galasaecosystem.docker.version=docker.galasa.dev</code> |
+| Examples: | <code>galasaecosystem.docker.registry=docker.io</code> |
 
 </details>
  
