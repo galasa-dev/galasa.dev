@@ -106,7 +106,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | No |
 | Default value: | docker.io |
 | Valid values: | a valid hostname |
-| Examples: | <code>galasaecosystem.docker.version=docker.io</code> |
+| Examples: | <code>galasaecosystem.docker.registry=docker.io</code> |
 
 </details>
  
