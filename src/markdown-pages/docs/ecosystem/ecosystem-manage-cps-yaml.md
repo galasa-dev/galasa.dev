@@ -1,6 +1,6 @@
 ---
 path: "/docs/ecosystem/cps-yaml"
-title: "Configuring the Ecosystem using resource files"
+title: "Configuring an Ecosystem using resource files"
 ---
 
 You might want to create or update a number of different Galasa properties and associated values at the same time, for example to configure a different Galasa Ecosystem. A good way to do this is by using a yaml file containing property resources and associated values to set the configuration of your Ecosystem. 
