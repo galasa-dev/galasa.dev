@@ -55,23 +55,11 @@
               path: /docs/cli-command-reference/simbank-cli
             - title: Running the SimBank tests using the CLI
               path: /docs/running-simbank-tests-cli
-        - title: Getting started using Eclipse
-          path: /docs/getting-started/
-          items:
-            - title: Eclipse prerequisites
-              path: /docs/getting-started/eclipse-prereqs
-            - title: Installing the Galasa plug-in 
-              path: /docs/getting-started/installing-online
+        - title: Getting started using the zipped distribution
+          path: /docs/getting-started-zipped
+          items: 
             - title: Installing the Galasa plug-in offline
-              path: /docs/getting-started/installing-offline
-            - title: Exploring Galasa SimBank using Eclipse
-              path: /docs/getting-started/simbank
-            - title: Creating a project using Eclipse
-              path: /docs/running-simbank-tests/setting-up-galasa-project-eclipse
-            - title: Running the SimBank tests using Eclipse
-              path: /docs/running-simbank-tests-eclipse
-            - title: Viewing test results locally
-              path: /docs/running-simbank-tests/viewing-test-results
+              path: /docs/getting-started/installing-offline             
         - title: Exploring the supplied SimBank tests
           path: /docs/exploring-simbank-tests
           items:
