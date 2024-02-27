@@ -16,7 +16,7 @@ The following diagram shows the architecture for the authentication process:
 ![Galasa ecosystem architecture:](ecosystem-cluster-auth.svg)
 
 
-When a user logs into the Galasa Web UI via their browser, the Web UI contacts the authorization REST endpoint which in turn talks to a Dex server, providing it with the user ID. The Dex server acts as authentication concentrator, talking to an identity provider, for example, GitHub or LDAP to authenticate that user. If the user is successfully authenticated, the provider returns an access token to the Dex server which sends that token to the Galasa Web UI where it is visible to the user. The user can then configure that token into the galasactl command line tool by updating the `GALASA_TOKEN` property in the `galasactl.properties` file. The user can then be authenticated each time the galasactl tool is used to interact with a Galasa Ecosystem. 
+When a user logs into the Galasa Web UI via their browser, the Web UI contacts the authorization REST endpoint which in turn talks to a Dex server, providing it with the user ID. The Dex server acts as authentication concentrator, talking to an identity provider, for example GitHub or LDAP, to authenticate that user. If the user is successfully authenticated, the provider returns an access token to the Dex server which sends that token to the Galasa Web UI where it is visible to the user. The user can then configure that token into the galasactl command line tool by updating the `GALASA_TOKEN` property in the `galasactl.properties` file. The user can then be authenticated each time the galasactl tool is used to interact with a Galasa Ecosystem. 
 
 
 

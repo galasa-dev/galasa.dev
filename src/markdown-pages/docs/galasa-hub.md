@@ -5,6 +5,9 @@ title: "Galasa Blogs"
 
 Stay up-to-date with all things Galasa with blogs, podcasts and videos from fellow Galasians.
 
+Galasa blogs that are hosted by the Open Mainframe Project are available on the <a href="https://openmainframeproject.org/category/galasa" target="_blank">
+Galasa</a> page of the website.
+
 ## Blog: Galasa: What is Application Integration Testing?
 Application integration allows software to be created as a unique and bespoke set of applications that knit together to form critical business processes. Application integration testing ensures that individual components interact with each other in a desirable way, and automation of this stage of testing is critical because there typically are so many configurations, routes, and scenarios to consider. Galasa could be your first step to understanding how to build test cases that cover multiple applications and can even be extended to cover proprietary applications with the use of Managers. Read the blog post by Louisa Seers to find out more.<br>
 
