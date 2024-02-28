@@ -6,7 +6,6 @@ title: "CLI prerequisites"
 
 The following section explains more about the software prerequisites that you need to install so that you are ready to install Galasa for using in the command-line.
 
-
 ## Prerequisites
 
 | Software |  Description  |

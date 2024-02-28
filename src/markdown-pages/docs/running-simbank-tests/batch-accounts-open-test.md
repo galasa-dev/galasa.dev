@@ -31,7 +31,7 @@ For brevity, package declarations and imports are omitted in the following walkt
 First, some Managers are declared, including a new Manager - `ZosBatch` and a related annotation and interface `ZosBatchJobname`.
 
 ```java
-@ZosBatch(imageTag = "SIMBANK"")
+@ZosBatch(imageTag = "SIMBANK")
 public IZosBatch zosBatch;
 
 @ZosBatchJobname(imageTag = "SIMBANK")

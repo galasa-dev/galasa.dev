@@ -22,7 +22,7 @@ The <code>ConfidentialTextFiltering</code> service enables confidential informat
 
 Examples of using colour support and screen sizing are available in the [Code snippets and examples](#codesnippets) section.
 
-When running a Galasa test with Eclipse or the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens can also be saved to the Result Archive Store (RAS) as the outputs are now controlled by the `zos3270.terminal.output` CPS property. In Eclipse, live terminal updates are displayed to enable swift diagnosis of failures. 
+When running a Galasa test with the Galasa CLI, terminal images are logged to the run log and PNG representations of the terminal screens can also be saved to the Result Archive Store (RAS) as the outputs are now controlled by the `zos3270.terminal.output` CPS property.
 
 *Note:* The feature for saving PNG representations of the terminal screens to the RAS is available in the current release as experimental code only.
 
