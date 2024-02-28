@@ -8,7 +8,7 @@ You can quickly and easily create a project structure to accommodate your own in
 
 Use the following information to discover more about the structure of a Galasa project, learn how to create and build your own example project, and understand the purpose of the artifacts that are generated. 
 
-Once you have created and built your Galasa tests, you can run the tests in your local environment. Find out more in the [Running a test locally](../cli-command-reference/cli-runs-submit-local) topic. 
+Once you have created and built your Galasa tests, you can run the tests in your local environment. You can run Galasa tests that are written in Java and Galasa tests that are written in Gherkin in your local environment. Find out more in the [Running a test locally](../cli-command-reference/cli-runs-submit-local) topic. 
 
 ## Getting started
 
