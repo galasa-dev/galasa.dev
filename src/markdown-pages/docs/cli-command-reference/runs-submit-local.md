@@ -6,7 +6,7 @@ title: "Running tests locally using the command line"
 
 The `galasactl runs submit local` command submits tests to run within the local JVM, rather than dynamically deploying the tests to a remotely deployed Galasa Ecosystem. 
 
-You can submit [Java tests](#Java) and [Gherkin tests](#Gherkin) by using the command but must to specify different flags on the command line for each test type. Read on to find out more about how to submit each type of test on your local machine.
+You can submit a [Java test](#Java) and a [Gherkin test](#Gherkin) by using the command but must to specify different flags on the command line for each test type. Read on to find out more about how to submit each type of test on your local machine.
 
 Running tests locally should only be used during test development to verify that the test is behaving as expected. 
 Local runs do not benefit from the features that are provided when running tests within a Galasa Ecosystem. For example, resources are not cleaned-up in the event of a failure and scaling capabilities are limited by workstation resources. 
