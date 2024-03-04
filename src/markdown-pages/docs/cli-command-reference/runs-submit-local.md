@@ -3,7 +3,10 @@ path: "/docs/cli-command-reference/cli-runs-submit-local"
 title: "Running tests locally using the command line"
 ---
 
+
 The `galasactl runs submit local` command submits tests to run within the local JVM, rather than dynamically deploying the tests to a remotely deployed Galasa Ecosystem. 
+
+You can submit a [Java test](#Java) and a [Gherkin test](#Gherkin) by using the command but must to specify different flags on the command line for each test type. Read on to find out more about how to submit each type of test on your local machine.
 
 Running tests locally should only be used during test development to verify that the test is behaving as expected. 
 Local runs do not benefit from the features that are provided when running tests within a Galasa Ecosystem. For example, resources are not cleaned-up in the event of a failure and scaling capabilities are limited by workstation resources. 
@@ -15,8 +18,12 @@ To use the `galasactl runs submit local` command, the `JAVA_HOME` environment va
 
 The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version. We currently support Java version 11 to version 16 JDK. _Note:_ We do not currently support Java 17 or later.
 
+You can view the full list of options that are available with the `galasactl runs submit local` command in the 
+<a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
 
-Use the following command to run a test in the local JVM.
+## <a name="Java"></a>Running a Java test with the `runs submit local` command
+
+Use the following command to run a Java test in the local JVM.
 
 On Mac or Unix:
 
@@ -40,14 +47,45 @@ where:
 - `--obr` specifies where the  CLI tool can find an OBR which refers to the bundle where the tests are stored. When running locally, all tests must exist in the OBR (or OBRs) that are passed to the tool. The `--obr` parameter specifies the Maven co-ordinates of the obr jar file, in the format `mvn:groupId/artifactId/version/classifier`.
 - `--class` specifies which test class to run. The string is in the format of `<osgi-bundle-id>/<fully-qualified-java-class>`. All test methods within the class are run. Use multiple flags to test multiple classes.
 
-You can view the full list of options that are available with the `galasactl runs submit local` command in the 
-<a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
+
+## <a name="Gherkin"></a>Running a Gherkin test with the `runs submit local` command
+
+Use the following command to run a Gherkin test in the local JVM. Note that the `--gherkin` flag is specified and that the `--obr` or `--class` flags are not required. 
+
+On Mac or Unix:
+
+```
+galasactl runs submit local --log - \
+--gherkin file:///path/to/gherkin/file.feature
+```
+
+
+On Windows (Powershell):
+
+```
+galasactl runs submit local --log - `   
+--gherkin file:///path/to/gherkin/file.feature
+```
+
+where:
+
+- `--log` specifies that debugging information is directed somewhere, and the `-` means that it is sent to the console (stderr).
+- `--gherkin` specifies the path where the  CLI tool can find the Gherkin file containing the Gherkin tests. The path must be specified in a URL form, ending in a `.feature` extension. For example,`file:///Users/myuserid/gherkin/MyGherkinFile.feature` or `file:///C:/Users/myuserid/gherkin/MyGherkinFile.feature`.
+
+
+Examples of Galasa Managers in GitHub that have Gherkin support currently available are the <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-core-parent/dev.galasa.core.manager/src/main/java/dev/galasa/core/manager/internal/gherkin" target="_blank">
+Core Manager</a>, and the <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zos3270.manager/src/main/java/dev/galasa/zos3270/internal/gherkin" target="_blank">
+zos3270Terminal Manager</a>. For more information about these Managers, see the [Manager](../managers) documentation section. 
+
+
+
+For more information about Gherkin, see the <a href="https://cucumber.io/docs/guides/overview/" target="_blank">Cucumber website.</a>
 
 ## Overriding the path to the default local Maven repository
 
 In order to run, tests require compiled artifacts to be hosted in a Maven repository. The artifacts must be bundled as an OSGI bundle. When you build a Galasa project locally, the built artifacts are placed by default in the `~/.m2/` repository in your home directory; the default location of the local Maven repository.  
 
-If you want to use a non-standard location for your local Maven repository when running a test locally, rather than the default `~/.m2/` repository, you can specify the path to your non-standard local Maven repository folder when launching a test by setting the  `--localMaven` flag on the `galasactl runs submit local` command. The `--localMaven` parameter tells the CLI tool where Galasa bundles can be loaded from on your local file system. The parameter value must be given in a URL form, for example, `file:///Users/myuserid/mylocalrepository` or `file://C:/Users/myuserid/mylocalrepository`.
+If you want to use a non-standard location for your local Maven repository when running a test locally, rather than the default `~/.m2/` repository, you can specify the path to your non-standard local Maven repository folder when launching a test by setting the  `--localMaven` flag on the `galasactl runs submit local` command. The `--localMaven` parameter tells the CLI tool where Galasa bundles can be loaded from on your local file system. The parameter value must be given in a URL form, for example, `file:///Users/myuserid/mylocalrepository` or `file:///C:/Users/myuserid/mylocalrepository`.
 
 *Note:* the repository that is referenced by the `--localMaven` flag must contain the test, Manager, and Galasa framework OBRs (OSGi Bundle Repositories) that the test needs in order to run. Galasa uses OBRs to locate tests in the specified Maven repository, along with all of the Managers that the test requires.
 
