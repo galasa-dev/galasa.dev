@@ -43,7 +43,7 @@
               path: /docs/cli-command-reference/cli-command-reference-about  
             - title: Initialising your local environment
               path: /docs/initialising-home-folder 
-            - title: Creating a project using the CLI
+            - title: Creating a Galasa project 
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
               path: /docs/cli-command-reference/cli-runs-submit-local
@@ -51,9 +51,9 @@
               path: /docs/cli-command-reference/cli-runs-local-debug
             - title: Viewing test results locally
               path: /docs/cli-command-reference/viewing-test-results-cli
-            - title: Exploring Galasa SimBank using the CLI
+            - title: Exploring Galasa SimBank
               path: /docs/cli-command-reference/simbank-cli
-            - title: Running the SimBank tests using the CLI
+            - title: Running the SimBank tests 
               path: /docs/running-simbank-tests-cli
         - title: Getting started using the zipped distribution
           path: /docs/getting-started/getting-started-zipped

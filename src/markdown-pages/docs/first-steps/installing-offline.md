@@ -151,4 +151,4 @@ dss.properties
 1. Change the _Remote Maven URI_ to the local maven directory, for example, `file:///home/username/galasa-isolated-mvp/maven`
 1. Click _Apply and Close_. -->
 
-Your local Eclipse Galasa installation is now ready for some work. Start by [exploring Galasa Simbank](/docs/getting-started/simbank) to help you to learn about the Galasa basics. 
+Your local Eclipse Galasa installation is now ready for some work. Start by [exploring Galasa Simbank](../cli-command-reference/simbank-cli) to help you to learn about the Galasa basics. 

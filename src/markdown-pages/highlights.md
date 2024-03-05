@@ -5,7 +5,7 @@ title: "Highlights"
 
 # Galasa Delivery
 
-Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [getting started](/docs/getting-started) on this site. 
+Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [getting started](/src/markdown-pages/docs/cli-command-reference/cli-command-reference) on this site. 
 
 Post a question or share your experiences with other users in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace. <a href="https://openmainframeproject.slack.com/signup#/domain-signup" target="_blank"> Register to join</a> first if you're not yet a member.
 
