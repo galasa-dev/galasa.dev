@@ -14,6 +14,6 @@ You downloaded and installed Galasa, you can import the configuration into an ID
 
 If you are installing Galasa from GitHub, follow the instructions in the [Getting started using the CLI](/docs/cli-command-reference/cli-command-reference) documentation.
 
-If you are installing the zipped distribution of Galasa, follow the instructions in the [Getting started using the zipped distribution](/docs/getting-started/getting-started-zipped) documentation. 
+If you are installing the zipped distribution of Galasa, follow the instructions in the [Getting started using the zipped distribution](/docs/first-steps/getting-started-zipped) documentation. 
 
 To find out about the architecture of Galasa and some of its key components, take a look at the [Galasa architecture](/docs/architecture) documentation. 

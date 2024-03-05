@@ -22,4 +22,4 @@ The following section explains more about the software prerequisites that you ne
 
 ## Next steps
 
-Install the Galasa plug-in using the zipped distribution by following the instructions in [Installing the Galasa plug-in offline](/docs/getting-started/installing-offline). 
+Install the Galasa plug-in using the zipped distribution by following the instructions in [Installing the Galasa plug-in offline](../first-steps/installing-offline). 
