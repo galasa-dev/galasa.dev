@@ -56,12 +56,12 @@
             - title: Running the SimBank tests 
               path: /docs/running-simbank-tests-cli
         - title: Getting started using the zipped distribution
-          path: /docs/getting-started/getting-started-zipped
+          path: /docs/first-steps/getting-started-zipped
           items: 
             - title: Zipped distribution prerequisites
-              path: /docs/getting-started/zipped-prerequisites  
+              path: /docs/first-steps/zipped-prerequisites  
             - title: Installing the Galasa plug-in offline
-              path: /docs/getting-started/installing-offline             
+              path: /docs/first-steps/installing-offline             
         - title: Exploring the supplied SimBank tests
           path: /docs/exploring-simbank-tests
           items:

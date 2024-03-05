@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/installing-offline"
+path: "/docs/first-steps/installing-offline"
 title: "Installing the Galasa plug-in offline"
 ---
 

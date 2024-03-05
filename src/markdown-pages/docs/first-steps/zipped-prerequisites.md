@@ -1,5 +1,5 @@
 ---
-path: "/docs/getting-started/zipped-prerequisites"
+path: "/docs/first-steps/zipped-prerequisites"
 title: "Zipped distribution prerequisites"
 ---
 

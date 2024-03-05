@@ -67,14 +67,6 @@ Find out how the IBM Z and z/OS Platform Evaluation and Test (zPET) team are usi
  Read the blog</a>
 
 
-## Blog: IBM Z Application Continuous Testing using Galasa
-A tutorial focusing on using the Galasa framework for automated application testing on IBM Z applications. You will learn how to setup a Galasa Ecosystem, integrate Eclipse and Jenkins with the Ecosystem and run IBM Z application Galasa test cases in the Ecosystem from Eclipse and a Jenkins pipeline. <br>
-
-**Author: Anuprakash Moothedath, June 11, 2021**<br>
-*Source: IBM Developer*<br><br>
-<a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/anuprakash-moothedath/2021/06/09/ibm-z-application-continuous-testing-using-galasa" target="_blank">
- Read the blog</a>
-
 ## Video: Mainframe a La Mode: Galasa - Integration testing for IBM Z and beyond
 Galasa's open source automation framework enables mainframe developers to automate their apps for both IBM and hybrid cloud. <br>
 
