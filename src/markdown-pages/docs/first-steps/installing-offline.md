@@ -33,57 +33,34 @@ Note: The example uses port `8080` but you can use a different port.
 docker load -i isolated.tar
 ``` 
 
-The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:latest_.
+The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:main_.
 
 2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:latest
+docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:main
 ```
 
-3. Go to `http:\\hostname:8080` to view the running container. 
+3. Go to `http:\\localhost:8080` to view the running container. 
 
-You are now ready to install the Galasa plug-in. 
 
-## <a name="installoffline"></a>Installing the Galasa plug-in
 
-1. Launch Eclipse. If present, close any initial welcome screen.
-1. Choose _Help > Install New Software_ from the main menu.
-1. Choose from the following options: 
-    1. If you have the zip extracted locally, complete the following steps:
-        1. Click *Add* and then Select *Local*
-        1. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK*
-        1. Check that the `Location` field is populated with the filepath information, for example, `file:///home/username/galasa-isolated-mvp/eclipse/` and press _Enter_.
-    1. If you are using the Docker hosting mechanism, populate the `Location` field with the URL to the running container, for example, `http://hostname:8080/eclipse` and press _Enter_.
-1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked and press _Next_.
-1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
-1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new _Galasa_ option on the main menu between _Run_ and _Window_. If you choose _Run > Run Configurations_ from the main menu, you will also observe three new entries: _Galasa - Gherkin_, _Galasa - Java_ and _Galasa SimBank_ as available options in the left-hand panel of the pop-up window.
+## <a name="installoffline"></a>Configuring the Galasa CLI for offline use
 
-## Configuring Eclipse for Galasa
+On Mac or Unix:
 
-<!-- 1. If it is running, close Eclipse. -->
-<!-- 1. Check to see if you have a `.galasa` folder in your user home directory - create it if there isn't one. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be.
-1. Create two empty files in your .galasa folder:
-```
-bootstrap.properties
-dss.properties
-``` -->
+1. Find out the architecture of your machine by typing the command `uname -m` into your terminal.
 
-1. Choose _Galasa > Setup Galasa Workspace_ from the main Eclipse menu - this command creates some necessary configuration files. Your Eclipse console confirms its progress with some messages:
+1. Re-name the appropriate binary of the Galasa CLI for your machine architecture from inside the `galasactl` directory of the zipped distribution to `galasactl`. 
 
-   ```
-   Setting up the Galasa workspace
-   Creating the ~/.galasa files
-   Created the ~/.galasa directory
-   Created an empty Bootstrap Properties file ~/.galasa/bootstrap.properties
-   Created an empty Overrides Properties file ~/.galasa/overrides.properties
-   Created an empty Credentials Properties file ~/.galasa/credentials.properties
-   Created an empty CPS Properties file ~/.galasa/cps.properties
-   Created an empty DSS Properties file ~/.galasa/dss.properties
-   The ~/.m2 directory already exists
-   Created the ~/.m2/.settings.xml example file
-   Setup complete
-   ```
-1. Locate your user home directory and confirm it contains a `.galasa` folder. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS it will be `/Users/<username>` and on Linux `/home/<username>`.  Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files.
+1. Add it to your PATH to enable you to run CLI commands from anywhere on your file system without having to specify the absolute path. To set the path permanently, you need add the Galasa CLI path to your shell's initialization file. For example, if you downloaded the `galasactl` executable to a folder called `~/tools` in your home directory, you need to add `~/tools` to the list of directories that your shell searches through when you enter a command. You can do this by adding the line `export PATH=$PATH:$HOME/tools` to your shell’s initialization file (for example `~/.bashrc` or `~/.zshrc`).
+
+1. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine galasactl` command in the directory containing `galasactl`.
+
+You can now run the Galasa CLI too from any directory in your file system without having to specify the absolute path.
+
+## Configuring your Galasa home to run the sample tests
+
+1. Check to see if you have a `.galasa` folder in your user home directory. On Windows, the user home directory resembles: `C:\Users\<username>`, on MacOS or Linux, entering `cd ~` in a terminal takes you to your user home directory, whatever it has been configured to be. Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your operating system to show hidden files. If there isn't a `.galasa` folder in your home directory, create it with `galasactl local init`.
 1. Edit a file called `overrides.properties` in your `.galasa` folder so that it contains the following configuration properties. Configuration properties held in this file are used by Galasa tests at runtime. You can change the value of the properties that are set in this file to enable you to run tests against different configurations without changing the test code. The following example configuration properties enable the provided Galasa SimBank tests to run on your machine:
    ```properties
    zos.dse.tag.SIMBANK.imageid=SIMBANK
@@ -111,44 +88,21 @@ dss.properties
    ```
 
    Note: If you have previously installed Galasa, this file is already populated.
-      <!-- 1. Create an `.m2` folder in your user home directory (the same place as your `.galasa` folder) and inside, place a `settings.xml` file with the contents:
 
+
+## Running the SimBank IVT offline using the zipped distribution
+
+1. **TEMPORARY** Replace `~/.m2/repository` in line 130 in the run-locally.sh script with the `maven` directory of wherever you have the zipped distribution saved: `~/Users/youruserid/Downloads/isolated/maven` for example. 
+
+1. Run the run-locally.sh script to start the Simplatform server with `run-locally.sh --server` (**TO DO: Add this script to the zipped distribution**)
+
+You are now ready to run a local Galasa test offline with just the contents of the zipped distribution.
+
+1. Run the SimBankIVT test locally using the following command. Note the `--localMaven` flag refers to the `maven` directory inside the _isolated.zip_ as these are all the Maven artifacts that should be needed to run the test, including the `dev.galasa.simbank.obr` artifact which is passed to the `--obr` flag and the `SimBankIVT` test class which is passed to `class`.
 ```
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <pluginGroups>
-        <pluginGroup>dev.galasa</pluginGroup>
-    </pluginGroups>
-    <profiles>
-        <profile>
-            <id>galasa</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>galasa.repo</id>
-                    <url>https://nexus.galasa.dev/repository/master</url>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>galasa.repo</id>
-                    <url>https://nexus.galasa.dev/repository/master</url>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
-</settings>
+galasactl runs submit local --log - \
+--obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr \
+--class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 
-1. Launch Eclipse.
-1. Choose _Window > Preferences_ and then _Maven > User Settings_.
-1. Complete the _Global Setting_ field by pressing _Browse_ and navigating to the `settings.xml` file you just set up. Press _Apply_ and _Close_ when finished.
-1. Choose _Window > Preferences > Galasa_ 
-1. Change the _Remote Maven URI_ to the local maven directory, for example, `file:///home/username/galasa-isolated-mvp/maven`
-1. Click _Apply and Close_. -->
-
-Your local Eclipse Galasa installation is now ready for some work. Start by [exploring Galasa Simbank](../cli-command-reference/simbank-cli) to help you to learn about the Galasa basics. 
+You can now run local Galasa tests offline. 

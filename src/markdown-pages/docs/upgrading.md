@@ -3,28 +3,40 @@ path: "/docs/upgrading"
 title: "Upgrading"
 ---
 
-## Upgrading using the external update site
+## Upgrading using the command line
 
-You can get the latest version of Galasa in Eclipse by completing the following steps:
+You can get the upgrade your version of Galasa by completing the following steps:
 
-1. Launch Eclipse. 
-2. Choose *Help > Install New Software* from the main menu.
-3. Select `https://p2.galasa.dev/` in the _Work with_ field to check whether a new version of Galasa is available.
-4. If a new version is available, tick the *Galasa* box in the main panel, ensuring that *Galasa* and all child elements are ticked.
-5. Follow the prompts to download and install the new version of Galasa. Eclipse restarts and the latest version is installed.
+1. Download the appropriate version of the Galasa CLI for your machine architecture from the [Galasa cli repository](https://github.com/galasa-dev/cli/releases) in GitHub.
+2. Re-name the your existing `galasactl` binary so that you can re-name the Galasa binary that you just downloaded to `galasactl` to replace it. 
+3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine galasactl` command in the directory containing `galasactl`. 
 
-## Upgrading using the Galasa zipped distribution
+If you have already added the Galasa CLI path to your shell's initialization file, as described in the [Installing the Galasa CLI](../docs/cli-command-reference/installing-cli-tool) topic, you should now be able to run the upgraded version of the Galasa CLI tool from any directory in your file system.
+
+
+## Upgrading the Galasa zipped distribution using the command line
 
 Download and extract the Galasa zip file to a directory of your choice and complete the following steps:
 
-1. Launch Eclipse. 
-2. Choose *Help > Install New Software* from the main menu.
-3. Click *Add* and then Select *Local*.
-4. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK*.
-5. Check that the _Location_ field is populated with the filepath information or URL to the running container, for example, `file:///home/username/galasa-isolated-mvp/eclipse/` or `http://hostname:8080/eclipse` and press *Enter*.
-6. Tick the *Galasa* box in the main panel, ensuring that *Galasa* and all child elements are ticked.
-7. Follow the prompts to download and install the new version of Galasa. Eclipse restarts and the latest version is installed.
 
+
+## Upgrading from using Eclipse to using the command line
+
+Version 0.31.0 is the last version of the Eclipse plug-in for Galasa that is produced and maintained by the Galasa Team.
+You can work with later versions of Galasa by using the Galasa command line interface (CLI). The galasactl tool can do everything that the Eclipse tooling can do, and can be run from the command-line of any IDE, for example, the Eclipse terminal view. You can find out more about the Galasa command line tool (galasactl) in the [Getting started using the Galasa CLI](../docs/cli-command-reference/cli-command-reference) topic.
+
+
+There is also a video about <a href="https://www.youtube.com/watch?v=lwYOwJZ4Q8Q" target="_blank">
+the Galasa command line tool </a> that is available to watch on YouTube. Watch the video to learn about the software requirements you need to get started with galasactl and find out how to download and install it on your local machine. There is also a demo that takes you through the process of creating, building and running Galasa tests, and viewing the output of those test runs. <br>
+
+
+To upgrade to a Galasa version that uses the CLI when your previous Galasa version was using Eclipse, complete the following steps:
+
+1. Check that you have the software that you need installed by viewing the [CLI prerequisites](../docs/cli-command-reference/cli-prereqs) topic.
+2. Complete the steps outlined in the [Installing the Galasa CLI](../docs/cli-command-reference/installing-cli-tool) topic to download and install the correct Galasa CLI binary file for your machine architecture.
+3. Check that you have an OBR project for your test code. If not, you can create a project that uses the names that you want by using the `galasactl project create` command, and copying your test code into the correct places. For more information about the `galasactl project create` command, see the [Creating a Galasa project using the command line](../docs/writing-own-tests/setting-up-galasa-project) topic.
+
+If you encounter any difficulties, reach out for help in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace in the `#galasa-users` channel.
 
 
 ## Upgrading existing tests
@@ -34,8 +46,8 @@ If you have a pre-built version of tests that were created against an earlier ve
 
 A simple way to do this is to complete the following steps: 
 
-1. Search your Galasa files for the version number against which the tests were created, for example *0.9.0*. A filtered list of files containing *0.9.0* is returned. 
-2. Check each pom.xml file and replace that version number with the new version number, for example, *0.10.0*. 
+1. Search your Galasa files for the version number against which the tests were created, for example *0.27.0*. A filtered list of files containing *0.27.0* is returned. 
+2. Check each pom.xml file and replace that version number with the new version number, for example, *0.28.0*. 
 
 **NOTE:** Do not update version numbers for non-Galasa dependencies or plug-ins. Only replace the version number for Galasa dependencies, where the *groupId* is set to *dev.galasa*, as per the following examples:
 
@@ -43,7 +55,7 @@ A simple way to do this is to complete the following steps:
 <parent>
 <groupId>dev.galasa</groupId>
 <artifactId>galasa-parent</artifactId>
-<version>0.10.0</version>
+<version>0.28.0</version>
 </parent>
 ```
 
@@ -52,36 +64,21 @@ A simple way to do this is to complete the following steps:
         <dependency>
             <groupId>dev.galasa</groupId>
             <artifactId>dev.galasa</artifactId>
-            <version>0.10.0</version>
+            <version>0.28.0</version>
             <scope>provided</scope>
         </dependency>
 ```
 3. Check that the OBR version in the Galasa preferences references the new version of Galasa.<br><br>
-    If you are using Eclipse, complete the following steps:<br><br>
-        a. Go to *Eclipse > Preferences > Galasa* on a Mac or *Window > Preferences > Galasa* on Windows. <br><br>
-        b. Check the *OBR Version* field is blank, to automatically select the latest version.<br><br>
     If you are using VS code, complete the following steps: <br><br>
         a. Go to  *File > Preferences > Settings* and expand the *Extensions* section.<br><br> 
-        b. Select *Galasa* and check that the *Version* field is using the default value of ```LATEST```, to automatically select the latest version. 
+        b. Select *Galasa* and check that the *Version* field is using the default value of ```main```, to automatically select the latest version. 
 
 ## Troubleshooting
 
 If you have problems after completing the steps for upgrading, try running a clean install. 
 
-To run a clean Maven install in Eclipse, complete the following steps: 
+To run a clean Maven install, run the ```mvn clean install ``` command from the command line. 
 
-1. Right click your project and select *Run as > Maven clean*
-2. Right click your project and select *Run as > Maven install* 
-
-Alternatively, run the ```mvn clean install ``` command from the command line. 
-
-To run a clean Gradle install in Eclipse, complete the following steps: 
-
-1. In Project Explorer, right-click on `dev.galasa.simbank.parent` and select _Gradle > Refresh Gradle Project_. A _BUILD SUCCESSFUL_ message is displayed in the _Console_ tab when the project is refreshed successfully.
-1. Navigate to *Run > Run Configurations*. The *Create, manage and run configurations* dialog box appears. 
-1. Depending on version of Eclipse that you are using, either right-click *Gradle Project* or *Gradle Task* and choose *New Configuration*. 
-1. Provide a meaningful name and set up your Gradle Task to run a clean build. 
-
-Alternatively, run the ```gradle clean build``` command from the command line.
+To run a clean Gradle install, run the ```gradle clean build``` command from the command line.
 
 If you are still having issues, you can force a full rebuild by deleting your *.m2* repository and creating a new build against your test projects and Managers by running a clean install.
