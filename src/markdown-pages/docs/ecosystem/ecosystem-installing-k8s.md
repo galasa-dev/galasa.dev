@@ -259,21 +259,21 @@ You can then deploy your Galasa tests to a Maven repository and set up a test st
 
 ## Upgrading the Galasa Ecosystem
 
-To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.31.0, run the following command:
+To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.32.0, run the following command:
 
 
 On Mac or Unix:
 
 ```console
 helm upgrade <release-name> galasa/ecosystem --reuse-values \
---set galasaVersion=0.31.0 --wait
+--set galasaVersion=0.32.0 --wait
 ```
 
 On Windows (Powershell):
 
 ```console
 helm upgrade <release-name> galasa/ecosystem --reuse-values `
---set galasaVersion=0.31.0 --wait
+--set galasaVersion=0.32.0 --wait
 ```
 
 where:<br>
