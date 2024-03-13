@@ -117,6 +117,8 @@
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in an Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-submit
+            - title: Retrying and cancelling tests
+              path: /docs/cli-command-reference/runs-reset-cancel
             - title: Viewing test run results 
               path: /docs/cli-command-reference/cli-runs-get
             - title: Downloading test artifacts 
