@@ -11,7 +11,7 @@ Don't forget that whenever you create a test, or modify an existing one, you nee
 ## Create a new Galasa test class
 
 
-1. Launch SimBank, either using the [CLI](../cli-command-reference/simbank-cli). 
+1. Launch SimBank using the instructions in the [CLI online](../cli-command-reference/simbank-cli) or [CLI offline](../cli-command-reference/simbank-cli) documentation. 
 1. Create a new test class. If you are using the CLI, manually create the test class file, for example in VS Code. Complete the next dialog as follows and then click *Finish*. Note that in the example a new package is created that is called `dev.galasa.simbanks.tests`. ![New Java Class](./create-new-class.png)
 1. Annotate the new class with the `@Test` annotation.
 

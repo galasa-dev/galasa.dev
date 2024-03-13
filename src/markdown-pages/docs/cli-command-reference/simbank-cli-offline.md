@@ -1,45 +1,48 @@
 ---
-path: "/docs/cli-command-reference/simbank-cli"
-title: "Exploring Galasa SimBank online"
+path: "/docs/cli-command-reference/simbank-cli-offline"
+title: "Exploring Galasa SimBank offline"
 ---
 Distributed with Galasa, SimBank is a component that simulates a mainframe application. It sits above another component called SimPlatform. As delivered, SimBank implements a sample banking application against which you can configure and run a set of provided tests in preparation for running your own tests against an *actual* mainframe application. You can also practice writing some new tests to run against the SimBank banking application.
 
 By exercising the Galasa framework against SimBank, you can pre-empt a lot (but not all) of the work and learning necessary to eventually hook your own tests up with a genuine mainframe environment. If the provided SimBank tests do not work, then it is unlikely that you will be able to run your own tests on a mainframe application. In summary, SimBank helps you to understand Galasa's basic principles of operation before you learn how to connect Galasa to your own mainframe application-under-test.
 
-## Launching SimBank
-SimBank applications and a set of sample SimBank tests are located in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. 
+
+## Launching SimBank offline
+
+SimBank applications and a set of sample SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. 
+
 To start exploring the Galasa Simbank application and to run the sample SimBank tests by using the Galasa CLI, you need to complete the following steps:
 
-1. Clone the Galasa `simplatform` repository on your machine by running the following command in a terminal in the directory on your local machine in which you want to clone the repository files:
+1. Start the Simplatform server by running the `run-simplatform.sh` script provided in the `isolated.zip`. 
+    1. Navigate to the directory of the zipped distribution that you downloaded, for example, `~/Downloads/isolated`. A `run-simplatform.sh` script is available within the directory. This script starts the Simplatform server which is required to run the SimBank tests.
+    1. Set execute permission on the script by running the `chmod +x run-simplatform.sh` command in the directory containing the `run-simplatform.sh` script. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine run-simplatform.sh` command in the same directory.
+    1. Run the script in server mode by using the following example command, remembering to set the `--location` flag to the location of the galasa-simplatform artefact in the `isolated.zip` file that you downloaded. For example, `~/Downloads/isolated/maven/dev/galasa`.
     ```
-    git clone https://github.com/galasa-dev/simplatform.git
+    ./run-simplatform.sh --server --location ~/Downloads/isolated/maven/dev/galasa
     ```
-1. Run the `./build-locally.sh` script to build the code.
-1. Run the `./run-locally.sh --server` script to start the simbank server inside a local JVM.
-In a few seconds, the terminal window displays a series of initialization messages, which on Windows looks like:
-```
-2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
-2019-10-21 14:24:35 INFO dev.galasa.simplatform.db.Database setDerbyHome Setting Derby home to C:\Users\<username>\AppData\Local\Temp\galasaSimplatform1440125512154994774
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility <init> Creating SAF service
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 123456789 exists
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 123456789
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 987654321 exists
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 987654321
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility addUser Added user: IBMUSER
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Loading services...
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.WebServiceListener listening on port: 2080
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.TelnetServiceListener listening on port: 2023
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main ... services loaded
-2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Starting Derby Network server....
-2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Derby Network server started on port 2027
-2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Simplatform started
-```
+    In a few seconds, the terminal window displays a series of initialization messages, which on Windows looks like:
+    ```
+    2019-10-21 14:24:35 INFO dev.galasa.simplatform.main.Simplatform main Starting Simplatform ...
+    2019-10-21 14:24:35 INFO dev.galasa.simplatform.db.Database setDerbyHome Setting Derby home to C:\Users\<username>\AppData\Local\Temp\galasaSimplatform1440125512154994774
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility <init> Creating SAF service
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 123456789 exists
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 123456789
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Checking if account: 987654321 exists
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank accountExists Account doesn't exist
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.application.Bank openAccount Creating account: 987654321
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.saf.SecurityAuthorizationFacility addUser Added user: IBMUSER
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Loading services...
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.WebServiceListener listening on port: 2080
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.listener.Listener <init> Loading service: dev.galasa.simplatform.listener.TelnetServiceListener listening on port: 2023
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main ... services loaded
+    2019-10-21 14:24:36 INFO dev.galasa.simplatform.main.Simplatform main Starting Derby Network server....
+    2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Derby Network server started on port 2027
+    2019-10-21 14:24:37 INFO dev.galasa.simplatform.main.Simplatform main ... Simplatform started
+    ```
+    If you are a Mac or Linux user, the messages will be almost identical.
+    The SimBank process has been launched, and is listening on port *2023* for Telnet connections, on port *2080* for web services connections and on port *2027* for Derby SQL connections. Neither web services or Derby connections are explored further in this section.
 
-If you are a Mac or Linux user, the messages will be almost identical.
-
-4. The SimBank process has been launched, and is listening on port *2023* for Telnet connections, on port *2080* for web services connections and on port *2027* for Derby SQL connections. Neither web services or Derby connections are explored further in this section.
 
 ## Manually exploring the SimBank application
 When you launch SimBank, its banking application listens on port 2023 for incoming client Telnet connections, offering an opportunity to first connect to it manually to review and understand the (simulated) transactions it supports, before subjecting it to Galasa's provided tests.
@@ -114,5 +117,5 @@ Press PF3 and once again browse the 123456789 account as described previously to
 Note that SimBank also offers a web services interface on port 2080, and although it is not exercised in this topic, it *is* used by two of the provided tests - `BasicAccountCreditTest.java` and `ProvisionedAccountCreditTests.java`.
 
 
-Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose [Running the supplied SimBank tests online](running-simbank-tests-cli).
+Having explored SimBank manually, it's a good time to run some or all of a small collection of automated tests that are provided with SimBank itself - to start, choose [Running the supplied SimBank tests offline](running-simbank-tests-cli-offline).
 

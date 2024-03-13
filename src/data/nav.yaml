@@ -30,19 +30,21 @@
       items:
         - title: Galasa Architecture
           path: /docs/architecture
-        - title: Installing options
-          path: /docs/
         - title: Getting started using the Galasa CLI
-          path: /docs/cli-command-reference/cli-command-reference
+          path: /docs
           items: 
-            - title: CLI prerequisites
+            - title: CLI prerequisites online
               path: /docs/cli-command-reference/cli-prereqs
-            - title: Installing the Galasa CLI
+            - title: CLI prerequisites offline
+              path: /docs/cli-command-reference/zipped-prerequisites 
+            - title: Installing the Galasa CLI online
               path: /docs/cli-command-reference/installing-cli-tool
+            - title: Installing the Galasa CLI offline
+              path: /docs/cli-command-reference/installing-offline
             - title: Galasa CLI commands
               path: /docs/cli-command-reference/cli-command-reference-about  
             - title: Initialising your local environment
-              path: /docs/initialising-home-folder 
+              path: /docs/cli-command-reference/initialising-home-folder 
             - title: Creating a Galasa project 
               path: /docs/writing-own-tests/setting-up-galasa-project
             - title: Running a test locally
@@ -51,17 +53,14 @@
               path: /docs/cli-command-reference/cli-runs-local-debug
             - title: Viewing test results locally
               path: /docs/cli-command-reference/viewing-test-results-cli
-            - title: Exploring Galasa SimBank
+            - title: Exploring Galasa SimBank online
               path: /docs/cli-command-reference/simbank-cli
-            - title: Running the SimBank tests 
-              path: /docs/running-simbank-tests-cli
-        - title: Getting started using the zipped distribution
-          path: /docs/first-steps/getting-started-zipped
-          items: 
-            - title: Zipped distribution prerequisites
-              path: /docs/first-steps/zipped-prerequisites  
-            - title: Installing the Galasa plug-in offline
-              path: /docs/first-steps/installing-offline             
+            - title: Exploring Galasa SimBank offline
+              path: /docs/cli-command-reference/simbank-cli-offline
+            - title: Running the SimBank tests online
+              path: /docs/cli-command-reference/running-simbank-tests-cli
+            - title: Running the SimBank tests offline
+              path: /docs/cli-command-reference/running-simbank-tests-cli-offline   
         - title: Exploring the supplied SimBank tests
           path: /docs/exploring-simbank-tests
           items:

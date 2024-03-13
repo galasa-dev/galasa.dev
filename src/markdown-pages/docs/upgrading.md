@@ -7,7 +7,7 @@ title: "Upgrading"
 
 You can get the upgrade your version of Galasa by completing the following steps:
 
-1. Download the appropriate version of the Galasa CLI for your machine architecture from the [Galasa cli repository](https://github.com/galasa-dev/cli/releases) in GitHub.
+1. Download the appropriate version of the Galasa CLI for your machine architecture from the <a href="https://github.com/galasa-dev/cli/releases" target="_blank"> Galasa CLI repository</a> in GitHub.
 2. Re-name the your existing `galasactl` binary so that you can re-name the Galasa binary that you just downloaded to `galasactl` to replace it. 
 3. Set execute permission on the binary by running the `chmod +x galasactl` command in the directory containing `galasactl`.If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine galasactl` command in the directory containing `galasactl`. 
 
@@ -23,7 +23,7 @@ Download and extract the Galasa zip file to a directory of your choice and compl
 ## Upgrading from using Eclipse to using the command line
 
 Version 0.31.0 is the last version of the Eclipse plug-in for Galasa that is produced and maintained by the Galasa Team.
-You can work with later versions of Galasa by using the Galasa command line interface (CLI). The galasactl tool can do everything that the Eclipse tooling can do, and can be run from the command-line of any IDE, for example, the Eclipse terminal view. You can find out more about the Galasa command line tool (galasactl) in the [Getting started using the Galasa CLI](../docs/cli-command-reference/cli-command-reference) topic.
+You can work with later versions of Galasa by using the Galasa command line interface (CLI). The galasactl tool can do everything that the Eclipse tooling can do, and can be run from the command-line of any IDE, for example, the Eclipse terminal view. You can find out more about the Galasa command line tool (galasactl) in the [Getting started using the Galasa CLI](../docs/cli-command-reference/doc_root) topic.
 
 
 There is also a video about <a href="https://www.youtube.com/watch?v=lwYOwJZ4Q8Q" target="_blank">

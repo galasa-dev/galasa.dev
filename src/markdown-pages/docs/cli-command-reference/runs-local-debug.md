@@ -125,4 +125,4 @@ galasactl runs submit local --debug
 
 Read the [Viewing test results locally](viewing-test-results-cli) documentation to learn how to view the output of your test runs in your local environment. 
 
-Take a look at the [Exploring Galasa SimBank using the CLI](simbank-cli) documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn the basic principles of Galasa's operation before you start connecting Galasa to your own mainframe application-under-test.
+Take a look at the [Exploring Galasa SimBank online](simbank-cli) or [Exploring Galasa SimBank offline](simbank-cli-offline)documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn the basic principles of Galasa's operation before you start connecting Galasa to your own mainframe application-under-test.

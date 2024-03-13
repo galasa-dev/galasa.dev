@@ -1,5 +1,5 @@
 ---
-path: "/docs"
+path: "/docs/old"
 title: "Installing options"
 ---
 

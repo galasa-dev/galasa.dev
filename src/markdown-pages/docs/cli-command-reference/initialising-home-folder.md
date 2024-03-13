@@ -1,5 +1,5 @@
 ---
-path: "/docs/initialising-home-folder"
+path: "/docs/cli-command-reference/initialising-home-folder"
 title: "Initialising your local environment"
 ---
 
@@ -56,7 +56,7 @@ Running the `galasactl local init` command also creates an `/.m2` directory, con
 You can validate the set up by locating your user home directory and confirming that it contains a `.galasa` and a `.m2` folder. On Windows, the user home directory resembles: ```C:\Users\<username>```, on MacOS it will be ```/Users/<username>``` and on Linux ```/home/<username>```. Note that any file or folder beginning with a `.` is a hidden folder, so you might need to change the settings on your file browser user interface to show hidden files.
 
 
-*Note:* If an `.~/.m2/settings.xml` file already exists, the `galasactl local init` command does not update it. View the file contents and check that it has the required `maven.central` and `plugin` repositories configured. The file should contain the following content:
+*Note - online installation only:* <br>If an `.~/.m2/settings.xml` file already exists, the `galasactl local init` command does not update it. View the file contents and check that it has the required `maven.central` and `plugin` repositories configured. The file should contain the following content:
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -101,7 +101,7 @@ You can validate the set up by locating your user home directory and confirming 
 </settings>
 ```
 
-You can view the full list of options (flags) that are available with the `galasactl local init` command in the [Galasa cli repository](https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md).
+If you have access to GitHub, you can view the full list of options (flags) that are available with the `galasactl local init` command in the <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_local_init.md" target="_blank"> Galasa CLI repository</a>.
 
 ## <a name="about"></a>About the properties files
 

@@ -1,5 +1,5 @@
 ---
-path: "/docs/first-steps/installing-offline"
+path: "/docs/cli-command-reference/installing-offline"
 title: "Installing the Galasa CLI offline"
 ---
 
@@ -81,8 +81,8 @@ You can now run the Galasa CLI tool from any directory in your file system witho
 
 ## Next steps
 
-Find out more about the Galasa CLI commands by reading the [Galasa CLI commands](cli-command-reference-about-offline) documentation.
+Find out more about the Galasa CLI commands by reading the [Galasa CLI commands](cli-command-reference-about) documentation.
 
-Move on to the [Initialising your local environment offline](initialising-home-folder-offline) documentation to help you to set up some basic file structures and files in your home folder so that you can start using Galasa.
+Move on to the [Initialising your local environment](initialising-home-folder) documentation to help you to set up some basic file structures and files in your home folder so that you can start using Galasa.
 
 
