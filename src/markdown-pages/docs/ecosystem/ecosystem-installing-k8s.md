@@ -1,5 +1,5 @@
 ---
-path: "/docs/ecosystem/installing/k8s"
+path: "/docs/ecosystem/ecosystem-installing-k8s"
 title: "Installing an Ecosystem using Helm"
 ---
 

@@ -104,7 +104,9 @@
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
             - title: Installing an Ecosystem using Helm
-              path: /docs/ecosystem/installing/k8s
+              path: /docs/ecosystem/ecosystem-installing-k8s
+            - title: Configuring authentication
+              path: /docs/ecosystem/ecosystem-authentication              
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
             - title: Managing integrated test runs
