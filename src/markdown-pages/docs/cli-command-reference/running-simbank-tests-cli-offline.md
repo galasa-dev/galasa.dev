@@ -55,7 +55,7 @@ Remember to initialise your local environment by running the `galasactl local in
 
 You are now ready to run a local Galasa test offline with just the contents of the zipped distribution.
 
-1. Open a terminal and run the SimBankIVT test locally by using the following command:
+1. Open a terminal and run the SimBankIVT test locally by using the following example command, remembering to update the `--localMaven` flag value to the location of the `maven` directory that is provided as part of the _isolated.zip_  file that you downloaded:
 On Mac or Unix:
 ```
 galasactl runs submit local --log - \
@@ -68,7 +68,7 @@ galasactl runs submit local --log - `
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr `
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
-Note the `--localMaven` flag refers to the `maven` directory inside the _isolated.zip_ as these are all the Maven artifacts that should be needed to run the test, including the `dev.galasa.simbank.obr` artifact which is passed to the `--obr` flag and the `SimBankIVT` test class which is passed to `class`.
+Note that the `--localMaven` flag refers to the `maven` directory inside the _isolated.zip_ as these are all the Maven artifacts that should be needed to run the test, including the `dev.galasa.simbank.obr` artifact which is passed to the `--obr` flag and the `SimBankIVT` test class which is passed to `class`.
 1. The `SimBankIVT` test class runs, and the terminal displays its progress through to completion, with an Exit code of `0`.
 1. View the results of the test runs in your terminal. You can also view results in the `run.log` file in the result archive store (RAS). 3270 terminal interactions can be viewed in the `artifacts` directory in the RAS. Find out more in the [Viewing test results locally](viewing-test-results-cli) documentation. 
 
