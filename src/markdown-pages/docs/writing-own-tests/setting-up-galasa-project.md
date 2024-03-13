@@ -4,7 +4,7 @@ title: "Creating a Galasa project using the command line"
 ---
 
 
-You can quickly and easily create a project structure to accommodate your own independent Galasa tests in your local storage by using the [Galasa command line interface](/docs/cli-command-reference/cli-command-reference) (Galasa CLI) that is provided with Galasa. 
+You can quickly and easily create a project structure to accommodate your own independent Galasa tests in your local storage by using the Galasa command line interface (Galasa CLI) that is provided with Galasa. 
 
 Use the following information to discover more about the structure of a Galasa project, learn how to create and build your own example project, and understand the purpose of the artifacts that are generated. 
 
