@@ -33,14 +33,14 @@ Note: The example uses port `8080` but you can use a different port.
 docker load -i isolated.tar
 ``` 
 
-The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:latest_.
+The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:main_.
 
 2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:latest
+docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:main
 ```
 
-3. Go to `http:\\hostname:8080` to view the running container. 
+3. Go to `http:\\localhost:8080` to view the running container. 
 
 You are now ready to install the Galasa plug-in. 
 
@@ -53,7 +53,7 @@ You are now ready to install the Galasa plug-in.
         1. Click *Add* and then Select *Local*
         1. Navigate to the directory into which the zip was extracted, select the Eclipse directory, and click *OK*
         1. Check that the `Location` field is populated with the filepath information, for example, `file:///home/username/galasa-isolated-mvp/eclipse/` and press _Enter_.
-    1. If you are using the Docker hosting mechanism, populate the `Location` field with the URL to the running container, for example, `http://hostname:8080/eclipse` and press _Enter_.
+    1. If you are using the Docker hosting mechanism, populate the `Location` field with the URL to the running container, for example, `http://localhost:8080/eclipse` and press _Enter_.
 1. Tick the _Galasa_ box in the main panel, ensuring that _Galasa_ and all of its child elements are ticked and press _Next_.
 1. Follow the prompts to download and install the Galasa plug-in. You will be asked to accept the terms of the license agreement and restart Eclipse to complete the installation. You may also be asked to acknowledge and agree that you are installing unsigned content.
 1. After Eclipse has restarted, you can verify that the plug-in is now available by observing the presence of a new _Galasa_ option on the main menu between _Run_ and _Window_. If you choose _Run > Run Configurations_ from the main menu, you will also observe three new entries: _Galasa - Gherkin_, _Galasa - Java_ and _Galasa SimBank_ as available options in the left-hand panel of the pop-up window.
