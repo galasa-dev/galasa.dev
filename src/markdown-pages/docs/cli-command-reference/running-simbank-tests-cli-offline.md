@@ -48,7 +48,7 @@ In order to run the Galasa SimBanks tests you need to add some configuration inf
 
 ## Running the SimBank IVT test class by using the CLI
 
-The SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.32.0`.
+The SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. Complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.25.0`.
 
 Remember to initialise your local environment by running the `galasactl local init` command and to start the SimPlatform server by running the `run-simplatform.sh` script, as described in the `Launching SimBank` section in the [Exploring Galasa SimBank using the CLI offline](simbank-cli-offline) documentation.
 
@@ -60,26 +60,29 @@ On Mac or Unix:
 ```
 galasactl runs submit local --log - \
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr \
---class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT --localMaven file:////Users/youruserid/Downloads/isolated/maven
+--class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
+--localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 On Windows (Powershell):
 ```
 galasactl runs submit local --log - `
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr `
---class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT --localMaven file:////Users/youruserid/Downloads/isolated/maven
+--class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT `
+--localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 Note that the `--localMaven` flag refers to the `maven` directory inside the _isolated.zip_ as these are all the Maven artifacts that should be needed to run the test, including the `dev.galasa.simbank.obr` artifact which is passed to the `--obr` flag and the `SimBankIVT` test class which is passed to `class`.
 1. The `SimBankIVT` test class runs, and the terminal displays its progress through to completion, with an Exit code of `0`.
 1. View the results of the test runs in your terminal. You can also view results in the `run.log` file in the result archive store (RAS). 3270 terminal interactions can be viewed in the `artifacts` directory in the RAS. Find out more in the [Viewing test results locally](viewing-test-results-cli) documentation. 
 
-To run other SimBank tests, for example `BasicAccountCreditTest`, replace the test class name in the `--class` parameter. For example: 
+To run other SimBank tests, for example `BasicAccountCreditTest`, replace the test class name in the `--class` parameter. Remember to update the `--localMaven` flag value to the location of the `maven` directory as well. For example: 
 
 On Mac or Unix:
 
 ```
 galasactl runs submit local --log - \
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr \
---class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest 
+--class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest \
+--localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 
 On Windows (Powershell):
@@ -87,7 +90,8 @@ On Windows (Powershell):
 ```
 galasactl runs submit local --log - `
 --obr mvn:dev.galasa/dev.galasa.simbank.obr/0.25.0/obr `
---class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest
+--class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest `
+--localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 
 
