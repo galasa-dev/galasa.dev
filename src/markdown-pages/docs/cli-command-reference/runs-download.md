@@ -62,7 +62,7 @@ GAL2501I: Downloaded 11 files to folder U5432_2023-05-06_10:30:15
 
 ### Identifying output for test retries
 
-If a test is scheduled to run at a particular time but is unable to start, for example due to a lack of resources that are available in the environment, the ecosystem might retry the test at a later time. When investigating problems with a test running in an ecosystem, it is useful to download the artifacts that are associated with the retries of that test.
+If a test is scheduled to run at a particular time but is unable to start, for example due to a lack of resources that are available in the environment, the Ecosystem might retry the test at a later time. When investigating problems with a test running in an Ecosystem, it is useful to download the artifacts that are associated with the retries of that test.
 
 When using the `runs download` command, if a test has run more than once, a number is added to the folder name to indicate the number of the retry, as shown in the following example:
 

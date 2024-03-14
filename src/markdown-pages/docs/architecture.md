@@ -3,7 +3,7 @@ path: "/docs/architecture"
 title: "Architecture"
 ---
  
-To get going with Galasa as quickly as possible, explore the [Installing options](/docs) section. Read on to learn a little about Galasa's architecture and key components.
+To get going with Galasa as quickly as possible, explore the [Getting started using the Galasa CLI](/docs) section. Read on to learn a little about Galasa's architecture and key components.
 
 # Galasa's architecture
 At its top level, Galasa decomposes into three major components:

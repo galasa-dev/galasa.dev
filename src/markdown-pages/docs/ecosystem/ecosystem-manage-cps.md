@@ -17,7 +17,7 @@ A video -  <a href="https://www.youtube.com/watch?v=d_mufWVa31U" target="_blank"
 
 ## Simplifying test configuration with the CPS
 
-When running Galasa tests locally, using the command line tool or Eclipse, the CPS is stored in the flat file `{GALASA_HOME}/cps.properties`. 
+When running Galasa tests locally using the command line tool  the CPS is stored in the flat file `{GALASA_HOME}/cps.properties`. 
 
 When running tests in the Galasa Ecosystem, where tests are run on a Kubernetes cluster, a REST service hosts the storage of the CPS properties in a central location. A centralised CPS means that configuration information can be supplied to all automated tests running in a Galasa Ecosystem, allowing multiple tests to run using the same shared configuration information. 
 

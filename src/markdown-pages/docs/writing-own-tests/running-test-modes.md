@@ -30,7 +30,7 @@ When you run a test locally, without using shared configuration, everything runs
 
 ![running in local mode:](running-local.svg)
 
-You can run a test in this mode by using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command, or by using the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
+You can run a test in this mode by using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command.
 
 
 ## <a name="remotely"></a>Running a test in the Galasa Ecosystem
@@ -49,7 +49,7 @@ When you run a test locally, but using shared configuration, the Galasa bootstra
 
 ![running in local mode with shared configuration:](hybridrunmode.svg)
 
-You can run a test in this mode by setting up your bootstrap to refer to the ecosystem in which the shared configuration is stored, and using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. Alternatively, you can use the Eclipse plugin, in which case the test is hosted within the Eclipse JVM.
+You can run a test in this mode by setting up your bootstrap to refer to the ecosystem in which the shared configuration is stored, and using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. 
 
 ### <a name="whenremote"></a>When to run a test in the Galasa Ecosystem
 

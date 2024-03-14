@@ -5,7 +5,7 @@ title: "Highlights"
 
 # Galasa Delivery
 
-Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [getting started](/docs/getting-started) on this site. 
+Galasa is an open source project and is delivered using a continuous delivery model. There are instructions on [getting started](https://galasa.dev/docs/cli-command-reference/cli-command-reference) on this site. 
 
 Post a question or share your experiences with other users in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace. <a href="https://openmainframeproject.slack.com/signup#/domain-signup" target="_blank"> Register to join</a> first if you're not yet a member.
 
@@ -17,7 +17,27 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.31.0 - Release Highlights
+
+## 0.32.0 - Release Highlights
+
+- CLI updates: 
+
+  • You can re-try running a test run which appears to be hanging or looping by using the `galasactl runs reset` command.
+
+  • You can cancel a test that is hanging or looping by using the `galasactl runs cancel` command. Cancelling a test removes all entries in the DSS for that test run. All information that is stored in the RAS about the test is kept and is not removed when either the `runs reset` or `runs cancel` command is run.
+
+  • You can run Gherkin tests locally on your machine by setting the `--gherkin` flag on the `galasactl runs submit local` command.  
+  
+- Updates to the Galasa authentication token and documentation updates around authentication, architecture, and logging into and out of a Galasa Ecosystem by using the `galasactl auth login` and `galasactl auth logout` commands.
+
+- The Eclipse plug-in for Galasa is no longer supported. You can work with Galasa version 0.32.0 and later by using the Galasa command line interface (CLI).
+
+- Various documentation enhancements.
+
+
+
+<details>
+<summary><b>0.31.0 - Release Highlights</b></summary>
 
 - CLI updates: 
 
@@ -35,6 +55,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Various documentation enhancements
 
 - A new blog post by Louisa Seers, encapsulating her experiences during her first six months as Chair of the Galasa Technical Steering Committee (TSC) and the Galasa journey to adoption by the Open Mainframe Project (OMP), is now available on the <a href="https://openmainframeproject.org/blog/galasa-my-first-6-months/" target="_blank"> Open Mainframe Project</a> website.
+</details>  
 
 
 

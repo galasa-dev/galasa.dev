@@ -31,7 +31,7 @@ The test declares that a z/OS image is required for the test to run and that thi
 
 When the z/OS Manager reads the code, it creates a z/OS image by using the *imageTag* attribute to ascertain which set of properties from the `cps.properties` or `overrides.properties` file that it needs to load to create that image.
 
-In this example, the following properties are associated with the *SIMBANK* z/OS image in the `overrides.properties` file, as described in the [Running the SimBank tests using the CLI](../../docs/running-simbank-tests-cli) documentation:
+In this example, the following properties are associated with the *SIMBANK* z/OS image in the `overrides.properties` file, as described in the [Running the SimBank tests using the CLI](../cli-command-reference/running-simbank-tests-cli) documentation:
 ```
 zos.image.SIMBANK.ipv4.hostname=127.0.0.1
 zos.image.SIMBANK.telnet.port=2023

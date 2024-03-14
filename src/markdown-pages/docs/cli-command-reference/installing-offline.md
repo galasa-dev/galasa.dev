@@ -1,5 +1,5 @@
 ---
-path: "/docs/first-steps/installing-offline"
+path: "/docs/cli-command-reference/installing-offline"
 title: "Installing the Galasa CLI offline"
 ---
 
@@ -41,6 +41,9 @@ docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:main
 3. Go to `http:\\localhost:8080` to view the running container. 
 
 
+
+## <a name="installoffline"></a>Configuring the Galasa CLI for offline use
+
 To install Galasa for using in the command-line you first need to select the appropriate binary file for the Galasa CLI from the `galasactl` directory that is provided in the zip file you downloaded.
 
 The following versions of the Galasa CLI are available to download for different operating systems and machine architectures:
@@ -78,8 +81,8 @@ You can now run the Galasa CLI tool from any directory in your file system witho
 
 ## Next steps
 
-Find out more about the Galasa CLI commands by reading the [Galasa CLI commands](cli-command-reference-about-offline) documentation.
+Find out more about the Galasa CLI commands by reading the [Galasa CLI commands](cli-command-reference-about) documentation.
 
-Move on to the [Initialising your local environment offline](initialising-home-folder-offline) documentation to help you to set up some basic file structures and files in your home folder so that you can start using Galasa.
+Move on to the [Initialising your local environment](initialising-home-folder) documentation to help you to set up some basic file structures and files in your home folder so that you can start using Galasa.
 
 
