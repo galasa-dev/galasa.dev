@@ -81,7 +81,7 @@ The Galasa Ecosystem is now successfully installed on the VM.
 
 ### Connecting to the Galasa Ecosystem
 
-The bootstrap contains the information that Galasa needs to bring up a framework in the Eclipse environment to connect to the ecosystem. From your IDE, edit the bootstrap to reconfigure Galasa to point to the Galasa Ecosystem that you created. 
+The bootstrap contains the information that Galasa needs to bring up a framework to connect to the ecosystem. From your IDE, edit the bootstrap to reconfigure Galasa to point to the Galasa Ecosystem that you created. 
 
 In Eclipse, you can edit the bootstrap by completing the following steps:
 
@@ -94,7 +94,6 @@ In Eclipse, you can edit the bootstrap by completing the following steps:
 
 You can verify the ecosystem installation by using the Galasa command line interface (Galasa CLI) to run the _runs prepare_ and _runs submit_ commands. To find out more about the Galasa CLI, see [Using the Galasa CLI](/docs/cli-command-reference/cli-command-reference).
 
-Alternatively, you can submit automation tests from within Eclipse; select the *Galasa > Submit tests to automation* option from the Eclipse menu to choose the runs that you want to submit.
 
 ## Next steps
 
