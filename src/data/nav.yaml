@@ -93,7 +93,9 @@
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
             - title: Installing an Ecosystem using Helm
-              path: /docs/ecosystem/installing/k8s
+              path: /docs/ecosystem/ecosystem-installing-k8s
+            - title: Configuring authentication
+              path: /docs/ecosystem/ecosystem-authentication              
             - title: Test streams
               path: /docs/writing-own-tests/test-streams
             - title: Managing integrated test runs
@@ -104,6 +106,8 @@
               path: /docs/cli-command-reference/ecosystem-cli-runs-prepare
             - title: Running tests in an Ecosystem
               path: /docs/cli-command-reference/ecosystem-cli-runs-submit
+            - title: Retrying and cancelling tests
+              path: /docs/cli-command-reference/runs-reset-cancel
             - title: Viewing test run results 
               path: /docs/cli-command-reference/cli-runs-get
             - title: Downloading test artifacts 

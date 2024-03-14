@@ -41,9 +41,6 @@ docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:main
 3. Go to `http:\\localhost:8080` to view the running container. 
 
 
-
-## <a name="installoffline"></a>Configuring the Galasa CLI for offline use
-
 To install Galasa for using in the command-line you first need to select the appropriate binary file for the Galasa CLI from the `galasactl` directory that is provided in the zip file you downloaded.
 
 The following versions of the Galasa CLI are available to download for different operating systems and machine architectures:
