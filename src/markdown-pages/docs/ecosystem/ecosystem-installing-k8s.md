@@ -244,7 +244,7 @@ If you have enabled Ingress and are deploying to minikube, add an entry to your 
 
 ## Running Galasa tests
 
-To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework to connect to an Ecosystem. To find the URL of the Ecosystem bootstrap, run the following command:
+To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information Galasa needs to bring up a framework to connect to an Ecosystem. To find the URL of the Ecosystem bootstrap, run the following command:
 ```
 kubectl get svc
 ```
