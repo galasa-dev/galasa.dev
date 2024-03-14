@@ -15,7 +15,7 @@ To start exploring the Galasa Simbank application and to run the sample SimBank 
 
 1. Start the Simplatform server by running the `run-simplatform.sh` script provided in the `isolated.zip`. 
     1. Navigate to the directory of the zipped distribution that you downloaded, for example, `~/Downloads/isolated`. A `run-simplatform.sh` script is available within the directory. This script starts the Simplatform server which is required to run the SimBank tests.
-    1. Set execute permission on the script by running the `chmod +x run-simplatform.sh` command in the directory containing the `run-simplatform.sh` script. If you are using a Mac, you can set permission to open the Galasa CLI tool by running the `xattr -dr com.apple.quarantine run-simplatform.sh` command in the same directory.
+    1. Set execute permission on the script by running the `chmod +x run-simplatform.sh` command in the directory containing the `run-simplatform.sh` script.
     1. Run the script in server mode by using the following example command, remembering to set the `--location` flag to the location of the galasa-simplatform artefact in the `isolated.zip` file that you downloaded. For example, `~/Downloads/isolated/maven/dev/galasa`.
     ```
     ./run-simplatform.sh --server --location ~/Downloads/isolated/maven/dev/galasa
