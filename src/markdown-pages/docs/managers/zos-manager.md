@@ -70,7 +70,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS Batch Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosbatch.zosmf.manager |
-| Valid values: | $validValues |
+| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
 
 </details>
@@ -84,7 +84,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The z/OS Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A valid z/OS cluster ID |
 | Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
 
 </details>
@@ -98,7 +98,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The z/OS Images for the specified cluster |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A valid z/OS image |
 | Examples: | <code>zos.cluster.[clusterId].images=SYSA,SYSB,SYSC</code><br> |
 
 </details>
@@ -112,7 +112,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS Console Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosconsole.zosmf.manager |
-| Valid values: | $validValues |
+| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
 | Examples: | <code>zos.bundle.extra.console.manager=dev.galasa.common.zosconsole.zosmf.manager</code><br> |
 
 </details>
@@ -126,7 +126,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. |
 | Examples: | <code>zos.dse.tag.[tag].clusterid=PLEXA</code><br> |
 
 </details>
@@ -140,7 +140,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The image ID of the Developer Supplied Environment for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A valid image ID |
 | Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
 
 </details>
@@ -154,7 +154,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS File Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosfile.zosmf.manager |
-| Valid values: | $validValues |
+| Valid values: |  A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
 | Examples: | <code>zos.bundle.extra.file.manager=dev.galasa.common.zosfile.zosmf.manager</code><br> |
 
 </details>
@@ -168,7 +168,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The IP Host ID of the z/OS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the z/OS Image ID is returned |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A valid IP Host ID |
 | Examples: | <code>zos.image.[tag].iphostid=sysa.ibm.com</code><br> |
 
 </details>
@@ -182,7 +182,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The image ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | A valid z/OS image ID |
 | Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
 
 </details>
@@ -196,7 +196,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The maximum slots available on a z/OS Image for the specified tag |
 | Required:  | No |
 | Default value: | 2 |
-| Valid values: | $validValues |
+| Valid values: | 1 to 255 |
 | Examples: | <code>zos.image.[tag].max.slots=2</code><br> |
 
 </details>
@@ -221,10 +221,10 @@ The following properties are used to configure the z/OS Manager.
 | Property: | The SYSNAME for zOS Image |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[imageid].sysname |
-| Description: | The SYSNAME for the z/OS image |
+| Description: | The SYSNAME for the z/OS image | 
 | Required:  | No |
 | Default value: | The image ID of the image |
-| Valid values: | $validValues |
+| Valid values: | The name must be 1-8 characters long; the valid characters are A-Z, 0-9, $, @, and #. |
 | Examples: | <code>zos.image.IMAGEA.sysname=SYSA</code><br> |
 
 </details>
@@ -238,7 +238,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The data set HLQ(s) for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].dataset.hlq exists, then that is returned |
 | Required:  | No |
 | Default value: | runuser.GALASA |
-| Valid values: | $validValues |
+| Valid values: | A data set name can be one name segment, or a series of joined name segments. Segments are limited to eight characters, the first of which must be alphabetic (A to Z) or special (# @ $). The remaining seven characters are either alphabetic, numeric (0 - 9), special, a hyphen (-). Name segments are separated by a period (.). |
 | Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
 
 </details>
@@ -252,7 +252,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The UNIX path prefix for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].unix.path.prefix exists, then that is returned |
 | Required:  | No |
 | Default value: | /u/runuser/Galasa |
-| Valid values: | $validValues |
+| Valid values: | A valid path |
 | Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
 
 </details>
@@ -266,7 +266,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS TSO Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zostsocommand.ssh.manager |
-| Valid values: | $validValues |
+| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.tsocommand.manager=dev.galasa.zostsocommand.ssh.manager</code> |
 
 </details>
@@ -280,7 +280,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS UNIX Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zosunixcommand.ssh.manager |
-| Valid values: | $validValues |
+| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.unix.manager=dev.galasa.zosunixcommand.ssh.manager</code> |
 
 </details>
@@ -405,8 +405,8 @@ The following properties are used to configure the z/OS Manager.
 | Name: | zosconsole.console.[imageid].restrict.to.image |
 | Description: | Use only the zOSMF server running on the image associated with the z/OS Console |
 | Required:  | No |
-| Default value: | False |
-| Valid values: | $validValues |
+| Default value: | false |
+| Valid values: | true or false |
 | Examples: | <code>zosconsole.console.restrict.to.image=true</code><br> <code>zosconsole.console.SYSA.restrict.to.image=true</code> |
 
 </details>
@@ -420,7 +420,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The maximum number of items the server (e.g. zOSMF, RSE API, etc) returns when listing the content of a UNIX directory |
 | Required:  | No |
 | Default value: | 1000 |
-| Valid values: | $validValues |
+| Valid values: | 0 to 65535 |
 | Examples: | <code>zosfile.unix.[imageid].directory.list.max.items=1000</code><br> |
 
 </details>
@@ -433,8 +433,8 @@ The following properties are used to configure the z/OS Manager.
 | Name: | zosfile.file.[imageid].restrict.to.image |
 | Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the z/OS data set or file |
 | Required:  | No |
-| Default value: | False |
-| Valid values: | $validValues |
+| Default value: | false |
+| Valid values: | true or false |
 | Examples: | <code>zosfile.file.restrict.to.image=true</code><br> <cods>zosfile.file.SYSA.restrict.to.image=true</code> |
 
 </details>
@@ -448,7 +448,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The UNIX file or directory permission bits to be used in creating the file or directory |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | $validValues |
+| Valid values: | Valid values are r,w,x,s,- |
 | Examples: | <code>zosfile.unix.file.permission=rwxrwx---</code><br> <code>zosfile.SYSA.unix.file.permission=rwxrwxrrx</code> |
 
 </details>
