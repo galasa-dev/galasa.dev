@@ -40,8 +40,8 @@ The following are properties used to configure the RSE API Manager.
 | Name: | rseapi.server.[imageid].https |
 | Description: | Use https (SSL) for RSE API server |
 | Required:  | No |
-| Default value: | True |
-| Valid values: | $validValues |
+| Default value: | true |
+| Valid values: | true or false |
 | Examples: | <code>rseapi.server.https=true</code><br> <code>rseapi.server.RSESYSA.https=true</code> |
 
 </details>
@@ -111,7 +111,7 @@ The following are properties used to configure the RSE API Manager.
 | Description: | The port number of the RSE API server |
 | Required:  | no |
 | Default value: | 6800 |
-| Valid values: | $validValues |
+| Valid values: | A valid port number |
 | Examples: | <code>rseapi.server.port=6800</code><br> <code>rseapi.server.RSESYSA.port=6800</code> |
 
 </details>
