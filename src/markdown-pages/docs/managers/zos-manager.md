@@ -70,7 +70,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS Batch Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosbatch.zosmf.manager |
-| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
 
 </details>
@@ -84,7 +84,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The z/OS Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | A valid z/OS cluster ID |
+| Valid values: | Valid value is a character string with a maximum length of 32 |
 | Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
 
 </details>
@@ -95,10 +95,10 @@ The following properties are used to configure the z/OS Manager.
 | Property: | The images for a zOS Cluster |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.cluster.[clusterId].images |
-| Description: | The z/OS Images for the specified cluster |
+| Description: | The z/OS Images for the specified cluster. Specify more than one image by using commas. |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | A valid z/OS image |
+| Valid values: | Valid value is a character string with a maximum length of 32 |
 | Examples: | <code>zos.cluster.[clusterId].images=SYSA,SYSB,SYSC</code><br> |
 
 </details>
@@ -112,7 +112,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS Console Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosconsole.zosmf.manager |
-| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
 | Examples: | <code>zos.bundle.extra.console.manager=dev.galasa.common.zosconsole.zosmf.manager</code><br> |
 
 </details>
@@ -126,7 +126,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
-| Valid values: | A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. |
+| Valid values: | A 1 - 8 length character name |
 | Examples: | <code>zos.dse.tag.[tag].clusterid=PLEXA</code><br> |
 
 </details>
@@ -154,7 +154,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS File Manager |
 | Required:  | No |
 | Default value: | dev.galasa.common.zosfile.zosmf.manager |
-| Valid values: |  A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
+| Valid values: |  A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.  |
 | Examples: | <code>zos.bundle.extra.file.manager=dev.galasa.common.zosfile.zosmf.manager</code><br> |
 
 </details>
@@ -266,7 +266,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS TSO Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zostsocommand.ssh.manager |
-| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.tsocommand.manager=dev.galasa.zostsocommand.ssh.manager</code> |
 
 </details>
@@ -280,7 +280,7 @@ The following properties are used to configure the z/OS Manager.
 | Description: | The name of the Bundle that implements the z/OS UNIX Command Manager |
 | Required:  | No |
 | Default value: | dev.galasa.zosunixcommand.ssh.manager |
-| Valid values: | A 1 - 8 length character name. A cluster name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
 | Examples: | <code>zos.bundle.extra.unix.manager=dev.galasa.zosunixcommand.ssh.manager</code> |
 
 </details>
