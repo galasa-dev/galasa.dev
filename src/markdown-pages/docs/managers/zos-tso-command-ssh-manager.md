@@ -25,7 +25,7 @@ The following are properties used to configure the zOS TSO Command SSH Manager.
 | Description: | The path to the tsocmd command |
 | Required:  | No |
 | Default value: | tsocmd |
-| Valid values: | $validValues |
+| Valid values: | A valid PATH environment variable or a full path name |
 | Examples: | <code>zostsocommand.command.tsocmd.path=tsocmd</code><br> <code>zostsocommand.MFSYSA.tsocmd.command.path=/tools/tsocmd</code> |
 
 </details>
