@@ -40,8 +40,8 @@ The following are properties used to configure the zOS MF Manager.
 | Name: | zosmf.server.[imageid].https |
 | Description: | Use https (SSL) for zOSMF server |
 | Required:  | No |
-| Default value: | True |
-| Valid values: | $validValues |
+| Default value: | true |
+| Valid values: | true or false |
 | Examples: | <code>zosmf.server.https=true</code><br> <code>zosmf.server.SYSA.https=true</code> |
 
 </details>
