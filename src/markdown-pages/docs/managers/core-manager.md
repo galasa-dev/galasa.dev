@@ -3,7 +3,8 @@ path: "/docs/managers/core-manager"
 title: "Core Manager"
 ---
 
-This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/github/package-summary.html">Javadoc documentation for the Manager here</a>.<br>
+This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/core/manager/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
+
 
 
 [Overview](#overview)<br>

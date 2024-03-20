@@ -3,9 +3,14 @@ path: "/docs/managers/vtp-manager"
 title: "VTP Manager"
 ---
 
-**Release**
-  
-## Overview
+This Manager is at Release level.<br>
+
+
+[Overview](#overview)<br>
+[Configuring](#configuring)<br>
+
+
+# <a name="overview"></a>Overview
   
 Create an automated integration test in Galasa and use the VTP Manager to transparently record the interactions between the test and your CICS programs. Play back the recorded file by using IBM Z Virtual Test Platform (ZVTP). Playing back the recording in ZVTP means that you can test a change to your application code without running the test inside CICS. Run the recorded tests as part of your regression testing strategy before and after code changes to detect any anomalies. 
 
@@ -30,7 +35,7 @@ To enable VTP recording, set ```vtp.recording.enable``` to _true_ in the CPS pro
 If VTP recording is enabled but no fields annotated with @CICSRegion are contained in the test class, the following message is returned _VTP Recording enabled but test class contains no CICS TS fields - recording will not be attempted_.
   
   
-## CPS properties
+## <a name="configuring"></a>CPS properties
   
 The following properties are used to configure the VTP Manager.
   
