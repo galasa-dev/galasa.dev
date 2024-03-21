@@ -60,7 +60,52 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 # <a name="configuring"></a>Configuring 
 
 The following properties are used to configure the z/OS Manager.
- 
+
+
+To provision a DSE?CICS Region for your test you need to configure the following properties as a minimum to connect to a CICS region, even if you do not reference a `@ZosImage` in your Galasa test. This is because ?? (as it's the z/OS image the CICS Region is on...). You might need to configure additional z/OS-related CPS properties, depending on your test.
+
+```
+zos.dse.tag.PRIMARY.imageid=[IMAGEID] OR zos.cluster.DEFAULT.images=[IMAGEID]
+zos.image.[IMAGEID].ipv4.hostname=[IP ADDRESS]
+zos.image.[IMAGEID].credentials=[CREDENTIALID]
+```
+
+You also need to configure the following properties for the [CICS TS Manager](cics-ts-manager):
+
+```
+cicsts.provision.type=dse
+cicsts.dse.tag.[TAG].applid=[APPLID]
+```
+
+<details>
+<summary>xxxx</summary>
+
+| Property: | Extra bundle required to implement the zOS Batch Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[IMAGEID].ipv4.hostname=[IPADDRESS] |
+| Description: | The name of the Bundle that implements the z/OS Batch Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
+| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+
+</details>
+
+<details>
+<summary>xxxx</summary>
+
+| Property: | Extra bundle required to implement the zOS Batch Manager |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[IMAGEID].credentials=[CREDENTIALID] |
+| Description: | The name of the Bundle that implements the z/OS Batch Manager |
+| Required:  | No |
+| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
+| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
+| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+
+</details>
+
+
 <details>
 <summary>Extra bundle required to implement the z/OS Batch Manager</summary>
 
@@ -80,7 +125,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The zOS Cluster ID |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.tag.[tag].clusterid |
+| Name: | zos.tag.[tag].clusterid | 
 | Description: | The z/OS Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
@@ -94,7 +139,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The images for a zOS Cluster |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.cluster.[clusterId].images |
+| Name: | zos.cluster.[clusterId].images | 
 | Description: | The z/OS Images for the specified cluster. Specify more than one image by using commas. |
 | Required:  | No |
 | Default value: | None |
