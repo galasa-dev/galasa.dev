@@ -61,11 +61,11 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 
 The following properties are used to configure the z/OS Manager.
 
+To provision a CICS Region for your test you need to configure the following properties as a minimum to connect to a CICS region, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS Regions sit on a z/OS LPAR, and so to provision and connect to a CICS Region in a test, you also need access to the z/OS image that it sits within to make requests on the CICS Region. You might need to configure additional z/OS-related CPS properties, depending on your test.  
 
-To provision a DSE?CICS Region for your test you need to configure the following properties as a minimum to connect to a CICS region, even if you do not reference a `@ZosImage` in your Galasa test. This is because ?? (as it's the z/OS image the CICS Region is on...). You might need to configure additional z/OS-related CPS properties, depending on your test.
 
 ```
-zos.dse.tag.PRIMARY.imageid=[IMAGEID] OR zos.cluster.DEFAULT.images=[IMAGEID]
+zos.dse.tag.[tag].imageid=[IMAGEID] OR zos.cluster.[clusterId].images=[IMAGEID]
 zos.image.[IMAGEID].ipv4.hostname=[IP ADDRESS]
 zos.image.[IMAGEID].credentials=[CREDENTIALID]
 ```
@@ -78,30 +78,30 @@ cicsts.dse.tag.[TAG].applid=[APPLID]
 ```
 
 <details>
-<summary>xxxx</summary>
+<summary>Hostname of a z/OS system </summary>
 
-| Property: | Extra bundle required to implement the zOS Batch Manager |
+| Property: | Hostname of a z/OS system |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[IMAGEID].ipv4.hostname=[IPADDRESS] |
-| Description: | The name of the Bundle that implements the z/OS Batch Manager |
-| Required:  | No |
-| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
-| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
-| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+| Name: | zos.image.[IMAGEID].ipv4.hostname |
+| Description: | A physical TCP/IP hostname value for a z/OS system |
+| Required:  | Yes, if connecting to a CICS region |
+| Default value: | None |
+| Valid values: | A valid TCP/IP hostname   |
+| Examples: | <code>zos.image.IMAGEA.ipv4.hostname=dev.galasa.system1</code><br><code>zos.image.SIMBANK.ipv4.hostname=127.0.0.1</code><br><code>zos.image.IMAGEA.ipv4.hostname=winmvs2a.example.com</code><br> |
 
 </details>
 
 <details>
-<summary>xxxx</summary>
+<summary>Credentials for logging onto a z/OS system </summary>
 
-| Property: | Extra bundle required to implement the zOS Batch Manager |
+| Property: | Credentials for logging onto a z/OS system   |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[IMAGEID].credentials=[CREDENTIALID] |
-| Description: | The name of the Bundle that implements the z/OS Batch Manager |
-| Required:  | No |
-| Default value: | dev.galasa.common.zosbatch.zosmf.manager |
-| Valid values: | A 1 - 8 length character name. A name containing more than 8 characters must be segmented by periods; 1 to 8 characters can be specified between periods. Valid characters are A-Z, a - z, 0-9, special characters.   |
-| Examples: | <code>zos.bundle.extra.batch.manager=dev.galasa.common.zosbatch.zosmf.manager</code><br> |
+| Name: | zos.image.[IMAGEID].credentials |
+| Description: |  Credentials for logging onto a z/OS system |
+| Required:  | Yes, if connecting to a CICS region |
+| Default value: | None|
+| Valid values: | Valid characters are A-Z, a - z, 0-9  |
+| Examples: | <code>zos.image.IMAGEA.credentials=KEY_TO_CREDS_STORE</code><br><code>zos.image.SIMBANK.credentials=SIMBANK</code><br><code>zos.image.IMAGEA.credentials=WINMVS2A</code><br>|
 
 </details>
 
