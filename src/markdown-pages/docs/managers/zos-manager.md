@@ -57,11 +57,9 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 }
 ```
 
-# <a name="configuring"></a>Configuring 
+## Testing CICS Regions on z/OS
 
-The following properties are used to configure the z/OS Manager.
-
-To provision a CICS Region for your test you need to configure the following properties as a minimum to connect to a CICS region, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS Regions sit on a z/OS LPAR, and so to provision and connect to a CICS Region in a test, you also need access to the z/OS image that it sits within to make requests on the CICS Region. You might need to configure additional z/OS-related CPS properties, depending on your test.  
+To connect your Galasa test to a developer supplied environment with a provisioned CICS region as a minimum you need to configure the following properties, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS regions sit on a z/OS LPAR, and so to provision and connect to a CICS region in a test, you also need access to the z/OS image that it sits within to make requests on the CICS region. You might need to configure additional z/OS-related CPS properties, depending on your test.  
 
 
 ```
@@ -77,6 +75,12 @@ cicsts.provision.type=dse
 cicsts.dse.tag.[TAG].applid=[APPLID]
 ```
 
+
+# <a name="configuring"></a>Configuring 
+
+The following properties are used to configure the z/OS Manager.
+
+
 <details>
 <summary>Hostname of a z/OS system </summary>
 
@@ -84,7 +88,7 @@ cicsts.dse.tag.[TAG].applid=[APPLID]
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[IMAGEID].ipv4.hostname |
 | Description: | A physical TCP/IP hostname value for a z/OS system |
-| Required:  | Yes, if connecting to a CICS region |
+| Required:  | Yes, if connecting to a z/OS image |
 | Default value: | None |
 | Valid values: | A valid TCP/IP hostname   |
 | Examples: | <code>zos.image.IMAGEA.ipv4.hostname=dev.galasa.system1</code><br><code>zos.image.SIMBANK.ipv4.hostname=127.0.0.1</code><br><code>zos.image.IMAGEA.ipv4.hostname=winmvs2a.example.com</code><br> |
@@ -92,13 +96,13 @@ cicsts.dse.tag.[TAG].applid=[APPLID]
 </details>
 
 <details>
-<summary>Credentials for logging onto a z/OS system </summary>
+<summary>Credentials tag for logging onto a z/OS system </summary>
 
-| Property: | Credentials for logging onto a z/OS system   |
+| Property: | Credentials tag for logging onto a z/OS system   |
 | --------------------------------------- | :------------------------------------- |
 | Name: | zos.image.[IMAGEID].credentials |
-| Description: |  Credentials for logging onto a z/OS system |
-| Required:  | Yes, if connecting to a CICS region |
+| Description: |  Tag of the credentials that are stored in the CREDS and used to log onto a z/OS system  |
+| Required:  | Yes, if connecting to a z/OS image |
 | Default value: | None|
 | Valid values: | Valid characters are A-Z, a - z, 0-9  |
 | Examples: | <code>zos.image.IMAGEA.credentials=KEY_TO_CREDS_STORE</code><br><code>zos.image.SIMBANK.credentials=SIMBANK</code><br><code>zos.image.IMAGEA.credentials=WINMVS2A</code><br>|
