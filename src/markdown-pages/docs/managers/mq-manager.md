@@ -3,12 +3,19 @@ path: "/docs/managers/mq-manager"
 title: "MQ Manager"
 ---
 
-**Alpha**
+This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/mq/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
-## Overview
+
+
+[Overview](#overview)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
+
+
+# <a name="overview"></a>Overview
 This Manager provides the ability to connect a test to an existing IBM MQ queue manager, enabling one or more messages to be written to and read from existing queues. <br><br> 
 
-## Annotations
+## <a name="annotations"></a>Annotations
 
 The following annotations are available with the MQ Manager
 <details>
@@ -41,7 +48,7 @@ The following annotations are available with the MQ Manager
 
 
 
-## Code snippets
+## <a name="codesnippets"></a>Code snippets
 
 Use the following code snippets to help you get started with the MQ Manager. Use the MQ Manager to connect a test to an existing IBM MQ queue manager and queue. Galasa does not provision new IBM MQ queue managers or queues. 
  

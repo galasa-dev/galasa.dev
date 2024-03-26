@@ -112,6 +112,8 @@
               path: /docs/cli-command-reference/cli-runs-get
             - title: Downloading test artifacts 
               path: /docs/cli-command-reference/ecosystem-cli-runs-download
+            - title: Updating credentials in an Ecosystem
+              path: /docs/ecosystem/ecosystem-update-creds  
         - title: Upgrading
           path: /docs/upgrading  
         - title: Managers
