@@ -3,13 +3,19 @@ path: "/docs/managers/zos-mf-manager"
 title: "zOS MF Manager"
 ---
 
-**BETA - This Manager is feature complete but may contain known or unknown bugs.**
+This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.dev/overview-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
-## Overview
+
+[Overview](#overview)<br>
+[Provided annotation](#annotations)<br>
+[Configuring](#configuring)<br>
+
+
+# <a name="overview"></a>Overview
 This Manager provides Galasa tests with access to a zOS/MF server. Use the z/OS MF Manager to simplify areas of z/OS system management. The z/OS MF Manager can be called from a test or from other Managers. For example, the z/OS Manager calls the z/OS MF Manager to implement z/OS file, console and batch functions via the relevant interface.
 
 
-## Annotations
+## <a name="overview"></a>Provided annotations
 
 The following annotations are available with the zOS MF Manager
 <details>
@@ -28,7 +34,7 @@ The following annotations are available with the zOS MF Manager
 
 
 
-## Configuration Properties
+## <a name="configuring"></a>Configuration Properties
 
 The following are properties used to configure the zOS MF Manager.
  

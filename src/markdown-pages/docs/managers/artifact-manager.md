@@ -3,15 +3,20 @@ path: "/docs/managers/artifact-manager"
 title: "Artifact Manager"
 ---
 
-**Release**
-
-## Overview
-This Manager allows a test to access files that are stored within the same bundle as the test code itself.  Helper methods are provided to stream and substitute symbolics within the loaded file. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/artifact/package-summary.html">Javadoc documentation for this Manager here</a>. <br><br>
+This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/artifact/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
 
+[Overview](#overview)<br>
+[Code snippets and examples](#codesnippets)<br>
 
 
-## Code snippets
+# <a name="overview"></a>Overview
+
+This Manager allows a test to access files that are stored within the same bundle as the test code itself.  Helper methods are provided to stream and substitute symbolics within the loaded file. <br><br> 
+
+
+
+## <a name="codesnippets"></a>Code snippets
 
 Use the following code snippets to help you get started with the Artifact Manager.
  

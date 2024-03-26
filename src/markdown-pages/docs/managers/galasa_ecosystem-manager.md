@@ -3,16 +3,23 @@ path: "/docs/managers/galasa_ecosystem-manager"
 title: "Galasa Ecosystem Manager"
 ---
 
-**ALPHA - This Manager has been written to provide a Galasa Ecsosystem for the Galasa integrated test pipeline.  It has the bare  minimum code necessary to do that.  It has not been extensively tested (other than on the pipeline).  The TPI is subject to change.  However, saying all that,  it can be used within tests.**
+This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/framework/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
-## Overview
-This Manager will provide the Test with a fully provisioned Galasa Ecosystem to test on.  When the Test starts running the Test can be assured that all the services are up and working. <br><br> The Galasa Ecosystem Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/galasaecosystem/package-summary.html"> Javadoc documentation for the Manager here</a>.<br><br>
+
+
+[Overview](#overview)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
+
+
+# <a name="overview"></a>Overview
+This Manager will provide the Test with a fully provisioned Galasa Ecosystem to test on.  When the Test starts running the Test can be assured that all the services are up and working. <br><br> The Galasa Ecosystem Manager supports Galasa Shared Environments.  Shared Environments provide  the ability to create a test environment that can be shared across multiple test runs  so you don't have to provision a test environment for each test. 
 
 ## Limitations
 The Manager only supports the following platforms:-<br> Kubernetes Namespace<br> <br> In the near future, this Manager will be able to provision Ecosystems in Docker and a plain Linux server
 
 
-## Annotations
+## <a name="annotations"></a>Annotations
 
 The following annotations are available with the Galasa Ecosystem Manager
  
@@ -26,7 +33,7 @@ The following annotations are available with the Galasa Ecosystem Manager
 | Syntax: | <code>@KubernetesEcosystem<br> public IKubernetesEcosystem ecosystem;<br> <br> @KubernetesEcosystem(yamlDirectory="/k8syaml"<br> public IKubernetesEcosystem ecosystem;<br> </code> |
 | Notes: | The <code>IKubernetesEcosystem</code> interface gives the test access to the URLs to all the services and API endpoints within the Ecosystem. When the test starts to run, all the services will be up and verified.<br> <br> The Test must provide a @KubernetesNamespace IKubernetesNamespace annotation, as this will be where the Ecosystem will be provisioned in.  In the future, Docker and Linux will be options. <br> The Galasa Ecosystem has it's own stable versions of the Kubernetes YAML files necessary to create the entire Ecosystem.  If you wish to override those and use your own YAML files,  then use the <code>yamlDirectory</code> attribute.  If a resource is missing in the test's set,  then the stable version will be used. |
 
-## Code Snippets
+## <a name="codesnippets"></a>Code Snippets
 
 Use the following code snippets to help you get started with the Galasa Ecosystem Manager.
  

@@ -3,13 +3,18 @@ path: "/docs/managers/cics-ts-ceci-manager"
 title: "CICS TS CECI Manager"
 ---
 
-**Release**
+This Manager is at Release level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
-## Overview
-This Manager allows Galasa tests to issue CICS/TS CECI commands.<br><br> Use the command-level interpreter (CECI) Manager to request a CECI instance in a Galasa test,  issue basic CECI commands  which can be processed interactively on a 3270 screen and  retrieve results. Examples of using this Manager can include writing data to a temporary storage  queue, linking to a CICS program or retrieving the signed on user id. <br><br> You can view the <a href="https://javadoc.galasa.dev/dev/galasa/cicsts/package-summary.html" target="_blank" rel="noopener noreferrer"> Javadoc documentation here</a>. <br><br>
+[Overview](#overview)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
 
 
-## Annotations
+# <a name="overview"></a>Overview
+This Manager allows Galasa tests to issue CICS/TS CECI commands.<br><br> Use the command-level interpreter (CECI) Manager to request a CECI instance in a Galasa test,  issue basic CECI commands  which can be processed interactively on a 3270 screen and  retrieve results. Examples of using this Manager can include writing data to a temporary storage  queue, linking to a CICS program or retrieving the signed on user id. <br><br> 
+
+
+## <a name="annotations"></a>Provided annotation
 
 The following annotations are available with the CICS TS CECI Manager
 <details>
@@ -26,7 +31,7 @@ The following annotations are available with the CICS TS CECI Manager
 
 
 
-## Code snippets
+## <a name="codesnippets"></a>Code snippets
 
 Use the following code snippets to help you get started with the CICS TS CECI Manager.
  

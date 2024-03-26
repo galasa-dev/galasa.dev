@@ -3,16 +3,21 @@ path: "/docs/managers/linux-manager"
 title: "Linux Manager"
 ---
 
-**Alpha**
-
-## Overview
-This Manager provides the tester with the capability to                      connect to a Linux image as part of a test and to access                      the command shell. Standard commands can then be run on                      the image. The Linux Manager has a dependency on the IP Network                      Manager, which establishes an IP connection to the image.                                                                                    You can view the <a href=                     "https://javadoc.galasa.dev/dev/galasa/linux/package-summary.html"                     target="_blank" rel="noopener noreferrer">Javadoc                     documentation for the Manager here</a>. <br>                     <br>
+This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/linux/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
 
+[Overview](#overview)<br>
+[Configuring](#configuring)<br>
+
+
+# <a name="overview"></a>Overview
+This Manager provides the tester with the capability to                      connect to a Linux image as part of a test and to access                      the command shell. Standard commands can then be run on                      the image. The Linux Manager has a dependency on the IP Network                      Manager, which establishes an IP connection to the image.                                                                                    <br>                     <br>
 
 
 
-## Configuration Properties
+
+
+## <a name="configuring"></a>Configuration Properties
 
 The following are properties used to configure the Linux Manager.
  
