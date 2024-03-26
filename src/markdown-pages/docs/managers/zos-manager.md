@@ -57,10 +57,59 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 }
 ```
 
+## Testing CICS Regions on z/OS
+
+To connect your Galasa test to a developer supplied environment with a provisioned CICS region as a minimum you need to configure the following properties, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS regions sit on a z/OS LPAR, and so to provision and connect to a CICS region in a test, you also need access to the z/OS image that it sits within to make requests on the CICS region. You might need to configure additional z/OS-related CPS properties, depending on your test.  
+
+
+```
+zos.dse.tag.[tag].imageid=[IMAGEID] OR zos.cluster.[clusterId].images=[IMAGEID]
+zos.image.[IMAGEID].ipv4.hostname=[IP ADDRESS]
+zos.image.[IMAGEID].credentials=[CREDENTIALID]
+```
+
+You also need to configure the following properties for the [CICS TS Manager](cics-ts-manager):
+
+```
+cicsts.provision.type=dse
+cicsts.dse.tag.[TAG].applid=[APPLID]
+```
+
+
 # <a name="configuring"></a>Configuring 
 
 The following properties are used to configure the z/OS Manager.
- 
+
+
+<details>
+<summary>Hostname of a z/OS system </summary>
+
+| Property: | Hostname of a z/OS system |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[IMAGEID].ipv4.hostname |
+| Description: | A physical TCP/IP hostname value for a z/OS system |
+| Required:  | Yes, if connecting to a z/OS image |
+| Default value: | None |
+| Valid values: | A valid TCP/IP hostname   |
+| Examples: | <code>zos.image.IMAGEA.ipv4.hostname=dev.galasa.system1</code><br><code>zos.image.SIMBANK.ipv4.hostname=127.0.0.1</code><br><code>zos.image.IMAGEA.ipv4.hostname=winmvs2a.example.com</code><br> |
+
+</details>
+
+<details>
+<summary>Credentials tag for logging onto a z/OS system </summary>
+
+| Property: | Credentials tag for logging onto a z/OS system   |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[IMAGEID].credentials |
+| Description: |  Tag of the credentials that are stored in the CREDS and used to log onto a z/OS system  |
+| Required:  | Yes, if connecting to a z/OS image |
+| Default value: | None|
+| Valid values: | Valid characters are A-Z, a - z, 0-9  |
+| Examples: | <code>zos.image.IMAGEA.credentials=KEY_TO_CREDS_STORE</code><br><code>zos.image.SIMBANK.credentials=SIMBANK</code><br><code>zos.image.IMAGEA.credentials=WINMVS2A</code><br>|
+
+</details>
+
+
 <details>
 <summary>Extra bundle required to implement the z/OS Batch Manager</summary>
 
@@ -80,7 +129,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The zOS Cluster ID |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.tag.[tag].clusterid |
+| Name: | zos.tag.[tag].clusterid | 
 | Description: | The z/OS Cluster ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
@@ -94,7 +143,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The images for a zOS Cluster |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.cluster.[clusterId].images |
+| Name: | zos.cluster.[clusterId].images | 
 | Description: | The z/OS Images for the specified cluster. Specify more than one image by using commas. |
 | Required:  | No |
 | Default value: | None |

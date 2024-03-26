@@ -3,13 +3,19 @@ path: "/docs/managers/zos-file-manager"
 title: "zOS file Manager"
 ---
 
-**BETA**
+This Manager is at Beta level. You can view the <a href="https://javadoc.galasa.dev/overview-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
-## Overview
+
+[Overview](#overview)<br>
+[Provided annotation](#annotations)<br>
+[Code snippets and examples](#codesnippets)<br>
+
+
+# <a name="overview"></a>Overview
 This Manager enables Galasa tests to manage data sets and UNIIX files on a zOS image. <br><br> The manager is implemented using the zOS/MF Manager by default. <br><br>
 
 
-## Annotations
+## <a name="annotations"></a>Provided annotations
 
 The following annotations are available with the zOS file Manager
  
@@ -38,7 +44,7 @@ The following annotations are available with the zOS file Manager
 | Syntax: | <code>@ZosFileHandler<br> public IZosFileHandler zosFileHandler;<br></code> |
 | Notes: | The <code>IZosFileHandler</code> interface has three methods supplying file name and zOS image:<br> {@link IZosFileHandler#newDataset(String, dev.galasa.zos.IZosImage)}<br>  {@link IZosFileHandler#newVSAMDataset(String, dev.galasa.zos.IZosImage)}<br> {@link IZosFileHandler#newUNIXFile(String, dev.galasa.zos.IZosImage)}<br> returning an object representing the type of file requested. This can be an existing file or can be created via a method on the file object.<br><br> See <a href="https://javadoc.galasa.dev/dev/galasa/zosfile/ZosFileHandler.html" target="_blank">ZosFileHandler</a>, <a href="https://javadoc.galasa.dev/dev/galasa/zosfile/IZosFileHandler.html" target="_blank">IZosFileHandler</a>, <a href="https://javadoc.galasa.dev/dev/galasa/zosfile/IZosDataset.html" target="_blank">IZosDataset</a>, <a href="https://javadoc.galasa.dev/dev/galasa/zosfile/IZosVSAMDataset.html" target="_blank">IZosVSAMDataset</a> and <a href="https://javadoc.galasa.dev/dev/galasa/zosfile/IZosUNIXFile.html" target="_blank">IZosUNIXFile</a> to find out more. |
 
-## Code Snippets
+## <a name="overview"></a>Code Snippets
 
 Use the following code snippets to help you get started with the zOS file Manager.
  
