@@ -54,7 +54,6 @@ After writing your blog, remember to check that you have
 
   - One or more members of the Galasa team will review the blog post 
   - The reviewers will work with the author for any updates or changes required
-  - OMP team will do final check for grammar and branding
   - OMP will schedule it and promote via social media
   - OMP team will let author know publication date and share via social media
   - To check on the status of your blog check the <a href="https://github.com/orgs/galasa-dev/projects/3/views/1" target="_blank"> GitHub board</a>.  This lets you see the reviewers of your blog as well as enable you to read and add any Github comments about its publication.  See the [Tracking blog status](#tracking) section for more information. .
@@ -186,11 +185,11 @@ Determine which Google search keywords are best suited for your content and targ
 Research suggests the ideal blog post length is between 1,500 - 2,500 words, but this depends on the type of post as different topics require different depths of content. For example, some “how to” posts will need to be longer that some more “conceptual” ones. 
 
  
-Posts that are too short (less than 800 words) won’t rank highly. 
+Posts that are too short (less than 500 words) won’t rank highly. 
 
-- 1,300 - 1,700 words: Typical length for “What is ...” blog posts
+- 800 - 1,700 words: Typical length for “What is ...” blog posts
 
-- 1,700 - 2,100 words: Typical length for “How to ...” posts.
+- 1,000 - 2,100 words: Typical length for “How to ...” posts.
 
 - 1,500 - 2,500 words: Ideal length for high ranking by search engines.
 
