@@ -19,7 +19,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.33.0 - Release Highlights
 
-- Authentication when interacting with an Ecosystem is now mandatory. You need to [authenticate with an Ecosystem](../docs/ecosystem/ecosystem-authentication) in order to use its API server or to use any galasactl commands that interact with an Ecosystem. 
+- Authentication when interacting with an Ecosystem is now mandatory. You need to authenticate with an Ecosystem in order to use its API server or to use any galasactl commands that interact with an Ecosystem. 
 
 - CouchDB is upgraded to version 3.3.3. If you upgrade your Ecosystem to Galasa version 0.33.0, CouchDB will be upgraded. Though we don't anticipate any problems with the Helm chart upgrading CouchDB in-situ, we recommend that you follow the usual safety practices of backing up your data prior to any upgrade. You can then apply the backup to the new CouchDB pod after it is created. CouchDB cannot be downgraded after upgrading.
 
