@@ -17,8 +17,21 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.33.0 - Release Highlights
 
-## 0.32.0 - Release Highlights
+- Authentication when interacting with an Ecosystem is now mandatory. You need to authenticate with an Ecosystem in order to use its API server or to use any galasactl commands that interact with an Ecosystem. 
+
+- CouchDB is upgraded to version 3.3.3. If you upgrade your Ecosystem to Galasa version 0.33.0, CouchDB will be upgraded. Though we don't anticipate any problems with the Helm chart upgrading CouchDB in-situ, we recommend that you follow the usual safety practices of backing up your data prior to any upgrade. You can then apply the backup to the new CouchDB pod after it is created. CouchDB cannot be downgraded after upgrading.
+
+- Maven and Gradle plugins now accept a personal access token when publishing a test catalog to the Ecosystem.
+
+- Various bug fixes
+
+- Various documentation enhancements, including property updates for the CICS TS and z/OS Managers, and information on updating credentials in an Ecosystem.
+
+
+<details>
+<summary><b>0.32.0 - Release Highlights</b></summary>
 
 - CLI updates: 
 
@@ -33,6 +46,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - The Eclipse plug-in for Galasa is no longer supported. You can work with Galasa version 0.32.0 and later by using the Galasa command line interface (CLI).
 
 - Various documentation enhancements.
+</details> 
 
 
 
