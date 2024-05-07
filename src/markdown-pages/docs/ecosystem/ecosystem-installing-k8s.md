@@ -217,32 +217,30 @@ To reconfigure Galasa to point to the Galasa Ecosystem that you created, you nee
 ```
 kubectl get svc
 ```
-Look for the `api-external` service and the `NodePort` that is associated with port `8080`. For example, the following snippet shows that node port `30960` is associated with port `8080`:
-```
-test-api-external  NodePort  10.107.160.208  <none>  \
-9010:31359/TCP,9011:31422/TCP,8080:30960/TCP  18s
-```
-Combine the information with the external hostname that you provided to form the bootstrap URL. For example, if the external hostname you provided was `example.com`, the bootstrap URL is `http://example.com:30960/boostrap`. 
+
+Combine the information with the external hostname that you provided to form the bootstrap URL so that the bootstrap is the external host name followed by `/api/bootstrap`. For example, if the external hostname is `example.com`, the bootstrap URL will be `http://example.com/api/boostrap`. 
 
 You can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on writing tests, see the <a href=https://galasa.dev/docs/writing-own-tests> Writing your own independent Galasa tests</a> documentation.
 
 ## Upgrading the Galasa Ecosystem
 
-To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.33.0, run the following command:
+Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.33.0 - by running the following command:
 
 
 On Mac or Unix:
 
 ```console
+helm repo update \
 helm upgrade <release-name> galasa/ecosystem --reuse-values \
---set galasaVersion=0.32.0 --wait
+--set galasaVersion=0.33.0 --wait
 ```
 
 On Windows (Powershell):
 
 ```console
+helm repo update `
 helm upgrade <release-name> galasa/ecosystem --reuse-values `
---set galasaVersion=0.32.0 --wait
+--set galasaVersion=0.33.0 --wait
 ```
 
 where:<br>
