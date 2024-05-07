@@ -87,7 +87,7 @@ To configure Dex in your Ecosystem, complete the following steps to update your 
     issuer: http://<your-external-hostname>/dex
     ```
 
-4. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on <a href=https://dexidp.io/docs/tokens target="_blank"> ID tokens</a> for information and available expiry settings. 
+2. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on <a href=https://dexidp.io/docs/tokens target="_blank"> ID tokens</a> for information and available expiry settings. 
 
 You can now configure Dex to authenticate via a connector to authenticate with an upstream identity provider, for example, GitHub, Microsoft, or an LDAP server. For a full list of supported connectors, refer to the <a href=https://dexidp.io/docs/connectors target="_blank"> Dex documentation</a>. The following instructions explain how to configure Dex to authenticate through GitHub.
 
