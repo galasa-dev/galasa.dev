@@ -62,11 +62,10 @@ framework.extra.bundles=dev.galasa.cps.rest
 ```
 
 where: <br>
-- `galasacps://my.ecosystem.url/api` tells Galasa that `https://my.ecosystem.url/api` is the location of the Ecosystem REST API and <br>
-- `framework.extra.bundles` indicates that the Galasa framework should load the `dev.galasa.cps.rest` extension. This extension tells the Galasa framework how to handle URLs that start with `galasacps` as the *scheme* part of the URL. <br>
+- `https://my.ecosystem.url` refers to the Web UI used to allocate tokens and <br>
+- `framework.extra.bundles` tells the Galasa framework to load the `dev.galasa.cps.rest` extension. This extension tells the Galasa framework how to handle URLs that start with `galasacps` as the *scheme* part of the URL. <br>
 
-
-After configuring authentication, you can run a test in hybrid mode by setting your bootstrap to refer to the Ecosystem in which the shared configuration is stored, and using the `runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. 
+After setting the `GALASA_TOKEN` to be a valid token for the Ecosystem from which the CPS property values will be drawn, you can run a test in hybrid mode by setting your bootstrap to refer to the Ecosystem in which the shared configuration is stored, and using the `galasactl runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. 
 
 ### <a name="whenremote"></a>When to run a test in the Galasa Ecosystem
 
