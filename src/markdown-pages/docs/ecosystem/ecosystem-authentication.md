@@ -22,6 +22,8 @@ When a user logs into the Galasa Web UI via their browser, the Web UI contacts t
 
 On a successful login, a `bearer-token.json` file is created in the Galasa home directory. This file contains a bearer token that galasactl uses to authenticate requests when communicating with a Galasa Ecosystem. If the bearer token expires, galasactl automatically attempts to re-authenticate with the Galasa Ecosystem using the properties in the `galasactl.properties` file within the Galasa home directory. 
 
+
+
 ### Logging in to a Galasa Ecosystem using the auth login command
 
 You can log in to a Galasa Ecosystem explicitly by using the `galasactl auth login` command. You might want to do an explicit log in if you are running galasactl as part of a build pipeline, or if you just want to make sure you can log in.
@@ -30,4 +32,20 @@ You can log in to a Galasa Ecosystem explicitly by using the `galasactl auth log
 ### Logging out of a Galasa Ecosystem using the auth logout command
 
 To log out of a Galasa Ecosystem using galasactl, you can use the `galasactl auth logout` command. If you run a galasactl command that interacts with an Ecosystem while logged out, galasactl will attempt to automatically log in using the properties in your `galasactl.properties` file within your Galasa home directory.
+
+
+### Listing personal access tokens
+
+You can retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. This information is useful if you need to revoke or delete an access token, for example, if a user moves to a new role, or loses a laptop with their access token on it.
+
+The token ID, creation date, username, and description information is returned, as shown in the following example:
+
+```console
+> galasactl auth tokens get 
+tokenid            created(YYYY/MM/DD)  user     description
+0982349-128318238  2023-12-03           msmith   Ecosystem1 access from laptop
+87a6sd8-2y8hqwd27  2023-08-04           sjones   CLI access from VSCode
+```
+
+The returned token list is sorted in creation date order, with the earliest creation date first. The description information matches the description that is provided by the user when creating a new access token from the Web UI.
 
