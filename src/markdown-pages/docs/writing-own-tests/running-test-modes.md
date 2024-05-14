@@ -49,7 +49,10 @@ After configuring authentication, you can run a test in this mode by setting up 
 
 ## <a name="hybrid"></a>Running a test locally but using shared configuration
 
-When you run a test locally, but using shared configuration, the Galasa bootstrap is set to the URL of the Galasa Ecosystem where the shared configuration is stored. The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote Ecosystem to read configuration data, but not the credentials properties as these are drawn from a local file. This is the key difference between running a test in this "hybrid" mode versus running a test locally without using shared configuration. In hybrid mode, the test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
+When you run a test locally, but using shared configuration, you need to run the `galasactl auth login` command to access the remote system using the Galasa bootstrap. You can then unset the bootstrap so that your local `bootstrap.properties` file is used, or alternatively you can refer explicitly to the local bootstrap file. For more information about the `galasactl auth login` command, see the [Configuring authentication](../ecosystem/ecosystem-authentication) documentation.
+
+
+The Galasa framework is launched within the JVM on the local machine, but the framework consults the remote Ecosystem to read configuration data, but not the credentials properties as these are drawn from a local file. This is the key difference between running a test in this "hybrid" mode versus running a test locally without using shared configuration. In hybrid mode, the test still runs in the local JVM and all test results and artifacts are stored on the local disk. 
 
 
 ![running in local mode with shared configuration:](hybridrunmode.svg)
@@ -65,7 +68,7 @@ where: <br>
 - `https://my.ecosystem.url` refers to the Web UI used to allocate tokens and <br>
 - `framework.extra.bundles` tells the Galasa framework to load the `dev.galasa.cps.rest` extension. This extension tells the Galasa framework how to handle URLs that start with `galasacps` as the *scheme* part of the URL. <br>
 
-After setting the `GALASA_TOKEN` to be a valid token for the Ecosystem from which the CPS property values will be drawn, you can run a test in hybrid mode by setting your bootstrap to refer to the Ecosystem in which the shared configuration is stored, and using the `galasactl runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. 
+After setting the `GALASA_TOKEN` to be a valid token for the Ecosystem from which the CPS property values will be drawn, log into the Ecosystem by running the `galasactl auth login` command. You can then run a test in hybrid mode by setting your bootstrap to refer to the Ecosystem in which the shared configuration is stored, and using the `galasactl runs submit local` <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank"> Galasa CLI</a> command. 
 
 ### <a name="whenremote"></a>When to run a test in the Galasa Ecosystem
 
