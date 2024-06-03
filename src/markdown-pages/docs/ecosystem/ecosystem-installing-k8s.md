@@ -226,7 +226,6 @@ You can then deploy your Galasa tests to a Maven repository and set up a test st
 
 Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.34.0 - by running the following command:
 
-
 On Mac or Unix:
 
 ```console

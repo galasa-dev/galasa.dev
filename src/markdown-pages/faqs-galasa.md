@@ -13,6 +13,7 @@ Use the following sections to scan for questions and problems that have been rai
 [What is the purpose of `imageTag`?](#k)<br><br>
 [What is the connection between z/OS terminal and application?](#l)<br><br>
 [Why is my test, which is running on a local LPAR, failing at the Provision Generate phase with the error "Caused by: dev.galasa.zos.ZosManagerException: Insufficent capacity for images in cluster..."?](#m)<br><br>
+[I have a testcase that needs to connect to an external resource with SSL. Is there a preferred way to do this with Galasa if I do not have access to the default truststore?](#n)<br><br>
 
 
 ### <a name="a"></a>How can I generate screenshot output when running my tests locally?
@@ -152,3 +153,7 @@ Normal operation of an Ecosystem includes a resource monitor which looks for thi
 
 Clearing out the `dss.properties` file resets the counters down to zero again. It is safe to do this providing that no tests are running. In principle, if you run multiple tests in parallel, you can see some of this limiting safety feature start failing tests even if you did not clean out the DSS. It is worth noting that if you always clear out the `dss.properties` file, the run name of tests always start from the same number, as the latest test number allocated counter is also kept there.
 
+### <a name="n"></a> I have a testcase that needs to connect to an external resource with SSL. Is there a preferred way to do this with Galasa if I do not have access to the default truststore? 
+
+For local tests, in the `bootstrap.properties` file, you can use `galasactl.jvm.local.launch.options=-Xmx80m -Xms20m`.
+When the galasactl program launches the JVM it will add those options to the command-line.
