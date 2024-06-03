@@ -43,7 +43,7 @@ The token ID, creation date, username, and description information is returned, 
 ```console
 > galasactl auth tokens get 
 tokenid         created(YYYY/MM/DD)  user                description
-09823128318238  2024-02-03           m.smith@gmail.com   Ecosystem1 access from laptop
+09823128318238  2024-02-03           m.smith@gmail.com   Ecosystem1 access 
 87a6s2y8hqwd27  2024-05-04           s_jones@gmail.com   CLI access from VSCode
 
 Total:2
