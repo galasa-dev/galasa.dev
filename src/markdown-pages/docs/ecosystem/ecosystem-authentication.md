@@ -42,9 +42,11 @@ The token ID, creation date, username, and description information is returned, 
 
 ```console
 > galasactl auth tokens get 
-tokenid            created(YYYY/MM/DD)  user     description
-0982349-128318238  2023-12-03           msmith   Ecosystem1 access from laptop
-87a6sd8-2y8hqwd27  2023-08-04           sjones   CLI access from VSCode
+tokenid         created(YYYY/MM/DD)  user                description
+09823128318238  2024-02-03           m.smith@gmail.com   Ecosystem1 access from laptop
+87a6s2y8hqwd27  2024-05-04           s_jones@gmail.com   CLI access from VSCode
+
+Total:2
 ```
 
 The returned token list is sorted in creation date order, with the earliest creation date first. The description information matches the description that is provided by the user when creating a new access token from the Web UI.
