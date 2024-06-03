@@ -58,10 +58,10 @@ The following are properties used to configure the Core Manager:
 | Property: | Resource String Pattern CPS Property |
 | --------------------------------------- | :------------------------------------- |
 | Name: | core.resource.string.[length].pattern |
-| Description: | Defines the pattern of characters within a string of a specified length.  The patterns are from the Galasa ResourcePoolingService which uses a homegrown syntax.   |
+| Description: | Defines the pattern of characters within a string of a specified length.  The patterns are from the Galasa ResourcePoolingService which uses a custom syntax.   |
 | Required:  | No |
 | Default value: | {A-Z} for each byte for the specified length |
-| Valid values: | For each character the value can be a constant or a random choice from a literal, eg {A-Z results in a single character between A and Z inclusive. {0-9} or {a-zA-Z0-9} are options. DFH{A-Z}{0-1}{0-9}{0-9}{0-9}, results in DFHA1789 for example, the 4th character can only be 0 or 1. 
+| Valid values: | For each character the value can be a constant or a random choice from a literal, eg {A-Z results in a single character between A and Z inclusive. {0-9} or {a-zA-Z0-9} are options. DFH{A-Z}{0-1}{0-9}{0-9}{0-9}, results in DFHA1789 for example, the 5th character can only be 0 or 1. 
 | Examples: | <code>core.resource.string.8.length={A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}{A-Z}<br> </code> |
 
 </details>

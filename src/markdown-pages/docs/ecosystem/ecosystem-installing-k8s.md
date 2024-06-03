@@ -53,8 +53,8 @@ Complete the following steps to install a Galasa Ecosystem by using Helm:
         helm repo add galasa https://galasa-dev.github.io/helm
         ```
     - If the repository exists, run the ```helm repo update``` command to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.<br>
-    _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml#L43 target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required.
-1. Download the <a href=https://github.com/galasa-dev/helm/blob/main/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
+    _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href= https://github.com/galasa-dev/helm/blob/ecosystem-0.34.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required.
+1. Download the <a href= https://github.com/galasa-dev/helm/blob/ecosystem-0.34.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
     - Set `galasaVersion` to the version of Galasa that you want to run. (See the [Releases](/releases) documentation for released versions). To ensure that each pod in the Ecosystem is running at the same level, do not use `latest` as the Galasa version.
     - Set `externalHostname` to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa NodePort services. If you are deploying to minikube, the cluster's IP address can be retrieved by running `minikube ip`.
 
@@ -73,11 +73,11 @@ Assuming that your Ingress controller is set up on your Kubernetes cluster, conf
 
 After updating the values under the `ingress` section of your `values.yaml` file, complete the following instructions to configure Dex in your Ecosystem.
 
-### Configuring Dex
+### Configuring Dex 
 
-**Note: The Ecosystem chart's use of Dex is still under development and is subject to change.**
+*Note:* The Ecosystem chart's use of Dex is still under development and is subject to change.
 
-In a future release, <a href=https://dexidp.io target="_blank"> Dex</a> will be used to authenticate users attempting to interact with a Galasa Ecosystem.  
+For Galasa version 0.32.0 and later, Dex is used to authenticate users interacting with a Galasa Ecosystem.
 
 To configure Dex in your Ecosystem, complete the following steps to update your `values.yaml` file:
 
@@ -87,38 +87,7 @@ To configure Dex in your Ecosystem, complete the following steps to update your 
     issuer: http://<your-external-hostname>/dex
     ```
 
-2. Under the `staticClients` value, replace the example hostname given in the `redirectURIs` list with the value you provided in the `externalHostname`, and set the URI scheme to either `http` or `https`. For example:
-
-    ```yaml
-    staticClients:
-    - id: galasa-webui
-      redirectURIs:
-      - 'http://<your-external-hostname>/api/auth/callback'
-      name: 'Galasa Ecosystem Web UI'
-      secret: example-webui-client-secret
-    ```
-3. If you want to supply a client secret for the Galasa Web UI by using a Kubernetes Secret, replace the `secret` key in the `staticClients` section with `secretEnv` and supply the name of your Secret as a value within the `envFrom` section. For example, if you have a Secret called `my-webui-client-credentials` with a key called `WEBUI_CLIENT_SECRET` and a value representing a client secret, provide the following values:
-
-    ```yaml
-    dex:
-      envFrom:
-        - secretRef:
-          name: my-webui-client-credentials
-
-      # Other Dex-related values...
-
-      config:
-        # Other Dex configuration values...
-
-        staticClients:
-        - id: galasa-webui
-          redirectURIs:
-          - 'http://<your-external-hostname>/auth/callback'
-          name: 'Galasa Ecosystem Web UI'
-          secretEnv: WEBUI_CLIENT_SECRET
-    ```
-
-4. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on <a href=https://dexidp.io/docs/tokens target="_blank"> ID tokens</a> for information and available expiry settings. 
+2. Optional. Update the `expiry` section to configure the expiry of JSON Web Tokens (JWTs) and refresh tokens issued by Dex. By default, JWTs expire 24 hours after being issued and refresh tokens remain valid unless they have not been used for one year. See the Dex documentation on <a href=https://dexidp.io/docs/tokens target="_blank"> ID tokens</a> for information and available expiry settings. 
 
 You can now configure Dex to authenticate via a connector to authenticate with an upstream identity provider, for example, GitHub, Microsoft, or an LDAP server. For a full list of supported connectors, refer to the <a href=https://dexidp.io/docs/connectors target="_blank"> Dex documentation</a>. The following instructions explain how to configure Dex to authenticate through GitHub.
 
@@ -248,23 +217,20 @@ To reconfigure Galasa to point to the Galasa Ecosystem that you created, you nee
 ```
 kubectl get svc
 ```
-Look for the `api-external` service and the `NodePort` that is associated with port `8080`. For example, the following snippet shows that node port `30960` is associated with port `8080`:
-```
-test-api-external  NodePort  10.107.160.208  <none>  \
-9010:31359/TCP,9011:31422/TCP,8080:30960/TCP  18s
-```
-Combine the information with the external hostname that you provided to form the bootstrap URL. For example, if the external hostname you provided was `example.com`, the bootstrap URL is `http://example.com:30960/boostrap`. 
+
+Combine the information with the external hostname that you provided to form the bootstrap URL so that the bootstrap is the external host name followed by `/api/bootstrap`. For example, if the external hostname is `example.com`, the bootstrap URL will be `http://example.com/api/boostrap`. 
 
 You can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on writing tests, see the <a href=https://galasa.dev/docs/writing-own-tests> Writing your own independent Galasa tests</a> documentation.
 
 ## Upgrading the Galasa Ecosystem
 
-To upgrade the Galasa Ecosystem to use a newer version of Galasa, for example version 0.34.0, run the following command:
 
+Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.34.0 - by running the following command:
 
 On Mac or Unix:
 
 ```console
+helm repo update \
 helm upgrade <release-name> galasa/ecosystem --reuse-values \
 --set galasaVersion=0.34.0 --wait
 ```
@@ -272,6 +238,7 @@ helm upgrade <release-name> galasa/ecosystem --reuse-values \
 On Windows (Powershell):
 
 ```console
+helm repo update `
 helm upgrade <release-name> galasa/ecosystem --reuse-values `
 --set galasaVersion=0.34.0 --wait
 ```
