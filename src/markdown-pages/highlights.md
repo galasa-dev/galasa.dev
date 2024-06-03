@@ -20,9 +20,9 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 ## 0.34.0 - Release Highlights
 
-- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command.Use the information to revoke or delete an access token.
+- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
 
-- The default etcd size in the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
+- The default size of the PVC storage allocated by the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
 
 - Various bug fixes
 
