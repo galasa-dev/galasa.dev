@@ -24,7 +24,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - The default size of the PVC storage allocated by the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
 
-- The unused WebUI `/webui/worklist` endpoint and `dev.galasa.api.webui` bundle is removed from the API server to resolve reported vulnerabilities.
+- The unused WebUI `/webui/worklist` endpoint and `dev.galasa.api.webui` bundle are removed from the API server to resolve reported vulnerabilities.
 
 - Various bug fixes
 
