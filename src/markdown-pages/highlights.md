@@ -18,7 +18,7 @@ We have the following available Slack channels:
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.34.0 - Release Highlights
+## 0.34.1 - Release Highlights
 
 - Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
 
