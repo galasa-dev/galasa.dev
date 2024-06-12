@@ -53,8 +53,8 @@ Complete the following steps to install a Galasa Ecosystem by using Helm:
         helm repo add galasa https://galasa-dev.github.io/helm
         ```
     - If the repository exists, run the ```helm repo update``` command to get the latest versions of the packages and then run ```helm search repo galasa``` to see the available charts.<br>
-    _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.34.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required. 
-1. Download the <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.34.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
+    _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.34.1/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required. 
+1. Download the <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.34.1/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
     - Set `galasaVersion` to the version of Galasa that you want to run. (See the [Releases](/releases) documentation for released versions). To ensure that each pod in the Ecosystem is running at the same level, do not use `latest` as the Galasa version.
     - Set `externalHostname` to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa Ecosystem services. If you are deploying to minikube, the cluster's IP address can be retrieved by running `minikube ip`.
 
@@ -225,14 +225,14 @@ You can then deploy your Galasa tests to a Maven repository and set up a test st
 ## Upgrading the Galasa Ecosystem
 
 
-Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.34.0 - by running the following command:
+Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.34.1 - by running the following command:
 
 On Mac or Unix:
 
 ```console
 helm repo update \
 helm upgrade <release-name> galasa/ecosystem --reuse-values \
---set galasaVersion=0.34.0 --wait
+--set galasaVersion=0.34.1 --wait
 ```
 
 On Windows (Powershell):
@@ -240,7 +240,7 @@ On Windows (Powershell):
 ```console
 helm repo update `
 helm upgrade <release-name> galasa/ecosystem --reuse-values `
---set galasaVersion=0.34.0 --wait
+--set galasaVersion=0.34.1 --wait
 ```
 
 where:<br>
