@@ -17,7 +17,22 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.33.0 - Release Highlights
+
+## 0.34.1 - Release Highlights
+
+- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
+
+- The default size of the PVC storage allocated by the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
+
+- The unused WebUI `/webui/worklist` endpoint and `dev.galasa.api.webui` bundle are removed from the API server to resolve reported vulnerabilities.
+
+- Various bug fixes
+
+- Various documentation updates
+
+
+<details>
+<summary><b>0.33.0 - Release Highlights</b></summary>
 
 - Authentication when interacting with an Ecosystem is now mandatory. You need to authenticate with an Ecosystem in order to use its API server or to use any galasactl commands that interact with an Ecosystem. 
 
@@ -28,6 +43,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Various bug fixes
 
 - Various documentation enhancements, including property updates for the CICS TS and z/OS Managers, and information on updating credentials in an Ecosystem.
+</details> 
 
 
 <details>
