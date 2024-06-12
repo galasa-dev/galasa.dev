@@ -28,7 +28,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - Various bug fixes
 
-- Various documentation enhancements
+- Various documentation updates
 
 
 <details>
