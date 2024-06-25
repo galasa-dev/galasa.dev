@@ -10,7 +10,7 @@ const consts = {
   slackUrl: "https://openmainframeproject.slack.com/signup#/domain-signup",
   algolia: {
     appId: "0CBS2VLS6S",
-    apiKey: "46b619eff7e9e3900835e17fc7aa880b",
+    apiKey: "46b619eff7e9e3900835e17fc7aa880b", //#gatsby recommended application of api key //pragma: allowlist secret
     indexName: "galasa",
   },
 }
