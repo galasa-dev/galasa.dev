@@ -123,4 +123,4 @@ galasactl runs submit local --log - `
 
 ## Next steps
 
-Explore the SimBankIVT test and the other SimBank tests in the [Exploring the supplied SimBank tests](/docs/exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.
+Explore the SimBankIVT test and the other SimBank tests in the [Exploring Galasa SimBank](exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.
