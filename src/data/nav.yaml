@@ -52,18 +52,18 @@
             - title: Debugging a test locally
               path: /docs/cli-command-reference/cli-runs-local-debug
             - title: Viewing test results locally
-              path: /docs/cli-command-reference/viewing-test-results-cli
-            - title: Exploring Galasa SimBank online
-              path: /docs/cli-command-reference/simbank-cli
-            - title: Exploring Galasa SimBank offline
-              path: /docs/cli-command-reference/simbank-cli-offline
-            - title: Running the SimBank tests online
-              path: /docs/cli-command-reference/running-simbank-tests-cli
-            - title: Running the SimBank tests offline
-              path: /docs/cli-command-reference/running-simbank-tests-cli-offline   
-        - title: Exploring the supplied SimBank tests
-          path: /docs/exploring-simbank-tests
+              path: /docs/cli-command-reference/viewing-test-results-cli 
+        - title: Exploring Galasa SimBank 
+          path: /docs/running-simbank-tests/exploring-simbank-tests
           items:
+            - title: Running Galasa SimBank online
+              path: /docs/running-simbank-tests/simbank-cli
+            - title: Running Galasa SimBank offline
+              path: /docs/running-simbank-tests/simbank-cli-offline
+            - title: Running the SimBank tests online
+              path: /docs/running-simbank-tests/running-simbank-tests-cli
+            - title: Running the SimBank tests offline
+              path: /docs/running-simbank-tests/running-simbank-tests-cli-offline  
             - title: The SimBank IVT
               path: /docs/running-simbank-tests/simbank-IVT
             - title: BasicAccountCreditTest

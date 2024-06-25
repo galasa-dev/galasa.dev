@@ -3,7 +3,7 @@ path: "/docs/running-simbank-tests/simbank-IVT"
 title: "The SimBank Installation Verification Test"
 ---
 
-This basic test logs on to Galasa SimBank and examines an account. 
+This basic test logs on to Galasa SimBank and examines an account. The SimBank IVT test is available in the <a href="https://github.com/galasa-dev/simplatform/blob/main/galasa-simbank-tests/dev.galasa.simbank.tests/src/main/java/dev/galasa/simbank/tests/SimBankIVT.java" target="_blank"> Galasa simplatform repository</a> in GitHub. 
 
 ## Exploring the `SimBankIVT` test class
 

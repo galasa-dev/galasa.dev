@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/running-simbank-tests-cli"
+path: "/docs/running-simbank-tests/running-simbank-tests-cli"
 title: "Running the SimBank tests using the CLI"
 ---
 
