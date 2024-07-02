@@ -17,8 +17,13 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.35.0 - Release Highlights
 
-## 0.34.1 - Release Highlights
+- A fix to the database connector of the DB2 Manager
+
+
+<details>
+<summary><b>0.34.1 - Release Highlights</b></summary>
 
 - Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
 
@@ -29,6 +34,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Various bug fixes
 
 - Various documentation updates
+</details> 
 
 
 <details>
