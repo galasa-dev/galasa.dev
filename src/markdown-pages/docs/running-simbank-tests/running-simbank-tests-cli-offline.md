@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/running-simbank-tests-cli-offline"
+path: "/docs/running-simbank-tests/running-simbank-tests-cli-offline"
 title: "Running the SimBank tests using the CLI offline"
 ---
 
@@ -10,7 +10,7 @@ You can explore Galasa further with Galasa Simbank. Galasa Simbank is a simulate
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and have set the JAVA_HOME environment variable, as described in the [CLI prerequisites offline](zipped-prerequisites) documentation. 
+The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and have set the JAVA_HOME environment variable, as described in the [CLI prerequisites offline](../cli-command-reference/zipped-prerequisites) documentation. 
 
 
 ## Updating the overrides and credentials property files
@@ -50,7 +50,7 @@ In order to run the Galasa SimBanks tests you need to add some configuration inf
 
 The SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. Complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.25.0`.
 
-Remember to initialise your local environment by running the `galasactl local init` command and to start the SimPlatform server by running the `run-simplatform.sh` script, as described in the `Launching SimBank` section in the [Exploring Galasa SimBank using the CLI offline](simbank-cli-offline) documentation.
+Remember to initialise your local environment by running the `galasactl local init` command and to start the SimPlatform server by running the `run-simplatform.sh` script, as described in the [Running Galasa SimBank using the CLI offline](simbank-cli-offline) documentation.
 
 
 You are now ready to run a local Galasa test offline with just the contents of the zipped distribution.
@@ -72,7 +72,7 @@ galasactl runs submit local --log - `
 ```
 Note that the `--localMaven` flag refers to the `maven` directory inside the _isolated.zip_ as these are all the Maven artifacts that should be needed to run the test, including the `dev.galasa.simbank.obr` artifact which is passed to the `--obr` flag and the `SimBankIVT` test class which is passed to `class`.
 1. The `SimBankIVT` test class runs, and the terminal displays its progress through to completion, with an Exit code of `0`.
-1. View the results of the test runs in your terminal. You can also view results in the `run.log` file in the result archive store (RAS). 3270 terminal interactions can be viewed in the `artifacts` directory in the RAS. Find out more in the [Viewing test results locally](viewing-test-results-cli) documentation. 
+1. View the results of the test runs in your terminal. You can also view results in the `run.log` file in the result archive store (RAS). 3270 terminal interactions can be viewed in the `artifacts` directory in the RAS. Find out more in the [Viewing test results locally](../cli-command-reference/viewing-test-results-cli) documentation. 
 
 To run other SimBank tests, for example `BasicAccountCreditTest`, replace the test class name in the `--class` parameter. Remember to update the `--localMaven` flag value to the location of the `maven` directory as well. For example: 
 
@@ -98,4 +98,4 @@ galasactl runs submit local --log - `
 
 ## Next steps
 
-Explore the SimBankIVT test and the other SimBank tests in the [Exploring the supplied SimBank tests](/docs/exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.
+Explore the SimBankIVT test and the other SimBank tests in the [Exploring Galasa SimBank](exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.

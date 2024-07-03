@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests/provisioned-account-credit-tests"
 title: "ProvisionedAccountCreditTests"
 ---
-To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. 
+To run this test, follow the same steps as for `SimBankIVT.java` but using the test class name `ProvisionedAccountCreditTests` instead of `SimBankIVT`. The SimBank Provisioned Account Credit test is available in the <a href="https://github.com/galasa-dev/simplatform/blob/main/galasa-simbank-tests/dev.galasa.simbank.tests/src/main/java/dev/galasa/simbank/tests/ProvisionedAccountCreditTests.java" target="_blank"> Galasa simplatform repository</a> in GitHub. 
 
 This test performs the same function as `BasicAccountCreditTest.java` but has an improved design which includes the use of a provisioned account object, which, once declared as:
 ```java
