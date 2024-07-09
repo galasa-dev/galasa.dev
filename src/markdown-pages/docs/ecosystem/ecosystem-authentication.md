@@ -36,7 +36,7 @@ To log out of a Galasa Ecosystem using galasactl, you can use the `galasactl aut
 
 ### Listing personal access tokens
 
-You can retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. This information is useful if you need to query active tokens with a view to revoking or deleting a particular token, for example, if a user moves to a new role, or loses a laptop with their access token on it.
+You can retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. This information is useful if you need to query active tokens with a view to revoking a particular token, for example, if a user moves to a new role, or loses a laptop with their access token on it.
 
 The token ID, creation date, username, and description information is returned, as shown in the following example:
 
@@ -52,14 +52,14 @@ Total:2
 The returned token list is sorted in creation date order, with the earliest creation date first. The description information matches the description that is provided by the user when creating a new access token from the Web UI.
 
 
-### Deleting personal access tokens
+### Revoking personal access tokens
 
-If a user moves to a new role, or loses a laptop with their personal access token on it, you can log into the Galasa Ecosystem and delete their access token by using the `galasactl auth tokens delete` command. This ensures that the Ecosystem and systems-under-test remain secure.
+If a user moves to a new role, or loses a laptop with their personal access token on it, you can log into the Galasa Ecosystem and revoke their access token by using the `galasactl auth tokens delete` command. This ensures that the Ecosystem and systems-under-test remain secure.
 
 You can retrieve a list of available personal access tokens that have been created, along with their token IDs, by running the `galasactl auth tokens get` command, as described in the previous section. 
 
 
-Run the following command to delete a personal access token with the token ID `myId`:
+Run the following command to revoke a personal access token with the token ID `myId`:
 
 ```
 galasactl auth tokens delete --tokenid myId
