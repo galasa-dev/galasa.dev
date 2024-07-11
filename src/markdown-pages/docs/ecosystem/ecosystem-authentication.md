@@ -49,7 +49,7 @@ tokenid         created(YYYY/MM/DD)  user                description
 Total:2
 ```
 
-The returned token list is sorted in creation date order, with the earliest creation date first. The description information matches the description that is provided by the user when creating a new access token from the Web UI.
+The returned token list is sorted in creation date order, with the earliest creation date first. The description information matches the description that is provided by the user when creating a new access token from the Galasa Web UI.
 
 
 ### Revoking personal access tokens
