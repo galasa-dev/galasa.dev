@@ -65,7 +65,7 @@ Run the following command to revoke a personal access token with the token ID `m
 galasactl auth tokens delete --tokenid myId
 ```
 
-*Note:* The `galasactl auth tokens delete` command revokes personal access tokens that a user creates through the WebUI. When a user runs a CLI command that talks to the Ecosystem, the CLI uses the personal access token to get a JSON Web Token (JWT). A JWT is a separate, temporary token that identifies a user and is used in galasactl commands to talk to the API server. JWTs cannot be revoked, but they do expire, so a user can continue to run CLI commands after revoking their personal access token until their JWT expires. You can remove the JWT that is stored on a user's machine instead of having to wait for the JWT to expire, by running the `galasactl auth logout` command on that machine.
+*Note:* The `galasactl auth tokens delete` command revokes personal access tokens that a user creates through the Galasa Web UI. When a user runs a CLI command that talks to the Ecosystem, the CLI uses the personal access token to get a JSON Web Token (JWT). A JWT is a separate, temporary token that identifies a user and is used in galasactl commands to talk to the API server. JWTs cannot be revoked, but they do expire, so a user can continue to run CLI commands after revoking their personal access token until their JWT expires. You can remove the JWT that is stored on a user's machine instead of having to wait for the JWT to expire, by running the `galasactl auth logout` command on that machine.
 
 For more information about JWTs, see the `Configuring Dex` section in the [Installing an Ecosystem using Helm](ecosystem-installing-k8s) documentation.
 
