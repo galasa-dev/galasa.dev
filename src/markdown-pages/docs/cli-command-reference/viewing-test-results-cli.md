@@ -31,4 +31,4 @@ You can then view the terminal interactions from your test runs in the `images` 
 
 ## Next steps
 
-Take a look at the [Exploring Galasa SimBank online](simbank-cli) or [Exploring Galasa SimBank offline](simbank-cli-offline)documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn Galasa's basic principles of operation before you start connecting Galasa to your own mainframe application-under-test.
+Take a look at the [Exploring Galasa SimBank](../running-simbank-tests/exploring-simbank-tests) documentation. Galasa SimBank is a component that is distributed with Galasa. SimBank simulates a mainframe application and is designed to help you to learn Galasa's basic principles of operation before you start connecting Galasa to your own mainframe application-under-test.

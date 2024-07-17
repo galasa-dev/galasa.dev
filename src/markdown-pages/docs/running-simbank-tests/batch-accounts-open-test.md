@@ -2,7 +2,7 @@
 path: "/docs/running-simbank-tests/batch-accounts-open-test"
 title: "BatchAccountsOpenTest"
 ---
-This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the Galasa SimBank system via a z/OS batch job.
+This test uses the z/OS Batch Manager (which in the background, invokes z/OSMF) to add a set of accounts to the Galasa SimBank system via a z/OS batch job. The SimBank Batch Accounts Open test is available in the <a href="https://github.com/galasa-dev/simplatform/blob/main/galasa-simbank-tests/dev.galasa.simbank.tests/src/main/java/dev/galasa/simbank/tests/BatchAccountsOpenTest.java" target="_blank"> Galasa simplatform repository</a> in GitHub. 
 
 When you installed Galasa, some of the configuration information set in the `overrides.properties` file is specific to the z/OSMF and z/OS Batch Managers. Confirm that the file - it's located in your `.galasa` folder - contains, in its entirety:
 
