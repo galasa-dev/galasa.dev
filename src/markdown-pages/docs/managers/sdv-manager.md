@@ -13,7 +13,7 @@ This Manager is at Alpha level.<br>
 
 # <a name="overview"></a>Overview
   
-Create an automated integration test in Galasa and use the SDV Manager to obtain a report of the Security Definitions that would have been required if **Resource Security** and **Command Security** were turned on.
+Create an automated integration test in Galasa and use the **Security Definition Validation (SDV)** Manager to obtain a report of the Security Definitions that would have been required if **Resource Security** and **Command Security** were turned on.
 
 To achieve this, your tests should be **role-based**. Users belonging to particular roles should be used throughout your tests. Their interactions on each unique CICS region under test and the resulting Security Definitions of those interactions, will be recorded.
 
