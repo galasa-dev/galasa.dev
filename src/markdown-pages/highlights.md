@@ -17,9 +17,18 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.35.0 - Release Highlights
+
+## 0.36.0 - Release Highlights
+
+- You can now create Galasa projects and build and compile Galasa test code using Gradle version 8. For more information, see the `Upgrading tests to compile using Gradle version 8` section in the [Upgrading](docs/upgrading) documentation to understand the changes you need to make.
+
+- Various documentation updates
+
+<details>
+<summary><b>0.35.0 - Release Highlights</b></summary>
 
 - A fix to the database connector of the DB2 Manager
+</details> 
 
 
 <details>

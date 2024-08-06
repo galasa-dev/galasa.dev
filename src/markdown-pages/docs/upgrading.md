@@ -5,7 +5,7 @@ title: "Upgrading"
 
 ## Upgrading (online)
 
-You can get the upgrade your version of Galasa by completing the following steps:
+You can upgrade your version of Galasa by completing the following steps:
 
 1. Download the appropriate version of the Galasa CLI for your machine architecture from the <a href="https://github.com/galasa-dev/cli/releases" target="_blank"> Galasa CLI repository</a> in GitHub.
 2. Re-name the your existing `galasactl` binary so that you can re-name the Galasa binary that you just downloaded to `galasactl` to replace it. 
@@ -18,6 +18,38 @@ If you have already added the Galasa CLI path to your shell's initialization fil
 
 Download and extract the Galasa zip file to a directory of your choice and complete the steps documented in the [Installing the Galasa CLI offline](../docs/cli-command-reference/installing-offline) topic.
 
+
+## Upgrading tests to compile using Gradle version 8 
+
+Galasa releases 0.35.0 and earlier supported the use of Gradle versions 6.8.x, 6.9.x, and 7.x.x to create Galasa projects and build Galasa test code. From release 0.36.0 and later, Galasa additionally supports the use of Gradle version 8.x.x. 
+
+To use Gradle version 8.0 or later to create Galasa projects and build and compile Galasa test code, complete the following steps:
+
+1. Edit the `build.gradle` file in the OBR directory of your parent project, setting the plug-in values at the top of the file to version `0.36.0`, as shown in the following example:
+```
+plugins {
+...
+id 'dev.galasa.obr' version '0.36.0'
+id 'dev.galasa.testcatalog' version '0.36.0'
+...
+}
+```
+2. Add the following task definition to the `build.gradle` file in the OBR directory of the parent project to ensure that Gradle uses the correct build order.
+
+```groovy
+tasks.withType(PublishToMavenLocal) { task ->
+    task.dependsOn genobr
+    task.dependsOn mergetestcat
+}
+```
+3. In each test project `build.gradle` file, set the `dev.galasa.tests` plug-in to version `0.36.0` to ensure that the build uses the correct plug-in.
+```
+plugins {
+...
+id 'dev.galasa.tests' version '0.36.0'
+...
+}
+```
 
 
 ## Upgrading from using Eclipse to using the command line (online)
