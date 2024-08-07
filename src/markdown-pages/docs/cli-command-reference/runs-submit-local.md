@@ -72,14 +72,7 @@ where:
 - `--log` specifies that debugging information is directed somewhere, and the `-` means that it is sent to the console (stderr).
 - `--gherkin` specifies the path where the  CLI tool can find the Gherkin file containing the Gherkin tests. The path must be specified in a URL form, ending in a `.feature` extension. For example,`file:///Users/myuserid/gherkin/MyGherkinFile.feature` or `file:///C:/Users/myuserid/gherkin/MyGherkinFile.feature`.
 
-
-Examples of Galasa Managers in GitHub that have Gherkin support currently available are the <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-core-parent/dev.galasa.core.manager/src/main/java/dev/galasa/core/manager/internal/gherkin" target="_blank">
-Core Manager</a>, and the <a href="https://github.com/galasa-dev/managers/tree/main/galasa-managers-parent/galasa-managers-zos-parent/dev.galasa.zos3270.manager/src/main/java/dev/galasa/zos3270/internal/gherkin" target="_blank">
-zos3270Terminal Manager</a>. For more information about these Managers, see the [Manager](../managers) documentation section. 
-
-
-
-For more information about Gherkin, see the <a href="https://cucumber.io/docs/guides/overview/" target="_blank">Cucumber website.</a>
+For more information about the Gherkin support currently available, see the <a href="https://github.com/galasa-dev/cli/blob/main/gherkin-docs.md" target="_blank">Galasa CLI Gherkin documentation</a>.
 
 ## Overriding the path to the default local Maven repository
 
