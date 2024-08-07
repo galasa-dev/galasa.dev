@@ -22,7 +22,14 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 
 - You can now create Galasa projects and build and compile Galasa test code using Gradle version 8. For more information, see the `Upgrading tests to compile using Gradle version 8` section in the [Upgrading](docs/upgrading) documentation to understand the changes you need to make.
 
+- You can set terminal size within Gherkin tests (previously only available in Java tests) and use Scenario Outlines
+
+- Galasa Web UI is updated
+
+- Various defect fixes
+
 - Various documentation updates
+
 
 <details>
 <summary><b>0.35.0 - Release Highlights</b></summary>
