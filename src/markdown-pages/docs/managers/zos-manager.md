@@ -218,7 +218,7 @@ The following properties are used to configure the z/OS Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A valid IP Host ID |
-| Examples: | <code>zos.image.[tag].iphostid=sysa.ibm.com</code><br> |
+| Examples: | <code>zos.image.[tag].iphostid=sysa.example.com</code><br> |
 
 </details>
  

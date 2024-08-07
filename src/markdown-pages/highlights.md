@@ -309,7 +309,7 @@ zosmf.image.IMAGEID.servers=SERVERID,SERVERID
 ```
 If you have zOS/MF servers on each z/OS image, the following properties are the minimum that are required:
 ```
-zos.image.MV2D.ipv4.hostname=winmvs2d.hursley.ibm.com
+zos.image.MV2D.ipv4.hostname=mv2d.example.com
 zosmf.server.port=9999
 ```
 These settings assume a zOS/MF server on MV2D and the port overridden from `443` to `9999` for all zOS/MF servers. 
