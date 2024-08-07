@@ -17,8 +17,43 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.35.0 - Release Highlights
 
-## 0.32.0 - Release Highlights
+- A fix to the database connector of the DB2 Manager
+
+
+<details>
+<summary><b>0.34.1 - Release Highlights</b></summary>
+
+- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
+
+- The default size of the PVC storage allocated by the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
+
+- The unused WebUI `/webui/worklist` endpoint and `dev.galasa.api.webui` bundle are removed from the API server to resolve reported vulnerabilities.
+
+- Various bug fixes
+
+- Various documentation updates
+</details> 
+
+
+<details>
+<summary><b>0.33.0 - Release Highlights</b></summary>
+
+- Authentication when interacting with an Ecosystem is now mandatory. You need to authenticate with an Ecosystem in order to use its API server or to use any galasactl commands that interact with an Ecosystem. 
+
+- CouchDB is upgraded to version 3.3.3. If you upgrade your Ecosystem to Galasa version 0.33.0, CouchDB will be upgraded. Though we don't anticipate any problems with the Helm chart upgrading CouchDB in-situ, we recommend that you follow the usual safety practices of backing up your data prior to any upgrade. You can then apply the backup to the new CouchDB pod after it is created. CouchDB cannot be downgraded after upgrading.
+
+- Maven and Gradle plugins now accept a personal access token when publishing a test catalog to the Ecosystem.
+
+- Various bug fixes
+
+- Various documentation enhancements, including property updates for the CICS TS and z/OS Managers, and information on updating credentials in an Ecosystem.
+</details> 
+
+
+<details>
+<summary><b>0.32.0 - Release Highlights</b></summary>
 
 - CLI updates: 
 
@@ -33,6 +68,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - The Eclipse plug-in for Galasa is no longer supported. You can work with Galasa version 0.32.0 and later by using the Galasa command line interface (CLI).
 
 - Various documentation enhancements.
+</details> 
 
 
 

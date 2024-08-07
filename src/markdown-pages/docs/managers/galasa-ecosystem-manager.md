@@ -48,7 +48,7 @@ The following annotations are available with the Galasa Ecosystem Manager
 | Attribute: `windowsImageTag` |  The <code>windowsImageTag</code> identifies which tagged Windows image is to be used to deploy the Galasa Ecosystem into. |
 | Attribute: `javaInstallationTag` |  The <code>javaInstallationTag</code> to which Java installation on the image is to be used to run the Galasa tests and services. |
 | Attribute: `isolationInstallation` |  |
-| Syntax: | <code>@LocaEcosystem(linuxImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> <br> @LocalEcosystem(windowsImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> </code> |
+| Syntax: | <code>@LocalEcosystem(linuxImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> <br> @LocalEcosystem(windowsImageTag="PRIMARY")<br> public ILocalEcosystem ecosystem;<br> </code> |
 | Notes: | The <code>ILocalEcosystem</code> interface gives the test access FPF services and the ability to run tests from the commandline. The Manager will pre-configure the CPS, DSS and CREDS before the test begins.<br> <br> The test must provide a @LocalNamespace ILocalNamespace annotation, as this is where the Ecosystem is provisioned in. <br> The annotation must provide either a Windows or Linux image tag, but not both and must provide a @JavaInstallation tag. |
 
 </details>

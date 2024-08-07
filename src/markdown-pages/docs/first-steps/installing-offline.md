@@ -71,8 +71,8 @@ On Mac or Unix:
 On Windows (Powershell):
 
 1. Open the `galasactl` directory that is provided in the zip file and re-name the appropriate to `galasactl`. 
-2. Add the Galasa CLI to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. For example, save the galasactl executable to a folder called `~/tools` in your `C:` directory and run the `set PATH "C:\tools;%PATH%"` command to add it to your PATH.
-3. Open `cmd.exe` and type `start galasactl.exe` in the directory containing `galasactl`.
+2. Add the `galasactl` executable to your PATH to enable the tool to be called from the command line without having to specify the path to the directory in which it is stored. You can edit the PATH variable in your System environment variables to add the path to the directory in which you downloaded the `galasactl` executable.
+3. Open a command prompt and type `start galasactl.exe`.
 
 You can now run the Galasa CLI tool from any directory in your file system without having to specify the absolute path.
 
