@@ -17,15 +17,33 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
-## 0.35.0 - Release Highlights
+
+## 0.36.0 - Release Highlights
+
+- You can now create Galasa projects and build and compile Galasa test code using Gradle version 8. For more information, see the `Upgrading tests to compile using Gradle version 8` section in the [Upgrading](docs/upgrading) documentation to understand the changes you need to make.
+
+- Log into the Galasa Ecosystem and revoke a personal access token by using the `galasactl auth tokens delete` command.
+
+- Set terminal size within Gherkin tests (previously only available in Java tests) and use Scenario Outlines.
+
+- Various updates to the Galasa Web UI 
+
+- Various defect fixes
+
+- Various documentation updates
+
+
+<details>
+<summary><b>0.35.0 - Release Highlights</b></summary>
 
 - A fix to the database connector of the DB2 Manager
+</details> 
 
 
 <details>
 <summary><b>0.34.1 - Release Highlights</b></summary>
 
-- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke or delete an access token.
+- Retrieve a list of all active personal access tokens in the Ecosystem by using the `galasactl auth tokens get` command. Use the information to revoke an access token.
 
 - The default size of the PVC storage allocated by the Helm chart is increased from 1GB to 30GB and automatic history compaction is now turned on by default to minimise the risk of etcd running out of space.
 
