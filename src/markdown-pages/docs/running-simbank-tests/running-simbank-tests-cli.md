@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/running-simbank-tests-cli"
+path: "/docs/running-simbank-tests/running-simbank-tests-cli"
 title: "Running the SimBank tests using the CLI"
 ---
 
@@ -10,7 +10,7 @@ You can explore Galasa further with Galasa Simbank. Galasa Simbank is a simulate
 - A test that uses a provisioned account object to perform the same test as `BasicAccountCreditTest.java` in an improved test design - `ProvisionedAccountCreditTests.java`.
 - A test that exercises the z/OS Batch Manager by simulating the submission of a JCL job to add a number of accounts to the SimBank system - `BatchAccountsOpenTest.java`.
 
-The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and have set the JAVA_HOME environment variable, as described in the [CLI prerequisites online](cli-prereqs) documentation. 
+The following sections explain how to run the `SimBankIVT` test class by using the CLI. Make sure that you have installed the Galasa CLI tool and Java version 11 JDK, and have set the JAVA_HOME environment variable, as described in the [CLI prerequisites online](../cli-command-reference/cli-prereqs) documentation. 
 
 
 ## Updating the overrides and credentials property files
@@ -48,9 +48,9 @@ In order to run the Galasa SimBanks tests you need to add some configuration inf
 
 ## Running the SimBank IVT test class by using the CLI
 
-The SimBank tests are held in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. To start running the tests you need to clone the repository, if you have not already done so. To find out how to clone the cli repository, follow the instruction in the `Launching SimBank` section in the [Exploring Galasa SimBank online](simbank-cli) documentation.
+The SimBank tests are held in the <a href="https://github.com/galasa-dev/simplatform" target="_blank"> Galasa simplatform repository</a> in GitHub. To start running the tests you need to clone the repository, if you have not already done so. To find out how to clone the cli repository, follow the instruction in the [Running Galasa SimBank online](../running-simbank-tests/simbank-cli) documentation.
 
-After cloning the repository, complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.25.0` and Galasa uber OBR version `0.35.0`.
+After cloning the repository, complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.25.0` and Galasa uber OBR version `0.36.0`.
 
 You can find the version of the `dev.galasa.simbank.obr` that you are using by looking in the `pom.xml` file in the `dev.galasa.simbank.obr` folder. The `dev.galasa.uber.obr` is the OBR that contains all the bundles that are needed for Galasa to work including Managers, any required dependencies, the framework, etc. The version of the `dev.galasa.uber.obr` depends on which version of Galasa you have installed.
 
@@ -123,4 +123,4 @@ galasactl runs submit local --log - `
 
 ## Next steps
 
-Explore the SimBankIVT test and the other SimBank tests in the [Exploring the supplied SimBank tests](/docs/exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.
+Explore the SimBankIVT test and the other SimBank tests in the [Exploring Galasa SimBank](exploring-simbank-tests) sections. Follow the flow of logic in these classes and understand more about the Java that is used to create them, including how to use Galasa annotations and review documented test methods.

@@ -3,9 +3,18 @@ path: "/docs/upgrading"
 title: "Upgrading"
 ---
 
-## Upgrading (online)
 
-You can get the upgrade your version of Galasa by completing the following steps:
+[Upgrading the Galasa version (online)](#Upgradeonline)<br>
+[Upgrading the Galasa zipped distribution version (offline)](#Upgradeoffline)<br>
+[Upgrading tests to compile using Gradle version 8](#UpgradeGradle)<br>
+[Moving from Eclipse to the Galasa CLI](#EclipsetoCLI)<br>
+[Upgrading tests created against an earlier version of Galasa](#Upgradingtests)<br>
+[Troubleshooting](#Troubleshooting)<br>
+
+
+## <a name="Upgradeonline"></a>Upgrading the Galasa version (online)
+
+You can upgrade your version of Galasa by completing the following steps:
 
 1. Download the appropriate version of the Galasa CLI for your machine architecture from the <a href="https://github.com/galasa-dev/cli/releases" target="_blank"> Galasa CLI repository</a> in GitHub.
 2. Re-name the your existing `galasactl` binary so that you can re-name the Galasa binary that you just downloaded to `galasactl` to replace it. 
@@ -14,13 +23,44 @@ You can get the upgrade your version of Galasa by completing the following steps
 If you have already added the Galasa CLI path to your shell's initialization file, as described in the [Installing the Galasa CLI online](../docs/cli-command-reference/installing-cli-tool) topic, you should now be able to run the upgraded version of the Galasa CLI tool from any directory in your file system.
 
 
-## Upgrading the Galasa zipped distribution using the command line (offline)
+## <a name="Upgradeoffline"></a>Upgrading the Galasa zipped distribution version (offline)
 
 Download and extract the Galasa zip file to a directory of your choice and complete the steps documented in the [Installing the Galasa CLI offline](../docs/cli-command-reference/installing-offline) topic.
 
 
+## <a name="UpgradeGradle"></a>Upgrading tests to compile using Gradle version 8
 
-## Upgrading from using Eclipse to using the command line (online)
+Galasa releases 0.35.0 and earlier support the use of Gradle versions 6.8.x, 6.9.x, and 7.x.x to create Galasa projects and build Galasa test code. From release 0.36.0 and later, Galasa additionally supports the use of Gradle version 8.x.x. 
+
+To use Gradle version 8.0 or later to create Galasa projects and build and compile Galasa test code, complete the following steps:
+
+1. Edit the `build.gradle` file in the OBR directory of your parent project, setting the plug-in values at the top of the file to version `0.36.0`, as shown in the following example:
+```
+plugins {
+...
+id 'dev.galasa.obr' version '0.36.0'
+id 'dev.galasa.testcatalog' version '0.36.0'
+...
+}
+```
+2. Add the following task definition to the `build.gradle` file in the OBR directory of the parent project to ensure that Gradle uses the correct build order.
+
+```groovy
+tasks.withType(PublishToMavenLocal) { task ->
+    task.dependsOn genobr
+    task.dependsOn mergetestcat
+}
+```
+3. In each test project `build.gradle` file, set the `dev.galasa.tests` plug-in to version `0.36.0` to ensure that the build uses the correct plug-in.
+```
+plugins {
+...
+id 'dev.galasa.tests' version '0.36.0'
+...
+}
+```
+
+## <a name="EclipsetoCLI"></a>Moving from Eclipse to the Galasa CLI
 
 Version 0.31.0 is the last version of the Eclipse plug-in for Galasa that is produced and maintained by the Galasa Team.
 You can work with later versions of Galasa by using the Galasa command line interface (CLI). The galasactl tool can do everything that the Eclipse tooling can do, and can be run from the command-line of any IDE, for example, the Eclipse terminal view. 
@@ -38,8 +78,7 @@ To upgrade to a Galasa version that uses the CLI when your previous Galasa versi
 
 If you encounter any difficulties, reach out for help in our <a href="https://openmainframeproject.slack.com/archives/C05TCCQDE65" target="_blank"> Galasa Slack</a> workspace in the `#galasa-users` channel.
 
-
-## Upgrading existing tests
+## <a name="Upgradingtests"></a>Upgrading tests created against an earlier version of Galasa
 
 If you have a pre-built version of tests that were created against an earlier version of Galasa in your local repository, you need to rebuild those test projects and any associated Managers after ugprading, so that the pom.xml files of those tests and Managers specify the new version of Galasa.
 
@@ -73,7 +112,8 @@ A simple way to do this is to complete the following steps:
         a. Go to  *File > Preferences > Settings* and expand the *Extensions* section.<br><br> 
         b. Select *Galasa* and check that the *Version* field is using the default value of ```main```, to automatically select the latest version. 
 
-## Troubleshooting
+
+## <a name="Troubleshooting"></a>Troubleshooting
 
 If you have problems after completing the steps for upgrading, try running a clean install. 
 

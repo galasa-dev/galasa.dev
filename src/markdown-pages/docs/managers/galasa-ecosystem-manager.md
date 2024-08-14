@@ -140,7 +140,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid URL |
-| Examples: | <code>galasaecosystem.isolated.full.zip=http://cicsk8sm.hursley.ibm.com:31210/galasa-isolated-full-maven-repo.zip</code> |
+| Examples: | <code>galasaecosystem.isolated.full.zip=https://resources.galasa.dev/isolated.zip</code> |
 
 </details>
  
@@ -154,7 +154,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid URL |
-| Examples: | <code>galasaecosystem.isolated.mvp.zip=http://cicsk8sm.hursley.ibm.com:31210/galasa-isolated-mvp-maven-repo.zip</code> |
+| Examples: | <code>galasaecosystem.isolated.mvp.zip=https://github.com/galasa-dev/isolated/releases/download/v0.36.0/galasa-isolated-mvp-0.36.0.zip</code> |
 
 </details>
  
