@@ -103,9 +103,9 @@ Property values that are returned from secure namespace types are redacted, so p
 | `--format raw` |  The output from `galasactl properties get` is returned in a form that makes it easy for scripting to digest the individual pieces of data available. Returned values are separated by pipes, without formatting or header information.| 
 
 
-### Retrieve all properties from a namespace
+### Retrieve properties from a namespace
 
-To retrieve all properties that are stored in the `framework` namespace in summary format, use the following command:<br><br>
+To retrieve properties that are stored in the `framework` namespace in summary format, use the following command:<br><br>
 `galasactl properties get --namespace framework`
 
 
