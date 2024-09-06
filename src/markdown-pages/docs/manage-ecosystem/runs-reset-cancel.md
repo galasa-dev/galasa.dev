@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/runs-reset-cancel"
+path: "/docs/manage-ecosystem/runs-reset-cancel"
 title: "Retrying and cancelling tests"
 ---
 

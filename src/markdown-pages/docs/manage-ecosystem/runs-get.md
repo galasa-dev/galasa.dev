@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/cli-runs-get"
+path: "/docs/manage-ecosystem/cli-runs-get"
 title: "Viewing test run results"
 ---
 

@@ -1,5 +1,5 @@
 ---
-path: "/docs/writing-own-tests/test-streams"
+path: "/docs/manage-ecosystem/test-streams"
 title: "Test streams"
 ---
 

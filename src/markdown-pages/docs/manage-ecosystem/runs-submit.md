@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/ecosystem-cli-runs-submit"
+path: "/docs/manage-ecosystem/ecosystem-cli-runs-submit"
 title: "Running tests in an Ecosystem"
 ---
 

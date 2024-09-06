@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/ecosystem-cli-runs-download"
+path: "/docs/manage-ecosystem/ecosystem-cli-runs-download"
 title: "Downloading test artifacts"
 ---
 

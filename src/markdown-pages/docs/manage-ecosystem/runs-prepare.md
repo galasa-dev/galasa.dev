@@ -1,5 +1,5 @@
 ---
-path: "/docs/cli-command-reference/ecosystem-cli-runs-prepare"
+path: "/docs/manage-ecosystem/ecosystem-cli-runs-prepare"
 title: "Selecting tests to run in an Ecosystem"
 ---
 
