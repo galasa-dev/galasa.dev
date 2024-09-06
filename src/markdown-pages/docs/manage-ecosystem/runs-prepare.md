@@ -5,7 +5,7 @@ title: "Selecting tests to run in an Ecosystem"
 
 If you have a group of tests that you want to run in batch, the simplest way to do this is by defining these tests inside a portfolio. You can create a portfolio of tests by using the `runs prepare` command. You can build the portfolio from single or multiple [test streams](https://galasa.dev/docs/writing-own-tests/test-streams).
 
-This portfolio of tests can then be run by using the [runs submit command](/docs/cli-command-reference/ecosystem-cli-runs-submit). When you submit the tests to run, you need specify only the portfolio name on the command, rather than listing all of the classes.
+This portfolio of tests can then be run by using the [runs submit command](/docs/manage-ecosystem/ecosystem-cli-runs-submit). When you submit the tests to run, you need specify only the portfolio name on the command, rather than listing all of the classes.
 
 ## Working with the `runs prepare` command
 

@@ -5,7 +5,7 @@ title: "Running tests in an Ecosystem"
 
 The `runs submit` command submits and monitors tests in the Galasa Ecosystem. Tests can be input either from a portfolio or directly from a test package.
 
-For information about creating a portfolio by using the Galasa CLI, see the documentation for the [runs prepare](/docs/cli-command-reference/ecosystem-cli-runs-prepare) command.
+For information about creating a portfolio by using the Galasa CLI, see the documentation for the [runs prepare](/docs/manage-ecosystem/ecosystem-cli-runs-prepare) command.
 
 ## Working with the `runs submit` command
 
@@ -13,7 +13,7 @@ The following section provides a subset of examples of how you can use the `runs
 
 ### Submitting tests to an ecosystem from a portfolio
 
-The following example assumes that you have created a `my_portfolio.yaml` portfolio by using the [runs prepare](/docs/cli-command-reference/ecosystem-cli-runs-prepare) command. The command submits tests from the `my_portfolio.yaml` portfolio, and specifies the following settings.
+The following example assumes that you have created a `my_portfolio.yaml` portfolio by using the [runs prepare](/docs/manage-ecosystem/ecosystem-cli-runs-prepare) command. The command submits tests from the `my_portfolio.yaml` portfolio, and specifies the following settings.
 
 On Mac or Unix:
 
