@@ -100,9 +100,9 @@
               path: /docs/ecosystem/cps-yaml  
             - title: Updating credentials in an Ecosystem
               path: /docs/ecosystem/ecosystem-update-creds 
-            - title: Managing integrated test runs
+            - title: Managing configuration properties
               path: /docs/ecosystem/ecosystem-manage-cps              
-        - title: Managing tests in an Ecosystem
+        - title: Managing tests in a Galasa Ecosystem
           path: /docs/manage-ecosystem
           items: 
             - title: Test streams
