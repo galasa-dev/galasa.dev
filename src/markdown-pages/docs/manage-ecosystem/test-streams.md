@@ -27,8 +27,8 @@ The components of the `test.stream` property are set by using `galasactl propert
 
 ```
 galasactl properties set --namespace framework --name test.stream.mystream.description --value "My stream to use as an example"
-galasactl properties set --namespace framework --name test.stream.mystream.repo --value http://points-to-my-maven-repo
-galasactl properties set --namespace framework --name test.stream.mystream.location --value http://points-to-my-test-catalog
+galasactl properties set --namespace framework --name test.stream.mystream.repo --value http://points-to-my-maven-repo.example.org
+galasactl properties set --namespace framework --name test.stream.mystream.location --value http://points-to-my-test-catalog.example.org
 galasactl properties set --namespace framework --name test.stream.mystream.obr --value mvn:myorg/myartifact/0.0.1/obr
 ```
 
