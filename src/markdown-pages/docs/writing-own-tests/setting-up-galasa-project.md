@@ -226,7 +226,7 @@ The following extract from the generated parent pom.xml shows some of the key el
 <packaging>pom</packaging>
 ```
 
-- The `<groupId>` is used to group related Maven projects in a Maven repository. It is recommended (but not enforced) that all projects in a [test stream](../writing-own-tests/test-streams) share the same `groupId`.
+- The `<groupId>` is used to group related Maven projects in a Maven repository. It is recommended (but not enforced) that all projects in a [test stream](../manage-ecosystem/test-streams) share the same `groupId`.
 - The `<artifactId>` must be unique for each Maven project under a `groupId`. To prevent confusion, you could make it unique across `groupId`s. The `groupId` and `artifactId` can nominally be anything you choose, but if you were to ever consider publishing the project on Maven Central, you would have to ensure that they were unique across Maven Central. Because of this, and to avoid future name collisions, it is conventional to use (reversed) company domain names, which leads to patterns like `dev.galasa.example.banking`.
 - The `<version>` in this project is set to `0.1.0-SNAPSHOT`. 
 - `<packaging>` indicates what type of Maven project this is - in this case, a `pom` project.

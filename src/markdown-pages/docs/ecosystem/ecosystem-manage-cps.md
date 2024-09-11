@@ -1,6 +1,6 @@
 ---
 path: "/docs/ecosystem/ecosystem-manage-cps"
-title: "Managing integrated test runs"
+title: "Managing configuration properties"
 ---
 
 [Retrieving namespaces](#retrievingnamespaces)<br>
