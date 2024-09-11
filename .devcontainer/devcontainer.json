@@ -20,7 +20,7 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown node node_modules && npm install"
+	"postCreateCommand": "sudo chown node node_modules && npm ci --legacy-peer-deps"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
