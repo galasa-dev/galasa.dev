@@ -16,7 +16,7 @@ Local runs do not benefit from the features that are provided when running tests
 
 To use the `galasactl runs submit local` command, the `JAVA_HOME` environment variable must be set to reference the JVM in which you want the test to run, as described in the [CLI prerequisites online](/docs/cli-command-reference/cli-prereqs) and [CLI prerequisites offline](/docs/cli-command-reference/zipped-prerequisites) documentation. This is because the local java run-time environment is used to launch the test locally. To check that `JAVA_HOME` is set correctly, the tool checks that `$JAVA_HOME/bin/java` exists in Unix or Mac, and `%JAVA_HOME%\bin\java.exe` exists on Windows.
 
-The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version. We currently support Java version 11 to version 16 JDK. _Note:_ We do not currently support Java 17 or later.
+The level of Java must match the supported level of the Galasa version that is being launched. Use the `galasactl --version` command to find the galasactl tool version. We currently support Java version 11 to version 17 JDK. _Note:_ We do not currently support Java 21 or later.
 
 You can view the full list of options that are available with the `galasactl runs submit local` command in the 
 <a href="https://github.com/galasa-dev/cli/blob/main/docs/generated/galasactl_runs_submit_local.md" target="_blank">Galasa cli repository</a>.
