@@ -34,12 +34,12 @@ Galasa releases 0.35.0 and earlier support the use of Gradle versions 6.8.x, 6.9
 
 To use Gradle version 8.0 or later to create Galasa projects and build and compile Galasa test code, complete the following steps:
 
-1. Edit the `build.gradle` file in the OBR directory of your parent project, setting the plug-in values at the top of the file to version `0.36.0`, as shown in the following example:
+1. Edit the `build.gradle` file in the OBR directory of your parent project, setting the plug-in values at the top of the file to version `0.37.0`, as shown in the following example:
 ```
 plugins {
 ...
-id 'dev.galasa.obr' version '0.36.0'
-id 'dev.galasa.testcatalog' version '0.36.0'
+id 'dev.galasa.obr' version '0.37.0'
+id 'dev.galasa.testcatalog' version '0.37.0'
 ...
 }
 ```
@@ -51,11 +51,11 @@ tasks.withType(PublishToMavenLocal) { task ->
     task.dependsOn mergetestcat
 }
 ```
-3. In each test project `build.gradle` file, set the `dev.galasa.tests` plug-in to version `0.36.0` to ensure that the build uses the correct plug-in.
+3. In each test project `build.gradle` file, set the `dev.galasa.tests` plug-in to version `0.37.0` to ensure that the build uses the correct plug-in.
 ```
 plugins {
 ...
-id 'dev.galasa.tests' version '0.36.0'
+id 'dev.galasa.tests' version '0.37.0'
 ...
 }
 ```
