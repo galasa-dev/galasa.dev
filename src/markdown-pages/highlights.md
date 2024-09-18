@@ -18,7 +18,15 @@ We have the following available Slack channels:
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.36.0 - Release Highlights
+## 0.37.0 - Release Highlights
+
+- Galasa now supports Java 17.
+
+- You can delete a test run by using the `galasactl runs delete` command. Deleting a test run removes all information about the test run along with any associated artifacts from an ecosystem's RAS.
+
+
+<details>
+<summary><b>0.36.0 - Release Highlights</b></summary>
 
 - You can now create Galasa projects and build and compile Galasa test code using Gradle version 8. For more information, see the `Upgrading tests to compile using Gradle version 8` section in the [Upgrading](docs/upgrading) documentation to understand the changes you need to make.
 
@@ -31,6 +39,7 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
 - Various defect fixes
 
 - Various documentation updates
+</details>
 
 
 <details>

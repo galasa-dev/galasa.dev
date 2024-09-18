@@ -154,7 +154,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid URL |
-| Examples: | <code>galasaecosystem.isolated.mvp.zip=https://github.com/galasa-dev/isolated/releases/download/v0.36.0/galasa-isolated-mvp-0.36.0.zip</code> |
+| Examples: | <code>galasaecosystem.isolated.mvp.zip=https://github.com/galasa-dev/isolated/releases/download/v0.37.0/galasa-isolated-mvp-0.37.0.zip</code> |
 
 </details>
  
