@@ -59,14 +59,14 @@ The following example command returns test status in a summary format for tests 
 On Mac or Unix:
 
  ```
- galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+ galasactl runs get --bootstrap http://example.com:30960/bootstrap \ 
  --requestor bobsmith --age 2w:1w
  ``` 
 
 On Windows (Powershell):
 
  ```
- galasactl runs get --bootstrap http://example.com:30960/boostrap ` 
+ galasactl runs get --bootstrap http://example.com:30960/bootstrap ` 
  --requestor bobsmith --age 2w:1w
  ``` 
 
@@ -80,7 +80,7 @@ On Windows (Powershell):
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --bootstrap http://example.com:30960/boostrap \ 
+$galasactl runs get --bootstrap http://example.com:30960/bootstrap \ 
 --requestor bobsmith --age 2w:1w --format summary
 
 submitted-time(UTC) name status   result test-name
@@ -103,13 +103,13 @@ The following example command returns test status in a details format:
 On Mac or Unix:
 
 ```
-$galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+$galasactl runs get --name U456 --bootstrap http://example.com:30960/bootstrap \
 --format details 
 ``` 
 
 On Windows (Powershell):
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
+galasactl runs get --name U456 --bootstrap http://example.com:30960/bootstrap `
 --format details 
 ``` 
 
@@ -122,7 +122,7 @@ where:
 Results are returned on the terminal in the following example format:
 
 ```
-$galasactl runs get --name U456 --format details --bootstrap http://example.com:30960/boostrap
+$galasactl runs get --name U456 --format details --bootstrap http://example.com:30960/bootstrap
 name                : U456
 status              : finished
 result              : Passed
@@ -150,13 +150,13 @@ The following example command returns test status in a raw format:
 On Mac or Unix:
 
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap \
+galasactl runs get --name U456 --bootstrap http://example.com:30960/bootstrap \
 --format raw
 ``` 
 
 On Windows (Powershell):
 ```
-galasactl runs get --name U456 --bootstrap http://example.com:30960/boostrap `
+galasactl runs get --name U456 --bootstrap http://example.com:30960/bootstrap `
 --format raw
 ``` 
 
@@ -181,19 +181,19 @@ On Mac or Unix:
 
 ```
 galasactl runs get --age 1d --result failed,envfail \
---bootstrap http://example.com:30960/boostrap
+--bootstrap http://example.com:30960/bootstrap
 ``` 
 
 On Windows (Powershell):
 ```
 galasactl runs get --age 1d --result failed,envfail `
---bootstrap http://example.com:30960/boostrap
+--bootstrap http://example.com:30960/bootstrap
 ``` 
 
 Results are returned on the terminal in the following example format:
 
 ```
-galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/boostrap
+galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/bootstrap
 
 submitted-time(UTC) name status result  test-name
 2023-05-05 10:55:29 U456 ending Failed  MyTestName1

@@ -19,7 +19,7 @@ On Mac or Unix:
 
 ```
 galasactl runs submit \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --poll 5 \
                         --progress 1 \
@@ -31,7 +31,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs submit `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --poll 5 `
                         --progress 1 `
@@ -58,7 +58,7 @@ On Mac or Unix:
 
 ```
 galasactl runs submit \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --class dev.galasa.simbank.tests/SimBankIVT \
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest \
                         --stream BestSoFar \
@@ -69,7 +69,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs submit `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --class dev.galasa.simbank.tests/SimBankIVT `
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest `
                         --stream BestSoFar `
