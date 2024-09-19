@@ -117,6 +117,8 @@
               path: /docs/manage-ecosystem/cli-runs-get
             - title: Downloading test artifacts 
               path: /docs/manage-ecosystem/ecosystem-cli-runs-download
+            - title: Deleting test run results 
+              path: /docs/manage-ecosystem/cli-runs-delete
         - title: Upgrading
           path: /docs/upgrading  
         - title: Managers

@@ -3,7 +3,7 @@ path: "/docs/manage-ecosystem/ecosystem-cli-runs-prepare"
 title: "Selecting tests to run in an Ecosystem"
 ---
 
-If you have a group of tests that you want to run in batch, the simplest way to do this is by defining these tests inside a portfolio. You can create a portfolio of tests by using the `runs prepare` command. You can build the portfolio from single or multiple [test streams](https://galasa.dev/docs/writing-own-tests/test-streams).
+If you have a group of tests that you want to run in batch, the simplest way to do this is by defining these tests inside a portfolio. You can create a portfolio of tests by using the `runs prepare` command. You can build the portfolio from single or multiple [test streams](/docs/manage-ecosystem/test-streams).
 
 This portfolio of tests can then be run by using the [runs submit command](/docs/manage-ecosystem/ecosystem-cli-runs-submit). When you submit the tests to run, you need specify only the portfolio name on the command, rather than listing all of the classes.
 
@@ -20,7 +20,7 @@ On Mac or Unix:
 
 ```
 galasactl runs prepare \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests
@@ -30,7 +30,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs prepare `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests
@@ -46,7 +46,7 @@ On Mac or Unix:
 
 ```
 galasactl runs prepare \
-                    --bootstrap http://example.com:30960/boostrap \
+                    --bootstrap http://example.com:30960/bootstrap \
                     --portfolio my_portfolio.yaml \
                     --stream BestSoFar \
                     --package dev.galasa.simbank.tests,dev.galasa.example.banking
@@ -56,7 +56,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs prepare `
-                    --bootstrap http://example.com:30960/boostrap `
+                    --bootstrap http://example.com:30960/bootstrap `
                     --portfolio my_portfolio.yaml `
                     --stream BestSoFar `
                     --package dev.galasa.simbank.tests,dev.galasa.example.banking
@@ -72,7 +72,7 @@ On Mac or Unix:
 
 ```
 galasactl runs prepare \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --class dev.galasa.simbank.tests/SimBankIVT \
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest
@@ -82,7 +82,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs prepare `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --class dev.galasa.simbank.tests/SimBankIVT `
                         --class dev.galasa.simbank.tests/BasicAccountCreditTest
@@ -101,7 +101,7 @@ On Mac or Unix:
 
 ```
 galasactl runs prepare \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests \
@@ -113,7 +113,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs prepare `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests `
@@ -134,14 +134,14 @@ On Mac or Unix:
 
 ```
 galasactl runs prepare \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --stream BestSoFar \
                         --package dev.galasa.simbank.tests \
                         --override zos.default.lpar=MYLPAR \
                         --override zos.default.cluster=MYPLEX \
 galasactl runs prepare \
-                        --bootstrap http://example.com:30960/boostrap \
+                        --bootstrap http://example.com:30960/bootstrap \
                         --portfolio my_portfolio.yaml \
                         --append \
                         --stream BestSoFar \
@@ -154,14 +154,14 @@ On Windows (Powershell):
 
 ```
 galasactl runs prepare `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --stream BestSoFar `
                         --package dev.galasa.simbank.tests `
                         --override zos.default.lpar=MYLPAR `
                         --override zos.default.cluster=MYPLEX `
 galasactl runs prepare `
-                        --bootstrap http://example.com:30960/boostrap `
+                        --bootstrap http://example.com:30960/bootstrap `
                         --portfolio my_portfolio.yaml `
                         --append `
                         --stream BestSoFar `
