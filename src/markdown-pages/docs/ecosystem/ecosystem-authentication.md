@@ -3,11 +3,12 @@ path: "/docs/ecosystem/ecosystem-authentication"
 title: "Configuring authentication"
 ---
 
-Before interacting with a Galasa Ecosystem using the Galasa command line tool (`galasactl`), you must be authenticated with it. Galasa uses personal access tokens to authenticate users who want to interact with a Galasa Ecosystem provided by the `GALASA_BOOTSTRAP` environment variable or through the `--bootstrap` flag.
+Before interacting with a Galasa Ecosystem using the Galasa command line tool (`galasactl`), you must be authenticated with it. Any `galasactl` command which connects to a remote Galasa service needs to know the address of that service. A URL can be configured in the  `GALASA_BOOTSTRAP` environment variable or it can be set on a per-command basis using the `--bootstrap` flag.
 
+Once the `galasactl` tool knows which Galasa service to contact, it needs to be configured to be able to authenticate to that service.
+To do that, the Galasa Web UI must be used to allocate a personal access token, which can be passed to the `galasactl` to be used.
 
-Personal access tokens are stored in the `GALASA_TOKEN` property in the `galasactl.properties` file in your Galasa home folder. The `galasactl.properties` file is created when you run the `galasa local init` command. Setting the `GALASA_TOKEN` property in this file with a valid token value allows the galasactl tool to access and communicate with an Ecosystem on behalf of the user. 
-
+A personal access tokens is stored in the `GALASA_TOKEN` property in the `galasactl.properties` file in your Galasa home folder, or in the `GALASA_TOKEN` environment variable. The `galasactl.properties` file is created when you run the `galasa local init` command. Setting the `GALASA_TOKEN` property in this file with a valid token value allows the galasactl tool to access and communicate with an Ecosystem on behalf of the user.
 
 If you have [installed your Galasa Ecosystem](../ecosystem/ecosystem-installing-k8s) by using the Galasa Ecosystem Helm chart that is provided with Galasa, you will have access to the Galasa Web UI. To get a value for the `GALASA_TOKEN` property, log into the Galasa Web UI and request a personal access token which can be copied into the `GALASA_TOKEN` property. The instructions on how to do this are displayed in a dialog box in the Galasa Web UI. You can choose to set the token as an environmental variable but the value would not persist across terminals, so is only valid for that session.
 
