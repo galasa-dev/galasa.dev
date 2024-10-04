@@ -189,7 +189,7 @@ helm test <release-name>
 
 where:
 
-<release-name> is the name that you gave the Ecosystem during installation
+`<release-name>` is the name that you gave the Ecosystem during installation
 
 When the `helm test` command ends and displays a success message, the Ecosystem is set up correctly and is ready to be used.
 
