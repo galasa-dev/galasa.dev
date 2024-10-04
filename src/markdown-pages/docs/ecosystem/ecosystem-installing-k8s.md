@@ -56,26 +56,24 @@ Complete the following steps to install a Galasa Ecosystem by using Helm:
     _Note:_ The Galasa Ecosystem Helm chart deploys three persistent volumes (PVs). If you need to provide a Kubernetes storage class for these PVs, download the  <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.37.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file and update the `storageClass` value in the file with the name of a valid storage class on your cluster. If you are deploying to minikube, you can optionally use the standard storage class that is created for you by minikube, but this is not required. 
 1. Download the <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.37.0/charts/ecosystem/values.yaml target="_blank"> values.yaml</a> file if you have not done so already, and edit the values of the following properties: 
     - Set `galasaVersion` to the version of Galasa that you want to run. (See the [Releases](/releases) documentation for released versions). To ensure that each pod in the Ecosystem is running at the same level, do not use `latest` as the Galasa version.
-    - Set `externalHostname` to the DNS hostname or IP address of the Kubernetes node that is used to access the Galasa Ecosystem services. If you are deploying to minikube, the cluster's IP address can be retrieved by running `minikube ip`.
+    - Set `externalHostname` to the DNS hostname that you wish to use to access the Galasa Ecosystem services.
 
 After updating the `galasaVersion` and `externalHostname` values, complete the following instructions to set up Ingress for your Ecosystem. 
 
 ### <a name="configuring-ingress"></a>Configuring Ingress
 
-By default, the Galasa Ecosystem Helm chart enables Ingress to reach services that are running within a Kubernetes cluster. To learn more about Ingress, see the <a href=https://kubernetes.io/docs/concepts/services-networking/ingress/ target="_blank"> Kubernetes Documentation</a>.
+The Galasa Ecosystem Helm chart uses Ingress to reach services that are running within a Kubernetes cluster. To learn more about Ingress, see the <a href=https://kubernetes.io/docs/concepts/services-networking/ingress/ target="_blank"> Kubernetes Documentation</a>.
 
-*Note:* If you are deploying to minikube and are using Ingress to expose services, ensure the NGINX Ingress controller is enabled by running the `minikube addons enable ingress` command.
+*Note:* If you are deploying to minikube, ensure the NGINX Ingress controller is enabled by running the `minikube addons enable ingress` command.
 
 Assuming that your Ingress controller is set up on your Kubernetes cluster, configure the use of Ingress in your Ecosystem by completing the following updates to the values that are listed under the `ingress` section within your `values.yaml` file:
 
 1. Replace the `ingressClassName` value with the name of the IngressClass that is configured in your cluster. By default, `nginx` is used.
-1. If you are using HTTPS, add a `tls` configuration within the `ingress` section, specifying the `hosts` list and a `secretName` value corresponding to the name of the Kubernetes Secret that contains your TLS private key and certificate. See the <a href=https://kubernetes.io/docs/concepts/services-networking/ingress/#tls target="_blank"> Kubernetes Documentation</a> for information on how to set up TLS.
+2. If you are using HTTPS, add a `tls` configuration within the `ingress` section, specifying the `hosts` list and a `secretName` value corresponding to the name of the Kubernetes Secret that contains your TLS private key and certificate. See the <a href=https://kubernetes.io/docs/concepts/services-networking/ingress/#tls target="_blank"> Kubernetes Documentation</a> for information on how to set up TLS.
 
 After updating the values under the `ingress` section of your `values.yaml` file, complete the following instructions to configure Dex in your Ecosystem.
 
 ### Configuring Dex 
-
-*Note:* The Ecosystem chart's use of Dex is still under development and is subject to change.
 
 For Galasa version 0.32.0 and later, Dex is used to authenticate users interacting with a Galasa Ecosystem.
 
@@ -198,13 +196,11 @@ When the `helm test` command ends and displays a success message, the Ecosystem 
 
 ## Accessing services
 
-### Using Ingress
-
-When using Ingress, the URL of the Ecosystem bootstrap will be your external hostname, followed by `/api/bootstrap`.
+The URL of the Ecosystem bootstrap will be your external hostname, followed by `/api/bootstrap`.
 
 For example, if the external hostname that you provided was `example.com` and you provided values for using TLS, the bootstrap URL would be `https://example.com/api/bootstrap`. This is the URL that you would enter into a galasactl command's `--bootstrap` option to interact with your Ecosystem.
 
-If you have enabled Ingress and are deploying to minikube, add an entry to your `/etc/hosts` file, ensuring the IP address matches the output of `minikube ip`. For example:
+If you are deploying to minikube, add an entry to your `/etc/hosts` file, ensuring the IP address matches the output of `minikube ip`. For example:
 
 ```console
 192.168.49.2 example.com
@@ -213,14 +209,7 @@ If you have enabled Ingress and are deploying to minikube, add an entry to your 
 
 ## Running Galasa tests
 
-To reconfigure Galasa to point to the Galasa Ecosystem that you created, you need to edit the bootstrap. The bootstrap contains the information that Galasa needs to bring up a framework to connect to an Ecosystem. To find the URL of the Ecosystem bootstrap, run the following command:
-```
-kubectl get svc
-```
-
-Combine the information with the external hostname that you provided to form the bootstrap URL so that the bootstrap is the external host name followed by `/api/bootstrap`. For example, if the external hostname is `example.com`, the bootstrap URL will be `http://example.com/api/boostrap`. 
-
-You can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on writing tests, see the <a href=https://galasa.dev/docs/writing-own-tests> Writing your own independent Galasa tests</a> documentation.
+Once you have successfully installed the Ecosystem, you can then deploy your Galasa tests to a Maven repository and set up a test stream. For more information on managing tests, see the <a href=https://galasa.dev/docs/manage-ecosystem>Managing tests in a Galasa Ecosystem</a> documentation.
 
 ## Upgrading the Galasa Ecosystem
 
