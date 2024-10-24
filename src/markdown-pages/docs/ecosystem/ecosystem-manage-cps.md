@@ -23,6 +23,10 @@ When running tests in the Galasa Ecosystem, where tests are run on a Kubernetes 
 
 You can set, retrieve and delete properties that are held in the CPS by using the `galasasctl properties` commands. The ability to manage these properties directly makes it easier for testers to set parameters and credentials on the Ecosystem for tests to read and use at runtime. System administrators can use the CLI to set Ecosystem-wide configuration properties after Ecosystem installation.
 
+By default, properties are are always retrieved from the REST service individually during test class runs.
+If the amount of network requests to retrieve properties from the CPS causes any problems, you can enable a cache by setting the `framework.cps.rest.cache.is.enabled` property to `true`.
+When the cache is enabled, all CPS properties are loaded at the start of a test class run.
+
 
 ## About the Configuration Properties Store 
 
