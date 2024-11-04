@@ -29,12 +29,6 @@ You must also have a valid personal access token for your Galasa Ecosystem set o
 
 For Linux and macOS, you can download and run the <a href=https://github.com/galasa-dev/helm/blob/main/rotate-encryption-keys.sh target="_blank" rel="noopener noreferrer">rotate-encryption-keys.sh</a> script via the command-line to simplify the process of rotating encryption keys and re-encrypting credentials.
 
-This script requires the following command-line utilities to be installed:
-
-- [kubectl](https://kubernetes.io/docs/tasks/tools) (v1.30.3 or later)
-- [galasactl](../cli-command-reference/installing-cli-tool.md) (0.38.0 or later)
-- openssl (3.3.2 or later)
-
 The following flags can be supplied when running the script:
 - `--release-name <name>` **Required**. The helm release name provided when installing the Galasa Ecosystem helm chart (see [Installing your Galasa Ecosystem](#installing-your-galasa-ecosystem))
 - `--namespace <namespace>` Optional. The Kubernetes namespace where your Galasa Ecosystem is installed
@@ -62,13 +56,13 @@ This guide also assumes that the `GALASA_BOOTSTRAP` environment variable is set,
    ```
    galasactl secrets get --format yaml
    ```
-   Store these secrets in a `.yaml` or `.yml` file so that you can re-encrypt them after rotating the encryption keys
+   Store these secrets in a `.yaml` or `.yml` file so that you can re-encrypt them after rotating the encryption keys.
 
 2. Find the name of the Kubernetes Secret containing your Galasa Ecosystem's encryption keys by running:
    ```
    kubectl get secrets
    ```
-   The secret's name should be of the form `{release-name}-encryption-secret`, where `{release-name}` is the Helm release name provided when installing the Galasa Ecosystem Helm chart
+   The secret's name should be of the form `{release-name}-encryption-secret`, where `{release-name}` is the Helm release name provided when installing the Galasa Ecosystem Helm chart.
 
 3. Get the existing encryption keys data for your Galasa Ecosystem by running:
    ```
@@ -79,7 +73,7 @@ This guide also assumes that the `GALASA_BOOTSTRAP` environment variable is set,
    encryptionKey: <existing-encryption-key>
    fallbackDecryptionKeys: []
    ```
-   Place the output into a file
+   Place the output into a file.
 
 4. Generate a new encryption key by running:
    ```
@@ -92,39 +86,41 @@ This guide also assumes that the `GALASA_BOOTSTRAP` environment variable is set,
    fallbackDecryptionKeys:
    - <existing-encryption-key>
    ```
-   where `<newly-generated-encryption-key>` is the new encryption key generated in step 5 and `<existing-encryption-key>` is the old encryption key retrieved in step 3
+   where `<newly-generated-encryption-key>` is the new encryption key generated in step 5 and `<existing-encryption-key>` is the old encryption key retrieved in step 3.
 
-6. Base64-encode the file contents by running:
+6. Base64-encode the file contents by running the following command:
    ```
    openssl base64 -in <encryption-keys-file>
    ```
-   Record the base64-encoded output, making sure there are no spaces or line breaks in the recorded output
+   where `<encryption-keys-file>` is an absolute or relative path to the file created in step 3.
+
+   Record the base64-encoded output, making sure there are no spaces or line breaks in the recorded output.
 
 7. Update the existing Kubernetes Secret with the rotated keys by running:
    ```
    kubectl patch secret {encryption-secret-name} --type='json' -p="[{'op': 'replace', 'path': '/data/encryption-keys.yaml', 'value': '<base64-encoded-encryption-keys>'}]"
    ```
-   where `<base64-encoded-encryption-keys>` is the output recorded from step 7
+   where `{encryption-secret-name}` is the name of the Kubernetes secret retrieved in step 2, and `<base64-encoded-encryption-keys>` is the output recorded in step 6.
 
 8. Restart the Galasa Ecosystem's API server deployment by running:
     ```
     kubectl rollout restart deployment {release-name}-api
     kubectl rollout status deployment {release-name}-api
     ```
-    where `{release-name}` is the name of the Helm release provided when installing the Galasa Ecosystem Helm chart
+    where `{release-name}` is the name of the Helm release provided when installing the Galasa Ecosystem Helm chart.
 
 9. Restart the Galasa Ecosystem's engine controller deployment by running:
     ```
     kubectl rollout restart deployment {release-name}-engine-controller
     kubectl rollout status deployment {release-name}-engine-controller
     ```
-    where `{release-name}` is the name of the Helm release provided when installing the Galasa Ecosystem Helm chart
+    where `{release-name}` is the name of the Helm release provided when installing the Galasa Ecosystem Helm chart.
 
 10. Once both the API server and engine controller have been restarted successfully, you can re-encrypt your existing secrets using the YAML file you created in step 1, by running:
     ```
     galasactl resources apply -f <secrets-yaml-file>
     ```
-    where `<secrets-yaml-file>` is an absolute or relative path to the YAML file created at the end of step 1
+    where `<secrets-yaml-file>` is an absolute or relative path to the YAML file created at the end of step 1.
 
 Your Galasa Ecosystem will now use the newly generated encryption key to encrypt and decrypt secrets until the next time it is rotated.
 
