@@ -7,15 +7,15 @@ title: "Managing credentials in an Ecosystem"
 [Getting secrets](#getting-secrets)<br>
 [Deleting secrets](#deleting-secrets)<br>
 
-It is likely that a test will need to pass credentials to the application being tested. For example, as HTTP credentials or as username and password values entered onto a 3270 screen. In a Galasa Ecosystem the credentials store (CREDS), which is hosted in the etcd server, securely provides the credentials (for example, password, username, and personal access token) that are required for a test to run in automation.  
+It is likely that a test will need to pass credentials to the application being tested. For example, as HTTP credentials or as username and password values entered onto a 3270 screen. In a Galasa Ecosystem the credentials store, which is hosted in the etcd server, securely provides the credentials (for example, password, username, and personal access token) that are required for a test to run in automation.  
 
-You can set a Username, UsernamePassword, Token, or UsernameToken secret in the CREDS by using the Galasa CLI tool's `secrets` commands. The ability to set these properties means that you can supply test cases with the credentials and tokens that they need to run.
+You can set a Username, UsernamePassword, Token, or UsernameToken secret in the credentials store by using the Galasa CLI tool's `secrets` commands. The ability to set these properties means that you can supply test cases with the credentials and tokens that they need to run.
 
-The following examples show how you can update the CREDS, and will refer to credentials as secrets. The example commands that are provided in the following sections assume that the `GALASA_BOOTSTRAP` environment variable is set, so the `--bootstrap` flag is not required in the command.
+The following examples show how you can update the credentials store, and will refer to credentials as secrets. The example commands that are provided in the following sections assume that the `GALASA_BOOTSTRAP` environment variable is set, so the `--bootstrap` flag is not required in the command.
 
 ## <a name="setting-secrets"></a>Creating and updating secrets
 
-The `galasactl secrets set` command can be used to create or update secrets in the CREDS. The command's `--username`, `--password`, and `--token` flags can be used in different combinations to create different types of secret.
+The `galasactl secrets set` command can be used to create or update secrets in the credentials store. The command's `--username`, `--password`, and `--token` flags can be used in different combinations to create different types of secret.
 
 Optionally, a description can be provided when setting secrets using the `--description` flag to provide useful information as to what the secrets are used for.
 
@@ -71,7 +71,7 @@ For a complete list of supported parameters see the <a href="https://github.com/
 
 ## <a name="getting-secrets"></a>Getting secrets
 
-You can use the `galasactl secrets get` command to get secrets stored in the CREDS to verify that the secrets exist and are populated correctly. You can also filter results to retrieve a specific secret by providing its name in `galasactl secrets get` commands.
+You can use the `galasactl secrets get` command to get secrets stored in the credentials store to verify that the secrets exist and are populated correctly. You can also filter results to retrieve a specific secret by providing its name in `galasactl secrets get` commands.
 
 The following table shows the available output formats that can be provided as part of the `galasactl secrets get` command:
 
