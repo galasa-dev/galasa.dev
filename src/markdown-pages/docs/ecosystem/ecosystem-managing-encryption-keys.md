@@ -27,7 +27,7 @@ You must also have a valid personal access token for your Galasa Ecosystem set o
 
 ## Automated steps
 
-For Linux and macOS, you can download and run the <a href=https://github.com/galasa-dev/helm/blob/main/rotate-encryption-keys.sh target="_blank" rel="noopener noreferrer">rotate-encryption-keys.sh</a> script via the command-line to simplify the process of rotating encryption keys and re-encrypting credentials.
+For Linux and macOS, you can download and run the <a href=https://github.com/galasa-dev/helm/blob/ecosystem-0.38.0/rotate-encryption-keys.sh target="_blank" rel="noopener noreferrer">rotate-encryption-keys.sh</a> script via the command-line to simplify the process of rotating encryption keys and re-encrypting credentials.
 
 The following flags can be supplied when running the script:
 - `--release-name <name>` **Required**. The helm release name provided when installing the Galasa Ecosystem helm chart (see [Installing your Galasa Ecosystem](#installing-your-galasa-ecosystem))
