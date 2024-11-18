@@ -1,6 +1,0 @@
-<server description="galasa.dev local server">
-    <featureManager>
-        <feature>servlet-3.1</feature>
-    </featureManager>
-    <httpEndpoint httpPort="${server.http.port}" httpsPort="-1" id="defaultHttpEndpoint"  host="${server.http.host}" />
-</server>

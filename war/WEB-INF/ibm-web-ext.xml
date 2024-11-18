@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-ext xmlns="http://websphere.ibm.com/xml/ns/javaee" version="1.0">
-    <context-root uri="/" />
-    <enable-directory-browsing value="false"/>
-    <enable-file-serving value="true"/>
-</web-ext>
