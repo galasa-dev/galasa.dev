@@ -120,7 +120,6 @@ plugins:
         - Release
         - Video
       post_readtime: false
-  - mike
 
 # Additional configuration
 extra:
@@ -129,8 +128,6 @@ extra:
       link: https://github.com/galasa-dev
     - icon: fontawesome/brands/slack
       link: https://openmainframeproject.slack.com/signup#/domain-signup
-  version:
-    provider: mike
 
 # Page tree
 nav:
