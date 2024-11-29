@@ -33,7 +33,7 @@ Allowing you to test applications at scale regardless of platform — including 
 
     ---
 
-    Galasa’s framework enables deep integration tests to be run across multiple technologies. One test case can interact with 3270, Selenium, JMeter, batch jobs and more. When you’re ready, Galasa integrates easily into your DevOps strategy, and can be used alongside other test tools.
+    Galasa’s framework enables deep integration tests to be run across multiple technologies. One test case can interact with 3270, Selenium, JMeter, batch jobs and more. When you’re ready, Galasa integrates easily into your [DevOps strategy](about/devops.md), and can be used alongside other test tools.
 
     ![](assets/images/key-features/illustrations-galasa-05.inline.svg)
 

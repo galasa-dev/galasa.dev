@@ -134,8 +134,14 @@ nav:
   - index.md
   - About:
     - about/index.md
+    - about/different.md
+    - about/automation.md
+    - about/devops.md
+    - about/history.md
   - Docs:
     - docs/index.md
+    - The Galasa Ecosystem:
+      - docs/ecosystem/index.md
   - Releases:
     - releases/index.md
     - releases/license.md
