@@ -31,11 +31,11 @@ Note: The example uses port `8080` but you can use a different port.
 docker load -i isolated.tar
 ``` 
 
-The following confirmation message is received: _Loaded image: icr.io/galasadev/galasa-distribution:main_.
+The following confirmation message is received: _Loaded image: ghcr.io/galasa-dev/galasa-isolated:main_.
 
 2. Run the container by using the following command: 
 ```
-docker run -d -p 8080:80 --name galasa icr.io/galasadev/galasa-distribution:main
+docker run -d -p 8080:80 --name galasa ghcr.io/galasa-dev/galasa-isolated:main
 ```
 
 3. Go to `http:\\localhost:8080` to view the running container. 
