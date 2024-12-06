@@ -18,11 +18,31 @@ We have the following available Slack channels:
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
 
-## 0.37.0 - Release Highlights
+## 0.38.0 - Release Highlights
+
+- CLI updates:
+
+  - You can get, set and delete secrets from the credentials store using the `galasactl secrets` command. Secrets support base64 encoding to handle special characters.
+
+  - [Managing Ecosystem encryption keys](./docs/ecosystem/ecosystem-managing-encryption-keys.md) describes how to use `galasactl secrets get` and `galasactl resources apply` to replace the encryption key being used to encrypt credentials in the Galasa Ecosystem's credentials store.
+
+  - Users can now be deleted with the `galasactl users delete` command.
+
+- Web UI updates:
+
+  - A new settings page has been added to the web UI to manage access tokens.
+
+  - Recent login activity is now available on the profile page.
+
+-	This release also includes bug fixes, security updates, and other dependency updates.
+
+<details>
+<summary><b>0.37.0 - Release Highlights</b></summary>
 
 - Galasa now supports Java 17.
 
 - You can delete a test run by using the `galasactl runs delete` command. Deleting a test run removes all information about the test run along with any associated artifacts from an ecosystem's RAS.
+</details>
 
 
 <details>
