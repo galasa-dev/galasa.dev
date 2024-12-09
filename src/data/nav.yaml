@@ -97,11 +97,13 @@
             - title: Configuring authentication
               path: /docs/ecosystem/ecosystem-authentication
             - title: Configuring an Ecosystem using resource files
-              path: /docs/ecosystem/cps-yaml  
-            - title: Updating credentials in an Ecosystem
-              path: /docs/ecosystem/ecosystem-update-creds 
+              path: /docs/ecosystem/resources-yaml  
+            - title: Managing credentials in an Ecosystem
+              path: /docs/ecosystem/ecosystem-manage-creds
             - title: Managing configuration properties
-              path: /docs/ecosystem/ecosystem-manage-cps              
+              path: /docs/ecosystem/ecosystem-manage-cps
+            - title: Managing Ecosystem encryption keys
+              path: /docs/ecosystem/ecosystem-managing-encryption-keys
         - title: Managing tests in a Galasa Ecosystem
           path: /docs/manage-ecosystem
           items: 
