@@ -20,6 +20,7 @@ Use the tables provided to view the options for filtering test results, and for 
 | `--age`| Use the `--age` option to specify a time period in which the tests ran. The _age_ option is specified in the format _FROM:TO_. Units of time can be specified in weeks _w_, days _d_, hours _h_, or minutes _m_. The _FROM_ part is mandatory. The _TO_ part is optional, with a default set to `0`, which indicates the current time. The _FROM_ value specifies how far back in time the query is applied. The _FROM_ value must therefore always be a larger value than the _TO_ value. The returned times are in UTC (Coordinated Universal Time). If the `--name` option is specified, the `--age` parameter is not used. |
 | `--result`  | Use the [`--result` option](#result) to return test runs based on test run results. You can select more than one result by using a comma-separated list. The `--result` flag cannot be used in conjunction with the `--active` flag. The two flags are mutually exclusive. |
 | `--active`  | Use the `--active` option to query tests that have not finished, so that you can quickly see which tests are currently running. The `--active` flag cannot be used in conjunction with the `--result` flag. The two flags are mutually exclusive.|
+| `--group`   | Use the `--group` flag to get all the test runs associated with the given group name. A custom group name can be assigned to a set of test runs when submitting tests using the [galasactl runs submit](./ecosystem-cli-runs-submit) command, otherwise a random ID will be assigned. |
 
 <b>Table 2:</b> The following table shows the options that you can set on the `galasactl runs get` command to display test run results in different formats:
 
@@ -83,13 +84,13 @@ Results are returned on the terminal in the following example format:
 $galasactl runs get --bootstrap http://example.com:30960/bootstrap \ 
 --requestor bobsmith --age 2w:1w --format summary
 
-submitted-time(UTC) name status   result test-name
-2023-05-04 10:55:29 U456 finished Passed MyTestName1
-2023-05-05 10:45:29 U856 finished Passed MyTestName2
-2023-05-06 11:55:29 U859 finished Passed MyTestName3
-2023-05-07 10:55:23 U956 finished Passed MyTestName4
-2023-05-07 10:56:29 U976 finished Passed MyTestName5
-2023-05-07 10:57:20 U996 finished Passed MyTestName6
+submitted-time(UTC) name status   result test-name   group
+2023-05-04 10:55:29 U456 finished Passed MyTestName1 testGroup1
+2023-05-05 10:45:29 U856 finished Passed MyTestName2 testGroup1
+2023-05-06 11:55:29 U859 finished Passed MyTestName3 testGroup2
+2023-05-07 10:55:23 U956 finished Passed MyTestName4 testGroup2
+2023-05-07 10:56:29 U976 finished Passed MyTestName5 testGroup2
+2023-05-07 10:57:20 U996 finished Passed MyTestName6 testGroup3
 
 Total:6 Passed:6 
 ```
@@ -133,6 +134,7 @@ duration(ms)        : 1000
 test-name           : dev.galasa.Zos3270LocalJava11Ubuntu
 requestor           : bobsmith 
 bundle              : dev.galasa
+group               : testGroup1
 run-log             : https://127.0.0.1/ras/run/cbd-123/runlog
 
 method          type status   result start-time(UTC)     end-time(UTC)       duration(ms)
@@ -169,7 +171,7 @@ Results are returned on the terminal in the following example format:
 
 ```
 $galasactl runs get --name U456 --format raw 
-U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|https://127.0.0.1/ras/run/cbd-123/runlog
+U456|finished|Passed|2023-05-04T10:55:29.545323Z|2023-05-05T06:00:14.496953Z|2023-05-05T06:00:15.654565Z|1157|dev.galasa.Zos3270LocalJava11Ubuntu|galasa|dev.galasa|testGroup1|https://127.0.0.1/ras/run/cbd-123/runlog
 ```
 
 
@@ -195,11 +197,11 @@ Results are returned on the terminal in the following example format:
 ```
 galasactl runs get --age 1d --result failed,envfail --bootstrap http://example.com:30960/bootstrap
 
-submitted-time(UTC) name status result  test-name
-2023-05-05 10:55:29 U456 ending Failed  MyTestName1
-2023-05-05 10:55:39 U856 ending Failed  MyTestName2
-2023-05-05 10:55:49 U859 ending EnvFail MyTestName3
-2023-05-05 10:55:53 U956 ending Failed  MyTestName4
+submitted-time(UTC) name status result  test-name   group
+2023-05-05 10:55:29 U456 ending Failed  MyTestName1 testGroup1
+2023-05-05 10:55:39 U856 ending Failed  MyTestName2 testGroup1
+2023-05-05 10:55:49 U859 ending EnvFail MyTestName3 testGroup2
+2023-05-05 10:55:53 U956 ending Failed  MyTestName4 testGroup2
 
 Total:4 Failed:3 EnvFail:1
 ```
