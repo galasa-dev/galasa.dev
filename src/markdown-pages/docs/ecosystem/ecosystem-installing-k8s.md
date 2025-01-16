@@ -214,14 +214,14 @@ Once you have successfully installed the Ecosystem, you can then deploy your Gal
 ## Upgrading the Galasa Ecosystem
 
 
-Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.38.0 - by running the following command:
+Get the latest version of the Ecosystem chart and upgrade the Galasa Ecosystem to use the newer version of Galasa - for example version 0.39.0 - by running the following command:
 
 On Mac or Unix:
 
 ```console
 helm repo update \
 helm upgrade <release-name> galasa/ecosystem --reuse-values \
---set galasaVersion=0.38.0 --wait
+--set galasaVersion=0.39.0 --wait
 ```
 
 On Windows (Powershell):
@@ -229,7 +229,7 @@ On Windows (Powershell):
 ```console
 helm repo update `
 helm upgrade <release-name> galasa/ecosystem --reuse-values `
---set galasaVersion=0.38.0 --wait
+--set galasaVersion=0.39.0 --wait
 ```
 
 where:<br>
