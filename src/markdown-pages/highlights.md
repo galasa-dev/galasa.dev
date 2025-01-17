@@ -17,8 +17,23 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.39.0 - Release Highlights
 
-## 0.38.0 - Release Highlights
+- Forks and fork builds are now supported making it easier to contribute to Galasa!
+
+- All Galasa components now use a common version number.
+
+- CPS property names can now include the '@' character.
+
+- The `galasactl runs get` command supports a new `--group` option to query test runs by the group ID they were launched with.
+
+- Gherkin now respects the `framework.continue.on.test.failure` flag so it doesn't need to exit a feature when the first scenario fails.
+
+-	This release also includes instability fixes, and dependency updates.
+
+
+<details>
+<summary><b>0.38.0 - Release Highlights</b></summary>
 
 - CLI updates:
 
@@ -35,6 +50,8 @@ Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and ope
   - Recent login activity is now available on the profile page.
 
 -	This release also includes bug fixes, security updates, and other dependency updates.
+</details>
+
 
 <details>
 <summary><b>0.37.0 - Release Highlights</b></summary>
