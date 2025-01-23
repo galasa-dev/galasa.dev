@@ -11,16 +11,17 @@ title: "Role Based Access"
   - [Constraints](#constraints)
   - [Using the `galasactl` command-line tool to view roles](#using-the-galasactl-command-line-tool-to-view-roles)
   - [Using the `galasactl` command-line tool assigning a "role" to a user](#using-the-galasactl-command-line-tool-assigning-a-role-to-a-user)
+  - [Using the Galasa web user interface to view your own user role](#using-the-galasa-web-user-interface-to-view-your-own-user-role)
   - [How to set the default user role](#how-to-set-the-default-user-role)
 
 # Role Based Access Control in Galasa
-Role Based Access Control (RBAC) is a well-used mechanism to assign roles to users of a system, which grants such users permissions to perform some capability dictated by the role(s) they have been assigned. Here we discuss the Galasa implementation of RBAC.
+Role Based Access Control (RBAC) is a well-used mechanism to assign roles to users of a system which grants such users permissions to perform some capability dictated by the role(s) they have been assigned. Here we discuss the Galasa implementation of RBAC.
 
 ## Why do we need Role Based Access Control ?
 Some actions that can be performed on the Galasa Ecosystem are powerful and dangerous, such as deleting CPS properties, secrets or other resources. Giving every user of the Galasa service the ability to perform those actions is inviting disaster from inexperienced or incautions users who are not aware of the consequences of their actions.
-Deleted resources could mean data being lost forever, which bears a cost to work out what was removed, and how to re-create it again. It would be far better to prevent those events ocurring in the first place.
+Deleted resources could mean data being lost forever, which bears a cost to work out what was removed, and how to re-create it again. It would be far better to prevent those events occurring in the first place.
 
-To limit the risk of such events ocurring, the Galasa Service provides some Role Based Access (RBAC) mechanisms to ensure users responsible for administering the system can 
+To limit the risk of such events occurring, the Galasa Service provides some Role Based Access (RBAC) mechanisms to ensure users responsible for administering the system can 
 perform these powerful actions, while other users are denied access to them.
 
 ## Understanding the Galasa RBAC model 
@@ -30,7 +31,7 @@ Galasa offers a list of "actions". Each one relates to something which can be pe
 
 Galasa has a concept of a "role", such that each role has a name and description, but also has a list of actions which someone can perform when that user has been assigned this role.
 
-Each user has one such role, therebye indirectly associating each user with a list of actions that user can perform.
+Each user has one such role, thereby indirectly associating each user with a list of actions that user can perform.
 
 When a personal access token is used, that token is associated with the user identity the token was created for, and so also has an indirect association with a list of actions which
 can be performed by a client program using that access token.
@@ -122,6 +123,10 @@ If someone has the `USER_ROLE_UPDATE_ANY` action, then they are able to do the f
 ```
 > galasactl users set --name userName1 --role deactivated
 ```
+
+## Using the Galasa web user interface to view your own user role
+The Web user interface for Galasa can be used to view your own user role.
+Navigate to the "My Settings" page.
 
 ## How to set the default user role
 When a new user initially logs into the Galasa web user interface, a user record is created, and that user is assigned a default user role.
