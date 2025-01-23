@@ -279,6 +279,20 @@ The following properties are used to configure the z/OS Manager.
 </details>
  
 <details>
+<summary>The VTAM logon command template for the z/OS Image</summary>
+
+| Property: | The VTAM logon command template for the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[image].vtam.logon |
+| Description: | A template for the command to log on to an application running on the zOS Image. The {0} argument in the template will be replaced with the VTAM application identifier for the requested application. |
+| Required:  | No |
+| Default value: | LOGON APPLID({0}) |
+| Valid values: | A valid java.text.MessageFormat pattern with precisely one FormatElement |
+| Examples: | <code>zos.image.[image].vtam.logon=LOGON APPLID({0})</code><br> |
+
+</details>
+ 
+<details>
 <summary>The run data set HLQ for the z/OS Image</summary>
 
 | Property: | The run data set HLQ for the zOS Image |
