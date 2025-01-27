@@ -1,0 +1,57 @@
+name: Build and publish to github pages
+on:
+  push:
+    # Whenever a new tag is created/release is created...
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+    # Or a branch gets pushed...
+    branches:
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+      - '!gh-pages' # exclude pushes to gh-pages branch always.
+permissions:
+  contents: write
+env:
+  VERSION_ALIAS: ${{ github.ref_name == 'main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install python packages
+        run: |
+          pip install mkdocs-material 
+          pip install mike
+
+      - name: Preserve existing published material
+        run: |
+          git fetch
+          git checkout -t origin/gh-pages
+          git pull
+          git checkout ${{ github.ref_name }}
+
+      - name: build documentation and push it to github-pages
+        id:  build-and-publish
+        run: |
+          if [[ $GITHUB_REF_NAME == 'main' ]]; then
+            mike deploy --push --update-aliases "development"
+          else
+            mike deploy --push --update-aliases "${{ github.ref_name }}"
+          fi
+

@@ -1,0 +1,53 @@
+
+name: Sets one of the gh-pages releases to be marked as 'latest'
+
+permissions:
+  contents: write
+  
+on: 
+  workflow_dispatch:
+    inputs:
+      latest_release:
+        description: 'Which release is the latest ? For example: v0.40.0'
+        required: true
+
+jobs:
+  releases-set-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install python packages
+        run: |
+          pip install mkdocs-material 
+          pip install mike
+
+      - name: Make sure the gh-pages branch is checked out and up to date.
+        run: |
+          git fetch
+          git checkout -t origin/gh-pages
+          git pull
+          git checkout main
+
+      - name: Change the version which has the 'latest' label
+        run: |
+          mike alias "${{github.event.inputs.latest_release}}" latest --push --update-aliases
+
+      - name: List the releases in the gh-pages now
+        run: |
+          mike list
+
