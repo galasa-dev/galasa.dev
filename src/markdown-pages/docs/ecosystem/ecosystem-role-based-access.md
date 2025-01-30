@@ -54,9 +54,7 @@ This table shows the list of built-in actions:
 | SECRETS_DELETE | Allows the deletion of secrets |
 | SECRETS_GET_UNREDACTED_VALUES | Allows you to get secrets which contain the real secret value, rather than a redacted value.|
 | SECRETS_SET | Allows setting of secrets |
-| TOKENS_DELETE_OTHER_USERS | Allows the user to delete personal access tokens of other users |
-| TOKENS_GET_OTHER_USERS | Allows the user to list the tokens that other users have |
-| USER_ROLE_UPDATE_ANY | Allows the user to set the user role of another user on the system. This is likely to remain an administrator-only action.|
+| USER_EDIT_OTHER | Allows the editing of a different user on the system. This includes changing their role, deleting personal access tokens, or deleting the user completely. |
 
 
 ## Available Roles
