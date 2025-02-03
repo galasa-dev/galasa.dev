@@ -9,7 +9,8 @@ title: "Role Based Access"
   - [Available Actions](#available-actions)
   - [Available Roles](#available-roles)
   - [Constraints](#constraints)
-  - [Installing the Galasa service into kubernetes](#installing-the-galasa-service-into-kubernetes)
+  - [Upgrading to a version of Galasa which supports RBAC](#upgrading-to-a-version-of-galasa-which-supports-rbac)
+  - [Setting up RBAC when you install Galasa into Kubernetes](#setting-up-rbac-when-you-install-galasa-into-kubernetes)
     - [How to nominate a user as the Galasa service `owner`](#how-to-nominate-a-user-as-the-galasa-service-owner)
     - [How to set the default user role](#how-to-set-the-default-user-role)
   - [Using the `galasactl` command-line tool to view roles](#using-the-galasactl-command-line-tool-to-view-roles)
@@ -20,7 +21,7 @@ title: "Role Based Access"
 Role Based Access Control (RBAC) is a widely adopted mechanism of assigning roles to users of a system which grants such users permissions to perform some capability dictated by the role(s) they have been assigned. Here we discuss the Galasa implementation of RBAC.
 
 ## Why do we need Role Based Access Control ?
-Some actions that can be performed on the Galasa Ecosystem are powerful and dangerous, such as deleting CPS properties, secrets or other resources. Giving every user of the Galasa service the ability to perform those actions is inviting disaster from inexperienced or incautions users who are not aware of the consequences of their actions.
+Some actions that can be performed on the Galasa Ecosystem are powerful and dangerous, such as deleting CPS properties, secrets or other resources. Giving every user of the Galasa service the ability to perform those actions is inviting disaster from inexperienced or incautious users who are not aware of the consequences of their actions.
 Deleted resources could mean data being lost forever, which bears a cost to work out what was removed, and how to re-create it again. It would be far better to prevent those events occurring in the first place.
 
 To limit the risk of such events occurring, the Galasa Service provides some Role Based Access (RBAC) mechanisms to ensure users responsible for administering the system can 
@@ -54,31 +55,41 @@ This table shows the list of built-in actions:
 | GENERAL_API_ACCESS | Be able to perform basic actions on the system via the REST api |
 | RUNS_DELETE_OTHER_USERS | Allows the user to delete runs that other users submitted |
 | SECRETS_DELETE | Allows the deletion of secrets |
-| SECRETS_GET_UNREDACTED_VALUES | Allows you to get secrets which contain the real secret value, rather than a redacted value.|
+| SECRETS_GET_UNREDACTED_VALUES | Allows you to get secrets which contain the real secret value, rather than a redacted value |
 | SECRETS_SET | Allows setting of secrets |
-| USER_EDIT_OTHER | Allows the editing of a different user on the system. This includes changing their role, deleting personal access tokens, or deleting the user completely. |
+| USER_EDIT_OTHER | Allows the editing of a different user on the system. This includes changing their role, deleting personal access tokens, or deleting the user completely |
 
 
 ## Available Roles
 This table shows the list of built-in roles:
 | Role name | Description | Actions someone with this role can perform |
 |-----------|-------------|--------------------------------------------|
-| admin     | A Galasa service administrator. Anle to do any operation supported by the Galasa service. | all |
-| deactivated | A user who has no permissions at all, and is able to do nothing on the Galasa service. | none |
-| owner       | The owner of the Galasa service. Such users have all the rights of an administrator, but nobody can delete their id or change their role without changing the kubernetes configuration. | all |
-| tester | A user who writes and runs tests, looks at the test results and diagnoses errors in the system under test.| GENERAL_API_ACCESS |
+| deactivated | A user who has no permissions at all, and is able to do nothing on the Galasa service | none |
+| tester | A user who writes and runs tests, looks at the test results and diagnoses errors in the system under test | GENERAL_API_ACCESS |
+| admin     | A Galasa service administrator. Able to do any operation supported by the Galasa service | all |
+| owner       | The owner of the Galasa service. Such users have all the rights of an administrator, but nobody can delete their id or change their role without changing the kubernetes configuration | all |
 
 
 
 ## Constraints
 The system also has some constraints on how these resources can be set up and used:
 - Nobody can change their own "role", assigning a different role to yourself is not permitted
-- If a user existed on the Galasa service prior to the RBAC feature being available, and the Galasa service is upgraded, then all pre-existing users will be assigned the "admin" role.
 - New users on the system are assigned a default role when they first login to the Galasa service. This role is configurable. More details on how to configure this default role is described in section [how to set the default user role](#how-to-set-the-default-user-role).
 - One or more users can be assigned the `owner` role. Such users are privileged because an administrator role cannot directly update their role away from `owner` using the standard mechanisms. Similarly, such "owners" of the Galasa service cannot be removed, even by another `owner` without changing kubernetes configuration.
 - An administrator cannot delete their own user record. This constraint attempts to make sure that there is at least one owner or administrator on the system. If nobody active in your organisation has `admin` or `owner` rights, then a new owner of the service can be nominated using the Galasa service install/update instructions. See [How to nominate a user as the Galasa service `owner`](#how-to-nominate-a-user-as-the-galasa-service-owner)
+- An administrator cannot change their own role.
+- Not even administrators can change the role of a user nominated as an `owner`.
+- The `owner` role can only be assigned using the Kubernetes property, not via the command-line or REST interface.
 
-## Installing the Galasa service into kubernetes
+## Upgrading to a version of Galasa which supports RBAC
+When upgrading your Galasa service to a version 0.40.0 or later, any existing users will be assigned the role of `admin` without any extra action being required.
+
+Under such circumstances you may wish to assign the role of `tester` to anyone who now should not have administration rights.
+
+Upgrading the existing Galasa service will therefore not require any `owner` to be set up, because your system will already have multiple administrator users with the `admin` role.
+
+
+## Setting up RBAC when you install Galasa into Kubernetes
 
 ### How to nominate a user as the Galasa service `owner`
 An "owner" of the Galasa service is a user who has been nominated as the owner of the service, and who has the `owner` RBAC role.
@@ -162,7 +173,7 @@ metadata:
     id: "2"
     name: admin
     description: Administrator access
-    url: http://prod1-galasa-dev.cicsk8s.hursley.ibm.com/rbac/roles/2
+    url: http://my-server:8080/rbac/roles/2
 data:
     actions:
         - CPS_PROPERTIES_SET

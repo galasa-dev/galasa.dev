@@ -71,7 +71,7 @@ The following diagram highlights some of the key components that make up the Gal
 ### Key concepts:
 
 These concepts are relevent when running tests locally, or when submitting tests to a remote Galasa service:
-- A **testcase** - A piece of test logic which can be compiled or translated into something which is runnable by the Galasa framework. This may be a piece of Java code for example, or a Gherkin test feature.
+- A **test case** - A piece of test logic which can be compiled or translated into something which is runnable by the Galasa framework. This may be a piece of Java code for example, or a Gherkin test feature.
 - A **test run** - Also known as a 'run' - An execution of the testcase which was started at a certain point in time, executed logic steps, and is still running, or has finished with a test status and result. For example: Passed or Failed.
 
 Some concepts are only relevent on a Galasa service:
