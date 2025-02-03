@@ -23,7 +23,7 @@ _Note:_ The Galasa Ecosystem Helm chart currently supports only x86-64 systems. 
 
 
 
-## Role-based access control
+## Kubernetes role-based access control
 
 If role-based access control (RBAC) is active on your Kubernetes cluster, a user with the `galasa-admin` role (or a role with equivalent permissions) is needed to run Helm commands on the cluster. The `galasa-admin` role allows assigned users to run the Helm install, upgrade, and delete commands to interact with the Helm chart. 
 
@@ -155,6 +155,17 @@ Complete the following steps to configure Dex to authenticate through GitHub:
 By default, the Galasa Ecosystem Helm chart creates a Kubernetes Secret containing configuration details for Dex. If you want to apply your own Dex configuration as a Secret, your Dex configuration must be provided in a `config.yaml` key within the Secret, and the value of the `config.yaml` key must be a valid Dex configuration.
 
 For more information on configuring Dex, see the  <a href=https://dexidp.io/docs target="_blank"> Dex documentation</a>.
+
+## Configure the 'owner' of the Galasa service
+When the Galasa service starts up, if a user is configured as one of the "owners" of the Galasa service logs in, they will have administration rights throughout the Galasa service.
+
+You need to configure the `values.yaml` file to set the `galasaOwnersLoginIds` property to refer to the login-id used by the service owner. You can set multiple owners by adding a comma-separated list of login ids.
+
+If you don't set this property, then nobody will be able to login to the service with administrator rights.
+
+Once you have logged-in as the owner, you may set the user role of other users to enable more than one administrator.
+
+If you no longer need the 'owner' access rights, remove the nominated user from the `values.yaml` setting and use Helm to update the service configuration.
 
 ## Installing the chart
 
