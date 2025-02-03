@@ -92,6 +92,8 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
+            - title: Role based access control
+              path: /docs/ecosystem/role-based-access
             - title: Installing an Ecosystem using Helm
               path: /docs/ecosystem/ecosystem-installing-k8s
             - title: Configuring authentication
