@@ -28,7 +28,7 @@ To limit the risk of such events occurring, the Galasa Service provides some Rol
 perform these powerful actions, while other users are denied access to them.
 
 ## Understanding the Galasa RBAC model 
-![Diagram showing the rabc model used by Galasa](./ecosystem-rbac-model.png)
+![Diagram showing the rabc model used by Galasa](./ecosystem-rbac-model.svg)
 
 Galasa offers a list of "actions". Each one relates to something which can be performed on the Galasa system.
 
