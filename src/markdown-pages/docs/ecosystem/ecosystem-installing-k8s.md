@@ -177,8 +177,7 @@ To configure a list of owners, use the `galasaOwnersLoginIds` property of the `v
 You can set multiple owners by adding a comma-separated list of login-ids.
 
 Each login-id must match the login-id allocated to the user by the authentication service to which Galasa connects.
-If you are unsure what login-id to use, try setting up your system without an owner and logging into the Galasa service using a browser, and viewing the user profile page
-and, then return to update the owner in your `values.yaml` and deploy it to kubernetes using `Helm upgrade`.
+If you are unsure what login-id to use, try setting up your system without an owner and logging into the Galasa service using a browser, then viewing the user profile page before returning to update the owner login-id in your `values.yaml` and deploying it to kubernetes using `helm upgrade`.
 
 ## Installing the chart
 

@@ -70,11 +70,11 @@ The following diagram highlights some of the key components that make up the Gal
 
 ### Key concepts:
 
-These concepts are relevent when running tests locally, or when submitting tests to a remote Galasa service:
+These concepts are relevant when running tests locally, or when submitting tests to a remote Galasa service:
 - A **test case** - A piece of test logic which can be compiled or translated into something which is runnable by the Galasa framework. This may be a piece of Java code for example, or a Gherkin test feature.
 - A **test run** - Also known as a 'run' - An execution of the testcase which was started at a certain point in time, executed logic steps, and is still running, or has finished with a test status and result. For example: Passed or Failed.
 
-Some concepts are only relevent on a Galasa service:
+Some concepts are only relevant on a Galasa service:
 - A **user** - The authorised person manipulating the Galasa system in some way.
 - **Role based access control (RBAC)** - The mechanism where the Galasa service will allow some users to perform any available task, but limit what other users can do. This is to help isolate some system capabilities for safety or for security. Read more about the RBAC in the [role-based access](./ecosystem-role-based-access.md) section.
 
