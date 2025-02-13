@@ -28,7 +28,7 @@ To limit the risk of such events occurring, the Galasa Service provides some Rol
 perform these powerful actions, while other users are denied access to them.
 
 ## Understanding the Galasa RBAC model 
-![Diagram showing the rabc model used by Galasa](./ecosystem-rbac-model.svg)
+![Diagram showing the RBAC model used by Galasa](./ecosystem-rbac-model.svg)
 
 Galasa offers a list of "actions". Each one relates to something which can be performed on the Galasa system.
 
@@ -75,7 +75,7 @@ This table shows the list of built-in roles:
 The system also has some constraints on how these resources can be set up and used:
 - Nobody can change their own "role", assigning a different role to yourself is not permitted
 - New users on the system are assigned a default role when they first login to the Galasa service. This role is configurable. More details on how to configure this default role is described in section [how to set the default user role](#how-to-set-the-default-user-role).
-- One or more users can be assigned the `owner` role. Such users are privileged because an administrator role cannot directly update their role away from `owner` using the standard mechanisms. Similarly, such "owners" of the Galasa service cannot be removed, even by another `owner` without changing kubernetes configuration.
+- One or more users can be assigned the `owner` role. Such users are privileged because an administrator role cannot directly update their role away from `owner` using the standard mechanisms. Similarly, such "owners" of the Galasa service cannot be removed, even by another "owner" without changing kubernetes configuration.
 - An administrator cannot delete their own user record. This constraint attempts to make sure that there is at least one owner or administrator on the system. If nobody active in your organisation has `admin` or `owner` rights, then a new owner of the service can be nominated using the Galasa service install/update instructions. See [How to nominate a user as the Galasa service `owner`](#how-to-nominate-a-user-as-the-galasa-service-owner)
 - An administrator cannot change their own role.
 - Not even administrators can change the role of a user nominated as an `owner`.
@@ -97,7 +97,7 @@ An "owner" of the Galasa service is a user who has been nominated as the owner o
 This nomination is made at the time the Galasa service is first installed into the Kubernetes namespace, or 
 when it is subsequently updated using the Galasa Helm chart.
 
-To nominate as user as an `owner` you need to set the property in the Helm values file when the Galasa service is installed or updated.
+To nominate a user as an `owner` you need to set the property in the Helm values file when the Galasa service is installed or updated.
 
 For example, in the `.values` file used by helm:
 ```
@@ -123,6 +123,7 @@ galasaOwnersLoginIds: ""
 
 To install the Galasa service, it may be necessary to nominate an `owner` using this mechanism initially, so 
 that when such a user logs-in, they are able to promote other trusted users to the position of `admin`.
+
 After that point, the kubernetes configuration can be changed to remove the `owner` or not.
 
 
