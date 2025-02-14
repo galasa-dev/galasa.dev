@@ -23,7 +23,7 @@ _Note:_ The Galasa Ecosystem Helm chart currently supports only x86-64 systems. 
 
 
 
-## Role-based access control
+## Kubernetes role-based access control
 
 If role-based access control (RBAC) is active on your Kubernetes cluster, a user with the `galasa-admin` role (or a role with equivalent permissions) is needed to run Helm commands on the cluster. The `galasa-admin` role allows assigned users to run the Helm install, upgrade, and delete commands to interact with the Helm chart. 
 
@@ -152,9 +152,32 @@ Complete the following steps to configure Dex to authenticate through GitHub:
               - my-team
     ```
 
-By default, the Galasa Ecosystem Helm chart creates a Kubernetes Secret containing configuration details for Dex. If you want to apply your own Dex configuration as a Secret, your Dex configuration must be provided in a `config.yaml` key within the Secret, and the value of the `config.yaml` key must be a valid Dex configuration.
+By default, the Galasa Ecosystem Helm chart creates a Kubernetes Secret containing configuration details for Dex. 
+If you want to apply your own Dex configuration as a Secret, your Dex configuration must be provided in a `config.yaml` key within the Secret, 
+and the value of the `config.yaml` key must be a valid Dex configuration.
 
 For more information on configuring Dex, see the  <a href=https://dexidp.io/docs target="_blank"> Dex documentation</a>.
+
+## Configure the default user role, and 'owner' of the Galasa service
+
+When the Galasa service is first installed, users logging in will be assigned a role as dictated by the `galasaDefaultUserRole` Helm chart property. For example 'tester'.
+This means nobody initially logging into the Galasa service will have administrator privileges.
+We would discourage ever setting this property to `admin` as doing so would provide a less secure Galasa service, with any action in the system available to anyone on the system.
+
+To obtain administration rights to the Galasa service, the kubernetes install must nominate one or more users as 'owners' of the service.
+When a service owner next logs into the Galasa service, they will be granted a role of `owner`.
+From this point on, that user can assign the 'admin' role to anyone else who needs it using the `galasactl` command line or by using the web user interface via a browser.
+
+Once the Galasa service has one or more users with the 'admin' role, kubernetes can be updated so that the system doesn't have any "owner" if desired. 
+The `owner` role exists solely to fix situations where there are no administrators on the Galasa service, such as when the Galasa service is initially installed, or when none of the
+members in the organisation have the `admin` role.
+If a user was a nominated "owner", performs some administration tasks, and is then removed from the list of "owners", their role on the Galasa service will revert to what it was initially.
+
+To configure a list of owners, use the `galasaOwnersLoginIds` property of the `values.yaml` file and use Helm to deploy it.
+You can set multiple owners by adding a comma-separated list of login-ids.
+
+Each login-id must match the login-id allocated to the user by the authentication service to which Galasa connects.
+If you are unsure what login-id to use, try setting up your system without an owner and logging into the Galasa service using a browser, then viewing the user profile page before returning to update the owner login-id in your `values.yaml` and deploying it to kubernetes using `helm upgrade`.
 
 ## Installing the chart
 
