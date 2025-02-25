@@ -293,6 +293,20 @@ The following properties are used to configure the z/OS Manager.
 </details>
  
 <details>
+<summary>The logon initial text for the z/OS Image</summary>
+
+| Property: | The logon initial text for the z/OS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.[image].logon.initial.text |
+| Description: | A text string that is expected to be present on a 3270 terminal that has been connected to the z/OS image [tag] but before logon to any application system has been attempted. |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | Any text string |
+| Examples: | <code>zos.image.[image].logon.initial.text=VAMP</code><br> |
+
+</details>
+ 
+<details>
 <summary>The run data set HLQ for the z/OS Image</summary>
 
 | Property: | The run data set HLQ for the zOS Image |

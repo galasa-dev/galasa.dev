@@ -77,21 +77,7 @@ The following are properties that are used to configure the IMS TM Manager in th
 | Description: | Provides the version of the IMS TM system to the DSE provisioner. |
 | Required:  | Only requires setting if the test requests it. |
 | Default value: | None |
-| Valid values: | A value V.R.M version format, e.g. 15.2.0 |
-| Examples: | <code>imstm.dse.tag.PRIMARY.version=15.2.0</code><br> |
-
-</details>
- 
-<details>
-<summary>Extra bundles required to implement the IMS TM Manager</summary>
-
-| Property: | Extra bundles required to implement the IMS TM Manager |
-| --------------------------------------- | :------------------------------------- |
-| Name: | imstm.extra.bundles |
-| Description: | The symbolic names of any bundles that need to be loaded<br> with the IMS TM Manager. |
-| Required:  | No |
-| Default value: | none |
-| Valid values: | bundle symbolic names comma separated |
-| Examples: | <code>imstm.extra.bundles=org.example.imstm.provisioning</code><br> |
+| Valid values: | A value V.R.M version format, e.g. 15.5.0 |
+| Examples: | <code>imstm.dse.tag.PRIMARY.version=15.5.0</code><br> |
 
 </details>
