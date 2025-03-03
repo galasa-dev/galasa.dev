@@ -105,7 +105,7 @@ The following annotations are available with the IMS TM Manager
 | Description: | The <code>@ImsTerminal</code> annotation requests the IMS TM Manager to provide a 3270 terminal associated with an IMS System.  The test can request multiple IMS Terminals for each IMS System. Each <code>@ImsTerminal</code> annotation requires a corresponding <code>@ImsSystem</code> annotation in the same test class. |
 | Attribute: `imsTag` |  The <code>imsTag</code> is used to identify the IMS System. Optional. The default value is <b>PRIMARY</b>. |
 | Attribute: `connectAtStartup` |  If <code>connectAtStartup=true</code> the terminal will be connected and signed on to the associated IMS System when control is passed to the test. Optional. The default value is <b>true</b> |
-| Attribute: `loginCredentialsTag` |  The <code>loginCredentialsTag</code> is used to identify the credentials that will be used to sign on to the IMS System. Optional. The default value is none. |
+| Attribute: `loginCredentialsTag` |  The <code>loginCredentialsTag</code> is used to identify the credentials that will be used to sign on to the IMS System. Required.
 | Syntax: | @ImsTerminal(imsTag="A", connectAtStartup=true, loginCredentialsTag="USER01")<br>public IImsTerminal terminalA; |
 | Notes: | The <code>IImsTerminal</code> interface defines <code>getImsSystem()</code>, <code>connectToImsSystem()</code>, <code>resetAndClear()</code>, and <code>getLoginCredentialsTag()</code> methods in addition to all methods defined for the <code>ITerminal</code> interface. |
 
