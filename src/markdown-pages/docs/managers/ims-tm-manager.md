@@ -84,6 +84,7 @@ The following are properties that are used to configure the IMS TM Manager in th
 # <a name="annotations"></a>Provided annotation
 
 The following annotations are available with the IMS TM Manager
+
 <details>
 <summary>IMS System</summary>
 
@@ -93,9 +94,11 @@ The following annotations are available with the IMS TM Manager
 | Description: | The <code>@ImsSystem</code> annotation requests the IMS TM Manager to provide an IMS TM System associated with a z/OS image.  The test can request multiple IMS Systems. |
 | Attribute: `imsTag` |  The <code>imsTag</code> is used to identify the IMS System. Optional. The default value is <b>PRIMARY</b>. |
 | Attribute: `imageTag` |  The <code>imageTag</code> is used to identify the associated z/OS image. Optional. The default value is <b>PRIMARY</b> |
-| Syntax: | @ImsSystem(imsTag="A", imageTag="MVSA")<br>public IImsSystem imsSystemA; |
+| Syntax: | <code>@ImsSystem(imsTag="A", imageTag="MVSA")<br>public IImsSystem imsSystemA;</code> |
 | Notes: | The <code>IImsSystem</code> interface defines <code>getTag()</code>, <code>getApplid()</code>, <code>getVersion()</code>, and <code>getZosImage()</code> methods for accessing the IMS System's attributes. The behaviour of the remaining methods are dependent on the provisioner that supplies the <code>IImsSystem</code> object. For the DSE provisioner, <code>isProvisionStart()</code> always returns <code>true</code>, while <code>startup()</code> and <code>shutdown()</code> always throw an exception. |
+
 </details>
+
 <details>
 <summary>IMS Terminal</summary>
 
@@ -106,7 +109,7 @@ The following annotations are available with the IMS TM Manager
 | Attribute: `imsTag` |  The <code>imsTag</code> is used to identify the IMS System. Optional. The default value is <b>PRIMARY</b>. |
 | Attribute: `connectAtStartup` |  If <code>connectAtStartup=true</code> the terminal will be connected and signed on to the associated IMS System when control is passed to the test. Optional. The default value is <b>true</b> |
 | Attribute: `loginCredentialsTag` |  The <code>loginCredentialsTag</code> is used to identify the credentials that will be used to sign on to the IMS System. Required.
-| Syntax: | @ImsTerminal(imsTag="A", connectAtStartup=true, loginCredentialsTag="USER01")<br>public IImsTerminal terminalA; |
+| Syntax: | <code>@ImsTerminal(imsTag="A", connectAtStartup=true, loginCredentialsTag="USER01")<br>public IImsTerminal terminalA;</code> |
 | Notes: | The <code>IImsTerminal</code> interface defines <code>getImsSystem()</code>, <code>connectToImsSystem()</code>, <code>resetAndClear()</code>, and <code>getLoginCredentialsTag()</code> methods in addition to all methods defined for the <code>ITerminal</code> interface. |
 
 </details>
