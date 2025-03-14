@@ -57,13 +57,15 @@ compileOnly 'dev.galasa:dev.galasa.zos.manager'
 }
 ```
 
-## Testing CICS Regions on z/OS
+## Testing in CICS Regions or IMS TM Systems on z/OS
 
-To connect your Galasa test to a developer supplied environment with a provisioned CICS region as a minimum you need to configure the following properties, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS regions sit on a z/OS LPAR, and so to provision and connect to a CICS region in a test, you also need access to the z/OS image that it sits within to make requests on the CICS region. You might need to configure additional z/OS-related CPS properties, depending on your test.  
+To connect your Galasa test to a developer supplied environment with a provisioned CICS region or IMS TM system as a minimum you need to configure the following properties, even if you do not reference a `@ZosImage` in your Galasa test. This is because CICS regions and IMS TM systems sit on a z/OS LPAR, and so to provision and connect to a CICS region or IMS TM system in a test, you also need access to the z/OS image that it sits within to make requests on the CICS region or IMS TM system. You might need to configure additional z/OS-related CPS properties, depending on your test.  
 
 
 ```
-zos.dse.tag.[tag].imageid=[IMAGEID] OR zos.cluster.[clusterId].images=[IMAGEID]
+zos.dse.tag.[tag].imageid=[IMAGEID]
+    OR zos.tag.[tag].imageid=[IMAGEID] 
+    OR zos.cluster.[CLUSTERID].images=[IMAGEID] (AND zos.dse.tag.[tag].clusterid=[CLUSTERID] if [CLUSTERID] is not DEFAULT)
 zos.image.[IMAGEID].ipv4.hostname=[IP ADDRESS]
 zos.image.[IMAGEID].credentials=[CREDENTIALID]
 ```
@@ -73,6 +75,12 @@ You also need to configure the following properties for the [CICS TS Manager](ci
 ```
 cicsts.provision.type=dse
 cicsts.dse.tag.[TAG].applid=[APPLID]
+```
+
+or the following property for the [IMS TM Manager](ims-tm-manager):
+
+```
+imstm.dse.tag.[TAG].applid=[APPLID]
 ```
 
 
@@ -86,12 +94,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | Hostname of a z/OS system |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[IMAGEID].ipv4.hostname |
+| Name: | zos.image.[imageId].ipv4.hostname |
 | Description: | A physical TCP/IP hostname value for a z/OS system |
 | Required:  | Yes, if connecting to a z/OS image |
 | Default value: | None |
 | Valid values: | A valid TCP/IP hostname   |
-| Examples: | <code>zos.image.IMAGEA.ipv4.hostname=dev.galasa.system1</code><br><code>zos.image.SIMBANK.ipv4.hostname=127.0.0.1</code><br><code>zos.image.IMAGEA.ipv4.hostname=winmvs2a.example.com</code><br> |
+| Examples: | <code>zos.image.SYSA.ipv4.hostname=dev.galasa.system1</code><br><code>zos.image.SIMBANK.ipv4.hostname=127.0.0.1</code><br> |
 
 </details>
 
@@ -100,12 +108,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | Credentials tag for logging onto a z/OS system   |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[IMAGEID].credentials |
+| Name: | zos.image.[imageId].credentials |
 | Description: |  Tag of the credentials that are stored in the CREDS and used to log onto a z/OS system  |
 | Required:  | Yes, if connecting to a z/OS image |
 | Default value: | None|
 | Valid values: | Valid characters are A-Z, a - z, 0-9  |
-| Examples: | <code>zos.image.IMAGEA.credentials=KEY_TO_CREDS_STORE</code><br><code>zos.image.SIMBANK.credentials=SIMBANK</code><br><code>zos.image.IMAGEA.credentials=WINMVS2A</code><br>|
+| Examples: | <code>zos.image.SYSA.credentials=KEY_TO_CREDS_STORE</code><br><code>zos.image.SIMBANK.credentials=SIMBANK</code><br> |
 
 </details>
 
@@ -134,7 +142,7 @@ The following properties are used to configure the z/OS Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid value is a character string with a maximum length of 32 |
-| Examples: | <code>zos.tag.[tag].clusterid=plex1</code><br> |
+| Examples: | <code>zos.tag.PLX1.clusterid=PLEXA</code><br> |
 
 </details>
  
@@ -148,7 +156,7 @@ The following properties are used to configure the z/OS Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid value is a character string with a maximum length of 32 |
-| Examples: | <code>zos.cluster.[clusterId].images=SYSA,SYSB,SYSC</code><br> |
+| Examples: | <code>zos.cluster.PLEX1.images=SYSA,SYSB,SYSC</code><br> |
 
 </details>
  
@@ -176,7 +184,7 @@ The following properties are used to configure the z/OS Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A 1 - 8 length character name |
-| Examples: | <code>zos.dse.tag.[tag].clusterid=PLEXA</code><br> |
+| Examples: | <code>zos.dse.tag.PLX1.clusterid=PLEXA</code><br> |
 
 </details>
  
@@ -190,7 +198,7 @@ The following properties are used to configure the z/OS Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A valid image ID |
-| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+| Examples: | <code>zos.dse.tag.MVS1.imageid=SYSA</code><br> |
 
 </details>
  
@@ -213,12 +221,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | IP Host ID of the zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[tag].iphostid |
-| Description: | The IP Host ID of the z/OS Image for the supplied tag.<br>  If CPS property zos.image.[tag].iphostid exists, then that is returned, otherwise the z/OS Image ID is returned |
+| Name: | zos.image.[imageId].iphostid |
+| Description: | The IP Host ID of the z/OS Image for the supplied tag.<br>  If CPS property zos.image.[imageId].iphostid exists, then that is returned, otherwise the z/OS Image ID is returned |
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A valid IP Host ID |
-| Examples: | <code>zos.image.[tag].iphostid=sysa.example.com</code><br> |
+| Examples: | <code>zos.image.SYSA.iphostid=sysa.example.com</code><br> |
 
 </details>
  
@@ -227,12 +235,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.dse.tag.[tag].imageid |
+| Name: | zos.tag.[tag].imageid |
 | Description: | The image ID for the specified tag |
 | Required:  | No |
 | Default value: | None |
 | Valid values: | A valid z/OS image ID |
-| Examples: | <code>zos.dse.tag.[tag].imageid=SYSA</code><br> |
+| Examples: | <code>zos.tag.MVS1.imageid=SYSA</code><br> |
 
 </details>
  
@@ -241,12 +249,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | Maximum slots for zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[tag].max.slots |
+| Name: | zos.image.[imageId].max.slots |
 | Description: | The maximum slots available on a z/OS Image for the specified tag |
 | Required:  | No |
 | Default value: | 2 |
 | Valid values: | 1 to 255 |
-| Examples: | <code>zos.image.[tag].max.slots=2</code><br> |
+| Examples: | <code>zos.image.SYSA.max.slots=2</code><br> |
 
 </details>
 
@@ -255,12 +263,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | Code page for zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[tag].codepage |
+| Name: | zos.image.[imageId].codepage |
 | Description: | The EBCDIC code page used on a z/OS image for the specified tag. EBCDIC features a variety of code pages, and a subset of characters, including square brackets and currency symbols, are encoded differently between code pages. Setting the correct code page for a z/OS image can resolve issues with displaying these characters. |
 | Required:  | No |
 | Default value: | 037 |
 | Valid values: | A valid java.nio.charset EBCDIC character encoding |
-| Examples: | <code>zos.image.[tag].codepage=1047</code><br> |
+| Examples: | <code>zos.image.SYSA.codepage=1047</code><br> |
 
 </details>
  
@@ -269,12 +277,40 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The SYSNAME for zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.image.[imageid].sysname |
+| Name: | zos.image.[imageId].sysname |
 | Description: | The SYSNAME for the z/OS image | 
 | Required:  | No |
 | Default value: | The image ID of the image |
 | Valid values: | The name must be 1-8 characters long; the valid characters are A-Z, 0-9, $, @, and #. |
-| Examples: | <code>zos.image.IMAGEA.sysname=SYSA</code><br> |
+| Examples: | <code>zos.image.SYSA.sysname=SYSA</code><br> |
+
+</details>
+ 
+<details>
+<summary>The VTAM logon command template for the z/OS Image</summary>
+
+| Property: | The VTAM logon command template for the zOS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.vtam.logon<br>zos.image.[imageId].vtam.logon |
+| Description: | A template for the command to log on to an application running on the zOS Image. The {0} argument in the template will be replaced with the VTAM application identifier for the requested application. |
+| Required:  | No |
+| Default value: | LOGON APPLID({0}) |
+| Valid values: | A valid java.text.MessageFormat pattern with precisely one FormatElement |
+| Examples: | <code>zos.image.vtam.logon=LOGON APPLID {0}</code><br> <code>zos.image.SYSA.vtam.logon={0} </code>|
+
+</details>
+ 
+<details>
+<summary>The logon initial text for the z/OS Image</summary>
+
+| Property: | The logon initial text for the z/OS Image |
+| --------------------------------------- | :------------------------------------- |
+| Name: | zos.image.logon.initial.text<br>zos.image.[imageId].logon.initial.text |
+| Description: | A text string that is expected to be present on a 3270 terminal that has been connected to the z/OS image but before logon to any application system has been attempted. |
+| Required:  | No |
+| Default value: | None |
+| Valid values: | Any text string |
+| Examples: | <code>zos.image.logon.initial.text=VAMP</code><br><code>zos.image.SYSA.logon.initial.text=SYSA MAIN MENU</code> |
 
 </details>
  
@@ -283,12 +319,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The run data set HLQ for the zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.run.[image].dataset.hlq |
-| Description: | The data set HLQ(s) for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].dataset.hlq exists, then that is returned |
+| Name: | zos.run.[imageId].dataset.hlq |
+| Description: | The data set HLQ(s) for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[imageId].dataset.hlq exists, then that is returned |
 | Required:  | No |
 | Default value: | runuser.GALASA |
 | Valid values: | A data set name can be one name segment, or a series of joined name segments. Segments are limited to eight characters, the first of which must be alphabetic (A to Z) or special (# @ $). The remaining seven characters are either alphabetic, numeric (0 - 9), special, a hyphen (-). Name segments are separated by a period (.). |
-| Examples: | <code>zos.run.[image].dataset.hlq=USERID.GALASA</code><br> |
+| Examples: | <code>zos.run.SYSA.dataset.hlq=USERID.GALASA</code><br> |
 
 </details>
  
@@ -297,12 +333,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | The run data UNIX path prefix for the zOS Image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zos.run.[image].unix.path.prefix |
+| Name: | zos.run.[imageId].unix.path.prefix |
 | Description: | The UNIX path prefix for temporary data sets created on z/OS Image.<br>  If CPS property zos.run.[image].unix.path.prefix exists, then that is returned |
 | Required:  | No |
 | Default value: | /u/runuser/Galasa |
 | Valid values: | A valid path |
-| Examples: | <code>zos.run.[image].unix.path.prefix=/u/userid/Galasa</code><br> |
+| Examples: | <code>zos.run.SYSA.unix.path.prefix=/u/userid/Galasa</code><br> |
 
 </details>
  
@@ -339,12 +375,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch restrict processing to the server on the specified image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.batchjob.[imageid].restrict.to.image |
+| Name: | zosbatch.batchjob.[imageId].restrict.to.image |
 | Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the z/OS Batch job |
 | Required:  | No |
 | Default value: | false |
 | Valid values: | true or false |
-| Examples: | <code>zosbatch.batchjob.MVSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
+| Examples: | <code>zosbatch.batchjob.SYSA.restrict.to.image=true</code><br> <code>zosbatch.batchjob.default.restrict.to.image=false</code> |
 
 </details>
  
@@ -353,12 +389,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch default input class |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.default.[imageid].input.class |
+| Name: | zosbatch.default.input.class<br>zosbatch.default.[imageId].input.class |
 | Description: | The default input class to set on the job card for submitted jobs |
 | Required:  | No |
 | Default value: | A |
 | Valid values: | a valid JES input class literal |
-| Examples: | <code>zosbatch.default.MVSA.input.class=S</code><br> <code>zosbatch.default.input.class=A</code> |
+| Examples: | <code>zosbatch.default.SYSA.input.class=S</code><br> <code>zosbatch.default.input.class=A</code> |
 
 </details>
  
@@ -367,12 +403,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch job execution wait timeout |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.batchjob.[imageid].timeout |
+| Name: | zosbatch.batchjob.[imageId].timeout |
 | Description: | The value in seconds to wait for the z/OS Batch job execution to complete when submitted via zOSMF |
 | Required:  | No |
 | Default value: | 350 |
 | Valid values: | 0 to {@link Integer#MAX_VALUE} |
-| Examples: | <code>zosbatch.batchjob.MVSA.timeout=350</code><br> <code>zosbatch.batchjob.default.timeout=60</code> |
+| Examples: | <code>zosbatch.batchjob.SYSA.timeout=350</code><br> <code>zosbatch.batchjob.default.timeout=60</code> |
 
 </details>
  
@@ -381,12 +417,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch jobname prefix |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.jobname.[imageid].prefix |
+| Name: | zosbatch.jobname.[imageId].prefix |
 | Description: | The z/OS Batch jobname prefix when submitted via zOSMF |
 | Required:  | No |
 | Default value: | GAL |
 | Valid values: | 1-7 characters |
-| Examples: | <code>zosbatch.jobname.MVSA.prefix=JOB</code><br> <code>zosbatch.jobname.default.prefix=XXX</code> |
+| Examples: | <code>zosbatch.jobname.SYSA.prefix=JOB</code><br> <code>zosbatch.jobname.default.prefix=XXX</code> |
 
 </details>
  
@@ -395,12 +431,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch default MSGCLASS |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.default.[imageid].message.class |
+| Name: | zosbatch.default.class<br>zosbatch.default.[imageId].message.class |
 | Description: | The default message class to set on the job card for submitted jobs |
 | Required:  | No |
 | Default value: | A |
 | Valid values: | a valid JES message class literal |
-| Examples: | <code>zosbatch.default.MVSA.message.class=S</code><br> <code>zosbatch.default.message.class=A</code> |
+| Examples: | <code>zosbatch.default.SYSA.message.class=S</code><br> <code>zosbatch.default.message.class=A</code> |
 
 </details>
  
@@ -409,12 +445,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch default message level |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.default.[imageid].message.level |
+| Name: | zosbatch.default.message.level<br>zosbatch.default.[imageId].message.level |
 | Description: | The default message level to set on the job card for submitted jobs |
 | Required:  | No |
 | Default value: | (1,1) |
 | Valid values: | a valid JES message level |
-| Examples: | <code>zosbatch.default.MVSA.message.level=(1,1)</code><br> <code>zosbatch.default.message.level=(2,0)</code> |
+| Examples: | <code>zosbatch.default.SYSA.message.level=(1,1)</code><br> <code>zosbatch.default.message.level=(2,0)</code> |
 
 </details>
  
@@ -423,12 +459,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch job truncate JCL |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.batchjob.[imageid].truncate.jcl.records |
+| Name: | zosbatch.batchjob.[imageId].truncate.jcl.records |
 | Description: | The z/OSMF submit job will fail if supplied with JCL records greater than 80 characters. Setting this property to true will truncate any records to 80 characters and issue a warning message. |
 | Required:  | No |
 | Default value: | true |
 | Valid values: | true or false |
-| Examples: | <code>zosbatch.batchjobe.MVSA.truncate.jcl.records=true</code><br> <code>zosbatch.batchjob.default.truncate.jcl.records=false</code> |
+| Examples: | <code>zosbatch.batchjob.SYSA.truncate.jcl.records=true</code><br> <code>zosbatch.batchjob.default.truncate.jcl.records=false</code> |
 
 </details>
  
@@ -437,12 +473,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS Batch job use SYSAFF |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosbatch.batchjob.[imageid].use.sysaff |
+| Name: | zosbatch.batchjob.[imageId].use.sysaff |
 | Description: | Use the run the z/OS Batch job on the specified image by specifying {@code /*JOBPARM SYSAFF=[imageid]} |
 | Required:  | No |
 | Default value: | true |
 | Valid values: | true or false |
-| Examples: | <code>zosbatch.batchjobe.MVSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
+| Examples: | <code>zosbatch.batchjob.SYSA.use.sysaff=true</code><br> <code>zosbatch.batchjob.default.use.sysaff=false</code> |
 
 </details>
  
@@ -451,7 +487,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | Restrict zOS console processing to the zOSMF server on the specified image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosconsole.console.[imageid].restrict.to.image |
+| Name: | zosconsole.console.restrict.to.image<br>zosconsole.console.[imageId].restrict.to.image |
 | Description: | Use only the zOSMF server running on the image associated with the z/OS Console |
 | Required:  | No |
 | Default value: | false |
@@ -465,12 +501,12 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS File the maximum number of items from a UNIX directory list |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosfile.unix.[imageid].directory.list.max.items |
+| Name: | zosfile.unix.[imageId].directory.list.max.items |
 | Description: | The maximum number of items the server (e.g. zOSMF, RSE API, etc) returns when listing the content of a UNIX directory |
 | Required:  | No |
 | Default value: | 1000 |
 | Valid values: | 0 to 65535 |
-| Examples: | <code>zosfile.unix.[imageid].directory.list.max.items=1000</code><br> |
+| Examples: | <code>zosfile.unix.SYSA.directory.list.max.items=1000</code><br> |
 
 </details>
  
@@ -479,7 +515,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS File restrict processing to the server on the specified image |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosfile.file.[imageid].restrict.to.image |
+| Name: | zosfile.file.restrict.to.image<br>zosfile.file.[imageId].restrict.to.image |
 | Description: | Use only the server (e.g. zOSMF, RSE API, etc) running on the image associated with the z/OS data set or file |
 | Required:  | No |
 | Default value: | false |
@@ -493,7 +529,7 @@ The following properties are used to configure the z/OS Manager.
 
 | Property: | zOS File UNIX permission bits to be used in creating the file or directory |
 | --------------------------------------- | :------------------------------------- |
-| Name: | zosfile.[imageid].unix.file.permission |
+| Name: | zosfile.[imageId].unix.file.permission<br>zosfile.[imageId].unix.file.permission |
 | Description: | The UNIX file or directory permission bits to be used in creating the file or directory |
 | Required:  | No |
 | Default value: | None |
