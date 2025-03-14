@@ -48,7 +48,7 @@ In order to run the Galasa SimBanks tests you need to add some configuration inf
 
 ## Running the SimBank IVT test class by using the CLI
 
-The SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. Complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.39.0`.
+The SimBank tests are located in the `maven` directory of the `isolated.zip` downloadable file. Complete the following steps to run the SimBankIVT test that is provided with Galasa. The following example uses SimBank OBR version `0.40.0`.
 
 Remember to initialise your local environment by running the `galasactl local init` command and to start the SimPlatform server by running the `run-simplatform.sh` script, as described in the [Running Galasa SimBank using the CLI offline](simbank-cli-offline) documentation.
 
@@ -59,14 +59,14 @@ You are now ready to run a local Galasa test offline with just the contents of t
 On Mac or Unix:
 ```
 galasactl runs submit local --log - \
---obr mvn:dev.galasa/dev.galasa.simbank.obr/0.39.0/obr \
+--obr mvn:dev.galasa/dev.galasa.simbank.obr/0.40.0/obr \
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT \
 --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
 On Windows (Powershell):
 ```
 galasactl runs submit local --log - `
---obr mvn:dev.galasa/dev.galasa.simbank.obr/0.39.0/obr `
+--obr mvn:dev.galasa/dev.galasa.simbank.obr/0.40.0/obr `
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.SimBankIVT `
 --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
@@ -80,7 +80,7 @@ On Mac or Unix:
 
 ```
 galasactl runs submit local --log - \
---obr mvn:dev.galasa/dev.galasa.simbank.obr/0.39.0/obr \
+--obr mvn:dev.galasa/dev.galasa.simbank.obr/0.40.0/obr \
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest \
 --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
@@ -89,7 +89,7 @@ On Windows (Powershell):
 
 ```
 galasactl runs submit local --log - `
---obr mvn:dev.galasa/dev.galasa.simbank.obr/0.39.0/obr `
+--obr mvn:dev.galasa/dev.galasa.simbank.obr/0.40.0/obr `
 --class dev.galasa.simbank.tests/dev.galasa.simbank.tests.BasicAccountCreditTest `
 --localMaven file:////Users/youruserid/Downloads/isolated/maven
 ```
