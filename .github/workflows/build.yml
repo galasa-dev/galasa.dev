@@ -51,7 +51,7 @@ jobs:
         run: npm run serve &
 
       - name: Check for broken links
-        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ --exclude https://galasa.dev/* --exclude https://community.ibm.com/* http://localhost:9000
+        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ --exclude https://galasa.dev/* http://localhost:9000
 
       - name: Upload raw site
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
@@ -208,7 +208,7 @@ jobs:
         run: npm run serve &
 
       - name: Check for broken links
-        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ --exclude https://galasa.dev/* --exclude https://community.ibm.com/* http://localhost:9000
+        run: npx broken-link-checker -ro --exclude /docs/managers/ --filter-level 3 --host-requests 8 --user-agent Chrome/90 --exclude https://fonts.gstatic.com/ --exclude https://github.com/galasa-dev/extensions/ --exclude https://galasa.dev/* http://localhost:9000
 
       - name: Upload raw site
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
