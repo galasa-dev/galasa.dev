@@ -94,16 +94,20 @@
           items:
             - title: Ecosystem architecture
               path: /docs/ecosystem/architecture
+            - title: Role based access control
+              path: /docs/ecosystem/role-based-access
             - title: Installing an Ecosystem using Helm
               path: /docs/ecosystem/ecosystem-installing-k8s
             - title: Configuring authentication
               path: /docs/ecosystem/ecosystem-authentication
             - title: Configuring an Ecosystem using resource files
-              path: /docs/ecosystem/cps-yaml  
-            - title: Updating credentials in an Ecosystem
-              path: /docs/ecosystem/ecosystem-update-creds 
+              path: /docs/ecosystem/resources-yaml  
+            - title: Managing credentials in an Ecosystem
+              path: /docs/ecosystem/ecosystem-manage-creds
             - title: Managing configuration properties
-              path: /docs/ecosystem/ecosystem-manage-cps              
+              path: /docs/ecosystem/ecosystem-manage-cps
+            - title: Managing Ecosystem encryption keys
+              path: /docs/ecosystem/ecosystem-managing-encryption-keys
         - title: Managing tests in a Galasa Ecosystem
           path: /docs/manage-ecosystem
           items: 
@@ -128,6 +132,8 @@
           items:
             - title: CICS TS Managers
               path: /docs/manager-groups/cics-ts-manager-group
+            - title: IMS TM Managers
+              path: /docs/manager-groups/ims-tm-manager-group
             - title: Cloud Managers
               path: /docs/manager-groups/cloud-manager-group
             - title: Communications Managers

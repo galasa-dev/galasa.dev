@@ -25,6 +25,18 @@ The following versions of the Galasa CLI are available to download for different
 
 Complete the following steps to install Galasa for using the command line:
 
+On Mac:
+
+1. On a Mac, the `homebrew` tool can be used to install the `galasactl` tool. Or you can follow the Unix instructions
+2. Connect `homebrew` to the 'tap' it can use: `brew tap galasa-dev/tap`
+3. Then you have a choice. Either install the latest version fo the `galasactl` tool, or install a specific version.
+    1. To install the latest version of `galasactl`: 
+    `brew install --no-quarantine galasactl`
+    2. To install a specific version of `galasactl` (version 0.40.0 for example): 
+    `brew install --no-quarantine galasactl@0.40.0`
+    Note: You can check to see what versions are available using this:
+    `brew tap-info galasa-dev/tap --json` and look in the `"cask_tokens"` part of the json file.
+
 On Mac or Unix:
 
 1. Find out the architecture of your machine by typing the command `uname -m` into your terminal.

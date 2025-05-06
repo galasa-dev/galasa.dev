@@ -3,7 +3,7 @@ path: "/docs/managers/galasa_ecosystem-manager"
 title: "Galasa Ecosystem Manager"
 ---
 
-This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/framework/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
+This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/galasaecosystem/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
 
 

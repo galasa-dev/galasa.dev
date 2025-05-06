@@ -3,7 +3,7 @@ path: "/docs/managers/galasa-ecosystem-manager"
 title: "Galasa Ecosystem Manager"
 ---
 
-This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/framework/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
+This Manager is at Alpha level. You can view the <a href="https://javadoc.galasa.dev/dev/galasa/galasaecosystem/package-summary.html" target="_blank" rel="noopener noreferrer">Javadoc documentation for the Manager here</a>.<br>
 
 
 
@@ -154,7 +154,7 @@ The following are properties used to configure the Galasa Ecosystem Manager.
 | Required:  | No |
 | Default value: | None |
 | Valid values: | Valid URL |
-| Examples: | <code>galasaecosystem.isolated.mvp.zip=https://github.com/galasa-dev/isolated/releases/download/v0.37.0/galasa-isolated-mvp-0.37.0.zip</code> |
+| Examples: | <code>galasaecosystem.isolated.mvp.zip=https://github.com/galasa-dev/isolated/releases/download/v0.40.0/galasa-isolated-mvp-0.40.0.zip</code> |
 
 </details>
  

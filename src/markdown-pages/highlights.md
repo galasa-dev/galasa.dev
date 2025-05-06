@@ -17,12 +17,94 @@ We have the following available Slack channels:
 
 Access the Galasa source code in [GitHub](https://github.com/galasa-dev) and open issues in the [project management repository](https://github.com/galasa-dev/projectmanagement).
 
+## 0.40.0 - Release Highlights
 
-## 0.37.0 - Release Highlights
+- Nameculture:
+
+  - The term "Galasa Ecosystem" is being replaced with "Galasa Service" because it more clearly describes Galasa components that are deployed onto a Kubernetes cluster, providing testing as a service.
+
+- Galasa Service Changes:
+
+  - A submission ID is generated for each test run submitted. A new field has been added to the test structures passed over the REST interface. Client programs can use the submission ID to query test runs from the Results Archive Store (RAS).
+
+  - Each user now has a `role`, which dictates what that user can do. See the [documentation on Role Based Access Control (RBAC)](./docs/ecosystem/role-based-access) for more details.
+
+  - The Helm chart can configure specific users to be `owners` of the system, such that these users are immutable administrators of the system. Configuring owners is used to set up a system with some initial administrators, and to recover a system that no longer has any functioning administrators.
+
+  - Completed test pods now count when calculating the maximum number of pods that Galasa creates. Use the Helm chart parameter `max_engines` to configure the maximum number of pods.
+
+  - When tests complete, the pod for the test disappears quicker than in previous releases, to free up resources on the cluster. Instead of up to 5 minutes, completed pods are cleaned up within 2-4 seconds.
+
+  - It is now possible to configure the Galasa service to use an etcd server that is external to the Galasa namespace, for Dynamic Status Store traffic. This option is not recommended but may be useful for allowing testcase developers to use the same resource pools as the rest of the Galasa service.
+ 
+- Framework and Manager changes:
+
+  - The addition of an IMS manager for contacting, controlling, and asserting against an IMS system.
+
+- The Web User interface changes:
+
+  - Everyone logged-in to the Galasa service can see the list of users on the system, and their roles.
+
+  - Administrators on the Galasa service can delete the tokens of other users, change their role, or delete their entire user record.
+
+- Command-line tool (`galasactl`) changes:
+
+  - Users launching tests can use multiple override files with the `--overridefile` option.
+  These files are combined into a single collection of properties, with warning messages generated in the logs if any property keys clash.
+
+- Development process, infrastructure, and contributing:
+
+  - Improvements to the build process and instructions you use to fork the code, and build your own Galasa binaries in your own GitHub organisation.
+
+  - Added experimental instructions describing how to install the Galasa Service into Minikube. Minikube can be used when developing contributions to Galasa, but is not suitable as a useable run time platform.
+
+- Various other component version upgrades and bug fixes.
+
+<details>
+<summary><b>0.39.0 - Release Highlights</b></summary>
+
+- Forks and fork builds are now supported making it easier to contribute to Galasa!
+
+- All Galasa components now use a common version number.
+
+- CPS property names can now include the '@' character.
+
+- The `galasactl runs get` command supports a new `--group` option to query test runs by the group ID they were launched with.
+
+- Gherkin now respects the `framework.continue.on.test.failure` flag so it doesn't need to exit a feature when the first scenario fails.
+
+-	This release also includes instability fixes, and dependency updates.
+
+</details>
+
+<details>
+<summary><b>0.38.0 - Release Highlights</b></summary>
+
+- CLI updates:
+
+  - You can get, set and delete secrets from the credentials store using the `galasactl secrets` command. Secrets support base64 encoding to handle special characters.
+
+  - [Managing Ecosystem encryption keys](./docs/ecosystem/ecosystem-managing-encryption-keys.md) describes how to use `galasactl secrets get` and `galasactl resources apply` to replace the encryption key being used to encrypt credentials in the Galasa Ecosystem's credentials store.
+
+  - Users can now be deleted with the `galasactl users delete` command.
+
+- Web UI updates:
+
+  - A new settings page has been added to the web UI to manage access tokens.
+
+  - Recent login activity is now available on the profile page.
+
+-	This release also includes bug fixes, security updates, and other dependency updates.
+</details>
+
+
+<details>
+<summary><b>0.37.0 - Release Highlights</b></summary>
 
 - Galasa now supports Java 17.
 
 - You can delete a test run by using the `galasactl runs delete` command. Deleting a test run removes all information about the test run along with any associated artifacts from an ecosystem's RAS.
+</details>
 
 
 <details>

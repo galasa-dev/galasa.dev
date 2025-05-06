@@ -6,7 +6,7 @@
         {
             "label": "Serve (Development)",
             "type": "shell",
-            "command": "npm run develop",
+            "command": "npm run develop -- --host 0.0.0.0",
             "group": {
                 "kind": "build"
             },
@@ -16,7 +16,7 @@
         {
             "label": "Serve",
             "type": "shell",
-            "command": "npm run build && npm run serve",
+            "command": "npm run build && npm run serve -- --host 0.0.0.0",
             "group": {
                 "kind": "build"
             },

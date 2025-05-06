@@ -37,6 +37,11 @@ You can then serve that production build using:
 npm run serve
 ```
 
+Note: If you are using a dev container within vscode, use this instead:
+```sh
+npm run serve -- --host 0.0.0.0
+```
+
 ## Contributing
 
 Take a look at the [contribution guidelines](https://github.com/galasa-dev/projectmanagement/blob/main/contributing.md).
