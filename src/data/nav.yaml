@@ -87,6 +87,8 @@
               path: /docs/writing-own-tests/binding-tests
             - title: Key principles for writing tests
               path: /docs/writing-own-tests/key-principles
+            - title: Controlling code execution after test failure
+              path: /docs/writing-own-tests/test-result-provider
         - title: The Galasa Ecosystem
           path: /docs/ecosystem
           items:
