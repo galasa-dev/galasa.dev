@@ -18,7 +18,7 @@ Once loaded by the Galasa test runner, there are a few further annotations that 
 
 **`@Test`**
 <br>
-This annotation identifies a method as one that contains test code. Such methods are executed by Galasa by the order in which they appear in the test class - from top to bottom. If a test method fails, the following test methods are bypassed to encourage short, sharp parallel testing. This behaviour can be overridden using the `@StopOnError` annotation on the `class` statement.
+This annotation identifies a method as one that contains test code. Such methods are executed by Galasa by the order in which they appear in the test class - from top to bottom. If a test method fails, the following test methods are bypassed to encourage short, sharp parallel testing. This behaviour can be overridden using the `@ContinueOnTestFailure` annotation on the `class` statement.
 
 When a test method succeeds it is marked as PASSED, and if there is an exception it is marked FAILED. Managers can override this marking - for example, if a test throws a specific exception, a Manager could set the result to DISASTER.
 
