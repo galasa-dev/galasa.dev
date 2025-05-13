@@ -15,10 +15,3 @@ import "@fontsource/open-sans/600.css"
 import "@fontsource/work-sans/400.css"
 import "@fontsource/work-sans/500.css"
 import "@fontsource/work-sans/600.css"
-
-export const onRouteUpdate = () => {
-  if (typeof window.createPageviewTagForSPA === "function") {
-    window.createPageviewTagForSPA()
-  }
-}
-
