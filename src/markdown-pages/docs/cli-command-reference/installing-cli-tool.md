@@ -55,6 +55,15 @@ On Windows (Powershell):
 
 You can now run the Galasa CLI tool from any directory in your file system without having to specify the absolute path.
 
+## Upgrading the Galasa CLI (on Mac)
+
+To update your CLI to the latest version, run the following commands:
+
+``` 
+brew update 
+brew upgrade galasactl
+```
+The ```brew update``` command refreshes Homebrew's internal catalog to the latest versions, and ```brew upgrade galasactl``` updates the CLI itself.
 
 
 ## Next steps
