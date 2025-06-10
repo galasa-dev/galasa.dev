@@ -1,4 +1,18 @@
-# Galasa Homepage
+# Galasa Documentation - Archived
+
+> [!WARNING]
+>**This Repository is no longer used**
+>
+>It will be, or has already been archived.
+>
+>The content was moved to https://github.com/galasa-dev/galasa in the `docs` folder
+>
+>To update the Galasa public documentation, please update the source in that repository.
+
+
+
+
+# Old content
 
 This repository contains the source for the Galasa test automation system homepage.
 
